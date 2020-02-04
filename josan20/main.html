@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>    
+    <head>        
+        <title>Test of Form</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="myscripts.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/style.css"> 
+        <style>
+            
+        </style> 
+
+        <!-- AwesomeFont -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">  
+    </head>    
+    <!--Comment-->    
+    <body style="background-color:aqua; width: 500px;">        
+        <h1>Header!</h1>
+        <b><i>Make a subheader that is bold and italic</i></b>
+        <h2>Sub header</h2>
+        <p>Some paragraph</p>
+        <hr>
+        <table>
+            <tr>
+                <th>
+                    <b>Head First Collom</b>
+                </th>
+                <th>
+                    <b>Head Second Collom</b>
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    Content first collom
+                </td>
+                <td>
+                    Content second collom
+                </td>
+            </tr>
+        </table>
+        <hr>
+        <br>
+        Make a form
+        <form action=“url.html” method=“GET”>
+            <fieldset>
+                <legend>Explanation</legend>
+                <label for="name">Name:</label> 
+                <input id="name" type="text" name='name' placeholder='Name' autofocus/>
+                <br>
+
+                <label for="email">E-mail: </label>
+                <input id="email" type="email" name="emailaddress" placeholder='Email'>
+                <br>
+
+                <label for="dateofbirth">Date of birth: </label>
+                <input id="Date of birth" type="date" name="Date of birth"/>
+
+                <br>
+                <button>Submit <i class="far fa-paper-plane"></i></button>
+            </fieldset>
+        </form>
+    </body>
+</html>
