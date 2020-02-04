@@ -2,14 +2,71 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <title>My first page</title>
   </head>
-  <body>
+  <body bgcolor="#dfdfdf">
 
-    <h1 style="color:blue">Test</h1>
 
-    <h2>Titre 2</h2>
+<div class="Title">
+  <h1>Header !</h1>
 
-<h3> titre 3</h3>
+  <p>Make a subheader that is <b>bold</b> and <i>italic</i></p>
+  <p>Make some more text, that includes some html entities in the text , such as &lt &amp &gt</p>
+
+<h2>Subheader</h2>
+<p>Try making another paragraphe with a subheader . now make an horizontal line</p>
+
+<hr>
+
+<p>Next make a table</p>
+
+<table>
+    <tr>
+        <th>Header column 1</th>
+        <th>Header column 2</th>
+    </tr>
+    <tr>
+        <td>Content column 1</td>
+       <td>Content column 2</td>
+    </tr>
+
+</table>
+
+<hr>
+
+<p>Finally, make a form</p>
+
+</div>
+
+
+<form action="url.html" method="GET">
+<fieldset>
+<legend>Fieldset legend</legend>
+Name :
+<input type="text" id="name" name="name" placeholder="your name"/><br>
+Email :
+<input type="email" id="email" name="email" placeholder="your email"/><br>
+Birth Date :
+<input type="date" id="date" name="date"/><br><br>
+Gender ? <br>
+<input type="radio" name="gender" value="male" checked> Male<br>
+<input type="radio" name="gender" value="female"> Female<br>
+<input type="radio" name="gender" value="other"> Alien <br><br>
+
+<!-- <input type="submit" tabindex="2" ><i class="fa fa-paper-plane" aria-hidden="true"></i></input>  -->
+<button type="submit" name="button" onclick="alert('Your form is valid!')"> <i class="fa fa-paper-plane" aria-hidden="true"></i>
+Send result</button>
+
+<br><br>
+Reset form : <input type="reset">
+
+</fieldset>
+</form>
+
+
+
   </body>
 </html>
