@@ -14,9 +14,9 @@ p {
 
 form {
   background-color: #3CBC8D;
-  margin: auto;
+  margin: 0 auto;
   border-radius: 4px;
-  width: 50%;
+  width: 40%;
 }
 
 #email {
