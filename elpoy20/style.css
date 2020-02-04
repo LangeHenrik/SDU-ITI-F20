@@ -8,6 +8,18 @@ h1 {
 }
 
 p {
-  font-family: verdana;
+  font-family: arial;
   font-size: 12px;
+}
+
+form {
+  background-color: #3CBC8D;
+  margin: auto;
+  border-radius: 4px;
+  width: 50%;
+}
+
+#email {
+  color: blue;
+
 }
