@@ -1,5 +1,20 @@
+h3.subheader {
+    font: italic bold 15px Georgia, serif;
+}
+
+p {
+    font: 12px Georgia, serif;
+}
+
+h1 {
+    font: bold 30px Georgia, serif;
+}
+
+h2 {
+    font: 25px Georgia, serif;
+}
+
 body {
-    
     background-color: powderblue;
-    background:     powderblue;
+    background: powderblue;
 }
