@@ -11,11 +11,10 @@
 
 <body>
 
-    <ul class="nav">
-      <li><a href="#">Picture</a></li>
-      <li><a href="#">Users</a></li>
-    </ul>
-
+  <ul class="nav">
+    <li><a href="#">Picture</a></li>
+    <li><a href="#">Users</a></li>
+  </ul>
 
   <div class='wrapper'>
     <div class='content'>
@@ -23,7 +22,71 @@
     </div>
   </div>
 
+  <form name="form1" action=index.html method="post">
+    <label for="name" style="color: blue;">name</label>
+    <br>
+    <input type="text" name="name" id="name" />
+    <br>
+    <label for="password">password</label>
+    <br>
+    <input type="password" name="password" id="password" />
+    <br>
+    <label for="phone">phone number</label>
+    <br>
+    <input type="text" name="phone" id="phone" />
+    <br>
+    <label for="email">email adress</label>
+    <br>
+    <input type="text" name="email" id="email" />
+    <br>
+    <label for="zip">zip code</label>
+    <br>
+    <input type="text" name="zip" id="zip" />
+    <br>
+    <input type="submit" name="submit" id="submit"  onclick="CheckName(document.form1.name) || CheckPassword(document.form1.password)  "/>
+  </form>
+
 
 </body>
+<script type="text/javascript">
 
+function CheckPassword(inputtxt) {
+  alert(document.form1.password.value)
+  var passw = /^[A-Za-z]\w{7,14}$/;
+  if (inputtxt.value.match(passw)) {
+    alert('Correct Password !')
+    return true;
+  } else {
+    alert('Wrong...! - Password ')
+    return false;
+  }
+}
+
+function CheckName(inputtxt) {
+  alert(document.form1.name.value)
+  var name = /^\w+(?:(?:\s\w+)+|(?:\s\w+)+)$/;
+  if (inputtxt.value.match(name)) {
+    alert('Correct Name')
+    return true;
+  } else {
+    alert('Wrong...! - Name')
+    return false;
+  }
+}
+
+function CheckPhone(inputtxt) {
+  alert(document.form1.name.phone)
+  var name = /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/;
+  if (inputtxt.value.match(phone)) {
+    alert('Correct Phone')
+    return true;
+  } else {
+    alert('Wrong...! - Phone')
+    return false;
+  }
+}
+//
+
+
+</script>
 </html>
