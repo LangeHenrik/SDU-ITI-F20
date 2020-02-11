@@ -1,0 +1,37 @@
+body {
+  background-color: lightgray;
+}
+
+nav.topnav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+nav.topnav li {
+  float: left;
+}
+nav.topnav li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+nav.topnav li a:hover {
+  background-color: #111;
+}
+
+div.leftSidebar div.rightSidebar {
+  background-color: blue;
+  height: 100%;
+  max-width: 10%;
+}
+
+div.content {
+  background-color: white;
+  height: 100%;
+  max-width: 80%;
+
+}
