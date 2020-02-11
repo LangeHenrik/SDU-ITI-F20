@@ -1,18 +1,4 @@
-div.mouse img {
-  width: 30px;
-  height: 30px;
-  /*background-color: blue;*/
-  float: left;
-}
-
-div.cat {
-  width: 50px;
-  height: 50px;
-  background-color: red;
-}
-
-div.cheese {
-  width: 20px;
-  height: 20px;
-  background-color: orange;
+canvas {
+    border: 1px solid #d3d3d3;
+    background-color: #f1f1f1;
 }

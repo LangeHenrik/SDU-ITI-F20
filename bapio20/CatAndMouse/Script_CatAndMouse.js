@@ -1,37 +1,37 @@
-var objImage= null;
-	function init(){
-		objImage=document.getElementById("mouse");
-		objImage.style.position='relative';
-		objImage.style.left='0px';
-		objImage.style.top='0px';
+var myGamePiece;
 
-function getKeyAndMove(e){
-		var key_code=e.which||e.keyCode;
-		switch(key_code){
-			case 37: //left arrow key
-				moveLeft();
-				break;
-			case 38: //Up arrow key
-				moveUp();
-				break;
-			case 39: //right arrow key
-				moveRight();
-				break;
-			case 40: //down arrow key
-				moveDown();
-				break;
-		}
-	}
-	function moveLeft(){
-		objImage.style.left=parseInt(objImage.style.left)-5 +'px';
-	}
-	function moveUp(){
-		objImage.style.top=parseInt(objImage.style.top)-5 +'px';
-	}
-	function moveRight(){
-		objImage.style.left=parseInt(objImage.style.left)+5 +'px';
-	}
-	function moveDown(){
-		objImage.style.top=parseInt(objImage.style.top)+5 +'px';
-	}
-  window.onload=init;
+function startGame() {
+    myGamePiece = new component(30, 30, "darkblue", Math.random()*970, Math.random()*570);
+    myGameArea.start();
+}
+
+var myGameArea = {
+    canvas : document.createElement("canvas"),
+    start : function() {
+        this.canvas.width = 1000;
+        this.canvas.height = 600;
+        this.context = this.canvas.getContext("2d");
+        document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+        this.interval = setInterval(updateGameArea, 20);
+    },
+    clear : function() {
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    }
+}
+
+function component(width, height, color, x, y) {
+    this.width = width;
+    this.height = height;
+    this.x = x;
+    this.y = y;
+    this.update = function(){
+        ctx = myGameArea.context;
+        ctx.fillStyle = color;
+        ctx.fillRect(this.x, this.y, this.width, this.height);
+    }
+}
+
+function updateGameArea() {
+    myGameArea.clear();
+    myGamePiece.update();
+}
