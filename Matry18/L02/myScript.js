@@ -44,7 +44,7 @@ function checkFields()
 
     var testEmail = document.getElementById('email').value;
     // some.name@sub.domain.whatever
-    var regex = new RegExp(/\w/g); 
+    var regex = new RegExp(/^([\w\.\-_]+)?\w+@[\w-_]+(\.\w+){1,}$/igm);
     if(regex.test(testEmail)){
 
         document.getElementById('email').style.color = "green";
