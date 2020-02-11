@@ -16,12 +16,25 @@ Text.
 
 ### Directory structure
 
-Text.
+The directory structure is [inspired by][3] a web-application framework:
+
+```
+project
+├── components      : component files
+|   ├── comp.php
+|   └── ...
+├── css             : styles
+├── img             : graphic assets
+├── js              : scripts
+├── index.php       : entry site
+└── file.php        : ...
+```
 
 <!-- links -->
 
 [1]: https://windows.php.net/download
 [2]: https://www.forevolve.com/en/articles/2016/10/27/how-to-add-your-php-runtime-directory-to-your-windows-10-path-environment-variable/
+[3]: https://medium.com/@nmayurashok/file-and-folder-structure-for-web-development-8c5c83810a5
 
 
 
