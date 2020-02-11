@@ -1,5 +1,5 @@
 body {
-  background-color: lightblue;
+  background-color: #1abc9c;
 }
 
 h1 {
@@ -13,7 +13,7 @@ p {
 }
 
 form {
-  background-color: #3CBC8D;
+  background-color: #2ecc71;
   margin: 0 auto;
   border-radius: 4px;
   width: 40%;
@@ -22,4 +22,8 @@ form {
 #email {
   color: blue;
 
+}
+
+.formulaire{
+  background-color: #27ae60;
 }
