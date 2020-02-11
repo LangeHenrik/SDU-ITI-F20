@@ -1,0 +1,67 @@
+body {
+  background-color: #1abc9c;
+  text-align: center;
+}
+
+h1 {
+  color: #4442a4;
+  text-align: center;
+}
+
+p {
+  font-family: arial;
+  font-size: 12px;
+}
+
+form {
+  background-color: #2ecc71;
+  margin: 0 auto;
+  border-radius: 4px;
+  width: 40%;
+}
+
+.card {
+  background: #fff;
+  border-radius: 2px;
+  display: inline-block;
+  height: 300px;
+  margin: 1rem;
+  position: relative;
+  width: 300px;
+}
+
+.card1 {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+#email {
+  color: blue;
+
+}
+
+.formulaire1{
+  background-color: #27ae60;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.box{
+  float: left;
+  width: 33.33%;
+  padding: 50px;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+img {
+
+	max-width: 15%;
+	height: auto;
+  overflow: hidden;
+}
