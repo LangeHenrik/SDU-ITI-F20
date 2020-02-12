@@ -1,6 +1,6 @@
 ﻿<!DOCTYPE html>
 
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
     <meta charset="utf-8" />
     <title>exercise2</title>
@@ -12,35 +12,58 @@
 
         body {
             margin: 0;
+            text-align:center;
         }
 
         /* 头部样式 */
         .header {
+            margin: 0 auto;
             background-color: #ffffff;
-            padding: 20px;
             text-align: center;
+            font-size: 35px;
+            line-height: 10px;
         }
+        .header2 {
+            margin: 0 auto;
+            background-color: #ffffff;
+            text-align: center;
+            font-size: 30px;
+            font-style: italic;
+            line-height:10px;
+        }
+
         /* 导航条 */
         .topnav {
             overflow: hidden;
             background-color: #333ab2;
         }
+.topnav ul{
+    width:100%;
+    height:35px;
+    border:0px;
+}
+.topnav ul li{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    height:30px;
+}
             /* 导航链接 */
-            .topnav a {
+            .topnav li a {
                 float: left;
                 display: block;
+                font-size: 30px;
                 color: #f2f2f2;
                 text-align: center;
-                padding: 14px 16px;
+                padding: 0px 16px 0px 16px;
                 text-decoration: underline;
             }
                 /* 链接 - 修改颜色 */
-                .topnav a:hover {
+              .topnav a:hover {
                     background-color: #171145;
                     color: white;
                 }
 
-        </head >
         /* 创建三个不相等的列 */
         .column {
             float: left;
@@ -64,24 +87,29 @@
             clear: both;
         }
 
-        /* 响应式布局 - 宽度小于600px时设置上下布局 */
+        /* 响应式布局 - 宽度小于600px时设置上下布局
         @media screen and (max-width: 600px) {
             .column.side, .column.middle {
                 width: 100%;
             }
-        }
+        } */
     </style>
 </head>
 <body>
 
     <div class="header">
         <h1><b>Exercise</b></h1>
+    </div>
+
+    <div class="header2">
         <p>see if you can build something like this</p>
     </div>
 
     <div class="topnav">
-        <a href="#"><u>pictures</u></a>
-        <a href="#"><u>users</u></a>
+        <ul>
+            <li><a href="#"><u>pictures</u></a></li>
+            <li><a href="#"><u>users</u></a></li>
+        </ul> 
     </div>
 
     <div class="row">
@@ -90,12 +118,12 @@
             <p>ads</p>
         </div>
 
-        <div class="column middle">
+    <div class="column middle">
             <h2>main</h2>
             <p><b><u>later</u></b></p>
         </div>
 
-        <div class="column side">
+    <div class="column side">
             <h2>right</h2>
             <p>ads</p>
         </div>
