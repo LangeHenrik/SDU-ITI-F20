@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>exercise2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        /* 头部样式 */
+        .header {
+            background-color: #ffffff;
+            padding: 20px;
+            text-align: center;
+        }
+        /* 导航条 */
+        .topnav {
+            overflow: hidden;
+            background-color: #333ab2;
+        }
+            /* 导航链接 */
+            .topnav a {
+                float: left;
+                display: block;
+                color: #f2f2f2;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: underline;
+            }
+                /* 链接 - 修改颜色 */
+                .topnav a:hover {
+                    background-color: #171145;
+                    color: white;
+                }
+
+        </head >
+        /* 创建三个不相等的列 */
+        .column {
+            float: left;
+            padding: 10px;
+        }
+
+        /* 左右两侧宽度 */
+        .column.side {
+            width: 25%;
+        }
+
+        /* 中间区域宽度 */
+        .column.middle {
+            width: 50%;
+        }
+
+        /* 列后面清除浮动 */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* 响应式布局 - 宽度小于600px时设置上下布局 */
+        @media screen and (max-width: 600px) {
+            .column.side, .column.middle {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1><b>Exercise</b></h1>
+        <p>see if you can build something like this</p>
+    </div>
+
+    <div class="topnav">
+        <a href="#"><u>pictures</u></a>
+        <a href="#"><u>users</u></a>
+    </div>
+
+    <div class="row">
+        <div class="column side">
+            <h2>left</h2>
+            <p>ads</p>
+        </div>
+
+        <div class="column middle">
+            <h2>main</h2>
+            <p><b><u>later</u></b></p>
+        </div>
+
+        <div class="column side">
+            <h2>right</h2>
+            <p>ads</p>
+        </div>
+    </div>
+
+</body>
+</html>
