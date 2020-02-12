@@ -2,31 +2,45 @@
   background-color: lightgrey
 }
 
-ul.menu {
-  background-color: rgb(71, 125, 194);
+
+* {box-sizing: border-box}
+body {font-family: Arial, Helvetica, sans-serif;}
+
+.navbar {
   width: 100%;
-  list-style-type: none;
-  overflow: hidden;
-  margin: 0;
-  padding: 0;
+  background-color: rgb(71, 125, 194);
+  overflow: auto;
 }
 
-li a {
-  display: block;
-  background-color: rgb(71, 125, 194);
+.navbar a {
+  float: left;
+  padding: 12px;
   color: white;
   text-decoration: none;
-  padding: 20px;
+  font-size: 17px;
+  width: 50%; /* 2 links of equal widths */
+  text-align: center;
+  background-color: rgb(71, 125, 194);
 }
 
-li {
-  float: left;
+.navbar a:hover {
+  background-color: rgb(24, 69, 129);
 }
 
-li a:hover  {
-  background-color: darkblue;
+.navbar a.active {
+  background-color: rgb(24, 69, 129);
 }
 
+@media screen and (max-width: 500px) {
+  .navbar a {
+    float: none;
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+}
+
+/* Contenu */
 div.content {
   background-color: white;
   width: 80%;
@@ -41,6 +55,8 @@ div.person {
   border: 6px solid darkblue;
   border-radius: 50px;
   display: inline-block;
+  margin-bottom: 5px;
+  margin-left: 5px;
 }
 
 div.person img {
@@ -57,4 +73,5 @@ div.person p {
   background-color: rgb(71, 125, 194);
   text-align: center;
   margin: 20px;
+  font-size: 20px;
 }
