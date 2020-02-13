@@ -72,40 +72,33 @@
     }
     
     div.person {
-        width: 230px;
-        background-color: #668cff;
-        border: 3px solid darkblue;
-        border-radius: 50px;
-        margin: 10px;
+        width: 100px;
+        height: 450px;
+        margin: 10px auto;
         display: inline-block;
     }
     
     div.person img {
+        float: left;
         width: 120px;
         border: 6px solid white;
         border-radius: 100%;
         margin: 0 auto;
-        display: block;
-        margin-top: 20px;
+        display: table;
     }
     
-    div.person p {
-        color: white;
-        padding: 20px;
-        background-color: blue;
-        text-align: center;
-        font-size: 34px;
+    div.dessert {
+        width: 600px;
+        height: 450px;
+        margin: 10px auto;
+        display: inline-block;
     }
     
-    div.person h2 {
-        background-color: #668cff;
-        color: white;
-        display: contents;
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-        font-size: 43px;
-        margin: 5px auto;
-        border-radius: 50px;
-        text-align: center;
+    div.dessert img {
+        float: right;
+        width: 600px;
+        margin: 0 auto;
+        display: table;
     }
     
     h3.advertisingText {
