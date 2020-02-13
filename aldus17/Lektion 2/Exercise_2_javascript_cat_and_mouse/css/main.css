@@ -14,12 +14,6 @@ div.titleText h1 {
     margin: 0 auto;
 }
 
-div.gameArea {
-    margin: 0 auto;
-    max-width: 100%;
-    max-height: 100%;
-}
-
 canvas {
     border: 1px solid #d3d3d3;
     background-color: #f1f1f1;
