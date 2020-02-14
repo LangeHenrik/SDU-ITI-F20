@@ -1,0 +1,30 @@
+/* The navigation bar */
+
+.navbar {
+    background-color:#55d6aa;
+    overflow: hidden;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+    height: 40px;
+    left:-0.01%;
+}
+
+.navbar a{ 
+    left: 40%;
+    color: black;
+    padding: 11px 30px;
+    font-family: Arial;
+    font-size: 20px;
+    display: inline-block;
+    position: relative;
+   
+}
+
+.navbar a:hover{
+    background: #4cc29b;
+}
+
+.navbar .active {
+    background: #27b4a9;
+}
