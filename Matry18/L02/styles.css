@@ -4,15 +4,30 @@
 
 
 ul.menu {
-    background-color: blue;
     width: 100%;
     list-style-type: none;
     overflow: hidden;
     margin: 0;
     padding: 0;
     color: white;
+    background-color: #55AAFF;
 }
 
+#picture {
+    background-color: #55AAFF;
+}
+#users{
+    background-color: #3399FF;
+}
+#icon{
+    color: yellow;
+    background-color: #55AAFF;
+    font-size: 350%;
+    text-align: right;
+    background-position: 100%;
+    padding-right: 0.6em;
+
+}
 div.center {
     display: table;
     margin: 0 auto;
@@ -56,7 +71,7 @@ div.content {
 div.person {
     width: 300px;
     background-color: #55AAFF;
-    border: 6px solid darkblue;
+    border: 6px solid #3399FF;
     border-radius: 50px;
     display: inline-block;
     margin: 5px;
@@ -77,6 +92,7 @@ div.person p {
     background-color: #55AAFF;
     padding: 10px;
     text-align: center;
-    font-size: 24px;
+    font-size: 30px;
+    margin: 15px;
 }
 
