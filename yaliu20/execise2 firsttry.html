@@ -9,7 +9,7 @@
         * {
             box-sizing: border-box;
         }
-
+      
         body {
             margin: 0;
             text-align:center;
@@ -91,6 +91,30 @@
             display: table;
             clear: both;
         }
+        div.person {
+            width: 300px;
+            background-color: blue;
+            border: 6px solid darkblue;
+            border-radius: 50px;
+            display: inline-block;
+        }
+
+            div.person img {
+                width: 200px;
+                border: 6px solid white;
+                border-radius: 100%;
+                margin: 0 auto;
+                display: block;
+                margin-top: 20px;
+            }
+
+            div.person p {
+                color: white;
+                background-color: blue;
+                padding: 10px;
+                text-align: center;
+                font-size: 24px;
+            }
 
         /* 响应式布局 - 宽度小于600px时设置上下布局
         @media screen and (max-width: 600px) {
@@ -123,9 +147,30 @@
             <p>ads</p>
         </div>
 
-    <div class="column middle">
+        <div class="column middle">
             <h2>main</h2>
             <p><b><u>later</u></b></p>
+            <div class="person">
+                <img src="Week2CSS.png" alt="user picture" />
+                <br />
+                <p>My name</p>
+            </div>
+
+            <div class="person">
+                <img src="Week2CSS.png" alt="user picture" />
+                <br />
+                <p>My name</p>
+            </div>
+            <div class="person">
+                <img src="Week2CSS.png" alt="user picture" />
+                <br />
+                <p>My name</p>
+            </div>
+            <div class="person">
+                <img src="Week2CSS.png" alt="user picture" />
+                <br />
+                <p>My name</p>
+            </div>
         </div>
 
     <div class="column side">
