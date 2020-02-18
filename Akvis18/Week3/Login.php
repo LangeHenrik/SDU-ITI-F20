@@ -13,7 +13,7 @@
     if (session_status() == PHP_SESSION_NONE) {
         session_start();}
 
-    if(isset($_POST["logout"])){
+    if(isset($_POST["logout"]) && $_POST["logout"] ==true){
         $_SESSION["LoggedIn"] = false;
         session_destroy();
     }

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Random number</title>
+</head>
+<body>
+<p name="number" id="number" ></p>
+<script>
+    function RandomInt() {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("number").innerHTML = this.responseText;
+                }
+            };
+            xmlhttp.open("GET", "randomNumber.php", true);
+            xmlhttp.send();
+    }
+    setInterval(RandomInt, 1000);
+</script>
+</body>
+</html>
