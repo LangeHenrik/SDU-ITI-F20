@@ -32,9 +32,9 @@
             header("location:home.html");
             exit();
         } elseif ($un != 'username' && $pw == 'password') {
-           echo "<p align=center>$wrongun </p>";
+           echo "<p align=center>$wrongun</p>";
         } elseif ($un=='username' && $pw!='password') {
-           echo "<p align=center>$wrongpw </p>";
+           echo "<p align=center>$wrongpw</p>";
         }
         else
             echo "<p align=center>$wrongun And $wrongpw </p>";
