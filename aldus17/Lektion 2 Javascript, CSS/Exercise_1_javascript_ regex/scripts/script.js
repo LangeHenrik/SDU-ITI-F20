@@ -10,6 +10,10 @@ function checkForm() {
 // https://regex101.com/
 // https://regexr.com/
 
+let emailInputField = document.getElementById("name");
+
+emailInputField.addEventListener("", checkWords);
+
 function checkWords() {
     var word = document.getElementById("name").value;
 
@@ -69,6 +73,8 @@ function checkEmailAddress() {
     }
 
 }
+
+// Use let as a attribute for the function, like private. 
 
 function checkZipcode() {
     var email = document.getElementById("zip").value;
