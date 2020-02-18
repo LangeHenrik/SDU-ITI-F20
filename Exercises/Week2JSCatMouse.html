@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Title of the document</title>
+        <meta name="viewport" content="width=device width, initial scale=1.0">
+        
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    </head>
+    <body>
+
+        <style>
+            div#player {
+                height: 20px;
+                width: 20px;
+                background-color: brown;
+                position: absolute;
+                top: 100px;
+                left: 100px;
+            }
+
+            div#level {
+                height: 100%;
+                width: 100%;
+                background-color: #CCFFCC;
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                z-index: -999;
+            }
+        </style>
+
+        <div>Point: <span id="point">0</span> - Hiscore: <span id="hiscore">0</span> <span id="restart"></span></div>
+        
+        <div id="level"></div>
+
+        <div id="player"></div>
+
+        
+        
+        <script src="Week2JSCatMouse.js"></script>
+
+    </body>
+</html>
