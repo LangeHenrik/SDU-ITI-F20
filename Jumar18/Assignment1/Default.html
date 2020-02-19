@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Assignment 1</title>
+
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+      integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" type="text/css" href="Stylesheet.css" />
+    <link rel="icon" href="img/icon.png" type="png" />
+  </head>
+  <body>
+    <ul class="sidenav">
+      <li><a href="#">Menu1</a></li>
+      <li><a href="#">Menu2</a></li>
+      <li><a href="#">Menu3</a></li>
+      <li>
+        <a
+          href="#"
+          onclick="document.getElementById('formid').style.display='block'"
+          >Login</a
+        >
+      </li>
+    </ul>
+
+    <div class="container">
+      <h1>This is the <b class="headingh1">first assignment</b></h1>
+
+      <div class="row">
+        <div class="column">
+          <h2>Column</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
+            sit amet pretium urna. Vivamus venenatis velit nec neque ultricies,
+            eget elementum magna tristique. Quisque vehicula, risus eget aliquam
+            placerat, purus leo tincidunt eros, eget luctus quam orci in velit.
+            Praesent scelerisque tortor sed accumsan convallis.
+          </p>
+        </div>
+        <div class="column">
+          <h2>Column</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
+            sit amet pretium urna. Vivamus venenatis velit nec neque ultricies,
+            eget elementum magna tristique. Quisque vehicula, risus eget aliquam
+            placerat, purus leo tincidunt eros, eget luctus quam orci in velit.
+            Praesent scelerisque tortor sed accumsan convallis.
+          </p>
+        </div>
+        <div class="column">
+          <h2>Column</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
+            sit amet pretium urna. Vivamus venenatis velit nec neque ultricies,
+            eget elementum magna tristique. Quisque vehicula, risus eget aliquam
+            placerat, purus leo tincidunt eros, eget luctus quam orci in velit.
+            Praesent scelerisque tortor sed accumsan convallis.
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="column">
+          <h2>Column</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
+            sit amet pretium urna. Vivamus venenatis velit nec neque ultricies,
+            eget elementum magna tristique. Quisque vehicula, risus eget aliquam
+            placerat, purus leo tincidunt eros, eget luctus quam orci in velit.
+            Praesent scelerisque tortor sed accumsan convallis.
+          </p>
+        </div>
+        <div class="column">
+          <h2>Column</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
+            sit amet pretium urna. Vivamus venenatis velit nec neque ultricies,
+            eget elementum magna tristique. Quisque vehicula, risus eget aliquam
+            placerat, purus leo tincidunt eros, eget luctus quam orci in velit.
+            Praesent scelerisque tortor sed accumsan convallis.
+          </p>
+        </div>
+        <div class="column">
+          <h2>Column</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
+            sit amet pretium urna. Vivamus venenatis velit nec neque ultricies,
+            eget elementum magna tristique. Quisque vehicula, risus eget aliquam
+            placerat, purus leo tincidunt eros, eget luctus quam orci in velit.
+            Praesent scelerisque tortor sed accumsan convallis.
+          </p>
+        </div>
+      </div>
+
+      <div id="formid" class="modal">
+        <form class="animate" action="/action.php" method="post">
+          <span
+            onclick="document.getElementById('formid').style.display='none'"
+            class="close"
+            title="Close Modal"
+            >&times;</span
+          >
+          <img src="img/icon.png" alt="Avatar" class="avatar" />
+
+          <div class="row">
+            <div class="column">
+              <i class="fas fa-user"></i>
+              <label for="username"><b>Username</b></label>
+            </div>
+            <div class="column">
+              <input
+                type="text"
+                placeholder="Enter Username"
+                name="username"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="column">
+              <i class="fas fa-lock"></i>
+              <label for="password"><b>Password</b></label>
+            </div>
+            <div class="column">
+              <input
+                type="password"
+                placeholder="Enter Password"
+                name="password"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="column">
+              <button type="submit" class="btn btnsubmit">Login</button>
+            </div>
+            <div class="column">
+              <button
+                type="button"
+                onclick="document.getElementById('formid').style.display='none'"
+                class="btn btncancel"
+              >
+                Cancel
+              </button>
+            </div>
+            <div class="column">
+              <span>Forgot <a href="#">password?</a></span>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+  <script>
+    // Get the modal
+    var modal = document.getElementById('formid');
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = 'none';
+      }
+    };
+  </script>
+</html>
