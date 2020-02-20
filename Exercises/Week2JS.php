@@ -3,8 +3,6 @@
     <head>
         <title>Title of the document</title>
         <meta name="viewport" content="width=device width, initial scale=1.0">
-        
-        
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     </head>
     <body>
@@ -39,6 +37,7 @@
             <p class="info" id="zipinfo"></p>
 
             <input type="submit" name="submit" id="submit"/> 
+            <p class="info" id="returninfo"></p>
         </form> 
         
         <!--<script src="Week2JS.js"></script>-->

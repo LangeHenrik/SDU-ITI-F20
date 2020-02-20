@@ -1,11 +1,16 @@
 console.log('js working');
 
+let returnInfo = document.getElementById('returninfo');
+
 function checkform(){
-    checkname();
-    checkpassword();
-    checkphone();
-    checkemail();
-    checkzip();
+    let result1 = checkname();
+    let result2 = checkpassword();
+    let result3 = checkphone();
+    let result4 = checkemail();
+    let result5 = checkzip();
+    if ((result1 && result2 && result3 && result4 && result5) == true) {
+        returnInfo.innerText = "True"
+    }
     return false;
 }
 
