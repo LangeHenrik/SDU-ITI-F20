@@ -70,11 +70,18 @@ h1 {
     color: white;
 }
 
-.column {
+.column-3 {
     float: left;
     width: 30%;
-    padding: 12px;
     height: 100%;
+    margin: 5px;
+}
+
+.column-2 {
+    float: left;
+    width: 45%;
+    height: 100%;
+    margin: 5px;
 }
 
 .row {
@@ -94,7 +101,7 @@ img.avatar {
 .modal {
     top: 0;
     display: none;
-    position: fixed;
+    position: absolute;
     z-index: 1;
     width: 50%;
     height: 50%;
@@ -104,6 +111,12 @@ img.avatar {
     padding: 20px 0;
     margin: 50px auto;
     margin-left: 12%;
+}
+
+.formlogin {
+    position: relative;
+    width: 90%;
+    margin: auto;
 }
 
 input {
