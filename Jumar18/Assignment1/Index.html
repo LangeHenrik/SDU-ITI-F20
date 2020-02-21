@@ -13,24 +13,26 @@
     <link rel="icon" href="img/icon.png" type="png" />
   </head>
   <body>
-    <ul class="sidenav">
-      <li><a href="#">Profile</a></li>
-      <li><a href="#">Users</a></li>
-      <li><a href="#">Menu3</a></li>
-      <li>
-        <a
-          href="#"
-          onclick="document.getElementById('formid').style.display='flex'"
-          >Login</a
-        >
-      </li>
-    </ul>
+    <nav class="col-1">
+      <ul>
+        <li><a href="#">Profile</a></li>
+        <li><a href="#">Users</a></li>
+        <li><a href="#">Menu3</a></li>
+        <li>
+          <a
+            href="#"
+            onclick="document.getElementById('formid').style.display='flex'"
+            >Login</a
+          >
+        </li>
+      </ul>
+    </nav>
 
     <div class="container">
       <h1>This is the <b class="headingh1">first assignment</b></h1>
 
       <div class="row">
-        <div class="column-3">
+        <div class="col-2">
           <h2>Column</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
@@ -40,7 +42,7 @@
             Praesent scelerisque tortor sed accumsan convallis.
           </p>
         </div>
-        <div class="column-3">
+        <div class="col-3">
           <h2>Column</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
@@ -50,7 +52,7 @@
             Praesent scelerisque tortor sed accumsan convallis.
           </p>
         </div>
-        <div class="column-3">
+        <div class="col-4">
           <h2>Column</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
@@ -63,7 +65,7 @@
       </div>
 
       <div class="row">
-        <div class="column-3">
+        <div class="col-2">
           <h2>Column</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
@@ -73,7 +75,7 @@
             Praesent scelerisque tortor sed accumsan convallis.
           </p>
         </div>
-        <div class="column-3">
+        <div class="col-3">
           <h2>Column</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
@@ -83,7 +85,7 @@
             Praesent scelerisque tortor sed accumsan convallis.
           </p>
         </div>
-        <div class="column-3">
+        <div class="col-4">
           <h2>Column</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
@@ -95,7 +97,7 @@
         </div>
       </div>
       <div id="formid" class="bg-modal">
-        <div  class="modal">
+        <div class="modal">
           <form action="/action.php" method="post">
             <span
               onclick="document.getElementById('formid').style.display='none'"
