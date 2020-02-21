@@ -1,0 +1,221 @@
+* {
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 1024px) {
+  nav {
+    display: none;
+  }
+  img.avatar {
+    display: none !important;
+  }
+  .container {
+    margin-left: 10px !important;
+  }
+  .mini {
+    margin-top: 16% !important;
+  }
+  .bottom {
+    width: 30% !important;
+  }
+  .modal {
+    height: 40% !important;
+  }
+  h1 {
+    font-size: xx-large;
+  }
+  [class*="col-"] {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  body {
+    background-color: lightblue !important;
+  }
+}
+
+body {
+  background-color: #d4d4d4;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: #555;
+  font-size: 16px;
+}
+
+.container {
+  margin-left: 12%;
+}
+
+h1 {
+  text-transform: uppercase;
+  font-weight: 900;
+  text-shadow: 2px 2px gray;
+  text-align: center;
+  padding: 20px;
+}
+
+.headingh1 {
+  color: lightblue;
+  text-transform: uppercase;
+  text-shadow: 2px 2px gray;
+  font-weight: bolder;
+}
+
+h2 {
+  color: lightblue;
+  text-transform: uppercase;
+  text-shadow: 2px 2px gray;
+  font-weight: bolder;
+}
+
+nav {
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+nav li:last-child {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+nav li:last-child a:hover {
+  background-color: lightgreen;
+  color: white;
+}
+
+nav li a {
+  display: flex;
+  color: gray;
+  padding: 9px 18px;
+  text-decoration: none;
+  margin: 15px 0;
+  justify-content: center;
+}
+
+nav li a:hover {
+  background-color: lightblue;
+  color: white;
+}
+nav ul {
+  list-style-type: none;
+  display: flexbox;
+  flex-direction: row;
+  padding: 0;
+}
+
+.col-1 {
+    width: 12%;
+}
+.col-2 {
+    width: 29.3333333333%;
+    margin-left: 4%;
+}
+.col-3 {
+    width: 29.3333333333%;
+}
+.col-4 {
+    width: 29.3333333333%;
+}
+
+[class*="col-"] {
+  height: 100%;
+  float: left;
+  margin-right: 2%;
+  border-color: red;
+}
+
+.row {
+  width: 100%;
+  clear: both;
+}
+
+.bottom {
+  margin-top: 10%;
+  line-height: 40px;
+  text-align: center;
+}
+
+img.avatar {
+  max-width: 100%;
+  height: auto;
+  border-radius: 50%;
+  display: block;
+  margin: 2% auto;
+  padding: 10px;
+}
+
+.bg-modal {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+.modal {
+  width: 400px;
+  height: 300px;
+  background-color: white;
+  border: none;
+  padding: 20px;
+}
+
+input {
+  padding: 5px;
+  border-radius: 3px;
+  width: 100%;
+  height: 12px;
+}
+
+.close {
+  position: absolute;
+  right: 15px;
+  top: 0;
+  color: #555;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+.btn {
+  color: #fff;
+  padding: 8px;
+  border: none;
+  border-radius: 3px;
+  width: 100%;
+}
+
+.btncancel {
+  background-color: red;
+}
+
+.btncancel:hover {
+  background-color: darkred;
+  cursor: pointer;
+}
+
+.btnsubmit {
+  background-color: green;
+}
+
+.btnsubmit:hover {
+  background-color: darkgreen;
+  cursor: pointer;
+}
+
+i {
+  margin-right: 5px;
+}

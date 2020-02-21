@@ -1,3 +1,5 @@
+import { url } from "inspector";
+
 document.addEventListener('keydown', keypress);
 
 setInterval(gameloop, 16);
@@ -29,8 +31,8 @@ var cheese = {
     x: 0,
     y: 0,
     speed: 0,
-    color: "#FFFF00"
-};
+    color: "#fff"
+}
 
 var enemy = {
     element: document.createElement("DIV"),
@@ -38,7 +40,7 @@ var enemy = {
     x: 0,
     y: 0,
     speed: 1,
-    color: "#FF3333"
+    color: "#000"
 }
 
 spawn(cheese);
@@ -198,7 +200,6 @@ function spawn(object) {
 
     object.element = document.createElement("DIV");
     object.element.style.backgroundColor = object.color;
-    object.element.style.border = "1px solid black";
     object.element.style.height = "20px";
     object.element.style.width = "20px";
     object.element.style.position = "absolute";

@@ -1,0 +1,11 @@
+body {
+    background-color: lightblue;
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+
+h1:hover {
+    color: royalblue;
+    text-transform: uppercase;
+}
