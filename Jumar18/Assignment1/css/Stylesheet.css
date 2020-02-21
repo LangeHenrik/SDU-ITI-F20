@@ -117,28 +117,32 @@ h2 {
 }
 
 img.avatar {
-    width: 20%;
-    height: 20%;
+    max-width: 100%;
+    height: auto;
     border-radius: 50%;
     display: block;
     margin: 2% auto;
     padding: 10px;
 }
 
-.modal {
+.bg-modal{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
     top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     display: none;
-    position: fixed;
-    z-index: 1;
-    width: 50%;
-    height: 60%;
-    background-color: #fefefe;
+}
+
+.modal {
+    width: 400px;
+    height: 300px;
+    background-color: white;
     border: none;
-    box-shadow: 2px 3px rgb(180, 180, 180);
-    border-radius: 8px;
     padding: 20px;
-    margin: 50px auto;
-    margin-left: 15%;
 }
 
 input {
