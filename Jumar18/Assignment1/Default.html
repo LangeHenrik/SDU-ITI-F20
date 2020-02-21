@@ -14,8 +14,8 @@
   </head>
   <body>
     <ul class="sidenav">
-      <li><a href="#">Menu1</a></li>
-      <li><a href="#">Menu2</a></li>
+      <li><a href="#">Profile</a></li>
+      <li><a href="#">Users</a></li>
       <li><a href="#">Menu3</a></li>
       <li>
         <a
@@ -96,7 +96,7 @@
       </div>
 
       <div id="formid" class="modal">
-        <form class="formlogin" action="/action.php" method="post">
+        <form action="/action.php" method="post">
           <span
             onclick="document.getElementById('formid').style.display='none'"
             class="close"
@@ -105,7 +105,7 @@
           >
           <img src="img/icon.png" alt="Avatar" class="avatar" />
 
-          <div class="row">
+          <div class="row mini">
             <div class="column-2">
               <i class="fas fa-user"></i>
               <label for="username"><b>Username</b></label>
@@ -136,10 +136,13 @@
           </div>
 
           <div class="row">
-            <div class="column-3">
+            <div class="column-3 bottom">
               <button type="submit" class="btn btnsubmit">Login</button>
             </div>
-            <div class="column-3">
+            <div class="column-3 bottom">
+              <span>Not a user? <a href="#">Sign in</a></span>
+            </div>
+            <div class="column-3 bottom">
               <button
                 type="button"
                 onclick="document.getElementById('formid').style.display='none'"
@@ -147,9 +150,6 @@
               >
                 Cancel
               </button>
-            </div>
-            <div class="column-3">
-              <span>Forgot <a href="#">password?</a></span>
             </div>
           </div>
         </form>
