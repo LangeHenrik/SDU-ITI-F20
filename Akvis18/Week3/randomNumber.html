@@ -7,7 +7,7 @@
 <body>
 <p name="number" id="number" ></p>
 <script>
-    function RandomInt() {
+    function GetRandomInt() {
             var xmlhttp = new XMLHttpRequest();
             xmlhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
@@ -17,7 +17,7 @@
             xmlhttp.open("GET", "randomNumber.php", true);
             xmlhttp.send();
     }
-    setInterval(RandomInt, 1000);
+    setInterval(GetRandomInt, 1000);
 </script>
 </body>
 </html>

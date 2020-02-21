@@ -33,18 +33,17 @@
 
     if (isset($_SESSION["LoggedIn"]) and $_SESSION["LoggedIn"] == true){
         echo '<form method="post">
-    <input type="hidden" name="logout" value="true">
-    <button type="submit">Logout</button>
-</form>';
+                <input type="hidden" name="logout" value="true">
+                <button type="submit">Logout</button>
+              </form>';
     } else {
         echo '<form method="post" >
                 <input type="text" name="username" placeholder="Username"> <br/>
                 <input type="password" name="password" placeholder="Password">
                 <button type="submit">Submit</button>
-            </form>';
+              </form>';
     }
 ?>
-
 <!--<form method="post" >
     <input type="text" name="username" placeholder="Username"> <br/>
     <input type="password" name="password" placeholder="Password">
