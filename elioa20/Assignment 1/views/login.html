@@ -2,15 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Welcome to Fyn</title>
-    <link rel="stylesheet" type="text/css" href="stylesheets/indexStylesheet.css">
+    <title>Welcome to Odin's Blog</title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/loginStylesheet.css">
 </head>
 <body>
 
-<form class="login-form" method="post">
+
+<form class="login-form" method="post" action="../php/login.php">
     <div class="login-form-container">
-        <h1>Welcome to Fyn!</h1>
-        <p>Here you can post photos from all over Fyn and share your experiences!</p>
+        <h1>Welcome to Odin's Blog!</h1>
+        <p>Here you can post photos from all over Odense and share your experiences!</p>
 
         <input type="text" id="username" name="username" placeholder="Username...">
         <input type="password" id="password" name="password" placeholder="Password...">
@@ -19,7 +20,6 @@
             <input type="submit" id="login" name="login" value="Log In">
             <a href="registration.html"><input type="button" id="register" name="register" value="Register"></a>
         </div>
-
     </div>
 </form>
 

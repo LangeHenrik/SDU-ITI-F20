@@ -10,17 +10,22 @@ body {
     left: 50%;
 }
 
-.register-form-container {
-    padding: 16px;
+.register-form-container{
+    background-color: lightgray;
+    padding: 20px;
+    border-radius: 20px;
 }
 
-input[type=text], input[type=password] {
+input[type=text], input[type=password], #country {
     width: 100%;
     padding: 15px;
     margin: 5px 0 22px 0;
     display: inline-block;
     border: none;
     background: #f1f1f1;
+    box-sizing: border-box;
+    border-radius: 10px;
+    outline: none;
 }
 
 input[type=submit] ,input[type=button] {
@@ -28,6 +33,10 @@ input[type=submit] ,input[type=button] {
     height: 30px;
 }
 
+#country{
+    width: 50%;
+    display: list-item;
+}
 .register-button-container {
     text-align: center;
 }

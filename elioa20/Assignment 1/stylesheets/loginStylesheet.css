@@ -10,8 +10,10 @@ body {
     left: 50%;
 }
 
-.login-form-container {
-    padding: 16px;
+.login-form-container{
+    background-color: lightgray;
+    padding: 20px;
+    border-radius: 20px;
 }
 
 input[type=text], input[type=password] {
@@ -21,7 +23,11 @@ input[type=text], input[type=password] {
     display: inline-block;
     border: none;
     background: #f1f1f1;
+    box-sizing: border-box;
+    border-radius: 10px;
+    outline: none;
 }
+
 
 input[type=submit], input[type=button]{
     width: 200px;
@@ -32,4 +38,3 @@ input[type=submit], input[type=button]{
 .buttons-container {
     text-align: center;
 }
-
