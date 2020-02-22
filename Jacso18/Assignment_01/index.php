@@ -8,6 +8,6 @@
         <input name="username" placeholder="username" id="username" />
         <input name="password" type="password" placeholder="password" />
         <input type="submit" />
-        <a href="/pages/create_account.php">create account</a>
+        <a href="create_account.php">create account</a>
     </body>
 </html>
