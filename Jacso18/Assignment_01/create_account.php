@@ -29,20 +29,23 @@
         </form>
 
         <?php
-            echo "out of scope";
 
             if(session_status() == PHP_SESSION_NONE) {
                 session_start();
             }
         
             if(isset($_POST['submit'])) {
-                echo "submit";
                 $name = filter_input(INPUT_POST, "name", FILTER_SANITIZE_STRING);
                 $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_STRING);
                 $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_STRING);
                 
-                $userObj1 = new UserController();
-                $userObj1->createUser($email,$password,$name);
+                $userController = new UserController();
+                if(sizeof($userController->getUserFromEmail($email)) <= 0){
+                    $userController->createUser($email,$password,$name);
+                } else {
+                    echo 'Mail has already been used';
+                }
+                
             }
         ?>
     </body>

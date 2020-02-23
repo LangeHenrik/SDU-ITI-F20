@@ -7,4 +7,12 @@ class Users extends Dbh {
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute([$email,$password,$name]);
     }
+
+    public function getUserFromEmail($email){
+        $sql ="SELECT * FROM users WHERE email= ?";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$email]);
+        $result = $stmt->fetchAll();
+        return $result;
+    }
 }

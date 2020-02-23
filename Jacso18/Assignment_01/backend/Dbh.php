@@ -14,7 +14,6 @@ class Dbh {
     ];
 
     public function connect() {
-        echo "Connect";
         $dsn = 'mysql:host='. $this->host . ';dbname=' . $this->dbName . ';charset=' . $this->charset;
         $pdo = '';
         try{
