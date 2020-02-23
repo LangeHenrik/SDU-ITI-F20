@@ -32,16 +32,26 @@ var cheese = {
     color: "#FFFF00"
 };
 
+var cheese2 = {
+    element: document.createElement("DIV"),
+    type: "cheese",
+    x: 0,
+    y: 0,
+    speed: 0,
+    color: "#3c2865"
+};
+
 var enemy = {
     element: document.createElement("DIV"),
     type: "enemy",
     x: 0,
     y: 0,
-    speed: 1,
+    speed: 3,
     color: "#FF3333"
 }
 
 spawn(cheese);
+//spawn(cheese2);
 spawn(enemy);
 
 function keypress(e) {
@@ -63,17 +73,17 @@ function newGame() {
     player.speed = 3;
     player.x = 100;
     player.y = 100;
-    
+
     cheese.element.remove();
     enemy.element.remove();
     enemy.speed = 1;
     spawn(cheese);
     spawn(enemy);
-    
+
     points = 0;
     gameEnded = false;
     paused = false;
-    
+
     document.getElementById('restart').innerText = '';
     document.getElementById('level').style.backgroundColor = '#CCFFCC';
 }
@@ -121,7 +131,7 @@ function addPoint() {
 }
 
 function moveEnemy() {
-    
+
     var left = player.x - enemy.x;
     var top = player.y - enemy.y;
     if(Math.abs(left) > Math.abs(top)) {
@@ -168,7 +178,7 @@ function move(entity) {
 
     var ppx = entity.x + "px";
     entity.element.style.left = ppx;
-    
+
     var ppy = entity.y + "px";
     entity.element.style.top = ppy;
 }
@@ -202,12 +212,12 @@ function spawn(object) {
     object.element.style.height = "20px";
     object.element.style.width = "20px";
     object.element.style.position = "absolute";
-    
+
     object.x = Math.floor(Math.random() * width);
     object.y = Math.floor(Math.random() * height);
 
     object.element.style.top = object.y + "px";
     object.element.style.left = object.x + "px";
-    
-    document.body.appendChild(object.element);  
+
+    document.body.appendChild(object.element);
 }
