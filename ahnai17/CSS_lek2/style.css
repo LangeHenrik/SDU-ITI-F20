@@ -1,0 +1,40 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 14. feb. 2020, 14.16.21
+    Author     : Ahmadullah
+*/
+.wrapper {
+    width: 80%;
+    height: 1000px;
+    background: aqua;
+    margin: auto;
+    padding: 10px;
+}
+.person {
+    width: 25%;
+    height: 100px;
+    background-image: url(John.png);
+    background-size:contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    float: left;
+}
+.menu {
+    width: 100%;
+    height: 70px;
+    background-position: center;
+    background-color: beige;
+}
+.cake {
+    margin-left: 25%;
+    height: 100px;
+    background-image: url(cake.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position:top; 
+    
+}
