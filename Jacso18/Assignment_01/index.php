@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Login</title>
+        <title>Front page</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
@@ -26,14 +26,15 @@
         <?php
             
 
-
             if(session_status() == PHP_SESSION_NONE) {
                 session_start();
+                $_SESSION['logged_in'] = null;
             }
-
+            
             if($_SESSION['logged_in'] == true){
-                header ("Location: front_page.php");
-            } 
+                header ("Location: image_feed.php");
+            }  
+
 
             if(isset($_POST['login'])) {
                 $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_STRING);
@@ -41,7 +42,7 @@
                 $userController = new UserController();
                 if($userController->validateUser($email, $password)==true){
                     $_SESSION['logged_in'] = true;
-                    header ("Location: front_page.php"); exit;
+                    header ("Location: image_feed.php");
                 } else {
                     $_SESSION['logged_in'] = false;
                 }

@@ -1,8 +1,4 @@
-<form>
-    <input name="username" placeholder="username" id="username" />
-    <input name="password" type="password" placeholder="password" />
-    <input type="submit" />
-</form>
+
 
 <?php 
     $correct_username = "joey";
@@ -23,14 +19,16 @@
 
     }
 
-    echo $password;
-    echo $username;
 
     if($_SESSION['logged_in']) : ?>
         <br/>
         <form method="post">
-            <input name="username"/>
-        
-        
+            <input type="submit" name="logut" id="logout" value="logout"/>
+        </form>
+        <?php else: ?>
+        <form method = "post">
+            <input name="username" placeholder="username" id="username" />
+            <input name="password" type="password" placeholder="password" />
+            <input type="submit" value="login" />
         </form>
     <?php endif; ?>
