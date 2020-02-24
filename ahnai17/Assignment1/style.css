@@ -1,0 +1,44 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/*  css file for startpage
+    Created on : 21. feb. 2020, 16.48.06
+    Author     : Ahmadullah
+*/
+
+.container.content.loginfield {
+    display: flex;
+    justify-content: center;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    background-color: orange;
+    height: 500px;
+}
+.container.content {
+    display: flex;
+    justify-content: center;
+}
+.header {
+    display: flex;
+    justify-content: center;
+    background-color: yellow;
+}
+.newuser {
+    display: flex;
+    justify-content:space-between;
+}
+/*user registration page starts here */
+.wrapper {
+    display: flex;
+    justify-content: center;
+    background-color: coral;
+}
+.userhead {
+    display: flex;
+    justify-content: center;
+    background-color: coral;
+}

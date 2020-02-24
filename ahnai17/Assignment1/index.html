@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+<head>
+    <title>Startpage</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <div class="header"><h1>Welcome to website for image gallery</h1></div>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <div class="loginfield">
+                <form name="Inputform" action="login.php" onsubmit="return checkfield()" method="post">
+                    <br>&nbsp;
+                    <label for="username">Username</label>
+                    <br>&nbsp;
+                    <input type="text" name="Username" required/> 
+                    <br>&nbsp;
+                    <label for="password">Password</label>
+                    <br>&nbsp;
+                    <input type="password" name="PAssword" required/>
+                    <input type="submit" name="login" value="login"/>
+                </form>
+            </div>
+            <div class="newuser">
+                <a href="Register_new_user.html">Create new user</a>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="sitescript.js"></script>
+</body>
+</html>
+

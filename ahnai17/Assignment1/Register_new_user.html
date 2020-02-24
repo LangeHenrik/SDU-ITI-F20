@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+        #inputid{
+            background-color:royalblue;
+        }
+    </style>
+    <title>NewUserpage</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css"> 
+    <div class="userhead"><h1>Registration form</h1></div>
+</head>    
+<body>
+    <div class="wrapper">
+        <div class="items">
+            <div class="newUserform">
+                <form name="Inputform" action="createUser.php" onsubmit="return checkfield()" method="post">
+                    <table>
+                        <tr>
+                            <td>
+                                Username :
+                            </td>
+                            <td>
+                                <input type="text" placeholder="Username" name="username" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Password :
+                            </td>
+                            <td>
+                                <input type="password" placeholder="Password" name="password" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="submit" value="create user" name="create" required>
+                                
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <script> //returns to previus page
+                                    document.write('<a href="' + document.referrer + '">Go Back</a>');
+                                </script>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div> 
+        <script src="sitescript.js"></script>
+</body>    
+</html>
