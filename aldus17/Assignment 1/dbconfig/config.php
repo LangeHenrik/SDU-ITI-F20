@@ -1,8 +1,8 @@
 <?php
 
-class dbconfig
+class DbConfig
 {
-    public function OpenCon()
+    public function openConnection()
     {
         $db_hostname = "127.0.0.1";
         $db_username = "root";
@@ -15,6 +15,7 @@ class dbconfig
             // set the PDO error mode to exception
             $db_connection->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
             $db_connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $db_connection->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
             echo "Connected successfully";
 
             return $db_connection;
@@ -23,7 +24,7 @@ class dbconfig
         }
     }
 
-    public function CloseCon($db_connection)
+    public function closeConnection($db_connection)
     {
         $db_connection->close();
     }

@@ -1,6 +1,8 @@
 <?php
 
 require_once('dbconfig/config.php');
+require_once('dbconfig/dbControl.php');
+require_once('dbconfig/userControl.php');
 
 ?>
 <!DOCTYPE html>
@@ -37,16 +39,23 @@ require_once('dbconfig/config.php');
             session_start();
         }
 
-        if ($_SESSION['logged_in'] == true) {
-            header("Location: index.php");
-        }
-        if (isset($_POST['login'])) {
-            @$username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
-            @$password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING); // @ means to ignore any error messages that might occur
 
-            $selectQuery = "Enter query";
-
-            $query_run = mysqli . query($conn, $selectQuery);
+        if (isset($_SESSION['logged_in'] && $_SESSION["logged_in"])) {
+            $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
+            $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
+            $usercontrol = new UserController();
+            if ($usercontrol->validateUserForLogin($username, $password) == true) {
+                //HTTP::redirect("index.php");
+                $_SESSION['logged_in'] = true;
+                header("Location: index.php");
+                echo 'Succes login';
+                exit;
+            } else {
+                //HTTP::redirect("front_page.php");
+                $_SESSION['logged_in'] = false;
+                echo 'Fail login';
+                header("Location: front_page.php");
+            }
         }
 
         ?>

@@ -1,1 +1,18 @@
-* {}
+* {
+    background-color: #C1B3BD;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    margin: auto;
+    padding: 2px;
+    width: 100%;
+    /* Height of the footer */
+    height: 60px;
+}

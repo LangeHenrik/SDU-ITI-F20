@@ -5,35 +5,28 @@ function checkForm() {
     checkPassword();
     checkPhoneNumber();
     checkEmailAddress();
-    checkZipcode();
+    checkUsername();
 }
 // https://regex101.com/
 // https://regexr.com/
 
-let emailInputField = document.getElementById("for-and-last-name");
-
-emailInputField.addEventListener("", checkWords);
-
 function checkWords() {
-    var word = document.getElementById("for-and-last-name").value;
+    var word = document.getElementById("fullname").value;
 
     var regEx = new RegExp(/(^(\w+\s).+$)/g);
 
     if (regEx.test(word)) {
-        changeLabelColor("for-and-last-name-label", "green");
+        changeLabelColor("fullname-label", "green");
         return true;
     } else {
-        changeLabelColor("for-and-last-name-label", "red");
+        changeLabelColor("fullname-label", "red");
         return false;
     }
 }
 
+// "^$" whole string and needs to end with /gm, m means multiline, "?=.*" look for one or more of the following occourence, the ".*" means any char except line break
 function checkPassword() {
-    var password = document.getElementById("password-label").value;
-    //var regEx = new RegExp(/([a-z0-9A-Z]{8,})/g);
-
-    // "^$" whole string and needs to end with /gm, m means multiline, "?=.*" look for one or more of the following occourence, the ".*" means any char except line break
-    // 
+    var password = document.getElementById("password").value;
     var regEx = new RegExp(/((?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*\w).[\S]{8,})/g);
 
     if (regEx.test(password)) {
@@ -46,7 +39,7 @@ function checkPassword() {
 }
 
 function checkPhoneNumber() {
-    var phoneNumber = document.getElementById("phone-label").value;
+    var phoneNumber = document.getElementById("phone").value;
     var regEx = new RegExp(/(?:\+)(?:[0-9]{8,30})/g);
 
     if (regEx.test(phoneNumber)) {
@@ -60,7 +53,7 @@ function checkPhoneNumber() {
 }
 
 function checkEmailAddress() {
-    var email = document.getElementById("email-label").value;
+    var email = document.getElementById("email").value;
     var regEx = new RegExp(/(\b[\w\.-]+@[\w\.-]+\.\w{2,10}\b)/gi);
 
     if (regEx.test(email)) {
@@ -71,24 +64,26 @@ function checkEmailAddress() {
         changeLabelColor("email-label", "red");
         return false;
     }
-
 }
 
-// Use let as a attribute for the function, like private. 
+/**
+ * Minimum length (3). 
+ * Maximum length(24). 
+ * Can only contain alphanumeric characters and the following special characters: dot (.), underscore(_) and dash (-). 
+ * The special characters cannot appear more than once consecutively or combined.
+ */
+function checkUsername() {
+    var username = document.getElementById("username").value;
+    var regEx = new RegExp(/(?!.*[\.\-\_]{2,})^[a-zA-Z0-9\.\-\_]{3,16}$/gm);
 
-function checkZipcode() {
-    var email = document.getElementById("zip").value;
-    var regEx = new RegExp(/^\d{4}$/gm);
-
-    if (regEx.test(email)) {
-        changeLabelColor("zipLabelID", "green");
+    if (regEx.test(username)) {
+        changeLabelColor("username-label", "green");
         return true;
 
     } else {
-        changeLabelColor("zipLabelID", "red");
+        changeLabelColor("username-label", "red");
         return false;
     }
-
 }
 
 function changeLabelColor(labelName, color) {

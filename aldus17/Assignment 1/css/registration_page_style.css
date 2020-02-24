@@ -1,1 +1,95 @@
-    
+* {
+    background-color: #C1B3BD;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0 0 20px;
+    padding: 10px;
+    padding-bottom: 60px;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    text-align: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.register_form_wrapper {
+    position: relative;
+    width: 70%;
+    margin: auto;
+    align-items: center;
+    text-align: center;
+}
+
+.inner_register_form_container {
+    width: 70%;
+    height: auto;
+    position: absolute;
+    padding: 16px;
+    margin: 0 auto;
+    border: solid;
+    text-align: center;
+    text-decoration: none;
+}
+
+.inner_register_form_container label {
+    display: table-cell;
+    text-align: center;
+}
+
+.inner_register_form_container input {
+    display: table-cell;
+    text-align: center;
+}
+
+input[type=text],
+input[type=password],
+input[type=email],
+input[type=tel] {
+    width: 50%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+
+input[type=text]:focus,
+input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+hr {
+    border: 1px solid #000000;
+    margin-bottom: 25px;
+}
+
+.register_button {
+    background-color: rgb(48, 48, 48);
+    color: white;
+    padding: 16px 20px;
+    margin: 8px;
+    border: none;
+    cursor: pointer;
+    width: 30%;
+    opacity: 0.9;
+}
+
+.register_button:hover {
+    opacity: 3;
+    color: green;
+}
+
+
+/*
+footer {
+    position: fixed;
+    bottom: 0;
+    margin: auto;
+    padding: 2px;
+    width: 100%;
+    height: 60px;
+}*/
