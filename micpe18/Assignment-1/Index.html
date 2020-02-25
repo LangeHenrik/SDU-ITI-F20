@@ -13,22 +13,19 @@
     <link rel="stylesheet" type="text/css" href="css/Stylesheet.css" />
     <link rel="icon" href="img/icon.png" type="png" />
     <script>
-
-      function openSlideMenu(){
-        document.getElementById('menu').style.width = '250px';
-        document.getElementById('content').style.marginLeft = '250px';
+      function openSlideMenu() {
+        document.getElementById("menu").style.width = "250px";
+        document.getElementById("content").style.marginLeft = "250px";
       }
-      function closeSlideMenu(){
-        document.getElementById('menu').style.width = '0';
-        document.getElementById('content').style.marginLeft = '0';
+      function closeSlideMenu() {
+        document.getElementById("menu").style.width = "0";
+        document.getElementById("content").style.marginLeft = "0";
       }
-
 
       //var icon = this.querySelector('.slide i.fa');
       //icon.classList.toggle('rotate');
 
       //document.getElementById('openButton').style.transform = 'rotate(180deg)';
-
     </script>
   </head>
   <body>
@@ -43,10 +40,12 @@
         <a href="#" class="close" onclick="closeSlideMenu()">
           <i class="fas fa-times"></i>
         </a>
-        <a href="#">Profile</a>
-        <a href="#">Users</a>
-        <a href="#">Menu3</a>
-        <a href="#">Login</a>
+        <ul>
+          <li><a href="#">Profile</a></li>
+          <li><a href="#">Users</a></li>
+          <li><a href="#">Menu3</a></li>
+          <li><a href="#">Login</a></li>
+        </ul>
       </div>
       <h1>Responsive animated sidebar</h1>
     </div>

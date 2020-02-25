@@ -19,6 +19,15 @@ body{
     transition: .7s;    
 }
 
+.nav ul{
+    padding: 0;
+}
+
+.nav li:hover{
+    border-left: 9px solid #3e84c1;
+    background-color: #34383d;
+}
+
 .nav a {
     display: block;
     padding: 20px 30px;
