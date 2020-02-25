@@ -1,12 +1,26 @@
 <?php
 session_start();
 
-if (isset($_POST['login'])) {
-    try {
-        $username = $_POST['username'];
-        $password = $_POST['password'];
+try {
+    $username = htmlspecialchars($_POST['username']);
+    $password = htmlspecialchars($_POST['password']);
 
-        $pdo = new PDO('mysql:host=localhost;dbname=odinsblog', null, null);
+    $ok = true;
+    $messages = array();
+
+    if(empty($username) || !isset($_POST['username'])){
+        $ok = false;
+        $messages[] = 'Username cannot be empty!';
+    }
+
+
+    if(empty($password) || !isset($_POST['password'])){
+        $ok = false;
+        $messages[] = 'Password cannot be empty!';
+    }
+
+    if($ok) {
+        $pdo = new PDO('mysql:host=localhost;dbname=odinsblog', 'root', 'rootelioa20');
 
         // calling stored procedure command
         $sql = 'CALL LoginValidation(:username,:password,@message)';
@@ -24,18 +38,32 @@ if (isset($_POST['login'])) {
 
         $stmt->closeCursor();
 
-        // execute the second query to get customer's level
         $row = $pdo->query("SELECT @message AS return_message")->fetch(PDO::FETCH_ASSOC);
         if ($row) {
-            if($row !== false){
-                echo $row['return_message'];
+            if ($row !== false) {
+                if($row["return_message"]!=null){
+                    $ok = false;
+                    $messages[] = $row["return_message"];
+                }
+                else{
+                    $ok = true;
+                    $messages[] = 'Successful Login';
+                }
             }
         }
-    } catch
-    (PDOException $e) {
-        die("Error occurred:" . $e->getMessage());
+
     }
+} catch
+(PDOException $e) {
+    die("Error occurred:" . $e->getMessage());
+
 }
 
+echo json_encode(
+    array(
+        'ok' => $ok,
+        'messages' => $messages
+    )
+);
 
 ?>

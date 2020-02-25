@@ -16,6 +16,16 @@ body {
     border-radius: 20px;
 }
 
+#register-messages{
+    color: red;
+    font-weight: bold;
+    display: none;
+    list-style: none;
+    border: 1px solid red;
+    padding: 10px 25px;
+    background-color: rgb(235,232,232);
+}
+
 input[type=text], input[type=password], #country {
     width: 100%;
     padding: 15px;
@@ -28,15 +38,11 @@ input[type=text], input[type=password], #country {
     outline: none;
 }
 
-input[type=submit] ,input[type=button] {
+input[type=button] {
     width: 200px;
     height: 30px;
 }
 
-#country{
-    width: 50%;
-    display: list-item;
-}
 .register-button-container {
     text-align: center;
 }

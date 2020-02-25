@@ -2,6 +2,15 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+#login-messages{
+    color: red;
+    font-weight: bold;
+    display: none;
+    list-style: none;
+    border: 1px solid red;
+    padding: 10px 25px;
+    background-color: rgb(235,232,232);
+}
 .login-form {
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
@@ -29,7 +38,7 @@ input[type=text], input[type=password] {
 }
 
 
-input[type=submit], input[type=button]{
+input[type=button]{
     width: 200px;
     height: 30px;
 }

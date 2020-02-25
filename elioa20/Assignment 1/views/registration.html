@@ -12,6 +12,9 @@
         <h1>Register</h1>
         <p>Please fill in this form to create an account.</p>
 
+        <ul id="register-messages">
+
+        </ul>
 
         <label for="username"><b>Username</b>
             <input type="text" id="username" name="username" placeholder="Username...">
@@ -27,9 +30,12 @@
         </label>
 
         <div class="register-button-container">
-            <input type="submit" name="register" value="Register">
+            <a href="login.html"><input type="button" id="login" name="login" value="Log In"></a>
+            <input type="button" id="register" name="register" value="Register">
         </div>
     </div>
 </form>
+
+<script type="text/javascript" src="../js/register.js"></script>
 </body>
 </html>

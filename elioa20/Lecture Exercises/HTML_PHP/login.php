@@ -25,7 +25,7 @@ if(isset($_POST['submit'])){
     if ($username=="eioake01" && $password=="1234a"){
         /* Success: Set session variables and redirect to Protected page  */
         $_SESSION["logged_in"] = true;
-        header("Location:index.php");
+        header("Location:register.php");
         exit;
     } else {
         $_SESSION["logged_in"] = false;
