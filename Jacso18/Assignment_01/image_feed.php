@@ -7,7 +7,8 @@
 <html>   
     <head>
         <title>Image Feed</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <html lang="en">        
     </head>
     <body>
         <ul class="menu">
@@ -17,9 +18,11 @@
         </ul>
 
         <h1> This is the front page </h1>
+        
         <form method="POST">
             <input type="submit" name="logout" id="logout" value="Logout"/>
         </form>
+        
         <?php
             if(session_status() == PHP_SESSION_NONE) {
                 session_start();
@@ -34,7 +37,6 @@
                 $_SESSION['logged_in'] = false;
                 header ("Location: index.php");
             }
-
         ?>
 
     </body>

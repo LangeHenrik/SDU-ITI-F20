@@ -10,6 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="/javascript/javascript.js"></script>
         <link rel="stylesheet" type="text/css" href="/CSS/stylesheet.css">
+        <html lang="en">
     </head>
     <body>
         <form onsubmit="return checkform();" method="POST">

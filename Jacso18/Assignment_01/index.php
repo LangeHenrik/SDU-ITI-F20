@@ -4,10 +4,11 @@
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <title>Front page</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <html lang="en">
     </head>
     <body>
         <form method="POST">
@@ -44,7 +45,7 @@
                     $_SESSION['logged_in'] = true;
                     header ("Location: image_feed.php");
                 } else {
-                    $_SESSION['logged_in'] = false;
+                    $_SESSION['logged_in'] = false;                  
                 }
 
             }
