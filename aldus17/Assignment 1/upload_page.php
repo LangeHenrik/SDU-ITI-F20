@@ -32,7 +32,7 @@ session_start();
             <label for="title" id="label-title">Enter title: </label>
             <input name="title" id="title" class="title" required />
             <br>
-            <textarea id="description" name="description" maxlength="250" placeholder="Write a comment"></textarea>
+            <textarea id="description" name="description" maxlength="250" placeholder="Type a description to the image"></textarea>
             <br>
             <input type="submit" name="uploadbtn" id="uploadbtn" value="Upload image" />
         </form>
@@ -63,14 +63,13 @@ session_start();
                 // Format the image SRC:  data:{mime};base64,{data};
                 $image = 'data:image/' . $imageFileType . ';base64,' . $imageConvertTo_base64;
 
+                // TODO check the boolean value
                 $usercontroller->uploadImage($_SESSION['username'], $image, $title, $description);
             }
         }
-
         ?>
     </div>
     <a href="index.php">back to index</a>
-
 </body>
 
 </html>

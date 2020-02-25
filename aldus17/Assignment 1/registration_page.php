@@ -13,8 +13,8 @@ require_once('dbconfig_and_controllers/UserController.php');
     <script src="js/formCheck.js"></script>
     <link rel="stylesheet" href="css/registration_page_style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-    <html lang="en"> 
-        
+    <html lang="en">
+
 </header>
 
 <body>

@@ -23,7 +23,6 @@ require_once('dbconfig_and_controllers/UserController.php');
         <a class="active" href="index.php">Home</a>
         <a href="upload_page.php">Upload</a>
         <a href="imagefeed_page.php">Image feed</a>
-
     </div>
 
     <?php

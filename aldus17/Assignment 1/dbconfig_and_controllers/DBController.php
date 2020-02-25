@@ -1,13 +1,8 @@
 <?php
-
-
 include_once('DBConnection.php');
-
 
 class DBController extends DBConnection
 {
-
-
     public function insertUser($username, $fullname, $email,  $password)
     {
         $insert_query = 'INSERT INTO users (username, fullname, email, password) VALUES (:username, :fullname, :email, :password)';
@@ -94,8 +89,6 @@ class DBController extends DBConnection
             var_dump($this->db->error);
         }
     }
-
-
 
     public function getUserByEmail($email)
     {
