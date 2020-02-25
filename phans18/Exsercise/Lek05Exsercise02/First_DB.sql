@@ -12,3 +12,5 @@ SELECT * FROM Auther WHERE Auther_title LIKE '%42%';
 
 
 DROP TABLE AUTHER;
+
+
