@@ -11,34 +11,42 @@ and open the template in the editor.
 .container.content.loginfield {
     display: flex;
     justify-content: center;
+    padding: 6px;
+    border-color: black;
 }
 .container {
     display: flex;
     justify-content: center;
     background-color: orange;
     height: 500px;
+    padding: 6px;
 }
 .container.content {
     display: flex;
     justify-content: center;
+    padding: 6px;
 }
 .header {
     display: flex;
     justify-content: center;
     background-color: yellow;
+    padding: 6px;
 }
 .newuser {
     display: flex;
     justify-content:space-between;
+    padding: 6px;
 }
 /*user registration page starts here */
 .wrapper {
     display: flex;
     justify-content: center;
     background-color: coral;
+    padding: 6px;
 }
 .userhead {
     display: flex;
     justify-content: center;
     background-color: coral;
+    padding: 6px;
 }

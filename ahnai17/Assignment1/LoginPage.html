@@ -16,15 +16,15 @@ and open the template in the editor.
     <div class="container">
         <div class="content">
             <div class="loginfield">
-                <form name="Inputform" action="login.php" onsubmit="return checkfield()" method="post">
+                <form id="Inputform" action="login.php" onsubmit="return checkfield()" method="post">
                     <br>&nbsp;
                     <label for="username">Username</label>
                     <br>&nbsp;
-                    <input type="text" name="Username" required/> 
+                    <input type="text" name="username" id="username" required/> 
                     <br>&nbsp;
                     <label for="password">Password</label>
                     <br>&nbsp;
-                    <input type="password" name="PAssword" required/>
+                    <input type="password" name="password" id="password" required/>
                     <input type="submit" name="login" value="login"/>
                 </form>
             </div>
