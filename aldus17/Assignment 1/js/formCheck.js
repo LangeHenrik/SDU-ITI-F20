@@ -3,7 +3,6 @@ console.log("js successfully loaded")
 function checkForm() {
     checkWords();
     checkPassword();
-    checkPhoneNumber();
     checkEmailAddress();
     checkUsername();
 }
@@ -34,20 +33,6 @@ function checkPassword() {
         return true;
     } else {
         changeLabelColor("password-label", "red");
-        return false;
-    }
-}
-
-function checkPhoneNumber() {
-    var phoneNumber = document.getElementById("phone").value;
-    var regEx = new RegExp(/(?:\+)(?:[0-9]{8,30})/g);
-
-    if (regEx.test(phoneNumber)) {
-        changeLabelColor("phone-label", "green");
-        return true;
-
-    } else {
-        changeLabelColor("phone-label", "red");
         return false;
     }
 }
@@ -84,6 +69,23 @@ function checkUsername() {
         changeLabelColor("username-label", "red");
         return false;
     }
+}
+
+function validatePassword() {
+    if (document.getElementById('password').value == document.getElementById('password_confirm').value) {
+        document.getElementById('message').style.color = 'green';
+        document.getElementById('message').innerHTML = 'password matching';
+        return true;
+    } else {
+        document.getElementById('message').style.color = 'red';
+        document.getElementById('message').innerHTML = 'password not matching';
+
+        return false;
+    }
+}
+
+function processForm() {
+    var capture = document.forms["input"]["username"].value;
 }
 
 function changeLabelColor(labelName, color) {

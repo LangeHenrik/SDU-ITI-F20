@@ -1,6 +1,7 @@
 <?php
-require_once('dbconfig/config.php');
-require_once('dbconfig/dbControl.php');
+require_once('dbconfig_and_controllers/DBConnection.php');
+require_once('dbconfig_and_controllers/DBController.php');
+require_once('dbconfig_and_controllers/UserController.php');
 
 ?>
 <!DOCTYPE html>
@@ -15,23 +16,29 @@ require_once('dbconfig/dbControl.php');
 </header>
 
 <body>
+
     <h1>User list</h1>
+
+    <div class="navbar" id="navbar">
+        <a class="active" href="index.php">Home</a>
+        <a href="upload_page.php">Upload</a>
+        <a href="imagefeed_page.php">Image feed</a>
+
+    </div>
+
     <?php
 
-    $query = getAllUsers();
-    while ($row = mysql_fetch_array($query)) {
-        echo "<tr>";
-        echo "<td>" . $row['username'] . "</td>";
-        echo "<td>" . $row['fullname'] . "</td>";
-        echo "<td>" . $row['email'] . "</td>";
-        echo "<td>" . $row['phone'] . "</td>";
-        echo "</tr>";
-    }
+    $userController = new UserController();
+
+    // TODO get user list of all users and print them out
+
     ?>
     </div>
 </body>
+<!--
 <footer id="index-footer">
     <p>Assignment 1 course ITI &amp; XI-IT - Aleksander Grzegorz Duszkiewicz (aldus17)</p>
 </footer>
+-->
 
 </html>

@@ -1,18 +1,19 @@
 <?php
 
-require_once('dbconfig/config.php');
-require_once('dbconfig/dbControl.php');
-require_once('dbconfig/userControl.php');
+require_once('dbconfig_and_controllers/DBConnection.php');
+require_once('dbconfig_and_controllers/DBController.php');
+require_once('dbconfig_and_controllers/UserController.php');
 
 ?>
 <!DOCTYPE html>
 
 <header>
-    <title>Front page</title>
+    <title>login / frontpage</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/front_page_style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <html lang="en">
 
 </header>
 
@@ -28,9 +29,8 @@ require_once('dbconfig/userControl.php');
 
                 <label><b>Password: </b></label>
                 <input name='password' type='password' placeholder='password' />
-                <input type='submit' value='login' />
-
-                <button formaction="registration_page.php">Register</button>
+                <input type='submit' name='loginbtn' value='login' />
+                <button name="registerReferBtn">Register</button>
             </div>
         </form>
 
@@ -39,16 +39,20 @@ require_once('dbconfig/userControl.php');
             session_start();
         }
 
+        if (isset($_POST['loginbtn'])) {
 
-        if (isset($_SESSION['logged_in'] && $_SESSION["logged_in"])) {
             $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
             $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
+
             $usercontrol = new UserController();
+
             if ($usercontrol->validateUserForLogin($username, $password) == true) {
+
                 //HTTP::redirect("index.php");
                 $_SESSION['logged_in'] = true;
+                $_SESSION['username'] = $username;
                 header("Location: index.php");
-                echo 'Succes login';
+                echo 'Success login';
                 exit;
             } else {
                 //HTTP::redirect("front_page.php");
@@ -56,6 +60,9 @@ require_once('dbconfig/userControl.php');
                 echo 'Fail login';
                 header("Location: front_page.php");
             }
+        }
+        if (isset($_POST['registerReferBtn'])) {
+            header("Location: registration_page.php");
         }
 
         ?>
