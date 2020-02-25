@@ -14,12 +14,36 @@ and open the template in the editor.
     padding: 6px;
     border-color: black;
 }
+.loginfield input[type=text] {
+    padding: 6px;
+    border: none;
+    margin-top: 6px;
+    margin-right: 12px;
+    font-size: 12px;  
+}
+.loginfield input[type=password] {
+    padding: 6px;
+    border: none;
+    margin-top: 6px;
+    margin-right: 12px;
+    font-size: 12px;
+}
+.loginfield button {
+  padding: 6px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
 .container {
     display: flex;
     justify-content: center;
     background-color: orange;
     height: 500px;
     padding: 6px;
+    margin: 0 auto;
 }
 .container.content {
     display: flex;
@@ -37,6 +61,19 @@ and open the template in the editor.
     justify-content:space-between;
     padding: 6px;
 }
+.newuser a {
+    float: left;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 15px;
+}
+.newuser a:hover {
+    background-color: #ddd;
+    color: black;
+}
 /*user registration page starts here */
 .wrapper {
     display: flex;
@@ -50,3 +87,4 @@ and open the template in the editor.
     background-color: coral;
     padding: 6px;
 }
+
