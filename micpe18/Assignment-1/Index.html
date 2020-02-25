@@ -12,10 +12,43 @@
     />
     <link rel="stylesheet" type="text/css" href="css/Stylesheet.css" />
     <link rel="icon" href="img/icon.png" type="png" />
+    <script>
+
+      function openSlideMenu(){
+        document.getElementById('menu').style.width = '250px';
+        document.getElementById('content').style.marginLeft = '250px';
+      }
+      function closeSlideMenu(){
+        document.getElementById('menu').style.width = '0';
+        document.getElementById('content').style.marginLeft = '0';
+      }
+
+
+      //var icon = this.querySelector('.slide i.fa');
+      //icon.classList.toggle('rotate');
+
+      //document.getElementById('openButton').style.transform = 'rotate(180deg)';
+
+    </script>
   </head>
   <body>
-    <nav>
-        
-    </nav>
+    <div id="content">
+      <span class="slide">
+        <a href="#" onclick="openSlideMenu()">
+          <i class="fas fa-bars"> </i>
+        </a>
+      </span>
+
+      <div id="menu" class="nav">
+        <a href="#" class="close" onclick="closeSlideMenu()">
+          <i class="fas fa-times"></i>
+        </a>
+        <a href="#">Profile</a>
+        <a href="#">Users</a>
+        <a href="#">Menu3</a>
+        <a href="#">Login</a>
+      </div>
+      <h1>Responsive animated sidebar</h1>
+    </div>
   </body>
 </html>
