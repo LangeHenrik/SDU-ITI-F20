@@ -2,6 +2,19 @@
     include 'includes/autoload.php';
 
 ?>
+<?php
+    session_start();
+            
+    $userView = new UserView();
+    $posts = $userView->getAllPosts();
+    $image = "";
+    foreach($posts as $post){
+        $image=$post['image']; 
+    }
+
+    Utility::redirectIfNotLoggedIn();
+    Utility::logoutPressed();
+?>
 
 <!DOCTYPE html>
 <html>   
@@ -16,28 +29,22 @@
                 <li><a href="upload.php">Upload picture</a></li>
                 <li><a href="#">Users</a></li>
         </ul>
-
-        <h1> This is the front page </h1>
+        <div class="wrapper">
+            <div class= "content">
+                <?php foreach($posts as $post){?>
+                <div class="post">
+                    <p><?php echo 'Posted by: ' . $post['username'] . ' at ' . $post['timestamp']; ?> </p>
+                    <img src=<?php echo $post['image']; ?> />
+                    <p><?php echo $post['COMMENT']; ?></p>
+                    <br/>
+                </div>
+                <?php
+                }?>
+            </div>
+        </div>
         
         <form method="POST">
             <input type="submit" name="logout" id="logout" value="Logout"/>
         </form>
-        
-        <?php
-            if(session_status() == PHP_SESSION_NONE) {
-                session_start();
-            }
-
-            if($_SESSION['logged_in'] == false){
-                header ("Location: index.php");
-            }  
-
-            if(isset($_POST['logout'])) {
-                echo 'logout';
-                $_SESSION['logged_in'] = false;
-                header ("Location: index.php");
-            }
-        ?>
-
     </body>
 </html>

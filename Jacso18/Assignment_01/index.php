@@ -12,9 +12,9 @@
     </head>
     <body>
         <form method="POST">
-            <label for="email">Email Adress</label>
+            <label for="username">Username</label>
             <br>
-            <input type="text" name="email" placeholder="email" id="email" />
+            <input type="text" name="username" placeholder="username" id="username" />
             <br>
             <label for="password">Password</label>
             <br>
@@ -39,10 +39,11 @@
 
             if(isset($_POST['login'])) {
                 $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_STRING);
-                $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_STRING);
+                $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_STRING);
                 $userController = new UserController();
-                if($userController->validateUser($email, $password)==true){
+                if($userController->validateUser($username, $password)==true){
                     $_SESSION['logged_in'] = true;
+                    $_SESSION['username'] = $username;
                     header ("Location: image_feed.php");
                 } else {
                     $_SESSION['logged_in'] = false;                  

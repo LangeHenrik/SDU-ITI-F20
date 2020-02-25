@@ -14,9 +14,9 @@
     </head>
     <body>
         <form onsubmit="return checkform();" method="POST">
-            <label for="name">Name</label>
+            <label for="username">Username</label>
             <br>
-            <input type="text" name="name" id="name"/>
+            <input type="text" name="username" id="username"/>
             <br>
             <label for="password">Password</label>
             <br>
@@ -37,13 +37,13 @@
                 session_start();
             }
             if(isset($_POST['submit'])) {
-                $name = filter_input(INPUT_POST, "name", FILTER_SANITIZE_STRING);
+                $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_STRING);
                 $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_STRING);
                 $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_STRING);
                 echo $email;
                 $userController = new UserController();
                 if($userController->userExists($email) == false){
-                    $userController->createUser($email,$password,$name);
+                    $userController->createUser($username,$email,$password);
                     echo 'Account has been created';
                 } else {
                     echo 'Mail has already been used';

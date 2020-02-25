@@ -6,27 +6,31 @@ class UserController extends Users {
         $this->setUser($email, $password, $name);
     }
 
-    public function userExists($email){
-        if(sizeof($this->getUserFromMail($email)) <= 0){
+    public function userExists($username){
+        if(sizeof($this->getUserFromUsername($username)) <= 0){
             return false;
-        } elseif (sizeof($this->getUserFromMail($email)) == 1) {
+        } elseif (sizeof($this->getUserFromUsername($username)) == 1) {
             return true;
         } else {
             return false;
         }
     }
     
-    public function validateUser($email, $password){
-        $users = $this->getUserFromMail($email);
+    public function validateUser($username, $password){
+        $users = $this->getUserFromUsername($username);
         foreach ($users as $user){
-            if($user['email'] == $email && $user['password'] == $password){
+            if($user['username'] == $username && $user['password'] == $password){
                 return true;
             } else {
-                echo 'Email or password was wrong';
+                echo 'Username or password was wrong';
                 return false;
             }
         }
 
+    }
+
+    public function createPost($username, $image, $comment){
+        $this->savePost($username, $image, $comment);
     }
 
 }
