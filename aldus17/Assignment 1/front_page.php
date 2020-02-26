@@ -43,6 +43,7 @@ require_once('dbconfig_and_controllers/UserController.php');
 
             $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
             $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
+            $fullname = filter_input(INPUT_POST, 'fullname', FILTER_SANITIZE_STRING);
 
             $usercontrol = new UserController();
 
@@ -57,7 +58,7 @@ require_once('dbconfig_and_controllers/UserController.php');
             } else {
                 //HTTP::redirect("front_page.php");
                 $_SESSION['logged_in'] = false;
-                echo 'Fail login';
+                echo 'Failed login';
                 header("Location: front_page.php");
             }
         }
@@ -68,8 +69,10 @@ require_once('dbconfig_and_controllers/UserController.php');
         ?>
     </div>
 </body>
+<!--
 <footer id="index-footer">
     <p>Assignment 1 course ITI &amp; XI-IT - Aleksander Grzegorz Duszkiewicz (aldus17)</p>
 </footer>
+-->
 
 </html>

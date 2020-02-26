@@ -3,6 +3,9 @@ require_once('dbconfig_and_controllers/DBConnection.php');
 require_once('dbconfig_and_controllers/DBController.php');
 require_once('dbconfig_and_controllers/UserController.php');
 
+$usercontroller = new UserController();
+$usersArray = $usercontroller->getAllUsers();
+
 ?>
 <!DOCTYPE html>
 
@@ -25,6 +28,28 @@ require_once('dbconfig_and_controllers/UserController.php');
         <a href="imagefeed_page.php">Image feed</a>
     </div>
 
+    <div class="userlist_wrapper">
+        <div class="userlist_content">
+            <table class="userlist_table">
+                <tr>
+                    <th>Username</th>
+                    <th>fullname</th>
+                </tr>
+                <?php foreach ($usersArray as $user) { ?>
+                    <tr>
+                        <td><?php echo $user['username']; ?></td>
+                        <td><?php echo $user['fullname']; ?></td>
+                    </tr>
+                <?php
+                } ?>
+            </table>
+        </div>
+    </div>
+    <form method="post">
+        <div class="inner_container">
+            <button class="logoutbtn" name="logoutbtn" type="submit">Log Out</button>
+        </div>
+    </form>
     <?php
 
     $userController = new UserController();

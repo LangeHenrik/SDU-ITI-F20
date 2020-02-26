@@ -21,7 +21,7 @@ class DBController extends DBConnection
                 echo 'Failure on insert';
                 return false;
             } else {
-                echo 'Success on insert';
+                //echo 'Success on insert';
                 return true;
             }
         } else {
@@ -46,7 +46,7 @@ class DBController extends DBConnection
                 echo 'Failure on insert';
                 return false;
             } else {
-                echo 'Success on insert';
+                //echo 'Success on insert';
                 return true;
             }
         } else {
@@ -56,7 +56,6 @@ class DBController extends DBConnection
 
     public function getUserByUsername($username)
     {
-        echo ' get user by username ';
         $select_query = 'SELECT * 
         FROM users 
         WHERE username=:username';
@@ -65,7 +64,6 @@ class DBController extends DBConnection
             $prepare_statement->bindParam(':username', $username);
             $prepare_statement->execute([$username]);
             $query_result = $prepare_statement->fetchAll();
-            echo 'query user after';
             return $query_result;
         } else {
             var_dump($this->db->error);
@@ -102,13 +100,21 @@ class DBController extends DBConnection
 
     public function getAllUsers()
     {
-        $select_query = 'SELECT username FROM users';
+        $select_query = 'SELECT username, fullname FROM users';
         $prepare_statement = $this->openConnection()->prepare($select_query);
         $prepare_statement->execute();
         $query_result = $prepare_statement->fetchAll();
         return $query_result;
     }
-    public function getAllUserImages() {
-        // To be made
+    public function getAllUserImages()
+    {
+        $select_query = 'SELECT username, image, title, description, creationTime
+        FROM users, images
+        WHERE images.userID=users.userID
+        ORDER BY creationTime DESC';
+        $prepare_statement = $this->openConnection()->prepare($select_query);
+        $prepare_statement->execute();
+        $query_result = $prepare_statement->fetchAll();
+        return $query_result;
     }
 }

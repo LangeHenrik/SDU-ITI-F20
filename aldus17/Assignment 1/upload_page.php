@@ -37,6 +37,11 @@ session_start();
             <input type="submit" name="uploadbtn" id="uploadbtn" value="Upload image" />
         </form>
 
+        <form method="post">
+            <div class="inner_container">
+                <button class="logoutbtn" name="logoutbtn" type="submit">Log Out</button>
+            </div>
+        </form>
         <?php
 
         $title = filter_input(INPUT_POST, "title", FILTER_SANITIZE_STRING);
@@ -44,6 +49,8 @@ session_start();
         $usercontroller = new UserController();
 
         if (isset($_POST['uploadbtn'])) {
+
+            filter_input(INPUT_POST, 'imageToBeUploaded', FILT);
 
             $imageFile = $_FILES["imageToBeUploaded"]["name"];
             $target_dir = "../upload/";
@@ -69,7 +76,7 @@ session_start();
         }
         ?>
     </div>
-    <a href="index.php">back to index</a>
+
 </body>
 
 </html>

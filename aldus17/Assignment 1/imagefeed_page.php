@@ -2,6 +2,13 @@
 require_once('dbconfig_and_controllers/DBConnection.php');
 require_once('dbconfig_and_controllers/DBController.php');
 require_once('dbconfig_and_controllers/UserController.php');
+session_start();
+
+$usercontroller = new UserController();
+$userimagefeedArray = $usercontroller->getAllUserImageFeed();
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -24,10 +31,45 @@ require_once('dbconfig_and_controllers/UserController.php');
         <a href="upload_page.php">Upload</a>
         <a href="userlist_page.php">Userlist</a>
     </div>
+    <form method="post">
+        <div class="inner_container">
+            <button class="logoutbtn" name="logoutbtn" type="submit">Log Out</button>
+        </div>
+    </form>
+    <div class="imagefeed_wrapper">
+        <div class="imagefeed_content">
+            <?php foreach ($userimagefeedArray as $imagePost) { ?>
+                <div class="imagefeed">
+                    <h1>
+                        <?php echo $imagePost['title']; ?>
+                    </h1>
+                    <p>
+                        <?php echo $imagePost['description']; ?>
+                    </p>
+
+                    <img src=<?php echo $imagePost['image']; ?> />
+
+                    <p>
+                        <i>
+                            <?php echo 'Posted by:' . str_repeat('&nbsp;', 2)  . $imagePost['username'] . str_repeat('&nbsp;', 2) .
+                                'Created on: ' . $imagePost['creationTime']; ?>
+                        </i>
+                    </p>
+
+                <?php
+            }
+                ?>
+                </div>
+
+        </div>
+    </div>
+
+
+
 
     <?php
 
-    // Todo Get image with associated username, title, description
+    // Todo Get image with associated username, title, description and timestamp
 
     ?>
 </body>

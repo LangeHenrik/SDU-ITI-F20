@@ -1,15 +1,23 @@
 <?php
 
 include_once('DBConnection.php');
+include_once('DBController.php');
 
 class UserController extends DbController
 {
+    //private $dbcontroller;
+
+    //public function __construct()
+    //{
+    //    $this->dbcontroller = new DBController();
+    //}
+
     public function registerUser($username, $fullname, $email, $phone, $password)
     {
         $dbcontroller = new DbController();
 
         if ($dbcontroller->insertUser($username, $fullname, $email, $phone, $password)) {
-            echo 'Inseted user data successfully';
+            // echo 'Inseted user data successfully';
             return true;
         } else {
             echo 'Error while inserting data';
@@ -19,7 +27,7 @@ class UserController extends DbController
 
     public function validateUserForLogin($username, $password)
     {
-        echo ' validate user ';
+
         $dbcontroller = new DbController();
         $userResult = $dbcontroller->getUserByUsername($username);
 
@@ -29,7 +37,7 @@ class UserController extends DbController
 
         foreach ($userResult as $user) {
             if ($user['username'] == $username && $user['password'] == $password) {
-                echo ' validateUser Login success ';
+                //echo ' validateUser Login success ';
                 return true;
             } else {
                 echo 'Failed to login, username or password is wrong';
@@ -57,13 +65,50 @@ class UserController extends DbController
     {
         $dbcontroller = new DBController();
         if ($dbcontroller->insertImage($username, $image, $title, $description)) {
-            echo 'Successfully uploaded image';
+            // echo 'Successfully uploaded image';
             return true;
         } else {
             echo 'Error occured while uploading image';
             return false;
         }
     }
+
+    public function getAllUserImageFeed()
+    {
+        $dbcontroller = new DBController();
+        $images = $dbcontroller->getAllUserImages();
+
+        if (sizeof($images) >= 1) {
+            return $images;
+        } else {
+            echo 'No images in feed found';
+            return false;
+        }
+    }
+
+    public function getAllUsersForUserlist()
+    {
+        $dbcontroller = new DBController();
+        $users = $dbcontroller->getAllUsers();
+
+        if (sizeof($users) >= 1) {
+            return $users;
+        } else {
+            echo 'No users found';
+            return false;
+        }
+    }
+    
+    public static function logout()
+    {
+        if (isset($_POST['logoutbtn'])) {
+            $_SESSION['logged_in'] = false;
+            header("Location: front_page.php");
+            session_destroy();
+            unset($_SESSION['username']);
+        }
+    }
+
     private function cleanData($data)
     {
         $data = trim($data);

@@ -22,7 +22,7 @@ class DBConnection
                 return false;
             }
 
-            echo "Connected successfully to the database";
+            //echo "Connected successfully to the database";
 
             return $pdodbconnection;
         } catch (PDOException $e) {
