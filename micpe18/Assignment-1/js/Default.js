@@ -1,8 +1,38 @@
+var rotated = false;
+var sidebarOut = false;
+
 function openSlideMenu() {
-    document.getElementById("menu").style.width = "250px";
-    document.getElementById("content").style.marginLeft = "250px";
+  if(!sidebarOut){
+    sidebarOut = true;
+    iconRotate()
+    if (!window.matchMedia("(max-width: 1000px)").matches) {
+      document.getElementById("menu").style.width = "250px";
+      document.getElementById("content").style.marginLeft = "250px";
+    } else {
+      document.getElementById("menu").style.width = "500px";
+      document.getElementById("content").style.marginLeft = "500px";
+    }
+  }else{
+    sidebarOut = false;
+    closeSlideMenu()
   }
-  function closeSlideMenu() {
-    document.getElementById("menu").style.width = "0";
-    document.getElementById("content").style.marginLeft = "0";
+
+}
+function closeSlideMenu() {
+  iconRotate()
+  document.getElementById("menu").style.width = "0";
+  document.getElementById("content").style.marginLeft = "0";
+}
+
+function iconRotate(){
+  
+  if(!rotated){
+    rotated = true;
+    document.getElementById("openMenu").style.transform = 'rotate(180deg)';
+    document.getElementById("openMenu").style.transition = '0.7s';
+  }else{
+    rotated = false;
+    document.getElementById("openMenu").style.transform = 'rotate(0deg)';
   }
+}
+
