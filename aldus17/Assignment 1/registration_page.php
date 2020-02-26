@@ -11,6 +11,7 @@ require_once('dbconfig_and_controllers/UserController.php');
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="js/formCheck.js"></script>
+    <!---->
     <link rel="stylesheet" href="css/registration_page_style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <html lang="en">
@@ -30,7 +31,7 @@ require_once('dbconfig_and_controllers/UserController.php');
                 <input type="text" name="username" id="username" placeholder="type a username" required>
 
                 <label for="fullname" id="fullname-label">Forname and lastname: </label>
-                <input type="text" name="fullname" id="fullname" placeholder="Type forname and lastname">
+                <input type="text" name="fullname" id="fullname" title="Please enter your first and lastname" pattern="^(\w+\s).+$" placeholder="Type forname and lastname" required>
 
                 <label for="email" id="email-label">Email: </label>
                 <input type="email" name="email" id="email" placeholder="type email" required>

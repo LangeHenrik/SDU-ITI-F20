@@ -7,8 +7,6 @@ session_start();
 $usercontroller = new UserController();
 $userimagefeedArray = $usercontroller->getAllUserImageFeed();
 
-
-
 ?>
 
 <!DOCTYPE html>

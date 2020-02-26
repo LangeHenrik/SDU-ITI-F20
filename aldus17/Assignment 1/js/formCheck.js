@@ -53,23 +53,32 @@ function checkEmailAddress() {
 
 /**
  * Minimum length (3). 
- * Maximum length(24). 
+ * Maximum length(16). 
  * Can only contain alphanumeric characters and the following special characters: dot (.), underscore(_) and dash (-). 
  * The special characters cannot appear more than once consecutively or combined.
  */
-function checkUsername() {
-    var username = document.getElementById("username").value;
-    var regEx = new RegExp(/(?!.*[\.\-\_]{2,})^[a-zA-Z0-9\.\-\_]{3,16}$/gm);
 
-    if (regEx.test(username)) {
+function checkUsername() {
+    var username = document.getElementById("username");
+    // var usr = document.getElementById("username").addEventListener("invalid");
+    var regEx = new RegExp(/(?!.*[\.\-\_]{2,})^[a-zA-Z0-9\.\-\_]{3,16}$/gm);
+    username.setAttribute("pattern", "(?!.*[\.\-\_]{2,})^[a-zA-Z0-9\.\-\_]{3,16}");
+    username.setAttribute("title", "Length should be between 3-16.\
+     Can only contain alphanumeric characters and the following special characters: dot (.), underscore(_) and dash (-).\
+    special characters cannot appear more than once consecutively or combined.");
+
+
+    if (regEx.test(username.value)) {
         changeLabelColor("username-label", "green");
         return true;
 
     } else {
         changeLabelColor("username-label", "red");
-        return false;
+
     }
+    return false;
 }
+
 
 function validatePassword() {
     if (document.getElementById('password').value == document.getElementById('password_confirm').value) {
