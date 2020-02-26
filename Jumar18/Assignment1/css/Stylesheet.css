@@ -1,4 +1,5 @@
 * {
+<<<<<<< HEAD:Jumar18/Assignment1/css/Stylesheet.css
   box-sizing: border-box;
 }
 
@@ -33,9 +34,24 @@
   body {
     background-color: lightblue !important;
   }
+=======
+    margin: 0;
+    padding: 0;
+}
+
+@media screen and (max-width:750px) {
+    .sidenav li:last-child {
+        position: relative !important;
+    }
+>>>>>>> Jumar18:Jumar18/Assignment1/Stylesheet.css
+}
+
+html {
+    height: 100%;
 }
 
 body {
+<<<<<<< HEAD:Jumar18/Assignment1/css/Stylesheet.css
   background-color: #d4d4d4;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   color: #555;
@@ -52,6 +68,20 @@ h1 {
   text-shadow: 2px 2px gray;
   text-align: center;
   padding: 20px;
+=======
+    background-color: #d4d4d4;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #555;
+    font-size: 16px;
+    min-height: 100%;
+}
+
+h1 {
+    text-transform: uppercase;
+    font-weight: 900;
+    text-shadow: 2px 2px gray;
+    padding: 20px;
+>>>>>>> Jumar18:Jumar18/Assignment1/Stylesheet.css
 }
 
 .headingh1 {
@@ -68,6 +98,7 @@ h2 {
   font-weight: bolder;
 }
 
+<<<<<<< HEAD:Jumar18/Assignment1/css/Stylesheet.css
 nav {
   background-color: #f1f1f1;
   position: fixed;
@@ -182,6 +213,129 @@ input {
   color: #555;
   font-size: 35px;
   font-weight: bold;
+=======
+.itemheader {
+    grid-area: header;
+}
+
+.grid-container .itemmenu {
+    grid-area: menu;
+    padding: 0 !important;
+    position: relative;
+}
+
+.itemmain {
+    grid-area: main;
+    margin: 0 auto;
+}
+
+.itemfooter {
+    grid-area: footer;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+    align-items: center;
+    height: 70px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-areas: 'menu header header header' 'menu main main main' 'menu . . .';
+    grid-gap: 10px;
+    height: 100vh;
+    grid-template-rows: 100px auto;
+}
+
+.grid-container-login {
+    display: grid;
+    grid-template-areas: 'header header' 'main main' 'footer footer';
+    grid-gap: 10px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 10px;
+    margin: 10px 10px 10px 0;
+}
+
+.grid-container>div {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.sidenav {
+    background-color: #f1f1f1;
+    height: 100%;
+}
+
+ul {
+    list-style-type: none !important;
+}
+
+.sidenav li:last-child {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.sidenav li a {
+    display: block;
+    color: gray;
+    padding: 12px 18px;
+    text-decoration: none;
+}
+
+.sidenav li a:hover {
+    background-color: lightblue;
+    color: white;
+}
+
+img.avatar {
+    border-radius: 50%;
+    display: block;
+    margin: 2% auto;
+    padding: 10px;
+}
+
+.bg-modal {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+}
+
+.modal {
+    background-color: #fefefe;
+    border: none;
+    box-shadow: 2px 3px rgb(180, 180, 180);
+    border-radius: 8px;
+    padding: 20px;
+    width: 25%;
+    min-width: 28vh;
+}
+
+input {
+    padding: 5px;
+    border-radius: 3px;
+    height: 12px;
+    margin-bottom: 8%;
+}
+
+.close {
+    position: absolute;
+    right: 12px;
+    top: 0;
+    color: #fefefe;
+    font-size: 35px;
+    font-weight: bold;
+>>>>>>> Jumar18:Jumar18/Assignment1/Stylesheet.css
 }
 
 .close:hover,
@@ -199,7 +353,13 @@ input {
 }
 
 .btncancel {
+<<<<<<< HEAD:Jumar18/Assignment1/css/Stylesheet.css
   background-color: red;
+=======
+    background-color: red;
+    grid-row: 3;
+    grid-column: 2;
+>>>>>>> Jumar18:Jumar18/Assignment1/Stylesheet.css
 }
 
 .btncancel:hover {
@@ -208,7 +368,13 @@ input {
 }
 
 .btnsubmit {
+<<<<<<< HEAD:Jumar18/Assignment1/css/Stylesheet.css
   background-color: green;
+=======
+    background-color: green;
+    grid-row: 3;
+    grid-column: 1;
+>>>>>>> Jumar18:Jumar18/Assignment1/Stylesheet.css
 }
 
 .btnsubmit:hover {
