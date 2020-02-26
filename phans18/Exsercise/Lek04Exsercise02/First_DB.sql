@@ -1,3 +1,8 @@
+DROP DATABASE IF EXISTS iti;
+CREATE DATABASE  iti;
+USE iti;
+DROP TABLE IF EXISTS Auther;
+
 CREATE TABLE Auther (
 	Id INT PRIMARY KEY AUTO_INCREMENT,
     Auther_name VARCHAR(20) UNIQUE,
@@ -10,7 +15,5 @@ INSERT INTO Auther(Auther_name, Auther_title) VALUE ('Mr. Test 2', 'Why the Answ
 SELECT * FROM Auther;
 SELECT * FROM Auther WHERE Auther_title LIKE '%42%';
 
-
-DROP TABLE AUTHER;
 
 
