@@ -13,7 +13,8 @@ Create TABLE users(
 CREATE TABLE posts(
     post_id INT PRIMARY KEY AUTO_INCREMENT,
     user_id INT,
-    image blob NOT NULL,
+    image MEDIUMBLOB NOT NULL,
+    title VARCHAR(150) NOT NULL,
     comment VARCHAR(150) NOT NULL DEFAULT '',
     timestamp DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY(user_id) REFERENCES users(user_id)
