@@ -13,6 +13,9 @@
   .nested > div {
     font-size: 3vw !important;
   }
+  .nested > div h3 {
+    font-size: 5vw !important;
+  }
   .nested > p {
     font-size: 2vw !important;
   }
