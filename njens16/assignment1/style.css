@@ -1,10 +1,12 @@
 div.header {
+    background-color: #FFFFFF;
     padding = 10 px;
     text-align: center;
     font-size: 1vw;
     overflow: hidden;
 }
 div.menu {
+    background-color: #FFFFFF;
     padding = 10 px;
     text-align: center;
     overflow: hidden;
