@@ -1,12 +1,3 @@
-
-
-
-
-
-
-
-
-
 <?php
 //get all users into array
 require 'database.php';
