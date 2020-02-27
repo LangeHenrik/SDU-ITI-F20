@@ -102,8 +102,10 @@ if ($_SESSION["logged_in"]) :
                     <label for="regPasswordRepeat"><b>Repeat Password</b></label>
                     <input type="password" placeholder="Repeat Password" name="regPasswordRepeat" id="reqPasswordRepeat" required/>
                     <label class="inputInfo" id="invalidPass"></label>
-                    <button type="button" name="cancelButton" id="cancelButton" class="cancelbtn">Cancel</button>
-                    <button type="submit" class="signupbtn">Sign Up</button>
+                    <div class="clearfix">
+                        <button type="button" name="cancelButton" id="cancelButton" class="cancelbtn">Cancel</button>
+                        <button type="submit" class="signupbtn">Sign Up</button>
+                    </div>
                 </div>
             </form>
         </div>

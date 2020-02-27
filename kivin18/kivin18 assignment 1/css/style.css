@@ -75,6 +75,7 @@ button:hover {
 }
 
 .cancelbtn {
+
   background-color: darkred;
 }
 
@@ -139,4 +140,10 @@ hr {
 #close:focus {
   color: #f44336;
   cursor: pointer;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
 }
