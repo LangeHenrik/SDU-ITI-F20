@@ -11,7 +11,11 @@ CREATE TABLE person (
 );
 
 CREATE TABLE feed (
+   feed_id INT UNSIGNED AUTO_INCREMENT,
 	photo BLOB NOT NULL,
 	head VARCHAR(25) NOT NULL, 
-	description VARCHAR(250) NOT NULL
+	description VARCHAR(250) NOT NULL,
+	person_id int UNSIGNED,
+	PRIMARY KEY (feed_id),
+   FOREIGN KEY (person_id) REFERENCES person(person_id)
 );
