@@ -1,21 +1,21 @@
 <?php
     include 'includes/autoload.php';
-
 ?>
 <?php
     session_start();
             
     $userController = new UserController();
-    $posts = $userController->getAllPosts();
+    $users = $userController->getAllUsers();
 
     Utility::redirectIfNotLoggedIn();
     Utility::logoutPressed();
+
 ?>
 
 <!DOCTYPE html>
 <html>   
     <head>
-        <title>Image Feed</title>
+        <title>User list</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
         <html lang="en">        
@@ -28,16 +28,14 @@
         </ul>
         <div class="wrapper">
             <div class= "content">
-                <?php foreach($posts as $post){?>
-                <div class="post">
-                    <h1><?php echo $post['title'];?></h1>
-                    <p><?php echo 'Posted by: ' . $post['username'] . ' at ' . $post['timestamp']; ?> </p>
-                    <img src=<?php echo $post['image']; ?> />
-                    <p><?php echo $post['COMMENT']; ?></p>
+                <?php foreach($users as $user){?>
+                <div class="users">
+                    <p><?php echo $user['username']; ?> </p>
+                    <br>
+                    <p><?php echo $user['email']; ?></p>
                     <br/>
                 </div>
-                <?php
-                }?>
+                <?php }?>
             </div>
         </div>
         

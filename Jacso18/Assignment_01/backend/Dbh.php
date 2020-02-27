@@ -4,12 +4,6 @@ include "db_config.php";
 
 class Dbh {
     private $dbconfig = null;
-    
-/*     private $host = "127.0.0.1";
-    private $user = "root";
-    private $pwd = "";
-    private $dbName = "iti_assignment_01"; */
-
     private $charset = "utf8mb4";
     private $options = [
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
