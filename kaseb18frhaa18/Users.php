@@ -9,6 +9,12 @@
 
 <?php
 //get all users into array
+require 'database.php';
+
+if (!isset($users)) {
+    $statement = "SELECT username, name FROM person";
+    $users = getInfoFromDB($statement);
+}
 
 $q = $_REQUEST["q"];
 
@@ -19,8 +25,9 @@ if ($q !== "") {
     $q = filter_var($q, FILTER_SANITIZE_STRING);
     $q = strtolower($q);
     $len=strlen($q);
-    foreach($a as $name) {
-        if (stristr($q, substr($name, 0, $len))) {
+    foreach($users as $name) {
+        if (stristr($q, substr($name[0], 0, $len))or stristr($q, substr($name[1], 0, $len))) {
+            //make values into a part of list
             if ($hint === "") {
                 $hint = $name;
             } else { 
@@ -30,6 +37,6 @@ if ($q !== "") {
     }
 }
 
-// Output "no suggestion" if no hint was found or output correct values
+// 
 echo $hint === "" ? "no suggestion" : $hint;
 ?>
