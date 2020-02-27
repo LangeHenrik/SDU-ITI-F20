@@ -1,5 +1,6 @@
 function findUsers(userName) {
     if (str.length == 0) {
+        //get all users
         document.getElementById("users").innerHTML = "";
         return;
     } else {
