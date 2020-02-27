@@ -9,7 +9,9 @@ if (!isset($users)) {
 
 $q = $_REQUEST["q"];
 
-$hint = "";
+$hint = "<tr><th>Name</th>
+<th>Username</th>
+</tr>";
 
 // lookup all hints from array if $q is different from ""
 if ($q !== "") {
@@ -18,16 +20,11 @@ if ($q !== "") {
     $len=strlen($q);
     foreach($users as $name) {
         if (stristr($q, substr($name[0], 0, $len))or stristr($q, substr($name[1], 0, $len))) {
-            //make values into a part of list
-            if ($hint === "") {
-                $hint = $name;
-            } else { 
-                $hint .= ", $name";
-            }
+            $hint .= "<tr> <td> $name[0] </td> <td> $name[1] </td> <tr>";
         }
     }
 }
 
 // 
-echo $hint === "" ? "no suggestion" : $hint;
+echo $hint;
 ?>

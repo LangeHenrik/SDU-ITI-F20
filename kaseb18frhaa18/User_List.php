@@ -6,9 +6,16 @@
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
 <!--Comment-->
-    <body>
-        <h1>Header</h1>
-        <p>General content</p>
-        <a href="url">A link</a>
+    <body onload="findUsers('')">
+        <div class="userform">
+            <form>
+                Find user: <input type="text" onkeyup="findUsers(this.value)" >
+            </form>
+            <div>
+                <table id="users">
+                </table>
+            </div>
+
+        </div>
     </body>
 </html>
