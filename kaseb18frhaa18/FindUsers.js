@@ -10,7 +10,8 @@ function findUsers(userName) {
                 document.getElementById("users").innerHTML = this.responseText;
             }
         };
-        xmlhttp.open("GET", "findusers.php?q=" + str, true);
+        xmlhttp.open("GET", "Users.php?q=" + str, true);
         xmlhttp.send();
     }
+
 }
