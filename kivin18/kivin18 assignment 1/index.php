@@ -13,28 +13,28 @@
 <?php
 $config = require('db_config.php');
 $host = $config["host"];
-$db   = $config["db"];
+$db = $config["db"];
 $user = $config["user"];
 $pass = $config["pass"];
 
 $dsn = "mysql:host=$host;dbname=$db";
 $options = [
-    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-    PDO::ATTR_EMULATE_PREPARES   => false,
+    PDO::ATTR_EMULATE_PREPARES => false,
 ];
 
 try {
     $pdo = new PDO($dsn, $user, $pass, $options);
 } catch (PDOException $e) {
-   echo "Error: " .$e->getMessage();
+    echo "Error: " . $e->getMessage();
 }
 
 $correct_username = "john";
 $correct_password = "1234";
 
-$username = $_POST["username"] ?? "";
-$password = $_POST["password"] ?? "";
+$username = htmlentities($_POST["username"] ?? "");
+$password = htmlentities($_POST["password"] ?? "");
 
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
@@ -67,22 +67,48 @@ if ($_SESSION["logged_in"]) :
     </div>
 <?php else : ?>
     <!-- Login -->
-    <div id="loginForm" name="loginForm">
-        <form id="login" name="login" method="post">
-            <label for="username">Username</label>
-            <br/>
-            <input type="text" placeholder="Enter username" name="username" id="username" required/>
-            <br/>
-            <label for="password">Password</label>
-            <br/>
-            <input type="password" placeholder="Enter password" name="password" id="password" required/>
-            <br/>
-            <button value="Login" type="submit">Login</button>
-            <br/>
-            <label name="wrongInfo" id="wrongInfo"></label>
-        </form>
-        <button id="registerButton">Sign Up</button>
+    <div class="wrapper">
+        <div id="loginForm" name="loginForm">
+            <form id="login" name="login" method="post">
+                <label for="username">Username</label>
+                <br/>
+                <input type="text" placeholder="Enter username" name="username" id="username" required/>
+                <br/>
+                <label for="password">Password</label>
+                <br/>
+                <input type="password" placeholder="Enter password" name="password" id="password" required/>
+                <br/>
+                <button value="Login" type="submit">Login</button>
+                <br/>
+                <label name="wrongInfo" id="wrongInfo"></label>
+            </form>
+            <button id="registerButton">Sign Up</button>
+        </div>
+        <!-- Sign up modal -->
+        <div id="modalForm" class="modal">
+            <span id="closeModal" id="closeModal" title="Close Modal">&times;</span>
+            <form class="modal-content" onsubmit="return checkFields()">
+                <div class="container">
+                    <h1>Sign up here!</h1>
+                    <hr>
+                    <label for="username"><b>Username</b></label>
+                    <input type="text" placeholder="Enter username" name="regUsername" id="regUsername" onfocusout="checkName()" required/>
+                    <div class="inputInfo">
+                        <label class="inputInfo" id="invalidName"></label>
+                    </div>
+                    <br/>
+                    <label for="regPassword"><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="regPassword" id="regPassword" onfocusout="checkPass()" required/>
+                    <label for="regPasswordRepeat"><b>Repeat Password</b></label>
+                    <input type="password" placeholder="Repeat Password" name="regPasswordRepeat" id="reqPasswordRepeat" required/>
+                    <label class="inputInfo" id="invalidPass"></label>
+                    <button type="button" name="cancelButton" id="cancelButton" class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Sign Up</button>
+                </div>
+            </form>
+        </div>
     </div>
 <?php endif; ?>
+<script src="js/index.js"></script>
 </body>
 </html>
