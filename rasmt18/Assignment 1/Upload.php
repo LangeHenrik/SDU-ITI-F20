@@ -39,24 +39,24 @@
 </html>
 <?php
 
-$username="username"; //hardvoded TODO get password from input
-$password='Passw0rd8'; //hardcoded TODO get password from input
+// $username="username"; //hardvoded TODO get password from input
+// $password='Passw0rd8'; //hardcoded TODO get password from input
 
-session_start();
+// session_start();
 
-if(isset($_SESSION['username'])){
-    //echo "<h1>Welcome ".$_SESSION['username']."</h1>";
-    //echo "<a href='product.php'>Product</a><br>";
-    //echo "<br><a href='logout.php'><input type=button value=logout name=logout></a>";
-}
-else{
-    if($_POST['username']==$username && $_POST['password']==$password){
-        $_SESSION['username']=$username;
-        echo "<script>location.href='Upload.php'</script>";
-    }
-    else{
-        echo "<script>alert('Please login to procede! Please check your credentials.')</script>"; 
-        echo "<script>location.href='index.php'</script>";
-    }
-}
+// if(isset($_SESSION['username'])){
+//     //echo "<h1>Welcome ".$_SESSION['username']."</h1>";
+//     //echo "<a href='product.php'>Product</a><br>";
+//     //echo "<br><a href='logout.php'><input type=button value=logout name=logout></a>";
+// }
+// else{
+//     if($_POST['username']==$username && $_POST['password']==$password){
+//         $_SESSION['username']=$username;
+//         echo "<script>location.href='Upload.php'</script>";
+//     }
+//     else{
+//         echo "<script>alert('Please login to procede! Please check your credentials.')</script>"; 
+//         echo "<script>location.href='index.php'</script>";
+//     }
+// }
 ?>

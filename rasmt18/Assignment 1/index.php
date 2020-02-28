@@ -38,22 +38,22 @@
 </html> 
 
 <?php
-    if (isset($_POST['submit'])) {
-        $un=$_POST['username'];
-        $pw=$_POST['password'];
-        $wrongpw="Invalid password!";
-        $wrongun="Invalid username!";
+    // if (isset($_POST['submit'])) {
+    //     $un=$_POST['username'];
+    //     $pw=$_POST['password'];
+    //     $wrongpw="Invalid password!";
+    //     $wrongun="Invalid username!";
 
-        if ($un=='username' && $pw=='Passw0rd8') {
-            header("location:ImageFeed.php");
-            exit();
-        } elseif ($un != 'username' && $pw == 'Passw0rd8') {
-           echo "<p align=center>$wrongun </p>";
-        } elseif ($un=='username' && $pw!='Passw0rd8') {
-           echo "<p align=center>$wrongpw </p>";
-        }
-        else
-            echo "<p align=center>$wrongun And $wrongpw </p>";
-    }
+    //     if ($un=='username' && $pw=='Passw0rd8') {
+    //         header("location:ImageFeed.php");
+    //         exit();
+    //     } elseif ($un != 'username' && $pw == 'Passw0rd8') {
+    //        echo "<p align=center>$wrongun </p>";
+    //     } elseif ($un=='username' && $pw!='Passw0rd8') {
+    //        echo "<p align=center>$wrongpw </p>";
+    //     }
+    //     else
+    //         echo "<p align=center>$wrongun And $wrongpw </p>";
+    // }
 
 ?>
