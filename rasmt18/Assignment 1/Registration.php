@@ -26,9 +26,11 @@
                     <br>
                     <input type="Submit" name="submit" value="Register">
                     
+                    
                 </fieldset>
             </form>
         <p>If you are having trouble registering, please contact support.</p>
+        <br>
     </div>
 </body>
 </html>
