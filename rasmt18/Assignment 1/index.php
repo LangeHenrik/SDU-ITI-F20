@@ -27,7 +27,7 @@
                 <br>
                 <input type="password" name="password">
                 <br>
-                <input type="submit" name="submit" value="Submit">
+                <input type="submit" name="submit" value="Login">
             </fieldset>
         </form>
         <p>Don't have an account yet, don't worry. Just enter the registration page in the link below</p>
