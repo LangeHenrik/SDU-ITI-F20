@@ -22,7 +22,7 @@
                     
                 </fieldset>
             </form>
-
+        <p>If you are having trouble registering, please contact support.</p>
     </div>
 </body>
 </html>
