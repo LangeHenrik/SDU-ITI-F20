@@ -47,7 +47,7 @@ div.div-form input[type="submit"]
     border: none;
     outline: none;
     height: 40px;
-    background: #fb2525;
+    background: red;
     color: #fff;
     font-size: 18px;
     border-radius: 20px;

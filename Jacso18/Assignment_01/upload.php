@@ -33,8 +33,6 @@
                 <br>
                 <input type="submit" name="upload" id="upload" value="upload">
             </form>
-
-
         </div>
 
 
@@ -71,7 +69,6 @@
                     echo 'The file has to be either jpg, jpeg, png or gif';
                 }
             }
-
             Utility::redirectIfNotLoggedIn();
             Utility::logoutPressed();
 
