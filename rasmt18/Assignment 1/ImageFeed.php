@@ -10,6 +10,27 @@
 <body>
     <div class="content">
         <script src="./javascript/Menu.js"></script>
+        <?php
+        require_once 'db_config.php';
+        try {
+        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username,
+        $password,
+        array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+        $stmt = $conn->prepare("Select * from image");
+        $stmt->execute();
+        $stmt->setFetchMode(PDO::FETCH_ASSOC); 
+        $result = $stmt->fetchAll();
+            foreach($result as $row) {
+                $str = $row[img];
+                echo "<img src=".base64_encode($str)."></img>";
+                echo '<img src="data:image/jpeg;base64,'.base64_decode( $result['img'] ).'"/>';
+            }
+        } 
+        catch (PDOException $e) {
+        echo "Error: " . $e->getMessage();
+        }
+    $conn = null;
+    ?>
         <h1>Image Feed</h1>
         <h2>Look at all the cool images below</h2>
         <p>Header</p>
