@@ -7,6 +7,7 @@
     <title>Registration</title>
 </head>
 <body>
+    <script src="./javascript/Menu.js"></script>
     <div class="content" id="registration">
         <h1>Registration</h1>
             <form method="POST" action=>
