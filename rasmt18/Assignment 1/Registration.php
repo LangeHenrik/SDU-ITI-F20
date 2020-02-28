@@ -32,11 +32,34 @@
                         <input type="Submit" name="submit" value="Register" id="submit">
                         
                         
-                    </fieldset>
+                    </fieldset> 
                 </form>
             <p>If you are having trouble registering, please contact support.</p>
             <br>
         </div>
     <script src="regExRegistration.js"></script>
-</body>
+    <?php
+    //      TODO - We have to check that the regex is fulfilled before we commit to the database,
+    //      this code will just insert it without checking
+    //     require_once 'db_config.php';
+    //     try {
+    //     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username,
+    //     $password,
+    //     array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+    //     $stmt = $conn->prepare("INSERT INTO user (username, password) VALUES(:username, :password)");
+    //     $stmt->bindParam(':username', $_POST[username]);
+    //     $stmt->bindParam(':password', $_POST[password]);
+
+    //     $stmt->execute(); 
+    //     $stmt->setFetchMode(PDO::FETCH_ASSOC); 
+    //     $result = $stmt->fetchAll();
+    //     echo $result;
+
+    //     } 
+    //     catch (PDOException $e) {
+    //     echo "Error: " . $e->getMessage();
+    //     }
+    // $conn = null;
+    ?>
+    </body>
 </html>
