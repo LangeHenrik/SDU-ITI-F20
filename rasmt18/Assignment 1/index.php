@@ -31,6 +31,11 @@
         </form>
         <p>Don't have an account yet, don't worry. Just enter the registration page in the link below</p>
         <a href="registration.php">Registration page</a>
+        <form action="/action_page.php">
+  <label for="img">Select image:</label>
+  <input type="file" id="img" name="img" accept="image/*">
+  <input type="submit">
+</form>
     <div>
 </body>
 </html> 
