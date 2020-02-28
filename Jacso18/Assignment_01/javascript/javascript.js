@@ -1,19 +1,18 @@
 function checkform(){
-    return checkname() && 
+    return checkname() &&
     checkpassword() &&
     checkMail();
 }
 
 function checkname(){
-    let nameRegEx = new RegExp(/[A-Za-zÆØÅæøå1-9]/g);
+    let nameRegEx = new RegExp(/[A-Za-zÆØÅæøå1-9]{1,}/g);
     let nameInput = document.getElementById("username");
     if(nameRegEx.test(nameInput.value)){
         console.log('Cool name');
-        document.getElementById("username").style.outlineColor = "#00e64d";
+        document.getElementById("username").style.background = "#adebad";
         return true;
     } else {
         console.log('Not so cool name');
-        document.getElementById("username").style.outlineColor = "#ff0000";
         return false;
     }
 }
@@ -23,25 +22,26 @@ function checkpassword(){
     let passwordInput = document.getElementById("password");
     if(passwordRegEx.test(passwordInput.value)){
         console.log('Password good');
-        document.getElementById("password").style.outlineColor = "#00e64d";
+        document.getElementById("password").style.background = "#adebad";
         return true;
     } else {
         console.log('Password not good');
-        document.getElementById("password").style.outlineColor = "#ff0000";
+        document.getElementById("password").style.background = "#ff6666";
         return false;
     }
 }
+
 
 function checkMail(){
     let mailRegEx = new RegExp(/\S+@\S+\.([a-z]|[A-Z]){1,5}/g);
     let mailInput = document.getElementById("email");
     if(mailRegEx.test(mailInput.value)){
         console.log('mail good');
-        document.getElementById("email").style.outlineColor = "#00e64d";
+        document.getElementById("email").style.background = "#adebad";
         return true;
     } else {
         console.log('mail not good');
-        document.getElementById("email").style.outlineColor = "#ff0000";
+        document.getElementById("email").style.background = "#ff6666";
         return false;
     }
 }

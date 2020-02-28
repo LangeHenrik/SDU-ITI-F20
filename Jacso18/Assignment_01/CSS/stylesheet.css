@@ -6,6 +6,26 @@ body {
     font-family: sans-serif;
 }
 
+ul.menu{
+    background-color: lightblue;
+    width: 100%;
+    height: 100px;
+    list-style-type: none;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+li a{
+    display: block;
+    background-color: blue;
+    color: white;
+    text-decoration: none;
+    padding: 20px;
+    float: left;
+
+}
+
 div.div-form{
     width: 320px;
     height: auto;
@@ -53,5 +73,7 @@ div.div-form input[type="submit"]
     border-radius: 20px;
     text-align: center;
 }
+
+
 
 

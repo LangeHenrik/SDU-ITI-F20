@@ -21,7 +21,8 @@ class UserController extends Users {
     public function validateUser($username, $password){
         $users = $this->getUserFromUsername($username);
         foreach ($users as $user){
-            if($user['username'] == $username && $user['password'] == $password){
+            $hash = $user['password'];
+            if($user['username'] == $username && password_verify($password,$hash)){
                 return true;
             } else {
                 echo 'Username or password was wrong';

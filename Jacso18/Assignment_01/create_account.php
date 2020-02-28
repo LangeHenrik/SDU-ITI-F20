@@ -17,7 +17,7 @@ include 'includes/autoload.php';
 
 <body>
     <div class="div-form">
-        <form class="form" onblur="" onsubmit="checkform();" method="POST">
+        <form class="form"  onblur="" onsubmit="return checkform();" method="POST">
             <div class="field-name">
                 <i class="fas fa-user"></i>
                 <input type="text" name="username" id="username" placeholder="Username" onkeyup="checkname()" onchange="checkname()" onblur="checkname()" />
@@ -49,7 +49,7 @@ include 'includes/autoload.php';
         $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_STRING);
         $userController = new UserController();
         if ($userController->userExists($username) == false) {
-            $userController->createUser($username, $email, $password);
+            $userController->createUser($username, $email, password_hash($password,PASSWORD_DEFAULT));
             echo 'Account has been created';
         } else {
             echo 'Username has already been used';

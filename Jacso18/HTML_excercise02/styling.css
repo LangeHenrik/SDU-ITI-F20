@@ -10,9 +10,8 @@ ul.menu{
     overflow: hidden;
     margin: 0;
     padding: 0;
-    
-
 }
+
 li a{
     display: block;
     background-color: blue;
