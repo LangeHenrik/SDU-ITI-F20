@@ -7,6 +7,7 @@
     <title>Registration</title>
 </head>
 <body>
+
         <div class="content" id="registration">
             <h1>Registration</h1>
                 <form onKeyUp="return checkFields()" method="POST" action=>

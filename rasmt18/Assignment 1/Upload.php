@@ -7,7 +7,8 @@
     <title>Upload page</title>
 </head>
 <body>
-<div class="content" id="upload">
+    <div class="content" id="upload">
+        <script src="./javascript/Menu.js"></script>
         <h1>Upload page</h1>
             <h2>Here you can upload your pictures</h2>
                 <form method="POST" action=>
