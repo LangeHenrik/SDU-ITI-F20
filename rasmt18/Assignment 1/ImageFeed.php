@@ -8,8 +8,8 @@
     <title>Document</title>
 </head>
 <body>
-    <script src="./javascript/Menu.js"></script>
     <div class="content">
+        <script src="./javascript/Menu.js"></script>
         <h1>Image Feed</h1>
         <h2>Look at all the cool images below</h2>
         <p>Header</p>

@@ -1,15 +1,21 @@
+*{
+    margin: 0px; 
+    padding: 0;
+}
 body {
 	background-color: lightgrey;
 }
 .Menu {
     text-align: center;
     height: 100px;
+    margin-bottom: 0px;
+    width: 100%;
 }
 .Menu li a {
     display: block;
     background-color: blue;
     color: white;
-    padding: 35px;
+    padding: 30px;
     text-decoration: none;
 }
 .Menu li a:hover {
@@ -25,10 +31,13 @@ ul.menu-bar {
     overflow: hidden;
     margin: 0;
     padding: 0;
+    margin-bottom: 0px;
+
       
 }
 .content {
     background-color: rgb(180, 35, 35);
     text-align: center;
+    margin-top: 0px;
     
 } 

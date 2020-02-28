@@ -7,8 +7,8 @@
     <title>Document</title>
 </head>
 <body>
-    <script src="./javascript/Menu.js"></script>
     <div class="content">
+        <script src="./javascript/Menu.js"></script>
         <h1>Here you can see a list of all the users registrated to this page</h1>
         <p>Username</p>
     </div>

@@ -7,8 +7,8 @@
     <title>Front Page</title>
 </head>
 <body>
-    <script src="./javascript/Menu.js"></script>
     <div class="content">
+        <script src="./javascript/Menu.js"></script>
         <h1>ITI - Assignment 1</h1>
         <p>Group Members</p>
         <ul>
