@@ -1,32 +1,13 @@
 
 body {
+
     margin: 0;
     padding: 0;
-    background-color:white;
+    background-color:lightgrey;
     font-family: sans-serif;
 }
 
-
-/* ul.menu{
-    background-color: lightblue;
-    width: 100%;
-    list-style-type: none;
-    overflow: hidden;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-}
-
-
-li a{
-    display: inline;
-    background-color: blue;
-    color: white;
-    text-decoration: none;
-    padding: 20px;
-    margin: 20px;
-}
- */
+ /* Menu elements */
 
  ul.menu {
     background-color: lightblue;
@@ -44,11 +25,15 @@ div.center {
 }
 
 nav {
+    top:0;
+    position: fixed;
     width: 100%;
     background-color: #55AAFF;
+    margin-bottom: 20px;
 }
 
 li a {
+
     display: block;
     background-color: #3399FF;
     color: white;
@@ -64,13 +49,13 @@ li a:hover {
 li {
     float: left;
 }
+/* End of menu elements */
+
+/* User form begin */
 
 div.div-form{
     width: 320px;
     height: auto;
-    border-style: solid;
-    border-color:lightgrey;
-    border-width: 2px;
     background: whitesmoke;
     color: black;
     top:50%;
@@ -80,6 +65,7 @@ div.div-form{
     box-sizing: border-box;
     padding: 60px;
     resize: both;
+    box-shadow: 0px 3px 4px 0px rgba(0,0,0,0.75);
 }
 
 
@@ -95,7 +81,7 @@ div.div-form input{
 div.div-form input[type="text"], input[type="password"]
 {
     border: none;
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid grey;
     background: transparent;
     outline: none;
     height: 40px;
@@ -115,6 +101,52 @@ div.div-form input[type="submit"]
     text-align: center;
 }
 
+/* User form end */
+
+/* Image feed start */
+
+div.wrapper{
+    margin-top: 80px;
+}
+
+div.post{
+    background: whitesmoke;
+    border-radius: 2px;
+    box-shadow: 0px 0px 1px 1px rgba(184,175,184,0.56);
+    margin: 0 auto;
+    width:600px;
+    height:auto;
+    box-sizing: border-box;
+}
+
+div.post p{
+    padding-left:5px;
+    padding-right:5px;
+}
+div.post img{
+        width:600px;
+        max-height: 300px;
+        min-height:300px;
+}
+
+/* Image feed end */
 
 
+/* Upload page start */
+div.wrapper{
+    margin-top: 80px;
+}
 
+div.uploadform{
+    background: whitesmoke;
+    border-radius: 2px;
+    box-shadow: 0px 0px 1px 1px rgba(184,175,184,0.56);
+    margin: 0 auto;
+    width:400px;
+    height:auto;
+    box-sizing: border-box;
+}
+
+form.uploadform{
+    margin: 10px;
+}
