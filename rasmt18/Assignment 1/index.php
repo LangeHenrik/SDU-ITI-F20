@@ -16,7 +16,7 @@
             <li>Rasmus Thomsen</li>
             <li>Søren Pederson</li>
         </ul>
-        <form class="login" name="login" method="POST">
+        <form class="login" name="login" method="POST" action="ImageFeed.php">
             <fieldset>
                 <legend>Please enter your credentials to login</legend>
                 <label for="username">Username</label>
