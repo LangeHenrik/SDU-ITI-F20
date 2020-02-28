@@ -1,6 +1,6 @@
 <?php
 $loggedIn == False;
-if($_POST["name"] == "username") {
+if($_POST["username"] == "username") {
     echo 'Hej user';
     $loggedIn == True;
 } else {

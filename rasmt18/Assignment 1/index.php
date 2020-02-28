@@ -21,18 +21,18 @@
                 <legend>Please enter your credentials to login</legend>
                 <label for="username">Username</label>
                 <br>
-                <input type="text" name="username" autofocus>
+                <input type="text" name="username" autofocus autocomplete="off" required>
                 <br>
                 <label for="password">Password</label>
                 <br>
-                <input type="password" name="password">
+                <input type="password" name="password" required>
                 <br>
-                <input type="submit" name="submit" id= "submit" value="Login >
+                <input type="submit" name="submit" id= "submit" value="Login" >
             </fieldset>
         </form>
         <p>Don't have an account yet, don't worry. Just enter the registration page in the link below</p>
-        <a href="registration.php">Registration page</a>
-</form>
+        <a href="Registration.php">Registration page</a>
+        </form>
     <div>
 </body>
 </html> 
@@ -40,7 +40,7 @@
 <?php
     if (isset($_POST['submit'])) {
         $un=$_POST['username'];
-        $pw=$_POST['Passw0rd8'];
+        $pw=$_POST['password'];
         $wrongpw="Invalid password!";
         $wrongun="Invalid username!";
 
