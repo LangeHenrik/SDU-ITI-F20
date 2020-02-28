@@ -9,6 +9,7 @@
 <body>
 
         <div class="content" id="registration">
+        <script src="./javascript/Menu.js"></script>
             <h1>Registration</h1>
                 <form onKeyUp="return checkFields()" method="POST" action=>
                     <fieldset>            
