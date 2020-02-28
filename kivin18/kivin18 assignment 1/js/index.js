@@ -17,36 +17,36 @@ addClickEventListener(closeModal, modal, 'none');
 addClickEventListener(cancelButton, modal, 'none');
 
 //Regex
-function checkFields() {
-    if (checkName() && checkPass()) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-function checkName() {
-    let name = document.getElementById('regUsername').value;
-    let invalidLabel = document.getElementById('invalidName')
-    let regex = new RegExp(/\w\D\s\w\D/);
+function checkName(elementId, label) {
+    let name = document.getElementById(elementId).value;
+    let invalidLabel = document.getElementById(label)
+    let regex = new RegExp(/^\S\w{5,50}$/);
     if (regex.test(name)) {
         invalidLabel.innerHTML = '';
         return true;
     } else {
-        invalidLabel.innerHTML = 'Enter full name';
+        invalidLabel.innerHTML = 'Username must be between 5-50 characters no spaces allowed';
         return false;
     }
 }
 
-function checkPass() {
-    let pass = document.getElementById('regPassword').value;
-    let invalidLabel = document.getElementById('invalidPass');
+function checkPass(elementId, label) {
+    let pass = document.getElementById(elementId).value;
+    let invalidLabel = document.getElementById(label);
     let regex = new RegExp(/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/);
     if (regex.test(pass)) {
         invalidLabel.innerHTML = '';
         return true;
     } else {
         invalidLabel.innerHTML = 'Password must contain at least 8 characters, 1 lower case, 1 upper case, 1 numeric and one of these special characters: !@#$%^&*';
+        return false;
+    }
+}
+
+function checkFields() {
+    if (checkName() && checkPass()) {
+        return true;
+    } else {
         return false;
     }
 }
