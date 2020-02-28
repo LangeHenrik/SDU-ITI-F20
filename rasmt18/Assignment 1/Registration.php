@@ -12,9 +12,15 @@
             <form method="POST" action=>
                 <fieldset>            
                     <legend>Registration for system:</legend>   
+                    <label for = "username">Username: </label>
+                    <br>
                     <input type="text" name="username" placeholder="Write username here" autofocus>
                     <br>
+                    <label for = "password">Password: </label>
+                    <br>
                     <input type="password" name="password" placeholder="Write password here" >
+                    <br>
+                    <label for = "password2">Retype password: </label>
                     <br>
                     <input type="password" name="password2" placeholder="Write password again" >
                     <br>
