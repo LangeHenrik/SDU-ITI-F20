@@ -4,7 +4,8 @@ require_once('dbconfig_and_controllers/DBController.php');
 require_once('dbconfig_and_controllers/UserController.php');
 
 $usercontroller = new UserController();
-$usersArray = $usercontroller->getAllUsers();
+$usersArray = $usercontroller->getAllUsersForUserlist();
+UserController::logout();
 
 ?>
 <!DOCTYPE html>
@@ -23,7 +24,7 @@ $usersArray = $usercontroller->getAllUsers();
     <h1>User list</h1>
 
     <div class="navbar" id="navbar">
-        <a class="active" href="index.php">Home</a>
+        <a class="active" href="front_page.php">Home</a>
         <a href="upload_page.php">Upload</a>
         <a href="imagefeed_page.php">Image feed</a>
     </div>
@@ -52,13 +53,12 @@ $usersArray = $usercontroller->getAllUsers();
     </form>
     <?php
 
-    $userController = new UserController();
-
-    // TODO get user list of all users and print them out
 
     ?>
     </div>
 </body>
+
+
 <!--
 <footer id="index-footer">
     <p>Assignment 1 course ITI &amp; XI-IT - Aleksander Grzegorz Duszkiewicz (aldus17)</p>

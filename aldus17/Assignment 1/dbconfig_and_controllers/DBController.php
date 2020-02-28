@@ -9,13 +9,13 @@ class DBController extends DBConnection
         $prepare_statement = $this->openConnection()->prepare($insert_query);
         if ($prepare_statement !== false) {
 
-            //$encryptedPassword = password_hash($password, PASSWORD_BCRYPT);
+            $encryptedPassword = password_hash($password, PASSWORD_BCRYPT);
             $prepare_statement->bindParam(':username', $username);
             $prepare_statement->bindParam(':fullname', $fullname);
             $prepare_statement->bindParam(':email', $email);
-            $prepare_statement->bindParam(':password', $password);
+            $prepare_statement->bindParam(':password', $encryptedPassword);
 
-            $queryExecute = $prepare_statement->execute([$username, $fullname, $email,  $password]);
+            $queryExecute = $prepare_statement->execute([$username, $fullname, $email,  $encryptedPassword]);
 
             if ($queryExecute == FALSE) {
                 echo 'Failure on insert';
@@ -56,9 +56,7 @@ class DBController extends DBConnection
 
     public function getUserByUsername($username)
     {
-        $select_query = 'SELECT * 
-        FROM users 
-        WHERE username=:username';
+        $select_query = 'SELECT * FROM users WHERE username=:username';
         $prepare_statement = $this->openConnection()->prepare($select_query);
         if ($prepare_statement !== false) {
             $prepare_statement->bindParam(':username', $username);
@@ -72,10 +70,7 @@ class DBController extends DBConnection
 
     public function getUserByMailAndUsername($username, $email)
     {
-        $select_query = 'SELECT * 
-        FROM users 
-        WHERE username=:username 
-        AND email=:email';
+        $select_query = 'SELECT * FROM users WHERE username=:username AND email=:email';
         $prepare_statement = $this->openConnection()->prepare($select_query);
         if ($prepare_statement !== false) {
             $prepare_statement->bindParam(':username', $username);

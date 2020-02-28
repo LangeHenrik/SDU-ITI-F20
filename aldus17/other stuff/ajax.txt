@@ -1,0 +1,33 @@
+<script>
+    // ajax call for userdata
+    var ajax = new XMLHttpRequest();
+
+    var method = "GET";
+    var url = "dbconfig_and_controllers/getUserlist.php";
+    var asynchronous = true;
+
+    ajax.open(method, url, asynchronous);
+    ajax.send();
+
+    ajax.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var userdata = JSON.parse(this.responseText);
+            console.log(userdata);
+
+            var html = "";
+
+            for (var a = 0; a < userdata.length; a++) {
+                var fullname = userdata[a].fullname;
+                var username = userdata[a].username;
+
+                html += "<tr>";
+                html += "<td>" + fullname + "</td>";
+                html += "<td>" + username + "</td>";
+                html += "</tr>";
+            }
+
+            document.getElementById("userdata").innerHTML = html;
+
+        }
+    }
+</script>

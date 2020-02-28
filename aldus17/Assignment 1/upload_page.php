@@ -18,7 +18,7 @@ session_start();
 <body>
     <h1>Upload page</h1>
     <div class="navbar" id="navbar">
-        <a class="active" href="index.php">Home</a>
+        <a class="active" href="front_page.php">Home</a>
         <a href="imagefeed_page.php">Image feed</a>
         <a href="userlist_page.php">Userlist</a>
     </div>
@@ -50,7 +50,7 @@ session_start();
 
         if (isset($_POST['uploadbtn'])) {
 
-            filter_input(INPUT_POST, 'imageToBeUploaded', FILT);
+
 
             $imageFile = $_FILES["imageToBeUploaded"]["name"];
             $target_dir = "../upload/";
@@ -74,6 +74,8 @@ session_start();
                 $usercontroller->uploadImage($_SESSION['username'], $image, $title, $description);
             }
         }
+
+        UserController::logout();
         ?>
     </div>
 

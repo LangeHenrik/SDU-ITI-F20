@@ -1,6 +1,3 @@
-var button = document.getElementById("button");
-button.addEventListener("click", changeText); // NO parentheses change() IN METHOD CALLS FOR ADDLISTENER
-
 function loadXMLDoc() {
     var xmlhttp;
     // use XMLhttpRequest object to interact with servers

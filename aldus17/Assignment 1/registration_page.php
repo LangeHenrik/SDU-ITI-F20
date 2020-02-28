@@ -47,7 +47,7 @@ require_once('dbconfig_and_controllers/UserController.php');
                 <input type="submit" class="registerbtn" name="registerbtn" value="Register"></input>
 
                 <p>
-                    Already registered? <a href="front_page.php">Go to signin page</a>
+                    Already registered? <a href="index.php">Go to signin page</a>
                 </p>
             </div>
 
@@ -72,9 +72,10 @@ require_once('dbconfig_and_controllers/UserController.php');
                 die('Password did not match');
             }
 
-            if ($usercontrol->checkIfUserExists($username, $email) == false) {
-                echo "<div id='contents'>" . "User with " . $username . " and " . $email . " has already been created" . "</br> " . "</div>";
 
+
+            if ($usercontrol->checkIfUserExists($username) == true) {
+                echo "<div id='contents'>" . "User with username " . $username . " has already been created" . "</br> " . "</div>";
                 exit();
             } else {
                 $usercontrol->insertUser($username, $fullname, $email, $password);

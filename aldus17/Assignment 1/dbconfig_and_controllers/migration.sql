@@ -10,10 +10,10 @@ DROP TABLE IF EXISTS `images`;
 
 CREATE TABLE `users` (
 	`userID` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-	`username` VARCHAR(100) NOT NULL,
+	`username` VARCHAR(100) UNIQUE NOT NULL,
 	`fullname` VARCHAR(150) NULL,
 	`email` VARCHAR(150) NOT NULL,
-	`password` TEXT NOT NULL,
+	`password` VARCHAR(150) NOT NULL,
 	PRIMARY KEY (`userID`)
 );
 
@@ -24,7 +24,7 @@ VALUES
 		'test',
 		'test',
 		'test@test.com',
-		'test'
+		'$2y$12$syuFo.W56bAuWIMqGCjtDODOVoriPXdwmTWyNDo7K3b0V27LmtQXG'
 	);
 
 CREATE TABLE `images` (

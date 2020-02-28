@@ -6,7 +6,7 @@ session_start();
 
 $usercontroller = new UserController();
 $userimagefeedArray = $usercontroller->getAllUserImageFeed();
-
+UserController::logout();
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +25,7 @@ $userimagefeedArray = $usercontroller->getAllUserImageFeed();
     <h1>Imagefeed</h1>
 
     <div class="navbar" id="navbar">
-        <a class="active" href="index.php">Home</a>
+        <a class="active" href="front_page.php">Home</a>
         <a href="upload_page.php">Upload</a>
         <a href="userlist_page.php">Userlist</a>
     </div>
@@ -62,14 +62,6 @@ $userimagefeedArray = $usercontroller->getAllUserImageFeed();
         </div>
     </div>
 
-
-
-
-    <?php
-
-    // Todo Get image with associated username, title, description and timestamp
-
-    ?>
 </body>
 
 <!--
