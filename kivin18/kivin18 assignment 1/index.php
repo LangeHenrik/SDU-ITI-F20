@@ -87,7 +87,7 @@ if ($_SESSION["logged_in"]) :
         <!-- Sign up modal -->
         <div id="modalForm" class="modal">
             <span id="closeModal" id="closeModal" title="Close Modal">&times;</span>
-            <form class="modal-content" onsubmit="return checkFields()">
+            <form class="modal-content" onsubmit="return checkFields()" method="post">
                 <div class="container">
                     <h1>Sign up here!</h1>
                     <hr>

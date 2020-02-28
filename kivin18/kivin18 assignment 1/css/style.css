@@ -136,8 +136,8 @@ hr {
   color: black;
 }
 
-#close:hover,
-#close:focus {
+#closeModal:hover,
+#closeModal:focus {
   color: #f44336;
   cursor: pointer;
 }
