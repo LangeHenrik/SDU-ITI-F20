@@ -33,4 +33,11 @@ ul.menu-bar {
     text-align: center;
     margin-top: 0px;
     
-} 
+}
+.image img {
+    max-width: 150px;
+    border-radius: 50px;
+}
+.picture {
+    border: 4px solid rgb(72, 102, 202);
+}
