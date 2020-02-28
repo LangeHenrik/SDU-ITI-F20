@@ -27,7 +27,7 @@
                 <br>
                 <input type="password" name="password">
                 <br>
-                <input type="submit" name="submit" value="Login">
+                <input type="submit" name="submit" id= "submit" value="Login >
             </fieldset>
         </form>
         <p>Don't have an account yet, don't worry. Just enter the registration page in the link below</p>
@@ -36,3 +36,24 @@
     <div>
 </body>
 </html> 
+
+<?php
+    if (isset($_POST['submit'])) {
+        $un=$_POST['username'];
+        $pw=$_POST['Passw0rd8'];
+        $wrongpw="Invalid password!";
+        $wrongun="Invalid username!";
+
+        if ($un=='username' && $pw=='Passw0rd8') {
+            header("location:ImageFeed.php");
+            exit();
+        } elseif ($un != 'username' && $pw == 'Passw0rd8') {
+           echo "<p align=center>$wrongun </p>";
+        } elseif ($un=='username' && $pw!='Passw0rd8') {
+           echo "<p align=center>$wrongpw </p>";
+        }
+        else
+            echo "<p align=center>$wrongun And $wrongpw </p>";
+    }
+
+?>
