@@ -1,13 +1,19 @@
-CREATE DATABASE `image_share` CHARACTER SET utf8 COLLATE utf8_general_ci;
+CREATE DATABASE IF NOT EXISTS `image_share` CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 USE `image_share`;
 
-CREATE TABEL `image_share`.`accounts` (
+CREATE TABLE IF NOT EXISTS `image_share`.`accounts` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `firstname` varchar(255) NOT NULL,
-  `lastname` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
+  `firstname` varchar(255) NOT NULL, /* NOT USED, GDPR */
+  `lastname` varchar(255) NOT NULL, /* NOT USED, GDPR */
+  `email` varchar(255) NOT NULL, /* NOT USED, GDPR */
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `image_share`.`images` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `image` BLOB NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

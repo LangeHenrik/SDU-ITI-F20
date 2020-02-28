@@ -2,7 +2,6 @@
   require_once "./config.php";
 
 class account {
-
   /**
    * Needs validation of $values
    */
@@ -65,12 +64,12 @@ class account {
     $stmt->bindParam(":Username", $username);
     $stmt->execute();
     $count = $stmt->fetchColumn();
+    $db = null;
     if($count > 0) {
       return true;
     } else {
       return false;
     }
-    $db = null;
   }
 
   /**

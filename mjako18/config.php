@@ -1,11 +1,11 @@
 <?php
 session_start();
-define(DB_USERNAME, ""); //Database user
-define(DB_PASSWORD, ""); //Database user password
-define(DB_NAME, "image_share"); //Database name
-define(DB_HOST, "localhost"); //Database host
+define('DB_USERNAME', ""); //Database user
+define('DB_PASSWORD', ""); //Database user password
+define('DB_NAME', "image_share"); //Database name
+define('DB_HOST', "localhost"); //Database host
 
-function getDB {
+function getDB() {
   $db_host = DB_HOST;
   $db_name = DB_NAME;
   $db_user = DB_USERNAME;
@@ -22,4 +22,4 @@ function getDB {
 
 include_once 'account.php';
 
-$account = new account($dbh);
+$account = new account();
