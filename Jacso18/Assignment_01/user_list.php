@@ -22,11 +22,16 @@
         <html lang="en">        
     </head>
     <body>
+    <nav>   
+        <div class="center">    
+            
         <ul class="menu">
                 <li><a href="image_feed.php">Image feed</a></li>
                 <li><a href="upload.php">Upload picture</a></li>
                 <li><a href="user_list.php">Users</a></li>
         </ul>
+</div>
+</nav>
         <div class="wrapper">
             <div class= "content">
                 <?php foreach($users as $user){?>

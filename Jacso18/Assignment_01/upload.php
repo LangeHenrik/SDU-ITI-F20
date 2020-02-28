@@ -12,12 +12,15 @@
         <link rel="stylesheet" type="text/css" href="/CSS/stylesheet.css"> 
     </head>
     <body>
-        <ul class="menu">
+        <nav>   
+        <div class="center">    
+            <ul class="menu">
                 <li><a href="image_feed.php">Image feed</a></li>
                 <li><a href="upload.php">Upload picture</a></li>
                 <li><a href="user_list.php">Users</a></li>
-        </ul>
-        
+            </ul>
+        </div>
+        </nav>
         <div class="uploadarea">
             <form id="uploadform" method="POST" enctype="multipart/form-data">
                 <label for="title">Title</label>

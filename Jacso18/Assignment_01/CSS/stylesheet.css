@@ -6,24 +6,63 @@ body {
     font-family: sans-serif;
 }
 
-ul.menu{
+
+/* ul.menu{
     background-color: lightblue;
     width: 100%;
-    height: 100px;
+    list-style-type: none;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+
+li a{
+    display: inline;
+    background-color: blue;
+    color: white;
+    text-decoration: none;
+    padding: 20px;
+    margin: 20px;
+}
+ */
+
+ ul.menu {
+    background-color: lightblue;
+    width: 100%;
     list-style-type: none;
     overflow: hidden;
     margin: 0;
     padding: 0;
 }
 
-li a{
+div.center {
+    display: table;
+    margin: 0 auto;
+
+}
+
+nav {
+    width: 100%;
+    background-color: #55AAFF;
+}
+
+li a {
     display: block;
-    background-color: blue;
+    background-color: #3399FF;
     color: white;
     text-decoration: none;
+    text-align: center;
     padding: 20px;
-    float: left;
+}
 
+li a:hover {
+    background-color: #3399FF;
+}
+
+li {
+    float: left;
 }
 
 div.div-form{
@@ -42,6 +81,8 @@ div.div-form{
     padding: 60px;
     resize: both;
 }
+
+
 
 div.div-form input{
     width: 100%;

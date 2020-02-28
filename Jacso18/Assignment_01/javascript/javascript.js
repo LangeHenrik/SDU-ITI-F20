@@ -13,6 +13,7 @@ function checkname(){
         return true;
     } else {
         console.log('Not so cool name');
+        document.getElementById("password").style.background = "#f5f5f5";
         return false;
     }
 }
@@ -26,7 +27,7 @@ function checkpassword(){
         return true;
     } else {
         console.log('Password not good');
-        document.getElementById("password").style.background = "#ff6666";
+        document.getElementById("password").style.background = "#f5f5f5";
         return false;
     }
 }
@@ -41,7 +42,7 @@ function checkMail(){
         return true;
     } else {
         console.log('mail not good');
-        document.getElementById("email").style.background = "#ff6666";
+        document.getElementById("email").style.background = "#f5f5f5";
         return false;
     }
 }
