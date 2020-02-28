@@ -9,11 +9,13 @@ class UserController extends Users {
     public function userExists($username){
         if(sizeof($this->getUserFromUsername($username)) <= 0){
             return false;
-        } elseif (sizeof($this->getUserFromUsername($username)) == 1) {
-            return true;
         } else {
-            return false;
+            return true;
         }
+    }
+
+    public function getAllUsers(){
+        return $this->getUsers();
     }
     
     public function validateUser($username, $password){
@@ -29,8 +31,13 @@ class UserController extends Users {
 
     }
 
-    public function createPost($username, $image, $comment){
-        $this->savePost($username, $image, $comment);
+    public function getAllPosts()
+    {
+        return $this->getPosts();
+    }
+
+    public function createPost($username, $title, $image, $comment){
+        $this->savePost($username, $title, $image, $comment);
     }
 
 }

@@ -8,19 +8,22 @@
     <head>
         <title>Upload image</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
        
     </head>
     <body>
         <ul class="menu">
-            <li><a href="image_feed.php">Image feed</a></li>
-            <li><a href="upload.php">Upload picture</a></li>
-            <li><a href="#">Users</a></li>
+                <li><a href="image_feed.php">Image feed</a></li>
+                <li><a href="upload.php">Upload picture</a></li>
+                <li><a href="user_list.php">Users</a></li>
         </ul>
         
         <div class="uploadarea">
-
             <form id="uploadform" method="POST" enctype="multipart/form-data">
-                
+                <label for="title">Title</label>
+                <br>
+                <input type="text" name="title" id = "title" >
+                <br>
                 <label for="file">Select a file:</label>
                 <br>
                 <input type="button" id="loadFile" value="file" onclick="document.getElementById('filetoupload').click();" />
@@ -43,6 +46,7 @@
 
             if(isset($_POST['upload'])){
                 $usercontroller = new UserController();
+                $title = filter_input(INPUT_POST, "title", FILTER_SANITIZE_STRING);
                 $comment = filter_input(INPUT_POST, "comment", FILTER_SANITIZE_STRING);
                 $date = new DateTime();
 
@@ -61,8 +65,10 @@
                   $image_base64 = base64_encode(file_get_contents($_FILES['filetoupload']['tmp_name']) );
                   $image = 'data:image/'.$imageFileType.';base64,'.$image_base64;
                   // Insert record
-                  $usercontroller->savePost($_SESSION['username'],$image,$comment);
+                  $usercontroller->savePost($_SESSION['username'], $title, $image, $comment);
 
+                } else {
+                    echo 'The file has to be either jpg, jpeg, png or gif';
                 }
             }
 
