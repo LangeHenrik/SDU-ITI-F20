@@ -1,13 +1,13 @@
-function checkform(){
+function checkform() {
     return checkname() &&
-    checkpassword() &&
-    checkMail();
+        checkpassword() &&
+        checkMail();
 }
 
-function checkname(){
+function checkname() {
     let nameRegEx = new RegExp(/[A-Za-zÆØÅæøå1-9]{1,}/g);
     let nameInput = document.getElementById("username");
-    if(nameRegEx.test(nameInput.value)){
+    if (nameRegEx.test(nameInput.value)) {
         console.log('Cool name');
         document.getElementById("username").style.background = "#adebad";
         return true;
@@ -18,10 +18,10 @@ function checkname(){
     }
 }
 
-function checkpassword(){
+function checkpassword() {
     let passwordRegEx = new RegExp(/[A-Za-zÆØÅæøå\d@$!%*#?&]{8,}/g);
     let passwordInput = document.getElementById("password");
-    if(passwordRegEx.test(passwordInput.value)){
+    if (passwordRegEx.test(passwordInput.value)) {
         console.log('Password good');
         document.getElementById("password").style.background = "#adebad";
         return true;
@@ -33,10 +33,10 @@ function checkpassword(){
 }
 
 
-function checkMail(){
+function checkMail() {
     let mailRegEx = new RegExp(/\S+@\S+\.([a-z]|[A-Z]){1,5}/g);
     let mailInput = document.getElementById("email");
-    if(mailRegEx.test(mailInput.value)){
+    if (mailRegEx.test(mailInput.value)) {
         console.log('mail good');
         document.getElementById("email").style.background = "#adebad";
         return true;
@@ -48,20 +48,22 @@ function checkMail(){
 }
 
 function showPosts(str) {
-/*     if (str.length == 0) {
-        document.getElementById("post").innerHTML = this.responseText;
-        return; */
-/*     } else { */
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("post").innerHTML = this.responseText;
-            }
-        };
-        xmlhttp.open("GET", "getUserAJAX.php?q=" + str, true);
-        xmlhttp.send();
-/*     } */
+
+
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("postplaceholder").innerHTML = this.responseText;
+        }
+    };
+    xmlhttp.open("GET", "../backend/getUserAJAX.php?q=" + str, true);
+    xmlhttp.send();
+
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+    showPosts(document.getElementById("search").value);
+  });
 
 
 

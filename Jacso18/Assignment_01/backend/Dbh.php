@@ -1,5 +1,5 @@
 <?php
-//include 'includes/autoload.php';
+
 include "db_config.php";
 
 class Dbh {

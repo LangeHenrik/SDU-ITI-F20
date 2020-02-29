@@ -32,7 +32,7 @@ Utility::logoutPressed();
     <nav>
         <div class="center">
             <ul class="menu">
-                <li><input type="text" id="search" name="search" onkeyup="showPosts(this.value);"/>
+                <li><input type="text" id="search" name="search" onload="showPosts(this.value)" onkeyup="showPosts(this.value);" />
                 <li><a href="image_feed.php">Image feed</a></li>
                 <li><a href="upload.php">Upload picture</a></li>
                 <li><a href="user_list.php">Users</a></li>
@@ -41,9 +41,11 @@ Utility::logoutPressed();
     </nav>
     <div class="wrapper">
         <div class="content">
-                <div class="post" id="post"><b>Posts will be shown here</b>
-                </div>
+            <div class="post">
+                <div class="postplaceholder" id="postplaceholder"></div>
+            </div>
         </div>
+    </div>
     </div>
 
     <form method="POST">
