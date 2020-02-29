@@ -43,8 +43,29 @@ function checkPass(elementId, label) {
     }
 }
 
-function checkFields() {
-    if (checkName() && checkPass()) {
+function confirmPass() {
+    let pass = document.getElementById('regPassword').value;
+    let passRepeat = document.getElementById('regPasswordRepeat').value;
+    let passLabel = document.getElementById('invalidRegPass');
+    if (passRepeat === pass) {
+        passLabel.innerHTML = "Ps macth";
+        return true;
+    } else {
+        passLabel.innerHTML = "Passwords don't match!";
+        return false;
+    }
+}
+
+function checkLoginFields() {
+    if (checkName('username', 'wrongInfo') && checkPass('password', 'wrongInfo')) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function checkRegisterFields() {
+    if (checkName('regUsername', 'invalidRegName') && checkPass('regPassword', 'invalidRegPass') && confirmPass()) {
         return true;
     } else {
         return false;

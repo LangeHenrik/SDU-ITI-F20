@@ -69,15 +69,15 @@ if ($_SESSION["logged_in"]) :
     <!-- Login -->
     <div class="wrapper">
         <div id="loginForm" name="loginForm">
-            <form id="login" name="login" method="post">
+            <form id="login" name="login" onsubmit="return checkLoginFields()" method="post">
                 <label for="username">Username</label>
                 <br/>
-                <input type="text" placeholder="Enter username" name="username" id="username" onfocusout="checkName('username', 'wrongInfo')" required/>
+                <input type="text" placeholder="Enter username" name="username" id="username" onfocusout="checkName('username', 'wrongInfo')"/>
                 <br/>
                 <br/>
                 <label for="password">Password</label>
                 <br/>
-                <input type="password" placeholder="Enter password" name="password" id="password" onfocusout="checkPass('password', 'wrongInfo')" required/>
+                <input type="password" placeholder="Enter password" name="password" id="password" onfocusout="checkPass('password', 'wrongInfo')"/>
                 <br/>
                 <button value="Login" type="submit">Login</button>
                 <br/>
@@ -87,7 +87,7 @@ if ($_SESSION["logged_in"]) :
         <!-- Sign up modal -->
         <div id="modalForm" class="modal">
             <span id="closeModal" id="closeModal" title="Close Modal">&times;</span>
-            <form class="modal-content" onsubmit="return checkFields()" method="post">
+            <form class="modal-content" onsubmit="return checkRegisterFields()" method="post">
                 <div class="container">
                     <h1>Sign up here!</h1>
                     <hr>
@@ -100,10 +100,11 @@ if ($_SESSION["logged_in"]) :
                     <label for="regPassword"><b>Password</b></label>
                     <input type="password" placeholder="Enter Password" name="regPassword" id="regPassword" onfocusout="checkPass('regPassword', 'invalidRegPass')" required/>
                     <label for="regPasswordRepeat"><b>Repeat Password</b></label>
-                    <input type="password" placeholder="Repeat Password" name="regPasswordRepeat" id="reqPasswordRepeat" required/>
+                    <input type="password" placeholder="Repeat Password" name="regPasswordRepeat" id="regPasswordRepeat" onfocusout="confirmPass()" required/>
                     <div class="inputInfo">
                         <label class="inputInfo" id="invalidRegPass"></label>
                     </div>
+                    <br>
                     <div class="clearfix">
                         <button type="button" name="cancelButton" id="cancelButton" class="cancelbtn">Cancel</button>
                         <button type="submit" class="signupbtn">Sign Up</button>
@@ -111,6 +112,8 @@ if ($_SESSION["logged_in"]) :
                 </div>
             </form>
         </div>
+<?php
+    ?>
     </div>
     <div class="inputInfo" id="wrongInfoDiv"><label name="wrongInfo" id="wrongInfo"></label></div>
 <?php endif; ?>
