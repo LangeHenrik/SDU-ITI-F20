@@ -30,20 +30,21 @@ try {
     echo "Error: " . $e->getMessage();
 }
 
-$correct_username = "john";
-$correct_password = "1234";
-
-$username = htmlentities($_POST["username"] ?? "");
-$password = htmlentities($_POST["password"] ?? "");
-
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
-if ($username == $correct_username && $password == $correct_password) {
-    $_SESSION["logged_in"] = true;
-} else {
-    $_SESSION["logged_in"] = false;
+if (isset($_POST["username"]) && isset($_POST["password"])) {
+    $username = htmlentities($_POST["username"]);
+    $password = htmlentities($_POST["password"]);
+    $stmt = $pdo->prepare('SELECT username, pw_hash FROM user WHERE username LIKE ?');
+    $stmt->execute([$username]);
+    $user = $stmt->fetch();
+    if ($username == $user['username'] && password_verify($password, $user['pw_hash'])) {
+        $_SESSION["logged_in"] = true;
+    } else {
+        $_SESSION["logged_in"] = false;
+    }
 }
 
 if ($_SESSION["logged_in"]) :
