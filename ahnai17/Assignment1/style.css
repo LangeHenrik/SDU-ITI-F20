@@ -28,7 +28,7 @@ and open the template in the editor.
     margin-right: 12px;
     font-size: 12px;
 }
-.loginfield button {
+.loginfield input[type=submit] {
   padding: 6px;
   margin-top: 8px;
   margin-right: 16px;
@@ -79,12 +79,77 @@ and open the template in the editor.
     display: flex;
     justify-content: center;
     background-color: coral;
+    height: 470px;
     padding: 6px;
 }
 .userhead {
     display: flex;
     justify-content: center;
-    background-color: coral;
+    background-color: burlywood;
     padding: 6px;
 }
 
+/*Home page style sheet*/
+.Navigation {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    background-color: #e9e9e9;
+}
+.Navigation a{
+    float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+.Navigation a:hover {
+  background-color: #ddd;
+  color: black;
+}
+.Navigation a.imageupload
+{
+  background-color: #2196F3;
+  color: white;
+}
+.Navigation input[type=text] {
+  float: right;
+  padding: 6px;
+  border: none;
+  margin-top: 8px;
+  margin-right: 16px;
+  font-size: 17px;
+}
+.logout {
+    background-color: beige;
+    color: red;
+}
+
+.Images {
+    display: flex;
+    overflow: hidden;
+    padding: 6px;
+    height: 520px;
+    background-color: greenyellow;
+}
+/* Upload page style*/
+.upnav {
+    display: flex;
+    overflow: hidden;
+    padding: 6px;
+    height: 520px;
+    background-color: gold;
+}
+.upnav.upimage{
+    display: flex;
+    overflow: hidden;
+    padding: 6px;
+    height:300px;
+    background-color: chocolate;
+}
+.upimage a:hover{
+  background-color: #ddd;
+  color: black;
+}
