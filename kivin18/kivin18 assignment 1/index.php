@@ -112,7 +112,14 @@ if ($_SESSION["logged_in"]) :
                 </div>
             </form>
         </div>
-<?php
+    <?php
+    if (isset($_POST["regUsername"]) && isset($_POST["regPassword"])) {
+        $stmt = $pdo->prepare('INSERT INTO user(username, pw_hash, join_date) VALUES (?, ?, NOW())');
+        $new_user = htmlentities($_POST["regUsername"]);
+        $new_pass = htmlentities($_POST["regPassword"]);
+        $hashed_pass = password_hash($new_pass, PASSWORD_DEFAULT);
+        $stmt->execute([$new_user, $hashed_pass]);
+    }
     ?>
     </div>
     <div class="inputInfo" id="wrongInfoDiv"><label name="wrongInfo" id="wrongInfo"></label></div>

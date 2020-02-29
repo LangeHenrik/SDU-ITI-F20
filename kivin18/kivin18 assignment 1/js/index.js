@@ -48,7 +48,7 @@ function confirmPass() {
     let passRepeat = document.getElementById('regPasswordRepeat').value;
     let passLabel = document.getElementById('invalidRegPass');
     if (passRepeat === pass) {
-        passLabel.innerHTML = "Ps macth";
+        passLabel.innerHTML = "";
         return true;
     } else {
         passLabel.innerHTML = "Passwords don't match!";
