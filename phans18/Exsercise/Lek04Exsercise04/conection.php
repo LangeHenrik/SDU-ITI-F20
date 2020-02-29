@@ -1,4 +1,5 @@
 <?php
+include 'db_config.php';
 try {
     $conn = new PDO("mysql:host=$servername;$dbname", $username, $password);
     // set the PDO error mode to exception
