@@ -11,7 +11,7 @@ require_once('dbconfig_and_controllers/UserController.php');
     <title>login / frontpage</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!---->
+    <script src="js/loginAjax.js"></script>
     <link rel="stylesheet" href="css/index_page_style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <html lang="en">
@@ -45,7 +45,6 @@ require_once('dbconfig_and_controllers/UserController.php');
 
             $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
             $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
-            $fullname = filter_input(INPUT_POST, 'fullname', FILTER_SANITIZE_STRING);
 
             $usercontrol = new UserController();
 
