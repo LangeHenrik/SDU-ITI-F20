@@ -42,4 +42,12 @@ class Users extends Dbh {
         $results = $stmt->fetchAll();
         return $results;
     }
+
+    public function getPostsAJAX($username){
+        $stmt ="SELECT username, title, image, COMMENT, timestamp FROM users, posts WHERE posts.user_id = users.user_id AND username LIKE '%:username%' ORDER BY timestamp DESC;";
+        $stmt->bindParam(':username',$username);
+        $stmt->execute();
+        $results = $stmt->fetchAll();
+        return $results;
+    }
 }

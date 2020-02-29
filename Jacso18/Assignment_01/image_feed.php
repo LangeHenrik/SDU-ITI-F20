@@ -10,6 +10,10 @@ $posts = $userController->getAllPosts();
 
 Utility::redirectIfNotLoggedIn();
 Utility::logoutPressed();
+
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -20,6 +24,7 @@ Utility::logoutPressed();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/CSS/stylesheet.css">
+    <script src="/javascript/javascript.js"></script>
     <html lang="en">
 </head>
 
@@ -27,6 +32,7 @@ Utility::logoutPressed();
     <nav>
         <div class="center">
             <ul class="menu">
+                <li><input type="text" id="search" name="search" onkeyup="showPosts(this.value);"/>
                 <li><a href="image_feed.php">Image feed</a></li>
                 <li><a href="upload.php">Upload picture</a></li>
                 <li><a href="user_list.php">Users</a></li>
@@ -35,16 +41,8 @@ Utility::logoutPressed();
     </nav>
     <div class="wrapper">
         <div class="content">
-            <?php foreach ($posts as $post) { ?>
-                <div class="post">
-                    <h1><?php echo $post['title']; ?></h1>
-                    <p><?php echo 'Posted by: ' . $post['username'] . ' at ' . $post['timestamp']; ?> </p>
-                    <img src=<?php echo $post['image']; ?> />
-                    <p><?php echo $post['COMMENT']; ?></p>
-                    <br />
+                <div class="post" id="post"><b>Posts will be shown here</b>
                 </div>
-            <?php
-            } ?>
         </div>
     </div>
 

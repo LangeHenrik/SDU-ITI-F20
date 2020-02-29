@@ -37,6 +37,19 @@ class UserController extends Users {
         return $this->getPosts();
     }
 
+    public function getPostByUser($username){
+        if($username === null){
+            echo("<script>console.log('PHP: Get posts');</script>");
+            return $this->getPosts();
+        } else {
+            echo("<script>console.log('PHP: Get posts username');</script>");
+            return $this->getPostsAJAX($username);
+
+
+        }
+    }
+       
+
     public function createPost($username, $title, $image, $comment){
         $this->savePost($username, $title, $image, $comment);
     }
