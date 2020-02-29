@@ -1,7 +1,7 @@
 console.log("js successfully loaded")
 
 function checkForm() {
-    checkWords();
+    checkFullname();
     checkPassword();
     checkEmailAddress();
     checkUsername();
@@ -9,84 +9,76 @@ function checkForm() {
 // https://regex101.com/
 // https://regexr.com/
 
-function checkWords() {
-    var word = document.getElementById("fullname").value;
-
+function checkFullname() {
+    var fullname = document.getElementById("fullname");
     var regEx = new RegExp(/(^(\w+\s).+$)/g);
+    //fullname.setAttribute('pattern', '(\w+\s).+)');
+    //fullname.setAttribute('title', 'Must contain your first and last name');
+    if (regEx.test(fullname.value)) {
+        changeLabelColor("fullname-label", "LawnGreen");
 
-    if (regEx.test(word)) {
-        changeLabelColor("fullname-label", "green");
-        return true;
     } else {
-        changeLabelColor("fullname-label", "red");
-        return false;
+        changeLabelColor("fullname-label", "Maroon");
     }
 }
 
 // "^$" whole string and needs to end with /gm, m means multiline, "?=.*" look for one or more of the following occourence, the ".*" means any char except line break
 function checkPassword() {
-    var password = document.getElementById("password").value;
-    var regEx = new RegExp(/((?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*\w).[\S]{8,})/g);
+    var password = document.getElementById("password");
+    var regEx = new RegExp(/(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])\S{8,}/gm);
+    password.setAttribute('title', 'Password should be at least one capital letter, one small letter, one number and 8 character length');
 
-    if (regEx.test(password)) {
-        changeLabelColor("password-label", "green");
-        return true;
+    if (regEx.test(password.value)) {
+        changeLabelColor("password-label", "LawnGreen");
     } else {
-        changeLabelColor("password-label", "red");
-        return false;
+        changeLabelColor("password-label", "Maroon");
+
     }
 }
 
 function checkEmailAddress() {
-    var email = document.getElementById("email").value;
-    var regEx = new RegExp(/(\b[\w\.-]+@[\w\.-]+\.\w{2,10}\b)/gi);
+    var email = document.getElementById("email");
+    var regEx = new RegExp(/(\b[\w\.-]+@[\w\.-]+\.\w{2,26}\b)/gi);
 
-    if (regEx.test(email)) {
-        changeLabelColor("email-label", "green");
-        return true;
+    if (regEx.test(email.value)) {
+        changeLabelColor("email-label", "LawnGreen");
 
     } else {
-        changeLabelColor("email-label", "red");
-        return false;
+        changeLabelColor("email-label", "Maroon");
     }
 }
 
 /**
- * Minimum length (3). 
- * Maximum length(16). 
- * Can only contain alphanumeric characters and the following special characters: dot (.), underscore(_) and dash (-). 
- * The special characters cannot appear more than once consecutively or combined.
+ * Value must be from 4 to 20 characters in length,
+ *  only allow letters and numbers, no special characters,
+ *  full line is evaluated.
  */
 
 function checkUsername() {
     var username = document.getElementById("username");
     // var usr = document.getElementById("username").addEventListener("invalid");
-    var regEx = new RegExp(/(?!.*[\.\-\_]{2,})^[a-zA-Z0-9\.\-\_]{3,16}$/gm);
-    username.setAttribute("pattern", "(?!.*[\.\-\_]{2,})^[a-zA-Z0-9\.\-\_]{3,16}");
-    username.setAttribute("title", "Length should be between 3-16.\
-     Can only contain alphanumeric characters and the following special characters: dot (.), underscore(_) and dash (-).\
-    special characters cannot appear more than once consecutively or combined.");
+    var regEx = new RegExp(/^([A-Za-z0-9]){4,20}$/gm);
+    username.setAttribute("pattern", "([A-Za-z0-9]){4,20}");
+    username.setAttribute("title", "Value must be from 4 to 20 characters in length, only allow letters and numbers, no special characters.");
 
 
     if (regEx.test(username.value)) {
-        changeLabelColor("username-label", "green");
-        return true;
+        changeLabelColor("username-label", "LawnGreen");
 
     } else {
-        changeLabelColor("username-label", "red");
-
+        changeLabelColor("username-label", "Maroon");
     }
-    return false;
+
 }
 
 
 function validatePassword() {
     if (document.getElementById('password').value == document.getElementById('password_confirm').value) {
-        document.getElementById('message').style.color = 'green';
+        document.getElementById('message').style.color = 'LawnGreen';
         document.getElementById('message').innerHTML = 'password matching';
         return true;
     } else {
-        document.getElementById('message').style.color = 'red';
+        document.getElementById('message').style.color = 'Maroon';
         document.getElementById('message').innerHTML = 'password not matching';
 
         return false;

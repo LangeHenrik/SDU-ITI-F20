@@ -22,22 +22,28 @@ UserController::logout();
 </header>
 
 <body>
-    <h1>Imagefeed</h1>
-
     <div class="navbar" id="navbar">
-        <a class="active" href="front_page.php">Home</a>
-        <a href="upload_page.php">Upload</a>
-        <a href="userlist_page.php">Userlist</a>
+        <ul>
+            <li><a class="active" href="front_page.php">Home</a></li>
+            <li> <a href="upload_page.php">Upload</a></li>
+            <li> <a href="#imagefeed">Imagefeed</a></li>
+            <li> <a href="userlist_page.php">Userlist</a></li>
+            <li>
+                <form method="post">
+                    <div class="inner_container">
+                        <button class="logoutbtn" name="logoutbtn" type="submit">Log Out</button>
+                    </div>
+                </form>
+            </li>
+        </ul>
     </div>
-    <form method="post">
-        <div class="inner_container">
-            <button class="logoutbtn" name="logoutbtn" type="submit">Log Out</button>
-        </div>
-    </form>
+
     <div class="imagefeed_wrapper">
         <div class="imagefeed_content">
-            <?php foreach ($userimagefeedArray as $imagePost) { ?>
-                <div class="imagefeed">
+            <h1>All posted images</h1>
+            <div class="imagefeed">
+                <?php foreach ($userimagefeedArray as $imagePost) { ?>
+
                     <h1>
                         <?php echo $imagePost['title']; ?>
                     </h1>
@@ -53,11 +59,12 @@ UserController::logout();
                                 'Created on: ' . $imagePost['creationTime']; ?>
                         </i>
                     </p>
+                    <hr>
 
                 <?php
-            }
+                }
                 ?>
-                </div>
+            </div>
 
         </div>
     </div>

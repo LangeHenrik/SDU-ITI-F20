@@ -21,16 +21,27 @@ UserController::logout();
 
 <body>
 
-    <h1>User list</h1>
+
 
     <div class="navbar" id="navbar">
-        <a class="active" href="front_page.php">Home</a>
-        <a href="upload_page.php">Upload</a>
-        <a href="imagefeed_page.php">Image feed</a>
+        <ul>
+            <li><a class="active" href="front_page.php">Home</a></li>
+            <li> <a href="upload_page.php">Upload</a></li>
+            <li> <a href="imagefeed_page.php">Imagefeed</a></li>
+            <li> <a href="#userlist">Userlist</a></li>
+            <li>
+                <form method="post">
+                    <div class="inner_container">
+                        <button class="logoutbtn" name="logoutbtn" type="submit">Log Out</button>
+                    </div>
+                </form>
+            </li>
+        </ul>
     </div>
 
     <div class="userlist_wrapper">
         <div class="userlist_content">
+            <h1>User list</h1>
             <table class="userlist_table">
                 <tr>
                     <th>Username</th>
@@ -46,15 +57,7 @@ UserController::logout();
             </table>
         </div>
     </div>
-    <form method="post">
-        <div class="inner_container">
-            <button class="logoutbtn" name="logoutbtn" type="submit">Log Out</button>
-        </div>
-    </form>
-    <?php
 
-
-    ?>
     </div>
 </body>
 

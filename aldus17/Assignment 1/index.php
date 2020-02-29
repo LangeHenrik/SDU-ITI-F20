@@ -11,7 +11,8 @@ require_once('dbconfig_and_controllers/UserController.php');
     <title>login / frontpage</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/front_page_style.css">
+    <!---->
+    <link rel="stylesheet" href="css/index_page_style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <html lang="en">
 
@@ -19,18 +20,19 @@ require_once('dbconfig_and_controllers/UserController.php');
 
 <body>
     <div id="main-wrapper">
-        <h1>Front page</h1>
-        <h2>Login</h2>
+
+
 
         <form method="post" id="loginForm">
             <div class="inner_login_form_container">
-                <label><b>Username: </b></label>
-                <input name='username' id='username' placeholder='username' />
+                <h1>Login page</h1>
+                <label>Username: </label>
+                <input type="text" name='username' id='username' placeholder='Type username' />
 
-                <label><b>Password: </b></label>
-                <input name='password' type='password' placeholder='password' />
-                <input type='submit' name='loginbtn' value='login' />
-                <button name="registerReferBtn">Register</button>
+                <label>Password: </label>
+                <input name='password' id="password" type='password' placeholder='Type password' />
+                <input type='submit' name='loginbtn' class="loginbtn" id="loginbtn" value='login' />
+                <button name="registerReferBtn" class="registerReferBtn" id="registerReferBtn">Register</button>
             </div>
         </form>
 
@@ -57,11 +59,14 @@ require_once('dbconfig_and_controllers/UserController.php');
                 exit;
             } else {
                 //HTTP::redirect("front_page.php");
+                $_SESSION['message'] = "Incorrect Username or Password.";
                 $_SESSION['logged_in'] = false;
-                echo 'Failed login';
                 header("Location: index.php");
+                echo "<div id='messageWarning'><p>" . "Username or password is wrong" . "</p></br> " . "</div>";
+                exit();
             }
         }
+
         if (isset($_POST['registerReferBtn'])) {
             header("Location: registration_page.php");
         }

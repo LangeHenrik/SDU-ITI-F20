@@ -16,31 +16,39 @@ session_start();
 </header>
 
 <body>
-    <h1>Upload page</h1>
+
     <div class="navbar" id="navbar">
-        <a class="active" href="front_page.php">Home</a>
-        <a href="imagefeed_page.php">Image feed</a>
-        <a href="userlist_page.php">Userlist</a>
+        <ul>
+            <li><a class="active" href="front_page.php">Home</a></li>
+            <li> <a href="#upload">Upload</a></li>
+            <li> <a href="imagefeed_page.php">Imagefeed</a></li>
+            <li> <a href="userlist_page.php">Userlist</a></li>
+            <li>
+                <form method="post">
+                    <div class="inner_container">
+                        <button class="logoutbtn" name="logoutbtn" type="submit">Log Out</button>
+                    </div>
+                </form>
+            </li>
+        </ul>
     </div>
 
-    <div id="upload-picture-container">
+    <div id="upload-picture-container" class="upload_picture_container">
+        <h1>Upload page</h1>
         <form method="post" action="upload_page.php" enctype="multipart/form-data">
-            <label for="file">Please select a file: </label>
-            <br>
-            <input type="file" id="imageToBeUploaded" name="imageToBeUploaded" />
-            <br>
-            <label for="title" id="label-title">Enter title: </label>
-            <input name="title" id="title" class="title" required />
-            <br>
-            <textarea id="description" name="description" maxlength="250" placeholder="Type a description to the image"></textarea>
-            <br>
-            <input type="submit" name="uploadbtn" id="uploadbtn" value="Upload image" />
-        </form>
 
-        <form method="post">
-            <div class="inner_container">
-                <button class="logoutbtn" name="logoutbtn" type="submit">Log Out</button>
+            <!--<label for="title" id="label-title">Enter title: </label>-->
+            <input type="text" name="title" id="title" class="title" placeholder="Enter title of the image here" required />
+            <br>
+            <textarea type="text" id="description" name="description" maxlength="250" placeholder="Type a description to the image"></textarea>
+            <br>
+
+            <div class="upload-btn-wrapper">
+                <button class="choosefilebtn">Choose image to upload</button>
+                <input type="file" id="imageToBeUploaded" class="imageToBeUploaded" name="imageToBeUploaded" required />
             </div>
+            <br>
+            <input type="submit" name="uploadbtn" id="uploadbtn" class="uploadbtn" value="Upload image" />
         </form>
         <?php
 

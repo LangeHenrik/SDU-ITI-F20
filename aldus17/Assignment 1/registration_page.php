@@ -2,7 +2,6 @@
 require_once('dbconfig_and_controllers/DBConnection.php');
 require_once('dbconfig_and_controllers/DBController.php');
 require_once('dbconfig_and_controllers/UserController.php');
-
 ?>
 <!DOCTYPE html>
 
@@ -20,7 +19,7 @@ require_once('dbconfig_and_controllers/UserController.php');
 
 <body>
     <div class="register_form_wrapper">
-        <form method="post" onsubmit="checkForm(); validatePassword();" oninput="checkForm()">
+        <form method="post" onsubmit="return checkForm(); return validatePassword();" oninput="return checkForm()">
             <div class="inner_register_form_container" id="inner-register-form-container">
 
                 <h1>Registration</h1>
@@ -37,11 +36,11 @@ require_once('dbconfig_and_controllers/UserController.php');
                 <input type="email" name="email" id="email" placeholder="type email" required>
 
                 <label for="password" id="password-label">Password: </label>
-                <input type="password" name="password" id="password" placeholder="Type password" required>
+                <input type="password" name="password" id="password" placeholder="Type password" pattern="(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])\S{8,}" required>
                 <br>
                 <span>Confirm password: </span> <span id="message"><i>Type to see if it matches</i></span>
                 <label>Confirm password</label>
-                <input type="password" name="password_confirm" id="password_confirm" placeholder="Repeat password">
+                <input type="password" name="password_confirm" id="password_confirm" placeholder="Repeat password" oninput="return validatePassword();" onchange="return validatePassword();" required>
 
                 <br>
                 <input type="submit" class="registerbtn" name="registerbtn" value="Register"></input>
@@ -51,38 +50,56 @@ require_once('dbconfig_and_controllers/UserController.php');
                 </p>
             </div>
 
+
+            <?php
+
+            if (session_status() == PHP_SESSION_NONE) {
+                session_start();
+            }
+
+            $usercontrol = new UserController();
+            $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
+            $fullname = filter_input(INPUT_POST, 'fullname', FILTER_SANITIZE_STRING);
+            $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING);
+            $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
+            $cpassword = filter_input(INPUT_POST, 'password_confirm', FILTER_SANITIZE_STRING);
+            $errors = array();
+
+            if (isset($_POST['registerbtn'])) {
+                if ($password != $cpassword) {
+                    echo "<div id='messageWarning'>" . "Password did not match" . "</br> " . "</div>";
+                    exit();
+                }
+                $uppercase = preg_match('@[A-Z]@', $password);
+                $lowercase = preg_match('@[a-z]@', $password);
+                $number    = preg_match('@[0-9]@', $password);
+                if (!$uppercase || !$lowercase || !$number || strlen($password) < 8) {
+                    echo "<div id='messageWarning'>" . "Password should be at least 8 characters in length and should include at least one upper case letter and one number" . "</br> " . "</div>";
+                    exit();
+                }
+                if (empty($username)) {
+                    array_push($errors, "Username is required");
+                }
+                if (empty($email)) {
+                    array_push($errors, "Email is required");
+                }
+                if (empty($password_1)) {
+                    array_push($errors, "Password is required");
+                }
+
+                if ($usercontrol->checkIfUserExists($username) == true) {
+                    echo "<div id='messageWarning'>" . "User with username " . $username . " has already been created" . "</br> " . "</div>";
+                    exit();
+                } else {
+                    $usercontrol->insertUser($username, $fullname, $email, $password);
+                    echo "<div id='messageSuccess'>" . "User with " . $username . " and " . $email . " created successfully" . "</br> " . "</div>";
+                    
+                    sleep(5);
+                    header('Location: ' . "index.php");
+                }
+            }
+            ?>
         </form>
-        <?php
-
-        if (session_status() == PHP_SESSION_NONE) {
-            session_start();
-        }
-
-        $usercontrol = new UserController();
-        $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
-        $fullname = filter_input(INPUT_POST, 'fullname', FILTER_SANITIZE_STRING);
-        $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING);
-        $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
-        $cpassword = filter_input(INPUT_POST, 'password_confirm', FILTER_SANITIZE_STRING);
-
-        // https://board.phpbuilder.com/d/10375596-dont-reset-php-form-fields
-
-        if (isset($_POST['registerbtn'])) {
-            if ($password != $cpassword) {
-                die('Password did not match');
-            }
-
-
-
-            if ($usercontrol->checkIfUserExists($username) == true) {
-                echo "<div id='contents'>" . "User with username " . $username . " has already been created" . "</br> " . "</div>";
-                exit();
-            } else {
-                $usercontrol->insertUser($username, $fullname, $email, $password);
-                echo "<div id='contents'>" . "User with " . $username . " and " . $email . " created successfully" . "</br> " . "</div>";
-            }
-        }
-        ?>
     </div>
 </body>
 

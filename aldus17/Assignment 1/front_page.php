@@ -13,16 +13,35 @@ session_start();
     <title>Homepage</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/index_page_style.css">
+    <link rel="stylesheet" href="css/front_page_style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <html lang="en">
 
 </header>
 
 <body>
-    <div id="main-wrapper">
+
+
+    <div class="navbar" id="navbar">
+
+        <ul>
+            <li><a class="active" href="#homepage">Home</a></li>
+            <li> <a href="upload_page.php">Upload</a></li>
+            <li> <a href="imagefeed_page.php">Imagefeed</a></li>
+            <li> <a href="userlist_page.php">Userlist</a></li>
+            <li>
+                <form method="post">
+                    <div class="inner_container">
+                        <button class="logoutbtn" name="logoutbtn" type="submit">Log Out</button>
+                    </div>
+                </form>
+            </li>
+        </ul>
+    </div>
+
+    <div id="main-wrapper" class="main_wrapper">
         <h2 class="front_page-header">Homepage page</h2>
-        <h3 class="front_page-subheader">Welcome to the index page
+        <h3 class="front_page-subheader">Welcome
             <?php
             $usercontroller = new UserController();
             $user = $usercontroller->getUserByUsername($_SESSION['username']);
@@ -36,29 +55,18 @@ session_start();
                 echo str_repeat('&nbsp;', 2) . $username;
             }
             ?>
-            </h2>
-
-            <div class="navbar" id="navbar">
-                <a class="active" href="#home">Home</a>
-                <a href="upload_page.php">Upload</a>
-                <a href="imagefeed_page.php">Imagefeed</a>
-                
-                <a href="userlist_page.php">Userlist</a>
-            </div>
-            <form method="post">
-                <div class="inner_container">
-                    <button class="logoutbtn" name="logoutbtn" type="submit">Log Out</button>
-                </div>
-            </form>
-            <?php
-            if (session_status() == PHP_SESSION_NONE) {
-                session_start();
-            }
-
-            UserController::logout();
+        </h3>
 
 
-            ?>
+        <?php
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+
+        UserController::logout();
+
+
+        ?>
     </div>
 </body>
 
