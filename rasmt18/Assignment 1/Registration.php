@@ -39,20 +39,6 @@
         </div>
     <script src="regExRegistration.js"></script>
 
-
-<?php
-//session_start();
-//if(isset($_SESSION['username'])){
-//    //echo "<h2>Welcome to Product page</h2>";
-//    echo "<br><a href='index.php'><input type=button name=back value=Back ></a>";
-//}
-//else{
-//    echo "<script>location.href='index.php'</script>";
-//}
-
-
-?>
-
     <?php
     //      TODO - We have to check that the regex is fulfilled before we commit to the database,
     //      this code will just insert it without checking
