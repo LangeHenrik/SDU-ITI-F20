@@ -1,6 +1,6 @@
 <!DOCTYPE html><html>
   <head>
-    <title>Frontpage</title>
+    <title>Chalkboard - Frontpage</title>
   <meta name="viewport" content="width=device width, initial scale=1.0">
   <!--stylesheet-->
   <link rel="stylesheet" type="text/css" href="style.css">
@@ -10,10 +10,22 @@
   </head>
   <!--Comment-->
   <body>
-    <h1>Exsersice 4 Lektion 4</h1>
-    <form method="post" action="page.html" >
-      <input type="text" name="name" id="name"/>
-      <input type="submit" name="submit" id="submit"/>
-    </form>
+
+
+    <nav class="loginnav" id="loginnav">
+      <ul>
+        <li><a href="index.html">Log in</a></li>
+        <li><a href="Signup.html">Sign Up</a></li>
+        <li><form method="post" action="page.html" >
+              <p>Username</p><input type="text" name="name" id="name"/>
+              <p>Password</p><input type="text" name="name" id="name"/>
+              <input type="submit" name="submit" value="Log in" id="submit"/>
+            </form>
+        </li>
+     </ul>
+   </nav>
+
+
+
   </body>
 </html>

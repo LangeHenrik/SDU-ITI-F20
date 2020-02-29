@@ -1,0 +1,52 @@
+
+
+/* general */
+body {
+  background-color: lightgray;
+}
+
+
+/* loginnav */
+nav.loginnav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+nav.loginnav li {
+  float: left;
+}
+nav.loginnav li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+nav.loginnav li a:hover {
+  background-color: #111;
+}
+nav.loginnav form p {
+  color: white;
+  text-align: center;
+  display: inline;
+  padding-right: 5px;
+}
+nav.loginnav form {
+  padding: 14px 16px;
+  margin: 0;
+}
+nav.loginnav input {
+  margin: 0;
+}
+nav.loginnav li:last-child {
+    float: right;
+}
+
+div.content {
+  background-color: white;
+  height: 100%;
+  max-width: 80%;
+
+}
