@@ -40,7 +40,6 @@ class UserController extends DbController
                 //echo ' validateUser Login success ';
                 return true;
             } else {
-                echo 'Failed to login, username or password is wrong';
                 return false;
             }
         }

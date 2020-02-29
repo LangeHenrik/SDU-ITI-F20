@@ -55,14 +55,13 @@ require_once('dbconfig_and_controllers/UserController.php');
                 $_SESSION['username'] = $username;
                 header("Location: front_page.php");
                 echo 'Success login';
-                exit;
             } else {
                 //HTTP::redirect("front_page.php");
                 $_SESSION['message'] = "Incorrect Username or Password.";
                 $_SESSION['logged_in'] = false;
-                header("Location: index.php");
+                
                 echo "<div id='messageWarning'><p>" . "Username or password is wrong" . "</p></br> " . "</div>";
-                exit();
+               
             }
         }
 

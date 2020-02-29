@@ -89,11 +89,10 @@ input[type=password]:focus {
     color: green;
 }
 
-#messageWarning {
+#messageWarning p {
     position: absolute;
     word-wrap: break-word;
-    width: inherit;
     height: 20px;
-    background-color: red;
-    margin: 5px;
+    background: red;
+    margin: auto;
 }

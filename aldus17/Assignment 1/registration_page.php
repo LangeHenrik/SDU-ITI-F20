@@ -93,9 +93,6 @@ require_once('dbconfig_and_controllers/UserController.php');
                 } else {
                     $usercontrol->insertUser($username, $fullname, $email, $password);
                     echo "<div id='messageSuccess'>" . "User with " . $username . " and " . $email . " created successfully" . "</br> " . "</div>";
-                    
-                    sleep(5);
-                    header('Location: ' . "index.php");
                 }
             }
             ?>
