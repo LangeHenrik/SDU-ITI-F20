@@ -59,9 +59,9 @@ require_once('dbconfig_and_controllers/UserController.php');
                 //HTTP::redirect("front_page.php");
                 $_SESSION['message'] = "Incorrect Username or Password.";
                 $_SESSION['logged_in'] = false;
-                
+
                 echo "<div id='messageWarning'><p>" . "Username or password is wrong" . "</p></br> " . "</div>";
-               
+                exit();
             }
         }
 
