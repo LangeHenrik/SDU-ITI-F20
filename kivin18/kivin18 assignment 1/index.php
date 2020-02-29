@@ -11,6 +11,7 @@
 <body>
 
 <?php
+// DB connection
 $config = require('db_config.php');
 $host = $config["host"];
 $db = $config["db"];
@@ -34,6 +35,7 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
+// Login
 if (isset($_POST["username"]) && isset($_POST["password"])) {
     $username = htmlentities($_POST["username"]);
     $password = htmlentities($_POST["password"]);
@@ -47,21 +49,29 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
     }
 }
 
-if ($_SESSION["logged_in"]) :
+if ($_SESSION["logged_in"] ?? false) :
     ?>
+    <!-- Main content -->
     <div class="grid-container">
         <div class="header" name="title" id="title">Image feed</div>
         <div class="menu">
             <button class="menuButton" name="imagesButton" id="imagesButton">Images</button>
-            <button class="menuButton" name="usersButton" id="usersButton">Users</button>
+            <button class="menuButton" name="usersButton" id="usersButton" type="submit">Users</button>
             <button class="menuButton" name="uploadButton" id="uploadButton">Upload</button>
-            <form name="logOut" id="logOut" method="post">
-                <button class="menuButton" value="Log out" type="submit">Log out :'(</button>
-            </form>
+            <button class="menuButton" id="logoutButton" value="Log out">Log out :'(</button>
         </div>
         <div class="main">
             <div class="content" name="imageFeed" id="imageFeed">Images</div>
-            <div class="content" name="users" id="users">Users</div>
+            <div class="content" name="users" id="users">
+                <ul>
+                    <?php
+                    $stmt = $pdo->query('SELECT username FROM user');
+                    while ($row = $stmt->fetch()) {
+                        echo "<li>", $row['username'], "</li>";
+                    }
+                    ?>
+                </ul>
+            </div>
             <div class="content" name="upload" id="upload">Upload</div>
         </div>
         <div class="footer">2020</div>
@@ -114,6 +124,7 @@ if ($_SESSION["logged_in"]) :
             </form>
         </div>
     <?php
+    //Register
     if (isset($_POST["regUsername"]) && isset($_POST["regPassword"])) {
         $stmt = $pdo->prepare('INSERT INTO user(username, pw_hash, join_date) VALUES (?, ?, NOW())');
         $new_user = htmlentities($_POST["regUsername"]);
