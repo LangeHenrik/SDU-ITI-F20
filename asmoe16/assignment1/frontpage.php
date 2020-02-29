@@ -10,7 +10,7 @@ if (isset($_POST['loginbutton'])) {
 }
 ?>
 
-<?php if(isset($_SESSION["logged_in"]) && !$_SESSION["logged_in"]): ?>
+<?php if(!isset($_SESSION["logged_in"]) || !$_SESSION["logged_in"]): ?>
 	<form method="post" accept-charset="utf-8">
 		username
 		<input type="text" name="username"/>

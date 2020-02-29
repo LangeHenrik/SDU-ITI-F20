@@ -55,4 +55,22 @@
 		return $stmt->fetchAll();
 	}
 
+	function add_image_to_db(string $img_path,string $owner_id,string $description="",string $header=""){
+		$conn = connect_db();
+		$stmt = $conn->prepare("INSERT INTO image (owner_id,image_path,description,header)
+			VALUES (:owner,:image,:description,:header)");
+		$stmt->bindParam(":owner",$owner_id);
+		$stmt->bindParam(":image",$image_path);
+		$stmt->bindParam(":description",$description);
+		$stmt->bindParam(":header",$header);
+		$stmt->execute();
+	}
+
+	function list_images() {
+		$conn = connect_db();
+		$stmt = $conn->prepare("SELECT user_id,username FROM member");
+		$stmt->execute();
+		return $stmt->fetchAll();
+	}
+
 ?>

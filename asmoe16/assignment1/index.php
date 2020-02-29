@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-
-<?php if (session_status() == PHP_SESSION_NONE) {
+<?php
+function is_session_started()
+{
+            return session_id() === '' ? FALSE : TRUE;
+}
+if (!is_session_started()) {
 	session_start();
-	$_SESSION["logged_in"] = false;
-	$_SESSION['page'] = 'frontpage';
 } ?>
 
 <html>
@@ -17,6 +19,14 @@
 		<div class="header">
 			<h1>TEXT</h1>
 		</div>
+		<div>
+		<?php
+			if($_SESSION["logged_in"]) {
+				echo "Username : " . $_SESSION['username'];
+				echo "User_id : " . $_SESSION['user_id'];
+			}
+		?>
+		</div>
 
 		<nav class="menu">
 			<ul>
@@ -26,6 +36,7 @@
 				fpage("Sign-up","registration");
 				fpage("Users","userlist");
 				fpage("Image Feed","imagefeed");
+				fpage("Upload Image","upload");
 				?>
 				<li> <a href="logout.php">Sign-out</a></li>
 			</ul>
@@ -56,6 +67,10 @@
 							include 'frontpage.php';
 							break;
 					}
+				echo "<br></br>";
+				var_dump($_SESSION);
+				echo "<br></br>";
+				echo "Session status:" . session_status();
 				?>
 			</div>
 		</div>

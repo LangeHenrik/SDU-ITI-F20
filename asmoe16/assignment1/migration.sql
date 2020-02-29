@@ -9,9 +9,19 @@ CREATE TABLE member (
 );
 ALTER TABLE member ADD INDEX (username);
 
+CREATE TABLE image (
+	image_id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+	owner_id INT UNSIGNED NOT NULL,
+	FOREIGN KEY (owner_id) REFERENCES member(user_id),
+	image_path varchar(140) NOT NULL,
+	description varchar(140),
+	header varchar(50)
+);
+
 DROP USER IF EXISTS asmoe16@localhost;
 CREATE USER asmoe16@localhost IDENTIFIED BY '123';
 GRANT ALL PRIVILEGES ON member TO asmoe16@localhost;
+GRANT ALL PRIVILEGES ON image TO asmoe16@localhost;
 FLUSH PRIVILEGES;
 
 INSERT INTO member (username,password) VALUES ('user1','123');
