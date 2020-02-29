@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Pics</title>
+    <link rel="stylesheet" href="SignUpStyle.css">
+    <script type="text/javascript">
+    function validate_email(email) {
+  //定义正则表达式的变量:邮箱正则
+  var emailReg = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+  //console.log(username);
+  if (email != "" && email.search(emailReg) != -1) {
+    document.getElementById("test_email").innerHTML = "<font color='green' size='2px'>correct</font>";
+  } else {
+    document.getElementById("test_email").innerHTML = "<font color='red' size='2px'>wrong email format</font>";
+  }
+}
+
+function validate_password2(password2) {
+  var password = document.getElementById("password").value;
+
+  if (password == "") {
+    document.getElementById("is_test_pw").innerHTML = "<font color='red' size='2px'>cannot be empty</font>";
+  } else if (password == password2) {
+    document.getElementById("is_test_pw").innerHTML = "<font color='green' size='2px'>correct</font>";
+  } else {
+    document.getElementById("is_test_pw").innerHTML = "<font color='red' size='2px'>Two input password must be consistent</font>";
+    console.log("enter the password");
+  }
+}
+
+    </script>
+</head>
+<body>
+<div class="sign-div">
+    <form class="" action="register.html" method="post">
+        <h1>SIGN UP NOW</h1>
+        <table>
+            <tr> <td><input class="sign-text" type="text" placeholder="username" ></td></tr>
+            <tr>
+                <td> <input class="sign-text" id="email" type="text" placeholder="email" onblur="validate_email(this.value)" /></td>
+                <td id="test_email"></td>
+            </tr>
+            <tr> <td><input class="sign-text" id="password" type="password" placeholder="password"></td>
+                <td id="test_pw"></td>
+            </tr>
+            <tr> <td><input class="sign-text" id="password2" type="password" placeholder="confirm the password" onblur="validate_password2(this.value)"/ ></td>
+        <td id="is_test_pw"></td></tr>
+        <tr><td><input class="sign-btn" type="submit" value="Sign up"></td></tr>
+        </table>
+        
+    </form>
+ 
+</div>
+ 
+ 
+</body>
+</html>
