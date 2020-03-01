@@ -34,7 +34,7 @@ if ($_SESSION["logged_in"]) :
     ?>
     <!-- Main content -->
     <div class="grid-container">
-        <div class="header" name="title" id="title">Image feed</div>
+        <div class="header" name="title" id="title"><h2>Image Feed</h2></div>
         <div class="menu">
             <button class="menuButton" name="imagesButton" id="imagesButton">Images</button>
             <button class="menuButton" name="usersButton" id="usersButton" type="submit">Users</button>
@@ -42,12 +42,22 @@ if ($_SESSION["logged_in"]) :
             <button class="menuButton" id="logoutButton" value="Log out">Log out :'(</button>
         </div>
         <div class="main">
+            <!-- Image feed -->
             <div class="content" name="imageFeed" id="imageFeed">Images</div>
+            <!-- Users -->
             <div class="content" name="users" id="users">
                 <ul id="userList">
                 </ul>
             </div>
-            <div class="content" name="upload" id="upload">Upload</div>
+            <!-- Upload -->
+            <div class="content" name="upload" id="upload">
+                <form action="upload.php" method="post" enctype="multipart/form-data">
+                    <h3>Select image to upload:</h3>
+                    <label class="button" for="file">Choose image</label>
+                    <input class="fileInput " type="file" name="fileToUpload" id="fileToUpload">
+                    <input class="button" type="submit" value="Upload Image" name="submit">
+                </form>
+            </div>
         </div>
         <div class="footer">2020</div>
     </div>

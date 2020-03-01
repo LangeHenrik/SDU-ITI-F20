@@ -51,7 +51,7 @@ contentEventListener(usersButton, users, function () {
     let xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("users").innerHTML = this.responseText;
+            document.getElementById("userList").innerHTML = this.responseText;
         }
     }
     xmlhttp.open("GET", "users.php", true);
