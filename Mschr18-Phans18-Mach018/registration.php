@@ -1,0 +1,62 @@
+<!DOCTYPE html><html>
+  <head>
+    <title>ChalkBoard - Frontpage</title>
+    <meta name="viewport" content="width=device width, initial scale=1.0">
+    <!--stylesheet-->
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <!--Fontawsome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <!--reuse loginnav-->
+    <script type="text/javascript">
+
+    </script>
+  </head>
+  <!--Comment-->
+  <body>
+    <?php
+      include_once('loginnav.php');
+    ?>
+
+    <div class="content" id="content">
+      <div class="registration" id="registration">
+        <h1>Sign up to ChalkBoard <i class="fas fa-chalkboard"></i></h1>
+        <h3> <i>BETA V.0.0.1</i></h3>
+        <br>
+
+        <form onsubmit="return checkform();" method="post">
+          <label for="name" >First name</label> <br>
+          <input type="text" name="FirstName" id="FirstName" tabindex="1" autofocus/> <br>
+          <p class="info" id="nameinfo"></p>
+
+          <label for="name" >Last name</label> <br>
+          <input type="text" name="lastName" id="lastName" tabindex="2"/> <br>
+          <p class="info" id="nameinfo"></p>
+
+          <label for="name" >Username</label> <br>
+          <input type="text" name="lastName" id="lastName" tabindex="3"/> <br>
+          <p class="info" id="nameinfo"></p>
+
+          <label for="password">Password</label><br>
+          <input type="password" name="password" id="password" tabindex="4"/> <br>
+          <p class="info" id="passwordinfo"></p>
+
+          <label for="phone">Phone number</label><br>
+          <input type="text" name="phone" id="phone" tabindex="5"/> <br>
+          <p class="info" id="phoneinfo"></p>
+
+          <label for="email">Email adress</label><br>
+          <input type="text" name="email" id="email" tabindex="6"/><br>
+          <p class="info" id="emailinfo"></p>
+
+          <input type="submit" name="submit" id="submit"  value="Sign up"/>
+        </form>
+
+      </div>
+    </div>
+
+
+    <?php
+     include_once('footer.php');
+    ?>
+  </body>
+</html>

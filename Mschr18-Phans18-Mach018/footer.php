@@ -10,5 +10,5 @@
       <li>Martin Bremholm Schrøder <br>SDU - mschr18</li>
       <li>Peter Buch Hansen <br>SDU - phans18</li>
     </ul>
-  </div
+  </div>
 </div>
