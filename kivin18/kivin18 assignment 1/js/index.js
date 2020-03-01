@@ -29,11 +29,22 @@ function contentEventListener(element, target, ajax) {
         element.addEventListener('click', function () {
             hideElements('content');
             target.style.display = 'block';
-            if(ajax) {
+            if (ajax) {
                 ajax();
             }
         });
     }
+}
+
+function ajaxGetCall(url, responseElement) {
+    let xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById(responseElement).innerHTML = this.responseText;
+        }
+    };
+    xmlhttp.open("GET", url, true);
+    xmlhttp.send();
 }
 
 let feed = document.getElementById('imageFeed');
@@ -42,22 +53,27 @@ let upload = document.getElementById('upload');
 let feedButton = document.getElementById('imagesButton');
 let usersButton = document.getElementById('usersButton');
 let uploadButton = document.getElementById('uploadButton');
+let uploadImageButton = document.getElementById('uploadImageBtn');
 let logoutButton = document.getElementById('logoutButton').addEventListener('click', function () {
-    location.href='logout.php';
+    location.href = 'logout.php';
 });
 
 contentEventListener(feedButton, feed);
-contentEventListener(usersButton, users, function () {
-    let xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("userList").innerHTML = this.responseText;
-        }
-    }
-    xmlhttp.open("GET", "users.php", true);
-    xmlhttp.send();
-});
+contentEventListener(usersButton, users, ajaxGetCall("users.php", "userList"));
 contentEventListener(uploadButton, upload);
+
+//Upload image
+document.getElementById('uploadImageButton').addEventListener('click', function () {
+    let xmlhttp = new XMLHttpRequest();
+    let form = new FormData(document.getElementById("uploadForm"));
+    xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("uploadInfo").innerHTML = this.responseText;
+        }
+    };
+    xmlhttp.open("POST", "upload.php", true);
+    xmlhttp.send(form);
+});
 
 //Regex
 function checkName(elementId, label) {

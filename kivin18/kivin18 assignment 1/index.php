@@ -15,7 +15,6 @@ require("db_connection.php");
 
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
-    $_SESSION["logged_in"] = false;
 }
 
 // Login
@@ -30,7 +29,7 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
     }
 }
 
-if ($_SESSION["logged_in"]) :
+if ($_SESSION["logged_in"] ?? false) :
     ?>
     <!-- Main content -->
     <div class="grid-container">
@@ -51,12 +50,17 @@ if ($_SESSION["logged_in"]) :
             </div>
             <!-- Upload -->
             <div class="content" name="upload" id="upload">
-                <form action="upload.php" method="post" enctype="multipart/form-data">
+                <form id="uploadForm" method="post" enctype="multipart/form-data">
                     <h3>Select image to upload:</h3>
-                    <label class="button" for="file">Choose image</label>
+                    <label class="button" for="fileToUpload">Choose image</label>
                     <input class="fileInput " type="file" name="fileToUpload" id="fileToUpload">
-                    <input class="button" type="submit" value="Upload Image" name="submit">
+                    <!--<input class="button" type="submit" value="Upload Image" name="submit">-->
+                    <br/>
                 </form>
+                <br/>
+                <button class="button" name="uploadImageButton" id="uploadImageButton">Upload image</button>
+                <br/>
+                <label name="uploadInfo" id="uploadInfo"></label>
             </div>
         </div>
         <div class="footer">2020</div>

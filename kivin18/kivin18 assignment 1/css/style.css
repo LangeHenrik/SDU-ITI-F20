@@ -40,7 +40,6 @@ input[type=text]:focus, input[type=password]:focus {
   font-weight: normal;
 }
 
-/*
 .fileInput {
   width: 0.1px;
   height: 0.1px;
@@ -49,7 +48,6 @@ input[type=text]:focus, input[type=password]:focus {
   position: absolute;
   z-index: -1;
 }
- */
 
 .wrapper {
   text-align: center;
