@@ -49,6 +49,11 @@ input[type=text]:focus, input[type=password]:focus {
   z-index: -1;
 }
 
+.userImage {
+  border-style: solid;
+  margin: 10px;
+}
+
 .wrapper {
   text-align: center;
   margin: 0 auto;
