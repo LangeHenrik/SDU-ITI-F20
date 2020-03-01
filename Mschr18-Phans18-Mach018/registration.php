@@ -6,10 +6,6 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <!--Fontawsome-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-    <!--reuse loginnav-->
-    <script type="text/javascript">
-
-    </script>
   </head>
   <!--Comment-->
   <body>
@@ -24,32 +20,31 @@
         <br>
 
         <form onsubmit="return checkform();" method="post">
-          <label for="name" >First name</label> <br>
-          <input type="text" name="FirstName" id="FirstName" tabindex="1" autofocus/> <br>
-          <p class="info" id="nameinfo"></p>
 
-          <label for="name" >Last name</label> <br>
-          <input type="text" name="lastName" id="lastName" tabindex="2"/> <br>
-          <p class="info" id="nameinfo"></p>
+          <label for="fuldname" >Fuld name*</label> <br>
+          <input type="text" name="fuldname" id="fuldname" tabindex="1"/> <br>
+          <p class="info" id="fuldnameinfo"></p>
 
-          <label for="name" >Username</label> <br>
-          <input type="text" name="lastName" id="lastName" tabindex="3"/> <br>
-          <p class="info" id="nameinfo"></p>
+          <label for="newusername" >Username*</label> <br>
+          <input type="text" name="newusername" id="newusername" tabindex="2"/> <br>
+          <p class="info" id="newusernameinfo"></p>
 
-          <label for="password">Password</label><br>
-          <input type="password" name="password" id="password" tabindex="4"/> <br>
-          <p class="info" id="passwordinfo"></p>
+          <label for="newpassword">Password*</label><br>
+          <input type="password" name="newpassword" id="newpassword" tabindex="3"/> <br>
+          <p class="info" id="newpasswordinfo"></p>
 
-          <label for="phone">Phone number</label><br>
-          <input type="text" name="phone" id="phone" tabindex="5"/> <br>
+          <label for="phone">Phone number*</label><br>
+          <input type="text" name="phone" id="phone" tabindex="4"/> <br>
           <p class="info" id="phoneinfo"></p>
 
-          <label for="email">Email adress</label><br>
-          <input type="text" name="email" id="email" tabindex="6"/><br>
+          <label for="email">Email adress*</label><br>
+          <input type="text" name="email" id="email" tabindex="5"/><br>
           <p class="info" id="emailinfo"></p>
 
-          <input type="submit" name="submit" id="submit"  value="Sign up"/>
+          <i class="fas fa-user-plus"></i><input type="submit" name="submit" id="signup"  value="Sign up" tabindex="7"/>
         </form>
+
+        <script src="registration.js"></script>
 
       </div>
     </div>
