@@ -1,6 +1,6 @@
 CREATE TABLE users (
 username varchar(20) primary key,
-password varchar(20) 
+password varchar(1000) 
 );
 CREATE TABLE images (
     -> id int(12) NOT NULL AUTO_INCREMENT,

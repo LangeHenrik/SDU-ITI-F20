@@ -35,7 +35,7 @@ function validateUsername(){
     return false;
 }
 function validatePassword() {
-    var passregex = new RegExp(/((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W]).{8,20})/);
+    var passregex = new RegExp(/((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W]).{8,1000})/);
     var password = document.getElementById("password").value;
     if (passregex.test(password)){
         console.log("incorrect password type please try again");

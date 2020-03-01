@@ -75,13 +75,6 @@ and open the template in the editor.
     color: black;
 }
 /*user registration page starts here */
-.wrapper {
-    display: flex;
-    justify-content: center;
-    background-color: coral;
-    height: 470px;
-    padding: 6px;
-}
 .userhead {
     display: flex;
     justify-content: center;
@@ -95,6 +88,7 @@ and open the template in the editor.
     justify-content: center;
     overflow: hidden;
     background-color: #e9e9e9;
+    padding: 6px
 }
 .Navigation a{
     float: left;
@@ -142,12 +136,11 @@ and open the template in the editor.
     height: 520px;
     background-color: gold;
 }
-.upnav.upimage{
+.upimage{
     display: flex;
     overflow: hidden;
     padding: 6px;
-    height:300px;
-    background-color: chocolate;
+    background-color: beige;
 }
 .upimage a:hover{
   background-color: #ddd;
