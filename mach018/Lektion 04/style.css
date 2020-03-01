@@ -1,0 +1,70 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgba(0, 139, 139, 0.39);
+}
+#main {
+    display: flex;
+    height: 85%;
+    margin-top: 10%;
+    text-align: center;
+    font-weight: 900;
+}
+#leftBox, #rightBox, #content {
+    width: 25%;
+}
+#content {
+    width: 50%;
+    padding: 10px;
+    min-width: 500px;
+}
+table, th, td {
+    border: 1px solid black;
+}
+table {
+    width: 100%;
+    height: 40px;
+    white-space: nowrap;
+    border-radius: 5px;     
+    border-collapse: collapse;
+}
+
+table th {
+    background-color: darkcyan;
+    color: white;
+    font-size: 20px;
+    box-shadow: inset 0 0 10px black;
+}
+table td {
+    text-align: left;
+    animation: textAnimate 1s ease-in-out 0s infinite alternate;
+}
+table tr:nth-child(even) {
+    background-color: lightblue;
+}
+table tr:nth-child(odd) {
+    background-color: lightcyan;
+}
+
+#search, #submit{
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: bolder;
+    margin: 5% 0;
+}
+#search {
+    float: left;
+    width: 80%
+}
+#submit {
+    float: right;
+    background-color: darkcyan;
+    /*box-shadow: 1px 1px 5px 1px black;*/
+    border: rgb(0, 109, 109) outset;
+    color: white;
+    cursor: pointer;
+    width: 100px ;
+}
+@keyframes textAnimate {
+    /*from { color: red; }*/
+    to { color: red;}
+}
