@@ -5,10 +5,20 @@
     <title>Pics</title>
     <link rel="stylesheet" href="SignUpStyle.css">
     <script type="text/javascript">
-    function validate_email(email) {
+
+function validate_username(username) {
+  //定义正则表达式的变量:id正则
+  var uesernameReg = /^[a-zA-Z0-9_-]{4,16}$/;
+  //console.log(username);
+  if (username != "" && username.search(uesernameReg) != -1) {
+    document.getElementById("test_username").innerHTML = "<font color='green' size='2px'>correct</font>";
+  } else {
+    document.getElementById("test_username").innerHTML = "<font color='red' size='2px'>username should be 4-16 long</font>";
+  }
+}
+function validate_email(email) {
   //定义正则表达式的变量:邮箱正则
   var emailReg = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
-  //console.log(username);
   if (email != "" && email.search(emailReg) != -1) {
     document.getElementById("test_email").innerHTML = "<font color='green' size='2px'>correct</font>";
   } else {
@@ -36,7 +46,10 @@ function validate_password2(password2) {
     <form class="" action="register.html" method="post">
         <h1>SIGN UP NOW</h1>
         <table>
-            <tr> <td><input class="sign-text" type="text" placeholder="username" ></td></tr>
+            <tr> 
+              <td><input class="sign-text" id="username" type="text" placeholder="username" onblur="validate_username(this.value)"></td>
+              <td id="test_username"></td>
+            </tr>
             <tr>
                 <td> <input class="sign-text" id="email" type="text" placeholder="email" onblur="validate_email(this.value)" /></td>
                 <td id="test_email"></td>
