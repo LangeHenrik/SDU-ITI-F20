@@ -1,30 +1,23 @@
 <?php
-  require_once "./config.php";
-
 class account {
-  /**
-   * Needs validation of $values
-   */
+
   public function login($values) {
     $db = getDB();
     $username = $values['Username'];
-    $email = $values['Username'];
     $pass = $values['Password'];
-    $count_sql = "SELECT count(*) FROM accounts WHERE username = :username OR email = :email;";
+    $count_sql = "SELECT count(*) FROM accounts WHERE username = :username;";
     $stmt = $db->prepare($count_sql);
     $stmt->bindparam(":username", $username);
-    $stmt->bindparam(":email", $email);
     $stmt->execute();
     $count = $stmt->fetchColumn();
     if($count > 0) {
-      $sql = "SELECT id, firstname, lastname FROM accounts WHERE username = :username OR email = :email;";
+      $sql = "SELECT id,password FROM accounts WHERE username = :username;";
       $stmt = $db->prepare($sql);
       $stmt->bindparam(":username", $username);
-      $stmt->bindparam(":email", $email);
       $stmt->execute();
       while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-        if(password_verify($pass, $row['Password'])) {
-          $_SESSION['name'] = $row['firstname'] .' '. $row['lastname'];
+        if(password_verify($pass, $row['password'])) {
+          $_SESSION['name'] = $username;
           $_SESSION['AccountID'] = $row['id'];
           $db = null;
           return true;
@@ -34,6 +27,7 @@ class account {
         }
       }
     } else {
+      $db = null;
       return false;
     }
   }
@@ -53,9 +47,6 @@ class account {
     return true;
   }
 
-  /**
-   * Needs validation of $values
-   */
   public function checkUsername($values) {
     $db = getDB();
     $username = $values['Username'];
@@ -72,27 +63,34 @@ class account {
     }
   }
 
-  /**
-   * Needs validation of $values
-   */
   public function createAccount($values) {
     $db = getDB();
-    $userName = $values['Username']; // webpage form
+    $userName = $values['Username'];
+/* These are not used currently, GDPR
     $firstName = $values['Firstname']; // webpage form
     $lastName = $values['Lastname']; // webpage form
     $email = $values['Email']; // webpage form
-    $password = $values['Password']; // webpage form
+*/
+    $password = $values['Password'];
     $hashPass = password_hash($password, PASSWORD_DEFAULT);
-    $sql = "INSERT INTO accounts (username, password, firstname, lastname, email) "
-         . "VALUES(:Username, :Password, :Firstname, :Lastname, :Email);";
+    $sql = "INSERT INTO accounts (username, password) "
+         . "VALUES(:Username, :Password);";
     $stmt = $db->prepare($sql);
     $stmt->bindparam(":Username", $userName);
+/* These are not used currently, GDPR
     $stmt->bindparam(":Firstname", $firstName);
     $stmt->bindparam(":Lastname", $lastName);
     $stmt->bindparam(":Email", $email);
+*/
     $stmt->bindparam(":Password", $hashPass);
     $stmt->execute();
+    $rows = $stmt->rowCount();
     $db =  null;
+    if($rows > 0) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   public function getAccountInfo() {
@@ -108,9 +106,9 @@ class account {
 
   public function getAccountList() {
     $db = getDB();
-    $sql = "SELECT id, username, firstname, lastname FROM accounts ORDER BY asc;";
+    $sql = "SELECT id, username FROM accounts ORDER BY id asc;";
     $stmt = $db->prepare($sql);
-    $stmt-execute();
+    $stmt->execute();
     $returnVal = $stmt->fetchAll(PDO::FETCH_ASSOC);
     $db = null;
     return $returnVal;

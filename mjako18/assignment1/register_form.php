@@ -23,7 +23,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Frontpage</title>
+  <title>Register Account</title>
   <link type="text/css" rel="stylesheet" href="CSS/responsive.css">
   <link type="text/css" rel="stylesheet" href="CSS/design.css">
 </head>
@@ -35,7 +35,7 @@
           <li class="menu skew-right float_right skew-right-end<?php echo $menu_logout ?>"><a href="uploadform.php">upload</a></li>
           <li class="menu skew-right float_right<?php echo $menu_logout ?>"><a href="gallery.php">pictures</a></li>
           <li class="menu skew-right float_right<?php echo $menu_logout ?>"><a href="users.php">users</a></li>
-          <li class="menu skew-right float_right<?php echo $menu_login ?>"><a href="register.php">register</a></li>
+          <li class="menu skew-right float_right<?php echo $menu_login ?>"><a href="register_form.php">register</a></li>
           <li class="menu skew-right float_right"><a href="index.php">frontpage</a></li>
         </ul>
       </div>
@@ -51,6 +51,7 @@
               <div>
                 <label for="username">Username:</label>
                 <input type="text" name="username" id="username" class="" placeholder="username">
+                <span id="usernameCheck"></span>
               </div>
               <div>
                 <label for="pass">Password:</label>
@@ -62,6 +63,7 @@
             </fieldset>
           </form>
         </div>
+        <div id="register_response"></div>
       </div>
       <div class="col-xl-4 col-m-4">
       </div>

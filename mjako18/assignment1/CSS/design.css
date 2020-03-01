@@ -1,0 +1,48 @@
+nav ul {
+  background-color: #AAA;
+}
+
+.skew-left {
+  -ms-transform: skewX(20deg);
+  transform: skewX(20deg);
+  border: 1px solid #EEE;
+}
+
+.skew-left a {
+  -ms-transform: skewX(-20deg);
+  transform: skewX(-20deg);
+}
+
+.skew-right {
+  -ms-transform: skewX(-20deg);
+  transform: skewX(-20deg);
+  border: 1px solid #EEE;
+}
+
+.skew-right-end {
+  -ms-transform: skewX(-20deg);
+  transform: skewX(-20deg);
+  border: 1px solid #EEE;
+  margin-right: 10px;
+}
+
+.skew-right a {
+  -ms-transform: skewX(20deg);
+  transform: skewX(20deg);
+}
+
+.hidden {
+  display: none;
+}
+
+table, td {
+  border: 1px solid #000;
+}
+
+#preview {
+  max-width: inherit;
+}
+
+progress {
+  width: 100%;
+}

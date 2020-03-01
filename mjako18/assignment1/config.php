@@ -1,7 +1,7 @@
 <?php
 session_start();
-define('DB_USERNAME', ""); //Database user
-define('DB_PASSWORD', ""); //Database user password
+define('DB_USERNAME', "mjako18"); //Database user
+define('DB_PASSWORD', "ITIassignment"); //Database user password
 define('DB_NAME', "image_share"); //Database name
 define('DB_HOST', "localhost"); //Database host
 
@@ -17,9 +17,10 @@ function getDB() {
     return $conn;
   } catch (PDOException $e) {
     // failed connecting
+    echo $e;
   }
 }
 
-include_once 'account.php';
+include_once './account_class.php';
 
 $account = new account();

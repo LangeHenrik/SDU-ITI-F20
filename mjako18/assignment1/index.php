@@ -33,7 +33,7 @@
           <li class="menu skew-right float_right skew-right-end<?php echo $menu_logout ?>"><a href="uploadform.php">upload</a></li>
           <li class="menu skew-right float_right<?php echo $menu_logout ?>"><a href="gallery.php">pictures</a></li>
           <li class="menu skew-right float_right<?php echo $menu_logout ?>"><a href="users.php">users</a></li>
-          <li class="menu skew-right float_right<?php echo $menu_login ?>"><a href="register.php">register</a></li>
+          <li class="menu skew-right float_right<?php echo $menu_login ?>"><a href="register_form.php">register</a></li>
           <li class="menu skew-right float_right"><a href="index.php">frontpage</a></li>
         </ul>
       </div>
@@ -48,7 +48,7 @@
       </div>
       <div class="col-xl-4 col-m-4">
         <div id="logoutDiv" class="<?php echo $logout_classes ?>">
-          <button name="logout" id="logout" class="button button-logout" onclick="logout();">Log out</button>
+          <button name="logout" id="logout" class="button button-logout" onclick="logout('index');">Log out</button>
         </div>
         <div id="loginFormDiv" class="<?php echo $login_classes ?>">
           <form action="login.php" method="post" id="loginform">
