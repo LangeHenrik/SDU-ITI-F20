@@ -1,5 +1,6 @@
 <?php
 session_start();
+require("db_connection.php");
 if ($_SESSION["logged_in"] ?? false) {
     $target_dir = "uploads/";
     if (!is_dir($target_dir)) {
@@ -10,7 +11,7 @@ if ($_SESSION["logged_in"] ?? false) {
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
-// Check if image file is a actual image or fake image
+    // Check if image file is a actual image or fake image
     if (isset($_POST["submit"])) {
         $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
         if ($check !== false) {
@@ -40,15 +41,18 @@ if ($_SESSION["logged_in"] ?? false) {
         $uploadOk = 0;
     }
 
-    // Check if $uploadOk is set to 0 by an error
     if ($uploadOk == 0) {
-        echo " Sorry, your file was not uploaded.";
-    // if everything is ok, try to upload file
+        echo " Your file was not uploaded.";
     } else {
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-            echo "The file " . basename($_FILES["fileToUpload"]["name"]) . " has been uploaded.";
+            $stmt = $pdo->prepare('INSERT INTO image(username, image_path, header, description, date_added) VALUES (?, ?, ?, ?, NOW())');
+            $path = htmlentities($_FILES["fileToUpload"]["name"]);
+            $header = htmlentities($_POST["imageHeader"]);
+            $description = htmlentities($_POST["description"]);
+            $stmt->execute([$_SESSION["user"], $path, $header, $description]);
+            echo "The image " . basename($_FILES["fileToUpload"]["name"]) . " has been uploaded.";
         } else {
-            echo "Sorry, there was an error uploading your file.";
+            echo "There was an error uploading your file.";
         }
     }
 }

@@ -26,6 +26,7 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
     $user = $stmt->fetch();
     if ($username == $user['username'] && password_verify($password, $user['pw_hash'])) {
         $_SESSION["logged_in"] = true;
+        $_SESSION['user'] = $user['username'];
     }
 }
 
@@ -33,7 +34,7 @@ if ($_SESSION["logged_in"] ?? false) :
     ?>
     <!-- Main content -->
     <div class="grid-container">
-        <div class="header" name="title" id="title"><h2>Image Feed</h2></div>
+        <div class="header" id="title"><h2>Image Feed</h2></div>
         <div class="menu">
             <button class="menuButton" name="imagesButton" id="imagesButton">Images</button>
             <button class="menuButton" name="usersButton" id="usersButton" type="submit">Users</button>
@@ -42,25 +43,36 @@ if ($_SESSION["logged_in"] ?? false) :
         </div>
         <div class="main">
             <!-- Image feed -->
-            <div class="content" name="imageFeed" id="imageFeed">Images</div>
+            <div class="content" id="imageFeed">
+                <h3>Users</h3>
+                <img src="/uploads/22851.jpg" alt="">
+            </div>
             <!-- Users -->
-            <div class="content" name="users" id="users">
+            <div class="content" id="users">
+                <h3>Users</h3>
                 <ul id="userList">
                 </ul>
             </div>
             <!-- Upload -->
-            <div class="content" name="upload" id="upload">
+            <div class="content" id="upload">
                 <form id="uploadForm" method="post" enctype="multipart/form-data">
                     <h3>Select image to upload:</h3>
+                    <label for="imageHeader">Title</label>
+                    <br/>
+                    <input type="text" maxlength="50" name="imageHeader" id="imageHeader">
+                    <br/>
+                    <label for="description">Description</label>
+                    <br/><br/>
+                    <textarea name="description" id="description" cols="30" rows="10"></textarea>
+                    <br/><br/>
                     <label class="button" for="fileToUpload">Choose image</label>
                     <input class="fileInput " type="file" name="fileToUpload" id="fileToUpload">
-                    <!--<input class="button" type="submit" value="Upload Image" name="submit">-->
                     <br/>
                 </form>
                 <br/>
                 <button class="button" name="uploadImageButton" id="uploadImageButton">Upload image</button>
                 <br/>
-                <label name="uploadInfo" id="uploadInfo"></label>
+                <label id="uploadInfo"></label>
             </div>
         </div>
         <div class="footer">2020</div>
@@ -68,7 +80,7 @@ if ($_SESSION["logged_in"] ?? false) :
 <?php else : ?>
     <!-- Login -->
     <div class="wrapper">
-        <div id="loginForm" name="loginForm">
+        <div id="loginForm">
             <form id="login" name="login" onsubmit="return checkLoginFields()" method="post">
                 <label for="username">Username</label>
                 <br/>
@@ -86,14 +98,14 @@ if ($_SESSION["logged_in"] ?? false) :
         </div>
         <!-- Sign up modal -->
         <div id="modalForm" class="modal">
-            <span id="closeModal" id="closeModal" title="Close Modal">&times;</span>
+            <span id="closeModal" title="Close Modal">&times;</span>
             <form class="modal-content" onsubmit="return checkRegisterFields()" method="post">
                 <div class="container">
                     <h1>Sign up here!</h1>
                     <hr>
-                    <label for="username"><b>Username</b></label>
+                    <label for="regUsername"><b>Username</b></label>
                     <input type="text" placeholder="Enter username" name="regUsername" id="regUsername" onfocusout="checkName('regUsername', 'invalidRegName')" required/>
-                    <div class="inputInfo"
+                    <div class="inputInfo">
                         <label id="invalidRegName"></label>
                     </div>
                     <br/>
@@ -104,7 +116,7 @@ if ($_SESSION["logged_in"] ?? false) :
                     <div class="inputInfo">
                         <label class="inputInfo" id="invalidRegPass"></label>
                     </div>
-                    <br>
+                    <br/>
                     <div class="clearfix">
                         <button type="button" name="cancelButton" id="cancelButton" class="cancelbtn">Cancel</button>
                         <button type="submit" class="signupbtn">Sign Up</button>
@@ -123,7 +135,7 @@ if ($_SESSION["logged_in"] ?? false) :
     }
     ?>
     </div>
-    <div class="inputInfo" id="wrongInfoDiv"><label name="wrongInfo" id="wrongInfo"></label></div>
+    <div class="inputInfo" id="wrongInfoDiv"><label id="wrongInfo"></label></div>
 <?php endif; ?>
 <script src="js/index.js"></script>
 </body>
