@@ -24,11 +24,14 @@ function hideElements(className) {
     }
 }
 
-function contentEventListener(element, target) {
+function contentEventListener(element, target, ajax) {
     if (element) {
         element.addEventListener('click', function () {
             hideElements('content');
             target.style.display = 'block';
+            if(ajax) {
+                ajax();
+            }
         });
     }
 }
@@ -44,7 +47,16 @@ let logoutButton = document.getElementById('logoutButton').addEventListener('cli
 });
 
 contentEventListener(feedButton, feed);
-contentEventListener(usersButton, users);
+contentEventListener(usersButton, users, function () {
+    let xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("users").innerHTML = this.responseText;
+        }
+    }
+    xmlhttp.open("GET", "users.php", true);
+    xmlhttp.send();
+});
 contentEventListener(uploadButton, upload);
 
 //Regex

@@ -11,25 +11,7 @@
 <body>
 
 <?php
-// DB connection
-$config = require('db_config.php');
-$host = $config["host"];
-$db = $config["db"];
-$user = $config["user"];
-$pass = $config["pass"];
-
-$dsn = "mysql:host=$host;dbname=$db";
-$options = [
-    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-    PDO::ATTR_EMULATE_PREPARES => false,
-];
-
-try {
-    $pdo = new PDO($dsn, $user, $pass, $options);
-} catch (PDOException $e) {
-    echo "Error: " . $e->getMessage();
-}
+require("db_connection.php");
 
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
@@ -63,13 +45,7 @@ if ($_SESSION["logged_in"] ?? false) :
         <div class="main">
             <div class="content" name="imageFeed" id="imageFeed">Images</div>
             <div class="content" name="users" id="users">
-                <ul>
-                    <?php
-                    $stmt = $pdo->query('SELECT username FROM user');
-                    while ($row = $stmt->fetch()) {
-                        echo "<li>", $row['username'], "</li>";
-                    }
-                    ?>
+                <ul id="userList">
                 </ul>
             </div>
             <div class="content" name="upload" id="upload">Upload</div>
