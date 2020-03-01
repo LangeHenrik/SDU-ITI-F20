@@ -15,6 +15,7 @@ require("db_connection.php");
 
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
+    $_SESSION["logged_in"] = false;
 }
 
 // Login
@@ -26,12 +27,10 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
     $user = $stmt->fetch();
     if ($username == $user['username'] && password_verify($password, $user['pw_hash'])) {
         $_SESSION["logged_in"] = true;
-    } else {
-        $_SESSION["logged_in"] = false;
     }
 }
 
-if ($_SESSION["logged_in"] ?? false) :
+if ($_SESSION["logged_in"]) :
     ?>
     <!-- Main content -->
     <div class="grid-container">
@@ -100,7 +99,7 @@ if ($_SESSION["logged_in"] ?? false) :
             </form>
         </div>
     <?php
-    //Register
+    //Sign up
     if (isset($_POST["regUsername"]) && isset($_POST["regPassword"])) {
         $stmt = $pdo->prepare('INSERT INTO user(username, pw_hash, join_date) VALUES (?, ?, NOW())');
         $new_user = htmlentities($_POST["regUsername"]);
