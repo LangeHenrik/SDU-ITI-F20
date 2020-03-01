@@ -58,7 +58,7 @@ let logoutButton = document.getElementById('logoutButton').addEventListener('cli
     location.href = 'logout.php';
 });
 
-contentEventListener(feedButton, feed);
+contentEventListener(feedButton, feed, ajaxGetCall("image_feed.php", "imageFeed"));
 contentEventListener(usersButton, users, ajaxGetCall("users.php", "userList"));
 contentEventListener(uploadButton, upload);
 

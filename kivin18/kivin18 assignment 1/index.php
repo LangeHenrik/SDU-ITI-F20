@@ -45,7 +45,8 @@ if ($_SESSION["logged_in"] ?? false) :
             <!-- Image feed -->
             <div class="content" id="imageFeed">
                 <h3>Users</h3>
-                <img src="/uploads/22851.jpg" alt="">
+                <img src="uploads/22851.jpg" alt="" width="100" height="100">
+                <img src="uploads/DinoOri.png" alt="">
             </div>
             <!-- Users -->
             <div class="content" id="users">
