@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost:3307";
 $username = "root";
-$password = "KatharinaOdens3";
+$password = "1234";
 
 $searchItem = $_POST['search'];
 
