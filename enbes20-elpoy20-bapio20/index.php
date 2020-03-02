@@ -1,5 +1,4 @@
 <?php
-//session_start();
 if(isset($_POST['formConnexion'])) {
   require('config.php');
 
@@ -12,7 +11,7 @@ if(isset($_POST['formConnexion'])) {
 
      $stmt->execute();
      $res = $stmt->fetch();
-     $isPasswordCorrect = password_verify($_POST['passwordCon'], $res['password']);
+     $isPasswordCorrect = password_verify($password, $res['password']);
 
      if(!$res){
        $error = "Wrong credentials 1";
@@ -20,6 +19,8 @@ if(isset($_POST['formConnexion'])) {
      else{
        if($isPasswordCorrect){
          session_start();
+
+         //session_start();
          $_SESSION['id'] = $res['id_user'];
          $_SESSION['username'] = $username;
          $_SESSION['mail'] = $res['email'];
