@@ -43,6 +43,7 @@ require_once '../db_config.php';
     $header = $row[header];
     $picture = $row[picture];
     $description = $row[description];
+    $pictureOwner = $row[user];
 
 
 
@@ -51,9 +52,14 @@ require_once '../db_config.php';
   		<h2><?php echo $header;?></h2>
   			<img class="image" src= "<?php echo $picture;?>" alt="TitleOfPicture">
   		<div class="description"><?php echo $description;?></div>
-  	</div>
-    <?php
-    //echo "<img src=$row[picture]><img/>";
+      <?php
+      if ($_SESSION['username'] == $pictureOwner){
+        ?>
+        <input type="button" name="" value="delet">
+        <?php
+      }
+  	echo "</div>";
+
   }
 
   } catch (PDOException $e) {
