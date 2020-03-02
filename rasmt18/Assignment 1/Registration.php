@@ -33,7 +33,7 @@
                         <p id="password2Status"> </p>
                         <input type="password" name="password2" id="password2" placeholder="Write password again" required >
                         <br>
-                        <input type="Submit" name="submit" value="Register" id="submit" disabled>
+                        <input type="Submit" name="submit" value="Register" id="submit" >
                     </fieldset> 
                 </form>
             <p>If you are having trouble registering, please contact support.</p>
