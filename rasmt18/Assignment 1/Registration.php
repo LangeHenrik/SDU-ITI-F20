@@ -52,8 +52,6 @@
 
             $stmt->execute(); 
             $stmt->setFetchMode(PDO::FETCH_ASSOC); 
-            $result = $stmt->fetchAll();
-            echo $result;
 
             } 
             catch (PDOException $e) {
