@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php
+    echo "<br><a href='logout.php'><input type=button value=Logout name=logout></a>";
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
