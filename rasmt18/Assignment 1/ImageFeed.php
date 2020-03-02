@@ -36,23 +36,6 @@
     echo "Error: " . $e->getMessage();
     }
     $conn = null;
-
-//   $username="username"; //hardcoded TODO get password from input
-//   $password='Passw0rd8'; //hardcoded TODO get password from input
-
-//   if(isset($_SESSION['username'])){
-//     echo "<br><a href='logout.php'><input type=button value=Logout name=logout></a>";
-//   }
-//   else{
-//       if($_POST['username'] == $username && $_POST['password']==$password){
-//           $_SESSION['username']=$username;
-//           echo "<script> location.href = 'ImageFeed.php' </script>";
-//       }
-//       else{
-//           echo "<script> alert('Please login to procede! Please check your credentials.') </script>";
-//           echo "<script> location.href = 'index.php' </script>";
-//       }
-//   }
 ?>
 <html lang="en">
 <head>
