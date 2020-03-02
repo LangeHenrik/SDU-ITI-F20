@@ -80,21 +80,21 @@ if (isset($_POST['formRegistration'])) {
 ?>
 <div id="main-content">
 	<div class="container">
-		<h1>Fill the fields</h1>
+		<div class="title">FILL THE FIELDS BELLOW</div>
 
 		<form method="post" action="">
 
-			<div class="form-group">
-				<label class="control-label" for="username">Username:</label>
+			<div class="form">
+				<label class="control-label" for="username"></label>
 				<input type="text" class="form-control" name="username" placeholder="Username" /> <br />
 
-				<label class="control-label" for="password">Password:</label>
+				<label class="control-label" for="password"></label>
 				<input type="password" class="form-control" name="password" placeholder="Password"  /> <br />
 
-				<label class="control-label" for="password2">Check Password</label>
+				<label class="control-label" for="password2"></label>
 				<input type="password" class="form-control"  name="password2"  placeholder="Retype password" /> <br />
 
-				<label class="control-label" for="email">Email:</label>
+				<label class="control-label" for="email"></label>
 				<input type="email" class="form-control" name="email" placeholder="Email"  /> <br />
 
 				<input type="submit" class="btn btn-primary" name="formRegistration" value="Subscribe"  /> <br />
