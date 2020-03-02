@@ -7,7 +7,7 @@ if(isset($_POST['formConnexion'])) {
    if(!empty($username) AND !empty($password)) {
 
      $stmt = $db->prepare('SELECT id_user, password, email FROM user WHERE username = :username');
-     $stmt->bindParam(':username', $username, PDO::PARAM_INT);
+     $stmt->bindParam(':username', $username, PDO::PARAM_STR);
 
      $stmt->execute();
      $res = $stmt->fetch();
