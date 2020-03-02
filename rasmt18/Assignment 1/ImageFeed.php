@@ -15,13 +15,14 @@
     $stmt->execute(); 
     $stmt->setFetchMode(PDO::FETCH_ASSOC); 
     $result = $stmt->fetchAll();
-    
+    $tempUser = addslashes($_GET['username']);
+    $tempPwd = addslashes($_GET['password']);
     if(isset($_SESSION['username'])){
         echo "<br><a href='logout.php'><input type=button value=Logout name=logout></a>";
       }
       else{
         foreach($result as $row) {
-            if($row['username'] == $_GET['username'] && password_verify($_GET['password'], $row['password'])){
+            if($row['username'] == $tempUser && password_verify($tempPwd, $row['password'])){
                 $_SESSION['username']=$_GET['username'];
                 echo "<script> location.href = 'ImageFeed.php' </script>";
             } else{
