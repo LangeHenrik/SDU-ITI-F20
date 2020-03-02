@@ -2,6 +2,59 @@
 require_once '../db_config.php';
 
 
+if(isset($_FILES['image'])){
+$file_name = $_FILES['image']['name'];
+$file_ext=strtolower(end(explode('.',$_FILES['image']['name'])));
+$base64 = $base64 = 'data:image/' . $file_ext . ';base64,' . base64_encode(file_get_contents($_FILES['image']['tmp_name']));
+
+
+}
+
+
+
+
+  //$_POST[img];
+  $description = $_POST[description];
+  try {
+      $conn = new PDO("mysql:host=$servername;dbname=$dbname",
+      $username,
+      $password,
+      array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+      $stmt = $conn->prepare("INSERT INTO Pictures (Username, Header, Description, picture) VALUE ('NoobEjby' ,'$header' ,'$description','$base64' );");
+      $stmt->execute();
+      // $stmt->setFetchMode(PDO::FETCH_ASSOC);
+      // $result = $stmt->fetchAll();
+      //print_r($result);
+      $stmt = $conn->prepare("SELECT picture FROM Pictures;");
+      $stmt->execute();
+      $result = $stmt->fetchAll();
+  } catch (PDOException $e) {
+  echo "Error: " . $e->getMessage();
+  }
+  $conn = null;
+
+
+
+
+try {
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname",
+    $username,
+    $password,
+    array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+    $stmt = $conn->prepare("SELECT * FROM Pictures;");
+    $stmt->execute();
+    $result = $stmt->fetchAll();
+
+echo "<br>";
+foreach ($result as $row) {
+    echo "<img src=$row[picture]><img/>";
+}
+
+} catch (PDOException $e) {
+echo "Error: " . $e->getMessage();
+}
+$conn = null;
+
 
 ?>
 <!DOCTYPE html>
@@ -39,7 +92,7 @@ require_once '../db_config.php';
           <br>
           <label for="img">Chose picture to upload:</label>
           <br>
-          <input type="file" name="fileToUpload" id="fileToUpload">
+          <input type = "file" name = "image" />
           <br>
           <label for="description">Description for picture:</label>
           <br>
@@ -52,68 +105,3 @@ require_once '../db_config.php';
     </div>
   </body>
 </html>
-
-<?php
-if ($_POST) {
-  $target_dir = "uploads/";
-  $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-  print basename($_FILES[$_POST['fileToUpload']]["name"]);
-  $uploadOk = 1;
-  $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-  print $imageFileType;
-  // Check if image file is a actual image or fake image
-  if(isset($_POST["submit"])) {
-      $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-      if($check !== false) {
-          echo "File is an image - " . $check["mime"] . ".";
-          $uploadOk = 1;
-      } else {
-          echo "File is not an image.";
-          $uploadOk = 0;
-      }
-  }
-
-
-
-  //$_POST[img];
-  $description = $_POST[description];
-  try {
-      $conn = new PDO("mysql:host=$servername;dbname=$dbname",
-      $username,
-      $password,
-      array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-      $stmt = $conn->prepare("INSERT INTO Pictures (Username, Header, Description, picture) VALUE ('NoobEjby' ,'$header' ,'$description','$base64' );");
-      $stmt->execute();
-      // $stmt->setFetchMode(PDO::FETCH_ASSOC);
-      // $result = $stmt->fetchAll();
-      //print_r($result);
-      $stmt = $conn->prepare("SELECT picture FROM Pictures;");
-      $stmt->execute();
-      $result = $stmt->fetchAll();
-  } catch (PDOException $e) {
-  echo "Error: " . $e->getMessage();
-  }
-  $conn = null;
-}
-
-
-
-try {
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname",
-    $username,
-    $password,
-    array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-    $stmt = $conn->prepare("SELECT * FROM Pictures;");
-    $stmt->execute();
-    $result = $stmt->fetchAll();
-
-echo "<br>";
-foreach ($result as $row) {
-    echo "<img src=$row[picture]><img/>";
-}
-
-} catch (PDOException $e) {
-echo "Error: " . $e->getMessage();
-}
-$conn = null;
- ?>
