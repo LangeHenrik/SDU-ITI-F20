@@ -32,15 +32,12 @@
                         <p id="password2Status"> </p>
                         <input type="password" name="password2" id="password2" placeholder="Write password again" required >
                         <br>
-                        <input type="Submit" name="submit" value="Register" id="submit">
-                        
-                        
+                        <input type="Submit" name="submit" value="Register" id="submit" disabled>
                     </fieldset> 
                 </form>
             <p>If you are having trouble registering, please contact support.</p>
             <br>
         </div>
-    <script src="regExRegistration.js"></script>
 
     <?php
         //  TODO - We have to check that the regex is fulfilled before we commit to the database,
@@ -67,6 +64,7 @@
         $conn = null;
         }
     ?>
+    <script src="regExRegistration.js"></script>
     </body>
 </html>
 
