@@ -1,0 +1,87 @@
+/*Color scheme
+#242582
+#553D67 darker than active
+#F64C72 Active
+#99738E
+#2F2FA2 Nav color
+ */
+
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  background-color: #2F2FA2;
+}
+
+
+.container{
+background-color: white;
+width: 40%;
+margin: 100px auto;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1.0), 0 6px 20px 0 rgba(0, 0, 0, 0.90);
+border-radius: 20px;
+}
+h2{
+  font-weight: 1000;
+  color: #F64C72;
+  margin-top: 20px;
+  font-family: arial;
+}
+div.signup{
+
+text-align: center;
+overflow: hidden;
+}
+
+
+form{
+
+}
+.form-group{
+margin-top: 50px;
+text-align: center;
+position: relative;
+margin-bottom: 25px;
+overflow: hidden;
+}
+.form-group input {
+outline: none;
+border-style: none;
+border-bottom: 1px solid #999;
+padding: 6px 30px;
+width: 70%;
+}
+
+label{
+position: absolute;
+}
+
+input:focus{
+transition: 0.5s;
+border-bottom: 3px solid #F64C72;
+}
+
+i{
+  display: inline;
+}
+
+.replock{
+  color: lightgray;
+}
+
+button{
+  padding: 9px;
+  border-radius: 20px;
+  border-style: none;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  color: white;
+  background-color: #F64C72;
+  margin:10px;
+  margin-top: 0;
+}
+
+button:hover{
+transition: 0.5s;
+background-color: #553D67;
+}
