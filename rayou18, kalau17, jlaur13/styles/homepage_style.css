@@ -1,0 +1,53 @@
+/*Color scheme
+#242582 darker blue
+#553D67
+#F64C72 Active
+#99738E
+#2F2FA2 Nav color
+ */
+/*div.login{
+  width: 100%;
+}
+div.login{
+  padding: 30px 30px 20px;
+  font-family: arial;
+}
+
+div.login form {
+  text-align: center;
+}
+div.login form input{
+  border-radius: 8px;
+}
+*/
+
+#login_btn{}
+#registration_btn{}
+
+.acess_wrapper{
+  margin-top: 10px;
+  text-align: center;
+}
+.cred_btns{
+  padding: 4px 16px 4px 16px;
+  margin-left: 50px;
+  margin-right: 50px;
+  text-align: center;
+  color: white;
+  background-color:#F64C72;
+  border-style: none;
+  font-family: arial;
+  font-size: 16px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+a.cred_btns{
+text-decoration: none;
+
+}
+
+a.cred_btns:hover {
+  transition: 0.3s;
+  color:  white;
+  background-color: #553D67;
+}
