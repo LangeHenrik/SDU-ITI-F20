@@ -1,0 +1,46 @@
+<?php
+require_once '../db_config.php';
+session_start();
+$username_input = filter_var($_GET["username"],FILTER_SANITIZE_EMAIL);
+$password_input = filter_var($_GET["password"],FILTER_SANITIZE_EMAIL);
+
+$password_hash = password_hash($password_input, PASSWORD_BCRYPT);
+
+try {
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    // set the PDO error mode to exception
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+
+    $sql ="SELECT * FROM user WHERE username='$username_input';";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    foreach ($data as $row) {
+      if(password_verify($password_input,$row['password'])){
+        $_SESSION['username'] = $username_input;
+        $_SESSION['logged_in'] = true;
+        header("Location: ../pages/homepage.php");
+      }
+    }
+
+      header("Location: ../pages/homepage.php");
+      
+  }
+
+catch(PDOException $e)
+    {
+    echo "Connection failed: " . $e->getMessage();
+    }
+
+/*if($password ==$credentialsMap[$username]){
+  $_SESSION['logged_in'] =true;
+  echo 'loggedin';
+  header("Location: ../pages/homepage.php");
+  exit();
+}
+else{  echo 'Not loggedin';}*/
+
+
+ ?>
