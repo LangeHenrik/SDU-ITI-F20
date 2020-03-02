@@ -12,7 +12,6 @@ if (isset($_POST['formRegistration'])) {
   if(!empty($username) AND !empty($email) AND !empty($password)) {
 
     $passwordCheck = preg_match('/^(?=.*?[A-Z])(?=(.*[a-z]){1,})(?=(.*[\d]){1,})(?=(.*[\W]){1,})(?!.*\s).{8,}$/', $password);
-
     $mailCheck=preg_match('/^\S+@\S+\.[a-z|A-Z]{2,10}$/', $email);
 
     if($passwordCheck) {
@@ -41,7 +40,6 @@ if (isset($_POST['formRegistration'])) {
               $error = "Password not match";
 
             }
-
           }
 
           else {
