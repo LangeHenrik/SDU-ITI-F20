@@ -1,4 +1,5 @@
 <?php
+include('header.php');
 ini_set('display_errors','on');
 error_reporting(E_ALL);
 
@@ -31,14 +32,21 @@ if(isset($_POST['submit_upload'])){
   }
 }
 ?>
+<div class="uploadpage">
+  
 
-<form method="post" action="" enctype='multipart/form-data'>
-  <input type='file' name='file' />
-  <label for="header">Header</label>
-  <input type='text' name='header' />
-  <label for="description">Description</label>
-  <input type='text' name='description' />
-  <?php echo $description ?>
+  <div class="container" >
+    <div class="title">UPLOAD PAGE</div>
+    <form method="post" class="form" action="" enctype='multipart/form-data'>
+        <input type="file" name="file" id="file" required="required">
+        <label for="header">Header</label>
+        <input type='text' name='header' />
+        <label for="description">Description</label>
+        <input type='text' name='description' />
+        <?php echo $description ?>
 
-  <input type='submit' value='Upload Image' name='submit_upload'>
-</form>
+        <input type='submit' value='Upload Image' name='submit_upload'>
+    </form>
+    </div>
+  </div>
+</div>
