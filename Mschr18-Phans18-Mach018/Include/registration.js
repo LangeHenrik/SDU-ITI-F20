@@ -1,5 +1,3 @@
-console.log('js working');
-
 function checkform(){
     checkfuldname();
     checknewusername();
@@ -50,7 +48,7 @@ function checknewusername () {
     }
 }
 
-//PASSWORD
+//Password
 let newpasswordRegEx = new RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&\.\,])[A-Za-z\d@$!%*?&\.\,]{8,}$/);
 let newpasswordInput = document.getElementById("newpassword");
 let newpasswordInfo = document.getElementById("newpasswordinfo");
@@ -70,7 +68,7 @@ function checknewpassword () {
     }
 }
 
-//PHONE
+//Phone
 let phoneRegEx = new RegExp(/^\+(\d){8,25}$/);
 let phoneInput = document.getElementById("phone");
 let phoneInfo = document.getElementById("phoneinfo");
@@ -90,7 +88,7 @@ function checkphone () {
     }
 }
 
-//EMAIL
+//Email
 let emailRegEx = new RegExp(/^\S+@\S+\.[a-z|A-Z]{2,10}$/);
 let emailInput = document.getElementById("email");
 let emailInfo = document.getElementById("emailinfo");
