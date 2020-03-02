@@ -70,7 +70,7 @@ i{
   color: lightgray;
 }
 
-button{
+#login_btn{
   padding: 9px;
   border-radius: 20px;
   border-style: none;
@@ -81,7 +81,7 @@ button{
   margin-top: 0;
 }
 
-button:hover{
+#login_btn:hover{
 transition: 0.5s;
 background-color: #553D67;
 }

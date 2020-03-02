@@ -20,8 +20,8 @@
           <label for="password"> <i class="fas fa-lock"></i></label>
           <input type="password" name="password" placeholder="Password">
         </div>
+        <input id="login_btn"type="submit" name="login_btn" value="Login">
 
-        <a href="../page/homepage.php" onclick='this.parentNode.submit(); return false;'>Login</a>
 
       </form>
     </div>
