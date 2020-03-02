@@ -24,7 +24,7 @@
           <label for="repeat_password"> <i class="fas fa-lock replock"></i></label>
           <input id="repeatPasswordInput" type="password" name="repeat_password" placeholder="Repeat your password">
         </div>
-        <button type="submit" name="button">Submit</button>
+        <input id="signup_btn" type="submit" name="button" disabled>Submit</input>
         <button type="submit" action="">Login Instead</button> <!--Needs to be a-tag-->
       </form>
     </div>
