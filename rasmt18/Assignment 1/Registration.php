@@ -40,8 +40,6 @@
         </div>
 
     <?php
-        //  TODO - We have to check that the regex is fulfilled before we commit to the database,
-        //  this code will just insert it without checking
         if(array_key_exists('submit', $_POST)) {
             require_once 'db_config.php';
             try {
