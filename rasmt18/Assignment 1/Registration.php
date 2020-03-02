@@ -47,8 +47,8 @@
             $password,
             array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
             $stmt = $conn->prepare("INSERT INTO user (username, password) VALUES(:username, :password)");
-            $stmt->bindParam(':username', $_POST[username]);
-            $stmt->bindParam(':password', password_hash($_POST[password], PASSWORD_DEFAULT));
+            $stmt->bindParam(':username', $_POST['username'], PDO::PARAM_STR);
+            $stmt->bindParam(':password', password_hash($_POST['password'], PASSWORD_DEFAULT), PDO::PARAM_STR);
 
             $stmt->execute(); 
             $stmt->setFetchMode(PDO::FETCH_ASSOC); 
