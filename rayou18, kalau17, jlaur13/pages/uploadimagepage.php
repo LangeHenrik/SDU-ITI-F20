@@ -82,12 +82,12 @@ if ($_POST) {
       $username,
       $password,
       array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-      $stmt = $conn->prepare("INSERT INTO Pictures (Username, Header, Description, picture) VALUE ('NoobEjby' ,'$header' ,'$description','$base64' );");
+      $stmt = $conn->prepare("INSERT INTO picture (user, header, description, picture) VALUES ('NoobEjby' ,'$header' ,'$description','$base64' );");
       $stmt->execute();
       // $stmt->setFetchMode(PDO::FETCH_ASSOC);
       // $result = $stmt->fetchAll();
       //print_r($result);
-      $stmt = $conn->prepare("SELECT picture FROM Pictures;");
+      $stmt = $conn->prepare("SELECT picture FROM picture;");
       $stmt->execute();
       $result = $stmt->fetchAll();
   } catch (PDOException $e) {
@@ -103,7 +103,7 @@ try {
     $username,
     $password,
     array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-    $stmt = $conn->prepare("SELECT * FROM Pictures;");
+    $stmt = $conn->prepare("SELECT * FROM picture;");
     $stmt->execute();
     $result = $stmt->fetchAll();
 
