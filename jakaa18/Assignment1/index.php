@@ -3,10 +3,6 @@
 <html lang="en">
 
 <head>
-	<style>
-	h1 {text-align:center;}
-	p {text-align:center;}
-	</style>
     <meta charset="UTF-8">
     <title>ITI assignment 1</title>
     <meta http-equiv="X-UA-Compatible" content="ie-edge">
@@ -16,16 +12,15 @@
 </head>
 <h1><?php echo 'Log in or sign up via the Registration button' ?></h1>
 <body>
-<body bgcolor="LightBlue">
 	
 	<!-- Login -->
 	<form action="welcome.php" method="post" onsubmit="return checkLogin()">
-		username: <input type="text" name="username" id="usernameId"><br>
-		password: <input type="password" name="password" id="passwordId"><br>
-		<input type="submit" name="send" value="Send">
+		<p>username: <input type="text" name="username" id="usernameId"></p><br>
+		<p>password: <input type="password" name="password" id="passwordId"></p><br>
+		<button><input type="submit" name="send" value="Send"></button>
 	</form>
 
-	<input action="register.php" type="button" name="register" value="Register">
+	<button><input action="register.php" type="button" name="register" value="Register"></button>
 	
 	<?php
 	require("migration/migration.sql");
