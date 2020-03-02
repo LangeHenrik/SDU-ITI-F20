@@ -10,7 +10,7 @@
     <script src="scripts/scripts.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
-
+<?php echo 'Log in or sign up via the Registration button' ?>
 <body>
 
 
