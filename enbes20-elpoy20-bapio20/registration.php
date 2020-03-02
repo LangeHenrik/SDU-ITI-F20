@@ -21,7 +21,7 @@ if (isset($_POST['formRegistration'])) {
         require("checkFunctions.php");
 
         $U = checkUsernameDB($username);
-        $M = checkMailDB($mail);
+        $M = checkMailDB($email);
         if($U != 1){
 
           if ($M != 1){
@@ -84,7 +84,7 @@ if (isset($_POST['formRegistration'])) {
 
 			<div class="form">
 				<label class="control-label" for="username"></label>
-				<input type="text" class="form-control" name="username" placeholder="Username" /> <br />
+				<input type="text" class="form-control" name="username" placeholder="Username" value="<?php if(isset($username)) { echo $username; } ?>" /> <br />
 
 				<label class="control-label" for="password"></label>
 				<input type="password" class="form-control" name="password" placeholder="Password"  /> <br />
@@ -93,7 +93,7 @@ if (isset($_POST['formRegistration'])) {
 				<input type="password" class="form-control"  name="password2"  placeholder="Retype password" /> <br />
 
 				<label class="control-label" for="email"></label>
-				<input type="email" class="form-control" name="email" placeholder="Email"  /> <br />
+				<input type="email" class="form-control" name="email" placeholder="Email" value="<?php if(isset($email)) { echo $email; } ?>" /> <br />
 
 				<input type="submit" class="btn btn-primary" name="formRegistration" value="Subscribe"  /> <br />
 			</div>
