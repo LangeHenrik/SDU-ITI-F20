@@ -4,23 +4,55 @@
 <!DOCTYPE html>
 
 <?php
-
-  $username="username"; //hardcoded TODO get password from input
-  $password='Passw0rd8'; //hardcoded TODO get password from input
-
-  if(isset($_SESSION['username'])){
-    echo "<br><a href='logout.php'><input type=button value=Logout name=logout></a>";
-  }
-  else{
-      if($_POST['username'] == $username && $_POST['password']==$password){
-          $_SESSION['username']=$username;
-          echo "<script> location.href = 'ImageFeed.php' </script>";
+    //  TODO - We have to check that the regex is fulfilled before we commit to the database,
+    //  this code will just insert it without checking
+    require_once 'db_config.php';
+    try {
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username,
+    $password,
+    array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+    $stmt = $conn->prepare("SELECT username, password FROM user");
+    $stmt->execute(); 
+    $stmt->setFetchMode(PDO::FETCH_ASSOC); 
+    $result = $stmt->fetchAll();
+    
+    if(isset($_SESSION['username'])){
+        echo "<br><a href='logout.php'><input type=button value=Logout name=logout></a>";
       }
       else{
-          echo "<script> alert('Please login to procede! Please check your credentials.') </script>";
-          echo "<script> location.href = 'index.php' </script>";
-      }
-  }
+        foreach($result as $row) {
+            if($row['username'] == $_POST['username'] && password_verify($_POST['password'], $row['password'])){
+                $_SESSION['username']=$username;
+                echo "<script> location.href = 'ImageFeed.php' </script>";
+            } else{
+                echo "<script> alert('Please login to procede! Please check your credentials.') </script>";
+                echo "<script> location.href = 'index.php' </script>";
+            }
+        }
+}
+
+} 
+    catch (PDOException $e) {
+    echo "Error: " . $e->getMessage();
+    }
+    $conn = null;
+
+//   $username="username"; //hardcoded TODO get password from input
+//   $password='Passw0rd8'; //hardcoded TODO get password from input
+
+//   if(isset($_SESSION['username'])){
+//     echo "<br><a href='logout.php'><input type=button value=Logout name=logout></a>";
+//   }
+//   else{
+//       if($_POST['username'] == $username && $_POST['password']==$password){
+//           $_SESSION['username']=$username;
+//           echo "<script> location.href = 'ImageFeed.php' </script>";
+//       }
+//       else{
+//           echo "<script> alert('Please login to procede! Please check your credentials.') </script>";
+//           echo "<script> location.href = 'index.php' </script>";
+//       }
+//   }
 ?>
 <html lang="en">
 <head>
