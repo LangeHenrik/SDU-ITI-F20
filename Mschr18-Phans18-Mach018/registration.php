@@ -3,7 +3,7 @@
     <title>ChalkBoard - Frontpage</title>
     <meta name="viewport" content="width=device width, initial scale=1.0">
     <!--stylesheet-->
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="Include/style.css">
     <!--Fontawsome-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
   </head>
@@ -19,7 +19,7 @@
         <h3> <i>BETA V.0.0.1</i></h3>
         <br>
 
-        <form onsubmit="return checkform();" method="post">
+        <form onsubmit="test" method="post">
 
           <label for="fuldname" >Fuld name*</label> <br>
           <input type="text" name="fuldname" id="fuldname" tabindex="1"/> <br>
@@ -44,7 +44,7 @@
           <i class="fas fa-user-plus"></i><input type="submit" name="submit" id="signup"  value="Sign up" tabindex="7"/>
         </form>
 
-        <script src="registration.js"></script>
+        <script src="Include/registration.js"></script>
 
       </div>
     </div>
