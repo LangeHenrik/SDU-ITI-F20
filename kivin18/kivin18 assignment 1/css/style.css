@@ -90,7 +90,7 @@ input[type=text]:focus, input[type=password]:focus {
           'header header header header header header header header'
           'menu main main main main main main main'
           'menu main main main main main main main'
-          'menu footer footer footer footer footer footer footer';
+          'footer footer footer footer footer footer footer footer';
   grid-gap: 10px;
   background-color: darkslategrey;
   padding: 10px;

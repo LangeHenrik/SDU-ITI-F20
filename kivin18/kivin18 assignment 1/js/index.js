@@ -36,17 +36,6 @@ function contentEventListener(element, target, ajax) {
     }
 }
 
-function ajaxGetCall(url, responseElement) {
-    let xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            document.getElementById(responseElement).innerHTML = this.responseText;
-        }
-    };
-    xmlhttp.open("GET", url, true);
-    xmlhttp.send();
-}
-
 let feed = document.getElementById('imageFeed');
 let users = document.getElementById('users');
 let upload = document.getElementById('upload');
@@ -58,8 +47,29 @@ let logoutButton = document.getElementById('logoutButton').addEventListener('cli
     location.href = 'logout.php';
 });
 
-contentEventListener(feedButton, feed, ajaxGetCall("image_feed.php", "imageFeed"));
-contentEventListener(usersButton, users, ajaxGetCall("users.php", "userList"));
+contentEventListener(feedButton, feed, function () {
+    feedButton.click();
+    let xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("imageFeed").innerHTML = this.responseText;
+        }
+    };
+    xmlhttp.open("GET", "image_feed.php", true);
+    xmlhttp.send();
+});
+
+contentEventListener(usersButton, users, function () {
+    let xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("userList").innerHTML = this.responseText;
+        }
+    };
+    xmlhttp.open("GET", "users.php", true);
+    xmlhttp.send();
+});
+
 contentEventListener(uploadButton, upload);
 
 //Upload image
@@ -116,17 +126,9 @@ function confirmPass() {
 }
 
 function checkLoginFields() {
-    if (checkName('username', 'wrongInfo') && checkPass('password', 'wrongInfo')) {
-        return true;
-    } else {
-        return false;
-    }
+    return checkName('username', 'wrongInfo') && checkPass('password', 'wrongInfo');
 }
 
 function checkRegisterFields() {
-    if (checkName('regUsername', 'invalidRegName') && checkPass('regPassword', 'invalidRegPass') && confirmPass()) {
-        return true;
-    } else {
-        return false;
-    }
+    return checkName('regUsername', 'invalidRegName') && checkPass('regPassword', 'invalidRegPass') && confirmPass();
 }
