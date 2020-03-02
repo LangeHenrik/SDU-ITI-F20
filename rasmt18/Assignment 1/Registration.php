@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php
+    require_once 'db_config.php';
     echo "<br><a href='logout.php'><input type=button value=Logout name=logout></a>";
 ?>
 <html lang="en">
@@ -46,7 +47,6 @@
         //  TODO - We have to check that the regex is fulfilled before we commit to the database,
         //  this code will just insert it without checking
         if(array_key_exists('submit', $_POST)) {
-            require_once 'db_config.php';
             try {
             $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username,
             $password,
