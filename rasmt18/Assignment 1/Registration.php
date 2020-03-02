@@ -43,27 +43,27 @@
     <script src="regExRegistration.js"></script>
 
     <?php
-    //      TODO - We have to check that the regex is fulfilled before we commit to the database,
-    //      this code will just insert it without checking
-    //     require_once 'db_config.php';
-    //     try {
-    //     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username,
-    //     $password,
-    //     array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-    //     $stmt = $conn->prepare("INSERT INTO user (username, password) VALUES(:username, :password)");
-    //     $stmt->bindParam(':username', $_POST[username]);
-    //     $stmt->bindParam(':password', $_POST[password]);
+        //  TODO - We have to check that the regex is fulfilled before we commit to the database,
+        //  this code will just insert it without checking
+        require_once 'db_config.php';
+        try {
+        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username,
+        $password,
+        array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+        $stmt = $conn->prepare("INSERT INTO user (username, password) VALUES(:username, :password)");
+        $stmt->bindParam(':username', $_POST[username]);
+        $stmt->bindParam(':password', password_hash($_POST[password], PASSWORD_DEFAULT));
 
-    //     $stmt->execute(); 
-    //     $stmt->setFetchMode(PDO::FETCH_ASSOC); 
-    //     $result = $stmt->fetchAll();
-    //     echo $result;
+        $stmt->execute(); 
+        $stmt->setFetchMode(PDO::FETCH_ASSOC); 
+        $result = $stmt->fetchAll();
+        echo $result;
 
-    //     } 
-    //     catch (PDOException $e) {
-    //     echo "Error: " . $e->getMessage();
-    //     }
-    // $conn = null;
+        } 
+        catch (PDOException $e) {
+        echo "Error: " . $e->getMessage();
+        }
+    $conn = null;
     ?>
     </body>
 </html>

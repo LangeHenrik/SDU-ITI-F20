@@ -8,8 +8,6 @@
   $username="username"; //hardcoded TODO get password from input
   $password='Passw0rd8'; //hardcoded TODO get password from input
 
-  session_start();
-
   if(isset($_SESSION['username'])){
     echo "<br><a href='logout.php'><input type=button value=Logout name=logout></a>";
   }
