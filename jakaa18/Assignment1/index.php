@@ -18,14 +18,14 @@
 <body>
 <body bgcolor="LightBlue">
 	
-	
-	<form action="login.php" method="post">
-		<p>username: <input type="text" name="username"><br>
-		password: <input type="password" name="password"></p><br>
-		<button><input type="submit" name="send" value="Send" id="btn_s"></button>
+	<!-- Login -->
+	<form action="welcome.php" method="post" onsubmit="return checkLogin()">
+		username: <input type="text" name="username" id="usernameId"><br>
+		password: <input type="password" name="password" id="passwordId"><br>
+		<input type="submit" name="send" value="Send">
 	</form>
 
-	<button><input type="button" name="register" value="Register" id="btn_y"></button>
+	<input action="register.php" type="button" name="register" value="Register">
 	
 	<?php
 	require("migration/migration.sql");
