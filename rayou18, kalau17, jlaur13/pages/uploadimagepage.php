@@ -13,47 +13,48 @@ $base64 = $base64 = 'data:image/' . $file_ext . ';base64,' . base64_encode(file_
 
 
 
-  //$_POST[img];
-  $description = $_POST[description];
-  try {
-      $conn = new PDO("mysql:host=$servername;dbname=$dbname",
-      $username,
-      $password,
-      array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-      $stmt = $conn->prepare("INSERT INTO Pictures (Username, Header, Description, picture) VALUE ('NoobEjby' ,'$header' ,'$description','$base64' );");
-      $stmt->execute();
-      // $stmt->setFetchMode(PDO::FETCH_ASSOC);
-      // $result = $stmt->fetchAll();
-      //print_r($result);
-      $stmt = $conn->prepare("SELECT picture FROM Pictures;");
-      $stmt->execute();
-      $result = $stmt->fetchAll();
-  } catch (PDOException $e) {
-  echo "Error: " . $e->getMessage();
-  }
-  $conn = null;
-
-
-
-
+//$_POST[img];
+$description = $_POST[description];
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname",
     $username,
     $password,
     array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-    $stmt = $conn->prepare("SELECT * FROM Pictures;");
+    $stmt = $conn->prepare("INSERT INTO picture (user, header, description, picture) VALUES ('NoobEjby' ,'$header' ,'$description','$base64' );");
+    $stmt->execute();
+    // $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    // $result = $stmt->fetchAll();
+    //print_r($result);
+    $stmt = $conn->prepare("SELECT picture FROM picture;");
     $stmt->execute();
     $result = $stmt->fetchAll();
+} catch (PDOException $e) {
+echo "Error: " . $e->getMessage();
+}
+$conn = null;
+}
+
+
+
+try {
+  $conn = new PDO("mysql:host=$servername;dbname=$dbname",
+  $username,
+  $password,
+  array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+  $stmt = $conn->prepare("SELECT * FROM picture;");
+  $stmt->execute();
+  $result = $stmt->fetchAll();
 
 echo "<br>";
 foreach ($result as $row) {
-    echo "<img src=$row[picture]><img/>";
+  echo "<img src=$row[picture]><img/>";
 }
 
 } catch (PDOException $e) {
 echo "Error: " . $e->getMessage();
 }
 $conn = null;
+?>
 
 
 ?>
