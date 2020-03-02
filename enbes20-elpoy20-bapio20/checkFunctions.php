@@ -7,7 +7,6 @@ function checkUsernameDB ($username) {
 	$stmt->bindValue(':username', $username, PDO::PARAM_STR);
 	$stmt->execute();
 	$res = $stmt->rowCount();
-	var_dump($res);
 
 	return $res;
 }
@@ -18,7 +17,6 @@ function checkMailDB ($email) {
 	$stmt->bindValue(':email', $email, PDO::PARAM_STR);
 	$stmt->execute();
 	$res = $stmt->rowCount();
-	var_dump($res);
 
 	return $res;
 

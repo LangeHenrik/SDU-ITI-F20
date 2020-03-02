@@ -30,6 +30,7 @@ $res->closeCursor(); // Termine le traitement de la requête
 
 <!-- NEWS SECTION -->
 <h1>Images Feed</h1>
+
 <?php echo($output);?>
 
 <?php include('footer.php') ?>

@@ -1,4 +1,6 @@
-
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -14,4 +16,11 @@
     <title></title>
   </head>
     <body>
-    <?php include('navUser.php'); ?>
+      <?php if (!empty($_SESSION['username'])) {
+              include('navUser.php');
+            }
+            else {
+              include('navVisitor.php');
+            }
+
+      ?>
