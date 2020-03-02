@@ -19,7 +19,7 @@
         <h3> <i>BETA V.0.0.1</i></h3>
         <br>
 
-        <form onsubmit="test" method="post">
+        <form onsubmit="return checkform();" method="post">
 
           <label for="fuldname" >Fuld name*</label> <br>
           <input type="text" name="fuldname" id="fuldname" tabindex="1"/> <br>
