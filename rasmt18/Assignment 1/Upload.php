@@ -1,6 +1,8 @@
+<?php 
+  session_start();
+?>
 <!DOCTYPE html>
 <?php
-session_start();
 if(isset($_SESSION['username'])){
     echo "<br><a href='logout.php'><input type=button value=Logout name=logout></a>";
 }
