@@ -13,7 +13,7 @@ session_start();
     <link rel="stylesheet" type="text/css" href="style.css">
     <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"> -->
 
-    <title></title>
+    <title>SDU-ITI-F20</title>
   </head>
     <body>
       <?php if (!empty($_SESSION['username'])) {
