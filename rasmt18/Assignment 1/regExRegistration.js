@@ -1,5 +1,11 @@
 function checkFields()
 {
+    var button = document.getElementById('submit');
+    button.disabled = true;
+
+    var usernamecheck = false;
+    var passwordcheck = false;
+
     var testUsername = document.getElementById('username').value;
     var regex = new RegExp(/(?!.*[\.\-\_]{2,})^[a-zA-Z0-9\.\-\_]{3,24}$/gm); //Minimum length (3). Maximum length(24). Can only contain alphanumeric characters and the following special characters: dot (.), underscore(_) and dash (-). The special characters cannot appear more than once consecutively or combined. 
     if(regex.test(testUsername)){
@@ -7,6 +13,7 @@ function checkFields()
         document.getElementById('username').style.color = "green";
         document.getElementById('usernameStatus').innerHTML = "";
         console.log("username is ok");
+        usernamecheck = true;
         
     } else {
         document.getElementById('username').style.color = "red";
@@ -24,6 +31,7 @@ function checkFields()
         document.getElementById('password').style.color = "green";
         document.getElementById('passwordStatus').innerHTML = "";
         console.log("password is ok");
+        passwordcheck = true;
         
     } else {
         document.getElementById('password').style.color = "red";
@@ -44,6 +52,12 @@ function checkFields()
         document.getElementById('password2').style.color = "green";
         document.getElementById('password2Status').innerHTML = '';
         console.log("Passwords match.");
-        return true;
+        if(usernamecheck && passwordcheck) {
+            button.disabled = false;
+            return true;
+        } 
+        else {
+            return false;
+        }
     }
 }
