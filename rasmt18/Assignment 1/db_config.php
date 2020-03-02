@@ -1,9 +1,9 @@
 <?php
-$servername = "127.0.0.1"; 
-//$servername = "localhost:3307"; 
-$username = "rasmt18"; 
-//$username = "root"; 
-$password = "password"; 
-//$password = "1234"; 
+//$servername = "127.0.0.1"; 
+//$username = "rasmt18"; 
+//$password = "password"; 
+$password = "1234"; 
+$username = "root"; 
+$servername = "localhost:3307"; 
 $dbname = "assignment1"; 
 ?> 
