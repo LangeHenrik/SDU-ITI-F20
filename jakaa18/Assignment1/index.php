@@ -3,6 +3,10 @@
 <html lang="en">
 
 <head>
+	<style>
+	h1 {text-align:center;}
+	p {text-align:center;}
+	</style>
     <meta charset="UTF-8">
     <title>ITI assignment 1</title>
     <meta http-equiv="X-UA-Compatible" content="ie-edge">
@@ -10,18 +14,18 @@
     <script src="scripts/scripts.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
-<?php echo 'Log in or sign up via the Registration button' ?>
+<h1><?php echo 'Log in or sign up via the Registration button' ?></h1>
 <body>
 <body bgcolor="LightBlue">
 	
 	
-	<form action="welcome.php" method="post">
-		username: <input type="text" name="username"><br>
-		password: <input type="password" name="password"><br>
-		<input type="submit" name="send" value="Send">
+	<form action="login.php" method="post">
+		<p>username: <input type="text" name="username"><br>
+		password: <input type="password" name="password"></p><br>
+		<button><input type="submit" name="send" value="Send" id="btn_s"></button>
 	</form>
 
-	<input type="button" name="register" value="Register">
+	<button><input type="button" name="register" value="Register" id="btn_y"></button>
 	
 	<?php
 	require("migration/migration.sql");
@@ -30,7 +34,7 @@
 		session_start();
 		$_SESSION["logged_in"] = false;
 	}
-
+	
 	?>
 	
 </body>
