@@ -9,7 +9,7 @@ body {
     display: block;
     background-color: blue;
     color: white;
-    padding: 30px;
+    padding: 20px;
     text-decoration: none;
 }
 .Menu li a:hover {
@@ -22,7 +22,6 @@ body {
 ul.menu-bar {
     background-color: lightgrey;
     list-style-type: none;
-    overflow: hidden;
     margin: 0;
     padding: 0;
 
