@@ -2,10 +2,6 @@
 body {
   background-color: #bbb;
   margin: 0;
-  height: 100%;
-}
-html {
-  height: 100%;
 }
 
 
@@ -16,7 +12,7 @@ div.content {
   padding: 10px;
   border: 3px solid black;
   border-radius: 10px;
-  height: 400px;
+  height: 75%;
 }
 div.content a {
   color: #ddd;
