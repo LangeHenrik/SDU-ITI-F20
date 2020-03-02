@@ -1,0 +1,16 @@
+.userlist{
+    margin-top: 1.66%;
+    text-align: center;
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.userlist h1{
+    margin-bottom: 1%;
+}
+
+#usertable td{
+    border: 3px blue;
+}
