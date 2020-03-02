@@ -11,75 +11,53 @@ var usernameIsSet = false;
 var passwordIsSet = false;
 var repeatPasswordIsSet = false;
 var sumbmitBtn = document.getElementById("signup_btn");
-function checkPassword(){
+
+sumbmitBtn.disabled=true;
 
 
-/*  if(usernameIsSet && passwordIsSet && repeatPasswordIsSet){
-  sumbmitBtn.disabled = false;
-  console.log("set to false");
+function program(){
+  regexInputCheck(usernameRegex,document.getElementById("usernameInput"));
+  regexInputCheck(passwordRegex, document.getElementById("passwordInput"));
+  isPasswordEqual(passwordInput.value,repeatPasswordInput.value);
+  if(usernameIsSet && passwordIsSet && repeatPasswordIsSet){
+    sumbmitBtn.disabled=false;
   }
-  else {
-    sumbmitBtn.disabled = true;
-  } */
+}
 
-/*  if(usernameRegex.test(usernameInput.value)){
-    usernameInput.style.borderColor ="green";
-    usernameInput.style.borderWidth  ="3px";
-    usernameIsSet = true;
-      return false;
-  }
-  if(usernameRegex.test(usernameInput.value)==false){
-    usernameInput.style.borderColor ="red";
-    usernameInput.style.borderWidth  ="3px";
-    usernameIsSet = false;
-      return false;
-  }
-  if(passwordRegex.test(passwordInput.value)){
-      passwordInput.style.borderColor ="green";
-      passwordInput.style.borderWidth  ="3px";
-      passwordIsSet = true;
-      return false;
-  }
-  if(passwordRegex.test(passwordInput.value)==false){
-      passwordInput.style.borderColor ="red";
-      passwordInput.style.borderWidth  ="3px";
-      passwordIsSet = false;
-      return false;
-  } */
 
-  if(repeatPasswordInput.value!="" && repeatPasswordInput.value == passwordInput.value){
+
+
+
+
+function isPasswordEqual(password1, password2){
+if(repeatPasswordInput.value != ""){
+  if(password1 == password2){
     repeatPasswordInput.style.borderColor ="green";
     repeatPasswordInput.style.borderWidth  ="3px";
     repeatPasswordIsSet = true;
-    return false;
+    return true;
   }
-  if(repeatPasswordInput.value!="" && repeatPasswordInput.value != passwordInput.value){
+  else{
     repeatPasswordInput.style.borderColor ="red";
     repeatPasswordInput.style.borderWidth  ="3px";
     repeatPasswordIsSet = false;
     return false;
   }
-
+}
+else{return false;}
 }
 
 function regexInputCheck(regExp, input){
-console.log("regexInputCheck");
   if(regExp.test(input.value)){
     input.style.borderColor ="green";
     input.style.borderWidth  ="3px";
-    console.log("true");
-    return false;
+    (input== document.getElementById("usernameInput")) ? usernameIsSet=true :passwordIsSet=true;
+    return true;
   }
   if(regExp.test(input.value)==false){  //else wouldnt work
     input.style.borderColor ="red";
     input.style.borderWidth  ="3px";
-    console.log("false");
+    (input== document.getElementById("usernameInput")) ? usernameIsSet=false :passwordIsSet=false;
     return false;
   }
-}
-
-function program(){
-  console.log("program");
-  regexInputCheck(usernameRegex,document.getElementById("usernameInput"));
-  regexInputCheck(passwordRegex, document.getElementById("passwordInput"));
 }
