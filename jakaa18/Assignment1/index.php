@@ -14,14 +14,14 @@
 <body>
 <body bgcolor="LightBlue">
 	
-	
-	<form action="welcome.php" method="post">
-		username: <input type="text" name="username"><br>
-		password: <input type="password" name="password"><br>
+	<!-- Login -->
+	<form action="welcome.php" method="post" onsubmit="return checkLogin()">
+		username: <input type="text" name="username" id="usernameId"><br>
+		password: <input type="password" name="password" id="passwordId"><br>
 		<input type="submit" name="send" value="Send">
 	</form>
 
-	<input type="button" name="register" value="Register">
+	<input action="register.php" type="button" name="register" value="Register">
 	
 	<?php
 	require("migration/migration.sql");
