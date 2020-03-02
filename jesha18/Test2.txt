@@ -1,0 +1,11 @@
+<html>
+<body>
+<fieldset>
+	<legend>Fieldset form:</legend>
+	
+	<label for="name">Name</label>
+	<input type="text" id="name" name="name"><br/>
+	<button> SUBMIT </button>
+</fieldset>
+</body>
+</html>
