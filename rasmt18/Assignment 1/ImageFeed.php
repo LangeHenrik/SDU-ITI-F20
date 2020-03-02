@@ -21,8 +21,8 @@
       }
       else{
         foreach($result as $row) {
-            if($row['username'] == $_POST['username'] && password_verify($_POST['password'], $row['password'])){
-                $_SESSION['username']=$_POST['username'];
+            if($row['username'] == $_GET['username'] && password_verify($_GET['password'], $row['password'])){
+                $_SESSION['username']=$_GET['username'];
                 echo "<script> location.href = 'ImageFeed.php' </script>";
             } else{
                 echo "<script> alert('Please login to procede! Please check your credentials.') </script>";

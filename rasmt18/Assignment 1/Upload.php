@@ -53,10 +53,10 @@ else{
                 $password,
                 array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
                 $stmt = $conn->prepare("INSERT INTO image (header, description, username, img) VALUES(:header, :description, :username, :image)");
-                $stmt->bindParam(':header', $_POST['header']);
-                $stmt->bindParam(':description', $_POST['description']);
-                $stmt->bindParam(':username', $_SESSION['username']);
-                $stmt->bindParam(':image', $convertedImg);
+                $stmt->bindParam(':header', $_POST['header'], PDO::PARAM_STR);
+                $stmt->bindParam(':description', $_POST['description'], PDO::PARAM_STR);
+                $stmt->bindParam(':username', $_SESSION['username'], PDO::PARAM_STR);
+                $stmt->bindParam(':image', $convertedImg, PDO::PARAM_STR);
 
                 $stmt->execute(); 
                 $stmt->setFetchMode(PDO::FETCH_ASSOC); 
