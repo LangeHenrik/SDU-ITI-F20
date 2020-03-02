@@ -14,7 +14,8 @@ UserController::logout();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/userlist_page_style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-
+    <script src="js/ajaxCallUserlist.js"></script>
+    <html lang="en">
 </header>
 
 <body>
@@ -37,6 +38,7 @@ UserController::logout();
     <div class="userlist_wrapper">
         <div class="userlist_content">
             <h1>User list</h1>
+
             <table class="userlist_table">
                 <tr>
                     <th>Fullname</th>
@@ -47,37 +49,12 @@ UserController::logout();
                 <!----------------------------------->
             </table>
         </div>
+
     </div>
 
     </div>
 </body>
-<script>
-    var ajax = new XMLHttpRequest();
-    ajax.open("GET", "dbconfig_and_controllers/getUserlist.php", true);
-    ajax.send();
 
-    ajax.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            console.log(this.responseText);
-            var data = JSON.parse(this.responseText);
-            console.log(data);
-
-            var html = "";
-
-            for (var a = 0; a < data.length; a++) {
-                var fullname = data[a].fullname;
-                var username = data[a].username;
-
-
-                html += "<tr>";
-                html += "<td>" + fullname + "</td>";
-                html += "<td>" + username + "</td>";
-                html += "</tr>";
-            }
-            document.getElementById("data").innerHTML += html;
-        }
-    };
-</script>
 
 <!--
 <footer id="index-footer">

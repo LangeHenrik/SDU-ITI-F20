@@ -78,7 +78,6 @@ session_start();
                 // Format the image SRC:  data:{mime};base64,{data};
                 $image = 'data:image/' . $imageFileType . ';base64,' . $imageConvertTo_base64;
 
-                // TODO check the boolean value
                 $usercontroller->uploadImage($_SESSION['username'], $image, $title, $description);
             }
         }

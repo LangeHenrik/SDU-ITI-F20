@@ -30,11 +30,6 @@ class UserController extends DbController
 
         //$dbcontroller = new DbController();
         $userResult = $this->dbcontroller->getUserByUsername($username);
-
-        if (sizeof($userResult) <= 0) {
-            echo ' validateUser Login failed No result from database';
-        }
-
         foreach ($userResult as $user) {
             if ($user['username'] == $username && password_verify($password, $user['password'])) {
                 //echo ' validateUser Login success ';
@@ -44,7 +39,6 @@ class UserController extends DbController
             }
         }
         //$usernameCleaned = $this->cleanData($username);
-        echo ' validateUser Login failed ';
         return false;
     }
 
@@ -83,6 +77,10 @@ class UserController extends DbController
             echo 'No images in feed found';
             return false;
         }
+    }
+
+    public function getAllUserImages() {
+        return $this->dbcontroller->getAllUserImages();
     }
 
     public function getAllUsersForUserlist()

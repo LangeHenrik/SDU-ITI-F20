@@ -84,3 +84,8 @@ li a:hover {
     margin: 0 auto;
     display: inline-flex;
 }
+
+.imagefeed h1 {
+    font-size: 32px;
+    font-weight: bold;
+}

@@ -17,6 +17,7 @@ UserController::logout();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/imagefeed_page_style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <script src="js/ajaxCallImages.js"></script>
     <html lang="en">
 
 </header>
@@ -28,6 +29,7 @@ UserController::logout();
             <li> <a href="upload_page.php">Upload</a></li>
             <li> <a href="#imagefeed">Imagefeed</a></li>
             <li> <a href="userlist_page.php">Userlist</a></li>
+
             <li>
                 <form method="post">
                     <div class="inner_container">
@@ -35,35 +37,18 @@ UserController::logout();
                     </div>
                 </form>
             </li>
+
         </ul>
     </div>
 
     <div class="imagefeed_wrapper">
         <div class="imagefeed_content">
             <h1>All posted images</h1>
-            <div class="imagefeed">
-                <?php foreach ($userimagefeedArray as $imagePost) { ?>
-
-                    <h1>
-                        <?php echo $imagePost['title']; ?>
-                    </h1>
-                    <p>
-                        <?php echo $imagePost['description']; ?>
-                    </p>
-
-                    <img src=<?php echo $imagePost['image']; ?> />
-
-                    <p>
-                        <i>
-                            <?php echo 'Posted by:' . str_repeat('&nbsp;', 2)  . $imagePost['username'] . str_repeat('&nbsp;', 2) .
-                                'Created on: ' . $imagePost['creationTime']; ?>
-                        </i>
-                    </p>
-                    <hr>
-
-                <?php
-                }
-                ?>
+            <h4>
+                Search for username: 
+                <input type="text" class="search" name="search" id="search" placeholder="search for username" onload="getUserImages(this.value);" onkeyup="getUserImages(this.value);" />
+            </h4>
+            <div class="imagefeed" id="imagefeed">
             </div>
 
         </div>
