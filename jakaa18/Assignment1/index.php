@@ -10,3 +10,15 @@
     <script src="scripts/scripts.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
+
+<body>
+
+<?php
+require("migration/migration.sql");
+
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+    $_SESSION["logged_in"] = false;
+}
+
+?>
