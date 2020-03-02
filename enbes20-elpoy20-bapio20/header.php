@@ -14,4 +14,4 @@
     <title></title>
   </head>
     <body>
-    <?php include('navUser.php'); ?> 
+    <?php include('navUser.php'); ?>
