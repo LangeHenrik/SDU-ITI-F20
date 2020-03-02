@@ -11,14 +11,14 @@
   <div class="container">
     <div class="signup">
       <h2 id="form-name">Sign Up</h2>
-      <form class="" action="../backend/signup.php" method="post">
+      <form onkeyup="return checkPassword()" action="../backend/signup.php" method="post">
         <div class="form-group">
           <label for="username"><i class="fas fa-user"></i></label>
           <input id="usernameInput" type="text" name="username" placeholder="Your Username">
         </div>
         <div class="form-group">
           <label for="password"> <i class="fas fa-lock"></i></label>
-          <input onchange="return checkPassword()" id="passwordInput" type="password" name="password" placeholder="Password">
+          <input  id="passwordInput" type="password" name="password" placeholder="Password">
         </div>
         <div class="form-group">
           <label for="repeat_password"> <i class="fas fa-lock replock"></i></label>
