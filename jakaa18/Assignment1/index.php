@@ -23,7 +23,7 @@
 	<button><input action="register.php" type="button" name="register" value="Register"></button>
 	
 	<?php
-	require("migration/migration.sql");
+	require("migration.sql");
 
 	if (session_status() == PHP_SESSION_NONE) {
 		session_start();
