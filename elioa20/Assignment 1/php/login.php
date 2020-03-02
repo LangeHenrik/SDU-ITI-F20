@@ -1,51 +1,57 @@
 <?php
 session_start();
 
+require_once 'db_config.php';
+
 try {
+
     $username = htmlspecialchars($_POST['username']);
     $password = htmlspecialchars($_POST['password']);
 
     $ok = true;
     $messages = array();
 
-    if(empty($username) || !isset($_POST['username'])){
+    if(empty($username)){
         $ok = false;
         $messages[] = 'Username cannot be empty!';
     }
 
 
-    if(empty($password) || !isset($_POST['password'])){
+    if(empty($password)){
         $ok = false;
         $messages[] = 'Password cannot be empty!';
     }
 
     if($ok) {
-        $pdo = new PDO('mysql:host=localhost;dbname=odinsblog', 'root', 'rootelioa20');
+        $pdo = new PDO("mysql:host=$servername;dbname=$dbname", $dbusername, $dbpassword);
 
         // calling stored procedure command
-        $sql = 'CALL LoginValidation(:username,:password,@message)';
+        $sql = 'CALL Login(:username,@returnParam)';
 
         // prepare for execution of the stored procedure
         $stmt = $pdo->prepare($sql);
 
         // pass value to the command
         $stmt->bindParam(':username', $username, PDO::PARAM_STR, 45);
-        $stmt->bindParam(':password', $password, PDO::PARAM_STR, 45);
-
 
         // execute the stored procedure
         $stmt->execute();
 
         $stmt->closeCursor();
 
-        $row = $pdo->query("SELECT @message AS return_message")->fetch(PDO::FETCH_ASSOC);
+        $row = $pdo->query("SELECT @returnParam AS return_value")->fetch(PDO::FETCH_ASSOC);
         if ($row) {
             if ($row !== false) {
-                if($row["return_message"]!=null){
+                if($row["return_value"] === 'User does not exist'){
                     $ok = false;
-                    $messages[] = $row["return_message"];
+                    $messages[] = $row["return_value"];
+                }
+                else if(!password_verify($password,$row["return_value"])){
+                    $ok = false;
+                    $messages[] ='Invalid Password';
                 }
                 else{
+                    $_SESSION['logged_in'] = true;
                     $ok = true;
                     $messages[] = 'Successful Login';
                 }

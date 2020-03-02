@@ -2,6 +2,8 @@
 session_start();
 
 
+require_once 'db_config.php';
+
 try {
 
 
@@ -9,12 +11,10 @@ try {
         $password = htmlspecialchars($_POST['password']);
         $password2 = htmlspecialchars($_POST['password2']);
 
-
-
-    $ok = true;
+        $ok = true;
         $messages = array();
 
-        if($username==null || $password==null || $password2==null || !isset($username) || !isset($password) || !isset($password2)){
+        if($username==null || $password==null || $password2==null){
             $ok = false;
             $messages[] = "You must fill in all the fields";
         }
@@ -25,6 +25,7 @@ try {
         }
 
 
+        /*
         //TODO: Check regexes
         if(preg_match('/^(?=.*[a-z])[a-z0-9]{1,45}$/',$username)===false){
             $ok = false;
@@ -35,10 +36,11 @@ try {
             $ok = false;
             $messages[] = 'Invalid password. Password must be between 8-45 characters, have at least 1 lower-case character, have at least 1 upper-case character and have at least 1 digit';
         }
+        */
 
 
         if($ok) {
-            $pdo = new PDO('mysql:host=localhost;dbname=odinsblog', 'root', 'rootelioa20');
+            $pdo = new PDO("mysql:host=$servername;dbname=$dbname", $dbusername, $dbpassword);
 
 
             $sql = 'CALL UserExists(:username,@bool)';
@@ -72,9 +74,14 @@ try {
                             // prepare for execution of the stored procedure
                             $stmt = $pdo->prepare($sql);
 
+                            $pwdHashed = password_hash($password,PASSWORD_DEFAULT);
+                            echo("Raw Password {$password}" . PHP_EOL);
+                            echo("Hashed Password {$pwdHashed}" . PHP_EOL);
+
+
                             // pass value to the command
                             $stmt->bindParam(':username', $username, PDO::PARAM_STR, 45);
-                            $stmt->bindParam(':password', $password, PDO::PARAM_STR, 45);
+                            $stmt->bindParam(':password', $pwdHashed, PDO::PARAM_STR, 45);
 
                             // execute the stored procedure
                             $stmt->execute();

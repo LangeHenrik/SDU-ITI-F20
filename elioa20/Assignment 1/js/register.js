@@ -30,12 +30,14 @@ registerForm.register.addEventListener('click', () => {
     request.open("post", "../php/register.php", true);
     request.setRequestHeader('Content-type','application/x-www-form-urlencoded');
     request.send(requestData);
+
+
 });
 
 
 function handleRegisterResponse(responseObject){
     if(responseObject.ok) {
-        location.href = '../views/dashboard.html';
+        location.href = '../views/login.html';
     }else{
         //In case they were errors before. Need to clear the list.
         while(registerForm.messages.firstChild){
