@@ -10,30 +10,34 @@
 	<script src="scripts/scripts.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
-<h1><?php echo 'Log in or sign up via the Registration button' ?></h1>
 
 <body>
+<div class="grid-container">
+	<div class="login1">
+		<h1><?php echo 'Log in or sign up via the Registration button' ?></h1>
+	</div>
+	<div class="login2">
+		<!-- Login -->
+		<form action="welcome.php" method="post" onsubmit="return checkLogin()">
+			<p>username: <input type="text" name="username" id="usernameId"></p><br>
+			<p>password: <input type="password" name="password" id="passwordId"></p><br>
+	</div>
+	<div class="login3">
+			<button><input type="submit" name="send" value="Send"></button>
+	</div>
+		</form>
+	<div class="login4">
+		<button><input action="register.php" type="button" name="register" value="Register"></button>
+	</div>
+		<?php
+		// require("migration.sql");
 
-	<!-- Login -->
-	<form action="welcome.php" method="post" onsubmit="return checkLogin()">
-		<p>username: <input type="text" name="username" id="usernameId"></p><br>
-		<p>password: <input type="password" name="password" id="passwordId"></p><br>
-		<button><input type="submit" name="send" value="Send"></button>
-	</form>
+		if (session_status() == PHP_SESSION_NONE) {
+			session_start();
+			$_SESSION["logged_in"] = false;
+		}
 
-	<button><input action="register.php" type="button" name="register" value="Register"></button>
-
-	<?php
-	// require("migration.sql");
-
-	if (session_status() == PHP_SESSION_NONE) {
-		session_start();
-		$_SESSION["logged_in"] = false;
-	}
-
-
-
-	?>
-
+		?>
+	</div>
 	
 </body>
