@@ -1,6 +1,8 @@
 DROP DATABASE IF EXISTS assignment1;
 CREATE DATABASE assignment1;
 
+use assignment1;
+
 create table image
 (
     img_id      int auto_increment
