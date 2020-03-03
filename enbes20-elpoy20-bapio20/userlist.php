@@ -1,4 +1,9 @@
 <?php
+session_start();
+if(!isset($_SESSION['id'])){
+   header("Location:index.php");
+}
+
 include('header.php');
 ini_set('display_errors','on');
 error_reporting(E_ALL);
