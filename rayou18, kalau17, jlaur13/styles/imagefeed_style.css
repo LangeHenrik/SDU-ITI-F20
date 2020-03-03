@@ -18,9 +18,29 @@ p.underlined {
 
 .singlepicwrapper {
   width: 30%;
-  margin: 3px;
-  background-color: gray;
+  margin: 10px;
+  margin-bottom: 15px;
+  background-color: #f2f2f2;;
+  color: black;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+
   /* display: grid; */
+}
+#deleteBtn{
+  padding: 9px;
+  border-radius: 20px;
+  border-style: none;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  color: white;
+  background-color: #F64C72;
+  margin:10px;
+  margin-top: 0;
+}
+
+#deleteBtn:hover{
+  transition: 0.5s;
+  background-color: #553D67;
 }
 
 .picture h2 {
