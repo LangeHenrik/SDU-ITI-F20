@@ -8,16 +8,18 @@
     $stmt->execute(); 
     $stmt->setFetchMode(PDO::FETCH_ASSOC); 
     $result = $stmt->fetchAll();
-    $tempUser = filter_var($_GET['username'], FILTER_SANITIZE_STRING);
+    $tempUser = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
+    $tempUserXSS = htmlspecialchars($tempUser);
         
-    $tempPwd = filter_var($_GET['password'], FILTER_SANITIZE_STRING);
+    $tempPwd = filter_var($_POST['password'], FILTER_SANITIZE_STRING);
+    $tempPwdXSS = htmlspecialchars($tempPwd);
     if(isset($_SESSION['username'])){
         echo "<br><a href='logout.php'><input type=button value=Logout name=logout></a>";
       }
       else{
         foreach($result as $row) {
-            if($row['username'] == $tempUser && password_verify($tempPwd, $row['password'])){
-                $_SESSION['username']=$_GET['username'];
+            if($row['username'] == $tempUserXSS && password_verify($tempPwdXSS, $row['password'])){
+                $_SESSION['username']=$_POST['username'];
                 echo "<script> location.href = 'ImageFeed.php' </script>";
             } else{
                 echo "<script> alert('Please login to procede! Please check your credentials.') </script>";

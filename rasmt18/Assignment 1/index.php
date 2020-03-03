@@ -25,7 +25,7 @@
         <br>
         <b>Password: Passw0rd</b>
 
-        <form class="login" name="login" method="GET" action="ImageFeed.php">
+        <form class="login" name="login" method="POST" action="ImageFeed.php">
             <fieldset>
                 <legend>Please enter your credentials to login</legend>
                 <label for="username">Username</label>
