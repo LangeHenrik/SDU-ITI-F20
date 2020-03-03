@@ -1,5 +1,5 @@
 <?php
-require_once 'db_config.php';
+require_once 'config.php';
 function printImage()
 {
     global $servername, $dbname, $username, $password;

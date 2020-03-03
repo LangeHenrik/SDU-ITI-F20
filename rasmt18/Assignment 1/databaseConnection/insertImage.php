@@ -1,6 +1,6 @@
 <?php
         if(array_key_exists('submit', $_POST)) {
-        require_once 'db_config.php';
+        require_once 'config.php';
                 try {
                 $convertedImg = "data:".$_FILES['image']['type'].";base64,".base64_encode(file_get_contents($_FILES['image']['tmp_name']));
                 

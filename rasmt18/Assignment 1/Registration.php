@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-    require_once 'db_config.php';
+    require_once 'config.php';
     echo "<br><a href='logout.php'><input type=button value=Logout name=logout></a>";
 ?>
 <html lang="en">

@@ -1,5 +1,5 @@
 <?php
-    require_once 'db_config.php';
+    require_once 'config.php';
         try {
         $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username,
         $password,
