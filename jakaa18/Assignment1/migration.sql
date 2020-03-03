@@ -1,6 +1,7 @@
 DROP DATABASE IF EXISTS jakaa18_jesha18;
 
 CREATE DATABASE jakaa18_jesha18;
+
 USE jakaa18_jesha18;
 CREATE TABLE users
 (
