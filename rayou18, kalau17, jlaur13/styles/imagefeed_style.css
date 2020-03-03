@@ -10,7 +10,10 @@ p.underlined {
 }
 
 .picwrapper {
-  display: inline;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .singlepicwrapper {
