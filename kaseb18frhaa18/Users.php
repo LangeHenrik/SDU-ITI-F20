@@ -4,7 +4,7 @@ require 'database.php';
 
 if (!isset($users)) {
     $statement = "SELECT username, name FROM person";
-    $users = getInfoFromDB($statement);
+    $users = talkToDB($statement);
 }
 
 $q = $_REQUEST["q"];
