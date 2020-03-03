@@ -12,11 +12,11 @@ $session_user = $_SESSION['username'];
       $file_type = $_FILES['image']['type'];
       $file_ext=strtolower(end(explode('.',$_FILES['image']['name'])));
 
-      $header = $_POST[header];
+      $header = $_POST['header'];
 
       $base64 = $base64 = 'data:image/' . $file_ext . ';base64,' . base64_encode(file_get_contents($_FILES['image']['tmp_name']));
 
-      $description = $_POST[description];
+      $description = $_POST['description'];
       try {
 
           $conn = new PDO("mysql:host=$servername;dbname=$dbname",
