@@ -64,7 +64,7 @@ nav.loginnav form p {
 
 
 section#content{
-  height: 75%;
+  height: calc(100% - 220px) ;;
   background-color: #333;
   color: #ddd;
   margin: 15px 0;
@@ -72,7 +72,6 @@ section#content{
   border: 3px solid black;
   border-radius: 7px;
   overflow: auto;
-
 }
 section#content a {
   color: #ddd;
@@ -85,14 +84,10 @@ section#content h1#title {
 }
 
 /* Registration coontent */
-div.registration h1 {
-  margin: 5px 0;
-  margin-left: 10px;
-}
-div.registration h3 {
+/*div.registration h3 {
   margin-top: -10px;
   margin-left: 270px;
-}
+}*/
 div.registration form {
   margin-left: 30px;
 }
