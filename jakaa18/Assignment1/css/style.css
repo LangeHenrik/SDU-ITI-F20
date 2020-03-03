@@ -10,13 +10,6 @@ p{
 	text-align: center;
 }
 
-.register{
-	display:none;
-	z-index: 1;
-	text-align: center;
-	margin: 0 auto;
-}
-
 button{
 	color: black;
 	background-color: red;
@@ -35,6 +28,8 @@ button{
 	grid-column-gap: 50px;
 	align-items: center;
 	justify-items: center;
+	text-align: center;
+	margin: 0 auto;
 }
 
 .login1{
@@ -63,5 +58,14 @@ button{
 	margin: 0 auto;
 	grid-column: 3;
 	grid-row: 3;
+}
+
+.register{
+	display:none;
+	z-index: 1;
+	text-align: center;
+	margin: 0 auto;
+	align-items: center;
+	justify-items: center;
 }
 
