@@ -36,3 +36,17 @@ function iconRotate(){
   }
 }
 
+  // Get the modal
+  var modal = document.getElementById('formid');
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = 'none';
+    }
+  };
+
+  function openModal(){
+    document.getElementById('formid').style.display='flex'
+  }
+

@@ -1,39 +1,4 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>
-      Assignment 1
-    </title>
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
-      integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" type="text/css" href="css/Stylesheet.css" />
-    <link rel="icon" href="img/icon.png" type="png" />
-  </head>
-  <body>
-    <div id="content">
-      <span class="slide">
-        <a href="#" onclick="openSlideMenu()">
-          <i id="openMenu" class="fas fa-arrow-circle-right"></i>
-        </a>
-      </span>
-
-      <div id="menu" class="nav">
-        <ul>
-          <li><a href="#">Profile</a></li>
-          <li><a href="#">Users</a></li>
-          <li><a href="#">Menu3</a></li>
-          <li><a href="#">Login</a></li>
-        </ul>
-      </div>
-      <div class="wrapper">
-        <div id="title">
-          <h1>Responsive animated sidebar</h1>
-        </div>
-        <div class="inner-wrapper">
+<div class="inner-wrapper">
           <div class="nested">
             <div><h3>Column title</h3></div>
             <p>
@@ -120,8 +85,3 @@
             </p>
           </div>
         </div>
-      </div>
-    </div>
-  </body>
-  <script src="js/Default.js"></script>
-</html>
