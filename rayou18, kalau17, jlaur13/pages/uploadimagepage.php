@@ -12,11 +12,11 @@ $session_user = $_SESSION['username'];
       $file_type = $_FILES['image']['type'];
       $file_ext=strtolower(end(explode('.',$_FILES['image']['name'])));
 
-      $header = $_POST['header'];
+      $header = htmlentities($_POST['header']);
 
       $base64 = $base64 = 'data:image/' . $file_ext . ';base64,' . base64_encode(file_get_contents($_FILES['image']['tmp_name']));
 
-      $description = $_POST['description'];
+      $description = htmlentities($_POST['description']);
       try {
 
           $conn = new PDO("mysql:host=$servername;dbname=$dbname",
@@ -28,6 +28,7 @@ $session_user = $_SESSION['username'];
           $stmt = $conn->prepare("SELECT picture FROM picture;");
           $stmt->execute();
           $result = $stmt->fetchAll();
+          header("Location: imagefeed.php");
       } catch (PDOException $e) {
       echo "Error: " . $e->getMessage();
       }
