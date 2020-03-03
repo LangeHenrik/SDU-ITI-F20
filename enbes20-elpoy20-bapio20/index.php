@@ -1,4 +1,10 @@
 <?php
+
+session_start();
+if(isset($_SESSION['id'])){
+   header("Location:feed.php?id=".$_SESSION['id']);
+}
+
 if(isset($_POST['formConnexion'])) {
   require('config.php');
 
