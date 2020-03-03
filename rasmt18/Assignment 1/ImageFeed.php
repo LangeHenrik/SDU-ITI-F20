@@ -48,11 +48,12 @@
     <title>Imagefeed</title>
 </head>
 <body>
-    <div class="content">
+    <div class="content" id="content">
         <script src="./javascript/Menu.js"></script>
         <h1>Image Feed</h1>
         <h2>Look at all the cool images below</h2>
         <?php
+        /*
         require_once 'db_config.php';
         try {
         $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username,
@@ -82,7 +83,9 @@
         echo "Error: " . $e->getMessage();
         }
     $conn = null;
+        */
     ?>
     </div>
+<script src="javascript/ajax.js"></script>
 </body>
 </html> 
