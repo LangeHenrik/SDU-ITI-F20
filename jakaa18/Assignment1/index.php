@@ -69,7 +69,7 @@ if ($_SESSION['logged_in']) : ?>
             <li><a href="#" id="homelink">Home</a></li>
             <li><a href="#" id="photolink">Your Photos</a></li>
             <li><a href="#" id="userslink">Users</a></li>
-            <li><a href="#" id="logoutlink">Logout</a></li>
+            <li><a href="#" id="logout.php">Logout</a></li>
         </ul>
     </div>
 </div>
