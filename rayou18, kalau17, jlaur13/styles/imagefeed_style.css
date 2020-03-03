@@ -17,11 +17,12 @@ p.underlined {
 }
 
 .singlepicwrapper {
+  font-family: arial;
   width: 30%;
   margin: 10px;
   margin-bottom: 15px;
   background-color: #f2f2f2;;
-  color: black;
+  color: #212121  ;
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
 
