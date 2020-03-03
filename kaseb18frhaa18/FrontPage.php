@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang = "en">
 <head>
   <!-- basic.html -->
@@ -12,16 +13,23 @@
         <ul class="menu">
         <li> <a href=#>Login</a></li>
         <li> <a href=#>Register</a></li>
+        <li> <a href=#>Upload</a></li>
+        <li> <a href=#>Image Feed</a></li>
+        <li> <a href=#>User List</a></li>
         </ul>
     </div>
     <div class="wrapper">
         <div class="content">
             <form action="submit">
-                <label for=""></label>
-                <input type="text" name="username">
+                <label for="username">Username:</label>
                 <br/>
-                <input type="password" name="password">
-                <button type="submit" value="Log in"></button>
+                <input type="text" name="username" id="username">
+                <br/>
+                <label for="password">Password:</label>
+                <br/>
+                <input type="password" name="password" id="password">
+                <br/>
+                <button type="submit" value="Log in">Log In</button>
             </form>
         </div>
     </div>
