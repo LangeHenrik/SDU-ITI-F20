@@ -40,42 +40,45 @@ if ($_SESSION['logged_in']) : ?>
     <div class="login1">
         <h1><?php echo 'Log in or sign up via the Registration button' ?></h1>
     </div>
-    <div class="login2">
+    <div class="login2" id="loginView">
         <!-- Login -->
         <form action="welcome.php" method="post" onsubmit="return checkLogin('username', 'password')">
-            <p>username: <input type="text" name="username" required id="usernameId"></p><br>
-            <p>password: <input type="password" name="password" required id="passwordId"></p><br>
+            <p>username: <input type="text" name="username" id="usernameId"></p><br>
+            <p>password: <input type="password" name="password" id="passwordId"></p><br>
             <input type="submit">
     </div>
     <div class="login3">
-        <button><input type="submit" name="send" value="Login"></button>
+        <button><input type="submit" name="send" value="Login" id="LoginBtn"></button>
     </div>
     </form>
+
     <div class="login4">
         <button><input action="register.php" type="button" name="register" value="Register" id="register"></button>
     </div>
 
     <div class="register" id="registerView">
         <form action="index.php" method="post" onsubmit="return checkRegister('username', 'password', 'email'" )>
-            <p> username: <input type="text" name="username" required id="regUsernameId"></p><br>
-            <p> password: <input type="password" name="password" required id="regPassId"></p><br>
-            <p> email: <input type="email" name="email" required id="regEmailId"></p><br>
+            <p> username: <input type="text" placeholder="Enter Username" name="username" required id="regUsernameId"></p><br>
+            <p> password: <input type="password" placeholder="Enter Password" name="password" required id="regPassId"></p><br>
+
             <input type="submit">
         </form>
     </div>
-
 </div>
+
 <?php // require("migration.sql");
 
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 
 }
-$config = require("db_config.php");
-$host = $config["host"];
-$username = $config["username"];
-$password = $config["password"];
-$db = $config["db"];
+//$config = require("db_config.php");
+// DB config area -------
+$host = "localhost";
+$username = "root";
+$password = "root";
+
+$db = "jakaa18_jesha18";
 $charset = 'utf8mb4';
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
 $options = [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION];
@@ -92,22 +95,28 @@ try {
 ?>
 <?php endif; ?>
 <?php
-function checkRegister()
-{
+
 
     try {
-
-        $stmt = $conn->prepare("INSERT INTO users (username, password, email)
-			VALUES ($username, $password, $email)");
-        // use exec() because no results are returned
-        $stmt->exec([$new_user, $hashed_pass]);
-        return "New record created successfully";
-    } catch (PDOException $e) {
-        echo "ERROR" . $e->getMessage();
+        if (isset($_POST["regUsernameId"]) && isset($_POST["regPassId"])) {
+            $stmt = $conn->prepare("INSERT INTO users ('username', 'password')
+			VALUES (:username, :password)");
+            $new_user = htmlentities($_POST["regUsernameId"]);
+            $new_pass = htmlentities($_POST["regPassId"]);
+            $hashed_pass = password_hash($new_pass, PASSWORD_DEFAULT);
+            $stmt->execute(['username' => $new_user, 'password' => $hashed_pass]);
+            //$user = $stmt->fetch();
+            echo "New user created";
+            return "New record created successfully";
+        }
     }
+    catch
+        (PDOException $e) {
+            echo "ERROR" . $e->getMessage();
+        }
 
     $conn = null;
-}
+
 
 ?>
 <script src="scripts/scripts.js"></script>
