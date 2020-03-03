@@ -48,7 +48,7 @@ require_once '../db_config.php';
 
 
     ?>
-    <div class="picture">
+    <div class="singlepicwrapper">
   		<h2><?php echo $header;?></h2>
       <div class="picture">
         <img class="image" src= "<?php echo $picture;?>" alt="TitleOfPicture">
