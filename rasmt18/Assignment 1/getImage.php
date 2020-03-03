@@ -1,6 +1,5 @@
 <?php
 require_once 'db_config.php';
-header('Content-Type: text/plain');
 function printImage($id)
 {
     global $servername, $dbname, $username, $password;
@@ -9,7 +8,8 @@ function printImage($id)
         $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username,
             $password,
             array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-        $stmt = $conn->prepare("Select * from image where img_id = :img_id");
+        //$stmt = $conn->prepare("Select * from image where img_id = :img_id");
+        $stmt = $conn->prepare("Select * from image");
         $stmt->bindParam(':img_id', $id);
         $stmt->execute();
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
