@@ -72,7 +72,7 @@
                 echo "<br>";
                 echo "<b>Image:</b>";
                 echo "<br>";
-                echo "<img src='$row[img]' alt=''></img>";
+                echo "<img src='$row[img]' alt='Uploaded picture'></img>";
                 echo "<br></div>";
             }
         echo "</div>";
