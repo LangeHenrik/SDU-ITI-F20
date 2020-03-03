@@ -18,30 +18,18 @@ try
           "passw" => filter_var($_POST["newpassword"], FILTER_SANITIZE_STRING),
           "phone" => filter_var($_POST["phone"], FILTER_SANITIZE_NUMBER_INT), // Remove all characters except digits, plus and minus sign.
           "email" => filter_var($_POST["email"], FILTER_SANITIZE_EMAIL)); // Remove all characters except letters, digits and !#$%&'*+-=?^_`{|}~@.[].
-    print_r($inputArr);
 
     // Indset ny bruger.
     $stmt = $conn->prepare("INSERT INTO users (username, passw, fullname, phone, email)
                            VALUES (:username, :passw, :fullname, :phone, :email);");
-    
-
     $stmt->bindParam(':username', $inputArr["username"]);
     $stmt->bindParam(':passw', $inputArr["passw"]);
     $stmt->bindParam(':fullname', $inputArr["fullname"]);
     $stmt->bindParam(':phone', $inputArr["phone"]);
     $stmt->bindParam(':email', $inputArr["email"]);
-
-    /*foreach ($inputArr as $key => $value) {
-        $stmt->bindParam(':$key', $value);
-        echo " <br>key: $key value: $value";
-    }
-    echo "<br>";
-    print_r($inputArr);
-    echo "<br>";*/
-
     $result = $stmt->execute();
 
-    echo "Connected successfully with result: " . $result;
+    echo "<script> console.log('User created with result: $result'); </script>" ;
 }
 catch(PDOException $e)
 {
