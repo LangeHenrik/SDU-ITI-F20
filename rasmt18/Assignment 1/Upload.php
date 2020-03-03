@@ -55,13 +55,16 @@ else{
                 $stmt = $conn->prepare("INSERT INTO image (header, description, username, img) VALUES(:header, :description, :username, :image)");
                 
                 $tempHeader = filter_var($_POST['header'], FILTER_SANITIZE_STRING);
-                $stmt->bindParam(':header', $tempHeader, PDO::PARAM_STR);
+                $tempHeaderXSS = htmlspecialchars($tempHeader);
+                $stmt->bindParam(':header', $tempHeaderXSS, PDO::PARAM_STR);
 
                 $tempDescription = filter_var($_POST['description'], FILTER_SANITIZE_STRING);
-                $stmt->bindParam(':description', $tempDescription, PDO::PARAM_STR);
+                $tempDescriptionXSS = htmlentities($tempDescription);
+                $stmt->bindParam(':description', $tempDescriptionXSS, PDO::PARAM_STR);
 
                 $tempUsername = filter_var($_SESSION['username'], FILTER_SANITIZE_STRING);
-                $stmt->bindParam(':username', $tempUsername, PDO::PARAM_STR);
+                $tempUsernameXSS = htmlspecialchars($tempUsername);
+                $stmt->bindParam(':username', $tempUsernameXSS, PDO::PARAM_STR);
                 
                 $stmt->bindParam(':image', $convertedImg, PDO::PARAM_STR);
 
