@@ -1,8 +1,9 @@
 <?php
 require_once '../db_config.php';
 session_start();
-$username_input = filter_var($_POST["username"],FILTER_SANITIZE_EMAIL);
-$password_input = filter_var($_POST["password"],FILTER_SANITIZE_EMAIL);
+$username_input = filter_var($_POST["username"],FILTER_SANITIZE_STRING);
+$password_input = filter_var($_POST["password"],FILTER_SANITIZE_STRING);
+
 
 $password_hash = password_hash($password_input, PASSWORD_BCRYPT);
 
