@@ -1,9 +1,40 @@
 <?php
+session_start();
 require_once '../db_config.php';
 
+$session_user = $_SESSION['username'];
 
+   if(isset($_FILES['image'])){
+      $errors= array();
+      $file_name = $_FILES['image']['name'];
+      $file_size = $_FILES['image']['size'];
+      $file_tmp = $_FILES['image']['tmp_name'];
+      $file_type = $_FILES['image']['type'];
+      $file_ext=strtolower(end(explode('.',$_FILES['image']['name'])));
 
+      $header = $_POST[header];
+
+      $base64 = $base64 = 'data:image/' . $file_ext . ';base64,' . base64_encode(file_get_contents($_FILES['image']['tmp_name']));
+
+      $description = $_POST[description];
+      try {
+
+          $conn = new PDO("mysql:host=$servername;dbname=$dbname",
+          $username,
+          $password,
+          array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+          $stmt = $conn->prepare("INSERT INTO picture (user, header, description, picture) VALUES ('$session_user' ,'$header' ,'$description','$base64' );");
+          $stmt->execute();;
+          $stmt = $conn->prepare("SELECT picture FROM picture;");
+          $stmt->execute();
+          $result = $stmt->fetchAll();
+      } catch (PDOException $e) {
+      echo "Error: " . $e->getMessage();
+      }
+      $conn = null;
+   }
 ?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -24,6 +55,7 @@ require_once '../db_config.php';
           <li><a href="registrationpage.php">Registration Page</a></li>
       		<li><a href="userlistpage.php">User List</a></li>
       		<li><a class="active" href="uploadimagepage.php">Upload Image <i class="fas fa-upload"></i></a></li>
+          <?php if($_SESSION['logged_in'] == true) echo '<li><a class="cred_btns" id="logout_btn"type="button" href="../backend/logout.php" name="logout_btn">Logout</a></li>';  ?>
         </ul>
       </div>
 
@@ -32,88 +64,25 @@ require_once '../db_config.php';
 
       <article class="text_info">
         <h2>Upload picture</h2>
-        <form class=""  method="POST">
+        <form class=""  method="POST" enctype = "multipart/form-data">
           <label for="header">Picture Name:</label>
           <br>
           <input type="text" name="header" value="">
           <br>
           <label for="img">Chose picture to upload:</label>
           <br>
-          <input type="file" name="fileToUpload" id="fileToUpload">
+          <input type = "file" name = "image" />
           <br>
           <label for="description">Description for picture:</label>
           <br>
           <input type="text" name="description" value="">
           <br>
           <input type="submit" name="" value="Submit">
+          <ul>
+          </ul>
         </form>
       </article>
 
     </div>
   </body>
 </html>
-
-<?php
-if ($_POST) {
-  $target_dir = "uploads/";
-  $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-  print basename($_FILES[$_POST['fileToUpload']]["name"]);
-  $uploadOk = 1;
-  $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-  print $imageFileType;
-  // Check if image file is a actual image or fake image
-  if(isset($_POST["submit"])) {
-      $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-      if($check !== false) {
-          echo "File is an image - " . $check["mime"] . ".";
-          $uploadOk = 1;
-      } else {
-          echo "File is not an image.";
-          $uploadOk = 0;
-      }
-  }
-
-
-
-  //$_POST[img];
-  $description = $_POST[description];
-  try {
-      $conn = new PDO("mysql:host=$servername;dbname=$dbname",
-      $username,
-      $password,
-      array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-      $stmt = $conn->prepare("INSERT INTO picture (user, header, description, picture) VALUES ('NoobEjby' ,'$header' ,'$description','$base64' );");
-      $stmt->execute();
-      // $stmt->setFetchMode(PDO::FETCH_ASSOC);
-      // $result = $stmt->fetchAll();
-      //print_r($result);
-      $stmt = $conn->prepare("SELECT picture FROM picture;");
-      $stmt->execute();
-      $result = $stmt->fetchAll();
-  } catch (PDOException $e) {
-  echo "Error: " . $e->getMessage();
-  }
-  $conn = null;
-}
-
-
-
-try {
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname",
-    $username,
-    $password,
-    array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-    $stmt = $conn->prepare("SELECT * FROM picture;");
-    $stmt->execute();
-    $result = $stmt->fetchAll();
-
-echo "<br>";
-foreach ($result as $row) {
-    echo "<img src=$row[picture]><img/>";
-}
-
-} catch (PDOException $e) {
-echo "Error: " . $e->getMessage();
-}
-$conn = null;
- ?>

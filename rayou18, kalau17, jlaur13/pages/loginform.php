@@ -11,7 +11,7 @@
   <div class="container">
     <div class="login">
       <h2 id="form-name">Login</h2>
-      <form class="" action="../backend/login.php" method="GET">
+      <form class="" action="../backend/login.php" method="POST">
         <div class="form-group">
           <label for="username"><i class="fas fa-user"></i></label>
           <input type="text" name="username" placeholder="Your Username">
@@ -20,8 +20,8 @@
           <label for="password"> <i class="fas fa-lock"></i></label>
           <input type="password" name="password" placeholder="Password">
         </div>
+        <input id="login_btn"type="submit" name="login_btn" value="Login">
 
-        <a href="../page/homepage.php" onclick='this.parentNode.submit(); return false;'>Login</a>
 
       </form>
     </div>

@@ -53,15 +53,7 @@ if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true){
       </div> -->
       <article class="text_info">
         <h2>Hello</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac
-          luctus est. Pellentesque sed libero mollis, mollis orci sed, posuere
-          risus. Pellentesque velit nibh, tempus vel est a, venenatis venenatis
-          felis. Pellentesque laoreet ligula diam. Aenean finibus erat in purus
-          ultricies, hendrerit pellentesque nisl dictum. Donec rutrum, dolor vel
-          imperdiet suscipit, erat odio pharetra sem, in consequat neque mauris
-          in nulla. Nulla ultrices pulvinar mi at fermentum. Praesent sagittis
-           faucibus ligula, non laoreet est. Nam tempor elit quis nisi dapibus,
-            quis laoreet leo laoreet. Pellentesque pulvinar quis me</p>
+        <p><?php echo "Loged in user is: ".$_SESSION['username']; ?></p>
       </article>
 
     </div>

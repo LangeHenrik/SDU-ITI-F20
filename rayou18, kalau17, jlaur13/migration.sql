@@ -15,7 +15,7 @@ create table picture(
 	user char(50) not null,
 	header char(50) not null,
 	description char(255) not null,
-	picture blob not null,
+	picture LONGBLOB not null,
 	constraint picture_pk
 		primary key (picture_id),
 	constraint picture_username_fk
