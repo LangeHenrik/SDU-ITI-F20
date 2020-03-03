@@ -1,6 +1,13 @@
 body {
 	background-color: lightgrey;
 }
+
+@media only screen and (max-width: 600px) {
+    body {
+        background-color: pink;
+    }
+}
+
 .Menu {
     text-align: center;
     height: 100px;
