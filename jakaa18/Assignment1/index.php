@@ -35,14 +35,14 @@ try {
 } catch (PDOException $e) {
     echo "Connection failed: " . $e->getMessage();
 }
-$stmt = $conn->prepare('SELECT username, password FROM users WHERE username=:username');
-$stmt->execute(['username' => $username]);
-$user = $stmt->fetch();
 
-$correct_username = $user["username"];
-$correct_password = $user["password"];
+if (isset($_POST["username"]) && isset($_POST["password"])) {
+    $stmt = $conn->prepare('SELECT username, password FROM users WHERE username=:username');
+    $stmt->execute(['username' => $username]);
+    $user = $stmt->fetch();
 
-if (isset($_POST["username"]) && $_POST["password"]) {
+    $correct_username = $user["username"];
+    $correct_password = $user["password"];
     $username = filter_var($_POST["username"], FILTER_SANITIZE_STRING);
     $password = filter_var($_POST["password"], FILTER_SANITIZE_STRING);
     if ($username === $correct_username
@@ -59,7 +59,19 @@ if (isset($_POST["username"]) && $_POST["password"]) {
 }
 
 if ($_SESSION['logged_in']) : ?>
-
+<div class="grid-container">
+    <div class="Header">
+        <h1><?php echo 'Welcome to your homepage!' ?></h1>
+    </div>
+    <div class="homepage">
+        <ul>
+            <li><a href="default.asp">Home</a></li>
+            <li><a href="photos.asp">Your Photos</a></li>
+            <li><a href="users.asp">Users</a></li>
+            <li><a href="logout.asp">Logout</a></li>
+        </ul>
+    </div>
+</div>
 
 <?php else : ?>
 
@@ -75,7 +87,7 @@ if ($_SESSION['logged_in']) : ?>
 
     </div>
     <div class="login3">
-        <button><input type="submit" name="send" value="Login" id="LoginBtn"></button>
+        <button><input type="submit" name="send" value="Login" id="loginBtn"></button>
     </div>
     </form>
 

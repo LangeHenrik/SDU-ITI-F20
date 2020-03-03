@@ -10,6 +10,29 @@ p{
 	text-align: center;
 }
 
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	width: 200px;
+	height: 100%;
+	background-color: darkgray;
+	position: fixed;
+	overflow: auto;
+}
+
+li a {
+	display: block;
+	color: black;
+	padding: 8px 16px;
+	text-decoration: none;
+}
+
+li a:hover {
+	background-color: darkslategray;
+	color: white;
+}
+
 button{
 	color: black;
 	background-color: red;
