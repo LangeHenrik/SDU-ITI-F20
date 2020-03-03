@@ -11,11 +11,20 @@ error_reporting(E_ALL);
 include("config.php");
 
 if (isset($_POST['formUpload'])) {
+  //not necessary 
+  $user_idUp = filter_var($_GET['id'], FILTER_SANITIZE_NUMBER_INT);
+  $user_id = htmlspecialchars($user_idUp);
+
+  $headerUp = filter_var($_POST['header'], FILTER_SANITIZE_STRING);
+  $header = htmlspecialchars($headerUp);
+
+  $descriptionUp = filter_var($_POST['description'], FILTER_SANITIZE_STRING);
+  $description = htmlspecialchars($descriptionUp);
 
   $date=date("Y-m-d H:i:s");
-  $user_id =$_GET['id'];
-  $header =$_POST['header'];
-  $description =$_POST['description'];
+  //$user_id =$_GET['id'];
+  //$header =$_POST['header'];
+  //$description =$_POST['description'];
 
   $name = $_FILES['file']['name'];
   if(!empty($header) AND !empty($description)) {
@@ -57,7 +66,7 @@ if (isset($_POST['formUpload'])) {
         <label for="header">Header</label>
         <input type='text' name='header' value="<?php if(isset($header)) { echo $header; } ?>" />
         <label for="description">Description</label>
-        <input type='text-area' name='description' value="<?php if(isset($description)) { echo $description; } ?>"/>
+        <input type='text' name='description' value="<?php if(isset($description)) { echo $description; } ?>"/>
         <?php
         if(isset($error)) {
             echo '<font color="red">'.$error."</font>";
