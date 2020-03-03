@@ -1,6 +1,7 @@
 <?php
 
 require "db.php";
+session_start();
 
 #https://stackoverflow.com/questions/19083175/generate-random-string-in-php-for-file-name
 function random_filename($length, $directory = '', $extension = '')
@@ -26,6 +27,7 @@ $uploadOk = 1;
 #TODO Do this baed on $_FILES["fileToUpload"]["type"]
 $imageFileType = strtolower(pathinfo($_FILES["fileToUpload"]["name"],PATHINFO_EXTENSION));
 $target_file = $target_dir . random_filename(16,$target_dir);
+echo "Target file " . $target_file . " ";
 // Check if image file is a actual image or fake image
 if(isset($_POST["submit"])) {
     $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);

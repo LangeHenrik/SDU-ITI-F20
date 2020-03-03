@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <?php
-function is_session_started()
-{
-            return session_id() === '' ? FALSE : TRUE;
+session_start();
+if (!isset($_SESSION['logged_in'])) {
+	$_SESSION['logged_in']=false;
 }
-if (isset($_SESSION['logged_in'])) {
-	session_start();
-	$_SESSION['logged_in'];
-} ?>
+?>
 
 <html>
 	<head>
@@ -38,8 +35,8 @@ if (isset($_SESSION['logged_in'])) {
 				fpage("Users","userlist");
 				fpage("Image Feed","imagefeed");
 				fpage("Upload Image","upload");
+				fpage("Sign-out","logout");
 				?>
-				<li> <a href="logout.php">Sign-out</a></li>
 			</ul>
 		</nav>
 
@@ -63,6 +60,10 @@ if (isset($_SESSION['logged_in'])) {
 						case 'userlist':
 							include 'userlistpage.php';
 							break;
+
+						case 'logout':
+							include 'logout.php';
+							break;
 						
 						default:
 							include 'frontpage.php';
@@ -70,8 +71,6 @@ if (isset($_SESSION['logged_in'])) {
 					}
 				echo "<br></br>";
 				var_dump($_SESSION);
-				echo "<br></br>";
-				echo "Session status:" . session_status();
 				?>
 			</div>
 		</div>

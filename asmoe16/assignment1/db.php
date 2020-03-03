@@ -55,12 +55,12 @@
 		return $stmt->fetchAll();
 	}
 
-	function add_image_to_db(string $img_path,string $owner_id,string $description="",string $header=""){
+	function add_image_to_db($img_path,$owner_id, $description="",$header=""){
 		$conn = connect_db();
 		$stmt = $conn->prepare("INSERT INTO image (owner_id,image_path,description,header)
 			VALUES (:owner,:image,:description,:header)");
 		$stmt->bindParam(":owner",$owner_id);
-		$stmt->bindParam(":image",$image_path);
+		$stmt->bindParam(":image",$img_path);
 		$stmt->bindParam(":description",$description);
 		$stmt->bindParam(":header",$header);
 		$stmt->execute();

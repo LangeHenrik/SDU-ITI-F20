@@ -36,3 +36,4 @@ INSERT INTO member (username,password) VALUES ('user9','123');
 
 #Show table
 SELECT * FROM member;
+SELECT * FROM image;
