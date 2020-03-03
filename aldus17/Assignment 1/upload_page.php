@@ -2,7 +2,11 @@
 require_once('dbconfig_and_controllers/DBConnection.php');
 require_once('dbconfig_and_controllers/DBController.php');
 require_once('dbconfig_and_controllers/UserController.php');
-session_start();
+?>
+<?php
+UserController::checkSession();
+UserController::sessionRedirect();
+UserController::logout();
 ?>
 
 <!DOCTYPE html>
@@ -36,13 +40,10 @@ session_start();
     <div id="upload-picture-container" class="upload_picture_container">
         <h1>Upload page</h1>
         <form method="post" action="upload_page.php" enctype="multipart/form-data">
-
-            <!--<label for="title" id="label-title">Enter title: </label>-->
             <input type="text" name="title" id="title" class="title" placeholder="Enter title of the image here" required />
             <br>
             <textarea type="text" id="description" name="description" maxlength="250" placeholder="Type a description to the image"></textarea>
             <br>
-
             <div class="upload-btn-wrapper">
                 <button class="choosefilebtn">Choose image to upload</button>
                 <input type="file" id="imageToBeUploaded" class="imageToBeUploaded" name="imageToBeUploaded" required />
@@ -57,9 +58,7 @@ session_start();
         $usercontroller = new UserController();
 
         if (isset($_POST['uploadbtn'])) {
-
-
-
+            
             $imageFile = $_FILES["imageToBeUploaded"]["name"];
             $target_dir = "../upload/";
             $target_file = $target_dir . basename($_FILES["imageToBeUploaded"]["name"]);
@@ -81,11 +80,7 @@ session_start();
                 $usercontroller->uploadImage($_SESSION['username'], $image, $title, $description);
             }
         }
-
-        UserController::logout();
         ?>
     </div>
-
 </body>
-
 </html>

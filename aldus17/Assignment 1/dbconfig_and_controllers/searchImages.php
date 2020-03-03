@@ -27,13 +27,6 @@ if ($searchParameter !== "" || !empty($searchParameter)) {
     $imageData = $imageResults;
 }
 
-
-/*while ($row = $imageResults) {
-    array_push($imageData, $row);
-}*/
-
-//echo json_encode($imageData);
-
 foreach ($imageData as $img) {
 
     echo "<h1>" . $img['title'] . "</h1>";

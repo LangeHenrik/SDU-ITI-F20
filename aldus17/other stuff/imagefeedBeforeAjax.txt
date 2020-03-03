@@ -1,0 +1,22 @@
+ <?php foreach ($userimagefeedArray as $imagePost) { ?>
+
+                    <h1>
+                        <?php echo $imagePost['title']; ?>
+                    </h1>
+                    <p>
+                        <?php echo $imagePost['description']; ?>
+                    </p>
+
+                    <img src=<?php echo $imagePost['image']; ?> />
+
+                    <p>
+                        <i>
+                            <?php echo 'Posted by:' . str_repeat('&nbsp;', 2)  . $imagePost['username'] . str_repeat('&nbsp;', 2) .
+                                'Created on: ' . $imagePost['creationTime']; ?>
+                        </i>
+                    </p>
+                    <hr>
+
+                <?php
+                }
+                ?>

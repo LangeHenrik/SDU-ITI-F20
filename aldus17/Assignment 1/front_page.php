@@ -1,12 +1,16 @@
 <?php
-
 require_once('dbconfig_and_controllers/DBConnection.php');
 require_once('dbconfig_and_controllers/DBController.php');
 require_once('dbconfig_and_controllers/UserController.php');
-session_start();
+?>
+<?php
 
+UserController::checkSession();
+UserController::sessionRedirect();
+UserController::logout();
 
 ?>
+
 <!DOCTYPE html>
 
 <header>
@@ -16,12 +20,9 @@ session_start();
     <link rel="stylesheet" href="css/front_page_style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <html lang="en">
-
 </header>
 
 <body>
-
-
     <div class="navbar" id="navbar">
 
         <ul>
@@ -41,39 +42,21 @@ session_start();
 
     <div id="main-wrapper" class="main_wrapper">
         <h2 class="front_page-header">Homepage page</h2>
-        <h3 class="front_page-subheader">Welcome
+        <h3 class="front_page-subheader">Welcome to the frontpage
             <?php
             $usercontroller = new UserController();
             $user = $usercontroller->getUserByUsername($_SESSION['username']);
             foreach ($user as $u) {
                 if ($u['username'] == $_SESSION['username']) {
-                    echo str_repeat('&nbsp;', 2) . $u['fullname'];
+                    echo str_repeat('&nbsp;', 2) . "<u>" . $u['fullname'] . "</u>" . str_repeat('&nbsp;', 2);
                 }
             }
             if (!empty($_SESSION['username'])) {
                 $username = $_SESSION['username'];
-                echo str_repeat('&nbsp;', 2) . $username;
+                echo 'Your username is: ' . str_repeat('&nbsp;', 2) . "<u>" . $username . "</u>";
             }
             ?>
         </h3>
-
-
-        <?php
-        if (session_status() == PHP_SESSION_NONE) {
-            session_start();
-        }
-
-        UserController::logout();
-
-
-        ?>
     </div>
 </body>
-
-<!--
-<footer id="index-footer">
-    <p>Assignment 1 course ITI &amp; XI-IT - Aleksander Grzegorz Duszkiewicz (aldus17)</p>
-</footer>
--->
-
 </html>

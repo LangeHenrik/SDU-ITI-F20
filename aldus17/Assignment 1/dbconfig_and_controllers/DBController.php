@@ -21,7 +21,6 @@ class DBController extends DBConnection
                 echo 'Failure on insert';
                 return false;
             } else {
-                //echo 'Success on insert';
                 return true;
             }
         } else {
@@ -46,7 +45,6 @@ class DBController extends DBConnection
                 echo 'Failure on insert';
                 return false;
             } else {
-                //echo 'Success on insert';
                 return true;
             }
         } else {

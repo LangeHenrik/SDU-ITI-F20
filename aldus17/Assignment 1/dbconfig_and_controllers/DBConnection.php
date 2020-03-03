@@ -21,10 +21,9 @@ class DBConnection
                 echo 'no connection to database, pdoconnection is null';
                 return false;
             }
-
-            //echo "Connected successfully to the database";
-
+            
             return $pdodbconnection;
+
         } catch (PDOException $e) {
             echo "Connection failed: " . $e->getMessage();
             echo "ERROR";

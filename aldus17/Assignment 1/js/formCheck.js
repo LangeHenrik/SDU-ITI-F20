@@ -6,17 +6,13 @@ function checkForm() {
     checkEmailAddress();
     checkUsername();
 }
-// https://regex101.com/
-// https://regexr.com/
 
 function checkFullname() {
     var fullname = document.getElementById("fullname");
     var regEx = new RegExp(/(^(\w+\s).+$)/g);
-    //fullname.setAttribute('pattern', '(\w+\s).+)');
-    //fullname.setAttribute('title', 'Must contain your first and last name');
+
     if (regEx.test(fullname.value)) {
         changeLabelColor("fullname-label", "LawnGreen");
-
     } else {
         changeLabelColor("fullname-label", "Maroon");
     }
@@ -56,21 +52,18 @@ function checkEmailAddress() {
 
 function checkUsername() {
     var username = document.getElementById("username");
-    // var usr = document.getElementById("username").addEventListener("invalid");
     var regEx = new RegExp(/^([A-Za-z0-9]){4,20}$/gm);
+
     username.setAttribute("pattern", "([A-Za-z0-9]){4,20}");
     username.setAttribute("title", "Value must be from 4 to 20 characters in length, only allow letters and numbers, no special characters.");
 
-
     if (regEx.test(username.value)) {
         changeLabelColor("username-label", "LawnGreen");
-
     } else {
         changeLabelColor("username-label", "Maroon");
     }
 
 }
-
 
 function validatePassword() {
     if (document.getElementById('password').value == document.getElementById('password_confirm').value) {

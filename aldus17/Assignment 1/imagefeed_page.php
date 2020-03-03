@@ -2,10 +2,11 @@
 require_once('dbconfig_and_controllers/DBConnection.php');
 require_once('dbconfig_and_controllers/DBController.php');
 require_once('dbconfig_and_controllers/UserController.php');
-session_start();
+?>
+<?php
 
-$usercontroller = new UserController();
-$userimagefeedArray = $usercontroller->getAllUserImageFeed();
+UserController::checkSession();
+UserController::sessionRedirect();
 UserController::logout();
 ?>
 
@@ -45,7 +46,7 @@ UserController::logout();
         <div class="imagefeed_content">
             <h1>All posted images</h1>
             <h4>
-                Search for username: 
+                Search for username:
                 <input type="text" class="search" name="search" id="search" placeholder="search for username" onload="getUserImages(this.value);" onkeyup="getUserImages(this.value);" />
             </h4>
             <div class="imagefeed" id="imagefeed">
@@ -55,9 +56,4 @@ UserController::logout();
     </div>
 
 </body>
-
-<!--
-<footer id="index-footer">
-    <p>Assignment 1 course ITI &amp; XI-IT - Aleksander Grzegorz Duszkiewicz (aldus17)</p>
-</footer>
--->
+</html>

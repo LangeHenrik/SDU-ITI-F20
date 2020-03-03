@@ -4,6 +4,7 @@ require_once('dbconfig_and_controllers/DBConnection.php');
 require_once('dbconfig_and_controllers/DBController.php');
 require_once('dbconfig_and_controllers/UserController.php');
 
+UserController::checkSession();
 ?>
 <!DOCTYPE html>
 
@@ -20,9 +21,6 @@ require_once('dbconfig_and_controllers/UserController.php');
 
 <body>
     <div id="main-wrapper">
-
-
-
         <form method="post" id="loginForm">
             <div class="inner_login_form_container">
                 <h1>Login page</h1>
@@ -37,9 +35,6 @@ require_once('dbconfig_and_controllers/UserController.php');
         </form>
 
         <?php
-        if (session_status() == PHP_SESSION_NONE) {
-            session_start();
-        }
 
         if (isset($_POST['loginbtn'])) {
 
@@ -68,14 +63,8 @@ require_once('dbconfig_and_controllers/UserController.php');
         if (isset($_POST['registerReferBtn'])) {
             header("Location: registration_page.php");
         }
-
         ?>
+
     </div>
 </body>
-<!--
-<footer id="index-footer">
-    <p>Assignment 1 course ITI &amp; XI-IT - Aleksander Grzegorz Duszkiewicz (aldus17)</p>
-</footer>
--->
-
 </html>

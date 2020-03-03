@@ -3,6 +3,9 @@ require_once('dbconfig_and_controllers/DBConnection.php');
 require_once('dbconfig_and_controllers/DBController.php');
 require_once('dbconfig_and_controllers/UserController.php');
 ?>
+<?php
+UserController::checkSession();
+?>
 <!DOCTYPE html>
 
 <header>
@@ -10,7 +13,6 @@ require_once('dbconfig_and_controllers/UserController.php');
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="js/formCheck.js"></script>
-    <!---->
     <link rel="stylesheet" href="css/registration_page_style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <html lang="en">
@@ -50,13 +52,7 @@ require_once('dbconfig_and_controllers/UserController.php');
                 </p>
             </div>
 
-
             <?php
-
-            if (session_status() == PHP_SESSION_NONE) {
-                session_start();
-            }
-
             $usercontrol = new UserController();
             $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
             $fullname = filter_input(INPUT_POST, 'fullname', FILTER_SANITIZE_STRING);
@@ -99,9 +95,4 @@ require_once('dbconfig_and_controllers/UserController.php');
         </form>
     </div>
 </body>
-
-<footer>
-    <!--<p>Assignment 1 course ITI &amp; XI-IT - Aleksander Grzegorz Duszkiewicz (aldus17)</p>-->
-</footer>
-
 </html>

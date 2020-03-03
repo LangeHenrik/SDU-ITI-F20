@@ -15,7 +15,6 @@ function getUserlist() {
                 var fullname = data[a].fullname;
                 var username = data[a].username;
 
-
                 html += "<tr>";
                 html += "<td>" + fullname + "</td>";
                 html += "<td>" + username + "</td>";
@@ -23,9 +22,7 @@ function getUserlist() {
             }
             document.getElementById("data").innerHTML += html;
         }
-
     };
-
 }
 
 document.addEventListener("DOMContentLoaded", function() {

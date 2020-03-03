@@ -2,10 +2,14 @@
 require_once('dbconfig_and_controllers/DBConnection.php');
 require_once('dbconfig_and_controllers/DBController.php');
 require_once('dbconfig_and_controllers/UserController.php');
-
-UserController::logout();
-
 ?>
+<?php
+UserController::checkSession();
+UserController::sessionRedirect();
+UserController::logout();
+?>
+
+
 <!DOCTYPE html>
 
 <header>
@@ -44,9 +48,10 @@ UserController::logout();
                     <th>Fullname</th>
                     <th> Username</th>
                 </tr>
-                <!-- Data from the Ajax call at the bottom of the file-->
+                <?php //Data from the Ajax call at the bottom of the file 
+                ?>
                 <tbody id="data"></tbody>
-                <!----------------------------------->
+
             </table>
         </div>
 
@@ -56,10 +61,5 @@ UserController::logout();
 </body>
 
 
-<!--
-<footer id="index-footer">
-    <p>Assignment 1 course ITI &amp; XI-IT - Aleksander Grzegorz Duszkiewicz (aldus17)</p>
-</footer>
--->
 
 </html>
