@@ -92,3 +92,22 @@ button{
 	justify-items: center;
 }
 
+.grid-container2{
+	display: grid;
+	grid-template-columns: 1fr 2fr 2fr 1fr;
+	grid-template-rows: auto;
+	padding: 50px;
+	grid-column-gap: 50px;
+	align-items: center;
+	justify-items: center;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.header{
+	text-align: center;
+	margin: 0 auto;
+	grid-column: 1 / span 4;
+	grid-row: 1;
+}
+
