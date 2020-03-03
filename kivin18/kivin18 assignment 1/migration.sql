@@ -7,7 +7,8 @@ USE DATABASE kivin18;
 CREATE TABLE user(
     user VARCHAR(15) NOT NULL,
     pw_hashed TEXT NOT NULL,
-    join_date DATETIME
+    join_date DATETIME,
+    PRIMARY KEY (user)
 );
 
 CREATE TABLE image(
@@ -15,6 +16,7 @@ CREATE TABLE image(
     username VARCHAR(50) NOT NULL,
     image_path VARCHAR(255),
     header varchar(50),
-    description text,
-    upload_date DATETIME
+    description TEXT,
+    date_added DATETIME,
+    PRIMARY KEY (image_id)
 );

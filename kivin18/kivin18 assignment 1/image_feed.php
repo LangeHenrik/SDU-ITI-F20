@@ -2,7 +2,7 @@
 session_start();
 if ($_SESSION["logged_in"] ?? false) {
     require("db_connection.php");
-    $stmt = $pdo->query('SELECT username, image_path, header, description, date_added FROM image');
+    $stmt = $pdo->query('SELECT username, image_path, header, description, date_added FROM image ORDER BY image_id DESC');
     while ($row = $stmt->fetch()) {
         echo "<div class='userImage'/>";
         echo "<h3>", $row["username"], "</h3>";

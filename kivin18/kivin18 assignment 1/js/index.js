@@ -43,9 +43,13 @@ let feedButton = document.getElementById('imagesButton');
 let usersButton = document.getElementById('usersButton');
 let uploadButton = document.getElementById('uploadButton');
 let uploadImageButton = document.getElementById('uploadImageBtn');
-let logoutButton = document.getElementById('logoutButton').addEventListener('click', function () {
-    location.href = 'logout.php';
-});
+let logoutButton = document.getElementById('logoutButton')
+
+if (logoutButton) {
+    logoutButton.addEventListener('click', function () {
+        location.href = 'logout.php';
+    });
+}
 
 contentEventListener(feedButton, feed, function () {
     feedButton.click();

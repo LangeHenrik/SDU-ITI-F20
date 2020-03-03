@@ -68,7 +68,6 @@ input[type=text]:focus, input[type=password]:focus {
   margin: 10px;
   padding: 10px;
   box-shadow: 10px 10px 5px grey;
-  text-align: center;
 }
 
 #wrongInfoDiv {

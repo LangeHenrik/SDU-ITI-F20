@@ -32,7 +32,7 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
 
 if ($_SESSION["logged_in"] ?? false) :
     ?>
-    <!-- Main content -->
+    <!-- Logged in content -->
     <div class="grid-container">
         <div class="header" id="title"><h2>Image Feed</h2></div>
         <div class="menu">
@@ -50,7 +50,7 @@ if ($_SESSION["logged_in"] ?? false) :
                 <ul id="userList">
                 </ul>
             </div>
-            <!-- Upload -->
+            <!-- Upload form-->
             <div class="content" id="upload">
                 <form id="uploadForm" method="post" enctype="multipart/form-data">
                     <h3>Select image to upload:</h3>
@@ -127,8 +127,10 @@ if ($_SESSION["logged_in"] ?? false) :
         $stmt = $pdo->prepare('INSERT INTO user(username, pw_hash, join_date) VALUES (?, ?, NOW())');
         $new_user = htmlentities($_POST["regUsername"]);
         $new_pass = htmlentities($_POST["regPassword"]);
-        $hashed_pass = password_hash($new_pass, PASSWORD_DEFAULT);
-        $stmt->execute([$new_user, $hashed_pass]);
+        if(preg_match("/^\S\w{5,50}$/", $new_user) && preg_match("/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/", $new_pass)) {
+            $hashed_pass = password_hash($new_pass, PASSWORD_DEFAULT);
+            $stmt->execute([$new_user, $hashed_pass]);
+        }
     }
     ?>
     </div>
