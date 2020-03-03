@@ -6,7 +6,7 @@ USE jakaa18_jesha18;
 CREATE TABLE users
 (
     user_id int primary key AUTO_INCREMENT,
-    username VARCHAR(100) NOT NULL,
+    username VARCHAR(100) UNIQUE NOT NULL,
     password VARCHAR(100) NOT NULL
 
 );
