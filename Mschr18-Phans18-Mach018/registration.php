@@ -21,9 +21,9 @@
 
         <form onsubmit="return checkform();" action="Include/createUser.phoneInput" method="post">
 
-          <label for="fuldname" >Fuld name*</label> <br>
-          <input type="text" name="fuldname" id="fuldname" tabindex="1"/> <br>
-          <p class="info" id="fuldnameinfo"></p>
+          <label for="fullname" >Full name*</label> <br>
+          <input type="text" name="fullname" id="fullname" tabindex="1"/> <br>
+          <p class="info" id="fullnameinfo"></p>
 
           <label for="newusername" >Username*</label> <br>
           <input type="text" name="newusername" id="newusername" tabindex="2"/> <br>

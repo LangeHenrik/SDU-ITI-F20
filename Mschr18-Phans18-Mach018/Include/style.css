@@ -1,8 +1,65 @@
 /* general */
 body {
   background-color: #bbb;
+  margin: 5px;
+}
+
+/* header */
+/* loginnav */
+nav.loginnav {
+  background-color: gray;
+  border-radius: 7px;
+  padding: 0 10px;
+}
+nav.loginnav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+nav.loginnav li {
+  float: left;
+}
+nav.loginnav li:last-child {
+    float: right;
+}
+nav.loginnav a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+nav.loginnav a:hover {
+  background-color: #aaa;
+}
+nav.loginnav form {
+  padding: 14px 16px;
   margin: 0;
 }
+nav.loginnav form p {
+  color: white;
+  text-align: center;
+  display: inline;
+  padding-right: 5px;
+}
+nav.loginnav input {
+  margin: 0;
+}
+@media only screen and (max-width: 790px) {
+  nav.loginnav form  {
+    display: none;
+  }
+  div.welcomme form {
+    display: block;
+    margin: 10px 0 0 50px;
+  }
+  div.welcomme form input{
+    margin: 10px 0 -10px 0;
+    display: block;
+  }
+}
+
 
 
 div.content {
@@ -49,48 +106,11 @@ div.welcomme h3 {
   margin-top: -10px;
   margin-left: 320px;
 }
+div.welcomme form {
+  display: none;
+}
 
-/* loginnav */
-nav.loginnav {
-  background-color: gray;
-  border-radius: 7px;
-  margin:5px;
-}
-nav.loginnav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-nav.loginnav li {
-  float: left;
-}
-nav.loginnav li:last-child {
-    float: right;
-}
-nav.loginnav a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-nav.loginnav a:hover {
-  background-color: #111;
-}
-nav.loginnav form {
-  padding: 14px 16px;
-  margin: 0;
-}
-nav.loginnav form p {
-  color: white;
-  text-align: center;
-  display: inline;
-  padding-right: 5px;
-}
-nav.loginnav input {
-  margin: 0;
-}
+
 
 /* footer */
 div.footer {

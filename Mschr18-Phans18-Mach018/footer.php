@@ -1,4 +1,4 @@
-<div class="footer" id="footer">
+
   <div class="assignment" id="assignment">
     <p>SDU - Assignement - Internet Technology <br>Created by:</p>
   </div>
@@ -11,4 +11,3 @@
       <li>Peter Buch Hansen <br>SDU - phans18</li>
     </ul>
   </div>
-</div>
