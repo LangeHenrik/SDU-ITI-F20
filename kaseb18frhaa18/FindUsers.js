@@ -1,5 +1,5 @@
 function findUsers(userName) {
-    if (str.length == 0) {
+    if (userName.length == 0) {
         //get all users
         document.getElementById("users").innerHTML = "";
         return;
@@ -10,7 +10,7 @@ function findUsers(userName) {
                 document.getElementById("users").innerHTML = this.responseText;
             }
         };
-        xmlhttp.open("GET", "Users.php?q=" + str, true);
+        xmlhttp.open("GET", "Users.php?q=" + userName, true);
         xmlhttp.send();
     }
 

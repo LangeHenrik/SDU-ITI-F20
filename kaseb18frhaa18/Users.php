@@ -1,13 +1,15 @@
 <?php
+error_reporting(0);
 //get all users into array
 require 'database.php';
 
-if (!isset($users)) {
-    $statement = "SELECT username, name FROM person";
-    $users = talkToDB($statement);
-}
+$statement = "SELECT name, username FROM person";
+$users = talkToDB($statement);
+
+print_r ($users);
 
 $q = $_REQUEST["q"];
+print_r($q);
 
 $hint = "<tr><th>Name</th>
 <th>Username</th>
@@ -19,8 +21,10 @@ if ($q !== "") {
     $q = strtolower($q);
     $len=strlen($q);
     foreach($users as $name) {
-        if (stristr($q, substr($name[0], 0, $len))or stristr($q, substr($name[1], 0, $len))) {
-            $hint .= "<tr> <td> $name[0] </td> <td> $name[1] </td> <tr>";
+        print_r($name);
+        if (stristr($q, substr($name[name], 0, $len)) || stristr($q, substr($name[username], 0, $len))) {
+            $hint .= "<tr> <td> $name[name] </td> <td> $name[username] </td> <tr>";
+
         }
     }
 }
