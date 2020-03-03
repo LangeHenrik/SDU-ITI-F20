@@ -43,29 +43,65 @@ function validate_password2(password2) {
 </head>
 <body>
 <div class="sign-div">
-    <form class="" action="register.html" method="post">
+    <form class="" method="post">
         <h1>SIGN UP NOW</h1>
         <table>
             <tr> 
-              <td><input class="sign-text" id="username" type="text" placeholder="username" onblur="validate_username(this.value)"></td>
+              <td><input class="sign-text" name="username" id="username" type="text" placeholder="username" onblur="validate_username(this.value)"></td>
               <td id="test_username"></td>
             </tr>
             <tr>
-                <td> <input class="sign-text" id="email" type="text" placeholder="email" onblur="validate_email(this.value)" /></td>
+                <td> <input class="sign-text" id="email" name="email" type="text" placeholder="email" onblur="validate_email(this.value)" /></td>
                 <td id="test_email"></td>
             </tr>
-            <tr> <td><input class="sign-text" id="password" type="password" placeholder="password"></td>
+            <tr> <td><input class="sign-text" id="password" name="password" type="password" placeholder="password"></td>
                 <td id="test_pw"></td>
             </tr>
             <tr> <td><input class="sign-text" id="password2" type="password" placeholder="confirm the password" onblur="validate_password2(this.value)"/ ></td>
         <td id="is_test_pw"></td></tr>
-        <tr><td><input class="sign-btn" type="submit" value="Sign up"></td></tr>
+        <tr><td><input class="sign-btn" type="submit" name="submit" value="Sign up"></td></tr>
         </table>
         
     </form>
  
 </div>
- 
+<?php
+if(isset($_POST["submit"]))
+{
+    include("config.php");
+    
+    $usr=$_POST["username"];
+    $pwd=$_POST["password"];
+    $mail=$_POST["email"];
+
+
+    $sql = "insert into userinfo values('$usr','$mail','$pwd');";
+    $stmt=$dbh->query("select username from userinfo where username='$usr';");
+    //执行查询语句
+    $row=$stmt->fetch(PDO::FETCH_BOTH);
+    if(empty($row[0]))//判断是否存在
+    {
+        $dbh->exec($sql);
+        $dbh = null;
+?>
+        <script>
+        alert ("success");
+        window.location.href="frontpage.php";
+        </script>
+<?php   
+    }
+    else
+    {
+        $dbh = null;
+?>
+        <script>
+        alert ("the username exist");
+        </script>
+<?php
+    }
+}
+?>
+
  
 </body>
 </html>
