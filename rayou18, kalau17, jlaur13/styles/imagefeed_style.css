@@ -47,8 +47,9 @@ div.picture {
 }
 
 div.description {
-  /* grid-column: 1;
-  grid-row: 3; */
+  /*grid-column: 1;
+  grid-row: 3;*/
+  word-wrap: break-word;
 }
 
 div.deletButton {
