@@ -28,13 +28,19 @@ if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true){
         <li><a class="<?php echo htmlspecialchars($buttonValue);?>" href="registrationpage.php">Registration Page</a></li>
         <li><a class="<?php echo htmlspecialchars($buttonValue);?>" href="userlistpage.php">User List</a></li>
         <li><a class="<?php echo htmlspecialchars($buttonValue);?>" href="uploadimagepage.php">Upload Image <i class="fas fa-upload"></i></a></li>
-        <li><a class="cred_btns" id="login_btn"type="button" href="loginform.php" name="login_btn">Login</a></li>
+        <li><a class="cred_btns" id="login_btn"type="button" onclick="callAjax()" name="login_btn">Login</a></li>
         <li><a class="cred_btns"id="registration_btn"  href="signupform.php" type="button"  name="registration_btn">Sign Up</a></li>
-        <?php if($_SESSION['logged_in'] == true) echo '<li><a class="cred_btns" id="logout_btn"type="button" href="../backend/logout.php" name="logout_btn">Logout</a></li>';  ?>
+        <?php if($_SESSION['logged_in'] == true) echo '<li><a class="cred_btns" id="logout_btn"type="button" href="../backend/logout.php" name="logout_btn">Logout</a></li>';?>
       </ul>
     </div>
 
+
     <div class="wrapper">
+    <!--  <button onclick="callAjax()" stype="button" name="button">press</button> -->
+
+      <div id="pageholder">
+
+      </div>
     <!--  <div class="acess_wrapper">
         <a class="cred_btns" id="login_btn"type="button" name="login_btn">Login</a>
         <a class="cred_btns"id="registration_btn"  href="signupform.html" type="button"  name="registration_btn">Sign Up</a>
@@ -57,5 +63,8 @@ if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true){
       </article>
 
     </div>
+    <script src="../scripts/ajaxTest.js">
+
+    </script>
   </body>
 </html>
