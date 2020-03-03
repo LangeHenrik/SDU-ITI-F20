@@ -1,6 +1,6 @@
 <?php
 require_once 'db_config.php';
-function printImage($id)
+function printImage()
 {
     global $servername, $dbname, $username, $password;
 
@@ -35,11 +35,9 @@ function printImage($id)
     }
 }
 
-if (isset($_GET['img_id'])) {
-    printImage($_GET['img_id']);
-} else {
-    echo 'error';
-}
+
+printImage();
+
 
 
 ?>

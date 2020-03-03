@@ -1,9 +1,9 @@
-function getImage(id){
+function getImage(){
 // This is the client-side script.
     var img_id = 1;
 // Initialize the HTTP request.
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'getImage.php?img_id=' + id);
+    xhr.open('GET', 'getImage.php');
     var divid = document.getElementById('content');
 // Track the state changes of the request.
     xhr.onreadystatechange = function () {
@@ -22,5 +22,4 @@ function getImage(id){
     xhr.send(null);
 }
 
-getImage(2);
-
+getImage();
