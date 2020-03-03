@@ -19,6 +19,12 @@
             <li>Rasmus Thomsen</li>
             <li>Søren Pederson</li>
         </ul>
+        <b>Login credentials for Henrik</b>
+        <br>
+        <b>Username: username</b>
+        <br>
+        <b>Password: Passw0rd</b>
+
         <form class="login" name="login" method="GET" action="ImageFeed.php">
             <fieldset>
                 <legend>Please enter your credentials to login</legend>
