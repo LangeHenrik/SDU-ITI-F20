@@ -1,7 +1,5 @@
 <?php
-
 require "db.php";
-session_start();
 
 #https://stackoverflow.com/questions/19083175/generate-random-string-in-php-for-file-name
 function random_filename($length, $directory = '', $extension = '')
@@ -24,6 +22,7 @@ function random_filename($length, $directory = '', $extension = '')
 #https://www.w3schools.com/php/php_file_upload.asp
 $target_dir = "uploads/";
 $uploadOk = 1;
+var_dump($_FILES);
 #TODO Do this baed on $_FILES["fileToUpload"]["type"]
 $imageFileType = strtolower(pathinfo($_FILES["fileToUpload"]["name"],PATHINFO_EXTENSION));
 $target_file = $target_dir . random_filename(16,$target_dir);
@@ -62,4 +61,5 @@ if ($uploadOk == 0) {
         echo "Sorry, there was an error uploading your file.";
     }
 }
-?>
+
+
