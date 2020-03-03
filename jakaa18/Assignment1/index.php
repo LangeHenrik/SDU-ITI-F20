@@ -19,11 +19,12 @@
 	<div class="login2">
 		<!-- Login -->
 		<form action="welcome.php" method="post" onsubmit="return checkLogin()">
-			<p>username: <input type="text" name="username" id="usernameId"></p><br>
-			<p>password: <input type="password" name="password" id="passwordId"></p><br>
+			<p>username: <input type="text" name="username" required id="usernameId"></p><br>
+			<p>password: <input type="password" name="password" required id="passwordId"></p><br>
+			<input type ="submit">
 	</div>
 	<div class="login3">
-			<button><input type="submit" name="send" value="Send"></button>
+			<button><input type="submit" name="send" value="Login"></button>
 	</div>
 		</form>
 	<div class="login4">
@@ -36,6 +37,20 @@
 			session_start();
 			$_SESSION["logged_in"] = false;
 		}
+		$servername = "localhost";
+		$username = "defaultuser";
+		$password = "";
+
+		try {
+    		$conn = new PDO("mysql:host=$servername;dbname=jakaa18_jesha18", $username, $password);
+    		// set the PDO error mode to exception
+    		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    		echo "Connected successfully";
+    	}
+		catch(PDOException $e)
+   		 {
+    	echo "Connection failed: " . $e->getMessage();
+    	}
 
 		?>
 	</div>
