@@ -8,7 +8,7 @@ CREATE TABLE users
     user_id int primary key AUTO_INCREMENT,
     username VARCHAR(100) NOT NULL,
     password VARCHAR(100) NOT NULL,
-    email VARCHAR(150) NOT NULL
+
 );
 
 CREATE TABLE pictures
