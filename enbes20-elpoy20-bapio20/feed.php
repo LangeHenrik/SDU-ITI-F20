@@ -14,13 +14,14 @@ $res = $db->query($stmt);
 $output="";
 while ($row = $res->fetch()){
 			$output = $output . "
-			<div>
-				<div>
-					<h3>". $row['header'] ."</h3>
+			<div class='card'>
+				<div class='card_title title-white'>
+					<p>". $row['header'] ."</p>
 				</div>
-				<div>
+				<div class='card_image'>
 				<img src=".$row['image'] ." >
-				<p class='text-article'>" . $row['description'] ."</p></div>
+				</div>
+        <p class='text-article'>" . $row['description'] ."</p>
 				<div>".$row['created']."</div>
         <div>Upload by:".$row['username']."</div>
 
@@ -33,8 +34,14 @@ $res->closeCursor(); // Termine le traitement de la requête
 
 
 <!-- NEWS SECTION -->
-<h1>Images Feed</h1>
+<div class="container_feed">
 
-<?php echo($output);?>
+
+  <div class="title">Images Feed</div>
+    <div class="cards-list">
+
+    <?php echo($output);?>
+    </div>
+</div>
 
 <?php include('footer.php') ?>
