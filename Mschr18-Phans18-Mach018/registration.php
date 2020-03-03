@@ -1,19 +1,7 @@
-<!DOCTYPE html><html>
-  <head>
-    <title>ChalkBoard - Frontpage</title>
-    <meta name="viewport" content="width=device width, initial scale=1.0">
-    <!--stylesheet-->
-    <link rel="stylesheet" type="text/css" href="Include/style.css">
-    <!--Fontawsome-->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-  </head>
-  <!--Comment-->
-  <body>
-    <header>
-      <?php
-        include_once('loginnav.php');
-      ?>
-    </header>
+  <?php
+    include_once('header.php');
+  ?>
+
     <section id="content">
       <div class="registration" id="registration">
         <h1 id="title">Sign up to </h1> <?php include_once('Include/chalkbord.php') ?>
@@ -50,10 +38,7 @@
 
       </div>
     </section>
-    <footer>
-      <?php
-       include_once('footer.php');
-      ?>
-    </footer>
-  </body>
-</html>
+
+<?php
+ include_once('footer.php');
+?>

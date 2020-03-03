@@ -45,12 +45,17 @@ nav a:hover {
   background-color: #999;
 }
 
+/* mainnav */
+nav.mainnav button {
+  margin: 14px 16px;
+}
+
 /* loginnav */
 nav.loginnav form {
   padding: 14px 16px;
   margin: 0;
 }
-nav.loginnav form p {
+nav.loginnav form label {
   color: white;
   text-align: center;
   display: inline;
@@ -97,7 +102,6 @@ div.registration form input#signup {
 
 
 /* frontpage coontent */
-
 div.welcomme h2 {
   margin: 5px 0;
   margin-left: 30px;
@@ -112,7 +116,7 @@ div.welcomme form {
     margin: 10px 0 0 50px;
   }
   div.welcomme form input{
-    margin: 10px 0 -10px 0;
+    margin: 10px 0;
     display: block;
   }
 }
@@ -157,4 +161,13 @@ footer ul {
 }
 footer  li {
   float: left;
+}
+
+/* Unauthorized */
+div.Unauthorized h1,h2 {
+  text-align: center;
+}
+div.Unauthorized a {
+  color: #333;
+  font-weight: 600;
 }
