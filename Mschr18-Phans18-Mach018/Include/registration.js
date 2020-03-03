@@ -1,29 +1,27 @@
 function checkform(){
-    checkfuldname();
-    checknewusername();
-    checknewpassword();
-    checkphone();
-    checkemail();
-    checkzip();
-    return false;
+    $returnBool = checkfullname();
+    $returnBool = checknewusername() && $returnBool;
+    $returnBool = checknewpassword() && $returnBool;
+    $returnBool = checkphone() && $returnBool;
+    return checkemail() && $returnBool;
 }
 
-//fuldname
-let fuldnameRegEx = new RegExp(/^[a-z|A-Z|æøå|ÆØÅ|-]+(\s[a-z|A-Z|æøå|ÆØÅ|-]+){1,3}$/);
-let fuldnameInput = document.getElementById("fuldname");
-let fuldnameInfo = document.getElementById("fuldnameinfo");
-fuldnameInput.addEventListener('keyup', checkfuldname);
+//fullname
+let fullnameRegEx = new RegExp(/^[a-z|A-Z|æøå|ÆØÅ|-]+(\s[a-z|A-Z|æøå|ÆØÅ|-]+){1,3}$/);
+let fullnameInput = document.getElementById("fullname");
+let fullnameInfo = document.getElementById("fullnameinfo");
+fullnameInput.addEventListener('keyup', checkfullname);
 
-function checkfuldname () {
-    if(fuldnameRegEx.test(fuldnameInput.value)) {
-        console.log('Valid fuldname');
-        fuldnameInput.style.borderColor = "green";
-        fuldnameInfo.innerText = "";
+function checkfullname () {
+    if(fullnameRegEx.test(fullnameInput.value)) {
+        console.log('Valid fullname');
+        fullnameInput.style.borderColor = "green";
+        fullnameInfo.innerText = "";
         return true;
     } else {
-        console.log('Not valid fuldname');
-        fuldnameInput.style.borderColor = "red";
-        fuldnameInfo.innerText = "Not valid - \nShould be betwen 2 and 4 words. (a-å, A-Å, 0-9, -)";
+        console.log('Not valid fullname');
+        fullnameInput.style.borderColor = "red";
+        fullnameInfo.innerText = "Not valid - \nShould be betwen 2 and 4 words. (a-å, A-Å, 0-9, -)";
         return false;
     }
 }

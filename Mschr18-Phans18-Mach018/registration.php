@@ -19,7 +19,7 @@
         <h3> <i>BETA V.0.0.1</i></h3>
         <br>
 
-        <form onsubmit="return checkform();" action="Include/createUser.phoneInput" method="post">
+        <form onsubmit="return checkform();" action="Include/createUser.php" method="post">
 
           <label for="fullname" >Full name*</label> <br>
           <input type="text" name="fullname" id="fullname" tabindex="1"/> <br>
