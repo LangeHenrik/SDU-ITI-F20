@@ -50,12 +50,16 @@ require_once '../db_config.php';
     ?>
     <div class="picture">
   		<h2><?php echo $header;?></h2>
-  			<img class="image" src= "<?php echo $picture;?>" alt="TitleOfPicture">
-  		<div class="description"><?php echo $description;?></div>
-      <?php
-      if ($_SESSION['username'] == $pictureOwner){
-        ?>
-        <input type="button" name="" value="delet">
+      <div class="picture">
+        <img class="image" src= "<?php echo $picture;?>" alt="TitleOfPicture">
+      </div>
+  		<div class="description">
+        <?php echo $description;?>
+      </div>
+      <?php if ($_SESSION['username'] == $pictureOwner){?>
+        <div class="deletButton">
+          <input type="button" name="" value="delet">
+        </div>
         <?php
       }
   	echo "</div>";
