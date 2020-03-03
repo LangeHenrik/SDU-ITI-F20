@@ -55,6 +55,7 @@ $session_user = $_SESSION['username'];
           <li><a href="registrationpage.php">Registration Page</a></li>
       		<li><a href="userlistpage.php">User List</a></li>
       		<li><a class="active" href="uploadimagepage.php">Upload Image <i class="fas fa-upload"></i></a></li>
+          <?php if($_SESSION['logged_in'] == true) echo '<li><a class="cred_btns" id="logout_btn"type="button" href="../backend/logout.php" name="logout_btn">Logout</a></li>';  ?>
         </ul>
       </div>
 

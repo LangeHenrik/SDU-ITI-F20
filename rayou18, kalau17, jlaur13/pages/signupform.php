@@ -11,7 +11,7 @@
   <div class="container">
     <div class="signup">
       <h2 id="form-name">Sign Up</h2>
-      <form onkeyup="return checkPassword()" action="../backend/signup.php" method="post">
+      <form onkeyup="return program()" action="../backend/signup.php" method="post">
         <div class="form-group">
           <label for="username"><i class="fas fa-user"></i></label>
           <input id="usernameInput" type="text" name="username" placeholder="Your Username">
@@ -24,7 +24,7 @@
           <label for="repeat_password"> <i class="fas fa-lock replock"></i></label>
           <input id="repeatPasswordInput" type="password" name="repeat_password" placeholder="Repeat your password">
         </div>
-        <button type="submit" name="button">Submit</button>
+        <input id="signup_btn" type="submit" name="button">Submit</input>
         <button type="submit" action="">Login Instead</button> <!--Needs to be a-tag-->
       </form>
     </div>
