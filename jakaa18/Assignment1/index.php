@@ -14,22 +14,28 @@
 <?php
 //require_once 'db_config.php';
 
-$correct_username = "joe";
-$correct_password = "pass";
-
-$username = filter_var($_POST["username"], FILTER_SANITIZE_STRING);
-$password = filter_var($_POST["password"], FILTER_SANITIZE_STRING);
-
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-if ($username === $correct_username
-    && $password === $correct_password) {
-    $_SESSION['logged_in'] = true;
-    echo 'logged in!';
+$correct_username = "joe";
+$correct_password = "pass";
+
+if (isset($_POST["username"]) && $_POST["password"]) {
+    $username = filter_var($_POST["username"], FILTER_SANITIZE_STRING);
+    $password = filter_var($_POST["password"], FILTER_SANITIZE_STRING);
+    if ($username === $correct_username
+        && $password === $correct_password) {
+        $_SESSION['logged_in'] = true;
+        echo 'logged in!';
+    } else {
+        $_SESSION['logged_in'] = false;
+        echo 'wrong username or password';
+    }
+
+
+
 } else {
     $_SESSION['logged_in'] = false;
-    echo 'wrong username or password';
 }
 
 if ($_SESSION['logged_in']) : ?>
@@ -45,7 +51,7 @@ if ($_SESSION['logged_in']) : ?>
         <form action="welcome.php" method="post" onsubmit="return checkLogin('username', 'password')">
             <p>username: <input type="text" name="username" id="usernameId"></p><br>
             <p>password: <input type="password" name="password" id="passwordId"></p><br>
-            <input type="submit">
+
     </div>
     <div class="login3">
         <button><input type="submit" name="send" value="Login" id="LoginBtn"></button>
@@ -58,8 +64,8 @@ if ($_SESSION['logged_in']) : ?>
 
     <div class="register" id="registerView">
         <form action="index.php" method="post" onsubmit="return checkRegister('username', 'password', 'email'" )>
-            <p> username: <input type="text" placeholder="Enter Username" name="username" required id="regUsernameId"></p><br>
-            <p> password: <input type="password" placeholder="Enter Password" name="password" required id="regPassId"></p><br>
+            <p> username: <input type="text" placeholder="Enter Username" name="regUsernameId" id="regUsernameId" required ></p><br>
+            <p> password: <input type="password" placeholder="Enter Password" name="regPassId" id="regPassId" required></p><br>
 
             <input type="submit">
         </form>
@@ -99,7 +105,7 @@ try {
 
     try {
         if (isset($_POST["regUsernameId"]) && isset($_POST["regPassId"])) {
-            $stmt = $conn->prepare("INSERT INTO users ('username', 'password')
+            $stmt = $conn->prepare("INSERT INTO users (username, password)
 			VALUES (:username, :password)");
             $new_user = htmlentities($_POST["regUsernameId"]);
             $new_pass = htmlentities($_POST["regPassId"]);
@@ -107,7 +113,7 @@ try {
             $stmt->execute(['username' => $new_user, 'password' => $hashed_pass]);
             //$user = $stmt->fetch();
             echo "New user created";
-            return "New record created successfully";
+            //return "New record created successfully";
         }
     }
     catch
