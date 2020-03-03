@@ -1,8 +1,10 @@
 <?php
-session_start();
+
 if (session_status() == PHP_SESSION_NONE){
 header("Location: ./homepage.php");
-} ?>
+}
+session_start();
+?>
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
