@@ -1,30 +1,159 @@
-ul.menu {
-    background-color: #3399FF;
-    padding: 30px;
-    width: auto;
-    list-style-type: none;
-    display: flex;
+/*CSS generelt*/
+
+.wrapper .menu {
+    height: 100%;
+    background: #3399FF;
+    position: fixed;
     overflow: auto;
+    z-index: 1;
+    animation-name: animateleft;
+    animation-duration: 0.4s;
+    margin-left: 0px;
+    padding-left: 0px;
+    display: inline-block;
 }
 
-li a {
-    background-color: #3399FF;
+.wrapper .menu ul {
+    padding-inline-start: 0px;
+}
+
+.wrapper .menu h2 {
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 5px dotted;
+}
+
+.wrapper .menu ul li {
+    padding: 30px;
+    list-style-type: none;
+}
+
+.wrapper .menu ul li a {
     color: white;
+    display: block;
     text-decoration: none;
     text-align: center;
-    padding: 30px;
-    margin: auto;
+    border-top: 1px ridge;
+    border-bottom: 1px ridge;
+    padding: 5px;
 }
 
-li a:hover {
-    background-color: rgb(8, 111, 214);
+.wrapper .menu ul li:hover {
+    background-color: lightslategrey;
 }
 
-div.content {
-    background-color: #3399FF;
-    display: flex;
-    justify-content: center;
-    max-width: 25%;
+@media screen and (max-width: 650px) {
+    body {
+        background-color: white;
+    }
+    .menu {
+        width: 150px;
+    }
+}
+
+@media screen and (min-width: 650px) {
+    body {
+        background-color: lightgray;
+    }
+    .menu {
+        width: 300px;
+    }
+}
+
+@keyframes animateleft {
+    from {
+        left: -300px;
+        opacity: 0
+    }
+    to {
+        left: 0;
+        opacity: 1
+    }
+}
+
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+    to {
+        bottom: 0;
+        opacity: 1;
+    }
+}
+
+
+/*CSS for Login skærm*/
+
+.wrapper .content {
+    width: 300px;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #3399FF;
+    text-align: center;
+    animation-name: animatetop;
+    animation-duration: 1s;
+    display: inline-block;
+}
+
+.wrapper .content h1 {
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.wrapper .content a {
+    color: grey;
+    font-size: 8pt;
+}
+
+.wrapper .content a[id="createaccount"] {
+    color: green;
+    text-decoration: none;
+    font-size: 8pt;
+}
+
+.wrapper .content input[type="text"],
+.wrapper .content input[type="password"] {
+    background: none;
+    display: block;
+    margin: 10px auto;
+    text-align: center;
+    border: 2px solid white;
     padding: 10px;
+    width: 200px;
+    outline: none;
+    color: white;
+    border-radius: 50px;
+    transition: 0.25s;
 }
 
+.wrapper .content input[type="text"]:focus,
+.wrapper .content input[type="password"]:focus {
+    width: 280px;
+    border-color: #2ecc71;
+}
+
+.wrapper .content button[type="submit"] {
+    background: none;
+    display: block;
+    margin: 10px auto;
+    text-align: center;
+    border: 2px solid #2ecc71;
+    padding: 10px 30px;
+    outline: none;
+    color: white;
+    border-radius: 10px;
+    transition: 0.1s;
+    cursor: pointer;
+}
+
+.wrapper .content button[type="submit"]:hover {
+    background: #2ecc71;
+}

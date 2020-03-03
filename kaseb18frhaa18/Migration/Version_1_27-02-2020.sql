@@ -19,3 +19,6 @@ CREATE TABLE feed (
 	PRIMARY KEY (feed_id),
    FOREIGN KEY (person_id) REFERENCES person(person_id)
 );
+
+INSERT INTO person (name, username, passwordHash) VALUES ("test", "test", "test");
+INSERT INTO person (name, username, passwordHash) VALUES ("fred", "fred", "fred");
