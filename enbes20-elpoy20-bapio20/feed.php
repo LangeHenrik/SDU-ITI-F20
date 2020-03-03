@@ -21,10 +21,13 @@ while ($row = $res->fetch()){
 				<div class='card_image'>
 				<img src=".$row['image'] ." >
 				</div>
-        <p class='text-article'>" . $row['description'] ."</p>
-				<div>".$row['created']."</div>
-        <div>Upload by:".$row['username']."</div>
-
+        <div class='message'><div>" . $row['description'] ."</div>
+          <div class='messageinfo'>
+            <div id='first'><i>Upload by : ".$row['username']."</i></div>
+            </br>
+            <div id='second'>".$row['created']."</div>
+          </div>
+        </div>
 		</div>
 			";
 }

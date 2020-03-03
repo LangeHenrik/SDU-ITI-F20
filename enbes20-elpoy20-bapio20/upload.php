@@ -57,7 +57,7 @@ if (isset($_POST['formUpload'])) {
         <label for="header">Header</label>
         <input type='text' name='header' value="<?php if(isset($header)) { echo $header; } ?>" />
         <label for="description">Description</label>
-        <input type='text' name='description' value="<?php if(isset($description)) { echo $description; } ?>"/>
+        <input type='text-area' name='description' value="<?php if(isset($description)) { echo $description; } ?>"/>
         <?php
         if(isset($error)) {
             echo '<font color="red">'.$error."</font>";
