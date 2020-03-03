@@ -48,11 +48,13 @@
     <title>Imagefeed</title>
 </head>
 <body>
-    <div class="content">
+    <div class="content" id="content">
         <script src="./javascript/Menu.js"></script>
         <h1>Image Feed</h1>
         <h2>Look at all the cool images below</h2>
         <?php include './databaseConnection/getAllImages.php';?>
+
     </div>
+<script src="javascript/ajax.js"></script>
 </body>
 </html> 
