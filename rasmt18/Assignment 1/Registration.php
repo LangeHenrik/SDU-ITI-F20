@@ -33,7 +33,7 @@
                         <p id="password2Status"> </p>
                         <input type="password" name="password2" id="password2" placeholder="Write password again" required >
                         <br>
-                        <input type="Submit" name="submit" value="Register" id="submit" >
+                        <input type="Submit" name="submit" value="Register" id="submit" disabled>
                     </fieldset> 
                 </form>
             <p>If you are having trouble registering, please contact support.</p>
@@ -48,11 +48,13 @@
             array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
             $stmt = $conn->prepare("INSERT INTO user (username, password) VALUES(:username, :password)");
             
-            $tempUser = addslashes($_POST['username']);
-            $stmt->bindParam(':username', $tempUser, PDO::PARAM_STR);
+            $tempUser = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
+            $tempUserXSS = htmlspecialchars($tempUser);
+            $stmt->bindParam(':username', $tempUserXSS, PDO::PARAM_STR);
 
-            $tempPassword = addslashes(password_hash($_POST['password'], PASSWORD_DEFAULT));
-            $stmt->bindParam(':password', $tempPassword, PDO::PARAM_STR);
+            $tempPassword = filter_var(password_hash($_POST['password'], PASSWORD_DEFAULT), FILTER_SANITIZE_STRING);
+            $tempPasswordXSS = htmlspecialchars($tempPassword);
+            $stmt->bindParam(':password', $tempPasswordXSS, PDO::PARAM_STR);
 
             $stmt->execute(); 
             $stmt->setFetchMode(PDO::FETCH_ASSOC); 

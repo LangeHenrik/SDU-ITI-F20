@@ -15,8 +15,9 @@
     $stmt->execute(); 
     $stmt->setFetchMode(PDO::FETCH_ASSOC); 
     $result = $stmt->fetchAll();
-    $tempUser = addslashes($_GET['username']);
-    $tempPwd = addslashes($_GET['password']);
+    $tempUser = filter_var($_GET['username'], FILTER_SANITIZE_STRING);
+        
+    $tempPwd = filter_var($_GET['password'], FILTER_SANITIZE_STRING);
     if(isset($_SESSION['username'])){
         echo "<br><a href='logout.php'><input type=button value=Logout name=logout></a>";
       }
@@ -44,7 +45,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/styling.css">
 
-    <title>Document</title>
+    <title>Imagefeed</title>
 </head>
 <body>
     <div class="content" id="content">
@@ -72,7 +73,7 @@
                 echo "<br>";
                 echo "<b>Image:</b>";
                 echo "<br>";
-                echo "<img src='$row[img]' alt=''></img>";
+                echo "<img src='$row[img]' alt='Uploaded picture'></img>";
                 echo "<br></div>";
             }
         echo "</div>";

@@ -54,14 +54,17 @@ else{
                 array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
                 $stmt = $conn->prepare("INSERT INTO image (header, description, username, img) VALUES(:header, :description, :username, :image)");
                 
-                $tempHeader = addslashes($_POST['header']);
-                $stmt->bindParam(':header', $tempHeader, PDO::PARAM_STR);
+                $tempHeader = filter_var($_POST['header'], FILTER_SANITIZE_STRING);
+                $tempHeaderXSS = htmlspecialchars($tempHeader);
+                $stmt->bindParam(':header', $tempHeaderXSS, PDO::PARAM_STR);
 
-                $tempDescription = addslashes($_POST['description']);
-                $stmt->bindParam(':description', $tempDescription, PDO::PARAM_STR);
+                $tempDescription = filter_var($_POST['description'], FILTER_SANITIZE_STRING);
+                $tempDescriptionXSS = htmlentities($tempDescription);
+                $stmt->bindParam(':description', $tempDescriptionXSS, PDO::PARAM_STR);
 
-                $tempUsername = addslashes($_SESSION['username']);
-                $stmt->bindParam(':username', $tempUsername, PDO::PARAM_STR);
+                $tempUsername = filter_var($_SESSION['username'], FILTER_SANITIZE_STRING);
+                $tempUsernameXSS = htmlspecialchars($tempUsername);
+                $stmt->bindParam(':username', $tempUsernameXSS, PDO::PARAM_STR);
                 
                 $stmt->bindParam(':image', $convertedImg, PDO::PARAM_STR);
 
