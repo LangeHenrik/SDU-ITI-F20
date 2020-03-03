@@ -21,3 +21,5 @@ create table picture(
 	constraint picture_username_fk
 		foreign key (user) references user(username)
 );
+
+insert into user (username, password) VALUE ('JohnDoe' , '$2y$10$Ug4gEVoQhXTZ4Xzg7vSkX./JsJJnMelWIYiaCcm5UAGX.elMNeIOe');
