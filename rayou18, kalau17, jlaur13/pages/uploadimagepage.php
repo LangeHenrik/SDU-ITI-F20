@@ -68,15 +68,15 @@ $session_user = $_SESSION['username'];
         <form class=""  method="POST" enctype = "multipart/form-data">
           <label for="header">Picture Name:</label>
           <br>
-          <input type="text" name="header" value="">
+          <input type="text" name="header" value="" required>
           <br>
           <label for="img">Chose picture to upload:</label>
           <br>
-          <input type = "file" name = "image" />
+          <input type = "file" name = "image" required/>
           <br>
           <label for="description">Description for picture:</label>
           <br>
-          <textarea cols="50" rows="6" name="description" id="description" value="" maxlength="250"></textarea>
+          <textarea cols="50" rows="6" name="description" id="description" value="" maxlength="250" required></textarea>
           <br>
           <input type="submit" name="" value="Submit">
           <ul>
