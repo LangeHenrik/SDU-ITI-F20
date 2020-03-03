@@ -13,7 +13,7 @@
         <input class="sign-text" type="text" name="username" placeholder="username" >
         <input class="sign-text" type="password" name="password" placeholder="password">
         <input class="sign-btn"  name="submit" type="submit" value="Log in">
-        <input class="sign-btn" type="submit" value="Sign up">
+        <input class="sign-btn" name="register" type="submit" value="Sign up">
     </form>
  
 </div>
@@ -62,7 +62,15 @@ if(isset($_POST["submit"]))//只用submit存在才能执行
 <?php
     }
 }
-?>
- 
+ ?> 
+<?php
+if(isset($_POST["register"])){
+    ?>
+<script>
+        window.location.href="register.php";
+        </script>
+<?php
+}  ?>
+
 </body>
 </html>
