@@ -20,3 +20,6 @@ create table user
     username varchar(100) not null,
     password varchar(100) not null
 ); 
+
+INSERT INTO user (username, PASSWORD) 
+VALUES ('username', '$2y$10$MRxR35qUpCeIqMW/dPlE8OMNoK0T6V7J6TJZdpGeTrrHkXKenogxq');
