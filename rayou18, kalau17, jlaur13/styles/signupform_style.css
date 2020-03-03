@@ -85,3 +85,9 @@ i{
 transition: 0.5s;
 background-color: #553D67;
 }
+
+p{
+  color: lightgray;
+  font-family: arial;
+  font-size: 10px;
+}
