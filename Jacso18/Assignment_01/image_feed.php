@@ -40,12 +40,8 @@ Utility::logoutPressed();
         </div>
     </nav>
     <div class="wrapper">
-        <div class="content">
-            <div class="post">
-                <div class="postplaceholder" id="postplaceholder"></div>
-            </div>
+        <div class="content" id="content">
         </div>
-    </div>
     </div>
 
     <form method="POST">

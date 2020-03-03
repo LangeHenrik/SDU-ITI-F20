@@ -15,7 +15,8 @@
     session_start();
 
 
-    $q = strval($_GET['q']);
+   /*  $q = strval($_GET['q']); */
+    $q = filter_input(INPUT_GET, 'q',FILTER_SANITIZE_STRING);
 
     $usercontroller = new UserController();
     $postresults = $usercontroller->getAllPosts();
@@ -44,7 +45,7 @@
         echo "<p>" . "Posted by: " . $post['username'] . " at " . $post['timestamp'] . "</p>";
         echo '<img src="' . $post['image'] . '"/>';
         echo "<p>" . $post['COMMENT'] . "</p>";
-        echo "<br/";
+        echo "<br/>";
         echo "</div>";
     };
 
