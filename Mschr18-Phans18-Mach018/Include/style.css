@@ -4,35 +4,48 @@ body {
   margin: 5px;
 }
 
+/* chalkbord logo */
+div.chalkboard {
+display: inline-block;
+margin-left: 5px;
+}
+div.chalkboard h1 {
+  margin: 5px 0;
+}
+div.chalkboard h3 {
+  margin-top: -10px;
+  margin-left: 60px;
+}
 /* header */
-/* loginnav */
-nav.loginnav {
+nav {
   background-color: gray;
   border-radius: 7px;
-  padding: 0 10px;
+  padding: 5px 10px;
 }
-nav.loginnav ul {
+nav ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
 }
-nav.loginnav li {
+nav li {
   float: left;
 }
-nav.loginnav li:last-child {
+nav li:last-child {
     float: right;
 }
-nav.loginnav a {
+nav a {
   display: block;
   color: white;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
 }
-nav.loginnav a:hover {
-  background-color: #aaa;
+nav a:hover {
+  background-color: #999;
 }
+
+/* loginnav */
 nav.loginnav form {
   padding: 14px 16px;
   margin: 0;
@@ -43,37 +56,32 @@ nav.loginnav form p {
   display: inline;
   padding-right: 5px;
 }
-nav.loginnav input {
-  margin: 0;
-}
-@media only screen and (max-width: 790px) {
+@media only screen and (max-width: 800px) {
   nav.loginnav form  {
     display: none;
   }
-  div.welcomme form {
-    display: block;
-    margin: 10px 0 0 50px;
-  }
-  div.welcomme form input{
-    margin: 10px 0 -10px 0;
-    display: block;
-  }
 }
 
 
-
-div.content {
+section#content{
+  height: 75%;
   background-color: #333;
   color: #ddd;
-  margin: 15px 5px;
+  margin: 15px 0;
   padding: 10px;
   border: 3px solid black;
-  border-radius: 10px;
-  height: 75%;
+  border-radius: 7px;
+  overflow: auto;
+
 }
-div.content a {
+section#content a {
   color: #ddd;
   text-decoration: underline;
+}
+
+section#content h1#title {
+  float: left;
+  margin: 5px 0;
 }
 
 /* Registration coontent */
@@ -94,53 +102,53 @@ div.registration form input#signup {
 
 
 /* frontpage coontent */
-div.welcomme h1 {
-  margin: 5px 0;
-  margin-left: 10px;
-}
+
 div.welcomme h2 {
   margin: 5px 0;
   margin-left: 30px;
 }
-div.welcomme h3 {
-  margin-top: -10px;
-  margin-left: 320px;
-}
+
 div.welcomme form {
   display: none;
+}
+@media only screen and (max-width: 800px) {
+  div.welcomme form {
+    display: block;
+    margin: 10px 0 0 50px;
+  }
+  div.welcomme form input{
+    margin: 10px 0 -10px 0;
+    display: block;
+  }
 }
 
 
 
 /* footer */
-div.footer {
-  position: sticky;
-  bottom: 0;
-  width: 100%;
+footer {
+
 }
-div.assignment {
+footer div.assignment {
   background-color: gray;
   border-top-left-radius: 7px;
   border-top-right-radius: 7px;
-  margin: 5px;
   margin-bottom: 0;
   color: white;
   text-align: center;
   padding: 0 auto;
 }
-div.assignment p {
+footer div.assignment p {
   margin: 0;
   padding: 10px 0;
 }
-div.Participants {
+footer div.Participants {
   background-color: gray;
   border-bottom-left-radius: 7px;
   border-bottom-right-radius: 7px;
-  margin: 5px;
   margin-top: 0;
   color: white;
 }
-div.footer ul {
+footer ul {
   display: flex;
   align-items: stretch;
   justify-content: space-between;
@@ -152,6 +160,6 @@ div.footer ul {
   overflow: hidden;
 
 }
-div.footer  li {
+footer  li {
   float: left;
 }
