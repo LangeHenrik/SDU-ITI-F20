@@ -1,5 +1,6 @@
 <?php
   include_once('header.php');
+  include_once('authendicate.php');
 ?>
     <section id="content">
         <div class="users" id="users">

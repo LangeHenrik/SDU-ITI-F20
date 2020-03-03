@@ -164,7 +164,8 @@ footer  li {
 }
 
 /* Unauthorized */
-div.Unauthorized h1,h2 {
+div.Unauthorized h1,
+div.Unauthorized h2 {
   text-align: center;
 }
 div.Unauthorized a {
