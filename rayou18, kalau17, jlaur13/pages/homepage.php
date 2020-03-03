@@ -6,7 +6,9 @@ session_start();
 if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true){
           $buttonValue = '';
       }
-      else{$buttonValue = 'disabled';}
+      else{
+
+        $buttonValue = 'disabled';}
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +32,7 @@ if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true){
         <li><a class="<?php echo htmlspecialchars($buttonValue);?>" href="uploadimagepage.php">Upload Image <i class="fas fa-upload"></i></a></li>
         <li><a class="cred_btns" id="login_btn"type="button" onclick="callAjax()" name="login_btn">Login</a></li>
         <li><a class="cred_btns"id="registration_btn"  href="signupform.php" type="button"  name="registration_btn">Sign Up</a></li>
-        <?php if($_SESSION['logged_in'] == true) echo '<li><a class="cred_btns" id="logout_btn"type="button" href="../backend/logout.php" name="logout_btn">Logout</a></li>';?>
+        <?php if(isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) echo '<li><a class="cred_btns" id="logout_btn"type="button" href="../backend/logout.php" name="logout_btn">Logout</a></li>';?>
       </ul>
     </div>
 
@@ -59,7 +61,11 @@ if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true){
       </div> -->
       <article class="text_info">
         <h2>Hello</h2>
-        <p><?php echo "Loged in user is: ".$_SESSION['username']; ?></p>
+
+        <p><?php   if(isset($_SESSION['username'])){
+          echo "Loged in user is: ".$_SESSION['username'];
+        }
+          ?></p>
       </article>
 
     </div>

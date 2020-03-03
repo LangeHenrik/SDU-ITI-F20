@@ -11,7 +11,7 @@
   <div class="container">
     <div class="login">
       <h2 id="form-name">Login</h2>
-      <form class="" action="../backend/login.php" method="POST">
+      <form class="" action="../backend/login.php" method="GET">
         <div class="form-group">
           <label for="username"><i class="fas fa-user"></i></label>
           <input type="text" name="username" placeholder="Your Username">
