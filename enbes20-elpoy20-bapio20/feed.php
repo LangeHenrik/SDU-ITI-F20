@@ -8,11 +8,9 @@ include('header.php');
 
 
 require('config.php');
-
-$stmt = "SELECT * FROM images ORDER BY created";
+$stmt="SELECT * FROM user INNER JOIN images ON user.id_user = images.user_id ORDER BY created DESC";
 $res = $db->query($stmt);
 $output="";
-
 while ($row = $res->fetch()){
 			$output = $output . "
 			<div>
@@ -23,6 +21,8 @@ while ($row = $res->fetch()){
 				<img src=".$row['image'] ." >
 				<p class='text-article'>" . $row['description'] ."</p></div>
 				<div>".$row['created']."</div>
+        <div>Upload by:".$row['username']."</div>
+
 		</div>
 			";
 }
