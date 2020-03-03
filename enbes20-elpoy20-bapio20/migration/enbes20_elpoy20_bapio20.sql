@@ -2,10 +2,10 @@
 -- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
--- Hôte : localhost
--- Généré le : lun. 02 mars 2020 à 05:21
--- Version du serveur :  8.0.19
--- Version de PHP : 7.3.11
+-- Host: localhost
+-- Generation Time: Mar 03, 2020 at 07:25 AM
+-- Server version: 8.0.19
+-- PHP Version: 7.3.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,26 +19,28 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `enbes20_elpoy20_bapio20`
+-- Database: `enbes20_elpoy20_bapio20`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `images`
+-- Table structure for table `images`
 --
 
 CREATE TABLE `images` (
   `id` int NOT NULL,
   `image` longblob NOT NULL,
+  `header` varchar(255) NOT NULL,
+  `description` text NOT NULL,
   `created` datetime NOT NULL,
   `user_id` int NOT NULL
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -46,57 +48,56 @@ CREATE TABLE `user` (
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Déchargement des données de la table `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id_user`, `username`, `password`, `email`) VALUES
-(2, 'enzobes2', '$2y$10$fvTS7rsqSdDgqTMS/pCCAObC13Dx1FoQN3aFuZvBrXb/bjci50vba', 'enzobes@me.com'),
-(3, 'test3', '$2y$10$uJ5kdIrkxp6PSFKpzr5qleTyZ.uf/roT2shQaNmn8Ut7phdPtZ2qm', 'enz@e.com'),
-(4, 'Ezno', '$2y$10$h1O/YCCq6Bsob9JVSnv.i.H0ebRTyMPMHFXiydNrEG3YuNqAFaFfe', 'en@me.com'),
-(5, 'enzobes', '$2y$10$uW7/X3eZhCXAIG9aMA9QZ.p3QeS1ziOvO8E0QJZz3HbXwMrNxmpvO', 'enzobes@hotmail.fr');
+(1, 'enzobes', '$2y$10$1gvaye4ZPPjA04fcAe3cIO8zAjoJtwrB069z1bxIKVG3Wghci7ezu', 'enzobes@me.com'),
+(2, 'enzobes2', '$2y$10$8J2yhRo.6O17RUBuvF6q.e3sAEO0Q20VMGsWeiaai5Iqh3uKGjdby', 'test@enzobes.fr'),
+(3, 'enzobes3', '$2y$10$VDttEEn7ixDnuRXgbrUkre8t0/6LwldRrMliKE71pEpheg12HRSfq', 'enzobes3@me.com');
 
 --
--- Index pour les tables déchargées
+-- Indexes for dumped tables
 --
 
 --
--- Index pour la table `images`
+-- Indexes for table `images`
 --
 ALTER TABLE `images`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_user_id` (`user_id`);
 
 --
--- Index pour la table `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- AUTO_INCREMENT pour les tables déchargées
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT pour la table `images`
+-- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
   MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT pour la table `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_user` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- Contraintes pour les tables déchargées
+-- Constraints for dumped tables
 --
 
 --
--- Contraintes pour la table `images`
+-- Constraints for table `images`
 --
 ALTER TABLE `images`
   ADD CONSTRAINT `fk_user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id_user`) ON DELETE RESTRICT ON UPDATE RESTRICT;
