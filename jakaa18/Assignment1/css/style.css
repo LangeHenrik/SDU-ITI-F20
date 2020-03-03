@@ -31,21 +31,29 @@ button{
 }
 
 .login1{
+	text-align: center;
+	margin: 0 auto;
 	grid-column: 1 / span 4;
 	grid-row: 1;
 }
 
 .login2{
+	text-align: center;
+	margin: 0 auto;
 	grid-column: 1 / span 4;
 	grid-row: 2;
 }
 
 .login3{
+	text-align: center;
+	margin: 0 auto;
 	grid-column: 2;
 	grid-row: 3;
 }
 
 .login4{
+	text-align: center;
+	margin: 0 auto;
 	grid-column: 3;
 	grid-row: 3;
 }
