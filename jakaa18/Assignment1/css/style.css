@@ -10,6 +10,13 @@ p{
 	text-align: center;
 }
 
+.register{
+	display:none;
+	z-index: 1;
+	text-align: center;
+	margin: 0 auto;
+}
+
 button{
 	color: black;
 	background-color: red;
