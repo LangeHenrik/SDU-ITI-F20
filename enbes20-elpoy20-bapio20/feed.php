@@ -1,10 +1,11 @@
 <?php
-include('header.php');
 
 session_start();
 if(!isset($_SESSION['id'])){
    header("Location:index.php");
 }
+include('header.php');
+
 
 require('config.php');
 
