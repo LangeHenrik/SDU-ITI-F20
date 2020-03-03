@@ -9,15 +9,14 @@
   </head>
   <!--Comment-->
   <body>
-    <?php
-      include_once('loginnav.php');
-    ?>
-
-    <div class="content" id="content">
+    <header>
+      <?php
+        include_once('loginnav.php');
+      ?>
+    </header>
+    <section id="content">
       <div class="registration" id="registration">
-        <h1>Sign up to ChalkBoard <i class="fas fa-chalkboard"></i></h1>
-        <h3> <i>BETA V.0.0.1</i></h3>
-        <br>
+        <h1 id="title">Sign up to </h1> <?php include_once('Include/chalkbord.php') ?>
 
         <form onsubmit="return checkform();" action="Include/createUser.php" method="post">
 
@@ -44,13 +43,17 @@
           <i class="fas fa-user-plus"></i><input type="submit" name="submit" id="signup"  value="Sign up" tabindex="7"/>
         </form>
 
+
+
+
         <script src="Include/registration.js"></script>
 
       </div>
-    </div>
-
+    </section>
+    <footer>
+      <?php
+       include_once('footer.php');
+      ?>
+    </footer>
   </body>
-  <?php
-   include_once('footer.php');
-  ?>
 </html>
