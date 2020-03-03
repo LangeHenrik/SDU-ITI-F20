@@ -15,8 +15,9 @@
     $stmt->execute(); 
     $stmt->setFetchMode(PDO::FETCH_ASSOC); 
     $result = $stmt->fetchAll();
-    $tempUser = addslashes($_GET['username']);
-    $tempPwd = addslashes($_GET['password']);
+    $tempUser = filter_var($_GET['username'], FILTER_SANITIZE_STRING);
+    
+    $tempPwd = filter_var($_GET['password'], FILTER_SANITIZE_STRING);
     if(isset($_SESSION['username'])){
         echo "<br><a href='logout.php'><input type=button value=Logout name=logout></a>";
       }

@@ -54,13 +54,13 @@ else{
                 array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
                 $stmt = $conn->prepare("INSERT INTO image (header, description, username, img) VALUES(:header, :description, :username, :image)");
                 
-                $tempHeader = addslashes($_POST['header']);
+                $tempHeader = filter_var($_POST['header'], FILTER_SANITIZE_STRING);
                 $stmt->bindParam(':header', $tempHeader, PDO::PARAM_STR);
 
-                $tempDescription = addslashes($_POST['description']);
+                $tempDescription = filter_var($_POST['description'], FILTER_SANITIZE_STRING);
                 $stmt->bindParam(':description', $tempDescription, PDO::PARAM_STR);
 
-                $tempUsername = addslashes($_SESSION['username']);
+                $tempUsername = filter_var($_SESSION['username'], FILTER_SANITIZE_STRING);
                 $stmt->bindParam(':username', $tempUsername, PDO::PARAM_STR);
                 
                 $stmt->bindParam(':image', $convertedImg, PDO::PARAM_STR);

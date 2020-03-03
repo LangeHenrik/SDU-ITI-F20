@@ -48,10 +48,10 @@
             array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
             $stmt = $conn->prepare("INSERT INTO user (username, password) VALUES(:username, :password)");
             
-            $tempUser = addslashes($_POST['username']);
+            $tempUser = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
             $stmt->bindParam(':username', $tempUser, PDO::PARAM_STR);
-
-            $tempPassword = addslashes(password_hash($_POST['password'], PASSWORD_DEFAULT));
+            
+            $tempPassword = filter_var(password_hash($_POST['password'], PASSWORD_DEFAULT), FILTER_SANITIZE_STRING);
             $stmt->bindParam(':password', $tempPassword, PDO::PARAM_STR);
 
             $stmt->execute(); 
