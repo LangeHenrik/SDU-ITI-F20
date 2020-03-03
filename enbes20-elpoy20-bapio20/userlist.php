@@ -8,62 +8,76 @@ include('header.php');
 ini_set('display_errors','on');
 error_reporting(E_ALL);
 include("config.php");
-
-$stmt = "SELECT id_user, username, email FROM user";
-$res = $db->query($stmt);
-print_r($res);
-$output="";
-
-while ($row = $res->fetch()){
-			$output = $output . "
-			<div class='contact_card'>
-        <div>
-					<div>". $row['username'] ."</div>
-				 	<div>". $row['email'] ."</div>
-				</div>
-        <br>
-      </div>
-		";
-}
-	 $res->closeCursor(); // Termine le traitement de la requête
-
-/* close connection */
-
 ?>
+
 <div class="container_userlist">
 
 <div class="title">Contact List</div>
-  <form class="search">
-    Username: <input type="text" onkeyup="showHint(this.value)">
+  <form class="search_field" method="get">
+    Username: <input type="text" name = 'q' onkeyup="showUser(this.value)">
   </form>
+  <div class="txtHint"></div>
   <div class="contact_list">
-	   <?php echo($output); ?>
+  <?php
+  // get the q parameter from URL
+  $q = $_GET['q'];
+  //echo $q;
+
+
+  /*$stmt = "SELECT id_user, username, email FROM user";
+  $res = $db->query($stmt);
+  $output="";
+
+  while ($row = $res->fetch()){
+		$output = $output . "
+		<div class='contact_card'>
+      <div>
+				<div>". $row['username'] ."</div>
+			 	<div>". $row['email'] ."</div>
+			</div>
+      <br>
+    </div>
+		";
+    }
+  	$res->closeCursor(); // Termine le traitement de la requête
+*/
+  if ($q === "") {
+    $stmt = "SELECT id_user, username, email FROM user";
+    $res = $db->query($stmt);
+    $output="";
+    while ($row = $res->fetch()){
+    		$output = $output . "
+    		<div class='contact_card'>
+          <div>
+    				<div>". $row['username'] ."</div>
+    			 	<div>". $row['email'] ."</div>
+    			</div>
+          <br>
+        </div>
+    		";
+      }
+  } else {
+    $stmt = "SELECT id_user, username, email FROM user WHERE username LIKE '$q%'";
+    $res = $db->query($stmt);
+    $output="";
+    while ($row = $res->fetch()){
+    		$output = $output . "
+    		<div class='contact_card'>
+          <div>
+    				<div>". $row['username'] ."</div>
+    			 	<div>". $row['email'] ."</div>
+    			</div>
+          <br>
+        </div>
+    		";
+      }
+  }
+  $res->closeCursor(); // Termine le traitement de la requête
+
+  /* close connection */
+
+    echo($output); ?>
   </div>
 </div>
 
 </div>
-
-<?php // get the q parameter from URL
-
-$q = $_REQUEST["q"];
-
-$hint = "";
-
-// lookup all hints from array if $q is different from ""
-if ($q !== "") {
-    $q = strtolower($q);
-    $len=strlen($q);
-    foreach($a as $username) {
-        if (stristr($q, substr($username, 0, $len))) {
-            if ($hint === "") {
-                $hint = $username;
-            } else {
-                $hint .= ", $username";
-            }
-        }
-    }
-}
-
-// Output "no suggestion" if no hint was found or output correct values
-echo $hint === "" ? "no suggestion" : $hint;
-?>
