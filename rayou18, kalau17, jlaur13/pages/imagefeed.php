@@ -56,6 +56,9 @@ require_once '../db_config.php';
   		<div class="description">
         <?php echo $description;?>
       </div>
+      <div class="uploadedby">
+        <p>Uploaded by: <?php echo $pictureOwner;?></p>
+      </div>
       <?php if ($_SESSION['username'] == $pictureOwner){?>
         <div class="deletButton">
           <input id="deleteBtn" type="button" name="" value="Delete">
