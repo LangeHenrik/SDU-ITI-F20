@@ -4,8 +4,9 @@ function is_session_started()
 {
             return session_id() === '' ? FALSE : TRUE;
 }
-if (!is_session_started()) {
+if (isset($_SESSION['logged_in'])) {
 	session_start();
+	$_SESSION['logged_in'];
 } ?>
 
 <html>
