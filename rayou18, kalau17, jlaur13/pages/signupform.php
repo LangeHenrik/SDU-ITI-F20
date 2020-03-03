@@ -14,18 +14,21 @@
       <form onkeyup="return program()" action="../backend/signup.php" method="post">
         <div class="form-group">
           <label for="username"><i class="fas fa-user"></i></label>
-          <input id="usernameInput" type="text" name="username" placeholder="Your Username">
+          <input id="usernameInput" type="text" name="username" placeholder="Your Username" required>
+          <p>Must be longer that 3 chars</p>
         </div>
         <div class="form-group">
           <label for="password"> <i class="fas fa-lock"></i></label>
-          <input  id="passwordInput" type="password" name="password" placeholder="Password">
+          <input  id="passwordInput" type="password" name="password" placeholder="Password" required>
+          <p>Must contain: 1 captital letter, 1 small letter and a length of 8</p>
         </div>
         <div class="form-group">
           <label for="repeat_password"> <i class="fas fa-lock replock"></i></label>
-          <input id="repeatPasswordInput" type="password" name="repeat_password" placeholder="Repeat your password">
+          <input id="repeatPasswordInput" type="password" name="repeat_password" placeholder="Repeat your password" required>
+          <p>Must match your first password entry</p>
         </div>
-        <input id="signup_btn" type="submit" name="button">Submit</input>
-        <button type="submit" action="">Login Instead</button> <!--Needs to be a-tag-->
+        <input id="signup_btn" class="buttons" type="submit" name="button" value="Submit">
+        <input type="submit" class="buttons" action="" value="Login Instead">
       </form>
     </div>
   </div>

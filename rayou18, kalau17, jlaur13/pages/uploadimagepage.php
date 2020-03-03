@@ -12,11 +12,11 @@ $session_user = $_SESSION['username'];
       $file_type = $_FILES['image']['type'];
       $file_ext=strtolower(end(explode('.',$_FILES['image']['name'])));
 
-      $header = $_POST[header];
+      $header = htmlentities($_POST['header']);
 
       $base64 = $base64 = 'data:image/' . $file_ext . ';base64,' . base64_encode(file_get_contents($_FILES['image']['tmp_name']));
 
-      $description = $_POST[description];
+      $description = htmlentities($_POST['description']);
       try {
 
           $conn = new PDO("mysql:host=$servername;dbname=$dbname",
@@ -28,6 +28,7 @@ $session_user = $_SESSION['username'];
           $stmt = $conn->prepare("SELECT picture FROM picture;");
           $stmt->execute();
           $result = $stmt->fetchAll();
+          header("Location: imagefeed.php");
       } catch (PDOException $e) {
       echo "Error: " . $e->getMessage();
       }
@@ -43,7 +44,7 @@ $session_user = $_SESSION['username'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" href="../styles/shared.css">
-    <link rel="stylesheet" href="../styles/homepage_style.css">
+    <link rel="stylesheet" href="../styles/uploadimage_style.css">
   </head>
   <body>
 
@@ -67,15 +68,15 @@ $session_user = $_SESSION['username'];
         <form class=""  method="POST" enctype = "multipart/form-data">
           <label for="header">Picture Name:</label>
           <br>
-          <input type="text" name="header" value="">
+          <input type="text" name="header" value="" required>
           <br>
           <label for="img">Chose picture to upload:</label>
           <br>
-          <input type = "file" name = "image" />
+          <input type = "file" name = "image" required/>
           <br>
           <label for="description">Description for picture:</label>
           <br>
-          <input type="text" name="description" value="">
+          <textarea cols="50" rows="6" name="description" id="description" value="" maxlength="250" required></textarea>
           <br>
           <input type="submit" name="" value="Submit">
           <ul>
