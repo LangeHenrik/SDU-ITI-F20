@@ -4,7 +4,6 @@
 --
 -- Host: localhost
 -- Generation Time: Mar 03, 2020 at 07:29 AM
->>>>>>> 9ae2a3bc94c9b131b117da4dac116a039abddbc9:enbes20-elpoy20-bapio20/migration/enbes20_elpoy20_bapio20.sql
 -- Server version: 8.0.19
 -- PHP Version: 7.3.11
 
@@ -36,7 +35,7 @@ CREATE TABLE `images` (
   `description` text NOT NULL,
   `created` datetime NOT NULL,
   `user_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -49,7 +48,7 @@ CREATE TABLE `user` (
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `user`
