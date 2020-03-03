@@ -31,7 +31,7 @@ if (isset($_POST['formRegistration'])) {
 
               $stmt= $db->prepare("INSERT INTO user (username, password, email) VALUES ( ?, ?, ?)");
               $stmt->execute(array($username, $passhash, $email));
-              $error = "Account Created ! <a href=\"index.php\">Sign in</a>";
+              $error = "Account Created ! <a href=\"index.php\">Log in</a>";
 
             }
 
