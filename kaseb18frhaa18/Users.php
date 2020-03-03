@@ -6,7 +6,6 @@ require 'database.php';
 $statement = "SELECT name, username FROM person";
 $users = talkToDB($statement);
 
-
 $q = $_REQUEST["q"];
 
 $hint = "<tr><th>Name</th>
@@ -15,7 +14,9 @@ $hint = "<tr><th>Name</th>
 
 // lookup all hints from array if $q is different from ""
 if ($q == "") {
+    foreach($users as $name){
         $hint .= "<tr> <td> $name[name] </td> <td> $name[username] </td> <tr>";  
+    }
 } else{
     $q = filter_var($q, FILTER_SANITIZE_STRING);
     $q = strtolower($q);
