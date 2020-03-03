@@ -6,7 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <title>Document</title>
+    <title>Image Feed</title>
 </head>
 <body>
 
@@ -27,6 +27,8 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
     if ($username == $user['username'] && password_verify($password, $user['pw_hash'])) {
         $_SESSION["logged_in"] = true;
         $_SESSION['user'] = $user['username'];
+    } else {
+        echo "<p>", "Wrong username or password!", "</p>";
     }
 }
 
@@ -43,7 +45,7 @@ if ($_SESSION["logged_in"] ?? false) :
         </div>
         <div class="main">
             <!-- Image feed -->
-            <div class="content" id="imageFeed"></div>
+            <div class="content" id="imageFeed">Welcome!</div>
             <!-- Users -->
             <div class="content" id="users">
                 <h3>Users</h3>
@@ -62,8 +64,8 @@ if ($_SESSION["logged_in"] ?? false) :
                     <br/><br/>
                     <textarea name="description" id="description" cols="30" rows="10"></textarea>
                     <br/><br/>
-                    <label class="button" for="fileToUpload">Choose image</label>
-                    <input class="fileInput " type="file" name="fileToUpload" id="fileToUpload">
+                    <label class="button" for="image">Choose image</label>
+                    <input class="fileInput " type="file" name="image" id="image">
                     <br/>
                 </form>
                 <br/>

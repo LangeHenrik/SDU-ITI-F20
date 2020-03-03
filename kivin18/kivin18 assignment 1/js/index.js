@@ -98,7 +98,7 @@ function checkName(elementId, label) {
         invalidLabel.innerHTML = '';
         return true;
     } else {
-        invalidLabel.innerHTML = 'Username must be between 5-50 characters no spaces allowed';
+        invalidLabel.innerHTML = 'Username must be between 5-50 characters. No spaces allowed!';
         return false;
     }
 }
