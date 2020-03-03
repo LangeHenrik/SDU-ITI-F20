@@ -40,7 +40,7 @@
             </fieldset>
         </form>
         <p>Don't have an account yet, don't worry. Just enter the registration page in the link below</p>
-        <a href="Registration.php">Registration page</a>
+        <a href="registration.php">Registration page</a>
         </form>
     <div>
 </body>
