@@ -1,10 +1,9 @@
 <?php
 
 if (session_status() == PHP_SESSION_NONE){
-
-header("Location: ./homepage.php");
+  session_start();
+  $_SESSION['logged_in'] ?  : header("Location: ./homepage.php");
 }
-session_start();
 require_once '../db_config.php';
  ?>
 
