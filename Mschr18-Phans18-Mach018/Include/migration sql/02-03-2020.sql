@@ -9,7 +9,7 @@ CREATE TABLE users (
     fullname VARCHAR(100) NOT NULL,
     phone VARCHAR(25) NOT NULL,
     email VARCHAR(320) NOT NULL,
-    PRIMARY KEY (userid),
+    PRIMARY KEY (userid)
 );
 
 
