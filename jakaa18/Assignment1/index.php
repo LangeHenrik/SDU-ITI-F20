@@ -38,7 +38,7 @@
 			$_SESSION["logged_in"] = false;
 		}
 		$servername = "localhost";
-		$username = "defaultuser";
+		$username = "root";
 		$password = "";
 
 		try {
