@@ -6,10 +6,10 @@ try {
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // Har vi en bruger med samme brugernavn?
-    $fuldname = $_POST["fuldname"]; 
-    $username = $_POST["newusername"]; 
+    $fuldname = $_POST["fuldname"];
+    $username = $_POST["newusername"];
     $stmt = $conn->prepare("SELECT * FROM users WHERE
-                            users.username = '$username' OR 
+                            users.username = '$username' OR
                             users. fuldname = '$fuldname';");
     $numRowsAffected = $stmt->execute();
     if ($numRowsAffected != 0) {

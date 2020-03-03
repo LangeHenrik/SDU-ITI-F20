@@ -19,7 +19,7 @@
         <h3> <i>BETA V.0.0.1</i></h3>
         <br>
 
-        <form onsubmit="return checkform();" method="post">
+        <form onsubmit="return checkform();" action="Include/createUser.phoneInput" method="post">
 
           <label for="fuldname" >Fuld name*</label> <br>
           <input type="text" name="fuldname" id="fuldname" tabindex="1"/> <br>
