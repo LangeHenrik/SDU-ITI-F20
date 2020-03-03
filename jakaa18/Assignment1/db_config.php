@@ -1,5 +1,8 @@
 <?php
-$servername = "localhost";
-$username = "username";
-$password = "password";
-$dbname = "jakaa18_jesha18";
+
+return [
+    "host" => "127.0.0.1",
+"username" => "root",
+"password" => "root",
+"db" => "jakaa18_jesha18"];
+
