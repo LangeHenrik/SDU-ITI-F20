@@ -1,11 +1,7 @@
-nav ul {
-  background-color: #AAA;
-}
-
 .skew-left {
   -ms-transform: skewX(20deg);
   transform: skewX(20deg);
-  border: 1px solid #EEE;
+  border: 1px solid #999;
 }
 
 .skew-left a {
@@ -16,16 +12,18 @@ nav ul {
 .skew-right {
   -ms-transform: skewX(-20deg);
   transform: skewX(-20deg);
-  border: 1px solid #EEE;
+  border: 1px solid #999;
 }
 
-.skew-right-end {
-  -ms-transform: skewX(-20deg);
-  transform: skewX(-20deg);
-  border: 1px solid #EEE;
-  margin-right: 10px;
-}
+@media only screen and (min-width: 768px){
+  .menu-right-end {
+    margin-right: 10px;
+  }
 
+  .menu-left-end {
+    margin-left: 10px;
+  }
+}
 .skew-right a {
   -ms-transform: skewX(20deg);
   transform: skewX(20deg);
@@ -33,6 +31,10 @@ nav ul {
 
 .hidden {
   display: none;
+}
+
+nav ul li:hover {
+  background-color: #999 !important;
 }
 
 table, td {
@@ -45,4 +47,8 @@ table, td {
 
 progress {
   width: 100%;
+}
+
+.menu-current {
+  background-color: #DDD;
 }

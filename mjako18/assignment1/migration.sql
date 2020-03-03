@@ -1,5 +1,9 @@
 CREATE DATABASE IF NOT EXISTS `image_share` CHARACTER SET utf8 COLLATE utf8_general_ci;
 
+CREATE USER IF NOT EXISTS 'mjako18'@'localhost' IDENTIFIED BY PASSWORD('ITIassignment');
+
+GRANT ALL PRIVILEGES ON `image_share`.* TO 'mjako18'@'localhost';
+
 USE `image_share`;
 
 CREATE TABLE IF NOT EXISTS `image_share`.`accounts` (

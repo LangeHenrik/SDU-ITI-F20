@@ -66,16 +66,7 @@ html {
 }
 
 .nav {
-  border: 1px solid #00F;
-}
-
-.navbar-fixed {
-  position: fixed;
-  min-height: 50px;
-  left:0;
-  right:0;
-  top: 0;
-  z-index: 1100;
+/*  border: 1px solid #00F; */
 }
 
 nav ul {
@@ -99,10 +90,6 @@ nav ul li:hover {
   background-color: #F00;
 }
 
-.fixed-nav {
-  margin-top: 60px;
-}
-
 .float_right {
   float: right;
 }
@@ -117,9 +104,45 @@ nav ul li:hover {
   min-height: 34px;
 }
 
+@media only screen and (max-width: 767px) {
+  .hide-s {
+    display: none;
+  }
+  .menu-toggle {
+    min-height: inherit;
+    padding:0px 5px;
+    color: #000;
+  }
+  
+  
+
+  .navbar-fixed {
+    min-height: 25px;
+  }
+
+  .fixed-nav {
+    margin-top: 5px;
+  }
+}
 /* .order for flexbox ?? */
 /* offsets? */
 @media only screen and (min-width: 768px) {
+  .navbar-fixed {
+    position: fixed;
+    min-height: 50px;
+    left:0;
+    right:0;
+    top: 0;
+    z-index: 1100;
+  }
+
+  .fixed-nav {
+    margin-top: 60px;
+  }
+
+  .hide-m {
+    display:none;
+  }
   .col-m-0 {
     -ms-flex: 0 0 0%;
     flex: 0 0 0%;
@@ -205,6 +228,23 @@ nav ul li:hover {
 }
 
 @media only screen and (min-width: 992px) {
+  .navbar-fixed {
+    position: fixed;
+    min-height: 50px;
+    left:0;
+    right:0;
+    top: 0;
+    z-index: 1100;
+  }
+
+  .fixed-nav {
+    margin-top: 60px;
+  }
+
+  .hide-l {
+    display:none;
+  }
+
   .col-xl-1 {
     -ms-flex: 0 0 8.33333%;
     flex: 0 0 8.33333%;
