@@ -76,7 +76,7 @@ $session_user = $_SESSION['username'];
           <br>
           <label for="description">Description for picture:</label>
           <br>
-          <input type="text" name="description" value="">
+          <input type="text" name="description" value="" maxlength="250">
           <br>
           <input type="submit" name="" value="Submit">
           <ul>
