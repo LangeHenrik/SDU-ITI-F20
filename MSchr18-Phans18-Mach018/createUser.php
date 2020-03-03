@@ -1,5 +1,5 @@
 <?php
-include 'db_config.php';
+require_once 'Include/db_config.php';
 try 
 {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
@@ -30,6 +30,10 @@ try
     $result = $stmt->execute();
 
     echo "<script> console.log('User created with result: $result'); </script>" ;
+
+    if ($result == 1) {
+        require 'index.php';
+    }
 }
 catch(PDOException $e)
 {

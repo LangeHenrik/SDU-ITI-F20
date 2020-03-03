@@ -12,5 +12,6 @@ CREATE TABLE users (
     PRIMARY KEY (userid)
 );
 
-
+ALTER TABLE `iti`.`users` 
+ADD UNIQUE INDEX `username_UNIQUE` (`username` ASC) VISIBLE;
 

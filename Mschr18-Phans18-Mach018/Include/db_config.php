@@ -9,9 +9,13 @@ else if (is_dir("C:\Users\Peter Hansen")){
     $password = "mysql";
 }
 else if (is_dir("C:\Users\martin")){
-    $password = "mysql";
+    $password = "martins login";
 }
 else {
-    $password = "Hej Henrik skriv dit pw her...";    
+    // Hej Henrik, skriv dine oplysninger her.
+    $password = "password";    
+    $servername = "localhost";
+    $username = "root";
+    $dbname = "iti";
 }
 ?>

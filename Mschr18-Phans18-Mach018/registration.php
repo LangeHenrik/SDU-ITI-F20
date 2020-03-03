@@ -18,7 +18,7 @@
       <div class="registration" id="registration">
         <h1 id="title">Sign up to </h1> <?php include_once('Include/chalkbord.php') ?>
 
-        <form onsubmit="return checkform();" action="Include/createUser.php" method="post">
+        <form onsubmit="return checkform();" action="createUser.php" method="post">
 
           <label for="fullname" >Full name*</label> <br>
           <input type="text" name="fullname" id="fullname" tabindex="1"/> <br>
