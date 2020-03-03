@@ -7,9 +7,13 @@ if(isset($_SESSION['id'])){
 
 if(isset($_POST['formConnexion'])) {
   require('config.php');
+  
+   //clean input  & XSS
+   $usernameCon = filter_var($_POST['usernameCon'], FILTER_SANITIZE_STRING);
+   $username = htmlspecialchars($usernameCon);
+   $passwordCon = filter_var($_POST['passwordCon'], FILTER_SANITIZE_STRING);
+   $password = htmlspecialchars($passwordCon);
 
-   $username = htmlspecialchars($_POST['usernameCon']);
-   $password = $_POST['passwordCon'];
    if(!empty($username) AND !empty($password)) {
 
      $stmt = $db->prepare('SELECT id_user, password, email FROM user WHERE username = :username');

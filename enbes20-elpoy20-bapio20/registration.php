@@ -4,10 +4,17 @@ if (isset($_POST['formRegistration'])) {
 
   require('config.php');
 
-  $username = htmlspecialchars($_POST['username']);
-  $email = htmlspecialchars($_POST['email']);
-  $password = $_POST['password'];
-  $password2 = $_POST['password2'];
+  $usernameReg = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
+  $username = htmlspecialchars($usernameReg);
+  
+  $emailReg = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+  $email = htmlspecialchars($emailReg);
+
+  $passwordReg = filter_var($_POST['password'], FILTER_SANITIZE_STRING);
+  $password = htmlspecialchars($passwordReg);
+
+  $password2Reg = filter_var($_POST['password2'], FILTER_SANITIZE_STRING);
+  $password2 = htmlspecialchars($password2Reg);
 
   if(!empty($username) AND !empty($email) AND !empty($password)) {
 
