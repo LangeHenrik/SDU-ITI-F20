@@ -77,11 +77,11 @@ if ($_SESSION['logged_in']) : ?>
 		<div class="homepage2">
 			<form action="upload.php" method="post" enctype="multipart/form-data">
                 Select image to upload
-                <input type="file" name="image">
-                <input type="submit" name="submit" value="Upload">
+                <input type="file" name="image" id="fileId">
+                <input type="submit" name="imgSubmit" value="Upload" id="imgSubmit">
                 <p> Header: <input type ="text" name="header" id="header" required></p><br>
                 <label for="description">Image description: Max 300 characters!</label>
-                <textarea id="description" rows="4" cols="50" required></textarea>
+                <textarea id="description" id="descriptionId" rows="4" cols="50" required></textarea>
             </form>
 		</div>
     </div>
