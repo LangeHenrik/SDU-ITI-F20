@@ -15,6 +15,7 @@ $output="";
 while ($row = $res->fetch()){
 			$output = $output . "
 			<div class='card'>
+      
 				<div class='card_title title-white'>
 					<p>". $row['header'] ."</p>
 				</div>
@@ -24,7 +25,7 @@ while ($row = $res->fetch()){
         <div class='message'><div>" . $row['description'] ."</div>
           <div class='messageinfo'>
             <div id='first'><i>Upload by : ".$row['username']."</i></div>
-            </br>
+
             <div id='second'>".$row['created']."</div>
           </div>
         </div>

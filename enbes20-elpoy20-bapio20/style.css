@@ -16,11 +16,10 @@ footer {
 }
 
 footer div {
-  flex:1;
+   flex:1;
   text-align: center;
   color: #ecf0f1;
   margin: auto;
-
 }
 
 .container {
@@ -168,6 +167,7 @@ footer div {
   .navbar ul li.right, .navbar ul li {
     float: none;
   }
+
 }
 
 /*.file-area*/
@@ -199,7 +199,7 @@ footer div {
   min-width: 50%;
   max-width: 100%;
   /*width: 360px;*/
-  /* padding: 10px 0 0; */
+  padding: 8% 0 0;
   margin: auto;
   text-align: center;
 }
@@ -221,11 +221,12 @@ footer div {
   border-radius: 40px;
   box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
   transition: 0.4s;
-background-color: #333;
+  background-color: #333;
+  position: relative;
 }
 
 .card .message{
-  margin: 5px auto;
+  margin: 0 auto 35px;
   padding: 15px;
   overflow: hidden;
   /* white-space: pre-wrap;
@@ -239,24 +240,30 @@ background-color: #333;
 }
 
 .card .messageinfo{
-  width: auto;
-  padding: 10px;
+  width: 80%;
+  margin:16px;
+  /* padding-top: 10px; */
   overflow: hidden;
-  /* position:absolute; */
+  /* fix the info at the bottom of the card */
+  position:absolute;
   bottom:0;
+  font-size: 0.7em;
+  word-wrap: break-word;
 }
 
 .card .messageinfo #first {
     /* width: 30%; */
     float:left;
-    margin: 3px;
-
+    /* margin: 3px; */
+    max-width: 50%;
+    text-align: left;
 }
 .card .messageinfo #second {
   color: #7f8c8d;
     float: right;
-    margin: 3px;
-
+    /* margin: 3px; */
+    max-width: 50%;
+    text-align: right;
 }
 
 .card .card_image {
