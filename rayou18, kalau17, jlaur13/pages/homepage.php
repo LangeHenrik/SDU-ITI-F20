@@ -27,7 +27,6 @@ if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true){
         <li><a class="logo" href="homepage.php"><i class="fas fa-rocket"></i></a></li>
         <li><a class="active" href="#">Home Page</a></li>
         <li><a class="<?php echo htmlspecialchars($buttonValue);?>" href="imagefeed.php ">Image Feed</a></li>
-        <li><a class="<?php echo htmlspecialchars($buttonValue);?>" href="registrationpage.php">Registration Page</a></li>
         <li><a class="<?php echo htmlspecialchars($buttonValue);?>" href="userlistpage.php">User List</a></li>
         <li><a class="<?php echo htmlspecialchars($buttonValue);?>" href="uploadimagepage.php">Upload Image <i class="fas fa-upload"></i></a></li>
         <li><a class="cred_btns" id="login_btn"type="button" onclick="callAjax()" name="login_btn">Login</a></li>
