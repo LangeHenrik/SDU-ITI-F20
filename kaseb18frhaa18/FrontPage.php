@@ -35,20 +35,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //validate data
     if (empty($username_err) && empty($password_err)) {
         // Prepare a statement
-        $sql = "SELECT person_id, name, username, passwordHash FROM person WHERE username = :username";
         try {
-            if ($stmt = $pdo->prepare($sql)) {
-                // Prepared statement
-                $stmt->bindParam(":username", $param_username, PDO::PARAM_STR);
-
-                // Set parameters
-                $param_username = trim($_POST["username"]);
-
-                // Attempt to execute the prepared statement
-                if ($stmt->execute()) {
+            $username = trim($_POST["username"]);
+            $sql = 'SELECT person_id, name, username, passwordHash FROM person WHERE username = :username';
+                    $stmt = talkToDBpls($sql,$username);
                     // Check if username exists, if yes then verify password
-                    if ($stmt->rowCount() == 1) {
-                        if ($row = $stmt->fetch()) {
+                    if (count($stmt)==1) {
+                            $row = $stmt[0];
                             $id = $row["person_id"];
                             $username = $row["username"];
                             $hashed_password = $row["passwordHash"];
@@ -68,25 +61,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 // Display an error message if password is not valid
                                 $password_err = "The password you entered was not valid.";
                             }
-                        }
+                        
                     } else {
                         // Display an error message if username doesn't exist
                         $username_err = "No account found with that username.";
                     }
-                } else {
-                    echo "Oops! Something went wrong. Please try again later.";
-                }
+                
 
                 // Close statement
-                unset($stmt);
-            }
+            
         } catch (Exception $e) {
             echo 'Caught exception: ', $e->getMessage(), "\n";
         }
     }
 
     // Close connection
-    unset($pdo);
 }
 ?>
 
