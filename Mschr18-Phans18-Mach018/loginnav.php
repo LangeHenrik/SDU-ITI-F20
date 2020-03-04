@@ -10,7 +10,7 @@
         <input type="submit" name="submit" id="login" value="Log in"/>
       </form>-->
       <?php
-        include('login.php');
+        include('loginform.php');
        ?>
     </li>
   </ul>
