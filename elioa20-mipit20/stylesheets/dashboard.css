@@ -1,0 +1,98 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 10px;
+    background-color: lightgray;
+}
+
+.topnav{
+    background-color: grey;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.topnav ul{
+    list-style-type: none;
+    text-align: center;
+
+}
+
+/* Style the links inside the navigation bar */
+.topnav li {
+    color: #f2f2f2;
+    text-align: center;
+    padding: 9px 16px;
+    font-size: 17px;
+    display: inline-block;
+}
+
+/* Change the color of links on hover */
+.topnav li:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav li.active {
+    background-color: darkblue;
+    color: white;
+}
+
+
+a{text-decoration: none;}
+a {color:#f2f2f2;}         /* Unvisited link  */
+a:visited {color:#f2f2f2;} /* Visited link    */
+
+#main_content{
+    text-align: center;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+#main_content ul{
+    list-style: none;
+}
+#main_content li{
+    text-align: left;
+    color: red;
+    font-weight: bold;
+    padding: 10px 25px;
+}
+
+input[type=text] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+    box-sizing: border-box;
+    border-radius: 10px;
+    outline: none;
+}
+
+input[type=button] , input[type=file]{
+    margin: 10px;
+}
+
+input[type=button] {
+    width: 200px;
+    height: 30px;
+}
+
+input[type="file"]{
+    width: 200px;
+    height: 30px;
+}
+
+input[type="file"]::-webkit-file-upload-button{
+    width: 200px;
+    height: 30px;
+}
+
