@@ -12,7 +12,7 @@
     </style>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" type="text/css" href="contact_style.css">
-    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"> -->
+    <script src="https://kit.fontawesome.com/76e1f178ab.js" crossorigin="anonymous"></script>
 
     <title>SDU-ITI-F20</title>
   </head>

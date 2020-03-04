@@ -24,7 +24,7 @@ footer div {
 }
 
 .container {
-  min-width: 25%;
+  min-width: 30%;
   max-width: 35%;
   /*width: 360px;*/
   padding: 8% 0 0;
@@ -105,7 +105,14 @@ footer div {
 /* NAVIGATION BAR */
 
 .navbar{
+  /* overflow: auto; */
+  box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+  position: fixed;
+  background-color: #333;
 
+  top: 0;
+  width: 100%;
+  z-index: 9999;
 }
 
 .navbar ul {
@@ -113,11 +120,7 @@ footer div {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 9999;
+
 
 }
 
@@ -135,12 +138,36 @@ footer div {
   display: block;
   color: white;
   text-align: center;
-  padding: 14px 16px;
+  padding: 16px 16px;
   text-decoration: none;
+}
+
+/* Logo in the navbar */
+.navbar span{
+  font-size: 17px;
+  padding: 12px;
+  color: white;
 }
 
 .navbar li a:hover {
   background-color: #111;
+}
+
+.navbar ul li.right {
+  float: right;
+}
+
+/* @media screen and (max-width: 600px) {
+  .navbar ul li.right,
+  .navbar ul li {float: none;}
+} */
+
+/* To make it responsive for smaller screen */
+
+@media screen and (max-width: 500px) {
+  .navbar ul li.right, .navbar ul li {
+    float: none;
+  }
 }
 
 /*.file-area*/
@@ -172,7 +199,7 @@ footer div {
   min-width: 50%;
   max-width: 100%;
   /*width: 360px;*/
-  padding: 8% 0 0;
+  /* padding: 10px 0 0; */
   margin: auto;
   text-align: center;
 }

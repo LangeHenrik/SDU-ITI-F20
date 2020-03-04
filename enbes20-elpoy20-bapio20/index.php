@@ -7,7 +7,7 @@ if(isset($_SESSION['id'])){
 
 if(isset($_POST['formConnexion'])) {
   require('config.php');
-  
+
    //clean input  & XSS
    $usernameCon = filter_var($_POST['usernameCon'], FILTER_SANITIZE_STRING);
    $username = htmlspecialchars($usernameCon);
@@ -67,7 +67,7 @@ include('header.php');
 				 <label for="password"> </label>
 				<input type="password" class="form-control" name="passwordCon" placeholder="Password"  /> <br />
 
-				<input type="submit" class="btn btn-primary" name="formConnexion" value="Connect"/>
+				<input type="submit" class="btn" name="formConnexion" value="Connect"/>
 
 				Create an account - <a href="registration.php">Sign In </a> <br />
 			</div>
