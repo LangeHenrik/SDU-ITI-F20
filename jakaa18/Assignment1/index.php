@@ -75,7 +75,14 @@ if ($_SESSION['logged_in']) : ?>
             </ul>
         </div>
 		<div class="homepage2">
-			
+			<form action="upload.php" method="post" enctype="multipart/form-data">
+                Select image to upload
+                <input type="file" name="image">
+                <input type="submit" name="submit" value="Upload">
+                <p> Header: <input type ="text" name="header" id="header" required></p><br>
+                <label for="description">Image description: Max 300 characters!</label>
+                <textarea id="description" rows="4" cols="50" required></textarea>
+            </form>
 		</div>
     </div>
 
@@ -103,9 +110,9 @@ if ($_SESSION['logged_in']) : ?>
 
         <div class="register1" id="registerView">
             <form action="index.php" method="post" onsubmit="return checkRegister('username', 'password'" )>
-                <p> username: <input type="text" placeholder="Enter Username" name="regUsernameId" id="regUsernameId"
+                <p> Username: (Max 100 chars)<input type="text" placeholder="Enter Username" name="regUsernameId" id="regUsernameId"
                                      required></p><br>
-                <p> password: <input type="password" placeholder="Enter Password" name="regPassId" id="regPassId"
+                <p> Password: (Max 100 chars) <input type="password" placeholder="Enter Password" name="regPassId" id="regPassId"
                                      required></p><br>
 
                 <input type="submit">
