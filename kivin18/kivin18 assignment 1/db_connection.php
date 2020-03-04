@@ -5,7 +5,7 @@ $db = $config["db"];
 $user = $config["user"];
 $pass = $config["pass"];
 
-$dsn = "mysql:host=$host;dbname=$db";
+$data_source_name = "mysql:host=$host;dbname=$db";
 $options = [
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
@@ -13,7 +13,7 @@ $options = [
 ];
 
 try {
-    $pdo = new PDO($dsn, $user, $pass, $options);
+    $pdo = new PDO($data_source_name, $user, $pass, $options);
 } catch (PDOException $e) {
     echo "Error: " . $e->getMessage();
 }
