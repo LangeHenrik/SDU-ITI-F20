@@ -1,18 +1,6 @@
 <?php
   if (session_status() == PHP_SESSION_NONE) {
     session_start();
-
-
-    /*Dellete following lines */
-    $_SESSION['logged_in'] = false;
-  }
-  if ($_SESSION['logged_in']) {
-    echo "\$_SESSION['logged_in'] = true (hardcoded Session varibel in header.php.) ";
-  } else {
-    echo "\$_SESSION['logged_in'] = false (hardcoded Session varibel in header.php.)";
-
-
-
   }
  ?>
 <!DOCTYPE html><html>

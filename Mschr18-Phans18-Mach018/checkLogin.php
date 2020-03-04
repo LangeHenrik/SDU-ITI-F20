@@ -1,4 +1,7 @@
 <?php
+if (session_status() == PHP_SESSION_NONE) {
+  session_start();
+}
 require_once 'Include/db_config.php';
 try
 {
@@ -21,25 +24,21 @@ try
     $stmt->bindParam(':username', $inputArr["username"]);
     $result = $stmt->execute();
 
-    $stmt->setFetchMode(PDO::FETCH_NUM); // FETCH_NUM -> returnerer array indexeret i colonner angivet i tal.
-                                         // Andre return methoder er beskrevet her: https://www.php.net/manual/en/pdostatement.fetch.php
+    $stmt->setFetchMode(PDO::FETCH_NUM); // FETCH_NUM -> returnerer array indexeret i colonner angivet i tal.                                         // Andre return methoder er beskrevet her: https://www.php.net/manual/en/pdostatement.fetch.php
     $result = $stmt->fetchAll();
-
-    print_r($result);
 
     $fetchetUsername = $result[0][0];
     $fetchetHashPasword = $result[0][1];
     $fetchetFullname = $result[0][2];
 
     if (password_verify($inputArr["password"], $fetchetHashPasword)) {
-      echo "<br> welcome peter";
-      $teststring = $inputArr['password'];
-      echo "$teststring";
+      $_SESSION['logged_in'] = true;
+      $_SESSION['Fullname'] = $fetchetFullname;
+      header("location:feed.php");
     }
     else {
-      echo "<br> not welcome";
-      $teststring = $inputArr['password'];
-      echo "input $teststring ";
+      $_SESSION['logged_in'] = false;
+      $_SESSION['Fullname'] = null;
     }
 
 
@@ -51,4 +50,6 @@ catch(PDOException $e)
 {
     echo "Connection failed: " . $e->getMessage() . ".\n code " . $e->getCode();
 }
+
+$conn = null;
 ?>
