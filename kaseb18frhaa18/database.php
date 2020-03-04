@@ -1,12 +1,17 @@
 <?php
 
-function talkToDB($statement){
+function talkToDB($statement, $parameters){
     require_once 'db_config.php';
     
     try {
         $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $stmt = $conn->prepare($statement);
+        if($parameters!==null and is_array($parameters)){
+            foreach($parameters as $value){
+                $stmt->bindParam($value[0], $value[1], PDO::PARAM_STR);
+            }
+        }
         $stmt->execute();
 
     // set the resulting array to associative

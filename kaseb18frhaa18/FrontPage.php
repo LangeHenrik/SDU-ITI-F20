@@ -38,7 +38,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         try {
             $username = trim($_POST["username"]);
             $sql = 'SELECT person_id, name, username, passwordHash FROM person WHERE username = :username';
-                    $stmt = talkToDBpls($sql,$username);
+            $parameters = array(array(":username",$username));
+                    $stmt = talkToDB($sql,$parameters);
                     // Check if username exists, if yes then verify password
                     if (count($stmt)==1) {
                             $row = $stmt[0];

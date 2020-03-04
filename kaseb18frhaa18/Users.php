@@ -4,7 +4,7 @@ error_reporting(0);
 require 'database.php';
 
 $statement = "SELECT name, username FROM person";
-$users = talkToDB($statement);
+$users = talkToDB($statement,null);
 
 $q = $_REQUEST["q"];
 

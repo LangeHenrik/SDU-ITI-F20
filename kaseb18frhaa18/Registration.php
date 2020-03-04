@@ -33,13 +33,14 @@
 
       if(isset($_POST['register'])) {
           $_POST['ok_signal'] = true;
-                $name = check_name();
-                $username = check_username();
-                $password = check_password();
-            if($_POST['ok_signal']){
-                $password = password_hash($password);
-                $statement = 'INSERT INTO person (name, username, passwordHash) VALUES ($name, $username, $password)';
-                talkToDB($statement);
+          $name = check_name();
+          $username = check_username();
+          $password = check_password();
+          if($_POST['ok_signal']){
+              $password = password_hash($password);
+              $statement = 'INSERT INTO person (name, username, passwordHash) VALUES ($name, $username, $password)';
+              talkToDB($statement);
+              echo("it works");
             }          
       } 
 
