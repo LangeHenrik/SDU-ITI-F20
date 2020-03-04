@@ -1,18 +1,19 @@
 <?php
-    //får værdier fra login.php
-    $username = $POST['username'];
-    $password = $POST['password'];
 
-    //for at undgå sql injection
-    $username = stripcslashes($username);
-    $password = stripcslashes($password);
-    $username = mysql_real_escape_string($username);
-    $password = mysql_real_escape_string($password);
 
-    //tilslut serveren og databasen
-    mysql_connect("localhost", "root", "");
-    mysql_select_db("assignmentiti");
+$servername = "localhost";
+$username = "root";
+$password = "mehmetdb8";
 
-    //vælg brugere fra databasen
-    $result = mysql_query("SELECT * FROM users")
+try {
+
+$conn = new PDO("mysql:host=$servername;dbname=assignmentiti",$username,$password);
+
+$conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERR_MODE_EXCEPTION);
+echo "connected to server";
+
+}catch(PDOException $e) {
+    echo $e.getMessage();
+}
+
 ?>
