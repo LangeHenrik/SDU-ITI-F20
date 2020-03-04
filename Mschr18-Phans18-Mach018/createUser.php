@@ -1,4 +1,4 @@
--<?php
+<?php
 require_once 'Include/db_config.php';
 try
 {
@@ -21,8 +21,8 @@ try
          );
 
     // Indset ny bruger.
-    $stmt = $conn->prepare("INSERT INTO users (username, passw, fullname, phone, email)
-                           VALUES (:username, :passw, :fullname, :phone, :email);");
+    $stmt = $conn->prepare("INSERT INTO users (username, passw, fullname, phone, email, signup)
+                           VALUES (:username, :passw, :fullname, :phone, :email, now());");
     $stmt->bindParam(':username', $inputArr["username"]);
     $stmt->bindParam(':passw', $inputArr["passw"]);
     $stmt->bindParam(':fullname', $inputArr["fullname"]);
