@@ -38,8 +38,9 @@
           $password = check_password();
           if($_POST['ok_signal']){
               $password = password_hash($password);
-              $statement = 'INSERT INTO person (name, username, passwordHash) VALUES ($name, $username, $password)';
-              talkToDB($statement);
+              $statement = 'INSERT INTO person (name, username, passwordHash) VALUES (:name, :username, :password)';
+              $parameters = array(array(":name",$name), array(":username", $username), array(":password", $password));
+              talkToDB($statement, $parameters);
               echo("it works");
             }          
       } 
