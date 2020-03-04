@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+
+<?php
+echo "<br><a href='log-out.php'><input type=button value=Logout name=logout></a>";
+?>
+
 <head>
     <title>Login</title>
     <link rel="stylesheet" href="loginpage.css">
@@ -6,7 +11,7 @@
 
 <body>
     <div id="frm">
-        <form action="process.php" method="POST">
+        <form class="login" name="login" method="POST" action="startside.php">
             <p>
                 <label>Username:</label>
                 <input type="text" id="user" name="user">
