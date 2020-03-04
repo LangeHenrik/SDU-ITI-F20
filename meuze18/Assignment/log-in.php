@@ -26,7 +26,7 @@
 
           if($row['username'] == $usernxs && password_verify($pswdxs, $row['passwrd'])) {
               $_SESSION['username']=$_POST['username'];
-              echo "<script> location.href = 'startside.php' </script>";
+              echo "<script> location.href = 'frontpage.php' </script>";
           }
       }
     } catch(PDOException $e) {
