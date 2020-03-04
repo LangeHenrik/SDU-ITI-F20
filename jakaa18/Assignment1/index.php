@@ -66,7 +66,7 @@ if ($_SESSION['logged_in']) : ?>
         <div class="header">
             <h1><?php echo 'Welcome to your homepage!' ?></h1>
         </div>
-        <div class="homepage">
+        <div class="homepage1">
             <ul>
                 <li><a href="#" id="homelink">Home</a></li>
                 <li><a href="#" id="photolink">Your Photos</a></li>
@@ -74,6 +74,9 @@ if ($_SESSION['logged_in']) : ?>
                 <li><a href="logout.php" id="logout">Logout</a></li>
             </ul>
         </div>
+		<div class="homepage2">
+			
+		</div>
     </div>
 
 <?php else : ?>
@@ -90,12 +93,12 @@ if ($_SESSION['logged_in']) : ?>
 
         </div>
         <div class="login3">
-            <button><input type="submit" name="send" value="Login" id="loginBtn"></button>
+            <input type="submit" class="button" name="send" value="Login" id="loginBtn">
         </div>
         </form>
 
         <div class="login4">
-            <button><input action="register.php" type="button" name="register" value="Register" id="register"></button>
+            <input action="register.php" class="button" type="button" name="register" value="Register" id="register">
         </div>
 
         <div class="register1" id="registerView">

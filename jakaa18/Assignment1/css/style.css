@@ -33,12 +33,18 @@ li a:hover {
 	color: white;
 }
 
-button{
-	color: black;
-	background-color: red;
-	padding: 20px;
+.button{
+	background-color: #4CAF50;
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
 	border-radius: 15px;
-	width:150px;
 	border: 3px solid green;
 }
 
@@ -95,7 +101,7 @@ button{
 
 .grid-container2{
 	display: grid;
-	grid-template-columns: 1fr 2fr 2fr 1fr;
+	grid-template-columns: 1fr 2fr 2fr 2fr;
 	grid-template-rows: auto;
 	padding: 50px;
 	grid-column-gap: 50px;
@@ -112,3 +118,8 @@ button{
 	grid-row: 1;
 }
 
+.homepage1{
+	grid-column: 1;
+	grid-row: 2;
+	
+}
