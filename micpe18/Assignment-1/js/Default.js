@@ -4,7 +4,7 @@ var sidebarOut = false;
 function openSlideMenu() {
   if(!sidebarOut){
     sidebarOut = true;
-    iconRotate()
+    iconRotate();
     if (!window.matchMedia("(max-width: 1000px)").matches) {
       document.getElementById("menu").style.width = "250px";
       document.getElementById("content").style.marginLeft = "250px";
@@ -14,12 +14,12 @@ function openSlideMenu() {
     }
   }else{
     sidebarOut = false;
-    closeSlideMenu()
+    closeSlideMenu();
   }
 
 }
 function closeSlideMenu() {
-  iconRotate()
+  iconRotate();
   document.getElementById("menu").style.width = "0";
   document.getElementById("content").style.marginLeft = "0";
 }
@@ -47,6 +47,7 @@ function iconRotate(){
   };
 
   function openModal(){
-    document.getElementById('formid').style.display='flex'
+    openSlideMenu();
+    document.getElementById('formid').style.display='flex';
   }
 
