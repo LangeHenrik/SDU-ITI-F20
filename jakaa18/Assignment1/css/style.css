@@ -65,7 +65,7 @@ button{
 .login2{
 	text-align: center;
 	margin: 0 auto;
-	grid-column: 1 / span 4;
+	grid-column: 2 / span 2;
 	grid-row: 2;
 }
 
@@ -83,9 +83,10 @@ button{
 	grid-row: 3;
 }
 
-.register{
+.register1{
 	display:none;
-	z-index: 1;
+	grid-column: 2 / span 2;
+	grid-row: 2;
 	text-align: center;
 	margin: 0 auto;
 	align-items: center;

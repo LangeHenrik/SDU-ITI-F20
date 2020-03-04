@@ -98,7 +98,7 @@ if ($_SESSION['logged_in']) : ?>
             <button><input action="register.php" type="button" name="register" value="Register" id="register"></button>
         </div>
 
-        <div class="register" id="registerView">
+        <div class="register1" id="registerView">
             <form action="index.php" method="post" onsubmit="return checkRegister('username', 'password'" )>
                 <p> username: <input type="text" placeholder="Enter Username" name="regUsernameId" id="regUsernameId"
                                      required></p><br>
