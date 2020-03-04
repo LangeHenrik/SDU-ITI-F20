@@ -15,9 +15,10 @@ try
     $inputArr = 
     array("fullname" => filter_var($_POST["fullname"], FILTER_SANITIZE_STRING), // Strip tags, optionally strip or encode special characters.
           "username" => filter_var($_POST["newusername"], FILTER_SANITIZE_STRING),
-          "passw" => filter_var($_POST["newpassword"], FILTER_SANITIZE_STRING),
-          "phone" => filter_var($_POST["phone"], FILTER_SANITIZE_NUMBER_INT), // Remove all characters except digits, plus and minus sign.
-          "email" => filter_var($_POST["email"], FILTER_SANITIZE_EMAIL)); // Remove all characters except letters, digits and !#$%&'*+-=?^_`{|}~@.[].
+          "passw" => password_hash(filter_var($_POST["newpassword"], FILTER_SANITIZE_STRING), PASSWORD_DEFAULT), // Hashing password right away
+          "phone" => filter_var($_POST["phone"], FILTER_SANITIZE_NUMBER_INT),   // Remove all characters except digits, plus and minus sign.
+          "email" => filter_var($_POST["email"], FILTER_SANITIZE_EMAIL)         // Remove all characters except letters, digits and !#$%&'*+-=?^_`{|}~@.[].
+         ); 
 
     // Indset ny bruger.
     $stmt = $conn->prepare("INSERT INTO users (username, passw, fullname, phone, email)
@@ -37,6 +38,6 @@ try
 }
 catch(PDOException $e)
 {
-    echo "Connection failed: " . $e->getMessage() . ".\n code " . $e->getCode();
+    echo "<br>Connection failed: " . $e->getMessage() . ".\n code " . $e->getCode();
 }
 ?>
