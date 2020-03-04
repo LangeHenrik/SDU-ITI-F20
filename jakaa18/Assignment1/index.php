@@ -31,7 +31,7 @@ try {
     $conn = new PDO($dsn, $dbusername, $dbpassword, $options);
     // set the PDO error mode to exception
 
-    echo "DB Connected successfully";
+    echo "DB Connected successfully \n";
 } catch (PDOException $e) {
     echo "Connection failed: " . $e->getMessage();
 }
