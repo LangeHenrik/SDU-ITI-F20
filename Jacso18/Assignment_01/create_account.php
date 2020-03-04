@@ -1,6 +1,26 @@
 <?php
 include 'includes/autoload.php';
 
+
+    
+$message="";
+$username = $password = $email ="";
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+if (isset($_POST['submit'])) {
+    $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_STRING);
+    $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_STRING);
+    $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
+    $userController = new UserController();
+    if ($userController->userExists($username) == false) {
+        $userController->createUser($username, $email, password_hash($password, PASSWORD_DEFAULT));
+        $message= 'Account has been created';
+    } else {
+        $message= 'Username has already been used';
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +37,7 @@ include 'includes/autoload.php';
 
 <body>
     <div class="div-form">
-        <form class="form"  onblur="" onsubmit="return checkform();" method="POST">
+        <form class="form" onblur="" onsubmit="return checkform();" method="POST">
             <div class="field-name">
                 <i class="fas fa-user"></i>
                 <input type="text" name="username" id="username" placeholder="Username" onkeyup="checkname()" onchange="checkname()" onblur="checkname()" />
@@ -36,26 +56,12 @@ include 'includes/autoload.php';
             <div class="link-index">
                 <a href="index.php">back</a>
             </div>
+            <div class="form-response">
+                <p><?php echo $message;?></p>
+            </div>
         </form>
     </div>
-    <?php
 
-    if (session_status() == PHP_SESSION_NONE) {
-        session_start();
-    }
-    if (isset($_POST['submit'])) {
-        $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_STRING);
-        $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_STRING);
-        $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_STRING);
-        $userController = new UserController();
-        if ($userController->userExists($username) == false) {
-            $userController->createUser($username, $email, password_hash($password,PASSWORD_DEFAULT));
-            echo 'Account has been created';
-        } else {
-            echo 'Username has already been used';
-        }
-    }
-    ?>
 </body>
 
 </html>

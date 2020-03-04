@@ -43,7 +43,7 @@
         echo '<div class="post">';
         echo "<h1>" . $post['title'] . "</h1>";
         echo "<p>" . "Posted by: " . $post['username'] . " at " . $post['timestamp'] . "</p>";
-        echo '<img src="' . $post['image'] . '"/>';
+        echo '<img src="' . $post['image']. '"' . 'alt="alt_image.png"' . '"/>';
         echo "<p>" . $post['COMMENT'] . "</p>";
         echo "<br/>";
         echo "</div>";
