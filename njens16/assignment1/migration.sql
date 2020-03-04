@@ -12,4 +12,5 @@ CREATEUSER "njens16"@"localhost" IDENTIFIED BY "mypassword";
 GRANT ALL PRIVILEGES ON njens16 . * TO "njens16"@"localhost";
 FLUSH PRIVILEGES;
 
-INSERT INTO user(username, password) VALUES ("test", "test");
+INSERT INTO user(username, password) VALUES ("test", ENCRYPT("test"));
+
