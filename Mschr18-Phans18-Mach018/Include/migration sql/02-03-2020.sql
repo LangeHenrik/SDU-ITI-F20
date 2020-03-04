@@ -12,6 +12,8 @@ CREATE TABLE users (
     PRIMARY KEY (userid)
 );
 
+-- 03-03-2020
 ALTER TABLE `iti`.`users` 
 ADD UNIQUE INDEX `username_UNIQUE` (`username` ASC) VISIBLE;
 
+# 04-03-2020
