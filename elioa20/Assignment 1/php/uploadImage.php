@@ -10,24 +10,46 @@ $target_dir = "../uploads/";
 $target_file = $target_dir . basename($_FILES['file']["name"]);
 $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
+$header = htmlspecialchars($_POST["header"]);
+$description = htmlspecialchars($_POST["description"]);
 
-// Check if image file is a actual image or fake image
-$check = getimagesize($_FILES['file']["tmp_name"]);
-if ($check === false) {
-    $messages[] = "File is not an image.";
-    $ok = 0;
+
+if(empty($_FILES)){
+    $ok = false;
+    $messages[] = "You must choose a picture";
 }
+
+if (strlen($header) == 0 || $header == null) {
+    $ok = false;
+    $messages[] = "You must provide a header for the picture";
+}
+
+if (strlen($description) == 0 || $description == null) {
+    $ok = false;
+    $messages[] = "You must provide a description for the picture";
+}
+
+
+
+if($ok) {
+// Check if image file is a actual image or fake image
+    $check = getimagesize($_FILES['file']["tmp_name"]);
+    if ($check === false) {
+        $messages[] = "File is not an image.";
+        $ok = false;
+    }
 
 // Check file size
-if ($_FILES["file"]["size"] > 500000) {
-    $messages[] = "Sorry, your file is too large.";
-    $ok = 0;
-}
+    if ($_FILES["file"]["size"] > 500000) {
+        $messages[] = "Sorry, your file is too large.";
+        $ok = false;
+    }
 // Allow certain file formats
-if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-    && $imageFileType != "gif") {
-    $messages[] = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-    $ok = 0;
+    if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+        && $imageFileType != "gif") {
+        $messages[] = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+        $ok = false;
+    }
 }
 
 if ($ok) {
@@ -43,8 +65,6 @@ if ($ok) {
     $time = time();
     $name = htmlspecialchars($_FILES["file"]['name']);
     $path = $target_dir . $name;
-    $header = htmlspecialchars($_POST["header"]);
-    $description = htmlspecialchars($_POST["description"]);
     $datetime = date("Y-m-d H:i:s");
 
     // pass value to the command

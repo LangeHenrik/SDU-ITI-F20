@@ -17,18 +17,18 @@ request.onload = () => {
 request.open("get", "../php/index.php", true);
 request.send();
 
+const topNavBar = {
+    dashboard: document.getElementById('dashboard'),
+    upload: document.getElementById('upload'),
+    users: document.getElementById('users'),
+    logout: document.getElementById('logout')
+};
+
 function checkLoggedIn(responseObject) {
         if(!responseObject.ok){
             window.location = "../views/login.html";
         }
 }
-
-
-const topNavBar = {
-    dashboard: document.getElementById('dashboard'),
-    upload: document.getElementById('upload'),
-    users: document.getElementById('users'),
-};
 
 topNavBar.dashboard.addEventListener('click',()=>{
 
@@ -39,7 +39,6 @@ topNavBar.dashboard.addEventListener('click',()=>{
     topNavBar.dashboard.className = "active";
     topNavBar.upload.className = "";
     topNavBar.users.className = "";
-
 
 });
 
@@ -53,8 +52,14 @@ topNavBar.upload.addEventListener('click',()=>{
     topNavBar.upload.className = "active";
     topNavBar.users.className = "";
 
+
     //Create form to upload image
     var mainContent = document.getElementById('main_content');
+
+    var displayMessages = document.createElement('ul');
+    displayMessages.setAttribute('id','messages');
+
+
     var form = document.createElement("form");
 
     form.setAttribute('id','upload-form');
@@ -99,6 +104,7 @@ topNavBar.upload.addEventListener('click',()=>{
     form.appendChild(file);
     form.appendChild(uploadButton);
 
+    mainContent.appendChild(displayMessages);
     mainContent.appendChild(form);
 
 });
@@ -134,11 +140,32 @@ topNavBar.users.addEventListener('click', () => {
 
 });
 
+topNavBar.logout.addEventListener('click',()=>{
+
+    var request = new XMLHttpRequest();
+
+    request.onload = () => {
+        let responseObject = null;
+
+        try {
+            responseObject = JSON.parse(request.responseText);
+        } catch (e) {
+            console.error('Could not parse JSON');
+        }
+
+        if (responseObject) {
+            window.location = "../views/login.html";
+        }
+    };
+
+    request.open("post", "../php/logout.php", true);
+    request.send();
+
+});
+
 //Used DOM Event Delegation because the button is dynamically created
 document.addEventListener('click',function(e){
     if(e.target && e.target.id === 'upload_image'){
-
-
         var request = new XMLHttpRequest();
 
         var form = document.getElementById('upload-form');
@@ -159,7 +186,7 @@ document.addEventListener('click',function(e){
             }
 
             if(responseObject){
-               console.log(responseObject);
+                handleUploadImageResponse(responseObject);
             }
         };
 
@@ -199,9 +226,20 @@ function handleGetUsersResponse(responseObject) {
 function handleUploadImageResponse(responseObject) {
 
     if(!responseObject.ok) {
+
+        let messagesList = document.getElementById('messages');
+        //In case they were errors before. Need to clear the list.
+        while(messagesList.firstChild){
+            messagesList.removeChild(messagesList.firstChild);
+        }
+
         responseObject.messages.forEach((message) => {
-            console.log(responseObject);
+            var li = document.createElement('li');
+            li.textContent = message;
+            messagesList.appendChild(li);
         });
+
+        messagesList.display = 'block';
     }
 }
 
