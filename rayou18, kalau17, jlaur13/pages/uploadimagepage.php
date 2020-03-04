@@ -72,7 +72,7 @@ $session_user = $_SESSION['username'];
         <form class=""  method="POST" enctype = "multipart/form-data">
           <label for="header">Picture Name:</label>
           <br>
-          <input type="text" name="header" value="" required>
+          <input type="text" name="header" value="" maxlength="50" required>
           <br>
           <label for="img">Chose picture to upload:</label>
           <br>

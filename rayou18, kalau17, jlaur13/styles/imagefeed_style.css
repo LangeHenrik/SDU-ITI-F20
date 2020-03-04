@@ -77,3 +77,7 @@ div.deletButton {
   /* grid-column: 1;
   grid-row: 4; */
 }
+
+div.singlepicwrapper h2 {
+  word-wrap: break-word;
+}
