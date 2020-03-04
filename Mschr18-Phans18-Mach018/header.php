@@ -4,7 +4,7 @@
 
 
     /*Dellete following lines */
-    $_SESSION['logged_in'] = true;
+    $_SESSION['logged_in'] = false;
   }
   if ($_SESSION['logged_in']) {
     echo "\$_SESSION['logged_in'] = true (hardcoded Session varibel in header.php.) ";

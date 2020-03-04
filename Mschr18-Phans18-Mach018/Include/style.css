@@ -172,3 +172,12 @@ div.Unauthorized a {
   color: #333;
   font-weight: 600;
 }
+div.Unauthorized form {
+  display: block;
+  width: 175;
+  margin: 0 auto;
+}
+div.Unauthorized form input{
+  margin: 10px 0;
+  display: block;
+}
