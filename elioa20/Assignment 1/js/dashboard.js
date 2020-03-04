@@ -57,7 +57,7 @@ topNavBar.upload.addEventListener('click',()=>{
     var mainContent = document.getElementById('main_content');
     var form = document.createElement("form");
 
-
+    form.setAttribute('id','upload-form');
     form.setAttribute('method',"post");
     form.setAttribute('enctype',"multipart/form-data");
 
@@ -83,11 +83,10 @@ topNavBar.upload.addEventListener('click',()=>{
     var file = document.createElement("input");
     file.setAttribute('type','file');
     file.setAttribute('id','file');
-    file.setAttribute('name','file');
-
 
     var uploadButton = document.createElement("input");
     uploadButton.setAttribute('type',"button");
+    uploadButton.setAttribute('id',"upload_image");
     uploadButton.setAttribute('id',"upload_image");
     uploadButton.setAttribute('value',"Upload Image");
 
@@ -139,32 +138,34 @@ topNavBar.users.addEventListener('click', () => {
 document.addEventListener('click',function(e){
     if(e.target && e.target.id === 'upload_image'){
 
-        const uploadForm = {
-            imageHeader: document.getElementById('header'),
-            imageDescription: document.getElementById('description'),
-            selectImage: document.getElementById('file'),
-            uploadImage: document.getElementById('upload_image')
-        };
 
         var request = new XMLHttpRequest();
-        var requestData = `imageHeader=${uploadForm.imageHeader.value}&imageDescription=${uploadForm.imageDescription.value}&image=${uploadForm.selectImage["files"][0]}`;
+
+        var form = document.getElementById('upload-form');
+        var formData = new FormData(form);
+
+        var inputFile = document.getElementById('file');
+        formData.append('file',inputFile.files[0]);
+
 
         request.onload = () => {
             let responseObject = null;
 
-            try {
+            try{
                 responseObject = JSON.parse(request.responseText);
-            } catch (e) {
+            }
+            catch (e) {
                 console.error('Could not parse JSON');
             }
 
-            if (responseObject) {
-                handleUploadImageResponse(responseObject);
+            if(responseObject){
+               console.log(responseObject);
             }
         };
 
         request.open("post", "../php/uploadImage.php", true);
-        request.send(requestData);
+        request.send(formData);
+
     }
 });
 
@@ -199,7 +200,7 @@ function handleUploadImageResponse(responseObject) {
 
     if(!responseObject.ok) {
         responseObject.messages.forEach((message) => {
-            console.log(message);
+            console.log(responseObject);
         });
     }
 }

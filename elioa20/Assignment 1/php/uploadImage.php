@@ -6,25 +6,28 @@ require_once 'db_config.php';
 $ok = true;
 $messages = array();
 
-
-$target_dir = "uploads/";
-$target_file = $target_dir . basename($_FILES["file"]['name']);
+$target_dir = "../uploads/";
+$target_file = $target_dir . basename($_FILES['file']["name"]);
 $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
 
-// Check file size
-if ($_FILES["file"]['name'] > 500000) {
-    $ok = false;
-    $messages[] = "File is too large!";
+// Check if image file is a actual image or fake image
+$check = getimagesize($_FILES['file']["tmp_name"]);
+if ($check === false) {
+    $messages[] = "File is not an image.";
+    $ok = 0;
 }
 
-// Valid file extensions
-$extensions_arr = array("jpg", "jpeg", "png", "gif");
-
-// Check extension
-if (!in_array($imageFileType, $extensions_arr)) {
-    $ok = false;
-    $messages[] = $_FILES["file"]['name'];
+// Check file size
+if ($_FILES["file"]["size"] > 500000) {
+    $messages[] = "Sorry, your file is too large.";
+    $ok = 0;
+}
+// Allow certain file formats
+if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+    && $imageFileType != "gif") {
+    $messages[] = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+    $ok = 0;
 }
 
 if ($ok) {
@@ -38,10 +41,10 @@ if ($ok) {
     $stmt = $pdo->prepare($sql);
 
     $time = time();
-    $name = htmlspecialchars($_FILES["file"]['name']). $time;
-    $path = $target_dir . $_FILES["file"]['name'];
-    $header = htmlspecialchars($_POST["imageHeader"]);
-    $description =  htmlspecialchars($_POST["imageDescription"]);
+    $name = htmlspecialchars($_FILES["file"]['name']);
+    $path = $target_dir . $name;
+    $header = htmlspecialchars($_POST["header"]);
+    $description = htmlspecialchars($_POST["description"]);
     $datetime = date("Y-m-d H:i:s");
 
     // pass value to the command
@@ -56,12 +59,14 @@ if ($ok) {
     $stmt->closeCursor();
 
     // Upload file
-    move_uploaded_file($name, $path);
+    $messages[] = "Successful upload";
 }
 
 echo json_encode(
     array(
         'ok' => $ok,
-        'messages' => $messages
+        'messages'=>$messages
     )
 );
+
+
