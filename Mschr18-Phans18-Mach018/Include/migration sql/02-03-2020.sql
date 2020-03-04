@@ -19,3 +19,7 @@ ADD UNIQUE INDEX `username_UNIQUE` (`username` ASC) VISIBLE;
 # 04-03-2020
 ALTER TABLE `iti`.`users` 
 CHANGE COLUMN `passw` `passw` VARCHAR(255) NOT NULL ;
+
+# 04-03-2020
+ALTER TABLE `iti`.`users` 
+ADD COLUMN `signup` DATE NOT NULL AFTER `email`;
