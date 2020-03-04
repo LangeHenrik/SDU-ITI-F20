@@ -21,19 +21,20 @@
         $stmtString = "SELECT username, fullname, signup FROM users";
 
         if ($searchValue != NULL) {
-            $stmtString .= " WHERE ( username = :username
-                                OR fullname = :fullname
-                                OR signup = :signup)";
+            $stmtString .= " WHERE ( username = ':username'
+                                OR fullname = ':fullname'
+                                OR signup = ':signup')";
 
-            $stmtString->bindParam(':username', $searchValue);
-            $stmtString->bindParam(':fullname', $searchValue);
-            $stmtString->bindParam(':signup', $searchValue);
         }
         $stmtString .= " ORDER BY $orderBy;";
-
+        
         echo "$stmtString";
-
+        
         $stmt = $conn->prepare($stmtString);
+        $stmt->bindParam(':username', $searchValue);
+        $stmt->bindParam(':fullname', $searchValue);
+        $stmt->bindParam(':signup', $searchValue);
+        
         $stmt->execute();
         $stmt->setFetchMode(PDO::FETCH_NUM); // FETCH_NUM -> returnerer array indexeret i colonner angivet i tal.
                                              // Andre return methoder er beskrevet her: https://www.php.net/manual/en/pdostatement.fetch.php
