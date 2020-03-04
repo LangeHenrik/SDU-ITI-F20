@@ -4,8 +4,8 @@
     try {
     
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", 
-    $username, 
-    $password, 
+    $username,
+    $password,
     array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
     
     $stmt = $conn->prepare("SELECT username, passwrd FROM user");
@@ -21,13 +21,16 @@
     $pswdxs = htmlspecialchars($pswd);
 
     if(isset($_SESSION['username'])){
-        echo "wrong username or password";
+        echo "<br><a href='log-out.php'><input type=button value=Logout name=logout></a>";
       } else {
+
+        foreach($result as $row) {
 
           if($row['username'] == $usernxs && password_verify($pswdxs, $row['passwrd'])) {
               $_SESSION['username']=$_POST['username'];
               echo "<script> location.href = 'frontpage.php' </script>";
           }
+        }
       }
     } catch(PDOException $e) {
         echo $e.getMessage();
