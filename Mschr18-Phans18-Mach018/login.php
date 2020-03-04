@@ -22,29 +22,34 @@ try
     // Indset ny bruger.
     $stmt = $conn->prepare("SELECT username, passw, fullname FROM users WHERE username = :username");
     $stmt->bindParam(':username', $inputArr["username"]);
-    $result = $stmt->execute();
-
+    $stmt->execute();
     $stmt->setFetchMode(PDO::FETCH_NUM); // FETCH_NUM -> returnerer array indexeret i colonner angivet i tal.                                         // Andre return methoder er beskrevet her: https://www.php.net/manual/en/pdostatement.fetch.php
     $result = $stmt->fetchAll();
 
-    $fetchetUsername = $result[0][0];
-    $fetchetHashPasword = $result[0][1];
-    $fetchetFullname = $result[0][2];
+    $rows = count($result);
 
-    if (password_verify($inputArr["password"], $fetchetHashPasword)) {
-      $_SESSION['logged_in'] = true;
-      $_SESSION['Fullname'] = $fetchetFullname;
-      header("location:feed.php");
+    if ($rows < 1) {
+      echo "<script>
+              alert('Username is wrong');
+              window.location= 'index.php';
+            </script>";
+    } else {
+      $fetchetUsername = $result[0][0];
+      $fetchetHashPasword = $result[0][1];
+      $fetchetFullname = $result[0][2];
+
+      if (password_verify($inputArr["password"], $fetchetHashPasword)) {
+        $_SESSION['logged_in'] = true;
+        $_SESSION['Fullname'] = $fetchetFullname;
+        header("location:feed.php");
+      }
+      else {
+        echo "<script>
+                alert('Pasword is wrong');
+                window.location= 'index.php';
+              </script>";
+      }
     }
-    else {
-      $_SESSION['logged_in'] = false;
-      $_SESSION['Fullname'] = null;
-    }
-
-
-
-    echo "<script> console.log('User created with result:'); </script>" ;
-
 }
 catch(PDOException $e)
 {

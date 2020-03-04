@@ -44,17 +44,16 @@ nav a {
 nav a:hover {
   background-color: #999;
 }
-
-/* mainnav */
-nav.mainnav button {
-  margin: 14px 16px;
-}
-
-/* loginnav */
-nav.loginnav form {
+nav form {
   padding: 14px 16px;
   margin: 0;
 }
+
+/* mainnav */
+nav.mainnav {
+}
+
+/* loginnav */
 nav.loginnav form label {
   color: white;
   text-align: center;
@@ -88,11 +87,7 @@ section#content h1#title {
   margin: 5px 0;
 }
 
-/* Registration coontent */
-/*div.registration h3 {
-  margin-top: -10px;
-  margin-left: 270px;
-}*/
+
 div.registration form {
   margin-left: 30px;
 }
