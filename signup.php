@@ -17,6 +17,10 @@
           </div>
         </main>
 
+        <?php
+          include './linkdatabase/insert_user.php';
+        ?>
+
         <script src="./js/regex.js"></script>
 
 <?php
