@@ -17,6 +17,8 @@
           </div>
         </main>
 
+        <script src="./js/regex.js"></script>
+
 <?php
     require "footer.php";
 ?>
