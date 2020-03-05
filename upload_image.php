@@ -8,8 +8,8 @@
         if(isset($_SESSION['username-login'])){
             echo "<a href='./includes/logout.php'></a>";
         } else{
-            echo "<h2>Log-in before using this function</h2>";
-            echo "location.href = 'index.php'";
+            /*echo "<script> alert('You have to login to use this function!') </script>";
+            echo "<script> location.href = 'index.php' </script>";*/
         }
     ?>
     <head>
@@ -25,13 +25,13 @@
                 <label for="image-header">Image Header</label>
                 <br><input type="text" name="image-header" placeholder="Write a Title for Your Image"><br>
                 <label for="image-description">Image Description</label>
-                <br><textarea name="descripion" id="image-description" cols="30" rows="5">Write a Description for Your Image</textarea><br>
-                <button type="submit" value="upload" name="image-upload"></button>
+                <br><textarea name="descripion" id="image-description" cols="30" rows="5" placeholder="Write a Description for Your Image"></textarea><br>
+                <button type="submit" value="upload" name="image-upload">UPLOAD</button>
 
             </form>
         </div>
         <?php
-            include './linkdatabase/upload_image.php';
+            include './linkdatabase/add_image.php';
         ?>
     </body>
 </html>
