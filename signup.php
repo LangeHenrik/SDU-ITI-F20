@@ -1,7 +1,7 @@
 <?php
     require "header.php";
 ?>
-
+        <script src="./js/regex.js"></script>
         <main>
           <div class="wrapper-main">
             <div id="formContent">
@@ -20,7 +20,7 @@
         <?php
           include './linkdatabase/insert_user.php';
         ?>
-        <script src="./js/regex.js"></script>
+
 
 <?php
     require "footer.php";
