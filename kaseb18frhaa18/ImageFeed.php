@@ -1,5 +1,6 @@
-<?php 
+<?php
 session_start();
+
 if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
     echo '<h3 id="name">'. $_SESSION["name"].'</h3>';
 } else {
@@ -7,6 +8,25 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
     exit;
 }
 
+require 'database.php';
+
+function loadImageFeed(){
+    $statement = "select a.photo, a.head, a.description, b.username from feed a INNER JOIN person b ON a.person_id=b.person_id;";
+    $posts = talkToDB($statement, null);
+    $feed = "";
+    foreach ($posts as $image){
+        $feed .= "<div class='description'>
+            <img src=$image[photo] alt=virk />
+            <br/>
+            <p>$image[head]</p>
+            <h3>$image[description]</h3>
+            <br/>
+            <h4>$image[username]</h4>
+            </div>";
+    }
+    return $feed;
+
+}
 
 ?>
 
@@ -39,48 +59,9 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
     <div class="wrapper">
             <div class="imagefeed">
                 <h1>Image Feed</h1>
-                <div class="description">
-                    <img src="3.jpg" alt="user picture"/>
-                    <br/>
-                    <p>Pic of me</p>
-                    <h3>This i a picture of me</h3>
-                    <br/>
-                    <h4>test</h4>
-                </div>
-                <div class="description">
-                    <img src="3.jpg" alt="user picture"/>
-                    <br/>
-                    <p>Pic of me</p>
-                    <h3>This i a picture of me</h3>
-                    <br/>
-                    <h4>Fred</h4>
-                </div>
-                <div class="description">
-                    <img src="3.jpg" alt="user picture"/>
-                    <br/>
-                    <p>Pic of me</p>
-                    <h3>This i a picture of me</h3>
-                    <br/>
-                    <h4>Fred</h4>
-                </div>
-                <div class="description">
-                    <img src="3.jpg" alt="user picture"/>
-                    <br/>
-                    <p>Pic of me</p>
-                    <h3>This i a picture of me</h3>
-                    <br/>
-                    <h4>admin</h4>
-                </div>
-                <div class="description">
-                    <img src="3.jpg" alt="user picture"/>
-                    <br/>
-                    <p>Pic of me</p>
-                    <h3>This i a picture of me</h3>
-                    <br/>
-                    <h4>admin</h4>
-                </div>
+                <?php echo loadImageFeed(); ?>
             </div>
-        </div>
+    </div>
     
 </body>
 

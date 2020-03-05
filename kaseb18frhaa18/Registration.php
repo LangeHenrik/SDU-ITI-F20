@@ -16,7 +16,7 @@
       <ul>
         <li> <a href=index.php>Login</a></li>
         <li> <a href=registration.php>Register</a></li>
-        <li> <a href=uploadpage.php>Upload</a></li>
+        <li> <a href=UploadPage.php>Upload</a></li>
         <li> <a href=imagefeed.php>Image Feed</a></li>
         <li> <a href=user_list.php>User List</a></li>
       </ul>
