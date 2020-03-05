@@ -15,14 +15,10 @@ and open the template in the editor.
         <div class="Navigation">
             <a href="LoginPage.html" class="logout">Logout</a>
             <a href="Upload_Image.html" class="imageupload">Upload Image</a>
-            <input type="text" placeholder="Search user" name="search_username">
-            <table name="t1">
-                <tr>
-                    <td>
-                        username
-                    </td>
-                </tr>
-            </table>
+            <input type="text" placeholder="Search userId" name="search_username"
+                   onchange="SearchUser(this.value)" id="searchbar">
+            <div id="show_user"></div>
         </div>
+        <script src="SearchUser"></script>
     </body>
 </html>

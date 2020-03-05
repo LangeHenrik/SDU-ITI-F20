@@ -150,3 +150,6 @@ and open the template in the editor.
 #output { /*size of image shown here*/
     width: 250px;
 }
+.table, th, td {
+    border: 1px solid black;
+}
