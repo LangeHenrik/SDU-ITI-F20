@@ -21,10 +21,15 @@
         $stmtString = "SELECT username, fullname, signup FROM users";
 
         if ($searchValue != NULL) {
-            $stmtString .= " WHERE ( username = ':username'
-                                OR fullname = ':fullname'
-                                OR signup = ':signup')";
+            $stmtString .= " WHERE ( username = :username
+                                OR fullname = :fullname
+                                OR signup = :signup)";
 
+        }
+        $date = date_create($searchValue);
+        if (!$date) {
+          $date = date_create($searchValue);
+          $date = date_format($date, "Y/m/d");
         }
         $stmtString .= " ORDER BY $orderBy;";
         
@@ -45,7 +50,7 @@
         echo "<br><p> Connection failed: " . $e->getMessage() . ". code: " . $e->getCode() . "</p>";
     }
 
-    /*if (!empty($result)) {
+    if (!empty($result)) {
         $rows = count($result);
         $cols = count($result[0]);
         $echoString = '';
@@ -57,7 +62,7 @@
             $echoString .= "</tr>";
         }
         echo $echoString;
-    }*/
+    }
 
     $conn = null;
 ?>
