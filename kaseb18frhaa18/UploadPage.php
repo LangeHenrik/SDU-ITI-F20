@@ -41,7 +41,7 @@ if(isset($_POST['upload'])){
     $image_base64 = base64_encode(file_get_contents($_FILES['file']['tmp_name']) );
     $photo = 'data:image/'.$imageFileType.';base64,'.$image_base64;
     // Insert record
-    $statement = "insert into feed(head, description, photo) values(:head, :description, :photo)";
+    $statement = 'insert into feed(head, description, photo) values(:head, :description, :photo)';
     $parameters = array(array(":head", $head), array(":description", $description), array(":photo", $photo));
 
     talkToDB($statement, $parameters);

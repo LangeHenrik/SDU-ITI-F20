@@ -22,21 +22,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty(trim($_POST["username"]))) {
         $username_err = "Please enter username.";
     } else {
-        $username = trim($_POST["username"]);
+        $username = filter_var(trim($_POST["username"]), FILTER_SANITIZE_STRING);
     }
 
     //check if password is empty
     if (empty(trim($_POST["password"]))) {
         $password_err = "Please enter password.";
     } else {
-        $password = trim($_POST["password"]);
+        $password = filter_var(trim($_POST["password"]), FILTER_SANITIZE_STRING);
     }
 
     //validate data
     if (empty($username_err) && empty($password_err)) {
         // Prepare a statement
         try {
-            $username = trim($_POST["username"]);
             $sql = 'SELECT person_id, name, username, passwordHash FROM person WHERE username = :username';
             $parameters = array(array(":username", $username));
             $stmt = talkToDB($sql, $parameters);
