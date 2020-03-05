@@ -11,7 +11,7 @@ error_reporting(E_ALL);
 include("config.php");
 
 if (isset($_POST['formUpload'])) {
-  //not necessary 
+  //not necessary
   $user_idUp = filter_var($_GET['id'], FILTER_SANITIZE_NUMBER_INT);
   $user_id = htmlspecialchars($user_idUp);
 
@@ -45,6 +45,8 @@ if (isset($_POST['formUpload'])) {
       $stmt= $db->prepare("INSERT INTO images (image, header, description, created, user_id) VALUES ( ?, ?, ?, ?, ?)");
       $stmt->execute(array($image, $header, $description,$date ,$user_id));
       //var_dump($stmt);
+      $ok = "Upload completed !";
+
 
     }
     else {
@@ -64,12 +66,16 @@ if (isset($_POST['formUpload'])) {
     <form method="post" class="form" action="" enctype='multipart/form-data'>
         <input type="file" name="file" id="file" required="required">
         <label for="header">Header</label>
-        <input type='text' name='header' value="<?php if(isset($header)) { echo $header; } ?>" />
+        <input type='text' name='header'/>
         <label for="description">Description</label>
-        <input type='text' name='description' value="<?php if(isset($description)) { echo $description; } ?>"/>
+        <input type='text' name='description'/>
         <?php
         if(isset($error)) {
             echo '<font color="red">'.$error."</font>";
+        }
+        if(isset($ok)){
+          echo '<font color="green">'.$ok."</font>";
+
         }?>
         <input type='submit' value='Upload Image' name='formUpload'>
     </form>

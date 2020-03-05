@@ -7,16 +7,19 @@ include("config.php");
 
   // get the q parameter from URL
   if(isset($_GET['q'])) {
-	$q = $_GET['q'];
+    $q_check = filter_var($_GET['q'], FILTER_SANITIZE_NUMBER_INT);
+    $q = htmlspecialchars($q_check);
+  	$q = $_GET['q'];
+
   }else {
 	$q = "";
   }
 $output="";
   if ($q === "") {
-	  
+
     $stmt = "SELECT id_user, username, email FROM user";
-    $res = $db->query($stmt);		
-    
+    $res = $db->query($stmt);
+
     while ($row = $res->fetch()){
     		$output = $output . "
     		<div class='contact_card'>
@@ -31,7 +34,7 @@ $output="";
   } else {
     $stmt = "SELECT id_user, username, email FROM user WHERE username LIKE '$q%'";
     $res = $db->query($stmt);
-    
+
     while ($row = $res->fetch()){
     		$output = $output . "
     		<div class='contact_card'>

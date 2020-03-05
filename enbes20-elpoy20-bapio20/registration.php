@@ -6,7 +6,7 @@ if (isset($_POST['formRegistration'])) {
 
   $usernameReg = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
   $username = htmlspecialchars($usernameReg);
-  
+
   $emailReg = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
   $email = htmlspecialchars($emailReg);
 
@@ -38,7 +38,7 @@ if (isset($_POST['formRegistration'])) {
 
               $stmt= $db->prepare("INSERT INTO user (username, password, email) VALUES ( ?, ?, ?)");
               $stmt->execute(array($username, $passhash, $email));
-              $error = "Account Created ! <a href=\"index.php\">Log in</a>";
+              $ok = "Account Created ! <a href=\"index.php\">Log in</a>";
 
             }
 
@@ -109,6 +109,10 @@ if (isset($_POST['formRegistration'])) {
 <?php
       if(isset($error)) {
          echo '<font color="red">'.$error."</font>";
+      }
+      if(isset($ok)){
+        echo '<font color="green">'.$ok."</font>";
+
       }
 ?>
 	</div>
