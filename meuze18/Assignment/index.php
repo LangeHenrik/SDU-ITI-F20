@@ -1,6 +1,7 @@
-<!DOCTYPE html>
 
-
+<?php
+echo "Welcome"
+?>
 
 <head>
     <title>Login</title>
