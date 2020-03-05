@@ -38,39 +38,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         try {
             $username = trim($_POST["username"]);
             $sql = 'SELECT person_id, name, username, passwordHash FROM person WHERE username = :username';
-            $parameters = array(array(":username",$username));
-                    $stmt = talkToDB($sql,$parameters);
-                    // Check if username exists, if yes then verify password
-                    if (count($stmt)==1) {
-                            $row = $stmt[0];
-                            $id = $row["person_id"];
-                            $username = $row["username"];
-                            $hashed_password = $row["passwordHash"];
-                            if (password_verify($password, $hashed_password)) {
-                                // Password is correct, so start a new session
-                                session_start();
+            $parameters = array(array(":username", $username));
+            $stmt = talkToDB($sql, $parameters);
+            // Check if username exists, if yes then verify password
+            if (count($stmt) == 1) {
+                $row = $stmt[0];
+                $id = $row["person_id"];
+                $username = $row["username"];
+                $hashed_password = $row["passwordHash"];
+                if (password_verify($password, $hashed_password)) {
+                    // Password is correct, so start a new session
+                    session_start();
 
-                                // Store data in session variables
-                                $_SESSION["loggedin"] = true;
-                                $_SESSION["id"] = $id;
-                                $_SESSION["username"] = $username;
-                                $_SESSION["name"] = $name;
+                    // Store data in session variables
+                    $_SESSION["loggedin"] = true;
+                    $_SESSION["id"] = $id;
+                    $_SESSION["username"] = $username;
+                    $_SESSION["name"] = $name;
 
-                                // Redirect user to welcome page
-                                header("location: registration.php");
-                            } else {
-                                // Display an error message if password is not valid
-                                $password_err = "The password you entered was not valid.";
-                            }
-                        
-                    } else {
-                        // Display an error message if username doesn't exist
-                        $username_err = "No account found with that username.";
-                    }
-                
+                    // Redirect user to welcome page
+                    header("location: registration.php");
+                } else {
+                    // Display an error message if password is not valid
+                    $password_err = "The password you entered was not valid.";
+                }
+            } else {
+                // Display an error message if username doesn't exist
+                $username_err = "No account found with that username.";
+            }
 
-                // Close statement
-            
+
+            // Close statement
+
         } catch (Exception $e) {
             echo 'Caught exception: ', $e->getMessage(), "\n";
         }
@@ -97,11 +96,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="menu">
             <h2>Menu</h2>
             <ul>
-                <li> <a href=#>Login</a></li>
-                <li> <a href=#>Register</a></li>
+                <li> <a href=frontpage.php>Login</a></li>
+                <li> <a href=registration.php>Register</a></li>
                 <li> <a href=#>Upload</a></li>
-                <li> <a href=#>Image Feed</a></li>
-                <li> <a href=#>User List</a></li>
+                <li> <a href=ImageFeed.php>Image Feed</a></li>
+                <li> <a href=User_List.php>User List</a></li>
             </ul>
         </div>
     </div>
@@ -118,7 +117,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="password" name="password" placeholder="Password" class="form-control">
                     <span class="help-block"><?php echo $password_err; ?></span>
                 </div>
-                <a>Not registered? <a id="createaccount" href="#">Create an Account now!</a></a>
+                <a>Not registered? <a id="createaccount" href="registration.php">Create an Account now!</a></a>
                 <button type="submit" class="btn btn-primary" value="Login">Log In</button>
             </form>
         </div>
