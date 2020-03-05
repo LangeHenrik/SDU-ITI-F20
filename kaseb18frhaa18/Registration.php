@@ -54,13 +54,12 @@ if (isset($_POST['register'])) {
   $_POST['ok_signal'] = true;
   $name = check_input($_POST["name"],"/^[a-z ,.'-]+$/i");
   $username = check_input($_POST["username"],"/^[A-Za-z0-9]+(?:[ _-][A-Za-z0-9]+)*$/");
-  $password = check_input($_POST["password"],"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$");
+  $password = check_input($_POST["password"],"/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^\w\s]).{8,}$/");
   if ($_POST['ok_signal']) {
-    $password = password_hash($password);
+    $password = password_hash($password, PASSWORD_DEFAULT);
     $statement = 'INSERT INTO person (name, username, passwordHash) VALUES (:name, :username, :password)';
     $parameters = array(array(":name", $name), array(":username", $username), array(":password", $password));
     talkToDB($statement, $parameters);
-    echo ("it works");
   }
 }
 
@@ -69,7 +68,7 @@ function check_input($input, $regex){
   if (!empty($input) and $_POST['ok_signal']) {
     $input = filter_var($input, FILTER_SANITIZE_STRING);
     // check name
-    if (!preg_match($regex, $name)) {
+    if (!preg_match($regex, $input)) {
       $_POST['ok_signal'] = false;
     }
     return $input;

@@ -15,7 +15,6 @@ function talkToDB($statement, $parameters){
         $stmt->execute();
 
     // set the resulting array to associative
-        $stmt->execute();
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
         $result = $stmt->fetchAll();
         return $result;
