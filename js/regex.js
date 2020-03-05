@@ -1,7 +1,4 @@
 function validateFields() {
-    var btn = document.getElementById('signup-submit');
-    btn.disable = true;
-
     var username_value = document.getElementById('username-register').value;
     var regex = new RegExp(/[a-zA-Z0-9]{4,50}$/gm);
 
