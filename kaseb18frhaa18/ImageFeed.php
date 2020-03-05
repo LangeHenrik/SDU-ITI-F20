@@ -47,9 +47,9 @@ function loadImageFeed(){
         <div class="menu">
             <h2>Menu</h2>
             <ul>
-                <li> <a href=frontpage.php>Login</a></li>
+                <li> <a href=index.php>Login</a></li>
                 <li> <a href=registration.php>Register</a></li>
-                <li> <a href=#>Upload</a></li>
+                <li> <a href=uploadpage.php>Upload</a></li>
                 <li> <a href=ImageFeed.php>Image Feed</a></li>
                 <li> <a href=User_List.php>User List</a></li>
             </ul>
