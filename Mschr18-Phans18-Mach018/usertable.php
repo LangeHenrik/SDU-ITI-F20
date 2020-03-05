@@ -23,7 +23,14 @@
         if ($searchValue != NULL) {
             $stmtString .= " WHERE ( username = ':username'
                                 OR fullname = ':fullname')";
-
+            $stmtString .= " WHERE ( username = :username
+                                OR fullname = :fullname
+                                OR signup = :signup)";
+        }
+        $date = date_create($searchValue);
+        if (!$date) {
+          $date = date_create($searchValue);
+          $date = date_format($date, "Y/m/d");
         }
         $stmtString .= " ORDER BY $orderBy;";
 
