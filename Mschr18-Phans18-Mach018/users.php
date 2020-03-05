@@ -13,12 +13,14 @@
                 <select name="orderBy" id="orderBy">
                   <option value="username" selected="selected">Username</option>
                   <option value="fullname">Fullname</option>
+                  <option value="signup">Signup Date</option>
                 </select>
             </form>
           <table>
             <tr>
               <th>Username</th>
-              <th>fullname</th>
+              <th>Fullname</th>
+              <th>Signup Date</th>
             </tr>
             <?php include_once('usertable.php'); ?>
           </table>
