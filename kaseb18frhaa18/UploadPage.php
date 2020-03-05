@@ -2,12 +2,12 @@
 <head>
 </head>
 <body>
-  <form action="post">
+  <form method="post" action="" enctype='multipart/form-data'>
   <input type="text" name="head">
 
   <textarea name="description" id="description" cols="30" rows="10"></textarea>
 
-  <input type="file" name="file">
+  <input type="file" name='file'>
 
   <button type="submit" value="Upload" name="upload">Upload now</button>
   </form>
@@ -18,12 +18,13 @@
 
 <?php
 require("database.php");
+session_start();
 
 if(isset($_POST['upload'])){
- 
   $name = $_FILES['file']['name'];
   $target_dir = "upload/";
-  $target_file = $target_dir . basename($name);
+  $target_file = $target_dir . basename($_FILES["file"]["name"]);
+  echo '$name';
   //husk at indsætte head og description også
   $head = filter_var($_POST['head'], FILTER_SANITIZE_STRING);
   $description = filter_var($_POST['description'], FILTER_SANITIZE_STRING);
@@ -33,16 +34,19 @@ if(isset($_POST['upload'])){
 
   // Valid file extensions
   $extensions_arr = array("jpg","jpeg","png","gif");
+  echo "virker";
 
   // Check extension
   if( in_array($imageFileType,$extensions_arr) ){
+    echo "det når her ned";
  
     // Convert to base64 
     $image_base64 = base64_encode(file_get_contents($_FILES['file']['tmp_name']) );
     $photo = 'data:image/'.$imageFileType.';base64,'.$image_base64;
     // Insert record
-    $statement = 'insert into feed(head, description, photo) values(:head, :description, :photo)';
-    $parameters = array(array(":head", $head), array(":description", $description), array(":photo", $photo));
+    $statement = 'insert into feed (head, description, photo, person_id) values(:head, :description, :photo, :person_id)';
+    $parameters = array(array(":head", $head), array(":description", $description),
+     array(":photo", $photo), array(":person_id", $_SESSION['id']));
 
     talkToDB($statement, $parameters);
   
