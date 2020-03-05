@@ -22,23 +22,20 @@
 
         if ($searchValue != NULL) {
             $stmtString .= " WHERE ( username = :username
-                                OR fullname = :fullname
-                                OR signup = :signup)";
-
-        }
-        $date = date_create($searchValue);
-        if (!$date) {
-          $date = date_create($searchValue);
-          $date = date_format($date, "Y/m/d");
+                                OR fullname = :fullname";
+          if (DateTime::createFromFormat('Y-m-d', $searchValue) !== FALSE) {
+            $stmtString .=  " OR signup = :signup)";
+          } else {
+            $stmtString .=  ")";
+          }                             
         }
         $stmtString .= " ORDER BY $orderBy;";
-        
-        echo "$stmtString";
         
         $stmt = $conn->prepare($stmtString);
         $stmt->bindParam(':username', $searchValue);
         $stmt->bindParam(':fullname', $searchValue);
-        $stmt->bindParam(':signup', $searchValue);
+        if (DateTime::createFromFormat('Y-m-d', $searchValue) !== FALSE)
+            $stmt->bindParam(':signup', $searchValue);
         
         $stmt->execute();
         $stmt->setFetchMode(PDO::FETCH_NUM); // FETCH_NUM -> returnerer array indexeret i colonner angivet i tal.
