@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Alegreya+Sans:800");
 @import "modal.css";
+@import "login.css";
+@import "nav.css";
 
 
 @media only screen and (min-width: 1000px) {
@@ -39,40 +41,7 @@ body {
   font-family: "Alegreya Sans", sans-serif;
 }
 
-.nav {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #111;
-  opacity: 0.9;
-  overflow-x: hidden;
-  padding-top: 60px;
-  transition: 0.7s;
-}
 
-.nav ul {
-  padding: 0;
-}
-
-.nav li:hover {
-  border-left: 9px solid #3e84c1;
-  background-color: #34383d;
-}
-
-.nav a {
-  display: block;
-  padding: 20px 30px;
-  font-size: 25px;
-  text-decoration: none;
-  color: #ccc;
-}
-.nav a:hover {
-  color: #fff;
-  transition: 0.4s;
-}
 
 .slide a {
   color:#4c6ef5;

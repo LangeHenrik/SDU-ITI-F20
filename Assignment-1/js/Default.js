@@ -2,7 +2,7 @@ var rotated = false;
 var sidebarOut = false;
 
 function openSlideMenu() {
-  if(!sidebarOut){
+  if (!sidebarOut) {
     sidebarOut = true;
     iconRotate();
     if (!window.matchMedia("(max-width: 1000px)").matches) {
@@ -12,11 +12,10 @@ function openSlideMenu() {
       document.getElementById("menu").style.width = "500px";
       document.getElementById("content").style.marginLeft = "500px";
     }
-  }else{
+  } else {
     sidebarOut = false;
     closeSlideMenu();
   }
-
 }
 function closeSlideMenu() {
   iconRotate();
@@ -24,30 +23,42 @@ function closeSlideMenu() {
   document.getElementById("content").style.marginLeft = "0";
 }
 
-function iconRotate(){
-  
-  if(!rotated){
+function iconRotate() {
+  if (!rotated) {
     rotated = true;
-    document.getElementById("openMenu").style.transform = 'rotate(180deg)';
-    document.getElementById("openMenu").style.transition = '0.7s';
-  }else{
+    document.getElementById("openMenu").style.transform = "rotate(180deg)";
+    document.getElementById("openMenu").style.transition = "0.7s";
+  } else {
     rotated = false;
-    document.getElementById("openMenu").style.transform = 'rotate(0deg)';
+    document.getElementById("openMenu").style.transform = "rotate(0deg)";
   }
 }
 
-  // Get the modal
-  var modal = document.getElementById('formid');
+// Get the modal
+var modal = document.getElementById("modalBackground");
 
-  // When the user clicks anywhere outside of the modal, close it
-  window.onclick = function(event) {
-    if (event.target == modal) {
-      modal.style.display = 'none';
-    }
-  };
-
-  function openModal(){
-    openSlideMenu();
-    document.getElementById('formid').style.display='flex';
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
   }
+};
 
+function openModal() {
+  openSlideMenu();
+  document.getElementById("modalBackground").style.display = "flex";
+}
+
+const signUpButton = document.getElementById("signUp");
+const signInButton = document.getElementById("signIn");
+const container = document.getElementById("container");
+
+signUpButton.addEventListener("click", () => {
+  container.classList.add("right-panel-active");
+  document.getElementById("closeButton").style.color = "#fff";
+});
+
+signInButton.addEventListener("click", () => {
+  container.classList.remove("right-panel-active");
+  document.getElementById("closeButton").style.color = "#111111";
+});

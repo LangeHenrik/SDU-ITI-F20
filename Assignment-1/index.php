@@ -34,7 +34,7 @@
       </div>
     </div>
     <?php
-    require 'php/modal.php';
+    require 'php/login.php';
     ?>
   </body>
   <script src="js/Default.js"></script>
