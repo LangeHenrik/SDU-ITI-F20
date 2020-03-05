@@ -6,7 +6,7 @@
           <div class="wrapper-main">
             <div id="formContent">
               <h1>Sign-up</h1>
-              <form class="form-signup" action="includes\signup1.php" method="post">
+              <form onKeyUp="return validateFields()" class="form-signup" method="post">
                 <input type="text" name="username-register" id="username-register" placeholder="Username">
                 <input type="text" name="email-register" id="email-register" placeholder="E-mail">
                 <input type="password" name="password-register" id="password-register" placeholder="Password">
