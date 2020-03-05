@@ -31,7 +31,7 @@
             </form>
         </div>
         <?php
-            include './linkdatabase/add_image.php';
+            include './linkdatabase/insert_image.php';
         ?>
     </body>
 </html>
