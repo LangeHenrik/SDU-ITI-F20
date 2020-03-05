@@ -10,33 +10,31 @@
 <!--Comment-->
 
 <body>
-
   <div class="wrapper">
     <div class="menu">
       <h2>Menu</h2>
       <ul>
-        <li> <a href=frontpage.php>Login</a></li>
+        <li> <a href=index.php>Login</a></li>
         <li> <a href=registration.php>Register</a></li>
-        <li> <a href=>Upload</a></li>
+        <li> <a href=uploadpage.php>Upload</a></li>
         <li> <a href=imagefeed.php>Image Feed</a></li>
         <li> <a href=user_list.php>User List</a></li>
       </ul>
     </div>
   </div>
-  
+
   <div class="wrapper">
     <div class="content">
       <form method="post">
         <h1>Registration</h1>
-
         <input placeholder="Name" type="text" name="name" id="name" onblur="return checkName()" />
-        <label for="name" id="okName"></label>
+        <span id="name_err"></span>
 
         <input placeholder="Username" type="text" name="username" id="username" onblur="return checkUserName()" />
-        <label for="username" id="okUserName"></label>
-     
+        <span id="username_err"></span>
+
         <input placeholder="Password" type="password" name="password" id="password" onblur="return checkPassword()" />
-        <label for="password" id="okPassword"></label>
+        <span id="password_err"></span>
 
         <button type="submit" name="register" class="btn btn-primary" value="Register">Register Now</button>
       </form>
@@ -48,13 +46,19 @@
 </html>
 
 <?php
+session_start();
+
+if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
+  echo '<h3 id="name">'. $_SESSION["name"].'</h3>';
+}
+
 require 'database.php';
 
 if (isset($_POST['register'])) {
   $_POST['ok_signal'] = true;
-  $name = check_input($_POST["name"],"/^[a-z ,.'-]+$/i");
-  $username = check_input($_POST["username"],"/^[A-Za-z0-9]+(?:[ _-][A-Za-z0-9]+)*$/");
-  $password = check_input($_POST["password"],"/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^\w\s]).{8,}$/");
+  $name = check_input($_POST["name"], "/^[a-z ,.'-]+$/i");
+  $username = check_input($_POST["username"], "/^[A-Za-z0-9]+(?:[ _-][A-Za-z0-9]+)*$/");
+  $password = check_input($_POST["password"], "/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^\w\s]).{8,}$/");
   if ($_POST['ok_signal']) {
     $password = password_hash($password, PASSWORD_DEFAULT);
     $statement = 'INSERT INTO person (name, username, passwordHash) VALUES (:name, :username, :password)';
@@ -63,7 +67,8 @@ if (isset($_POST['register'])) {
   }
 }
 
-function check_input($input, $regex){
+function check_input($input, $regex)
+{
   $input = trim($input);
   if (!empty($input) and $_POST['ok_signal']) {
     $input = filter_var($input, FILTER_SANITIZE_STRING);
@@ -74,46 +79,6 @@ function check_input($input, $regex){
     return $input;
   } else {
     $_POST['ok_signal'] = false;
-  }
-}
-
-function check_name()
-{
-  if (empty($_POST["name"])) {
-    $_POST['ok_signal'] = false;
-  } else {
-    $name = filter_var(($_POST["name"]), FILTER_SANITIZE_STRING);
-    // check name
-    if (!preg_match("/^[a-z ,.'-]+$/i", $name)) {
-      $_POST['ok_signal'] = false;
-    }
-    return $name;
-  }
-}
-function check_username()
-{
-  if (empty($_POST["username"])) {
-    $_POST['ok_signal'] = false;
-  } else {
-    $username = filter_var(($_POST["username"]), FILTER_SANITIZE_STRING);
-    // check username
-    if (!preg_match("/^[A-Za-z0-9]+(?:[ _-][A-Za-z0-9]+)*$/", $username)) {
-      $_POST['ok_signal'] = false;
-    }
-    return $username;
-  }
-}
-function check_password()
-{
-  if (empty($_POST["password"])) {
-    $_POST['ok_signal'] = false;
-  } else {
-    $password = filter_var(($_POST["password"]), FILTER_SANITIZE_STRING);
-    // check password
-    if (!preg_match("^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$", $password)) {
-      $_POST['ok_signal'] = false;
-    }
-    return $password;
   }
 }
 

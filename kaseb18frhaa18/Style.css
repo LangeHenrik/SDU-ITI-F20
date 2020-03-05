@@ -128,6 +128,16 @@ body {
     text-transform: uppercase;
     font-weight: 500;
 }
+h3[id="name"]{
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    float: right;
+    margin: 20px;
+    background-color: #3399FF;
+    color: white;
+    padding: 10px 20px 10px 20px;
+}
 
 .wrapper .content a {
     color: grey;
@@ -159,6 +169,10 @@ body {
 .wrapper .content input[type="password"]:focus {
     width: 280px;
     border-color: #2ecc71;
+}
+
+.wrapper .content span{
+    color: red;
 }
 
 .wrapper .content button[type="submit"] {

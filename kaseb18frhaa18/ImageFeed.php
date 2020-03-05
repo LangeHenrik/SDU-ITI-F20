@@ -1,3 +1,15 @@
+<?php 
+session_start();
+if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
+    echo '<h3 id="name">'. $_SESSION["name"].'</h3>';
+} else {
+    header("location: index.php");
+    exit;
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

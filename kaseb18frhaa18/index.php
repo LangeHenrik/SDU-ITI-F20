@@ -7,7 +7,7 @@ require_once "database.php";
 
 //check if already logged in
 if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
-    header("location: registration.php");
+    header("location: imagefeed.php");
     exit;
 }
 
@@ -44,6 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $row = $stmt[0];
                 $id = $row["person_id"];
                 $username = $row["username"];
+                $name = $row["name"];
                 $hashed_password = $row["passwordHash"];
                 if (password_verify($password, $hashed_password)) {
                     // Password is correct, so start a new session
@@ -95,9 +96,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="menu">
             <h2>Menu</h2>
             <ul>
-                <li> <a href=frontpage.php>Login</a></li>
+                <li> <a href=index.php>Login</a></li>
                 <li> <a href=registration.php>Register</a></li>
-                <li> <a href=#>Upload</a></li>
+                <li> <a href=uploadpage.php>Upload</a></li>
                 <li> <a href=ImageFeed.php>Image Feed</a></li>
                 <li> <a href=User_List.php>User List</a></li>
             </ul>
