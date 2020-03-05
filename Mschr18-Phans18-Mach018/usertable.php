@@ -18,11 +18,11 @@
         // set the PDO error mode to exception
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $stmtString = "SELECT username, fullname, signup FROM users";
+        $stmtString = "SELECT username, fullname FROM users";
 
         if ($searchValue != NULL) {
-            $stmtString .= " WHERE ( username = :username
-                                OR fullname = :fullname";
+          $stmtString .= " WHERE ( username = :username
+                              OR fullname = :fullname";
           if (DateTime::createFromFormat('Y-m-d', $searchValue) !== FALSE) {
             $stmtString .=  " OR signup = :signup)";
           } else {

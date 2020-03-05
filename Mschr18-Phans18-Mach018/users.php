@@ -9,17 +9,16 @@
           <form>
                 <input type="text" id="searchValue" name="searchValue" placeholder="Enter search here. . .">
                 <input type="submit" id="submit" value="Search">
+                 Orderd by
                 <select name="orderBy" id="orderBy">
                   <option value="username" selected="selected">Username</option>
                   <option value="fullname">Fullname</option>
-                  <option value="signup">Sign up date</option>
                 </select>
             </form>
           <table>
             <tr>
               <th>Username</th>
               <th>fullname</th>
-              <th>Sign up date</th>
             </tr>
             <?php include_once('usertable.php'); ?>
           </table>
