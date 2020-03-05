@@ -1,5 +1,5 @@
 <?php
-    if(array_key_exists('signup-submit')){
+    if(array_key_exists('signup-submit', $_POST)){
         try{
             $connection = new PDO("mysql:host=$server;dbname=$database", 
             $password, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
