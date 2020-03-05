@@ -4,7 +4,7 @@
         try{
             $image = "data:".$_FILES['image']['type'].";base64,".base64_encode(file_get_contents($_FILES['image']['tmp_name']));
             $connection = new PDO("mysql:host=$server;dbname=$database", 
-            $password, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+            $username, $password, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
             $stmt = $connection->prepare("INSERT INTO image (header, description, username, image) VALUES(:header, :description, :username, :image)");
             
             $header = filter_var($_POST['header'], FILTER_SANITIZE_STRING);

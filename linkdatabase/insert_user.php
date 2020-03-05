@@ -1,8 +1,9 @@
+<script>console.log("INSERTING USER");</script>
 <?php
     if(array_key_exists('signup-submit', $_POST)){
         try{
             $connection = new PDO("mysql:host=$server;dbname=$database", 
-            $password, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+            $username, $password, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
             $stmt = $connection->prepare("INSERT INTO users (username, email, pwd) VALUES(:username-register, :email-register, :pwd-register)");
             
             $user = filter_var($_POST['username-register'], FILTER_SANITIZE_STRING);
