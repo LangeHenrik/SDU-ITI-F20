@@ -17,7 +17,7 @@ function validateFields() {
     }
 
     var password_value = document.getElementById('password-register').value;
-    var regex = new RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{10,50}$/gm);
+    var regex = new RegExp(/[a-zA-Z0-9]{10,50}$/gm);
     if (regex.test(password_value)) {
         document.getElementById('password-register').style.color = "darkblue";
         is_password = true;
