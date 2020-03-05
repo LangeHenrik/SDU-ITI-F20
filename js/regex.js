@@ -1,13 +1,13 @@
 function validateFields() {
-    var username_value = document.getElementById('username-register').value;
-    var regex = new RegExp(/[a-zA-Z0-9]{4,50}$/gm);
+
 
     var is_username = false;
     var is_password = false;
     var is_email = false;
     var is_pwd_repeat = false;
-
-    if (regex.test(username_value) == True) {
+    var username_value = document.getElementById('username-register').value;
+    var regex = new RegExp(/[a-zA-Z0-9]{4,50}$/gm);
+    if (regex.test(username_value) == true) {
         document.getElementById('username-register').style.color = "darkblue";
         is_username = true;
         console.log("Username regex");
@@ -28,7 +28,7 @@ function validateFields() {
     }
 
     var email_value = document.getElementById('email-register').value;
-    var regex = new RegExp(/([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/gm);
+    var regex = new RegExp(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/gm);
     if (regex.test(email_value)) {
         document.getElementById('email-register').style.color = "darkblue";
         is_email = true;
