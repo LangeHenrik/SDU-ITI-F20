@@ -49,6 +49,10 @@ function openModal() {
   document.getElementById("modalBackground").style.display = "flex";
 }
 
+function closeModal(){
+  document.getElementById("modalBackground").style.display = "none";
+}
+
 const signUpButton = document.getElementById("signUp");
 const signInButton = document.getElementById("signIn");
 const container = document.getElementById("container");

@@ -1,7 +1,7 @@
 <div class="bg" id="modalBackground">
 
   <div class="container" id="container">
-  <div id="closeButton">
+  <div id="closeButton" onclick="closeModal()">
     <i class="fas fa-window-close"></i>
     </div>
     <div class="form-container sign-up-container">
