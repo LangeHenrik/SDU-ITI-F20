@@ -1,33 +1,42 @@
 <?php  
-session_start();
+if(session_status() == PHP_SESSION_NONE){
+    session_start();
+}
+
 require_once 'db_config.php';   
 $username = filter_input(INPUT_POST, 'username');
 $password=filter_input(INPUT_POST, 'password');
+//echo $username;
+
 try {
         /* @var $conn PDO */
-    $conn = new PDO("mysql:host=$db_server;dbname=$db_name", $db_user, $db_pass,
-    array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-    $sql = "SELECT username, password FROM users WHERE username='$username'";
+    $conn= ConnectToDB();
+    $sql = "SELECT username, password FROM users WHERE username = :username";
     $loggin = $conn->prepare($sql);
-    $loggin->bindParam('password', $password);
-    $password_hash=password_hash($password, PASSWORD_DEFAULT);
+    $loggin->bindParam(':username', $username);
     $loggin->execute();
+    $loggin->setFetchMode(PDO::FETCH_ASSOC);
+    $result = $loggin->fetchAll();
     $output = 'login error';
-
-if ($loggin->execute() && $row = $loggin->fetch())
+    print_r($result);
+    echo '<br> her <br>';
+    print_r($result[0]);
+    echo '<br>';
+if (!empty($result))
 {
-    if ( $row['password']===$password)
+    if ( password_verify($password,  $result[0]['password']))
     {
+        echo "Loggin in...";
         // Account found
-        if ( $row['activated'] !== 0 ) {
+ 
+        $output = 'logged in';
+         header("Location:Home.html");
+            exit;
+    }else {
+           
             $output = 'not activated';
             $_SESSION['username'] = $username;
-        } else {
-        $output = 'logged in';
-         header("Location: http://localhost:8080/Home.html");
-            exit;
-        }
-    }
+    }     
 }
     echo $output;
     } catch (PDOException $e){

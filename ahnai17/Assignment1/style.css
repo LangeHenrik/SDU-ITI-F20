@@ -146,3 +146,7 @@ and open the template in the editor.
   background-color: #ddd;
   color: black;
 }
+
+#output { /*size of image shown here*/
+    width: 250px;
+}

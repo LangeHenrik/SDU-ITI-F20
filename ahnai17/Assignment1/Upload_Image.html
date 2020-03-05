@@ -7,7 +7,7 @@ and open the template in the editor.
 <html>
     <head>
         <link rel="stylesheet" href="style.css" type="text/css"/>
-        <link rel="stylesheet" href="style.css" type="text/css">
+        <link rel="stylesheet" href="https://kit.fontawesome.com/1f15f3e0ac.js/" crossorigin="anonymous">
         <title>Web gallery and image upload</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,11 +18,14 @@ and open the template in the editor.
             <div class="upimage">
                 <form action="upload.php" method="post" enctype="multipart/form-data">
                     Select image to upload:
-                    <input type="file" name="FileToUpload" id="FileToUpload">
+                    <input type="file" name="image" id="image" onchange="loadFile(event)">
+                    <label for="image" style="cursor: pointer;"></label>
+                    <img id="output"/>
                     <input type="submit" value="Upload Image" name="submit">
                     <a href="Home.html">Go back to Home</a>
                 </form>
             </div>
         </div>
+        <script src="loadImage.js"></script>
     </body>
 </html>

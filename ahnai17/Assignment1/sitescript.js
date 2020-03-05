@@ -23,13 +23,13 @@ function validateUsername(){
     console.log(username);
     
     if (usernameregex.test(username)){
-        console.log("incorrect username form typed in please use letters and numbers");
+        alert("incorrect username form typed in please use letters and numbers");
         return false;
     } else if (username === ""){
-        console.log("please insert username before submitting");
+        alert("please insert username before submitting");
         return false;
     } else {
-        console.log("username true");
+        alert("username is acceptable");
         return true;
     }
     return false;
@@ -38,13 +38,13 @@ function validatePassword() {
     var passregex = new RegExp(/((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W]).{8,1000})/);
     var password = document.getElementById("password").value;
     if (passregex.test(password)){
-        console.log("incorrect password type please try again");
+        alert("incorrect password type please try again");
         return false;
     } else if (password === ""){
-        console.log("password needs to be typed in");
+        alert("password needs to be typed in");
         return false;
     } else {
-        console.log("password true");
+        alert("password is acceptable");
         return true;
     }
 }
