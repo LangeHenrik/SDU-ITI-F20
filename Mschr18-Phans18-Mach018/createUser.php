@@ -28,7 +28,6 @@ try
     $stmt->bindParam(':fullname', $inputArr["fullname"]);
     $stmt->bindParam(':phone', $inputArr["phone"]);
     $stmt->bindParam(':email', $inputArr["email"]);
-    
     $result = $stmt->execute();
 
     echo "<script> console.log('User created with result: $result'); </script>" ;
