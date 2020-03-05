@@ -20,20 +20,15 @@
 
 <?php
 require("database.php");
-session_start();
 
 session_start();
 if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
   echo '<h3 id="name">' . $_SESSION["name"] . '</h3>';
 } else {
-  function_alert("You have to be logged in, to access this page");
   header("location: index.php");
   exit;
 }
 
-function function_alert($msg) {
-  echo "<script type='text/javascript'>alert('$msg');</script>";
-}
 
 if (isset($_POST['upload'])) {
 
