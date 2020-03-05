@@ -35,7 +35,6 @@ if (isset($_POST['upload'])) {
   $name = $_FILES['file']['name'];
   $target_dir = "upload/";
   $target_file = $target_dir . basename($_FILES["file"]["name"]);
-  echo '$name';
   //husk at indsætte head og description også
   $head = filter_var($_POST['head'], FILTER_SANITIZE_STRING);
   $description = filter_var($_POST['description'], FILTER_SANITIZE_STRING);
