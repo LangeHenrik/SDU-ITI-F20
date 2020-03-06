@@ -54,8 +54,8 @@
         foreach ($users as $row) {
           echo "<div class='nested'>";
           echo "<h3>" . $row['Name'] . "</h3>";
-           echo $Image;
-          echo "<img src='" . $row[$Image] . "' class='avatar' >";
+          echo $row['Image'];
+          echo "<img src='" . $row['Image'] . "' class='avatar' >";
           echo "<b><i>~ " . $row['Username'] . " ~</i></b>";
           echo "<p>" . $row['BDate'] . "</p>";
           echo "</div>";
