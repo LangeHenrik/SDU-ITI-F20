@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Test of Form</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!-- JS -->
+		<script src="myscripts.js"></script>
+
+		<!-- CSS -->
+		<link rel="stylesheet" type="text/css" href="style.css" />
+
+		<!-- AwesomeFont -->
+		<link
+			rel="stylesheet"
+			href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+			integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+			crossorigin="anonymous"
+		/>
+	</head>
+
+	<body>
+		<nav class="menu">
+			<ul class="menu">
+				<li>
+					Pictutres
+				</li>
+				<li>
+					Users
+				</li>
+			</ul>
+		</nav>
+		<div class="page">
+			<div class="content">
+				<form
+					name="formvalidate"
+					action="”this.html”"
+					method="post"
+					onsubmit="return check(formvalidate)"
+				>
+					<label for="name" style="color: blue;">name</label>
+					<br />
+					<input type="text" name="name" id="name" />
+					<br />
+					<label for="password">password</label>
+					<br />
+					<input type="password" name="password" id="password" />
+					<br />
+					<label for="phone">phone number</label>
+					<br />
+					<input type="text" name="phone" id="phone" />
+					<br />
+					<label for="email">email adress</label>
+					<br />
+					<input type="text" name="email" id="email" />
+					<br />
+					<label for="zip">zip code</label>
+					<br />
+					<input type="text" name="zip" id="zip" />
+					<br />
+					<input type="submit" name="submit" id="submit" />
+				</form>
+			</div>
+		</div>
+	</body>
+</html>
