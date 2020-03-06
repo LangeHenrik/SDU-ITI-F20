@@ -1,5 +1,5 @@
 html {
-    background-color: #68bce6;
+    background-color: #56baed;
   }
 
 body {
@@ -46,7 +46,7 @@ body {
     text-align: center;
   }
 button[type=submit]{
-    background-color: #16abf5;
+    background-color: #56baed;
     border: none;
     color: white;
     padding: 15px 80px;
@@ -63,7 +63,7 @@ button[type=submit]{
   }
   
 button[type=submit]:hover  {
-    background-color: rgb(25, 92, 238);
+    background-color: #39ace7;
   }
   
 button[type=submit]{

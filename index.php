@@ -2,12 +2,6 @@
     require "header.php";
 ?>
   <div>
-      <form action="./includes/login.php" method="post">
-          <input type="text" name="username-login" id="username-login" placeholder="Username">
-          <input type="password" name="password-login" id="password-login" placeholder="Password">
-          <button type="submit" name="login-submit">Log-in</button>
-      </form>
-      <br />
       <form action="./includes/logout.php" method="post">
           <button type="submit" name="logout-submit">Log-out</button>
       </form>

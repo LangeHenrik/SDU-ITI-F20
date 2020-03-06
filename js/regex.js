@@ -5,14 +5,14 @@ function validateFields() {
     var is_password = false;
     var is_email = false;
     var is_pwd_repeat = false;
-    var username_value = document.getElementById('username-register').value;
+    var username_value = document.getElementById('username').value;
     var regex = new RegExp(/[a-zA-Z0-9]{4,50}$/gm);
     if (regex.test(username_value) == true) {
-        document.getElementById('username-register').style.color = "darkblue";
+        document.getElementById('username').style.color = "darkblue";
         is_username = true;
         console.log("Username regex");
     } else {
-        document.getElementById('username-register').style.color = "pink";
+        document.getElementById('username').style.color = "pink";
         console.log("Username not regex");
     }
 
