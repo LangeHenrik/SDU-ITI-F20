@@ -16,7 +16,8 @@ if (isset($_POST['upload'])) {
   // Get birthday
   $BDate = filter_var($_POST['BDate'], FILTER_SANITIZE_STRING);
   // Get encoded image name
-  $Image = base64_encode($_FILES['Image']['name']);
+  $Image = $_FILES['Image']['name'];
+  //base64_encode()
 
   try {
     $db = new PDO("mysql:host=$DB_SERVER;port=3307;dbname=$DB_DATABASE", $DB_USERNAME, $DB_PASSWORD);
@@ -43,7 +44,7 @@ if (isset($_POST['upload'])) {
 }
 
 ?>
-<form method="POST" action="#" enctype="multipart/form-data">
+<form method="POST" action="../index.php" enctype="multipart/form-data">
   <h1>Create account</h1>
   <input type="email" placeholder="E-mail is required" name="Email" required />
   <input type="text" placeholder="Username is required" name="Username" required />
