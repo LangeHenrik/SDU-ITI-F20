@@ -68,9 +68,8 @@ if (isset($_POST['register'])) {
     $statement = 'INSERT INTO person (name, username, passwordHash) VALUES (:name, :username, :password)';
     $parameters = array(array(":name", $name), array(":username", $username), array(":password", $password));
     $inserted = talkToDB($statement, $parameters);
-    print_r($inserted);
-    if (!$inserted){
-    echo '<script>alert("Username already taken")</script>';
+    if ($inserted == 1062){
+      echo '<script>alert("Username already taken")</script>';
     }
     else{
     echo '<script>alert("Registration Success")</script>';

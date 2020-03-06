@@ -21,7 +21,11 @@ function talkToDB($statement, $parameters){
 
     }
     catch(PDOException $e) {
+        if($e->errorInfo[1] == 1062){
+            return $e->errorInfo[1];
+        } else{
         echo "Error: " . $e->getMessage();
+        }
     }
 }
 
