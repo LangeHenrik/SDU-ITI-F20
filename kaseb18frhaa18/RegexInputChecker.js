@@ -17,7 +17,7 @@ function checkName() {
 
 function checkPassword() {
     var name = document.getElementById("password").value;
-    var regex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/i;
+    var regex = /^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})/i;
     var nameLabel = document.getElementById("password_err")
     if (regex.test(name)) {
         return nameLabel.textContent = "";

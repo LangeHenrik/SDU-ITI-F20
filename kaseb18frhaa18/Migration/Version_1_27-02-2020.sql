@@ -6,7 +6,7 @@ USE kaseb18frhaa18;
 CREATE TABLE person (
     person_id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(50) NOT NULL, 
-    username VARCHAR(20) NOT NULL, 
+    username VARCHAR(20) NOT NULL UNIQUE,
     passwordHash VARCHAR(1000) NOT NULL
 );
 
