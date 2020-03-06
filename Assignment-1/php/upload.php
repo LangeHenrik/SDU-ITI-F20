@@ -9,11 +9,13 @@ if (isset($_POST['upload'])) {
     // Get Description
     $Description = htmlentities($_POST['Description']);
     // Get User
-    $UserID = filter_var($_POST['UserID'], FILTER_SANITIZE_STRING);
+    $UserID = htmlentities($_POST['UserID']);
     // image file directory
+    // Get encoded image name
     $Image = $_FILES['Image']['name'];
-    $target = "img/pictures/" . basename($Image);
-    $Uploadimage = move_uploaded_file($_FILES['Image']['tmp_name'], $target);
+    // base64_encode(
+    // image file directory
+    $target = "../img/gallery/" . basename($Image);
 
     try {
         $db = new PDO("mysql:host=$DB_SERVER;port=3307;dbname=$DB_DATABASE", $DB_USERNAME, $DB_PASSWORD);
@@ -21,12 +23,20 @@ if (isset($_POST['upload'])) {
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         // insert data picture
-        $db->prepare("INSERT INTO picture (Image, Header, Description, UserID) 
-        VALUES ('$Image', '$Header', '$Description', '$UserID')")->execute();
+        $sql = ("INSERT INTO picture (Image, Header, Description, UserID) 
+        VALUES ('$Image', '$Header', '$Description', '$UserID')");
 
-        $Uploadimage;
+        // executes the statment
+        $db->prepare($sql)->execute();
+
         // shows if the connection fails
         echo "Connected successfully";
+
+        if (move_uploaded_file($_FILES['Image']['tmp_name'], $target)) {
+            echo "Image uploaded successfully";
+        } else {
+            echo "Failed to upload image";
+        }
     } catch (PDOException $e) {
         echo "Connection failed: " . $e->getMessage();
     }
