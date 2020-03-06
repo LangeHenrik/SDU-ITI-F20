@@ -52,7 +52,7 @@
           echo "<h3>" . $row['Name'] . "</h3>";
           echo "<img src=../img/pictures/" . $row['Image'] . " class='avatar' />";
           echo "<b><i>~ " . $row['Username'] . " ~</i></b>";
-          echo "<p>" . $row['BDate'] . "</p>";
+          echo "<p>" . date_format($row['BDate'],"d/m/Y") . "</p>";
           echo "</div>";
         }
         ?>
