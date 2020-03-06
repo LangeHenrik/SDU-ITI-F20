@@ -7,8 +7,9 @@ require_once "database.php";
 
 //check if already logged in
 if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
-    header("location: imagefeed.php");
-    exit;
+    header("location: user_list.php");
+} else {
+    echo '<script>alert("You need to be logged in for that.")</script>';
 }
 
 //define varriable
@@ -57,7 +58,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $_SESSION["name"] = $name;
 
                     // Redirect user to welcome page
-                    header("location: registration.php");
+                    header("location: User_list.php");
+                    echo '<script>alert("Log in Success")</script>';
                 } else {
                     // Display an error message if password is not valid
                     $password_err = "The password you entered was not valid.";

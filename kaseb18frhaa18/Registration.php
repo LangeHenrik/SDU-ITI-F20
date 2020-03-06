@@ -19,6 +19,9 @@
         <li> <a href=UploadPage.php>Upload</a></li>
         <li> <a href=imagefeed.php>Image Feed</a></li>
         <li> <a href=user_list.php>User List</a></li>
+        <form method="POST">
+          <button name="logout" type="logout" value="logout">Log out</button>
+        </form>
       </ul>
     </div>
   </div>
@@ -49,10 +52,7 @@
 session_start();
 
 if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
-  echo '<h3 id="name">'. $_SESSION["name"].'</h3>';
-} else {
-  header("location: index.php");
-  exit;
+  echo '<h3 id="name">' . $_SESSION["name"] . '</h3>';
 }
 
 require 'database.php';
@@ -83,6 +83,12 @@ function check_input($input, $regex)
   } else {
     $_POST['ok_signal'] = false;
   }
+}
+
+if (isset($_POST['logout'])) {
+  session_unset();
+  session_destroy();
+  header("location: index.php");
 }
 
 ?>

@@ -6,7 +6,16 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
     header("location: index.php");
     exit;
 }
+
+if (isset($_POST['logout'])) {
+    session_unset();
+    session_destroy();
+    header("location: index.php");
+}
+
 ?>
+
+
 
 <html>
 
@@ -23,11 +32,14 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
         <div class="menu">
             <h2>Menu</h2>
             <ul>
-                <li> <a href=index.php>Login</a></li>
+                <li> <a href=# onclick="alert('You are already logged in.')">Login</a></li>
                 <li> <a href=registration.php>Register</a></li>
-                <li> <a href=upload.php>Upload</a></li>
+                <li> <a href=uploadpage.php>Upload</a></li>
                 <li> <a href=ImageFeed.php>Image Feed</a></li>
                 <li> <a href=User_List.php>User List</a></li>
+                <form method="POST">
+                    <button name="logout" type="logout" value="logout">Log out</button>
+                </form>
             </ul>
         </div>
     </div>
