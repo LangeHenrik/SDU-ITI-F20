@@ -50,8 +50,7 @@
         foreach ($users as $row) {
           echo "<div class='nested'>";
           echo "<h3>" . $row['Name'] . "</h3>";
-          header("Content-type: " . $row["Image"]);
-          echo "<img src=data:image/jpeg;base64," . base64_encode($row['Image']) . " class='avatar' />";
+          echo "<img src=../img/pictures/" . $row['Image'] . " class='avatar' />";
           echo "<b><i>~ " . $row['Username'] . " ~</i></b>";
           echo "<p>" . $row['BDate'] . "</p>";
           echo "</div>";

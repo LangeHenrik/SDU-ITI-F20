@@ -17,7 +17,9 @@ if (isset($_POST['upload'])) {
   $BDate = filter_var($_POST['BDate'], FILTER_SANITIZE_STRING);
   // Get encoded image name
   $Image = $_FILES['Image']['name'];
-  //base64_encode()
+  // base64_encode(
+  // image file directory
+  $target = "img/pictures/" . basename($Image);
 
   try {
     $db = new PDO("mysql:host=$DB_SERVER;port=3307;dbname=$DB_DATABASE", $DB_USERNAME, $DB_PASSWORD);
@@ -38,6 +40,12 @@ if (isset($_POST['upload'])) {
 
     // shows if the connection fails
     echo "Connected successfully";
+
+    if (move_uploaded_file($_FILES['Image']['tmp_name'], $target)) {
+      echo "Image uploaded successfully";
+    } else {
+      echo "Failed to upload image";
+    }
   } catch (PDOException $e) {
     echo "Connection failed: " . $e->getMessage();
   }

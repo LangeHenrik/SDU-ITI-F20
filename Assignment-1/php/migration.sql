@@ -12,7 +12,7 @@ CREATE TABLE user (
 
 CREATE TABLE picture (
   ID int NOT NULL AUTO_INCREMENT,
-  Image longblob NOT NULL,
+  Image varchar(255) NOT NULL,
   Header varchar(255) NOT NULL,
   Description text NOT NULL,
   UserID int NOT NULL,
@@ -24,7 +24,7 @@ CREATE TABLE userinfo (
   ID int NOT NULL AUTO_INCREMENT,
   Name varchar(225) NOT NULL,
   BDate timestamp DEFAULT current_timestamp(),
-  Image longblob NOT NULL,
+  Image varchar(255) NOT NULL,
   LoginID int NOT NULL,
   PRIMARY KEY (ID),
   FOREIGN KEY (LoginID) REFERENCES user(ID)
