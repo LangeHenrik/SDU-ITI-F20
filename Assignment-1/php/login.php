@@ -1,17 +1,13 @@
 <div class="bg" id="modalBackground">
 
   <div class="container" id="container">
-  <div id="closeButton" onclick="closeModal()">
-    <i class="fas fa-window-close"></i>
+    <div id="closeButton" onclick="closeModal()">
+      <i class="fas fa-window-close"></i>
     </div>
     <div class="form-container sign-up-container">
-      <form action="#">
-        <h1>Create Account</h1>
-        <input type="text" placeholder="Name" />
-        <input type="email" placeholder="Email" />
-        <input type="password" placeholder="Password" />
-        <button>Sign Up</button>
-      </form>
+      <?php
+      require "php/registration.php";
+      ?>
     </div>
     <div class="form-container sign-in-container">
       <form action="#">
@@ -41,5 +37,5 @@
       </div>
     </div>
   </div>
-  
+
 </div>
