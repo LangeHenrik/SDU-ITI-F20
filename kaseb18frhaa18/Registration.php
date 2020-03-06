@@ -68,6 +68,9 @@ if (isset($_POST['register'])) {
     $statement = 'INSERT INTO person (name, username, passwordHash) VALUES (:name, :username, :password)';
     $parameters = array(array(":name", $name), array(":username", $username), array(":password", $password));
     talkToDB($statement, $parameters);
+    echo '<script>alert("Registration Success")</script>';
+  } else {
+    echo '<script>alert("Registration not Success. Try again.")</script>';
   }
 }
 

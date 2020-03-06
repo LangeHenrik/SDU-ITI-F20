@@ -61,6 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 } else {
                     // Display an error message if password is not valid
                     $password_err = "The password you entered was not valid.";
+                    echo '<script>alert("Log in Not Success. Try Again")</script>';
                 }
             } else {
                 // Display an error message if username doesn't exist

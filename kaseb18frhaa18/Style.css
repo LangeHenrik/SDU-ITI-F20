@@ -75,14 +75,12 @@ body {
     .menu {
         width: 150px;
         flex-direction: column;
-        align-self: flex-end;
     }
     h3[id="name"] {
         visibility: hidden;
     }
     .wrapper .content {
         flex-direction: column;
-        align-self: flex-end;
     }
 
 }
@@ -311,6 +309,7 @@ div.description h3 {
     border: 2px dotted white;
     margin: 10px;
     overflow: auto;
+    overflow-wrap: break-word;
 }
 
 div.description h4 {
