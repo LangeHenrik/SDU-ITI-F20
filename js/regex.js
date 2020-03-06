@@ -16,14 +16,14 @@ function validateFields() {
         console.log("Username not regex");
     }
 
-    var password_value = document.getElementById('password-register').value;
+    var password_value = document.getElementById('pwd-register').value;
     var regex = new RegExp(/[a-zA-Z0-9]{10,50}$/gm);
     if (regex.test(password_value)) {
-        document.getElementById('password-register').style.color = "darkblue";
+        document.getElementById('pwd-register').style.color = "darkblue";
         is_password = true;
         console.log("Password regex")
     } else {
-        document.getElementById('password-register').style.color = "pink";
+        document.getElementById('pwd-register').style.color = "pink";
         console.log("Password not regex")
     }
 
