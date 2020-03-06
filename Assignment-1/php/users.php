@@ -40,7 +40,6 @@
 
           $user = $db->prepare($query);
           $user->execute();
-
           $users = $user->fetchAll();
 
           //echo "Connected successfully";
@@ -48,14 +47,11 @@
           echo "Connection failed: " . $e->getMessage();
         }
 
-        // Get image 
-        $Image = base64_decode($_FILES['Image']['name']);
-
         foreach ($users as $row) {
           echo "<div class='nested'>";
           echo "<h3>" . $row['Name'] . "</h3>";
-          echo $row['Image'];
-          echo "<img src='" . $row['Image'] . "' class='avatar' >";
+          header("Content-type: " . $row["Image"]);
+          echo "<img src=data:image/jpeg;base64," . base64_encode($row['Image']) . " class='avatar' />";
           echo "<b><i>~ " . $row['Username'] . " ~</i></b>";
           echo "<p>" . date_format($row['BDate'],"d/m/Y") . "</p>";
           echo "</div>";
@@ -66,6 +62,7 @@
     <?php
     require 'login.php';
     ?>
-  </body>
-  <script src="../js/Default.js"></script>
+</body>
+<script src="../js/Default.js"></script>
+
 </html>
