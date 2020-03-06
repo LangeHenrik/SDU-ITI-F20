@@ -63,7 +63,7 @@ button[type=submit]{
   }
   
 button[type=submit]:hover  {
-    background-color: #39ace7;
+    background-color: rgb(25, 92, 238);
   }
   
 button[type=submit]{
