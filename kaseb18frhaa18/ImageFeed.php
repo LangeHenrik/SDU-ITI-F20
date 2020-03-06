@@ -41,7 +41,7 @@ if (isset($_POST['logout'])) {
 
 <head>
     <!-- basic.html -->
-    <title>Title of the document</title>
+    <title>Image Feed</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="myscripts.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">

@@ -56,4 +56,3 @@ function giveAnswer(regex, nameLabel) {
         return false;
     }
 }
-

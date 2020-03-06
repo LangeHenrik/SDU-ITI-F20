@@ -8,8 +8,6 @@ require_once "database.php";
 //check if already logged in
 if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
     header("location: user_list.php");
-} else {
-    echo '<script>alert("You need to be logged in for that.")</script>';
 }
 
 //define varriable
@@ -86,7 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <head>
     <!-- basic.html -->
-    <title>Title of the document</title>
+    <title>Log in</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="myscripts.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -100,9 +98,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <ul>
                 <li> <a href=index.php>Login</a></li>
                 <li> <a href=registration.php>Register</a></li>
-                <li> <a href=uploadpage.php>Upload</a></li>
-                <li> <a href=ImageFeed.php>Image Feed</a></li>
-                <li> <a href=User_List.php>User List</a></li>
+                <li> <a href=# onclick="alert('You need to be logged in first.')">Upload</a></li>
+                <li> <a href=# onclick="alert('You need to be logged in first.')">Image Feed</a></li>
+                <li> <a href=# onclick="alert('You need to be logged in first.')">User List</a></li>
             </ul>
         </div>
     </div>

@@ -74,10 +74,17 @@ body {
     }
     .menu {
         width: 150px;
+        flex-direction: column;
+        align-self: flex-end;
     }
     h3[id="name"] {
         visibility: hidden;
     }
+    .wrapper .content {
+        flex-direction: column;
+        align-self: flex-end;
+    }
+
 }
 
 @media screen and (min-width: 1500px) {
@@ -292,6 +299,7 @@ div.description p {
     font-size: 24px;
     border: 2px dotted white;
     margin: 10px;
+    overflow: auto;
 }
 
 div.description h3 {
@@ -302,6 +310,7 @@ div.description h3 {
     font-size: 14px;
     border: 2px dotted white;
     margin: 10px;
+    overflow: auto;
 }
 
 div.description h4 {
@@ -312,4 +321,5 @@ div.description h4 {
     font-size: 14px;
     border: 2px dotted white;
     margin: 10px;
+    overflow: auto;
 }

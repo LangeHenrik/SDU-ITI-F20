@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Title of the document</title>
+  <title>Registration</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="RegexInputChecker.js"></script>
   <link rel="stylesheet" type="text/css" href="style.css">
@@ -53,6 +53,7 @@ session_start();
 
 if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
   echo '<h3 id="name">' . $_SESSION["name"] . '</h3>';
+  $loggedin = true;
 }
 
 require 'database.php';

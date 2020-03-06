@@ -20,7 +20,7 @@ if (isset($_POST['logout'])) {
 <html>
 
 <head>
-    <title>Title of the document</title>
+    <title>User List</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="FindUsers.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
