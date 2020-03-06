@@ -62,10 +62,16 @@ if (isset($_POST['logout'])) {
 }
 
 if (isset($_POST['upload'])) {
+  $head = trim($_POST["head"]);
+  $description = trim($_POST["description"]);
 
-  if (empty(trim($_POST["head"])) || empty(trim($_POST["description"])) || empty($_FILES["file"]["tmp_name"])) {
+
+  if (empty($head) || empty($description) || empty($_FILES["file"]["tmp_name"])) {
     echo '<script>alert("Upload Failed. Header or Description is empty or no file was selected!")</script>';
-  } else {
+  } elseif ((strlen($head) > 25) or (strlen($description)>250) or ((filesize($_FILES["file"]["tmp_name"])*1.35) > 4294967295)){
+    echo '<script>alert("Max titlelength: 25 characters.\nMax description lenght: 250 characters.\nImage file might be too large.")</script>';
+  } 
+  else {
     $name = $_FILES['file']['name'];
     $target_dir = "upload/";
     $target_file = $target_dir . basename($_FILES["file"]["name"]);
