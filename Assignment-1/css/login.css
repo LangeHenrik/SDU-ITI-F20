@@ -76,10 +76,8 @@
   border-radius: 10px;
 }
 
-.bg input:invalid{
-  border: 1px solid;
-  border-color: #ff605c;
-  
+.bg input:invalid:focus{
+  box-shadow: 0 0 0 2px #ff605c;
 }
 
 .bg input:focus{
@@ -99,6 +97,7 @@
   min-height: 400px;
   min-width: 600px;
   overflow: inherit;
+  transition: 0.7s ease;
 }
 .bg {
   width: 100vw;

@@ -60,9 +60,11 @@ const container = document.getElementById("container");
 signUpButton.addEventListener("click", () => {
   container.classList.add("right-panel-active");
   document.getElementById("closeButton").style.color = "#fff";
+  document.getElementById("container").style.height = "40vw";
 });
 
 signInButton.addEventListener("click", () => {
   container.classList.remove("right-panel-active");
   document.getElementById("closeButton").style.color = "#111111";
+  document.getElementById("container").style.height = "30vw";
 });
