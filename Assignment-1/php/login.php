@@ -6,7 +6,7 @@
     </div>
     <div class="form-container sign-up-container">
       <?php
-      require "php/registration.php";
+      require "registration.php";
       ?>
     </div>
     <div class="form-container sign-in-container">

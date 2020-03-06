@@ -38,5 +38,5 @@
     require 'login.php';
     ?>
   </body>
-  <script src="./SDU-ITI-F20/Assignment-1/js/Default.js"></script>
+  <script src="../js/Default.js"></script>
 </html>
