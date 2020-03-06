@@ -312,6 +312,10 @@ div.description h3 {
     overflow-wrap: break-word;
 }
 
+div #description {
+    resize: none;
+}
+
 div.description h4 {
     color: white;
     background-color: blue;
