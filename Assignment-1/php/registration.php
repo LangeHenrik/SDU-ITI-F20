@@ -13,9 +13,9 @@ if (isset($_POST['upload'])) {
 
   // Get name
   $Name = filter_var($_POST['Name'], FILTER_SANITIZE_STRING);
-  // Get Bday
+  // Get birthday
   $BDate = filter_var($_POST['BDate'], FILTER_SANITIZE_STRING);
-  // Get image name
+  // Get encoded image name
   $Image = base64_encode($_FILES['Image']['name']);
 
   try {
@@ -23,15 +23,19 @@ if (isset($_POST['upload'])) {
     // set the PDO error mode to exception
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // insert username, password and auto id
+    // insert email, username, password and auto id
     $db->prepare("INSERT INTO user (Email, Username, Password)
     VALUES('$Email', '$Username', '$Password')")->execute();
+    // Get last inserted id 
     $userID = $db->lastInsertId();
 
+    // insert name, birthday, profileimage and id from tabel user
     $sql = "INSERT INTO userinfo (Name, BDate, Image, LoginID) 
     VALUES('$Name', '$BDate', '$Image', '$userID')";
+    // executes the statment
     $db->prepare($sql)->execute();
 
+    // shows if the connection fails
     echo "Connected successfully";
   } catch (PDOException $e) {
     echo "Connection failed: " . $e->getMessage();
