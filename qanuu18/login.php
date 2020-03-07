@@ -12,17 +12,18 @@ try
     {
         if (empty($_POST["username"]) || empty($_POST["password"]))
         {
-            $message = '<label>Please fill all fields</label>';
+            echo "Please fill all fields";
         }
         else
         {
-            $query = "SELECT username, password FROM user WHERE username = :username AND password = :password";
+            $query = "SELECT * FROM user WHERE username = :username AND password = :password";
             $stmt = $conn->prepare($query);
             $stmt->execute(array(
                 'username' => $_POST["username"],
                 'password' => $_POST["password"]
             ));
             $count = $stmt->rowCount();
+
             if ($count > 0)
             {
                 $_SESSION["username"] = $_POST["username"];
@@ -30,13 +31,11 @@ try
             }
             else
             {
-                $message = '<label>Wrong username or password</label>';
+                echo "Wrong username or password";
             }
         }
-
     }
 }
-
 catch(PDOException $e)
 {
     echo "Error: " . $e->getMessage();
