@@ -9,7 +9,7 @@
     "header header"
     "image image"
     "credit credit"
-    ". uname";
+    "date uname";
 }
 
 .imagefeed h3 {
@@ -26,15 +26,19 @@
 
 .credit{
   grid-area: credit;
-  display: grid !important;
-  /*grid-template-columns: repeat(2, 1fr);*/  
-  grid-template-areas: 
-  "col1"
-  "col2";
   justify-content: center;
   align-items: center;
   text-align: center;
   font-size: medium;
+}
+
+.credit > p{
+  font-size: 1.2vw;
+}
+
+#userdate{
+  grid-area: date !important;
+
 }
 
 .avatar {
