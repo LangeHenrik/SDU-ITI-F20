@@ -1,33 +1,36 @@
 <!DOCTYPE html>
 
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <link rel="stylesheet" href="styling.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  </head>
+</head>
 
-    <title>Registration Page</title>
+<title>Registration Page</title>
 
-    </head>
-    <h1> Register page </h1>
-    <h2> Create a profile to see photos friends. </h2>
+</head>
+<h1> Register page </h1>
+<h2> Create a profile to see photos friends. </h2>
 
-    <h3> It's easy and fast. </h3>
-    <body>
-<div id="frm">
-    <form class="register" name="register" method="POST">
+<h3> It's easy and fast. </h3>
+
+<body>
+    <div id="frm">
+        <form class="register" name="register" method="POST">
             <p>
                 <label>Your username:</label>
-                <input type="text" id="user" name="user">
+                <input type="text" id="user" name="usernameinfo">
             </p>
             <p>
                 <label>New password:</label>
-                <input type="password" id="pass" name="pass">
+                <input type="password" id="pass" name="passwordinfo">
             </p>
 
             <p>
                 <input type="submit" id="btn" value="Register">
             </p>
-            </body>
+</body>
+
 </html>
