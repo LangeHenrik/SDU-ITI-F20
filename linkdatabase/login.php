@@ -1,6 +1,6 @@
 <?php
+    require __DIR__ . '/../config.php';
 
-    require_once 'config.php';
     try {
         $connection = new PDO("mysql:host=$server;port=3307;dbname=$database", 
         $username_database, $password_database, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
@@ -9,22 +9,26 @@
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
         $result = $stmt->fetchAll();
         
-        $user = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
-        $userXSS = htmlspecialchars($user);
+        $user = filter_var($_POST['username-login'], FILTER_SANITIZE_STRING);
+        $userXSS = htmlspecialchars($user, ENT_QUOTES | ENT_SUBSTITUTE, 'utf-8');
 
-        $pass = filter_var($_POST['pwd'], FILTER_SANITIZE_STRING);
-        $passXSS = htmlspecialchars($pass);
+        $pass = filter_var($_POST['pwd-login'], FILTER_SANITIZE_STRING);
+        $passXSS = htmlspecialchars($pass, ENT_QUOTES | ENT_SUBSTITUTE, 'utf-8');
 
         if(isset($_SESSION['username'])){
             echo"<a href='logout.php'><input type=button value=Logout name=logout></a>";
         }else{
             foreach($result as $row){
-                if($row['username']==$userXSS && password_verify($passXSS, $row['password'])){
-                    $_SESSION['usernmae']=$_POST['username'];
-                    echo"<script> location.href = 'feed.php'<\script>";
+                if($row['username']==$userXSS && password_verify($passXSS, $row['pwd'])){
+                    echo"igual";
+                    $_SESSION['username']=$_POST['username-login'];
+                    $path_feed = __DIR__ . '/../feed.php';
+                    echo"<script> location.href = 'http://localhost:8080/feed.php'<\script>";
                 }else{
+                    echo"diferente";
+                    $path_index = __DIR__ . '/../index.php';
                     echo "<script> alert('Log in first to use the feature!')</script>";
-                    echo "<script> location.href = 'header.php' </script>";
+                    echo "<script> location.href = 'http://localhost:8080/index.php' </script>";
                 }
             }
         }
