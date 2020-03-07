@@ -57,7 +57,7 @@ if(isset($_POST["submit"]))//只用submit存在才能执行
     ?>
 <script>
         alert ("welcome  <?php echo $usr;?>");
-        window.location.href="home_page";
+        window.location.href="upload.php";
         </script>
 <?php
     }

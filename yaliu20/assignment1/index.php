@@ -12,6 +12,7 @@
 上传图片:
 <input type="file" name="pic">
 <input type="submit" value="上传">
+window.location.href="frontpage.php";
 </form>
 </center>
  </body>

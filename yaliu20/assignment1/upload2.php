@@ -8,31 +8,31 @@
     if($upfile["error"]>0){
         switch($upfile['error']){//获取错误信息
             case 1:
-                $info="上传得文件超过了 php.ini中upload_max_filesize 选项中的最大值.";
+                $info="too big";
                 break;
             case 2:
-                $info="上传文件大小超过了html中MAX_FILE_SIZE 选项中的最大值.";
+                $info="too big";
                 break;
             case 3:
-                $info="文件只有部分被上传";
+                $info="error";
                 break;
             case 4:
-                $info="没有文件被上传.";
+                $info="no file is update.";
                 break;
             case 5:
-                $info="找不到临时文件夹.";
+                $info="can't find it.";
                 break;
             case 6:
-                $info="文件写入失败！";break;
-        }die("上传文件错误,原因:".$info);
+                $info="error！";break;
+        }die("there is something wrong:".$info);
     }
     //3.本次上传文件大小的过滤（自己选择）
     if($upfile['size']>10000000){
-        die("上传文件大小超出限制");
+        die("too big");
     }
     //4.类型过滤
     if(!in_array($upfile["type"],$typelist)){
-        die("上传文件类型非法!".$upfile["type"]);
+        die("wrong file!".$upfile["type"]);
     }
     //5.上传后的文件名定义(随机获取一个文件名)
     $fileinfo=pathinfo($upfile["name"]);//解析上传文件名字
@@ -44,10 +44,10 @@
     if(is_uploaded_file($upfile["tmp_name"])){
             //执行文件上传(移动上传文件)
             if(move_uploaded_file($upfile["tmp_name"],$path.$newfile)){
-                echo "文件上传成功!";
+                echo "success!";
                 ?>
                 <script>
-        window.location.href="getimage.php";
+        window.location.href="image feed.php";
         </script>
         <?php
 
@@ -59,15 +59,15 @@
                 $result = $dbh -> query($query);
 
                 if($result){
-                    echo"文件已存储到数据库";
+                    echo"the file is saved in the database";
                 }
                 else{
-                    echo"请求失败，请重试";
+                    echo"try it again";
                 }
             }else{
-            die("上传文件失败！");
+            die("error");
         }
     }else{
-    die("不是一个上传文件!");
+    die("is not a file");
   }
 ?>

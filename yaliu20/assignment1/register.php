@@ -45,6 +45,8 @@ function validate_password2(password2) {
 <div class="sign-div">
     <form class="" method="post">
         <h1>SIGN UP NOW</h1>
+        
+
         <table>
             <tr> 
               <td><input class="sign-text" name="username" id="username" type="text" placeholder="username" onblur="validate_username(this.value)"></td>
@@ -60,7 +62,9 @@ function validate_password2(password2) {
             <tr> <td><input class="sign-text" id="password2" type="password" placeholder="confirm the password" onblur="validate_password2(this.value)"/ ></td>
         <td id="is_test_pw"></td></tr>
         <tr><td><input class="sign-btn" type="submit" name="submit" value="Sign up"></td></tr>
+        <tr><td><input class="sign-btn" type="button" name="back" value="back" onclick="javascript:location.href='frontpage.php'"></td></tr>
         </table>
+        
         
     </form>
  
