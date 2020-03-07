@@ -204,3 +204,20 @@ img.image {
 div.image_text {
     text-align: left;
 }
+div.user_list input[type=text],textarea {
+    width: 20%;
+    padding: 7px 10px;
+    margin: 0 0 10px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+div.user_list input[type=text]:hover,textarea:hover{
+    border: 1px solid #0073d7;
+}
+div.user_list input[type=text]:focus,textarea:focus{
+    border: 1px solid #0073d7;
+}
+div.user_list #search_result {
+    display: none;
+}

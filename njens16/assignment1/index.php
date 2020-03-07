@@ -26,7 +26,8 @@ if(isset($_SESSION["user_id"]) && isset($_SESSION["logged_in"]))
         <div class="wrapper">
             <div class="frame">
             <div class="content">
-                <p>Welcome</p>
+                <p><b>Welcome </b><br/>
+                This is Nicholai Bjerke Jensen (njens16) answer to Assignment 1 in the course IT-2020</p>
 <?php
 }
 else

@@ -27,6 +27,9 @@
         <div class="wrapper">
             <div class="frame">
             <div class="content">
+                <div class="user_list">
+                <input type="text" name="user_search" id="user_search" onkeyup="search_user(this.value)" placeholder="Search user"/>
+                <p id="search_result">Results: <span id="user_search_resualt"></span></p>
                 <table>
                     <tr>
                         <th> Nr: </th>
@@ -64,9 +67,30 @@
                 echo sizeof($users);
 ?>
                 </p>
+                </div>
             </div>      
             </div>
         </div>
+
+    <script>
+    function search_user(str) {
+        if (str.length == 0) {
+            document.getElementById("user_search_resualt").innerHTML = "";
+            document.getElementById("search_result").style.display="none";
+            return;
+        } else {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("user_search_resualt").innerHTML = this.responseText;
+                }
+            };
+            document.getElementById("search_result").style.display="block";
+            xmlhttp.open("GET", "searchUser.php?q=" + str, true);
+            xmlhttp.send();
+        }
+    }
+    </script>
     </body>
 </html>
 
