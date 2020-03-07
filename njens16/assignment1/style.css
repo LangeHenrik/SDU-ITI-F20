@@ -48,7 +48,7 @@ div.wrapper {
 }
 div.frame {
     width: 100%;
-    height: 500px;
+    min-height: 500px;
     max-width: 1000px;
     margin: 0 auto;
     background-color: #FFFFFF;
@@ -193,4 +193,14 @@ div.upload table {
 .upload_ptn {
     opacity: 0.9;
 }
-
+div.images {
+    margin: auto 0;
+    text-align: center;
+}
+img.image {
+    width: 70%;
+    margin: 0 0 10px 0;
+}
+div.image_text {
+    text-align: left;
+}

@@ -106,17 +106,66 @@ if(isset($_SESSION["user_id"]) && isset($_SESSION["logged_in"]))
             <button onclick="show_upload()" id="upload_btn" class="upload_btn">Upload image</button>
             <div class="upload" id="upload">
                 <form action="#" method="post" enctype="multipart/form-data">
-                <table>
-                    <tr><td><input type="text" name="image_header" id="image_header" placeholder="Image Header"/></td></tr>
-                    <tr><td><textarea name="image_description" id="image_description" placeholder="Image Description" rows="8" cols="40"></textarea> </tr></td>
-                    <tr><td><label class="selectFile">Select image to upload: <input type="file" name="fileToUpload" id="fileToUpload"></label></td></tr>
-                    <tr><td><input type="submit" value="Upload Image" name="submit"></td></tr>
-                </table>
+                    <input type="text" name="image_header" id="image_header" placeholder="Image Header"/><br/>
+                    <textarea name="image_description" id="image_description" placeholder="Image Description" rows="8" cols="40"></textarea><br/>
+                    <label class="selectFile">Select image to upload: <input type="file" name="fileToUpload" id="fileToUpload"></label><br/>
+                    <input type="submit" value="Upload Image" name="submit">
                 </form>
                 </div>
             <p><?php echo $upload_message;?></p>
             <p><?php echo $error_message;?></p>
-
+            <div class="images">
+<?php 
+    //Show images:
+    $image_id = array();
+    $image_path_show = array(); 
+    $image_header_show = array();
+    $image_description_show = array();
+    $image_user_id = array();
+    $user_id = array();
+    $username = array();
+    try
+    {
+        $conn = new PDO("mysql:host=".MYSQL_HOST.";dbname=".MYSQL_DATABASE, MYSQL_USER, MYSQL_PASSWORD);
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $sql = "SELECT * FROM image";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
+        {
+            array_push($image_id, $row["image_id"]);
+            array_push($image_path_show, $row["image_path"]);
+            array_push($image_header_show, $row["image_header"]);
+            array_push($image_description_show, $row["image_description"]);
+            array_push($image_user_id, $row["upload_user_id"]);
+        }
+        
+        $sql = "SELECT * FROM user";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
+        {
+            array_push($user_id, $row["user_id"]);
+            array_push($username, $row["username"]);
+        }
+    }
+    catch(PDOException $e)
+    {
+        echo "Connection failed: " . $e->getMessage();
+    } 
+    for ($i = 0; $i < sizeof($image_id); $i++) 
+    {
+        echo "<div class='image_text'>".
+            "<p><b>Image header: </b>".$image_header_show[$i]."<br/>".
+            "<b>Imgae description: </b>".$image_description_show[$i]. "<br/>";
+        $user_index = array_search($image_user_id, $user_id);
+        echo "<b>User: </b>". $username[$user_index].
+            "</p></div>".
+            "<img class='image' src='".$image_path_show[$i]."'/>";
+    }
+?>
+            </div>
 
         </div>
         </div> 
@@ -138,4 +187,3 @@ else
     header("Location: index.php");
 }
 ?>
-
