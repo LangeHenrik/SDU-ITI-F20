@@ -20,7 +20,7 @@
                 <input type="submit" id="btn" value="Login">
             </p>
         </form>
-        <form class="registration" name="registration" method="POST" action="registration.php">
+        <form class="registration" name="registration" method="POST" action="registrationpage.php">
             <p>
                 <input type="submit" id="btn" value="Registration">
             </p>
