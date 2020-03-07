@@ -54,30 +54,32 @@ if (isset($_POST['formUpload'])) {
     }
   }
   else {
-    $error= "Complete Header and Description";
+    $error= "Upload failed : You must fill the Header and Description";
   }
 }
 ?>
 <div class="uploadpage">
 
-
-  <div class="container" >
+<!-- same properties (size and color than the userlist container) -->
+  <div class="container_userlist" >
     <div class="title">UPLOAD PAGE</div>
     <form method="post" class="form" action="" enctype='multipart/form-data'>
-        <input type="file" name="file" id="file" required="required">
+        <!-- <p>Drag your picture here or click on this area</p> -->
+        <input type="file" name="file" id="file" required="required" >
         <label for="header">Header</label>
         <input type='text' name='header'/>
         <label for="description">Description</label>
         <input type='text' name='description'/>
+
+        <input type='submit' value='Upload Image' name='formUpload'>
         <?php
         if(isset($error)) {
-            echo '<font color="red">'.$error."</font>";
+            echo '<p id="verif_fail" >'.$error."</p>";
         }
         if(isset($ok)){
-          echo '<font color="green">'.$ok."</font>";
+          echo '<p id="verif_ok" >'.$ok."</p>";
 
         }?>
-        <input type='submit' value='Upload Image' name='formUpload'>
     </form>
     </div>
   </div>

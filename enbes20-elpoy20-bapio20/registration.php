@@ -103,18 +103,19 @@ if (isset($_POST['formRegistration'])) {
 				<input type="email" class="form-control" name="email" placeholder="Email" value="<?php if(isset($email)) { echo $email; } ?>" /> <br />
 
 				<input type="submit" class="btn btn-primary" name="formRegistration" value="Subscribe"  /> <br />
-			</div>
+        <?php
+              if(isset($error)) {
+                 echo '<p id="verif_fail">'.$error."</p>";
+              }
+              if(isset($ok)){
+                echo '<p id="verif_ok">'.$ok."</p>";
+
+              }
+        ?>
+      </div>
 
 		</form>
-<?php
-      if(isset($error)) {
-         echo '<font color="red">'.$error."</font>";
-      }
-      if(isset($ok)){
-        echo '<font color="green">'.$ok."</font>";
 
-      }
-?>
 	</div>
 </div>
 <?php include('footer.php') ?>

@@ -15,7 +15,7 @@ $output="";
 while ($row = $res->fetch()){
 			$output = $output . "
 			<div class='card'>
-      
+
 				<div class='card_title title-white'>
 					<p>". $row['header'] ."</p>
 				</div>
@@ -41,7 +41,7 @@ $res->closeCursor(); // Termine le traitement de la requête
 <div class="container_feed">
 
 
-  <div class="title">Images Feed</div>
+  <div class="title">IMAGES FEED</div>
     <div class="cards-list">
 
     <?php echo($output);?>

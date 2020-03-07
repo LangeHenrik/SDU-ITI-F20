@@ -3,6 +3,8 @@ body{
   margin: 0 0 50px 0;
 }
 
+/* Footer (in all pages), fixed when scrolled */
+
 footer {
     position: fixed;
     height: 50px;
@@ -12,16 +14,16 @@ footer {
     right: 0px;
     margin-bottom: 0px;
     display:flex;
-
 }
 
 footer div {
-   flex:1;
+  flex:1;
   text-align: center;
   color: #ecf0f1;
   margin: auto;
 }
 
+/* Container for the registration and login page */
 .container {
   min-width: 35%;
   max-width: 40%;
@@ -101,7 +103,7 @@ footer div {
 
 
 
-/* NAVIGATION BAR */
+/* NAVIGATION BAR (on all page, rauto resize for users on mobile or tablet)*/
 
 .navbar{
   /* overflow: auto; */
@@ -176,15 +178,38 @@ footer div {
     cursor: pointer;
 } */
 
+/*
 .uploadpage .container {
   min-width: 25%;
   max-width: 50%;
-  /*width: 360px;*/
   padding: 0 0 0;
   margin: auto;
   text-align: center;
-}
+} */
 
+
+
+/* Non utilisé */
+/* .uploadpage p{
+  height: 120px;
+  width: 100%;
+  text-align: center;
+  vertical-align: center;
+  line-height: 120px;
+  color: black;
+  font-family: Arial;
+  position: relative;
+  word-break: break-all;
+margin: 0;
+padding: 0;
+} */
+
+
+.uploadpage #file {
+  height: 120px;
+  border: 4px dashed #95a5a6;
+  padding-top: 50px;
+}
 
 /* Image Feed */
 
@@ -303,6 +328,8 @@ footer div {
   padding: 8% 0 0;
   margin: auto;
   text-align: center;
+  font-family: 'Montserrat', 'Arial';
+
 }
 
 .search_field {
@@ -335,7 +362,6 @@ margin: auto;
     list-style-type: none;
     padding: 3px;
     margin: 0;
-    font-family: 'Montserrat';
     font-size: 0.9em;
     overflow: hidden;
     /* white-space: pre-wrap;
@@ -346,6 +372,18 @@ margin: auto;
 
 .user_card li{
 
+
+}
+
+
+#verif_ok{
+  color: green;
+  font-weight: bold;
+}
+
+#verif_fail{
+  color: red;
+  font-weight: bold;
 
 }
 

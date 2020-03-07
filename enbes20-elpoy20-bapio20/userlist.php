@@ -66,7 +66,7 @@ error_reporting(E_ALL);
     <form class="search_field" method="get">
       Search a user by Username: <br> <br> <input type="text" name = 'q' onkeyup="showUser(this.value)">
     </form>
-    <br> <hr>
+    <br> <br> <hr> <br>
       <div class="user_list" id="txtHint">
   		<?php echo($output); ?>
     </div>
