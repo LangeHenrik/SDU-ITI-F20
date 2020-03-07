@@ -49,9 +49,15 @@
 
                 foreach ($users as $row) {
                     echo "<div class='nested'>";
-                    echo "<img src='../img/gallery/" . $row['Image'] . "' >";
-                    echo "<h2>" . $row['Header'] . "</h2><b><i>~ " . $row['Username'] . " ~</i></b>";
+                    echo "<div class='imagefeed'>";
+                    echo "<h3>" . $row['Header'] . "</h3><b><i>~ " . $row['Username'] . " ~</i></b>";
+                    echo "<div class='image'>";
+                    echo "<img src='../img/gallery/" . $row['Image'] . "' class='avatar' >";
+                    echo "</div>";
+                    echo "<div class='credit'>";
                     echo "<p>" . $row['Description'] . "</p>";
+                    echo "</div>";
+                    echo "</div>";
                     echo "</div>";
                 }
                 ?>
