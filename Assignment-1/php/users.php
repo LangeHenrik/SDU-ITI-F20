@@ -50,12 +50,12 @@
         foreach ($users as $row) {
           echo "<div class='nested'>";
           echo "<div class='imagefeed'>";
-          echo "<h3>" . $row['Name'] . "</h3>";
+          echo "<h3>" . $row['Name'] . "</h3>"; 
           echo "<div class='image'>";
           echo "<img src=../img/pictures/" . $row['Image'] . " class='avatar' />";
           echo "</div>";
           echo "<div class='uname'><b><i>~ " . $row['Username'] . " ~</i></b></div>";
-          echo "<p id='userdate'>" . date("d-m-Y",$row['BDate']) . "</p>";
+          echo "<p id='userdate'>" . date("d/M/Y", $row['BDate']) . "</p>";
           echo "</div>";
           echo "</div>";
         }
