@@ -80,7 +80,7 @@ if ($_SESSION['logged_in']) : ?>
                 <input type="file" name="image" id="fileId">
                 <input type="submit" name="imgSubmit" value="Upload" id="imgSubmit">
                 <p> Header: <input type ="text" name="header" id="header" required></p><br>
-                <label for="description">Image description: Max 300 characters!</label>
+                <label for="description">Image description: Max 300 characters!</label><br>
                 <textarea id="description" id="descriptionId" rows="4" cols="50" required></textarea>
             </form>
 		</div>
