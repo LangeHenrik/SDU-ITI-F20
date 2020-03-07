@@ -25,6 +25,10 @@ ul {
 	height: 100%;
 	background-color: darkgray;
 	overflow: hidden;
+	border-color: #222222;
+	border-radius: 20px;
+	border-width: 2px;
+	border-style: solid;
 }
 
 li a {
@@ -127,6 +131,7 @@ li a:hover {
 .homepage1{
 	grid-column: 1;
 	grid-row: 2;
+	
 	
 }
 

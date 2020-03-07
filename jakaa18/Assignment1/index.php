@@ -61,7 +61,10 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
     echo 'logged out';
 }
 
+
+//This section is the main page.
 if ($_SESSION['logged_in']) : ?>
+
     <div class="grid-container2">
         <div class="header">
             <h1><?php echo 'Welcome to your homepage!' ?></h1>
@@ -86,6 +89,8 @@ if ($_SESSION['logged_in']) : ?>
 		</div>
     </div>
 
+	
+<!-- This section is the login page-->
 <?php else : ?>
 
     <div class="grid-container">
