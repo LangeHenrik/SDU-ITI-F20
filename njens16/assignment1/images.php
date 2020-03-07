@@ -159,7 +159,7 @@ if(isset($_SESSION["user_id"]) && isset($_SESSION["logged_in"]))
         echo "<div class='image_text'>".
             "<p><b>Image header: </b>".$image_header_show[$i]."<br/>".
             "<b>Imgae description: </b>".$image_description_show[$i]. "<br/>";
-        $user_index = array_search($image_user_id, $user_id);
+        $user_index = array_search($image_user_id[$i], $user_id);
         echo "<b>User: </b>". $username[$user_index].
             "</p></div>".
             "<img class='image' src='".$image_path_show[$i]."'/>";
