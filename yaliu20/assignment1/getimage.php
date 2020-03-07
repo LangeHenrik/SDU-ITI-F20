@@ -1,19 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>userlist</title>
+<link rel="stylesheet" href="getimage.css">
+</head>
+
+<body>
+<h3>getimage</h3>
+
 <?php
-    //$id = isset($_GET['id'])?intval($_GET['id']):1;
-    //$id = $_GET['id'];
-    $id = 2;    //id正常应该是通过用户填入的id获取（客户端发送过来的查询数据id）
+try{
     include("config.php");
-    $query = "select name,path from image where id=$id";
-    
-    //数据查询
-    $result = $dbh->query($query);
-    if($result){
-        $result = $result->fetchAll(2);
-         echo "<img src=".$result[0]['path'].">";
-         // $path="./uploads/";//定义一个上传后的目录
-         // echo "<img src=$path".$result[0]['name'].">";
+    $rst=$dbh->query("select path from image");
+    //$rst->execute();
+    ?>
+    <table width="100%" border="1" class="table" cellpadding="0" cellspacing="0">
+    <?php
+    while($path=$rst->fetch()){        
+     
+           
+           ?>
+           
+           <img src="<?php echo $path["path"]; ?>"  width="512" />
+           
+        
+ <?php
+  //$info = getimagesize($path);//获取图片信息
+  // $geshi = $info['mime'];//获取类型
+   //$im = file_get_contents($path); //获取图片的内容
+  //Http::header("Content-type: {$geshi}");//输出类型，直接取图片'mime'
+   //echo($im);
+
+
+   //$str.="</tr>"; 
+ //  $str.="</table>"; 
+   //echo $str;        
     }
-    else{
-        echo "Handle errors";
-    }
+}
+        catch(Exception $e){
+
+            die("Error!:".$e->getMessage().'<br>');
+        }
 ?>
+
+  
+</table>
+</body>
+</html>

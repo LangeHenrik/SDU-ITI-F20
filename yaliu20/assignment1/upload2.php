@@ -45,6 +45,11 @@
             //执行文件上传(移动上传文件)
             if(move_uploaded_file($upfile["tmp_name"],$path.$newfile)){
                 echo "文件上传成功!";
+                ?>
+                <script>
+        window.location.href="getimage.php";
+        </script>
+        <?php
 
                 //将文件名和路径存储到数据库
                 include("config.php");
