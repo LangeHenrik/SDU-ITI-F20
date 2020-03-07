@@ -1,3 +1,8 @@
+ <?php
+session_start();
+if(isset($_SESSION["user_id"]) && isset($_SESSION["logged_in"]))
+{
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -11,12 +16,7 @@
     <body>
         <div class="header">
             <h1>Assignement 1</h1>
- <?php
-session_start();
-if(isset($_SESSION["user_id"]) && isset($_SESSION["logged_in"]))
-{
-?>
-       <nav class="menu">
+        <nav class="menu">
             <a href="index.php">Home</a> 
             <a class="active" href="images.php">Images</a>
             <a href="users.php">Users</a>
@@ -26,15 +26,28 @@ if(isset($_SESSION["user_id"]) && isset($_SESSION["logged_in"]))
         <div class="wrapper">
             <div class="frame">
             <div class="content">
-                <p>Images</p>
+            <div class="upload">
+                <form action="upload.php" method="post" enctype="multipart/form-data">
+                    <label class="selectFile">Select image to upload:
+
+                    <input type="file" id="fileToUpload">
+</label> <br/>
+                    <input type="submit" value="Upload Image" name="submit">
+                </form>
+
+
+        </div>
+        </div>
+        </div> 
+    </body>
+</html>
 <?php
+
+
 }
 else
 {
     header("Location: index.php");
 }
 ?>
-        </div>
-        </div> 
-    </body>
-</html>
+

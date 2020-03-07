@@ -1,11 +1,7 @@
 body {
     background-color: #F0F0F0;
     margin: 0px;
-}
-div.header {
-    font-family: Arial, Helvetica, sans-serif; 
-    background-color: #FFFFFF;
-    text-align: center;
+} div.header { font-family: Arial, Helvetica, sans-serif; background-color: #FFFFFF; text-align: center;
     font-size: 1vw;
     overflow: hidden;
     width: 100%;
@@ -135,4 +131,20 @@ div.registration button {
 div.registration button:hover {
     opacity: 0.9;
 }
-
+div.upload input[type=submit], .selectFile{
+    border-radius: 2px;    
+    padding: 10px;
+    margin: 10px;
+    width: 130px;
+    background-color: #0073d7;
+    border: none; 
+    color: #FFFFFF;
+    cursor: pointer;
+    font-size: 14px;
+}
+div.upload input[type=submit]:hover, .selectFile:hover {
+    opacity: 0.9;
+}
+input[type=file] {
+    display: none;
+}
