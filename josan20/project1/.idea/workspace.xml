@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e6f4f31d-875d-4b48-8441-54c41d6de531" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/registration_form.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mysql.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/registration.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,16 +39,21 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="PHP Script.mysql.php">
+    <configuration name="mysql.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/mysql.php">
+      <method v="2" />
+    </configuration>
     <configuration name="registration.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/registration.php">
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="PHP Script.mysql.php" />
         <item itemvalue="PHP Script.registration.php" />
       </list>
     </recent_temporary>
@@ -67,7 +69,7 @@
       <option name="presentableId" value="Default" />
       <updated>1583508618305</updated>
       <workItem from="1583508620995" duration="4871000" />
-      <workItem from="1583582648334" duration="4423000" />
+      <workItem from="1583582648334" duration="6355000" />
     </task>
     <servers />
   </component>
@@ -83,6 +85,10 @@
       <screen x="1680" y="23" width="1920" height="1057" />
     </state>
     <state x="2678" y="136" key="#PHP/-1080.23.1080.1897/1680.23.1920.1057/0.23.1680.1027@1680.23.1920.1057" timestamp="1583584759472" />
+    <state x="2586" y="217" key="#SQL_Dialects" timestamp="1583613668645">
+      <screen x="1680" y="23" width="1920" height="1057" />
+    </state>
+    <state x="2586" y="217" key="#SQL_Dialects/-1080.23.1080.1897/1680.23.1920.1057/0.23.1680.1027@1680.23.1920.1057" timestamp="1583613668645" />
     <state x="2451" y="213" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583584890922">
       <screen x="1680" y="23" width="1920" height="1057" />
     </state>
@@ -95,26 +101,26 @@
       <screen x="1680" y="23" width="1920" height="1057" />
     </state>
     <state x="2703" y="258" key="#registration.php/-1080.23.1080.1897/1680.23.1920.1057/0.23.1680.1027@1680.23.1920.1057" timestamp="1583584915507" />
-    <state width="1185" height="290" key="GridCell.Tab.0.bottom" timestamp="1583588212044">
+    <state width="1185" height="290" key="GridCell.Tab.0.bottom" timestamp="1583622729660">
       <screen x="1680" y="23" width="1920" height="1057" />
     </state>
-    <state width="1185" height="290" key="GridCell.Tab.0.bottom/-1080.23.1080.1897/1680.23.1920.1057/0.23.1680.1027@1680.23.1920.1057" timestamp="1583588212044" />
-    <state width="1185" height="290" key="GridCell.Tab.0.center" timestamp="1583588212043">
+    <state width="1185" height="290" key="GridCell.Tab.0.bottom/-1080.23.1080.1897/1680.23.1920.1057/0.23.1680.1027@1680.23.1920.1057" timestamp="1583622729660" />
+    <state width="1185" height="290" key="GridCell.Tab.0.center" timestamp="1583622729660">
       <screen x="1680" y="23" width="1920" height="1057" />
     </state>
-    <state width="1185" height="290" key="GridCell.Tab.0.center/-1080.23.1080.1897/1680.23.1920.1057/0.23.1680.1027@1680.23.1920.1057" timestamp="1583588212043" />
-    <state width="1185" height="290" key="GridCell.Tab.0.left" timestamp="1583588212043">
+    <state width="1185" height="290" key="GridCell.Tab.0.center/-1080.23.1080.1897/1680.23.1920.1057/0.23.1680.1027@1680.23.1920.1057" timestamp="1583622729660" />
+    <state width="1185" height="290" key="GridCell.Tab.0.left" timestamp="1583622729659">
       <screen x="1680" y="23" width="1920" height="1057" />
     </state>
-    <state width="1185" height="290" key="GridCell.Tab.0.left/-1080.23.1080.1897/1680.23.1920.1057/0.23.1680.1027@1680.23.1920.1057" timestamp="1583588212043" />
-    <state width="1185" height="290" key="GridCell.Tab.0.right" timestamp="1583588212043">
+    <state width="1185" height="290" key="GridCell.Tab.0.left/-1080.23.1080.1897/1680.23.1920.1057/0.23.1680.1027@1680.23.1920.1057" timestamp="1583622729659" />
+    <state width="1185" height="290" key="GridCell.Tab.0.right" timestamp="1583622729660">
       <screen x="1680" y="23" width="1920" height="1057" />
     </state>
-    <state width="1185" height="290" key="GridCell.Tab.0.right/-1080.23.1080.1897/1680.23.1920.1057/0.23.1680.1027@1680.23.1920.1057" timestamp="1583588212043" />
-    <state x="2811" y="482" key="NewPhpFileDialog" timestamp="1583584784880">
+    <state width="1185" height="290" key="GridCell.Tab.0.right/-1080.23.1080.1897/1680.23.1920.1057/0.23.1680.1027@1680.23.1920.1057" timestamp="1583622729660" />
+    <state x="2811" y="482" key="NewPhpFileDialog" timestamp="1583613486037">
       <screen x="1680" y="23" width="1920" height="1057" />
     </state>
-    <state x="2811" y="482" key="NewPhpFileDialog/-1080.23.1080.1897/1680.23.1920.1057/0.23.1680.1027@1680.23.1920.1057" timestamp="1583584784880" />
+    <state x="2811" y="482" key="NewPhpFileDialog/-1080.23.1080.1897/1680.23.1920.1057/0.23.1680.1027@1680.23.1920.1057" timestamp="1583613486037" />
     <state x="2495" y="190" key="SettingsEditor" timestamp="1583584508580">
       <screen x="1680" y="23" width="1920" height="1057" />
     </state>
