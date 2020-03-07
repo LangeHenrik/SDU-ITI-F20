@@ -55,13 +55,13 @@ if (isset($_POST['upload'])) {
 <form method="POST" action="../index.php" enctype="multipart/form-data">
   <h1>Create account</h1>
   <!-- check the email for unwanted characters -->
-  <input type="email" placeholder="Example@mail.com" name="Email" title="Email can not contain special characters" pattern="\b[\w.!#$%&’*+\/=?^`{|}~-]+@[\w-]+(?:\.[\w-]+)*\b" required />
+  <input type="email" placeholder="Email" name="Email" title="Email can not contain special characters" pattern="\b[\w.!#$%&’*+\/=?^`{|}~-]+@[\w-]+(?:\.[\w-]+)*\b" required />
   <!-- allowed characters a-z, A-Z, 0-9, . and _ (4 characters to 20) -->
-  <input type="text" placeholder="User.name_Example" name="Username" title="Allowed username characters is a-z, A-Z, 0-9, .(dot) and _(underline) (minimum 4 characters, maximum 20)" pattern="^(?=.{4,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$" required />
+  <input type="text" placeholder="Username" name="Username" title="Allowed username characters is a-z, A-Z, 0-9, .(dot) and _(underline) (minimum 4 characters, maximum 20)" pattern="^(?=.{4,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$" required />
   <!-- minimum 5 characters max 20, at least one uppercase letter, one lowercase letter and one number -->
-  <input type="text" placeholder="PasswordExample1" name="Password" title="Minimum 5 characters maximum 20, at least one uppercase letter, one lowercase letter and one number" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{5,20}$" required />
+  <input type="text" placeholder="Password" name="Password" title="Minimum 5 characters maximum 20, at least one uppercase letter, one lowercase letter and one number" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{5,20}$" required />
   <!-- only alphanumeric and spaces -->
-  <input type="text" placeholder="Example of a name" name="Name" title="Only alphanumeric and spaces" pattern="^[a-zA-Z ]*$" required />
+  <input type="text" placeholder="Name" name="Name" title="Only alphanumeric and spaces" pattern="^[a-zA-Z ]*$" required />
   <input type="date" value="2000-01-01" name="BDate" required />
   <input type="file" name="Image" accept="image/*" required>
   <button type="submit" name="upload">Sign up</button>
