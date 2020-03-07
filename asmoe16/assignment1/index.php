@@ -10,31 +10,23 @@ if (!isset($_SESSION['logged_in'])) {
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<title>Lektion2</title>
+		<title>Aflevering 1</title>
 		<link rel="stylesheet" href="style.css" type="text/css" media="all">
 	</head>
 	<body>
 		<div class="header">
-			<h1>TEXT</h1>
+			<h1>Portfolio 1</h1>
 		</div>
-		<div>
-		<?php
-			if($_SESSION["logged_in"]) {
-				echo "Username : " . $_SESSION['username'];
-				echo "User_id : " . $_SESSION['user_id'];
-			}
-		?>
-		</div>
-
 		<nav class="menu">
 			<ul>
 				<?php function fpage($vis_name,$page) {
 					echo "<li> <a href=index.php?page=$page>$vis_name</a></li>";
 				}
-				fpage("Sign-up","registration");
-				fpage("Users","userlist");
-				fpage("Image Feed","imagefeed");
-				fpage("Upload Image","upload");
+				fpage("Frontpage","frontpage");
+				fpage("Registration page","registration");
+				fpage("User list","userlist");
+				fpage("Image feed","imagefeed");
+				fpage("Upload page","upload");
 				fpage("Sign-out","logout");
 				?>
 			</ul>
@@ -69,12 +61,10 @@ if (!isset($_SESSION['logged_in'])) {
 							include 'frontpage.php';
 							break;
 					}
-				echo "<br></br>";
-				var_dump($_SESSION);
 				?>
 			</div>
 		</div>
-
+		<script src="javascript.js" charset="utf-8"></script>
 	</body>
 </html>
 

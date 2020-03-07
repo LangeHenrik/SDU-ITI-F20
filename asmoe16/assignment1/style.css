@@ -63,3 +63,12 @@ div.user {
 	vertical-align: middle;
 }
 
+div.img_feed {
+	border-bottom: 4px solid #999;
+}
+
+div.img_feed img {
+	width: 80%;
+}
+
+

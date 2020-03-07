@@ -1,6 +1,8 @@
 <?php
 require "db.php";
 
+session_start();
+
 #https://stackoverflow.com/questions/19083175/generate-random-string-in-php-for-file-name
 function random_filename($length, $directory = '', $extension = '')
 {
@@ -55,7 +57,7 @@ if ($uploadOk == 0) {
 // if everything is ok, try to upload file
 } else {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-				add_image_to_db($target_file,$_SESSION['user_id'],"","");
+				add_image_to_db($target_file,$_SESSION['user_id'],$_POST['description'],$_POST['header']);
         echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
     } else {
         echo "Sorry, there was an error uploading your file.";

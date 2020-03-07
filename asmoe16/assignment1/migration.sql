@@ -18,22 +18,16 @@ CREATE TABLE image (
 	header varchar(50)
 );
 
+DROP VIEW IF EXISTS user_image;
+CREATE VIEW user_image
+AS
+SELECT image.image_path,image.header,image.description,member.username,image.owner_id
+FROM
+image INNER JOIN member ON image.owner_id = member.user_id;
+
 DROP USER IF EXISTS asmoe16@localhost;
 CREATE USER asmoe16@localhost IDENTIFIED BY '123';
 GRANT ALL PRIVILEGES ON member TO asmoe16@localhost;
 GRANT ALL PRIVILEGES ON image TO asmoe16@localhost;
+GRANT ALL PRIVILEGES ON user_image TO asmoe16@localhost;
 FLUSH PRIVILEGES;
-
-INSERT INTO member (username,password) VALUES ('user1','123');
-INSERT INTO member (username,password) VALUES ('user2','123');
-INSERT INTO member (username,password) VALUES ('user3','123');
-INSERT INTO member (username,password) VALUES ('user4','123');
-INSERT INTO member (username,password) VALUES ('user5','123');
-INSERT INTO member (username,password) VALUES ('user6','123');
-INSERT INTO member (username,password) VALUES ('user7','123');
-INSERT INTO member (username,password) VALUES ('user8','123');
-INSERT INTO member (username,password) VALUES ('user9','123');
-
-#Show table
-SELECT * FROM member;
-SELECT * FROM image;
