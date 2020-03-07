@@ -84,3 +84,5 @@ if (isset($_POST['formUpload'])) {
     </div>
   </div>
 </div>
+
+<?php include('footer.php') ?>

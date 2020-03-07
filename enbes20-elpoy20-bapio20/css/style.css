@@ -325,7 +325,7 @@ padding: 0;
   min-width: 35%;
   max-width: 60%;
   /*width: 360px;*/
-  padding: 8% 0 0;
+  padding: 8% 0 8%;
   margin: auto;
   text-align: center;
   font-family: 'Montserrat', 'Arial';
@@ -340,8 +340,8 @@ padding: 0;
 
 .user_list{
 /* width: 35%; */
-height: 100px;
-margin: auto;
+/* height: 100px;
+margin: auto; */
 
 }
 
