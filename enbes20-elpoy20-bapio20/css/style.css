@@ -205,11 +205,6 @@ padding: 0;
 } */
 
 
-.uploadpage #file {
-  height: 120px;
-  border: 4px dashed #95a5a6;
-  padding-top: 50px;
-}
 
 /* Image Feed */
 
@@ -329,7 +324,6 @@ padding: 0;
   margin: auto;
   text-align: center;
   font-family: 'Montserrat', 'Arial';
-
 }
 
 .search_field {
@@ -374,7 +368,21 @@ margin: auto; */
 
 
 }
+.container_upload {
+  min-width: 35%;
+  max-width: 60%;
+  /*width: 360px;*/
+  padding: 8% 0 0;
+  margin: auto;
+  text-align: center;
+  font-family: 'Montserrat', 'Arial';
+}
 
+.uploadpage #file {
+  height: 120px;
+  border: 4px dashed #95a5a6;
+  padding-top: 50px;
+}
 
 #verif_ok{
   color: green;

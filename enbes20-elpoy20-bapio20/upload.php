@@ -60,8 +60,7 @@ if (isset($_POST['formUpload'])) {
 ?>
 <div class="uploadpage">
 
-<!-- same properties (size and color than the userlist container) -->
-  <div class="container_userlist" >
+  <div class="container_upload" >
     <div class="title">UPLOAD PAGE</div>
     <form method="post" class="form" action="" enctype='multipart/form-data'>
         <!-- <p>Drag your picture here or click on this area</p> -->
