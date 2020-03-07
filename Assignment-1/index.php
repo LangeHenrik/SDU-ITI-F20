@@ -11,7 +11,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" type="text/css" href="css/Stylesheet.css" />
-    
+    <link rel="stylesheet" media="screen and (max-width: 600px)" href="mobileview.css">
     <link rel="icon" href="img/icon.png" type="png" />
   </head>
   <body>

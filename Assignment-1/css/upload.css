@@ -1,0 +1,47 @@
+.uploadForm {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  grid-auto-rows: minmax(100px, auto);
+  grid-auto-flow: auto;
+}
+
+.uploadForm > form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: grid;
+  grid-template-areas:
+    ". header header"
+    ". text text"
+    ". user user"
+    ". input post";
+  grid-gap: 20px;
+  grid-column: 2;
+}
+
+#inputHeader {
+  font-size: large;
+  grid-area: header;
+  display: block;
+}
+
+#text {
+  font-size: large;
+  grid-area: text;
+  display: block;
+}
+
+#chooseUser {
+  font-size: large;
+  grid-area: user;
+  display: block;
+}
+#post {
+  font-size: large;
+  grid-area: post;
+  display: block;
+}
+.input{
+    grid-area: input;
+    display: block;
+}

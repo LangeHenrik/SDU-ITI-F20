@@ -1,6 +1,8 @@
 @import url("https://fonts.googleapis.com/css?family=Alegreya+Sans:800");
 @import "login.css";
 @import "nav.css";
+@import "users.css";
+@import "upload.css";
 
 
 @media only screen and (min-width: 1000px) {
@@ -57,7 +59,7 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(900px, 1fr));
   grid-gap: 1em;
   grid-auto-rows: minmax(100px, auto);
-  grid-auto-flow: row;
+  grid-auto-flow: auto;
   grid-template-areas:
     "title"
     "text";

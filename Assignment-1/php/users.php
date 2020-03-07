@@ -49,10 +49,16 @@
 
         foreach ($users as $row) {
           echo "<div class='nested'>";
+          echo "<div class='imagefeed'>";
           echo "<h3>" . $row['Name'] . "</h3>";
+          echo "<div class='image'>";
           echo "<img src=../img/pictures/" . $row['Image'] . " class='avatar' />";
+          echo "</div>";
+          echo "<div class='credit'>";
           echo "<b><i>~ " . $row['Username'] . " ~</i></b>";
-          echo "<p>" . date_format($row['BDate'], "d/m/Y") . "</p>";
+          echo "<p>" . $row['BDate'] . "</p>";
+          echo "</div>";
+          echo "</div>";
           echo "</div>";
         }
         ?>
