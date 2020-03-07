@@ -16,6 +16,11 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
+// Create test user
+$stmt = $pdo->prepare('INSERT IGNORE INTO user(username, pw_hash) VALUES ("TestUser", ?)');
+$test_pass = password_hash("qweQWE123@", PASSWORD_DEFAULT);
+$stmt->execute([$test_pass]);
+
 // Login
 if (isset($_POST["username"]) && isset($_POST["password"])) {
     $username = htmlentities($_POST["username"]);
