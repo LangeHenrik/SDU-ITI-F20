@@ -1,7 +1,11 @@
 body {
     background-color: #F0F0F0;
     margin: 0px;
-} div.header { font-family: Arial, Helvetica, sans-serif; background-color: #FFFFFF; text-align: center;
+} 
+div.header { 
+    font-family: Arial, Helvetica, sans-serif; 
+    background-color: #FFFFFF; 
+    text-align: center;
     font-size: 1vw;
     overflow: hidden;
     width: 100%;
@@ -19,7 +23,7 @@ nav.menu {
     float: left;
     color: black;
     text-align: center;
-    padding: 12px;
+    padding: 0.5vw;
     text-decoration: none;
     font-size: 18px;
     line-height: 25px;
@@ -28,7 +32,10 @@ nav.menu {
 .menu a:hover {
     background-color: #DEDEDE;
     color: black;
-} .menu a.active { background-color: #0073d7; color: white;
+} 
+.menu a.active { 
+    background-color: #0073d7; 
+    color: white;
 }
 .menu a.active:hover {
     opacity: 0.9;
@@ -131,16 +138,19 @@ div.registration button {
 div.registration button:hover {
     opacity: 0.9;
 }
+div.upload {
+    display: none;
+}
 div.upload input[type=submit], .selectFile{
     border-radius: 2px;    
     padding: 10px;
-    margin: 10px;
     width: 130px;
     background-color: #0073d7;
     border: none; 
     color: #FFFFFF;
     cursor: pointer;
     font-size: 14px;
+    margin: 10px 0 0 0 ;
 }
 div.upload input[type=submit]:hover, .selectFile:hover {
     opacity: 0.9;
@@ -148,3 +158,39 @@ div.upload input[type=submit]:hover, .selectFile:hover {
 input[type=file] {
     display: none;
 }
+div.upload input[type=text],textarea {
+    width: 20%;
+    padding: 7px 10px;
+    margin: 0 0 10px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+div.upload input[type=text]:hover,textarea:hover{
+    border: 1px solid #0073d7;
+}
+div.upload input[type=text]:focus,textarea:focus{
+    border: 1px solid #0073d7;
+}
+div.upload #image_header,#image_description {
+    color: #505050;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+}
+div.upload table {
+    width: 100%;
+}
+.upload_btn {
+    border-radius: 2px;    
+    padding: 10px;
+    width: 130px;
+    background-color: #0073d7;
+    border: none; 
+    color: #FFFFFF;
+    cursor: pointer;
+    font-size: 14px;
+}
+.upload_ptn {
+    opacity: 0.9;
+}
+
