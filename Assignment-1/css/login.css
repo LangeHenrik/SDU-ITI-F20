@@ -83,7 +83,6 @@
 .bg input:focus{
   outline: none ;
   box-shadow: 0 0 0 2px lightblue;
-  
 }
 
 .container {
@@ -91,7 +90,7 @@
   border-radius: 10px;
   position: relative;
   overflow: hidden;
-  width: 50vw;
+  width: 60vw;
   height: 30vw;
   max-width: 100%;
   min-height: 400px;

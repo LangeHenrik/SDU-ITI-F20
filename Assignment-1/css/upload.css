@@ -15,7 +15,7 @@
     ". text text"
     ". user user"
     ". input post";
-  grid-gap: 20px;
+  grid-gap: 0.7vw;
   grid-column: 2;
 }
 
@@ -31,17 +31,47 @@
   display: block;
 }
 
-#chooseUser {
-  font-size: large;
-  grid-area: user;
-  display: block;
-}
 #post {
   font-size: large;
   grid-area: post;
   display: block;
 }
-.input{
-    grid-area: input;
-    display: block;
+.input {
+  grid-area: input;
+  display: block;
+  text-decoration: none;
 }
+
+.chooseUser {
+  font-size: large;
+  grid-area: user;
+  display: block;
+}
+
+.uploadForm > form input,
+.uploadForm > form textarea,
+.uploadForm > form button {
+  background-color: #eee;
+  border: none;
+  padding: 0.5vw 0;
+  margin: 8px 0;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.uploadForm > form input:invalid:focus,
+textarea:invalid:focus,
+button:invalid:focus {
+  box-shadow: 0 0 0 2px #ff605c;
+}
+
+.uploadForm > form input:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px lightblue;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    padding-left: 10px;
+  }

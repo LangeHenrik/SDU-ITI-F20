@@ -77,7 +77,7 @@ if (isset($_POST['upload'])) {
                             <input class="input" type="file" name="Image" accept="image/*" required>
                             <input id="inputHeader" type="text" placeholder="Write a header" name="Header" required />
                             <textarea id="text" cols="40" rows="4" name="Description" placeholder="Say something..." required></textarea>
-                            <input id='chooseUser' type="text" placeholder="Choose a user" name="UserID" required />
+                            <input class="chooseUser" type="input" placeholder="Choose a user" name="UserID" required />
                             <button id="post" type="submit" name="upload">POST</button>
                             
                         </form>
