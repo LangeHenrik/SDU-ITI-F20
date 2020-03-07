@@ -23,8 +23,8 @@ footer div {
 }
 
 .container {
-  min-width: 30%;
-  max-width: 35%;
+  min-width: 35%;
+  max-width: 40%;
   /*width: 360px;*/
   padding: 8% 0 0;
   margin: auto;
@@ -161,14 +161,7 @@ footer div {
   .navbar ul li {float: none;}
 } */
 
-/* To make it responsive for smaller screen */
 
-@media screen and (max-width: 500px) {
-  .navbar ul li.right, .navbar ul li {
-    float: none;
-  }
-
-}
 
 /*.file-area*/
  /* .container input[type=file] {
@@ -205,7 +198,7 @@ footer div {
 }
 
 .cards-list {
-  margin: 40px auto;
+  margin: 20px auto;
   z-index: 0;
   width: 80%;
   display: flex;
@@ -300,4 +293,77 @@ footer div {
 
 .title-white {
   color: white;
+}
+
+
+.container_userlist {
+  min-width: 35%;
+  max-width: 60%;
+  /*width: 360px;*/
+  padding: 8% 0 0;
+  margin: auto;
+  text-align: center;
+}
+
+.search_field {
+  font-family: 'Montserrat';
+  font-size: 0.9em;
+  color: white;
+}
+
+.user_list{
+/* width: 35%; */
+height: 100px;
+margin: auto;
+
+}
+
+.user_card{
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.19);
+  padding: 5px 0;
+  background-color: white;
+  /* padding: 8px 16px; */
+  border-bottom: 1px solid #ddd;
+  width: 100%;
+  overflow: hidden;
+  margin: 20px 0;
+  word-wrap: break-word;
+
+}
+
+.user_card ul {
+    list-style-type: none;
+    padding: 3px;
+    margin: 0;
+    font-family: 'Montserrat';
+    font-size: 0.9em;
+    overflow: hidden;
+    /* white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;*/
+}
+
+.user_card li{
+
+
+}
+
+
+/* To make it responsive for smaller screen */
+
+@media screen and (max-width: 600px) {
+  .navbar ul li.right, .navbar ul li {
+    float: none;
+  }
+  .container{
+    padding-top: 200px;
+  }
+  .container_feed{
+    padding-top: 300px;
+  }
+  .container_userlist{
+    padding-top: 300px;
+  }
+
 }

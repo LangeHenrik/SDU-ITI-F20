@@ -22,12 +22,13 @@ $output="";
 
     while ($row = $res->fetch()){
     		$output = $output . "
-    		<div class='contact_card'>
-          <div>
-    				<div>". $row['username'] ."</div>
-    			 	<div>". $row['email'] ."</div>
-    			</div>
-          <br>
+    		<div class='user_card'>
+          <ul class=''>
+            <li>
+      				<div>Username : ". $row['username'] ."</div>
+      			 	<div>Email : ". $row['email'] ."</div>
+            </li>
+    			</ul>
         </div>
     		";
       }
@@ -37,12 +38,13 @@ $output="";
 
     while ($row = $res->fetch()){
     		$output = $output . "
-    		<div class='contact_card'>
-          <div>
-    				<div>". $row['username'] ."</div>
-    			 	<div>". $row['email'] ."</div>
-    			</div>
-          <br>
+    		<div class='user_card'>
+          <ul class=''>
+            <li>
+              <div>Username : ". $row['username'] ."</div>
+              <div>Email : ". $row['email'] ."</div>
+            </li>
+    			</ul>
         </div>
     		";
       }
@@ -60,14 +62,14 @@ error_reporting(E_ALL);
 
 <div class="container_userlist">
 
-<div class="title">Contact List</div>
-  <form class="search_field" method="get">
-    Username: <input type="text" name = 'q' onkeyup="showUser(this.value)">
-  </form>
-  <div ></div>
-  <div class="contact_list" id="txtHint">
-		<?php echo($output); ?>
+  <div class="title">CONTACT LIST</div>
+    <form class="search_field" method="get">
+      Search a user by Username: <br> <br> <input type="text" name = 'q' onkeyup="showUser(this.value)">
+    </form>
+    <br> <hr>
+      <div class="user_list" id="txtHint">
+  		<?php echo($output); ?>
+    </div>
   </div>
-</div>
 
 </div>
