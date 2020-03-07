@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <head>
-    <link rel="stylesheet" href="styling.css">
+    <link rel="stylesheet" href="extfiles/styling.css">
 </head>
 
 <body>

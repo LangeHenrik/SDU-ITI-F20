@@ -8,9 +8,9 @@ function checkallforms() {
 
 //Username
 let usernameRegEx = new RegExp(/^[a-z|A-Z|0-9]{4,13}$/);
-let usernameInput = document.getElementById("username");
-let usernameInfo = document.getElementById("usernameinfo");
-usernameInput.addEventListener('keyup', checkusername);
+let usernameInput = document.getElementById("usernameInput");
+let usernameInfo = document.getElementById("usernameInfo");
+usernameInput.addEventListener('keyup',checkusername);
 
 function checkusername() {
 
@@ -30,9 +30,9 @@ function checkusername() {
 //Password
 
 let passwordRegEx = new RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/);
-let passwordInput = document.getElementById("password");
-let passwordInfo = document.getElementById("passwordinfo");
-passwordInput.addEventListener('keyup', checkpassword);
+let passwordInput = document.getElementById("passwordInput");
+let passwordInfo = document.getElementById("passwordInfo");
+passwordInput.addEventListener('keyup',checkpassword);
 
 function checkpassword() {
 
@@ -44,6 +44,6 @@ function checkpassword() {
 	} else {
 		console.log('Invalid Password entered');
 		passwordInput.style.borderColor = "red";
-		passwordInfo.innerText = "Password Invalid Must contain 6 characters with uppercase,lowercase letters. numbers and special characters ex ( @,$,€)";
+		passwordInfo.innerText = "Password Invalid Must contain 6 characters with uppercase,lowercase letters. numbers and special characters ex (@)";
 	}
 }
