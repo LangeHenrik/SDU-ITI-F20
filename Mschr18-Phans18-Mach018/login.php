@@ -41,6 +41,7 @@ try
       if (password_verify($inputArr["password"], $fetchetHashPasword)) {
         $_SESSION['logged_in'] = true;
         $_SESSION['Fullname'] = $fetchetFullname;
+        $_SESSION['username'] = $fetchetUsername;
         header("location:feed.php");
       }
       else {

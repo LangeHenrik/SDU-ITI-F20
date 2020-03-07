@@ -22,13 +22,14 @@ CHANGE COLUMN `passw` `passw` VARCHAR(255) NOT NULL ;
 
 # 04-03-2020
 ALTER TABLE `iti`.`users` 
-ADD COLUMN `signup` DATE NOT NULL DEFAULT CURRENT_TIMESTAMP AFTER `email`;
+ADD COLUMN `signup` DATE NOT NULL AFTER `email`;
 
 # 04-03-2020
 CREATE TABLE picture (
 	picid INT NOT NULL AUTO_INCREMENT,
     userid INT NOT NULL,
-    imagepath VARCHAR(200) NOT NULL,
+    uploaddate DATE NOT NULL,
+    imagename VARCHAR(200) NOT NULL,
     imagebase64 LONGTEXT NOT NULL,
     PRIMARY KEY (picid),
     FOREIGN KEY (userid) REFERENCES users(userid)

@@ -5,12 +5,22 @@
     <section id="content">
         <div class="upload" id="upload">
           <h1 id="title">Upload at </h1> <?php include_once('Include/chalkbord.php') ?>
-              <form method="post" enctype="multipart/form-data">
-                <label for="picupload">Select a file:</label><br>
-                <input type="file" name="picupload"  id="picupload" accept="image/*">
+              <form method="post" action="uploadImages.php" enctype='multipart/form-data'>
+                <label for="picupload" style="margin: 5px;">Select a file:</label><br>
+                <input type="file" name="picupload[]"  id="picupload" multiple accept="image/*" required>
                 <input type="submit" name="submitpic" id="submitpic" value="Upload">
+                <label style="margin-right: 20px; float: right">My Images</label>
               </form>
-              <img src="" alt="" id="uploadedImage" height="80%" hidden=true>
+              <div>
+                  <div id="imgUploadContain" name="imgUploadContain" style="width: 49.4%; overflow: auto; 
+                  display: inline-block; height: 80%; border: grey dashed 5px;"></div>
+                  <div id="imgContain" name="imgContain" style="width: 49.4%; overflow: auto; float: right;
+                  display: inline-block; height: 80%; border: grey dashed 5px; margin-left: -20px;">
+                    <?php 
+                      include_once('include/uploadRetrieveImgs.php');
+                    ?>
+                  </div>
+              </div>
         </div>
     </section>
 
