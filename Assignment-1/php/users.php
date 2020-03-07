@@ -54,10 +54,8 @@
           echo "<div class='image'>";
           echo "<img src=../img/pictures/" . $row['Image'] . " class='avatar' />";
           echo "</div>";
-          echo "<div class='credit'>";
-          echo "<b><i>~ " . $row['Username'] . " ~</i></b>";
-          echo "<p>" . $row['BDate'] . "</p>";
-          echo "</div>";
+          echo "<div class='uname'><b><i>~ " . $row['Username'] . " ~</i></b></div>";
+          echo "<p id='userdate'>" . date("d-m-Y",$row['BDate']) . "</p>";
           echo "</div>";
           echo "</div>";
         }

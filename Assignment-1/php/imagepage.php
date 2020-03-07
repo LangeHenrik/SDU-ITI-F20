@@ -50,7 +50,7 @@
                 foreach ($users as $row) {
                     echo "<div class='nested'>";
                     echo "<div class='imagefeed'>";
-                    echo "<h3>" . $row['Header'] . "</h3><b><i>~ " . $row['Username'] . " ~</i></b>";
+                    echo "<h3>" . $row['Header'] . "</h3><div class='uname'><b><i>~ " . $row['Username'] . " ~</i></b></div>";
                     echo "<div class='image'>";
                     echo "<img src='../img/gallery/" . $row['Image'] . "' class='avatar' >";
                     echo "</div>";
