@@ -13,16 +13,16 @@
       grid-template-columns: repeat(auto-fit, minmax(30em, 1fr)) !important;
   }
   #title{
-      font-size: 4vw !important;
+      font-size: 3.5vw !important;
   }
   .nested > div {
     font-size: 3vw !important;
   }
   .nested > div h3 {
-    font-size: 5vw !important;
+    font-size: 3vw !important;
   }
   .nested > p {
-    font-size: 2vw !important;
+    font-size: 1.5vw !important;
   }
   .slide a {
     font-size: 8vw !important;
@@ -31,7 +31,7 @@
     font-size: 8vw !important;
 }
 .nav a {
-    font-size: 8vw !important;
+    font-size: 4vw !important;
   }
 
  
@@ -88,14 +88,14 @@ body {
 .nested > div {
   display: flex;
   justify-content: center;
-  font-size: 2vw;
+  font-size: 1.2vw;
 }
 .nested > p {
   font-size: 1vw;
 }
 #title {
   grid-area: title;
-  font-size: 2vw;
+  font-size: 1.5vw;
   display: flex;
   justify-content: center;
   text-align: center;

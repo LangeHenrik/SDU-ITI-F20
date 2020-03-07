@@ -10,8 +10,8 @@
       integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" media="screen and (max-width: 600px)" href="css/mobileview.css">
     <link rel="stylesheet" type="text/css" href="css/Stylesheet.css" />
-    <link rel="stylesheet" media="screen and (max-width: 600px)" href="mobileview.css">
     <link rel="icon" href="img/icon.png" type="png" />
   </head>
   <body>
