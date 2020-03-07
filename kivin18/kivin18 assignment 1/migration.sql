@@ -1,22 +1,20 @@
-DROP DATABASE IF EXIST kivin18;
+CREATE DATABASE IF NOT EXISTS kivin18;
 
-CREATE DATABASE kivin18;
-
-USE DATABASE kivin18;
+USE kivin18;
 
 CREATE TABLE user(
-    user VARCHAR(15) NOT NULL,
-    pw_hashed TEXT NOT NULL,
-    join_date DATETIME,
-    PRIMARY KEY (user)
+    username VARCHAR(50) NOT NULL,
+    pw_hash TEXT NOT NULL,
+    join_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (username)
 );
 
 CREATE TABLE image(
-    image_id INT NOT NULL AUTO_INCREMENT,
+    image_id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     username VARCHAR(50) NOT NULL,
     image_path VARCHAR(255),
     header varchar(50),
     description TEXT,
-    date_added DATETIME,
+    date_added TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (image_id)
 );

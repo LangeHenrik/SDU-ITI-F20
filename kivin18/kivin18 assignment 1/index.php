@@ -124,13 +124,22 @@ if ($_SESSION["logged_in"] ?? false) :
         </div>
     <?php
     //Sign up
-    if (isset($_POST["regUsername"]) && isset($_POST["regPassword"])) {
-        $stmt = $pdo->prepare('INSERT INTO user(username, pw_hash, join_date) VALUES (?, ?, NOW())');
-        $new_user = htmlentities($_POST["regUsername"]);
-        $new_pass = htmlentities($_POST["regPassword"]);
-        if(preg_match("/^\S\w{5,50}$/", $new_user) && preg_match("/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/", $new_pass)) {
-            $hashed_pass = password_hash($new_pass, PASSWORD_DEFAULT);
-            $stmt->execute([$new_user, $hashed_pass]);
+    try {
+        if (isset($_POST["regUsername"]) && isset($_POST["regPassword"])) {
+            $stmt = $pdo->prepare('INSERT INTO user(username, pw_hash) VALUES (?, ?)');
+            $new_user = htmlentities($_POST["regUsername"]);
+            $new_pass = htmlentities($_POST["regPassword"]);
+            if (preg_match("/^\S\w{5,50}$/", $new_user) && preg_match("/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/", $new_pass)) {
+                $hashed_pass = password_hash($new_pass, PASSWORD_DEFAULT);
+                $stmt->execute([$new_user, $hashed_pass]);
+            }
+        }
+    } catch (PDOException $exception) {
+        $duplicate = "Integrity constraint violation: 1062 Duplicate entry";
+        if (strpos($exception->getMessage(), $duplicate) !== FALSE) {
+            echo "<p>", "Sign up failed. User already exists. Try again!", "</p>";
+        } else {
+            throw $exception;
         }
     }
     ?>

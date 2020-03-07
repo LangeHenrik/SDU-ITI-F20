@@ -111,7 +111,7 @@ function checkPass(elementId, label) {
         invalidLabel.innerHTML = '';
         return true;
     } else {
-        invalidLabel.innerHTML = 'Password must contain at least 8 characters, 1 lower case, 1 upper case, 1 numeric and one of these special characters: !@#$%^&*';
+        invalidLabel.innerHTML = 'Password must contain at least 8 characters, 1 lower case, 1 upper case, 1 numeric and 1 of these special characters: !@#$%^&*';
         return false;
     }
 }
