@@ -9,6 +9,7 @@
 <body>
 <h3>userlist</h3>
 <input type="button" class="btn btn-primary" name="upload" value="upload page" onclick="javascript:location.href='upload.php'">
+<input type="button" class="btn btn-primary" name="link" value="image feed" onclick="javascript:location.href='image feed.php'">
 <input type="button" class="btn btn-primary" name="logout" value="log out" onclick="javascript:location.href='frontpage.php'">
 <?php
 try{

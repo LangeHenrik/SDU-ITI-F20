@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <title>userlist</title>
-<link rel="stylesheet" href="getimage.css">
+<link rel="stylesheet" href="image feed.css">
 </head>
 
 <body>
 <h3>image feed</h3>
-<input type="button" class="btn btn-primary" name="link" value="upload" onclick="javascript:location.href='upload.php'">
+<input type="button" class="btn btn-primary" name="link" value="upload page" onclick="javascript:location.href='upload.php'">
 <input type="button" class="btn btn-primary" name="link" value="userlist" onclick="javascript:location.href='userlist.php'">
 <input type="button" class="btn btn-primary" name="logout" value="log out" onclick="javascript:location.href='frontpage.php'">
 <form>

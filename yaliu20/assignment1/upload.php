@@ -3,6 +3,7 @@
  <head>
   <meta charset="UTF-8">
   <title>pics</title>
+  <link rel="stylesheet" href="upload.css">
  </head>
  <body>
 <center>
