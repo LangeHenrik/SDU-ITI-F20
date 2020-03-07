@@ -1,13 +1,21 @@
 <!DOCTYPE html>
 
+<html lang="en">
 <head>
-    <title>Sign In or Sign Up</title>
-    <link rel="stylesheet" href="loginpage.css">
-</head>
+<meta charset="UTF-8">
 
-<body>
-    <div id="frm">
-        <form class="login" name="login" method="POST" action="login.php">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+
+    <title>Registration Page</title>
+
+    </head>
+    <h1> Register page </h1>
+    <h2> Create a profile to see photos friends. </h2>
+
+
+    <h3> It's easy and fast. </h3>
+
             <p>
                 <label>Username:</label>
                 <input type="text" id="user" name="user">
@@ -16,15 +24,8 @@
                 <label>Password:</label>
                 <input type="password" id="pass" name="pass">
             </p>
+
             <p>
-                <input type="submit" id="btn" value="Login">
+                <input type="submit" id="btn" value="Register">
             </p>
-        </form>
-        <form class="registration" name="registration" method="POST" action="registrationpage.php">
-            <p>
-                <input type="submit" id="btn" value="Registration">
-            </p>
-        </form>
-    </div>
-</body>
 </html>
