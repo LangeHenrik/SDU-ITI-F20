@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
 
-    
     <link rel="stylesheet" href="styling.css">
 
     <title>uploadimage</title>
