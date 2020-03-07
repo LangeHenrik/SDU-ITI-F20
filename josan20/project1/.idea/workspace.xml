@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e6f4f31d-875d-4b48-8441-54c41d6de531" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/main.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/registration.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../._josan20.rtf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../._main.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../josan20.rtf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../main.html" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/registration_form.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/registration.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,12 +24,14 @@
       <list>
         <option value="CSS File" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.3" />
   <component name="ProjectId" id="1YlE8AgZnDkPRca9DVk3cMJi56h" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -44,18 +44,15 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
-  <component name="RunManager" selected="JavaScript Debug.registration.html">
-    <configuration name="main.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/project1/main.html" useBuiltInWebServerPort="true">
-      <method v="2" />
-    </configuration>
-    <configuration name="registration.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/project1/registration.html" useBuiltInWebServerPort="true">
+  <component name="RunManager">
+    <configuration name="registration.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/registration.php">
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JavaScript Debug.registration.html" />
-        <item itemvalue="JavaScript Debug.main.html" />
+        <item itemvalue="PHP Script.registration.php" />
       </list>
     </recent_temporary>
   </component>
@@ -69,7 +66,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1583508618305</updated>
-      <workItem from="1583508620995" duration="2217000" />
+      <workItem from="1583508620995" duration="4871000" />
+      <workItem from="1583582648334" duration="4423000" />
     </task>
     <servers />
   </component>
@@ -77,9 +75,58 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="517" y="369" key="com.intellij.ide.util.TipDialog" timestamp="1583508627020">
+    <state x="2575" y="213" key="#CLI_Interpreters" timestamp="1583584756237">
+      <screen x="1680" y="23" width="1920" height="1057" />
+    </state>
+    <state x="2575" y="213" key="#CLI_Interpreters/-1080.23.1080.1897/1680.23.1920.1057/0.23.1680.1027@1680.23.1920.1057" timestamp="1583584756237" />
+    <state x="2678" y="136" key="#PHP" timestamp="1583584759472">
+      <screen x="1680" y="23" width="1920" height="1057" />
+    </state>
+    <state x="2678" y="136" key="#PHP/-1080.23.1080.1897/1680.23.1920.1057/0.23.1680.1027@1680.23.1920.1057" timestamp="1583584759472" />
+    <state x="2451" y="213" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583584890922">
+      <screen x="1680" y="23" width="1920" height="1057" />
+    </state>
+    <state x="2451" y="213" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1080.23.1080.1897/1680.23.1920.1057/0.23.1680.1027@1680.23.1920.1057" timestamp="1583584890922" />
+    <state x="2769" y="230" key="#main.php" timestamp="1583584825007">
+      <screen x="1680" y="23" width="1920" height="1057" />
+    </state>
+    <state x="2769" y="230" key="#main.php/-1080.23.1080.1897/1680.23.1920.1057/0.23.1680.1027@1680.23.1920.1057" timestamp="1583584825007" />
+    <state x="2703" y="258" key="#registration.php" timestamp="1583584915507">
+      <screen x="1680" y="23" width="1920" height="1057" />
+    </state>
+    <state x="2703" y="258" key="#registration.php/-1080.23.1080.1897/1680.23.1920.1057/0.23.1680.1027@1680.23.1920.1057" timestamp="1583584915507" />
+    <state width="1185" height="290" key="GridCell.Tab.0.bottom" timestamp="1583588212044">
+      <screen x="1680" y="23" width="1920" height="1057" />
+    </state>
+    <state width="1185" height="290" key="GridCell.Tab.0.bottom/-1080.23.1080.1897/1680.23.1920.1057/0.23.1680.1027@1680.23.1920.1057" timestamp="1583588212044" />
+    <state width="1185" height="290" key="GridCell.Tab.0.center" timestamp="1583588212043">
+      <screen x="1680" y="23" width="1920" height="1057" />
+    </state>
+    <state width="1185" height="290" key="GridCell.Tab.0.center/-1080.23.1080.1897/1680.23.1920.1057/0.23.1680.1027@1680.23.1920.1057" timestamp="1583588212043" />
+    <state width="1185" height="290" key="GridCell.Tab.0.left" timestamp="1583588212043">
+      <screen x="1680" y="23" width="1920" height="1057" />
+    </state>
+    <state width="1185" height="290" key="GridCell.Tab.0.left/-1080.23.1080.1897/1680.23.1920.1057/0.23.1680.1027@1680.23.1920.1057" timestamp="1583588212043" />
+    <state width="1185" height="290" key="GridCell.Tab.0.right" timestamp="1583588212043">
+      <screen x="1680" y="23" width="1920" height="1057" />
+    </state>
+    <state width="1185" height="290" key="GridCell.Tab.0.right/-1080.23.1080.1897/1680.23.1920.1057/0.23.1680.1027@1680.23.1920.1057" timestamp="1583588212043" />
+    <state x="2811" y="482" key="NewPhpFileDialog" timestamp="1583584784880">
+      <screen x="1680" y="23" width="1920" height="1057" />
+    </state>
+    <state x="2811" y="482" key="NewPhpFileDialog/-1080.23.1080.1897/1680.23.1920.1057/0.23.1680.1027@1680.23.1920.1057" timestamp="1583584784880" />
+    <state x="2495" y="190" key="SettingsEditor" timestamp="1583584508580">
+      <screen x="1680" y="23" width="1920" height="1057" />
+    </state>
+    <state x="2495" y="190" key="SettingsEditor/-1080.23.1080.1897/1680.23.1920.1057/0.23.1680.1027@1680.23.1920.1057" timestamp="1583584508580" />
+    <state x="517" y="369" key="com.intellij.ide.util.TipDialog" timestamp="1583582654469">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
+    <state x="517" y="369" key="com.intellij.ide.util.TipDialog/-1080.23.1080.1897/1680.23.1920.1057/0.23.1680.1027@0.23.1680.1027" timestamp="1583582654469" />
     <state x="517" y="369" key="com.intellij.ide.util.TipDialog/1680.23.1920.1057/0.23.1680.1027@0.23.1680.1027" timestamp="1583508627020" />
+    <state x="623" y="460" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1583516777892">
+      <screen x="0" y="23" width="1680" height="1027" />
+    </state>
+    <state x="623" y="460" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1680.23.1920.1057/0.23.1680.1027@0.23.1680.1027" timestamp="1583516777892" />
   </component>
 </project>
