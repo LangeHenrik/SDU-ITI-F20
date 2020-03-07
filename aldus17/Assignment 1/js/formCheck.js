@@ -9,7 +9,7 @@ function checkForm() {
 
 function checkFullname() {
     var fullname = document.getElementById("fullname");
-    var regEx = new RegExp(/(^(\w+\s).+$)/g);
+    var regEx = new RegExp(/(^(\w+\s+\D).+$)/g);
 
     if (regEx.test(fullname.value)) {
         changeLabelColor("fullname-label", "LawnGreen");
@@ -18,7 +18,6 @@ function checkFullname() {
     }
 }
 
-// "^$" whole string and needs to end with /gm, m means multiline, "?=.*" look for one or more of the following occourence, the ".*" means any char except line break
 function checkPassword() {
     var password = document.getElementById("password");
     var regEx = new RegExp(/(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])\S{8,}/gm);
@@ -43,12 +42,6 @@ function checkEmailAddress() {
         changeLabelColor("email-label", "Maroon");
     }
 }
-
-/**
- * Value must be from 4 to 20 characters in length,
- *  only allow letters and numbers, no special characters,
- *  full line is evaluated.
- */
 
 function checkUsername() {
     var username = document.getElementById("username");

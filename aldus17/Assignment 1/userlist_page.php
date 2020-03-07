@@ -25,7 +25,7 @@ UserController::logout();
 <body>
     <div class="navbar" id="navbar">
         <ul>
-            <li><a class="active" href="front_page.php">Home</a></li>
+            <li><a class="active" href="index.php">Home</a></li>
             <li> <a href="upload_page.php">Upload</a></li>
             <li> <a href="imagefeed_page.php">Imagefeed</a></li>
             <li> <a href="#userlist">Userlist</a></li>
@@ -48,8 +48,7 @@ UserController::logout();
                     <th>Fullname</th>
                     <th> Username</th>
                 </tr>
-                <?php //Data from the Ajax call at the bottom of the file 
-                ?>
+                <?php //Data from the Ajax will be put into tbody ?>
                 <tbody id="data"></tbody>
 
             </table>

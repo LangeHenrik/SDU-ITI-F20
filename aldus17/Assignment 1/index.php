@@ -1,70 +1,62 @@
 <?php
-
 require_once('dbconfig_and_controllers/DBConnection.php');
 require_once('dbconfig_and_controllers/DBController.php');
 require_once('dbconfig_and_controllers/UserController.php');
+?>
+<?php
 
 UserController::checkSession();
+UserController::sessionRedirect();
+UserController::logout();
+
 ?>
+
 <!DOCTYPE html>
 
 <header>
-    <title>login / frontpage</title>
+    <title>Homepage</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="js/loginAjax.js"></script>
-    <link rel="stylesheet" href="css/index_page_style.css">
+    <link rel="stylesheet" href="css/front_page_style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <html lang="en">
-
 </header>
 
 <body>
-    <div id="main-wrapper">
-        <form method="post" id="loginForm">
-            <div class="inner_login_form_container">
-                <h1>Login page</h1>
-                <label>Username: </label>
-                <input type="text" name='username' id='username' placeholder='Type username' />
+    <div class="navbar" id="navbar">
 
-                <label>Password: </label>
-                <input name='password' id="password" type='password' placeholder='Type password' />
-                <input type='submit' name='loginbtn' class="loginbtn" id="loginbtn" value='login' />
-                <button name="registerReferBtn" class="registerReferBtn" id="registerReferBtn">Register</button>
-            </div>
-        </form>
+        <ul>
+            <li><a class="active" href="#homepage">Home</a></li>
+            <li> <a href="upload_page.php">Upload</a></li>
+            <li> <a href="imagefeed_page.php">Imagefeed</a></li>
+            <li> <a href="userlist_page.php">Userlist</a></li>
+            <li>
+                <form method="post">
+                    <div class="inner_container">
+                        <button class="logoutbtn" name="logoutbtn" type="submit">Log Out</button>
+                    </div>
+                </form>
+            </li>
+        </ul>
+    </div>
 
-        <?php
-
-        if (isset($_POST['loginbtn'])) {
-
-            $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
-            $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
-
-            $usercontrol = new UserController();
-
-            if ($usercontrol->validateUserForLogin($username, $password) == true) {
-
-                //HTTP::redirect("index.php");
-                $_SESSION['logged_in'] = true;
-                $_SESSION['username'] = $username;
-                header("Location: front_page.php");
-                echo 'Success login';
-            } else {
-                //HTTP::redirect("front_page.php");
-                $_SESSION['message'] = "Incorrect Username or Password.";
-                $_SESSION['logged_in'] = false;
-
-                echo "<div id='messageWarning'><p>" . "Username or password is wrong" . "</p></br> " . "</div>";
-                exit();
+    <div id="main-wrapper" class="main_wrapper">
+        <h2 class="front_page-header">Homepage page</h2>
+        <h3 class="front_page-subheader">Welcome to the Homepage
+            <?php
+            $usercontroller = new UserController();
+            $user = $usercontroller->getUserByUsername($_SESSION['username']);
+            foreach ($user as $u) {
+                if ($u['username'] == $_SESSION['username']) {
+                    echo str_repeat('&nbsp;', 2) . "<u>" . $u['fullname'] . "</u>" . str_repeat('&nbsp;', 2);
+                }
             }
-        }
-
-        if (isset($_POST['registerReferBtn'])) {
-            header("Location: registration_page.php");
-        }
-        ?>
-
+            if (!empty($_SESSION['username'])) {
+                $username = $_SESSION['username'];
+                echo 'Your username is: ' . str_repeat('&nbsp;', 2) . "<u>" . $username . "</u>";
+            }
+            ?>
+        </h3>
     </div>
 </body>
 </html>

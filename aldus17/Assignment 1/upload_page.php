@@ -23,7 +23,7 @@ UserController::logout();
 
     <div class="navbar" id="navbar">
         <ul>
-            <li><a class="active" href="front_page.php">Home</a></li>
+            <li><a class="active" href="index.php">Home</a></li>
             <li> <a href="#upload">Upload</a></li>
             <li> <a href="imagefeed_page.php">Imagefeed</a></li>
             <li> <a href="userlist_page.php">Userlist</a></li>

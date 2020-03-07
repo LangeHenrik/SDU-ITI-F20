@@ -66,7 +66,7 @@ class DBController extends DBConnection
         }
     }
 
-    public function getUserByMailAndUsername($username, $email)
+    public function getUserByUsernameAndMail($username, $email)
     {
         $select_query = 'SELECT * FROM users WHERE username=:username AND email=:email';
         $prepare_statement = $this->openConnection()->prepare($select_query);
@@ -79,16 +79,6 @@ class DBController extends DBConnection
         } else {
             var_dump($this->db->error);
         }
-    }
-
-    public function getUserByEmail($email)
-    {
-        echo 'query email  before';
-        $select_query = 'SELECT * FROM users WHERE email= ?';
-        $prepare_statement = $this->openConnection()->prepare($select_query);
-        $prepare_statement->execute([$email]);
-        $query_result = $prepare_statement->fetchAll();
-        return $query_result;
     }
 
     public function getAllUsers()

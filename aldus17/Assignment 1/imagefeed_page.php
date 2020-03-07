@@ -26,7 +26,7 @@ UserController::logout();
 <body>
     <div class="navbar" id="navbar">
         <ul>
-            <li><a class="active" href="front_page.php">Home</a></li>
+            <li><a class="active" href="index.php">Home</a></li>
             <li> <a href="upload_page.php">Upload</a></li>
             <li> <a href="#imagefeed">Imagefeed</a></li>
             <li> <a href="userlist_page.php">Userlist</a></li>
@@ -49,6 +49,7 @@ UserController::logout();
                 Search for username:
                 <input type="text" class="search" name="search" id="search" placeholder="search for username" onload="getUserImages(this.value);" onkeyup="getUserImages(this.value);" />
             </h4>
+            <?php // Data from the Ajax call will be put into the div imagefeed ?>
             <div class="imagefeed" id="imagefeed">
             </div>
 

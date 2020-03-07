@@ -32,18 +32,19 @@ UserController::checkSession();
                 <input type="text" name="username" id="username" placeholder="type a username" required>
 
                 <label for="fullname" id="fullname-label">Forname and lastname: </label>
-                <input type="text" name="fullname" id="fullname" title="Please enter your first and lastname" pattern="^(\w+\s).+$" placeholder="Type forname and lastname" required>
+                <input type="text" name="fullname" id="fullname" title="Please enter your first and lastname" pattern="^(\w+\s+\D).+$" placeholder="Type forname and lastname" required>
 
                 <label for="email" id="email-label">Email: </label>
                 <input type="email" name="email" id="email" placeholder="type email" required>
-
+                
                 <label for="password" id="password-label">Password: </label>
                 <input type="password" name="password" id="password" placeholder="Type password" pattern="(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])\S{8,}" required>
                 <br>
+                
                 <span>Confirm password: </span> <span id="message"><i>Type to see if it matches</i></span>
+                
                 <label>Confirm password</label>
                 <input type="password" name="password_confirm" id="password_confirm" placeholder="Repeat password" oninput="return validatePassword();" onchange="return validatePassword();" required>
-
                 <br>
                 <input type="submit" class="registerbtn" name="registerbtn" value="Register"></input>
 
@@ -63,36 +64,79 @@ UserController::checkSession();
 
             if (isset($_POST['registerbtn'])) {
                 if ($password != $cpassword) {
-                    echo "<div id='messageWarning'>" . "Password did not match" . "</br> " . "</div>";
+                    echo "<div id='messageWarningsmall'>" .
+                        "Password did not match" .
+                        "</br> " .
+                        "</div>";
                     exit();
                 }
                 $uppercase = preg_match('@[A-Z]@', $password);
                 $lowercase = preg_match('@[a-z]@', $password);
                 $number    = preg_match('@[0-9]@', $password);
                 if (!$uppercase || !$lowercase || !$number || strlen($password) < 8) {
-                    echo "<div id='messageWarning'>" . "Password should be at least 8 characters in length and should include at least one upper case letter and one number" . "</br> " . "</div>";
+                    echo "<div id='messageWarningsmall'>" .
+                        "Password should be at least 8 characters in length and should include at least one upper case letter and one number" .
+                        "</br> " .
+                        "</div>";
                     exit();
                 }
-                if (empty($username)) {
-                    array_push($errors, "Username is required");
+
+                $regexCheckUsername = preg_match('/^([A-Za-z0-9]){4,20}$/', $username);
+                if (empty($username) || !$regexCheckUsername) {
+                    echo "<div id='messageWarning'>" .
+                        "You entered username: <b>" .
+                        $username . "</b> " . "<br>  ERROR - " .
+                        "Username is empty or username is not between 4-20 characters long, only numbers and letters, no special characters" .
+                        "</br> " .
+                        "</div>";
+                    exit();
                 }
-                if (empty($email)) {
-                    array_push($errors, "Email is required");
+
+                $regexCheckFullname = preg_match('/(^(\w+\s+\D).+$)/', $fullname);
+                if (empty($fullname) || !$regexCheckFullname) {
+                    echo "<div id='messageWarning'>" .
+                        "You entered fullname: <b>" .
+                        $fullname . "</b> " . "<br>  ERROR - " .
+                        "The fullname is either empty or fullname must contain first and lastname, no numbers allowed" .
+                        "</br> " .
+                        "</div>";
+                    exit();
                 }
-                if (empty($password_1)) {
-                    array_push($errors, "Password is required");
+
+                $regexCheckEmail = preg_match('/(\b[\w\.-]+@[\w\.-]+\.\w{2,26}\b)/', $email);
+                if (empty($email) || !$regexCheckEmail) {
+                    echo "<div id='messageWarning'>" .
+                        "You entered email: <b>" .
+                        $email . "</b> " . "<br>  ERROR - " .
+                        "Email is either empty or email must contain a @ and a . afterwards, e.g. test@test.com" .
+                        "</br> " .
+                        "</div>";
+                    exit();
                 }
 
                 if ($usercontrol->checkIfUserExists($username) == true) {
-                    echo "<div id='messageWarning'>" . "User with username " . $username . " has already been created" . "</br> " . "</div>";
+                    echo "<div id='messageWarningsmall'>" .
+                        "User with username " .
+                        $username .
+                        " has already been created" .
+                        "</br> " .
+                        "</div>";
                     exit();
                 } else {
                     $usercontrol->insertUser($username, $fullname, $email, $password);
-                    echo "<div id='messageSuccess'>" . "User with " . $username . " and " . $email . " created successfully" . "</br> " . "</div>";
+                    echo "<div id='messageSuccess'>" .
+                        "User with " .
+                        $username .
+                        " and " .
+                        $email .
+                        " created successfully" .
+                        "</br> " .
+                        "</div>";
                 }
             }
             ?>
         </form>
     </div>
 </body>
+
 </html>

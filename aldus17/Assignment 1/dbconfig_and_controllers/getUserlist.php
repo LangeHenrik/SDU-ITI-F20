@@ -3,6 +3,7 @@ include_once('DBConnection.php');
 include_once('DBController.php');
 include_once('UserController.php');
 
+
 $usercontroller = new UserController();
 
 $userlistDataArray = $usercontroller->getAllUsersForUserlist();

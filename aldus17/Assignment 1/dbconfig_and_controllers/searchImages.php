@@ -23,7 +23,7 @@ if ($searchParameter !== "" || !empty($searchParameter)) {
         }
     }
 } else {
-    // get all image data if not searching
+    // get all image data if search did not find anything
     $imageData = $imageResults;
 }
 

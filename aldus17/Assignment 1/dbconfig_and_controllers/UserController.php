@@ -97,11 +97,11 @@ class UserController extends DbController
             unset($_SESSION['username']);
         }
     }
-
+    // if user is not logged in, redirect to index page
     public static function sessionRedirect()
     {
         if ($_SESSION['logged_in'] == false) {
-            header("Location: index.php");
+            header("Location: front_page.php");
         }
     }
 

@@ -1,6 +1,6 @@
 function getUserlist() {
     var ajax = new XMLHttpRequest();
-    ajax.open("GET", "dbconfig_and_controllers/getUserlist.php?", true);
+    ajax.open("GET", "dbconfig_and_controllers/getUserlist.php?action=getUserlist", true);
     ajax.send();
 
     ajax.onreadystatechange = function() {
