@@ -91,8 +91,37 @@ section#content h1#title {
 div.registration form {
   margin-left: 30px;
 }
-div.registration form input#signup {
+div.registration label {
+  width: 200px;
+  display: inline-block;
+}
+div.registration p.valid {
+  color: #FAA;
+  display: inline-block;
+  margin: 0;
+  float: right;
+}
+div.registration input {
+  margin-bottom: 20px;
+  width: 200px;
+}
+div.registration input#signup {
   margin-left: 20px;
+  width: auto;
+}
+div.registration p.info {
+  display: inline-block;
+  margin: 0;
+  margin-left: 30px;
+}
+@media only screen and (max-width: 800px) {
+  div.registration p.info {
+    display: inherit;
+    margin: 0;
+  }
+  div.registration input {
+    margin-bottom: 0;
+  }
 }
 
 /* user content */
@@ -124,7 +153,6 @@ div.welcomme h2 {
   margin: 5px 0;
   margin-left: 30px;
 }
-
 div.welcomme form {
   display: none;
 }
@@ -142,9 +170,6 @@ div.welcomme form {
 
 
 /* footer */
-footer {
-
-}
 footer div.assignment {
   background-color: gray;
   border-top-left-radius: 7px;
