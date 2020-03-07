@@ -4,12 +4,17 @@ require 'config.php';
 
 // If upload button is clicked ...
 if (isset($_POST['upload'])) {
+  
+  echo "Open console and check"; 
+  echo '<script>console.log("Hello");</script>';
+
   // Get email
   $Email = htmlentities($_POST['Email']);
   // Get username
   $Username = htmlentities($_POST['Username']);
   // Get password
-  $Password = base64_encode(htmlentities($_POST['Password']));
+  $Password = password_hash(htmlentities($_POST['Password']), PASSWORD_DEFAULT);
+
 
   // Get name
   $Name = filter_var($_POST['Name'], FILTER_SANITIZE_STRING);
