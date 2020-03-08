@@ -8,7 +8,7 @@
 	+ [Directory structure](#directory-structure)
 * [Usage](#usage)
 	+ [Dependencies](#dependencies)
-	+ [Configuration (Windows)](#configuration--windows-)
+	+ [Configuration (Windows)](#configuration-windows)
 		- [PHP](#php)
 		- [MariaDB](#mariadb)
 		- [Project](#project)
@@ -18,7 +18,7 @@
 
 The assignment is to develop a responsive website built only using HTML, CSS, JavaScript, PHP & MySQL, which must contain at least one AJAX call. The only external library allowed is Font Awesome.
 
-![A screenshot of the finished website.](/img/screenshot.png)
+![A screenshot of the finished website.](img/screenshot.png)
 
 The site must contain the following pages/features:
 
@@ -33,6 +33,7 @@ The site must contain the following pages/features:
 Various techniques have been implemented in this project with the overall objective to code idiomatically and experiment with various, modern web development technologies.
 
 - Dynamic content loading with `#` navigation
+- CSS themes / custom properties
 - RegEx pattern matching (HTML5 `<input>`)
 - Component based architecture (directory structure, HTML5 `<template>`)
 - AJAX calls using ES6 Fetch API (`FormData` and `JSON`)
