@@ -1,4 +1,7 @@
 <?php
+  if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+  }
   require_once('include/db_config.php');
 
   try
@@ -8,43 +11,69 @@
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // Find userid tilsvarende username
-    $stmt = $conn->prepare("SELECT userid FROM users WHERE username = :username");
+
+
+  /*  $stmt = $conn->prepare("SELECT userid FROM users WHERE username = :username");
     $stmt->bindParam(':username', $_SESSION["username"]);
     $stmt->execute();
     $stmt->setFetchMode(PDO::FETCH_NUM);
     $userid = $stmt->fetchAll()[0][0];
+    echo $userid ;
 
     // Hent imagebase64 uploaded af user
     $stmt = $conn->prepare("SELECT imagebase64, uploaddate, imagename FROM picture WHERE userid = :userid");
     $stmt->bindParam(':userid', $userid);
     $stmt->execute();
     $stmt->setFetchMode(PDO::FETCH_NUM);
-    $imagebase64Pics = $stmt->fetchAll();
-
-    for ($i=0; !empty($imagebase64Pics) && $i < count($imagebase64Pics); $i++)
-    {
-      ?>
-        <div class="picturecontainer">
-          <img src= <?php echo $imagebase64Pics[$i][0] ?> alt= <?php echo " MyPicture " . $imagebase64Pics[$i][2] ?> >
-          <table class="info">
-            <tr>
-              <th>Name:</th> <td><?php echo $imagebase64Pics[$i][2] ?></td>
-            </tr>
-            <tr>
-              <th>Upload Date:</th> <td><?php echo $imagebase64Pics[$i][1] ?></td>
-            </tr>
-          </table>
-        </div>
-      <?php
-      /*echo "<div style=\"width: 98.5%; height: 40%; margin: 5 5 5 5; background-color: grey; display: block;\">";
-        echo "<img src=\"" . $imagebase64Pics[$i][0] . "\" alt=\"MyPicture $i\" style=\"max-height: 100%; max-width:50%; margin: aito 0; display: inline;\">";
-        echo "<div style=\"margin: auto; display: inline; float: right;\">";
-          echo "<p style=\"margin-right: 10px;\">Name: " . $imagebase64Pics[$i][2] . "</p>";
-          echo "<p style=\"margin-right: 10px;\">Upload Date: " . $imagebase64Pics[$i][1] . "</p>";
-        echo "</div>";
-      echo "</div>";  */
+    $imagebase64Pics = $stmt->fetchAll();*/
+    if (isset($_POST["myuploads"]) && $_POST["myuploads"]) {
+      $stmt = $conn->prepare("SELECT imagebase64, imagename, uploaddate FROM picture WHERE username = :username");
+      $stmt->bindParam(':username', $_SESSION['username']);
+      $stmt->execute();
+      $stmt->setFetchMode(PDO::FETCH_NUM);
+      $imagebase64Pics = $stmt->fetchAll();
+      for ($i=0; !empty($imagebase64Pics) && $i < count($imagebase64Pics); $i++)
+      {
+        ?>
+          <div class="picturecontainer">
+            <img src= <?php echo $imagebase64Pics[$i][0] ?> alt= <?php echo " MyPicture " . $imagebase64Pics[$i][1] ?> >
+            <table class="info">
+              <tr>
+                <th>Name:</th> <td><?php echo $imagebase64Pics[$i][1] ?></td>
+              </tr>
+              <tr>
+                <th>Upload Date:</th> <td><?php echo $imagebase64Pics[$i][2] ?></td>
+              </tr>
+            </table>
+          </div>
+        <?php
+      }
+    } else {
+      $stmtString = "SELECT imagebase64, username, imagename, uploaddate FROM picture";
+      $stmt = $conn->prepare($stmtString);
+      $stmt->execute();
+      $stmt->setFetchMode(PDO::FETCH_NUM);
+      $imagebase64Pics = $stmt->fetchAll();
+      for ($i=0; !empty($imagebase64Pics) && $i < count($imagebase64Pics); $i++)
+      {
+        ?>
+          <div class="picturecontainer">
+            <img src= <?php echo $imagebase64Pics[$i][0] ?> alt= <?php echo " MyPicture " . $imagebase64Pics[$i][2] ?> >
+            <table class="info">
+              <tr>
+                <th>Upload by:</th> <td><?php echo $imagebase64Pics[$i][1] ?></td>
+              </tr>
+              <tr>
+                <th>Name:</th> <td><?php echo $imagebase64Pics[$i][2] ?></td>
+              </tr>
+              <tr>
+                <th>Upload Date:</th> <td><?php echo $imagebase64Pics[$i][3] ?></td>
+              </tr>
+            </table>
+          </div>
+        <?php
+      }
     }
-
   }
   catch(PDOException $e)
   {

@@ -20,6 +20,7 @@
         <div class="myuploads" id="myuploads">
           <h4>My uploads.</h4>
           <?php
+            $_POST["myuploads"] = true;
             include_once('include/PDO/getUploadedImages.php');
           ?>
         </div>
