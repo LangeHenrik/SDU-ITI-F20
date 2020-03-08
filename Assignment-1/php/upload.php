@@ -14,7 +14,7 @@ if (isset($_POST['upload'])) {
     // Get Description
     $Description = htmlentities($_POST['Description']);
     // Get User
-    $UserID = htmlentities($_POST['UserID']);
+    $UserID = $_SESSION["id"];
     // image file directory
     // Get encoded image name
     $Image = $_FILES['Image']['name'];
