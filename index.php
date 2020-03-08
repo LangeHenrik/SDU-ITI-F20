@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require "header.php";
 ?>
   <main>
@@ -7,7 +8,7 @@
       <?php if(isset($_SESSION['username'])){ ?>
         <p class="login-status">You are logged in!</p>
       <?php } else { ?>
-        <p class="login-status">You are logged out!</p>
+        <p class="login-status">You are logged out! Sign Up</p>
       <?php } ?>
       </div>
     </div>

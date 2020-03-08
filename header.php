@@ -20,7 +20,7 @@
                     echo "<a href='logout.php'><input type=button value=Logout name=logout></a>";
                 } else { ?>
                     <div class="login-container">    
-                        <form action="/linkdatabase/login.php" method="post">
+                        <form name="login" action="feed.php" method="POST">
                             <input type="text" name="username-login" id="username-login" placeholder="Username">
                             <input type="password" name="pwd-login" id="pwd-login" placeholder="Password">
                             <button type="submit" name="login-submit">Log-in</button>
@@ -28,5 +28,9 @@
                     </div>
             <?php } ?>
         </div>
-    </body>
-</html>
+
+<?php 
+
+    require "footer.php";
+
+?>

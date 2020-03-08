@@ -6,11 +6,11 @@
 <html>
 <!DOCTYPE html>
     <?php
-        if(isset($_SESSION['username-login'])){
+        if(isset($_SESSION['username'])){
             echo "<a href='./includes/logout.php'></a>";
         } else{
-            /*echo "<script> alert('You have to login to use this function!') </script>";
-            echo "<script> location.href = 'index.php' </script>";*/
+            echo "<script> alert('You have to login to use this function!') </script>";
+            echo "<script> location.href = 'index.php' </script>";
         }
     ?>
     <head>
