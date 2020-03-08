@@ -54,13 +54,6 @@ catch (PDOException $e) {
 					<div class="description"><?= $res["description"] ?></div>
 				</div>
 			<?php endforeach; ?>
-
-			<br>
-			<div class="picture">
-				<div class="header">header</div>
-				<img src="profile1.jpg"/>
-				<div class="description">Description Lorem ipsum ullamco aute ut ut in ad in eiusmod ut deserunt sit amet laborum ut incididunt ut et proident consequat proident excepteur minim aute consectetur dolor consequat magna est sed occaecat officia quis in labore fugiat ex ut nulla irure.</div>
-			</div>
 			<br>
 		</div>
 	</div>

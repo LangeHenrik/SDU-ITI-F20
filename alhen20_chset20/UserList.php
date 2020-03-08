@@ -34,21 +34,21 @@ catch (PDOException $e) {
 	<div class="container">
 		<div class="content">
 			<div class="user">
-				<img src="profile1.jpg"/>
+				<div class="mail">Template</div>
 				<div class="name">Template</div>
 			</div>
-			<div class="user">
-				<img src="profile1.jpg"/>
-				<div class="name">Robert</div>
-			</div>
-			<div class="user">
-				<img src="profile1.jpg"/>
-				<div class="name">Robert</div>
-			</div>
-			<div class="user">
-				<img src="profile1.jpg"/>
-				<div class="name">Robert</div>
-			</div>
+			<?php
+			$stmt = $conn->prepare("SELECT username, email
+				FROM site_user");
+			$stmt->execute();
+			$result = $stmt->fetchAll();
+
+			foreach($result as $res):?>
+				<div class="user">
+					<div class="name"><?= $res["username"] ?></div>
+					<div class="mail"><?= $res["email"] ?></div>
+				</div>
+			<?php endforeach; ?>
 		</div>
 	</div>
 </body>

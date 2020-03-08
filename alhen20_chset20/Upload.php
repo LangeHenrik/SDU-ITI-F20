@@ -34,7 +34,7 @@ catch (PDOException $e) {
 	<div class="container">
 		<div class="content">
 			<div class="mainform">
-				<form>
+				<form action="process_upload.php" method="POST">
 					<label for="header" >Header</label>
 					<br>
 					<input type="text" name="header" id="header"/>
