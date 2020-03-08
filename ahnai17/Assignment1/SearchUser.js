@@ -14,7 +14,7 @@ function SearchUser(str){
                 document.getElementById("show_user").innerHTML = this.responseText;
             }
         };
-        xmlhttp.open("GET","DisplayUsers.php?search_username="+str,true);
+        xmlhttp.open("GET","DisplayUsers.php?search_userid="+str,true);
         xmlhttp.send();
     }
 }

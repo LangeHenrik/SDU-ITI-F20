@@ -1,7 +1,7 @@
 <?php
 require_once 'db_config.php';
 
-$search_username = filter_input(INPUT_GET, ['search_username']);
+$search_username = filter_input(INPUT_GET, ['search_userid']);
 $con= ConnectToDB();
 $search="SELECT id, username FROM users WHERE id = :id";
 $result=$con->prepare($search);
