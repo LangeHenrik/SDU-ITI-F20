@@ -76,10 +76,9 @@ li a:hover {
 	display: grid;
 	width: auto !important;
 	width: 100%;
-	
-	grid-template-colums: 1fr 1fr 1fr;
+	grid-template-columns: repeat(3, 1fr);
 	grid-template-rows: auto;
-	padding: 20px;
+	grid-gap: 30px;
 	align-items: center;
 	justify-items: center;
 }

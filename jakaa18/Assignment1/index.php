@@ -92,10 +92,10 @@ if ($_SESSION['logged_in']) : ?>
 					<img src="https://www.w3schools.com/images/w3schools_green.jpg" alt="Snow" style="width:100%">
 					<img src="https://www.w3schools.com/images/w3schools_green.jpg" alt="Forest" style="width:100%">
 					<img src="https://www.w3schools.com/images/w3schools_green.jpg" alt="Mountains" style="width:100%">
-				</div>
+					<img src="https://www.w3schools.com/images/w3schools_green.jpg" alt="Stone" style="width:100%">
 			</div>
 		</div>
-    </div>
+	</div>
 
 	
 <!-- This section is the login page-->
