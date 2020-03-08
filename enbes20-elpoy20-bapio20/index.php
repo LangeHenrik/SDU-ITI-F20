@@ -16,7 +16,7 @@ if(isset($_POST['formConnexion'])) {
 
    if(!empty($username) AND !empty($password)) {
 
-     $stmt = $db->prepare('SELECT id_user, password, email FROM user WHERE username = :username');
+     $stmt = $db->prepare('SELECT id_user, username, password, email FROM user WHERE username = :username');
      $stmt->bindParam(':username', $username, PDO::PARAM_STR);
 
      $stmt->execute();
@@ -33,7 +33,7 @@ if(isset($_POST['formConnexion'])) {
 
          //session_start();
          $_SESSION['id'] = $res['id_user'];
-         $_SESSION['username'] = $username;
+         $_SESSION['username'] = $res['username'];
          $_SESSION['mail'] = $res['email'];
          //var_dump($res);
          header("Location: feed.php?id=".$_SESSION['id']);

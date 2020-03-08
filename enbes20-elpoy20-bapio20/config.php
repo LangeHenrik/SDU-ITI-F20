@@ -1,6 +1,6 @@
 <?php
 
-// Connexion à la base de données
+// Database Connection
 try
 {
     $db = new PDO('mysql:host=localhost;dbname=enbes20_elpoy20_bapio20', 'root', 'root');

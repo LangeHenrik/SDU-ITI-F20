@@ -32,7 +32,7 @@ while ($row = $res->fetch()){
 		</div>
 			";
 }
-$res->closeCursor(); // Termine le traitement de la requête
+$res->closeCursor(); // Finish processing the request
 
 ?>
 
@@ -42,9 +42,11 @@ $res->closeCursor(); // Termine le traitement de la requête
 
 
   <div class="title">IMAGES FEED</div>
+
     <div class="cards-list">
 
     <?php echo($output);?>
+    <!--  var_dump($_SESSION['username']); -->
     </div>
 </div>
 

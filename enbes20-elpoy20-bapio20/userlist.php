@@ -50,7 +50,7 @@ $output="";
       }
 	  echo($output);die;
   }
-  $res->closeCursor(); // Termine le traitement de la requête
+  $res->closeCursor(); // End the request
 
   /* close connection */
 
@@ -63,6 +63,7 @@ error_reporting(E_ALL);
 <div class="container_userlist">
 
   <div class="title">CONTACT LIST</div>
+  <!-- AJAX Call to refresh the user list (showUser)  -->
     <form class="search_field" method="get">
       Search a user by Username: <br> <br> <input type="text" name = 'q' onkeyup="showUser(this.value)">
     </form>

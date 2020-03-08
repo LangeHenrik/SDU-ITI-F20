@@ -63,14 +63,13 @@ if (isset($_POST['formUpload'])) {
   <div class="container_upload" >
     <div class="title">UPLOAD PAGE</div>
     <form method="post" class="form" action="" enctype='multipart/form-data'>
-        <!-- <p>Drag your picture here or click on this area</p> -->
         <input type="file" name="file" id="file" required="required" >
         <label for="header">Header</label>
         <input type='text' name='header'/>
         <label for="description">Description</label>
         <input type='text' name='description'/>
 
-        <input type='submit' value='Upload Image' name='formUpload'>
+        <input type='submit' class="btn" value='Upload Image' name='formUpload'>
         <?php
         if(isset($error)) {
             echo '<p id="verif_fail" >'.$error."</p>";
