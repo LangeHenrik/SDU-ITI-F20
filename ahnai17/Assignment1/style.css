@@ -19,14 +19,14 @@ and open the template in the editor.
     border: none;
     margin-top: 6px;
     margin-right: 12px;
-    font-size: 12px;  
+    font-size: 17px;  
 }
 .loginfield input[type=password] {
     padding: 6px;
     border: none;
     margin-top: 6px;
     margin-right: 12px;
-    font-size: 12px;
+    font-size: 17px;
 }
 .loginfield input[type=submit] {
   padding: 6px;
@@ -150,6 +150,6 @@ and open the template in the editor.
 #output { /*size of image shown here*/
     width: 250px;
 }
-.table, th, td {
+.Home.table, .Home.tr, Home.td {
     border: 1px solid black;
 }

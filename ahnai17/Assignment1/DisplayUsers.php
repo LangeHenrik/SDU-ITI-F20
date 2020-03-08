@@ -1,14 +1,14 @@
 <?php
 require_once 'db_config.php';
 
-$q = filter_input(INPUT_GET, ['search_username']);
+$search_username = filter_input(INPUT_GET, ['search_username']);
 $con= ConnectToDB();
 $search="SELECT id, username FROM users WHERE id = :id";
 $result=$con->prepare($search);
-$result->bindParam(":id", $q);
+$result->bindParam(":id", $search_username);
 $result->setFetchMode(PDO::FETCH_ASSOC);
 $result->execute();
-if (!empty($q)){    
+if (!empty($search_username)){    
 echo "<table>
 <tr>
 <th>Id</th>

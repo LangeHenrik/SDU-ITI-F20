@@ -2,7 +2,6 @@
 if(session_status() == PHP_SESSION_NONE){
     session_start();
 }
-
 require_once 'db_config.php';   
 $username = filter_input(INPUT_POST, 'username');
 $password=filter_input(INPUT_POST, 'password');
@@ -42,3 +41,7 @@ if (!empty($result))
     } catch (PDOException $e){
         echo "Error: " . $e->getMessage();
     }
+function getusername(){
+    $username = filter_input(INPUT_POST, 'username');
+    return $username;
+}    

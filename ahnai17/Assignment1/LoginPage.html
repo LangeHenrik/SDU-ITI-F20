@@ -18,15 +18,34 @@ and open the template in the editor.
         <div class="content">
             <div class="loginfield">
                 <form id="Inputform" action="login.php"  method="post">
-                    <br>&nbsp;
-                    <label for="username">Username</label>
-                    <br>&nbsp;
-                    <input type="text" name="username" id="username" required/> 
-                    <br>&nbsp;
-                    <label for="password">Password</label>
-                    <br>&nbsp;
-                    <input type="password" name="password" id="password" required/>
-                    <input type="submit" name="login" value="login"/>
+                   <table>
+                        <tr>
+                            <td>
+                                Username
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" placeholder="Username" name="username" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Password
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="password" placeholder="Password" name="password" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="submit" value="login" name="login" required>
+                                
+                            </td>
+                        </tr>
+                        <tr>
                 </form>
             </div>
             <div class="newuser">
