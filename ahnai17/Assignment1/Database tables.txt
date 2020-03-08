@@ -1,5 +1,6 @@
 CREATE TABLE users (
-int(12) id primary key not null auto_increment, 
+id INT(12) not null auto_increment, 
 username varchar(20) not null,
-password varchar(1000) not null 
+password varchar(1000) not null,
+PRIMARY KEY (id) 
 );
