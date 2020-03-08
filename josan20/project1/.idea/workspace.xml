@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e6f4f31d-875d-4b48-8441-54c41d6de531" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/db_config.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sanitize_input.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Users.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysql.php" beforeDir="false" afterPath="$PROJECT_DIR$/mysql.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/main.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/registration.php" beforeDir="false" afterPath="$PROJECT_DIR$/registration.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/registration_form.js" beforeDir="false" afterPath="$PROJECT_DIR$/registration_form.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sql_scripts.txt" beforeDir="false" afterPath="$PROJECT_DIR$/sql_scripts.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +72,7 @@
       <option name="presentableId" value="Default" />
       <updated>1583508618305</updated>
       <workItem from="1583508620995" duration="4871000" />
-      <workItem from="1583582648334" duration="8233000" />
+      <workItem from="1583582648334" duration="17439000" />
     </task>
     <servers />
   </component>
@@ -119,6 +120,10 @@
       <screen x="1680" y="23" width="1920" height="1057" />
     </state>
     <state width="1185" height="290" key="GridCell.Tab.0.right/-1080.23.1080.1897/1680.23.1920.1057/0.23.1680.1027@1680.23.1920.1057" timestamp="1583670069931" />
+    <state x="2276" y="375" key="NewPhpClassDialog" timestamp="1583683568755">
+      <screen x="1680" y="23" width="1920" height="1057" />
+    </state>
+    <state x="2276" y="375" key="NewPhpClassDialog/-1080.23.1080.1897/1680.23.1920.1057/0.23.1680.1027@1680.23.1920.1057" timestamp="1583683568755" />
     <state x="2811" y="482" key="NewPhpFileDialog" timestamp="1583670562794">
       <screen x="1680" y="23" width="1920" height="1057" />
     </state>
@@ -132,6 +137,10 @@
     </state>
     <state x="517" y="369" key="com.intellij.ide.util.TipDialog/-1080.23.1080.1897/1680.23.1920.1057/0.23.1680.1027@0.23.1680.1027" timestamp="1583582654469" />
     <state x="517" y="369" key="com.intellij.ide.util.TipDialog/1680.23.1920.1057/0.23.1680.1027@0.23.1680.1027" timestamp="1583508627020" />
+    <state x="2645" y="173" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1583673663598">
+      <screen x="1680" y="23" width="1920" height="1057" />
+    </state>
+    <state x="2645" y="173" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/-1080.23.1080.1897/1680.23.1920.1057/0.23.1680.1027@1680.23.1920.1057" timestamp="1583673663598" />
     <state x="623" y="460" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1583516777892">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>

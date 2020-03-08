@@ -17,7 +17,7 @@ require_once 'db_config.php';
 ?>
 
 <div class="header">
-    <h1>Login</h1>
+    <h1>Registration</h1>
 </div>
 
 <div id="form" class="registration_form">
@@ -26,18 +26,71 @@ require_once 'db_config.php';
         <input type="text" id="name" name="name"><br>
         <p class="info" id="nameinfo"></p><br><br>
         <label for="pass">password:</label>
-        <input type="password" id="pass" name="pass"><br><br>
+        <input type="password" id="pass" name="pass"><br>
+        <p class="info" id="passinfo"></p><br><br>
         <input type="submit" value="registration">
     </form>
-<!--    <script src="registration_form.js"></script>-->
+    <script src="registration_form.js"></script>
 </div>
 
 <?php
-if ($_POST["name"]!==NULL){
-    $name = $_POST["name"];
-    echo $name . "\n";
-    $newstr = filter_var($name, FILTER_SANITIZE_STRING);
-    echo $newstr . "\n";
+if (!empty($_POST) && $_POST["name"] !== NULL && valid_human_name($_POST["name"]) && valid_password($_POST["pass"])) {
+    $user_register = $_POST["name"];
+    $pass_register = $_POST["pass"];
+
+
+    try {
+//        try connect
+        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+        // set the PDO error mode to exception
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+//        check if user is already in
+        $sql = "SELECT name FROM MyGuests WHERE name='" . $user_register . "';";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+
+        //sql to insert new user to the table
+        $table_name = "MyGuests";
+
+        $sql = "INSERT INTO " . $table_name . " (name, pass)
+VALUES ('" . $user_register . "', '" . $pass_register . "');";
+        $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $output_database = $stmt->fetchAll();
+
+//        print output from database
+/*        foreach(new RecursiveArrayIterator($output_database) as $k=>$v) {
+            echo implode(" ",$v);
+
+        }*/
+
+        if (count($output_database) !== 0) {
+            echo 'user is already in database';
+            foreach(new RecursiveArrayIterator($output_database) as $k=>$v) {
+                echo implode(" ",$v);
+            }
+        } else {
+            $pass_register = password_hash($pass_register, PASSWORD_DEFAULT);
+            $sql = "INSERT INTO " . $table_name . " (name, pass)
+VALUES ('" . $user_register . "', '" . $pass_register . "');";
+
+
+            //show sql in console
+            echo $sql . "\n";
+
+            // use exec() because no results are returned
+            $conn->exec($sql);
+            echo "Table MyGuests created successfully";
+        }
+
+    } catch (PDOException $e) {
+        echo $sql . "<br>" . $e->getMessage();
+    }
+
+
+    echo "\nend";
+
+    $conn = null;
 }
 
 

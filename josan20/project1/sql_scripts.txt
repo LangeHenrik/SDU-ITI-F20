@@ -6,6 +6,9 @@ pass VARCHAR(30) NOT NULL,
 reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 )
 
+table info ->
+DESCRIBE MyGuests;
+
 rename ->
 ALTER TABLE MyGuests CHANGE id MyGuests_id INT(4) UNSIGNED AUTO_INCREMENT;
 
@@ -15,3 +18,12 @@ VALUES ('ahoj', 'ahojky');
 
 show table ->
 SELECT * FROM MyGuests;
+
+search in table ->
+SELECT name FROM MyGuests WHERE name='ahoj';
+SELECT * FROM MyGuests WHERE name='ahoj' AND pass='ahojky';
+
+
+
+AJAX ->
+https://www.w3schools.com/php/php_ajax_database.asp
