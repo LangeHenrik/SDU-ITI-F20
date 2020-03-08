@@ -22,7 +22,7 @@ session_start();
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
-        document.getElementById("changeButton").innerHTML =
+        document.getElementById("title1").innerHTML =
         this.responseText;
       }
     };
