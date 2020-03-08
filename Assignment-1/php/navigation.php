@@ -1,3 +1,17 @@
+<?php
+session_start();
+// Create database connection
+include 'config.php';
+?>
+
+<?php if($_SESSION["loggedin"] != 1): ?>
+  <div id="menu" class="nav">
+  <ul>
+    <li><a href="../index.php">Frontpage</a></li>
+    <li><a href="#" onclick="openModal()">Login</a></li>
+  </ul>
+</div>
+<?php else: ?>
 <div id="menu" class="nav">
   <ul>
     <li><a href="../index.php">Frontpage</a></li>
@@ -7,3 +21,4 @@
     <li><a href="#" onclick="openModal()">Login</a></li>
   </ul>
 </div>
+<?php endif; ?>
