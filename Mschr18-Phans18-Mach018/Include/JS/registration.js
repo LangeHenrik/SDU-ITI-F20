@@ -75,7 +75,7 @@ function isUsernameAvailabil() {
           }
         }
     };
-    xmlhttp.open("GET", "isUsernameAvailabil.php?newusername=" + newusernameInput.value  , true);
+    xmlhttp.open("GET", "Include/PDO/isUsernameAvailabil.php?newusername=" + newusernameInput.value  , true);
     xmlhttp.send();
 }
 

@@ -4,7 +4,7 @@
     <li><a href="upload.php">Upload</a></li>
     <li><a href="users.php">Users</a></li>
     <li>
-      <form action="logout.php" >
+      <form action="Include/phpUtils/logout.php" >
         <input type="submit" name="submit" id="logout" value="Log out"/>
       </form>
     </li>

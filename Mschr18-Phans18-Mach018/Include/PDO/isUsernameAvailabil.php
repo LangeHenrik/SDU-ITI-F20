@@ -4,7 +4,7 @@
     //if (isset($_GET["newusername"])) {
       $newusername = $_GET['newusername'];
     //}
-    require_once('Include/db_config.php');
+    require_once('../db_config.php');
 
     $result;
     try {
