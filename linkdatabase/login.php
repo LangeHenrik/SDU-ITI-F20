@@ -2,7 +2,7 @@
     require __DIR__ . '/../config.php';
 
     try {
-        $connection = new PDO("mysql:host=$server;port=3306;dbname=$database", 
+        $connection = new PDO("mysql:host=$server;dbname=$database", 
         $username_database, $password_database, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
         $stmt = $connection->prepare("SELECT username, pwd FROM users");
         $stmt->execute();
@@ -26,7 +26,7 @@
                 if($row['username']==$userXSS && password_verify($passXSS, $row['pwd'])){
                     $_SESSION['username']=$_POST['username-login'];
                     #$path_feed = __DIR__ . '\..\feed.php';
-                    echo"<html><script>window.location.href = './../user_list.php'</script></html>";
+                    echo"<html><script>window.location.href = './../feed.php'</script></html>";
                 }else{
                     #$path_index = __DIR__ . '\..\index.php';
                     echo "<html><script> alert('Log in first to use the feature!')</script>";
@@ -36,7 +36,7 @@
         }
     }
         catch (PDOException $error){
-            #echo "ERROR: ".$error->getMessage();
+            echo "ERROR: ".$error->getMessage();
         }
         $connection = null;
 
