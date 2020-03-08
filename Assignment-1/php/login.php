@@ -33,7 +33,7 @@ if (isset($_POST['login'])) {
               $_SESSION["loggedin"] = true;
               $_SESSION["id"] = $id;
               $_SESSION["username"] = $username;
-              echo("<script>location.href = '/php/imagepage.php';</script>");
+              echo("<script>location.href = '/php/users.php';</script>");
             } else {
               echo '<script>console.log("Error in login"); </script>'; 
             }

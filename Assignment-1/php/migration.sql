@@ -31,9 +31,9 @@ CREATE TABLE userinfo (
 );
 
 INSERT INTO user (ID, Username, Email, Password) VALUES
-(1, 'ItIsMeMcNugget', 'Mc@Nugget.com', 'UGFzc3dvcmQxMjM0'),
-(2, 'Juli', 'Jull@mail.com', 'UGFzc3dvcmQxMjM0'),
-(3, 'Teses', 'Tester@test.dk', 'UGFzc3dvcmQxMjM0');
+(1, 'ItIsMeMcNugget', 'Mc@Nugget.com', '$2y$10$g7lMhHlN/kXWwGvMDGAATepoIEj3ivbiHli47KUVZV5lnPDZuUIOi'),
+(2, 'Juli', 'Jull@mail.com', '$2y$10$g7lMhHlN/kXWwGvMDGAATepoIEj3ivbiHli47KUVZV5lnPDZuUIOi'),
+(3, 'Teses', 'Tester@test.dk', '$2y$10$g7lMhHlN/kXWwGvMDGAATepoIEj3ivbiHli47KUVZV5lnPDZuUIOi');
 
 INSERT INTO userinfo (ID, Name, BDate, Image, LoginID) VALUES
 (1, 'McNugget', '1999-06-04 00:00:00', 'batman.png', '1'),
