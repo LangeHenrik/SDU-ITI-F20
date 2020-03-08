@@ -10,15 +10,15 @@
         //print_r($result);
         echo "<div>";
             foreach($result as $row){
-                echo "<div id=formContent>Image Title: <p>$row[header]</p><br>";
+                echo "<br><div id=formContent><br>Image Title: $row[header]<br>";
                 echo "<img src='$row[image]'></img><br>";
-                echo "<p>$row[username]</p>: <p>$row[description]</p><br>";
+                echo "<p>$row[username]: $row[description]</p><br>";
                 echo "</div>";
             }
         echo "</div>";
     }
     catch (PDOException $error) {
-        echo "Error: " . $error->getMessage();
+        #echo "Error: " . $error->getMessage();
         }
     $connection = null;
 ?>

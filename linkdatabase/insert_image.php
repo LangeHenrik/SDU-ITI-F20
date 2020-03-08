@@ -4,7 +4,7 @@
     if(array_key_exists('image-upload', $_POST)) {
         require 'config.php';
         try{
-            $connection = new PDO("mysql:host=$server;port=3307;dbname=$database", 
+            $connection = new PDO("mysql:host=$server;port=$portdb;dbname=$database", 
             $username_database, $password_database, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
             $connection->exec("SET wait_timeout=3000;");
             $stmt = $connection->prepare("INSERT INTO images (header, description, username, image) VALUES(:header, :description, :username, :image)");
