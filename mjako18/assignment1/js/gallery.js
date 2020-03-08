@@ -29,33 +29,46 @@ console.log(oEvt.target)
 
   const insert = document.querySelector('#gallery');
   if(loggedIn) {
-    var div;
-    var h3;
-    var p;
-    var img;
+    if(oEvt.target.responseText !== "[]") {
+      var div;
+      var h3;
+      var p;
+      var img;
 
-    for(var row in jsonObj) {
-      div = document.createElement('div');
-      div.classList.add('gallery_left');
-      h3 = document.createElement('h3');
-      p = document.createElement('p');
-      img = document.createElement('img');
-      img.classList.add('horisontal-gallery');
-      for(var key in jsonObj[row]) {
-        if(key === 'image_name') {
-          img.src = jsonObj[row][key];
+      for(var row in jsonObj) {
+        div = document.createElement('div');
+        div.classList.add('gallery_left');
+        h3 = document.createElement('h3');
+        dscrP = document.createElement('p');
+        userP = document.createElement('p');
+        p = document.createElement('p');
+        img = document.createElement('img');
+        img.classList.add('horisontal-gallery');
+        for(var key in jsonObj[row]) {
+          if(key === 'image_name') {
+            img.src = jsonObj[row][key];
+          }
+          if(key === 'caption') {
+            h3.appendChild(document.createTextNode(jsonObj[row][key]));
+          }
+          if(key === 'description') {
+            dscrP.appendChild(document.createTextNode(jsonObj[row][key]));
+          }
+          if(key === 'username') {
+            userP.appendChild(document.createTextNode('User: ' + jsonObj[row][key]));
+          }
+          div.appendChild(img);
+          div.appendChild(h3);
+          div.appendChild(dscrP);
+          div.appendChild(userP);
         }
-        if(key === 'caption') {
-          h3.appendChild(document.createTextNode(jsonObj[row][key]));
-        }
-        if(key === 'description') {
-          p.appendChild(document.createTextNode(jsonObj[row][key]));
-        }
-        div.appendChild(img);
-        div.appendChild(h3);
-        div.appendChild(p);
+        insert.appendChild(div);
       }
-      insert.appendChild(div);
+    } else {
+      removeChildren(insert);
+      p = document.createElement('p');
+      p.appendChild(document.createTextNode('No images have been found.'));
+      insert.appendChild(p);
     }
   } else {
     removeChildren(insert);
