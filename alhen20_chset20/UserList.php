@@ -29,7 +29,7 @@ catch (PDOException $e) {
 			<a href="index.php">Home</a>
 			<a href="Picture.php">Pictures</a>
 			<a href="UserList.php" class="active">Users</a>
-			<a href="Upload.php">Upload</a>
+			<a href="Upload.html">Upload</a>
 			<a href="logout.php">Logout</a>
 		</nav>
 	</div>

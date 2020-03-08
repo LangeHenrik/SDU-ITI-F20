@@ -29,7 +29,7 @@ catch (PDOException $e) {
 			<a href="index.php">Home</a>
 			<a href="Picture.php" class="active">Pictures</a>
 			<a href="UserList.php">Users</a>
-			<a href="Upload.php">Upload</a>
+			<a href="Upload.html">Upload</a>
 			<a href="logout.php">Logout</a>
 		</nav>
 	</div>
@@ -43,7 +43,7 @@ catch (PDOException $e) {
 			</div>
 			<br>
 			<?php
-			$stmt = $conn->prepare("SELECT site_user.username as username, picture.heading as heading, picture.description as description, picture.img as img
+			$stmt = $conn->prepare("SELECT site_user.username as username, picture.header as header, picture.description as description, picture.img as img
 				FROM user_picture
 				INNER JOIN site_user using (user_id)
 				INNER JOIN picture using (picture_id)");
@@ -52,8 +52,8 @@ catch (PDOException $e) {
 
 			foreach($result as $res):?>
 				<div class="picture">
-					<div class="header"><?= $res["heading"] ?> by <?= $res["username"] ?></div>
-					<img src="data:image/jpg;base64,<?= $res["img"] ?>"/>
+					<div class="header"><?= $res["header"] ?> <br/>by<br/> <?= $res["username"] ?></div>
+					<img src="<?= $res["img"] ?>"/>
 					<div class="description"><?= $res["description"] ?></div>
 				</div>
 			<?php endforeach; ?>

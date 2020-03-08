@@ -64,7 +64,6 @@ function checkImgUp(){
 	var fuData = document.getElementById('image');
 	var FileUploadPath = fuData.value;
 
-	//To check if user upload any file
 	if (FileUploadPath == ''){
 		document.getElementById('error').innerHTML = "please upload an image";
 		return false;
@@ -72,13 +71,12 @@ function checkImgUp(){
 	else{
 		var Extension = FileUploadPath.substring(FileUploadPath.lastIndexOf('.') + 1).toLowerCase();
 
-		//The file uploaded is an image
-		if (Extension == "jpg") {
+		if (Extension == "jpg"||Extension == "jpeg"||Extension == "png"||Extension == "gif") {
 			document.getElementById('error').innerHTML = "";
 			return true;
 		}
 		else{
-			document.getElementById('error').innerHTML = "image must have .jpg extension";
+			document.getElementById('error').innerHTML = "image must have jpg, jpeg, png or gif extension";
 			return false;
 		}
 	}

@@ -18,7 +18,7 @@ if(session_status()==PHP_SESSION_NONE){
 				<a href="index.php" class="active">Home</a>
 				<a href="Picture.php">Pictures</a>
 				<a href="UserList.php">Users</a>
-				<a href="Upload.php">Upload</a>
+				<a href="Upload.html">Upload</a>
 				<a href="logout.php">Logout</a>
 			</nav>
 		<?php else:?>
