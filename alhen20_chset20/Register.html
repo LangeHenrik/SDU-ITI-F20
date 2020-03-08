@@ -18,15 +18,15 @@
 				<form onsubmit="return validateReg()" action="registration.php" method="POST" >
 					<label for="email" >Email</label>
 					<br>
-					<input type="text" name="email" id="email"/>
+					<input type="text" name="email" id="email" onchange="checkEmailReg()" />
 					<br>
 					<label for="username" >Username</label>
 					<br>
-					<input type="text" name="username" id="username"/>
+					<input type="text" name="username" id="username" onchange="checkUnameReg()" />
 					<br>
 					<label for="password">Password</label>
 					<br>
-					<input type="password" name="password" id="password"/>
+					<input type="password" name="password" id="password" onchange="checkPassReg()" />
 					<br>
 					<input type="submit" name="submit" id="submit" value="Register"/>
 				</form>

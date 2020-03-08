@@ -8,6 +8,7 @@ function checkUnameReg(){
 		document.getElementById('error').innerHTML = "username must be 8 or more characters";
 		return false;
 	}
+	document.getElementById('error').innerHTML = "";
 	return true;
 }
 
@@ -17,6 +18,7 @@ function checkPassReg(){
 		document.getElementById('error').innerHTML = "password must be 8 or more characters";
 		return false;
 	}
+	document.getElementById('error').innerHTML = "";
 	return true;
 }
 
@@ -26,11 +28,64 @@ function checkEmailReg(){
 		document.getElementById('error').innerHTML = "email format is incorrect, it must be word@word.word";
 		return false;
 	}
+	document.getElementById('error').innerHTML = "";
 	return true;
 }
 
 function validateReg(){
 	if(checkEmailReg()&&checkUnameReg()&&checkPassReg()){
+		return true;
+	}
+	document.getElementById('error').innerHTML = "";
+	return false;
+}
+
+function checkHeaderUp(){
+	let header = document.getElementById('header');
+	if(!(/\w{1,20}/.test(header.value))){
+		document.getElementById('error').innerHTML = "header must be 20 or less characters";
+		return false;
+	}
+	document.getElementById('error').innerHTML = "";
+	return true;
+}
+
+function checkDescUp(){
+	let description = document.getElementById('description');
+	if(!(/\w{1,50}/.test(description.value))){
+		document.getElementById('error').innerHTML = "header must be 50 or less characters";
+		return false;
+	}
+	document.getElementById('error').innerHTML = "";
+	return true;
+}
+
+function checkImgUp(){
+	var fuData = document.getElementById('image');
+	var FileUploadPath = fuData.value;
+
+	//To check if user upload any file
+	if (FileUploadPath == ''){
+		document.getElementById('error').innerHTML = "please upload an image";
+		return false;
+	}
+	else{
+		var Extension = FileUploadPath.substring(FileUploadPath.lastIndexOf('.') + 1).toLowerCase();
+
+		//The file uploaded is an image
+		if (Extension == "jpg") {
+			document.getElementById('error').innerHTML = "";
+			return true;
+		}
+		else{
+			document.getElementById('error').innerHTML = "image must have .jpg extension";
+			return false;
+		}
+	}
+}
+
+function validateUp(){
+	if(checkHeaderUp()&&checkDescUp()&&checkImgUp()){
 		return true;
 	}
 	return false;

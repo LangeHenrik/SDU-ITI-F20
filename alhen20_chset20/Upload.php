@@ -37,22 +37,24 @@ catch (PDOException $e) {
 	<div class="container">
 		<div class="content">
 			<div class="mainform">
-				<form action="process_upload.php" method="POST">
+				<form action="process_upload.php" method="POST" onsubmit="return validateUp()">
 					<label for="header" >Header</label>
 					<br>
-					<input type="text" name="header" id="header"/>
+					<input type="text" name="header" id="header" onchange="checkHeaderUp()" />
 					<br>
-					<label for="password">Image</label>
+					<label for="image">Image</label>
 					<br>
-					<input type="file" name="image" id="image"/>
+					<input type="file" name="image" id="image" accept=".jpg" onchange="checkImgUp()" />
 					<br>
 					<label for="description" >Description</label>
 					<br>
-					<textarea name="description" id="desription" rows="4" cols="50"></textarea>
+					<textarea name="description" id="description" rows="4" cols="50" onchange="checkDescUp()"></textarea>
 					<input type="submit" name="submit" id="submit" value="Upload"/>
 				</form>
 			</div>
+			<div id="error"></div>
 		</div>
 	</div>
+	<script src="validation.js"></script>
 </body>
 </html>

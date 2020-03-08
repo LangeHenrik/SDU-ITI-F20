@@ -20,7 +20,7 @@ $email = htmlentities(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL));
 $stmt = $conn->prepare("INSERT INTO site_user (username,email,pass) VALUES (:uname,:email,:pass)");
 $stmt->bindParam(":uname", $username);
 $stmt->bindParam(":email", $email);
-$stmt->bindParam(":pass", password_hash($password), PASSWORD_DEFAULT);
+$stmt->bindParam(":pass", password_hash($password, PASSWORD_DEFAULT));
 $stmt->execute();
 
 $stmt = $conn->prepare("SELECT user_id, username, pass FROM site_user WHERE username = :uname");

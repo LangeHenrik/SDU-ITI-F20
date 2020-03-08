@@ -12,7 +12,7 @@ CREATE TABLE site_user(
 CREATE TABLE picture(
 	picture_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	img BLOB,
-	heading VARCHAR(20),
+	header VARCHAR(20),
 	description VARCHAR(50)
 );
 
