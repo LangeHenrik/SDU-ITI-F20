@@ -1,7 +1,22 @@
+-- phpMyAdmin SQL Dump
+-- version 5.0.1
+-- https://www.phpmyadmin.net/
+--
 -- Host: localhost
--- Generation Time: Mar 03, 2020 at 07:29 AM
+-- Generation Time: Mar 08, 2020 at 02:36 PM
 -- Server version: 8.0.19
--- PHP Version: 7.3.11
+-- PHP Version: 7.4.2
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `enbes20_elpoy20_bapio20`
@@ -20,7 +35,8 @@ CREATE TABLE `images` (
   `description` text NOT NULL,
   `created` datetime NOT NULL,
   `user_id` int NOT NULL
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 -- --------------------------------------------------------
 
 --
@@ -32,15 +48,14 @@ CREATE TABLE `user` (
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 --
 -- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id_user`, `username`, `password`, `email`) VALUES
-(1, 'enzobes', '$2y$10$1gvaye4ZPPjA04fcAe3cIO8zAjoJtwrB069z1bxIKVG3Wghci7ezu', 'enzobes@me.com'),
-(2, 'enzobes2', '$2y$10$8J2yhRo.6O17RUBuvF6q.e3sAEO0Q20VMGsWeiaai5Iqh3uKGjdby', 'test@enzobes.fr'),
-(3, 'enzobes3', '$2y$10$VDttEEn7ixDnuRXgbrUkre8t0/6LwldRrMliKE71pEpheg12HRSfq', 'enzobes3@me.com');
+(1, 'UserTest', '$2y$10$U6ngaAHIVQo.qNwz84TVTuFKPZUQ54lwHTc/O0pyJoeh/n9r2byRy', 'Usertest@test.com');
 
 --
 -- Indexes for dumped tables
@@ -67,13 +82,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_user` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
@@ -85,3 +100,7 @@ ALTER TABLE `user`
 ALTER TABLE `images`
   ADD CONSTRAINT `fk_user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id_user`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

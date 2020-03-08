@@ -11,7 +11,7 @@ error_reporting(E_ALL);
 include("config.php");
 
 if (isset($_POST['formUpload'])) {
-  //not necessary
+  //We can also use $_SESSION['id'] if we don't use the URL ?id=
   $user_idUp = filter_var($_GET['id'], FILTER_SANITIZE_NUMBER_INT);
   $user_id = htmlspecialchars($user_idUp);
 
