@@ -29,7 +29,7 @@ function checkusername() {
 
 //Password
 
-let passwordRegEx = new RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/);
+let passwordRegEx = new RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d){6,}$/);
 let passwordInput = document.getElementById("passwordInput");
 let passwordInfo = document.getElementById("passwordInfo");
 passwordInput.addEventListener('keyup',checkpassword);
