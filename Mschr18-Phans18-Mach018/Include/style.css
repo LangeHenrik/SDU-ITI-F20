@@ -168,6 +168,7 @@ div.upload form {
 }
 div#preview {
   width: calc(100% - 330px);
+  max-width: 600px;
   margin-left: 20px;
   min-height: 200px;
   border: 2px dashed #999;
