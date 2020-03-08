@@ -20,14 +20,41 @@ require_once 'database_controller.php';
 
     <div class="wrapper">
         <div class="content">
+        <?php include_once 'user_table_maker.php';
+        ?>
+
 
         <h2>Users</h2>
-        <table class="user-table">
-            <?php get_users();?>
+
+        <form action="#" onsubmit="return showSearchResults()" method="post">
+            <label for=text-input>Search for user </label>
+            <input type="text" id=text-input>
+            <input type="submit" name="submit" id="submit" />
+        </form>
+
+        <table class="user-table" id="user-table">
+            <?php show_results(get_users());?>
         </table>
 
         </div>
     </div>
+
+    <script>
+        function showSearchResults() {
+            var str = document.getElementById("text-input").value;
+
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("user-table").innerHTML = this.responseText;
+                }
+            };
+            xmlhttp.open("GET", "user_search.php?q=" + str, true);
+            xmlhttp.send();
+
+            return false;
+        }
+    </script>
 </body>
 
 </html>

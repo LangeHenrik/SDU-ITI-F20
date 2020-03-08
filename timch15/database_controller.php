@@ -77,34 +77,7 @@ function register_user($login_name, $user_password)
     $conn = null;
 }
 
-// function read_from_database($stmt)
-// {
-//     require_once 'db_config.php';
-
-//     try {
-//         $conn = new PDO(
-//             "mysql:host=$servername;dbname=$dbname",
-//             $username,
-//             $password,
-//             array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
-//         );
-
-//         // Query
-//         // $stmt = $conn->prepare();
-
-//         $stmt->execute();
-//         $stmt->setFetchMode(PDO::FETCH_ASSOC);
-//         $result = $stmt->fetchAll();
-
-//         return $result;
-//     } catch (PDOException $e) {
-//         return "Error:" .$e->getMessage();
-//     }
-
-//     $conn = null;
-// }
-
-function get_users()
+function get_users($login_name = "")
 {
     require_once 'db_config.php';
 
@@ -116,23 +89,17 @@ function get_users()
             array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
         );
 
-        $stmt = $conn->prepare("SELECT username FROM USER");
-
+        if ($login_name === "") {
+            $stmt = $conn->prepare("SELECT username FROM user");
+        } else {
+            $stmt = $conn->prepare("SELECT username FROM user WHERE username = :username");
+            $stmt->bindParam(':username', $login_name);
+        }
         $stmt->execute();
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
         $result = $stmt->fetchAll();
 
-        if (isset($result)) {
-            $usercount = sizeof($result);
-            $result_table = "<tr><th>Username</th></tr>";
-
-            for ($i = 0; $i < $usercount; $i++) {
-                $result_table .= "<tr><td>" . $result[$i]['username'] . "</td></tr>";
-            }
-            echo $result_table;
-        } else {
-            echo "There are no users yet.";
-        }
+        return $result;
     } catch (PDOException $e) {
         return "Error:" .$e->getMessage();
     }
@@ -178,7 +145,6 @@ function upload_post($picture, $header, $description, $login_name)
             array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
         );
 
-        // Query
         $stmt = $conn->prepare("INSERT INTO picture (picture, header, description, uploader) 
         VALUES (:picture, :header, :description, :login_name)");
         $stmt->bindParam(':picture', $picture);
