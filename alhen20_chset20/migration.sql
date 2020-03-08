@@ -4,13 +4,16 @@ USE mydb;
 
 CREATE TABLE site_user(
 	user_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-	username VARCHAR(20) NOT NULL UNIQUE,
+	username VARCHAR(255) NOT NULL UNIQUE,
+	email VARCHAR(255) NOT NULL,
 	pass VARCHAR(1000) NOT NULL
 );
 
-CREATE TABLE pictures(
+CREATE TABLE picture(
 	picture_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-	picture BLOB
+	img BLOB,
+	heading VARCHAR(20),
+	description VARCHAR(50)
 );
 
 CREATE TABLE user_picture(

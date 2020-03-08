@@ -1,0 +1,39 @@
+<html>
+<head>
+	<title>Front Page</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+	<div class="navbar">
+		<nav>
+			<a href="index.php">Home</a>
+			<a href="Register.html" class="active">Register</a>
+		</nav>
+	</div>
+
+	<div class="container">
+		<div class="content">
+			<div class="mainform">
+				<form onsubmit="return validateReg()" action="registration.php" method="POST" >
+					<label for="email" >Email</label>
+					<br>
+					<input type="text" name="email" id="email"/>
+					<br>
+					<label for="username" >Username</label>
+					<br>
+					<input type="text" name="username" id="username"/>
+					<br>
+					<label for="password">Password</label>
+					<br>
+					<input type="password" name="password" id="password"/>
+					<br>
+					<input type="submit" name="submit" id="submit" value="Register"/>
+				</form>
+				<div id="error"></div>
+			</div>
+		</div>
+	</div>
+	<script src="validation.js"></script>
+</body>
+</html>

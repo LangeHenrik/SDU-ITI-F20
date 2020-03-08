@@ -1,7 +1,7 @@
 <?php
 if(session_status()==PHP_SESSION_NONE){
 	session_start();
-	$_SESSION["logged_in"]=false;
+	if(!isset($_SESSION["logged_in"])) $_SESSION["logged_in"]=false;
 }
 ?>
 <html>
@@ -19,14 +19,15 @@ if(session_status()==PHP_SESSION_NONE){
 				<a href="Picture.php">Pictures</a>
 				<a href="UserList.php">Users</a>
 				<a href="Upload.php">Upload</a>
+				<a href="logout.php">Logout</a>
 			</nav>
 		<?php else:?>
 			<nav>
 				<a href="index.php" class="active">Home</a>
-				<a href="Register.php">Register</a>
+				<a href="Register.html">Register</a>
 			</nav>
 			<div class="LoginForm">
-				<form>
+				<form action="login.php" method="POST">
 					<label for="username" >username</label>
 					<input type="text" name="username" id="username"/>
 					<label for="password">password</label>
@@ -39,6 +40,9 @@ if(session_status()==PHP_SESSION_NONE){
 
 	<div class="container">
 		<div class="content">
+			<?php if($_SESSION["logged_in"]==true){
+				echo "Hello ".$_SESSION["uname"]."!";
+			}?>
 			<div class="homepic">
 				<img src="home.jfif"/>
 			</div>
