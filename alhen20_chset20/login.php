@@ -23,7 +23,6 @@ $res = $stmt->fetchAll();
 
 foreach($res as $r){
 	if(password_verify($pw_input, $r["pass"])){
-		echo "yes";
 		$_SESSION["logged_in"]=true;
 		$_SESSION["user_id"]=$r["user_id"];
 		$_SESSION["uname"]=$r["username"];

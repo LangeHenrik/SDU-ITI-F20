@@ -2,6 +2,9 @@
 if(session_status()==PHP_SESSION_NONE){
 	session_start();
 }
+if($_SESSION["logged_in"]==false){
+	header("Location: index.php");
+}
 require_once 'config.php';
 try {
 	$conn = new PDO("mysql:host=$servername;dbname=$dbname",
