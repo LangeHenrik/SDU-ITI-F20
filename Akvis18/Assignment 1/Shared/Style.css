@@ -1,0 +1,138 @@
+body, html {
+    margin: 0;
+    width: 100%;
+}
+@media only screen and (max-width: 600px) {
+    body {
+        background-color: pink;
+    }
+}
+.navbar {
+    overflow: hidden;
+    background-color: cadetblue;
+    z-index: 10;
+}
+.navbar a{
+    float: right;
+    text-align: center;
+    font-size: large;
+    text-decoration: none;
+    color: black;
+    padding: 12px 14px;
+}
+.navbar a:first-child{
+    float: left;
+}
+.navbar a:nth-child(2){
+    margin-right: auto;
+}
+.navbar a:hover{
+    background-color: #436e70;
+    color: white;
+}
+.nav-avatar{
+    height: 20px;
+    width: 20px;
+}
+.dropbtn {
+    float: right;
+    background-color: cadetblue;
+    color: black;
+    padding: 12px 14px;
+    font-size: large;
+    border: none;
+    z-index: 110;
+}
+
+.dropdown {
+    float: right;
+    position: relative;
+    overflow: visible;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    z-index: 1000;
+}
+
+.dropdown-content button {
+    color: black;
+    font-size: large;
+    padding: 15px 16px;
+    text-decoration: none;
+    display: block;
+    width: 80%;
+    height: 100%;
+    text-align: center;
+    border: none;
+    background-color: cadetblue;
+}
+
+.dropdown-content button:hover {background-color: #3f797b;}
+
+.dropdown:hover .dropdown-content {display: block; }
+
+.dropdown:hover .dropbtn:hover {background-color: #3f797b;}
+.user{
+    display: block;
+}
+.avatar{
+    height: 50px;
+    width: 50px;
+    padding-right: 1em;
+}
+div.center{
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index:-1;
+}
+div.container{
+    padding: 50px 75px;
+    border: 10px outset #1C6EA4;
+    border-radius: 10px;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+div.user{
+    display: block;
+    text-align: left;
+}
+div.container p{
+    width:200px;
+    text-align: center;
+}
+.info{
+    text-align: center;
+    margin-left: 16px;
+}
+fieldset{
+    border: none;
+}
+legend{
+    font-size: larger;
+}
+#preview{
+    max-height: 40%;
+    max-width: 60%;
+}
+.post{
+    display: block;
+    background-color: lightgray;
+    margin: auto;
+    max-width: 70%;
+    min-width: 40%;
+    overflow-wrap: break-word;
+}
+
+.post .main-image{
+    margin: auto;
+    display: block;
+    max-width: 1300px;
+    max-height: 800px;
+}

@@ -1,8 +1,17 @@
 <?php
-//Todo Connecet to DB via DPO
+include_once "DBConfig.php";
 try {
-    $pdo = new PDO('mysql:host=localhost;dbname=wsws', 'root');
+    $pdo = new PDO($dsn, $db_user, $db_pass);
 } catch (PDOException $e) {
-    print "Fejl!: " . $e->getMessage() . "<br/>";
+    print "Error!: " . $e->getMessage() . "<br/>";
     die();
 }
+
+function query($query, $paramArray){
+    global $pdo;
+    $stmt = $pdo -> prepare($query);
+    $stmt -> setFetchMode(PDO::FETCH_ASSOC);
+    $stmt -> execute($paramArray);
+    return $stmt -> fetchAll();
+}
+
