@@ -10,8 +10,8 @@
           <h4>Select a file...</h4>
           <form method="post" action="Include/PDO/uploadImages.php" enctype='multipart/form-data'>
             <input type="file" name="picupload[]"  id="picupload" multiple accept="image/*" required>
-            <input type="text" name="" value="" placeholder="Titel" style="width:300px;">
-            <textarea name="name" rows="8" cols="80" style="resize: none; width: 300px; height: 100px;"></textarea>
+            <!--<input type="text" name="" value="" placeholder="Titel" style="width:300px;">
+            <textarea name="name" rows="8" cols="80" style="resize: none; width: 300px; height: 100px;"></textarea>-->
             <input type="submit" name="submitpic" id="submitpic" value="Upload">
           </form>
 
