@@ -36,10 +36,6 @@ catch (PDOException $e) {
 
 	<div class="container">
 		<div class="content">
-			<div class="user">
-				<div class="name">Template</div>
-				<div class="mail">Template</div>
-			</div>
 			<?php
 			$stmt = $conn->prepare("SELECT username, email
 				FROM site_user");

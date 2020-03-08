@@ -36,12 +36,6 @@ catch (PDOException $e) {
 
 	<div class="container">
 		<div class="content">
-			<div class="picture">
-				<div class="header">header</div>
-				<img src="profile1.jpg"/>
-				<div class="description">Description this is just a template if there's no database.</div>
-			</div>
-			<br>
 			<?php
 			$stmt = $conn->prepare("SELECT site_user.username as username, picture.header as header, picture.description as description, picture.img as img
 				FROM user_picture
