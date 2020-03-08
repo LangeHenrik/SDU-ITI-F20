@@ -1,0 +1,19 @@
+DROP DATABASE if EXISTS mydb;
+CREATE DATABASE mydb;
+USE mydb;
+
+CREATE TABLE site_user(
+	user_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	username VARCHAR(20) NOT NULL UNIQUE,
+	pass VARCHAR(1000) NOT NULL
+);
+
+CREATE TABLE pictures(
+	picture_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	picture BLOB
+);
+
+CREATE TABLE user_picture(
+	user_id INT NOT NULL,
+	picture_id INT NOT NULL
+);
