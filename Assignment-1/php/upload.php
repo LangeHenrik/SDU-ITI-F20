@@ -1,11 +1,6 @@
 <?php
-session_start();
 // Create database connection
 include 'config.php';
-
-if($_SESSION["loggedin"] != 1) {
-    echo("<script>location.href = '/index.php';</script>");
-}
 
 // If upload button is clicked ...
 if (isset($_POST['upload'])) {
@@ -78,7 +73,7 @@ if (isset($_POST['upload'])) {
             <div class="inner-wrapper">
                 <div class="nested">
                     <div class="uploadForm">
-                        <form method="POST" action="imagepage.php" enctype="multipart/form-data">
+                        <form method="POST" action="upload.php" enctype="multipart/form-data">
                             <input class="input" type="file" name="Image" accept="image/*" required>
                             <input id="inputHeader" type="text" placeholder="Write a header" name="Header" required />
                             <textarea id="text" cols="40" rows="4" name="Description" placeholder="Say something..." required></textarea>
