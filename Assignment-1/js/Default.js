@@ -9,8 +9,8 @@ function openSlideMenu() {
       document.getElementById("menu").style.width = "250px";
       document.getElementById("content").style.marginLeft = "250px";
     } else {
-      document.getElementById("menu").style.width = "500px";
-      document.getElementById("content").style.marginLeft = "500px";
+      //document.getElementById("menu").style.width = "350px";
+      //document.getElementById("content").style.marginLeft = "350px";
     }
   } else {
     sidebarOut = false;
@@ -49,7 +49,7 @@ function openModal() {
   document.getElementById("modalBackground").style.display = "flex";
 }
 
-function closeModal(){
+function closeModal() {
   document.getElementById("modalBackground").style.display = "none";
 }
 
@@ -70,3 +70,4 @@ signInButton.addEventListener("click", () => {
   document.getElementById("container").style.height = "30vw";
   document.getElementById("container").style.width = "50vw";
 });
+

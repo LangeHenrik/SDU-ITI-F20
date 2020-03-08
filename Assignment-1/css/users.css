@@ -15,8 +15,12 @@
 .imagefeed h3 {
   grid-area: header;
   text-align: center;
-
 }
+
+.imagefeed{
+  align-self: center;
+}
+
 .image {
   grid-area: image;
   justify-content: center;
@@ -46,6 +50,7 @@
   height: auto;
   display: flex !important;
   align-self: center;
+  border-radius: 10px;
 }
 
 .uname{

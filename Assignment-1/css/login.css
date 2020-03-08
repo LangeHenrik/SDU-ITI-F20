@@ -30,8 +30,8 @@
 
 .bg button {
   border-radius: 10vw;
-  border: 1px solid #111111;
-  background-color: #111111;
+  border: 1px solid var(--bg-primary);
+  background-color: var(--bg-primary);
   color: #ffffff;
   font-size: 0.9vw;
   font-weight: bold;
@@ -165,6 +165,7 @@
   transition: transform 0.6s ease-in-out;
   z-index: 100;
   border-radius: 10px;
+  border: solid -2px;
 }
 
 .container.right-panel-active .overlay-container {
@@ -172,7 +173,7 @@
 }
 
 .overlay {
-  background-color: #111111;
+  background-color: var(--bg-primary);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 0 0;
@@ -201,7 +202,7 @@
   width: 50%;
   transform: translateX(0);
   transition: transform 0.6s ease-in-out;
-  border-color: #111111;
+  border-color: var(--bg-primary);
 }
 
 .overlay-text {
@@ -233,11 +234,11 @@
   font-size: 2vw;
   margin: 20px;
   z-index: 200;
-  -moz-transition: color 1.4s ease;
-  -webkit-transition: color 1.4s ease;
-  -ms-transition: color 1.4s ease;
-  -o-transition: color 1.4s ease;
-  transition: color 1.4s ease;
+  -moz-transition: color 400ms ease;
+  -webkit-transition: color 400ms ease;
+  -ms-transition: color 400ms ease;
+  -o-transition: color 400ms ease;
+  transition: color 400ms ease;
 }
 
 #closeButton:hover {

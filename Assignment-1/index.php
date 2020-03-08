@@ -13,8 +13,8 @@ session_start();
       integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" media="screen and (max-width: 600px)" href="css/mobileview.css">
     <link rel="stylesheet" type="text/css" href="css/Stylesheet.css" />
+    <link rel="stylesheet" type="text/css" media="(max-width: 1000px)" href="css/mobile-view.css"/>
     <link rel="icon" href="img/icon.png" type="png" />
   </head>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -39,11 +39,13 @@ session_start();
       ?>
       <div class="wrapper">
         <div id="title">
-          <h1 id="title1">Responsive animated sidebar</h1>
-          <button>Change the title</button>
+          <h1 id="title1">Assignment-1 ITI</h1>
+          <span>
+            <button id="changeButton">Change the title</button>
+          </span>
         </div>
         <?php
-        require 'php/inner-wrapper.php';
+        require 'php/frontpage-content.php';
         ?>
       </div>
     </div>

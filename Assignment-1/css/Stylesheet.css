@@ -4,43 +4,19 @@
 @import "upload.css";
 
 
-@media only screen and (min-width: 1000px) {
-}
-
-@media only screen and (max-width: 1000px) {
-  .inner-wrapper{
-      grid-template-columns: repeat(auto-fit, minmax(30em, 1fr)) !important;
-  }
-  #title{
-      font-size: 3.5vw !important;
-  }
-  .nested > div {
-    font-size: 3vw !important;
-  }
-  .nested > div h3 {
-    font-size: 3vw !important;
-  }
-  .nested > p {
-    font-size: 1.5vw !important;
-  }
-  .slide a {
-    font-size: 8vw !important;
-  }
-  .nav .close {
-    font-size: 8vw !important;
-}
-.nav a {
-    font-size: 4vw !important;
-  }
-
+:root{
+  --bg-primary: #111111;
+  --prim-textSize: 1vw;
+  --prim-mobile--textSize: 0.9em;
 }
 
 body {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  background-color: #393f4d;
 }
 
 .slide a {
-  color:#4c6ef5;
+  color:whitesmoke;
   font-size: 36px;
 }
 #content {
@@ -66,19 +42,18 @@ body {
   grid-area: text;
 }
 
-.wrapper > div {
-  background-color: lightcoral;
-  padding: 1em;
+.nested{
+  border-radius: 4%;
+  -webkit-box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16), 0px 3px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16), 0px 3px 6px rgba(0, 0, 0, 0.23);
 }
-.wrapper > div:nth-child(odd) {
-  background-color: lightgray;
+
+.wrapper > div {
+  padding: 1em;
 }
 .inner-wrapper > div {
-  background-color: lightblue;
+  background-color: whitesmoke;
   padding: 1em;
-}
-.inner-wrapper > div:nth-child(odd) {
-  background-color: lightgray;
 }
 .nested > div {
   display: flex;
@@ -86,12 +61,39 @@ body {
   font-size: 1.2vw;
 }
 .nested > p {
-  font-size: 1vw;
+  font-size: var(--prim-textSize);
+  text-align: justify;
 }
 #title {
+  color: whitesmoke;
   grid-area: title;
   font-size: 1.5vw;
   display: flex;
   justify-content: center;
   text-align: center;
+  flex-direction: column;
+}
+
+#title span{
+  justify-content: center;
+}
+
+#title1{
+  text-decoration: underline;
+}
+
+
+#changeButton{
+  border-radius: 10vw;
+  border: 1px solid var(--bg-primary);
+  background-color: var(--bg-primary);
+  color: #ffffff;
+  font-size: var(--prim-textSize);
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  width: 15rem;
+  height: 5rem;
+  transform: scale(.7);
+  text-decoration: none;
 }

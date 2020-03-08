@@ -76,7 +76,7 @@ if (isset($_POST['upload'])) {
                 <h1>Upload your favorite picture</h1>
             </div>
             <div class="inner-wrapper">
-                <div class="nested">
+                <div class="nested" id="upload-nested">
                     <div class="uploadForm">
                         <form method="POST" action="upload.php" enctype="multipart/form-data">
                             <input class="input" type="file" name="Image" accept="image/*" required>
