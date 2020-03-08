@@ -1,9 +1,10 @@
 <?php
 if(session_status()==PHP_SESSION_NONE){
 	session_start();
+	$_SESSION["logged_in"]=false;
 }
 
-if($_SESSION["logged_in"]==false && $_POST["username"]=="john" && $_POST["password"]=="john"){
+if($_SESSION["logged_in"]==false && isset($_POST["username"]) && $_POST["username"]=="john" && isset($_POST["password"]) && $_POST["password"]=="john"){
 	$_SESSION["logged_in"]=true;
 	echo "right";
 }
