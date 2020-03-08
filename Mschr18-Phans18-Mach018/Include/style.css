@@ -68,16 +68,16 @@ nav form {
   padding: 14px 16px;
   margin: 0;
 }
-/* mainnav */
-nav.mainnav {
-}
-/* loginnav */
-nav.loginnav form label {
+nav form label {
   color: white;
   text-align: center;
   display: inline;
   padding-right: 5px;
 }
+/* mainnav */
+nav.mainnav {
+}
+/* loginnav */
 @media only screen and (max-width: 840px) {
   nav.loginnav form  {
     display: none;

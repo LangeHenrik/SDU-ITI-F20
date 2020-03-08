@@ -5,7 +5,8 @@
     <li><a href="users.php">Users</a></li>
     <li>
       <form action="Include/phpUtils/logout.php" >
-        <input type="submit" name="submit" id="logout" value="Log out"/>
+        <label for="logout"><?php echo $_SESSION['Fullname'] . " : " . $_SESSION['username'] . " "?></label>
+        <input type="submit" name="logout" id="logout" value="Log out"/>
       </form>
     </li>
   </ul>
