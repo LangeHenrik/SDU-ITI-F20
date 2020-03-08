@@ -29,8 +29,3 @@
             <?php } ?>
         </div>
 
-<?php 
-
-    require "footer.php";
-
-?>

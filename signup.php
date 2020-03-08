@@ -17,11 +17,6 @@
           </div>
         </main>
 
-        <?php
-          include './linkdatabase/insert_user.php';
-        ?>
-
-
 <?php
-    require "footer.php";
+  include './linkdatabase/insert_user.php';
 ?>
