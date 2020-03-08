@@ -8,7 +8,7 @@
 <?php include './linkdatabase/login.php';?>
 <html>
     <head>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./css/style.css">
     <title>Feeds</title>
     </head>
 
