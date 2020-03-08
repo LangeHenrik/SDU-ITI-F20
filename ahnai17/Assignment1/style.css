@@ -153,3 +153,12 @@ and open the template in the editor.
 .Home.table, .Home.tr, Home.td {
     border: 1px solid black;
 }
+.show_images {
+  background-color: #2196F3;
+  color: white;
+}
+
+.goHome {
+  background-color: #2196F3;
+  color: white;
+}
