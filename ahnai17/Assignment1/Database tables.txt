@@ -1,12 +1,5 @@
 CREATE TABLE users (
-username varchar(20) primary key,
-password varchar(1000) 
+int(12) id primary key not null auto_increment, 
+username varchar(20) not null,
+password varchar(1000) not null 
 );
-CREATE TABLE images (
-    -> id int(12) NOT NULL AUTO_INCREMENT,
-    -> image longblob NOT NULL,
-    -> created datetime NOT NULL,
-    -> PRIMARY KEY (id),
-    -> ownerId varchar(20),
-    -> FOREIGN KEY (ownerId) REFERENCES users (username)
-    -> );

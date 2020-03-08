@@ -7,7 +7,163 @@ and open the template in the editor.
     Created on : 21. feb. 2020, 16.48.06
     Author     : Ahmadullah
 */
+@media (min-width: 700px) { 
+    .container.content.loginfield {
+    display: flex;
+    justify-content: center;
+    padding: 6px;
+    border-color: black;
+    }
+.loginfield input[type=text] {
+    padding: 6px;
+    border: none;
+    margin-top: 6px;
+    margin-right: 12px;
+    font-size: 17px;  
+    }
+.loginfield input[type=password] {
+    padding: 6px;
+    border: none;
+    margin-top: 6px;
+    margin-right: 12px;
+    font-size: 17px;
+    }
+.loginfield input[type=submit] {
+  padding: 6px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+    }
+.container {
+    display: flex;
+    justify-content: center;
+    background-color: orange;
+    height: 500px;
+    padding: 6px;
+    margin: 0 auto;
+    }
+.container.content {
+    display: flex;
+    justify-content: center;
+    padding: 6px;
+    }
+.header {
+    display: flex;
+    justify-content: center;
+    background-color: yellow;
+    padding: 6px;
+    }
+.newuser {
+    display: flex;
+    justify-content:space-between;
+    padding: 6px;
+    }
+.newuser a {
+    float: left;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 15px;
+    }
+.newuser a:hover {
+    background-color: #ddd;
+    color: black;
+    }
+/*user registration page starts here */
+.userhead {
+    display: flex;
+    justify-content: center;
+    background-color: burlywood;
+    padding: 6px;
+    }
 
+/*Home page style sheet*/
+.Navigation {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    background-color: #e9e9e9;
+    padding: 6px
+    }
+.Navigation a{
+    float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+    }
+.Navigation a:hover {
+  background-color: #ddd;
+  color: black;
+    }
+.Navigation a.imageupload
+{
+  background-color: #2196F3;
+  color: white;
+}
+.Navigation input[type=text] {
+  float: right;
+  padding: 6px;
+  border: none;
+  margin-top: 8px;
+  margin-right: 16px;
+  font-size: 17px;
+    }
+.logout {
+    background-color: beige;
+    color: red;
+    }
+
+.Images {
+    display: flex;
+    overflow: hidden;
+    padding: 6px;
+    height: 520px;
+    background-color: greenyellow;
+    }
+/* Upload page style*/
+.upnav {
+    display: flex;
+    overflow: hidden;
+    padding: 6px;
+    height: 520px;
+    background-color: gold;
+    }
+.upimage{
+    display: flex;
+    overflow: hidden;
+    padding: 6px;
+    background-color: beige;
+    }
+.upimage a:hover{
+  background-color: #ddd;
+  color: black;
+    }
+
+#output { /*size of image shown here*/
+    width: 250px;
+    }
+.Home.table, .Home.tr, Home.td {
+    border: 1px solid black;
+    }
+.show_images {
+  background-color: #2196F3;
+  color: white;
+    }
+
+.goHome {
+  background-color: #2196F3;
+  color: white;
+    }
+/* Below is mobile version*/
+}
 .container.content.loginfield {
     display: flex;
     justify-content: center;
@@ -19,21 +175,21 @@ and open the template in the editor.
     border: none;
     margin-top: 6px;
     margin-right: 12px;
-    font-size: 17px;  
+    font-size: 12px;  
 }
 .loginfield input[type=password] {
     padding: 6px;
     border: none;
     margin-top: 6px;
     margin-right: 12px;
-    font-size: 17px;
+    font-size: 12px;
 }
 .loginfield input[type=submit] {
   padding: 6px;
   margin-top: 8px;
   margin-right: 16px;
   background: #ddd;
-  font-size: 17px;
+  font-size: 12px;
   border: none;
   cursor: pointer;
 }
@@ -41,7 +197,7 @@ and open the template in the editor.
     display: flex;
     justify-content: center;
     background-color: orange;
-    height: 500px;
+    height: 300px;
     padding: 6px;
     margin: 0 auto;
 }
@@ -53,7 +209,7 @@ and open the template in the editor.
 .header {
     display: flex;
     justify-content: center;
-    background-color: yellow;
+    background-color: violet;
     padding: 6px;
 }
 .newuser {
@@ -64,14 +220,14 @@ and open the template in the editor.
 .newuser a {
     float: left;
     display: block;
-    color: black;
+    color: beige;
     text-align: center;
-    padding: 14px 16px;
+    padding: 7px 8px;
     text-decoration: none;
-    font-size: 15px;
+    font-size: 12px;
 }
 .newuser a:hover {
-    background-color: #ddd;
+    background-color: antiquewhite;
     color: black;
 }
 /*user registration page starts here */
@@ -87,7 +243,7 @@ and open the template in the editor.
     display: flex;
     justify-content: center;
     overflow: hidden;
-    background-color: #e9e9e9;
+    background-color: mistyrose;
     padding: 6px
 }
 .Navigation a{
@@ -95,9 +251,9 @@ and open the template in the editor.
   display: block;
   color: black;
   text-align: center;
-  padding: 14px 16px;
+  padding: 7px 8px;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 12px;
 }
 .Navigation a:hover {
   background-color: #ddd;
@@ -114,7 +270,7 @@ and open the template in the editor.
   border: none;
   margin-top: 8px;
   margin-right: 16px;
-  font-size: 17px;
+  font-size: 12px;
 }
 .logout {
     background-color: beige;
@@ -125,7 +281,7 @@ and open the template in the editor.
     display: flex;
     overflow: hidden;
     padding: 6px;
-    height: 520px;
+    height: 320px;
     background-color: greenyellow;
 }
 /* Upload page style*/
@@ -133,7 +289,7 @@ and open the template in the editor.
     display: flex;
     overflow: hidden;
     padding: 6px;
-    height: 520px;
+    height: 320px;
     background-color: gold;
 }
 .upimage{
@@ -148,7 +304,7 @@ and open the template in the editor.
 }
 
 #output { /*size of image shown here*/
-    width: 250px;
+    width: 150px;
 }
 .Home.table, .Home.tr, Home.td {
     border: 1px solid black;
@@ -162,3 +318,5 @@ and open the template in the editor.
   background-color: #2196F3;
   color: white;
 }
+/* changes for mobile and desktop version*/
+

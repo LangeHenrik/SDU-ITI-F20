@@ -1,4 +1,3 @@
-// our Ajax call
 function SearchUser(str){
     if (str === "") {
         document.getElementById("show_user").innerHTML = "";
