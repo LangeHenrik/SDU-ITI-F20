@@ -2,7 +2,7 @@
 if (session_status() == PHP_SESSION_NONE) {
   session_start();
 }
-require_once 'Include/db_config.php';
+require_once '../db_config.php';
 try
 {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
@@ -42,7 +42,7 @@ try
         $_SESSION['logged_in'] = true;
         $_SESSION['Fullname'] = $fetchetFullname;
         $_SESSION['username'] = $fetchetUsername;
-        header("location:feed.php");
+        header("location:../../feed.php");
       }
       else {
         echo "<script>

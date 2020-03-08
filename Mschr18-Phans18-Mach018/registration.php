@@ -36,7 +36,7 @@
 
 
 
-        <script src="Include/registration.js"></script>
+        <script src="Include/JS/registration.js"></script>
 
       </div>
     </section>

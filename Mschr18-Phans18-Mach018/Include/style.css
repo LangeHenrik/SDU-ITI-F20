@@ -78,7 +78,7 @@ nav.loginnav form label {
   display: inline;
   padding-right: 5px;
 }
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 840px) {
   nav.loginnav form  {
     display: none;
   }
@@ -92,7 +92,7 @@ div.welcomme h2 {
 div.welcomme form {
   display: none;
 }
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 840px) {
   div.welcomme form {
     display: block;
     margin: 10px 0 0 50px;
