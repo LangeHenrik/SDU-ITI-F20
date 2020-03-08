@@ -22,7 +22,9 @@ ul {
 	list-style-type: none;
 	margin: 0px;
 	padding: 0px;
-	width: 200px;
+	min-width: 115px;
+	max-width: 200px;
+	width: 100%;
 	height: 100%;
 	background-color: darkgray;
 	overflow: hidden;
@@ -83,7 +85,7 @@ li a:hover {
 	justify-items: center;
 }
 
-.img {
+.images {
 	grid-column: auto !important;
 	grid-column: 1;
 	grid-row: auto;
@@ -151,6 +153,8 @@ li a:hover {
 .homepage1{
 	grid-column: 1;
 	grid-row: 2;
+	max-width: 204px;
+	min-width: 119px;
 	
 	
 }
