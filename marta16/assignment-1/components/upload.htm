@@ -1,0 +1,27 @@
+<div id="upload-container" data-state="closed">
+  <div id="upload-box">
+
+    <div id="upload-error">
+      There was an error with the upload submission.
+    </div>
+
+    <form id="upload" method="POST" onsubmit="return upload(this)">
+
+      <label for="image">Select image to upload</label>
+      <input type="file" name="image" accept="image/png, image/jpeg" onchange="uploadPreview(this)" required>
+
+      <img name="img" id="preview" src="" alt="Upload preview" />
+
+      <label for="title">Title</label>
+      <input type="text" placeholder="Enter title" name="title" required>
+
+      <label for="password">Description</label for="description">
+      <textarea placeholder="Enter some description for the uploaded image (max 100)" name="description" maxlength="100" required></textarea>
+
+    </form>
+
+    <button type="submit" form="upload">Upload</button>
+    <button type="cancel" onclick="hideUploadForm()">Cancel</button>
+
+  </div>
+</div>

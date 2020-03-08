@@ -1,0 +1,99 @@
+@import "theme.css";
+
+/* upload button */
+
+button.feed-upload {
+
+  --button-add-size: 60px;
+
+  position: fixed;
+  width: var(--button-add-size);
+  height: var(--button-add-size);
+  bottom: 0px;
+  right: 0px;
+  margin: 0px 30px 30px 0px;
+  padding: 0px;
+  background: var(--color-good);
+  border-radius: var(--button-add-size);
+  font-size: 2.5em;
+  color: var(--text-on-primary);
+  box-shadow: 0px 4px 10px -4px rgba(0, 0, 0, 0.75);
+
+  transition: all 0.3s ease-in-out 0s;
+
+}
+
+button.feed-upload:hover {
+
+  box-shadow: 0px 6px 15px -4px rgba(0, 0, 0, 0.9);
+  transform: translate(0px, -5px);
+
+}
+
+/* upload form */
+
+div#upload-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(5px);
+  z-index: 2;
+}
+
+div#upload-container[data-state=closed] {
+  display: none;
+}
+
+div#upload-box {
+  width: 400px;
+  background:var(--color-surface);
+  padding: 20px;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 20px -8px rgba(0, 0, 0, 0.75);
+  color: var(--color-font-dark);
+}
+
+div#upload-error {
+  display: none;
+  margin-top: 20px;
+  padding: 10px;
+  background: var(--color-error);
+  color:var(--text-on-error);
+}
+
+div#upload-container form {
+  margin: 20px 0px;
+}
+
+div#upload-container input[type=text],
+div#upload-container input[type=file],
+div#upload-container img,
+div#upload-container textarea {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 8px 0;
+  padding: var(--input-height) 12px;
+  border: 1px solid var(--color-border-light);
+  font-size: 1em;
+}
+
+div#upload-container img {
+  object-fit: cover;
+  padding: 0;
+}
+
+div#upload-container textarea {
+  resize: vertical;
+}
+
+div#upload-container button {
+  float: right;
+  margin: 0px 5px;
+}

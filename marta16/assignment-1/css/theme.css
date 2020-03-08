@@ -1,0 +1,36 @@
+:root {
+
+  /* https://material.io/design/color/the-color-system.html#color-theme-creation */
+  /* https://material.io/resources/color/#!/?view.left=0&view.right=0&primary.color=37474F&secondary.color=1DE9B6&primary.text.color=ffffff */
+
+  --color-primary:          #37474f;
+  --color-primary-light:    #62727b;
+  --color-primary-dark:     #102027;
+
+  --color-secondary:        #009688;
+  --color-secondary-light:  #52c7b8;
+  --color-secondary-dark:   #00675b;
+
+  --color-surface:          #f7f7f7;
+  --color-background:       #ffffff;
+  --color-error:            #ea7575;
+  
+  --color-border:           #cccccc;
+  --color-border-light:     #e2e1e1;
+
+  --color-good:             #1cc791;
+  --color-bad:              #ea7575;
+
+  --text-base-font:         'Open Sans', sans-serif;
+  --text-base-size:         14px;
+
+  --text-on-primary:        #ffffff;
+  --text-on-primary-dim:    #bbbbbb;
+  --text-on-secondary:      #000000;
+  --text-on-surface:        #000000;
+  --text-on-background:     #000000;
+  --text-on-error:          #ffffff;
+
+  --input-height: 12px;
+
+}

@@ -1,0 +1,53 @@
+<div id="entry-container" data-state="closed">
+  <div id="entry-box">
+
+    <div class="radio-group">
+      <input type="radio" id="option-login" name="selector" checked="checked">
+      <label for="option-login">Login</label>
+
+      <input type="radio" id="option-register" name="selector">
+      <label for="option-register">Register</label>
+    </div>
+
+    <div id="entry-error">
+      There was an error with the login submission. Please enter valid information or just stop trying.
+    </div>
+
+    <form id="login" method="POST" onsubmit="return login(this)">
+
+      <label for="username">Username</label>
+      <input type="text" placeholder="Enter username" name="username" required>
+
+      <label for="password">Password</label for="password">
+      <input type="password" placeholder="Enter password" name="password" required>
+
+    </form>
+
+    <form id="register" method="POST" onsubmit="return register(this)" style="display: none">
+
+      <label for="name">Full name*</label>
+      <input type="text" placeholder="Full name" name="name" pattern="^\w+(?:(?:,\s\w+)+|(?:\s\w+)+)$" required
+        title="at least 2 words separated by a whitespace">
+
+      <label for="email">Email*</label for="email">
+      <input type="email" placeholder="E-mail address" name="email" required>
+
+      <label for="email">Phone</label for="email">
+      <input type="tel" placeholder="Phone number" name="tel" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}">
+
+      <label for="username">Username*</label>
+      <input type="text" placeholder="Username" name="username" pattern="[a-zA-Z]+" required
+        title="only [a-Z] characters">
+
+      <label for="password">Password*</label for="password">
+      <input type="password" placeholder="Enter password" name="password"
+        pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(.{8,})" required
+        title="be of 8+ length and contain at least one of each: a lowercase character, an uppercase character and a digit">
+
+    </form>
+
+    <button type="submit" form="login">Submit</button>
+    <button type="cancel">Cancel</button>
+
+  </div>
+</div>
