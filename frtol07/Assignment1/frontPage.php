@@ -116,6 +116,8 @@ username=? ");
             } else {
                 echo "Wrong username or password";
             }
+        }else {
+            echo "Wrong username or password";
         }
 
 

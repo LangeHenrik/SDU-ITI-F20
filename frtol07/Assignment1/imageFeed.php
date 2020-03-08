@@ -68,74 +68,69 @@ for ($i = 0; $i < count($files); $i++) {
     );
 
     $ext = strtolower(pathinfo($image, PATHINFO_EXTENSION));
-//    if (in_array($ext, $supported_file)) {
-//
-//
-//        $stmt = $pdo->query("SELECT name,user, description, header, image  FROM images");
-//        while ($row = $stmt->fetch()) {
-//            echo "<br>"."<br>";
-//            echo "<div class='container'> ";
-//            echo "<h3>";
-//            echo $row['header'];
-//            echo "</h3>";
-//            echo "<b>";
-//            echo $row['description'];
-//            echo "</b>";
-//            echo "<br>";
-//            echo "Uploadet by:";
-//            echo "<b>";
-//            echo $row['user'];
-//            echo "</b>". "<br>";
-//            echo "<div class='image'> ";
-//            echo '<img src="' .$row["image"] . '" width="250" height="250"/>';
-//            echo "</div>";
-//            echo "</div>";
-//        }
-//
-//    } else {
-//        continue;
-//    }
+
 }
 
-if (in_array($ext, $supported_file)) {
+$dir = "uploads";
+
+function is_dir_empty($dir) {
+    if (!is_readable($dir)) return NULL;
+    return (count(scandir($dir)) == 2);
+}
+
+if(is_dir_empty($dir)){
+    echo "empty dir";
+}
+else{
+    if (in_array($ext, $supported_file)) {
 
 
-    $stmt = $pdo->query("SELECT name,user, description, header, image  FROM images");
-    while ($row = $stmt->fetch()) {
-        echo "<br>";
-        echo "<div class='container'> ";
-        echo "<h3>";
-        echo $row['header'];
-        echo "</h3>";
-        echo "<b>";
-        echo $row['description'];
-        echo "</b>";
-        echo "<br>";
-        echo "Uploadet by:";
-        echo "<b>";
-        echo $row['user'];
-        echo "</b>". "<br>";
-        echo "<div class='image'> ";
-        echo '<img src="' .$row["image"] . '" width="250" height="250"/>';
-        echo "</div>";
-        echo "</div>";
-    }
+        $stmt = $pdo->query("SELECT name,user, description, header, image  FROM images");
+        while ($row = $stmt->fetch()) {
+            echo "<br>";
+            echo "<div class='container'> ";
+            echo "<h3>";
+            echo $row['header'];
+            echo "</h3>";
+            echo "<b>";
+            echo $row['description'];
+            echo "</b>";
+            echo "<br>";
+            echo "Uploadet by:";
+            echo "<b>";
+            echo $row['user'];
+            echo "</b>". "<br>";
+            echo "<div class='image'> ";
+            echo '<img src="' .$row["image"] . '" width="250" height="250"/>';
+            echo "</div>";
+            echo "</div>";
+        }
 
-} else {
+    } else {
 //    continue;
+    }
 }
 
+
+
+
+
+function checkFolderIsEmptyOrNot ( $folderName ){
+    $files = array ();
+    if ( $handle = opendir ( $folderName ) ) {
+        while ( false !== ( $file = readdir ( $handle ) ) ) {
+            if ( $file != "." && $file != ".." ) {
+                $files [] = $file;
+            }
+        }
+        closedir ( $handle );
+    }
+    return ( count ( $files ) > 0 ) ?  TRUE: FALSE;
+}
+
+
+
 ?>
 
-<?php
 
-?>
-
-<!---->
-<?php
-//
-//include('functions.php');
-//
-//
-//?>
 

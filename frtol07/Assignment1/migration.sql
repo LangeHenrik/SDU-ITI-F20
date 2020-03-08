@@ -23,3 +23,4 @@ CREATE TABLE IF NOT EXISTS  images (
   `image` longtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+insert into users (username, password, email) values ('Test1', '1234', 'test@gmail.com');
