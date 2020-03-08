@@ -22,7 +22,7 @@ session_start();
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
-        document.getElementById("ajax").innerHTML =
+        document.getElementById("changeButton").innerHTML =
         this.responseText;
       }
     };
@@ -44,7 +44,7 @@ session_start();
         <div id="title">
           <h1 id="title1">Assignment-1 ITI</h1>
           <span>
-            <button id="changeButton">Change the title</button>
+            <button id="changeButton" onclick="loadDoc()" >Change the title</button>
           </span>
         </div>
         </div>
