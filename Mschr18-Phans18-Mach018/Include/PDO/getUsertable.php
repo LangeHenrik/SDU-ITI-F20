@@ -27,16 +27,16 @@
             $stmtString .=  " OR signup = :signup)";
           } else {
             $stmtString .=  ")";
-          }                             
+          }
         }
         $stmtString .= " ORDER BY $orderBy;";
-        
+
         $stmt = $conn->prepare($stmtString);
         $stmt->bindParam(':username', $searchValue);
         $stmt->bindParam(':fullname', $searchValue);
         if (DateTime::createFromFormat('Y-m-d', $searchValue) !== FALSE)
             $stmt->bindParam(':signup', $searchValue);
-        
+
         $stmt->execute();
         $stmt->setFetchMode(PDO::FETCH_NUM); // FETCH_NUM -> returnerer array indexeret i colonner angivet i tal.
                                              // Andre return methoder er beskrevet her: https://www.php.net/manual/en/pdostatement.fetch.php

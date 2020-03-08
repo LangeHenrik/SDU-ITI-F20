@@ -7,7 +7,7 @@
         <h2><a href="index.php">Go to frontpage <i class="fas fa-house-damage"></i></a></h2>
         <h2>login</h2>
         <?php
-          include('loginform.php');
+          include('Include/phpUtils/loginform.php');
          ?>
          <h2><a href="registration.php">Sign up <i class="fas fa-user-plus fa-s"></i></a></h2>
 

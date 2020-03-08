@@ -3,9 +3,9 @@
   ?>
 
     <section id="content">
-      <div class="registration" id="registration">
-        <h1 id="title">Sign up to </h1> <?php include_once('Include/chalkbord.php') ?>
+      <h1 id="title">Sign up to </h1> <?php include_once('Include/phpUtils/chalkbord.php') ?>
 
+      <div class="registration" id="registration">
         <div class="wrapper">
           <form name="signupForm" id="signupform" onsubmit="return checkform();" action="createUser.php" method="post">
 
