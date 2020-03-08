@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e6f4f31d-875d-4b48-8441-54c41d6de531" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/verifi.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db_config.php" beforeDir="false" afterPath="$PROJECT_DIR$/db_config.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/main.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/registration.php" beforeDir="false" afterPath="$PROJECT_DIR$/registration.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,15 +46,19 @@
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
-  <component name="RunManager" selected="PHP Script.registration.php">
+  <component name="RunManager" selected="PHP Script.verifi.php">
     <configuration name="mysql.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/mysql.php">
       <method v="2" />
     </configuration>
     <configuration name="registration.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/registration.php">
       <method v="2" />
     </configuration>
+    <configuration name="verifi.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/verifi.php">
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="PHP Script.verifi.php" />
         <item itemvalue="PHP Script.registration.php" />
         <item itemvalue="PHP Script.mysql.php" />
       </list>
@@ -69,7 +75,7 @@
       <option name="presentableId" value="Default" />
       <updated>1583508618305</updated>
       <workItem from="1583508620995" duration="4871000" />
-      <workItem from="1583582648334" duration="18319000" />
+      <workItem from="1583582648334" duration="22943000" />
     </task>
     <servers />
   </component>
@@ -105,30 +111,30 @@
       <screen x="1680" y="23" width="1920" height="1057" />
     </state>
     <state x="2703" y="258" key="#registration.php/-1080.23.1080.1897/1680.23.1920.1057/0.23.1680.1027@1680.23.1920.1057" timestamp="1583584915507" />
-    <state width="1185" height="290" key="GridCell.Tab.0.bottom" timestamp="1583670069932">
+    <state width="1878" height="290" key="GridCell.Tab.0.bottom" timestamp="1583688604233">
       <screen x="1680" y="23" width="1920" height="1057" />
     </state>
-    <state width="1185" height="290" key="GridCell.Tab.0.bottom/-1080.23.1080.1897/1680.23.1920.1057/0.23.1680.1027@1680.23.1920.1057" timestamp="1583670069932" />
-    <state width="1185" height="290" key="GridCell.Tab.0.center" timestamp="1583670069931">
+    <state width="1878" height="290" key="GridCell.Tab.0.bottom/-1080.23.1080.1897/1680.23.1920.1057/0.23.1680.1027@1680.23.1920.1057" timestamp="1583688604233" />
+    <state width="1878" height="290" key="GridCell.Tab.0.center" timestamp="1583688604232">
       <screen x="1680" y="23" width="1920" height="1057" />
     </state>
-    <state width="1185" height="290" key="GridCell.Tab.0.center/-1080.23.1080.1897/1680.23.1920.1057/0.23.1680.1027@1680.23.1920.1057" timestamp="1583670069931" />
-    <state width="1185" height="290" key="GridCell.Tab.0.left" timestamp="1583670069930">
+    <state width="1878" height="290" key="GridCell.Tab.0.center/-1080.23.1080.1897/1680.23.1920.1057/0.23.1680.1027@1680.23.1920.1057" timestamp="1583688604232" />
+    <state width="1878" height="290" key="GridCell.Tab.0.left" timestamp="1583688604231">
       <screen x="1680" y="23" width="1920" height="1057" />
     </state>
-    <state width="1185" height="290" key="GridCell.Tab.0.left/-1080.23.1080.1897/1680.23.1920.1057/0.23.1680.1027@1680.23.1920.1057" timestamp="1583670069930" />
-    <state width="1185" height="290" key="GridCell.Tab.0.right" timestamp="1583670069931">
+    <state width="1878" height="290" key="GridCell.Tab.0.left/-1080.23.1080.1897/1680.23.1920.1057/0.23.1680.1027@1680.23.1920.1057" timestamp="1583688604231" />
+    <state width="1878" height="290" key="GridCell.Tab.0.right" timestamp="1583688604232">
       <screen x="1680" y="23" width="1920" height="1057" />
     </state>
-    <state width="1185" height="290" key="GridCell.Tab.0.right/-1080.23.1080.1897/1680.23.1920.1057/0.23.1680.1027@1680.23.1920.1057" timestamp="1583670069931" />
+    <state width="1878" height="290" key="GridCell.Tab.0.right/-1080.23.1080.1897/1680.23.1920.1057/0.23.1680.1027@1680.23.1920.1057" timestamp="1583688604232" />
     <state x="2276" y="375" key="NewPhpClassDialog" timestamp="1583683568755">
       <screen x="1680" y="23" width="1920" height="1057" />
     </state>
     <state x="2276" y="375" key="NewPhpClassDialog/-1080.23.1080.1897/1680.23.1920.1057/0.23.1680.1027@1680.23.1920.1057" timestamp="1583683568755" />
-    <state x="2811" y="482" key="NewPhpFileDialog" timestamp="1583670562794">
+    <state x="2811" y="482" key="NewPhpFileDialog" timestamp="1583693553817">
       <screen x="1680" y="23" width="1920" height="1057" />
     </state>
-    <state x="2811" y="482" key="NewPhpFileDialog/-1080.23.1080.1897/1680.23.1920.1057/0.23.1680.1027@1680.23.1920.1057" timestamp="1583670562794" />
+    <state x="2811" y="482" key="NewPhpFileDialog/-1080.23.1080.1897/1680.23.1920.1057/0.23.1680.1027@1680.23.1920.1057" timestamp="1583693553817" />
     <state x="2495" y="190" key="SettingsEditor" timestamp="1583584508580">
       <screen x="1680" y="23" width="1920" height="1057" />
     </state>

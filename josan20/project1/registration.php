@@ -34,14 +34,14 @@ require_once 'db_config.php';
 </div>
 
 <?php
-if (!empty($_POST) && $_POST["name"] !== NULL && valid_human_name($_POST["name"]) && valid_password($_POST["pass"])) {
+if (!empty($_POST) && $_POST["name"] != NULL && valid_human_name($_POST["name"]) && valid_password($_POST["pass"])) {
     $user_register = $_POST["name"];
     $pass_register = $_POST["pass"];
 
 
     try {
 //        try connect
-        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $dbusername, $dbpassword);
         // set the PDO error mode to exception
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -64,7 +64,7 @@ VALUES ('" . $user_register . "', '" . $pass_register . "');";
 
         }*/
 
-        if (count($output_database) !== 0) {
+        if (count($output_database) != 0) {
             echo 'user is already in database';
             foreach(new RecursiveArrayIterator($output_database) as $k=>$v) {
                 echo implode(" ",$v);
