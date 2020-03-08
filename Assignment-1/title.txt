@@ -1,1 +1,1 @@
-Success!
+Success the AJAX call worked!
