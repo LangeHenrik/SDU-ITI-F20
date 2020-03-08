@@ -10,7 +10,7 @@ function SearchUser(str){
             xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
         }
         xmlhttp.onreadystatechange = function() {
-            if (this.readyState === 1) {
+            if (this.readyState === 1 && this.status === 200) {
                 document.getElementById("show_user").innerHTML = this.responseText;
             }
         };
