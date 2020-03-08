@@ -17,15 +17,18 @@ session_start();
     <link rel="stylesheet" type="text/css" href="css/Stylesheet.css" />
     <link rel="icon" href="img/icon.png" type="png" />
   </head>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script>
-  $(document).ready(function(){
-  $("button").click(function(){
-    $.ajax({url: "title.txt", success: function(result){
-      $("#title1").html(result);
-    }});
-  });
-});
+  function loadDoc() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("ajax").innerHTML =
+        this.responseText;
+      }
+    };
+    xhttp.open("GET", "title.txt", true);
+    xhttp.send();
+  }
   </script>
   <body>
     <div id="content">
@@ -40,7 +43,9 @@ session_start();
       <div class="wrapper">
         <div id="title">
           <h1 id="title1">Responsive animated sidebar</h1>
-          <button>Change the title</button>
+          <div id="ajax">
+          <button type="button" onclick="loadDoc()">Make AJAX call</button>
+        </div>
         </div>
         <?php
         require 'php/inner-wrapper.php';
