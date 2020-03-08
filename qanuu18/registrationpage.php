@@ -13,21 +13,25 @@
 </head>
 <h1>Register page</h1>
 <div id="frm">
-  <form onsubmit="return checkallforms(); method="post" action="insertusertodatabase.php">
-    <p><label>Register Now!</label>
-</p><label for="usernameInput">New username:</label> 
-<input type="text" id="usernameInput" name="usernameIp">
-    <p class="usernameInfo" id="usernameInfo"></p>
-    <label for="passwordInput">New password:</label> 
-    <input type="password" id="passwordInput" name="passwordIp">
-    <p class="passwordInfo" id="passwordInfo"></p>
-    <input type="submit" name="registrate" id="submit" value="Register">
-  </form>
+    <form onsubmit=return checkallforms(); name="registrate" method="POST" action="insertusertodatabase.php">
+        <p>
+            <label>Register Now!</label>
+        </p>
+        <label for="usernameInput">New username:</label>
 
+        <input type="text" id="usernameInput" name="usernameInput" value="">
+        <p class="usernameInfo" id="usernameInfo "></p>
+
+        <label for="passwordInput">New password:</label>
+
+        <input type="password" id="passwordInput" name="passwordInput" value="">
+        <p class="passwordInfo" id="passwordInfo"></p>
+
+        <input type="submit" name="registrate" id="submit" value="Register">
+    </form>
 </div>
-<script src="extfiles/Registration.js"></script>
+<script src="extfiles/Registration.js "></script>
 
 </body>
-
 
 </html>
