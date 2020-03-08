@@ -1,2 +1,2 @@
 id: UserTest
-password: Admin123.
+password: Admin123!
