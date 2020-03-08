@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -21,7 +24,6 @@
           <i id="openMenu" class="fas fa-arrow-circle-right"></i>
         </a>
       </span>
-
       <?php
       require 'php/navigation.php';
       ?>

@@ -1,6 +1,11 @@
 <?php
+session_start();
 // Create database connection
 include 'config.php';
+
+if($_SESSION["loggedin"] != 1) {
+    echo("<script>location.href = '/index.php';</script>");
+}
 
 // If upload button is clicked ...
 if (isset($_POST['upload'])) {

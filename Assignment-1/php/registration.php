@@ -5,9 +5,6 @@ require 'config.php';
 // If upload button is clicked ...
 if (isset($_POST['upload'])) {
   
-  echo "Open console and check"; 
-  echo '<script>console.log("Hello");</script>';
-
   // Get email
   $Email = htmlentities($_POST['Email']);
   // Get username

@@ -1,4 +1,3 @@
-<?php ?>
 <div class="inner-wrapper">
           <div class="nested">
             <div><h3>Column title</h3></div>
