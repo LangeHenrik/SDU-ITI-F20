@@ -1,4 +1,5 @@
 <?php
+    #session_start();
     require 'config.php';
 ?>
 
@@ -14,13 +15,18 @@
             <a href="upload_image.php">Upload Image</a>
             <a href="feed.php">Feeds</a>
             <a href="user_list.php">User List</a>
-            <div class="login-container">    
-                <form action="./linkdatabase/login.php" method="post">
-                    <input type="text" name="username-login" id="username-login" placeholder="Username">
-                    <input type="password" name="pwd-login" id="pwd-login" placeholder="Password">
-                    <button type="submit" name="login-submit">Log-in</button>
-                </form>
-            </div>
+            <?php 
+                if(isset($_SESSION['username'])){
+                    echo "<a href='logout.php'><input type=button value=Logout name=logout></a>";
+                } else { ?>
+                    <div class="login-container">    
+                        <form action="/linkdatabase/login.php" method="post">
+                            <input type="text" name="username-login" id="username-login" placeholder="Username">
+                            <input type="password" name="pwd-login" id="pwd-login" placeholder="Password">
+                            <button type="submit" name="login-submit">Log-in</button>
+                        </form>
+                    </div>
+            <?php } ?>
         </div>
     </body>
 </html>

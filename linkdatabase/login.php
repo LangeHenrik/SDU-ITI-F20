@@ -9,6 +9,8 @@
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
         $result = $stmt->fetchAll();
         
+        print_r($_POST);
+
         $user = filter_var($_POST['username-login'], FILTER_SANITIZE_STRING);
         $userXSS = htmlspecialchars($user, ENT_QUOTES | ENT_SUBSTITUTE, 'utf-8');
 
@@ -19,16 +21,20 @@
             echo"<a href='logout.php'><input type=button value=Logout name=logout></a>";
         }else{
             foreach($result as $row){
+                print_r($row['username']);
+                print_r($userXXS);
+                print_r($row['pwd']);
+                print_r($passXSS);
                 if($row['username']==$userXSS && password_verify($passXSS, $row['pwd'])){
                     $_SESSION['username']=$_POST['username-login'];
                     #$path_feed = __DIR__ . '\..\feed.php';
                     #echo"igual";
                     echo"<html><script>window.location.href = './../feed.php'</script></html>";
                 }else{
-                    echo"diferente";
+                    #echo"diferente";
                     #$path_index = __DIR__ . '\..\index.php';
-                    echo "<html><script> alert('Log in first to use the feature!')</script>";
-                    echo "<script>window.location.href = './../index.php' </script></html>";
+                    #echo "<html><script> alert('Log in first to use the feature!')</script>";
+                    #echo "<script>window.location.href = './../index.php' </script></html>";
                 }
             }
         }
