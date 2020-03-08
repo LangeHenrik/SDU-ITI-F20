@@ -230,7 +230,10 @@ div.picturecontainer table {
   vertical-align: top;
   text-align: left;
   border-spacing: 4px;
-  table-layout: fixed;
+  word-break: break-all;
+}
+div.picturecontainer th {
+  min-width: 57px;
 }
 div.picturecontainer td,
 div.picturecontainer th {
