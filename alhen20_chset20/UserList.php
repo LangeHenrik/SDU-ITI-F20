@@ -19,7 +19,7 @@ catch (PDOException $e) {
 <html>
 
 <head>
-	<title>Front Page</title>
+	<title>User List</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
@@ -27,8 +27,8 @@ catch (PDOException $e) {
 	<div class="navbar">
 		<nav>
 			<a href="index.php">Home</a>
-			<a href="Picture.php">Pictures</a>
-			<a href="UserList.php" class="active">Users</a>
+			<a href="Picture.php">Image Feed</a>
+			<a href="UserList.php" class="active">User List</a>
 			<a href="Upload.html">Upload</a>
 			<a href="logout.php">Logout</a>
 		</nav>
@@ -37,8 +37,8 @@ catch (PDOException $e) {
 	<div class="container">
 		<div class="content">
 			<div class="user">
-				<div class="mail">Template</div>
 				<div class="name">Template</div>
+				<div class="mail">Template</div>
 			</div>
 			<?php
 			$stmt = $conn->prepare("SELECT username, email

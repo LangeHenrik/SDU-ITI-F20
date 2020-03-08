@@ -16,8 +16,8 @@ if(session_status()==PHP_SESSION_NONE){
 		<?php if($_SESSION["logged_in"]==true):?>
 			<nav>
 				<a href="index.php" class="active">Home</a>
-				<a href="Picture.php">Pictures</a>
-				<a href="UserList.php">Users</a>
+				<a href="Picture.php">Image Feed</a>
+				<a href="UserList.php">User List</a>
 				<a href="Upload.html">Upload</a>
 				<a href="logout.php">Logout</a>
 			</nav>

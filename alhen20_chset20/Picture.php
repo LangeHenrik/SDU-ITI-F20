@@ -19,7 +19,7 @@ catch (PDOException $e) {
 <html>
 
 <head>
-	<title>Front Page</title>
+	<title>Image Feed</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
@@ -27,8 +27,8 @@ catch (PDOException $e) {
 	<div class="navbar">
 		<nav>
 			<a href="index.php">Home</a>
-			<a href="Picture.php" class="active">Pictures</a>
-			<a href="UserList.php">Users</a>
+			<a href="Picture.php" class="active">Image Feed</a>
+			<a href="UserList.php">User List</a>
 			<a href="Upload.html">Upload</a>
 			<a href="logout.php">Logout</a>
 		</nav>
