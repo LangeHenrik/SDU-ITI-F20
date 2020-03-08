@@ -57,7 +57,7 @@ if (isset($_POST['upload'])) {
 <form method="POST" action="../index.php" enctype="multipart/form-data">
   <h1>Create account</h1>
   <!-- check the email for unwanted characters -->
-  <input type="email" placeholder="Email" name="Email" title="Email can not contain special characters" pattern="\b[\w.!#$%&’*+\/=?^`{|}~-]+@[\w-]+(?:\.[\w-]+)*\b" required />
+  <input type="email" placeholder="Email" name="Email" title="Email can not contain special characters" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" required />
   <!-- allowed characters a-z, A-Z, 0-9, . and _ (4 characters to 20) -->
   <input type="text" placeholder="Username" name="Username" title="Allowed username characters is a-z, A-Z, 0-9, .(dot) and _(underline) (minimum 4 characters, maximum 20)" pattern="^(?=.{4,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$" required />
   <!-- minimum 5 characters max 20, at least one uppercase letter, one lowercase letter and one number -->
