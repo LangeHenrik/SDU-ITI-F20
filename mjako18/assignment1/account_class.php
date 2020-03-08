@@ -1,17 +1,19 @@
 <?php
+session_start();
+
 class account {
 
   public function login($values) {
     $db = getDB();
     $username = $values['Username'];
     $pass = $values['Password'];
-    $count_sql = "SELECT count(*) FROM accounts WHERE username = :username;";
+    $count_sql = "SELECT count(*) FROM account WHERE username = :username;";
     $stmt = $db->prepare($count_sql);
     $stmt->bindparam(":username", $username);
     $stmt->execute();
     $count = $stmt->fetchColumn();
     if($count > 0) {
-      $sql = "SELECT id,password FROM accounts WHERE username = :username;";
+      $sql = "SELECT id,password FROM account WHERE username = :username;";
       $stmt = $db->prepare($sql);
       $stmt->bindparam(":username", $username);
       $stmt->execute();
@@ -50,7 +52,7 @@ class account {
   public function checkUsername($values) {
     $db = getDB();
     $username = $values['Username'];
-    $sql = "SELECT count(*) FROM accounts WHERE username = :Username";
+    $sql = "SELECT count(*) FROM account WHERE username = :Username";
     $stmt = $db->prepare($sql);
     $stmt->bindParam(":Username", $username);
     $stmt->execute();
@@ -73,7 +75,7 @@ class account {
 */
     $password = $values['Password'];
     $hashPass = password_hash($password, PASSWORD_DEFAULT);
-    $sql = "INSERT INTO accounts (username, password) "
+    $sql = "INSERT INTO account (username, password) "
          . "VALUES(:Username, :Password);";
     $stmt = $db->prepare($sql);
     $stmt->bindparam(":Username", $userName);
@@ -95,7 +97,7 @@ class account {
 
   public function getAccountInfo() {
     $db = getDB();
-    $sql = "SELECT * FROM accounts WHERE id = :AccountID;";
+    $sql = "SELECT * FROM account WHERE id = :AccountID;";
     $stmt = $db->prepare($sql);
     $stmt->bindparam(":AccountID", $_SESSION['AccountID']);
     $stmt->execute();
@@ -106,7 +108,7 @@ class account {
 
   public function getAccountList() {
     $db = getDB();
-    $sql = "SELECT id, username FROM accounts ORDER BY id asc;";
+    $sql = "SELECT id, username FROM account ORDER BY id asc;";
     $stmt = $db->prepare($sql);
     $stmt->execute();
     $returnVal = $stmt->fetchAll(PDO::FETCH_ASSOC);

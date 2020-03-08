@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 define('DB_USERNAME', "mjako18"); //Database user
 define('DB_PASSWORD', "ITIassignment"); //Database user password
 define('DB_NAME', "image_share"); //Database name

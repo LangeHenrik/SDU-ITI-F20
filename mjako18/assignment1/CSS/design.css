@@ -52,3 +52,7 @@ progress {
 .menu-current {
   background-color: #DDD;
 }
+
+#login_response, #register_response, #upload_response {
+  padding: 5px;
+}

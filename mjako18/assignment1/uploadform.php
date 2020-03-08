@@ -1,23 +1,12 @@
 <?php
   require_once "./config.php";
 
-  $logout = filter_input(INPUT_GET, 'logout');
-
-  if($logout) {
-    $account->logout();
-    //show login box
-  }
-
   if($account->isLoggedIn()) {
     $logout_classes = " ";
     $login_classes = " hidden";
-    $menu_logout = " shown";
-    $menu_login = " hidden";
   } else {
     $logout_classes = " hidden";
-    $login_classes = "";
-    $menu_logout = " hidden";
-    $menu_login = " shown skew-right-end";
+    $login_classes = " ";
   }
 ?>
 <!DOCTYPE html>
@@ -51,7 +40,8 @@
   </header>
   <section>
     <div class="container-fluid fixed-nav">
-      <div class="col-xl-4 col-m-4" id="upload">
+      <div class="col-xl-4 col-m-4<?php echo $login_classes ?>" id="upload"><p>Only registered users can upload images. Please log in.</p></div>
+      <div class="col-xl-4 col-m-4<?php echo $logout_classes ?>" id="upload">
         <div id="upload_response"></div>
         <div>
           <form id="uploadForm" action="upload.php" method="post" enctype="multipart/form-data">
