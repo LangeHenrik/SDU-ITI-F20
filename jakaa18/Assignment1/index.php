@@ -77,7 +77,7 @@ if ($_SESSION['logged_in']) : ?>
                 <li><a href="logout.php" id="logout">Logout</a></li>
             </ul>
         </div>
-		<div class="homepage2">
+		<!--<div class="homepage2">
 			<form action="upload.php" method="post" enctype="multipart/form-data">
                 Select image to upload
                 <input type="file" name="image" id="fileId">
@@ -86,6 +86,14 @@ if ($_SESSION['logged_in']) : ?>
                 <label for="description">Image description: Max 300 characters!</label><br>
                 <textarea id="description" id="descriptionId" rows="4" cols="50" required></textarea>
             </form>
+		</div>-->
+		<div class="homepage2">
+			<div class="image-container">
+					<img src="https://www.w3schools.com/images/w3schools_green.jpg" alt="Snow" style="width:100%">
+					<img src="https://www.w3schools.com/images/w3schools_green.jpg" alt="Forest" style="width:100%">
+					<img src="https://www.w3schools.com/images/w3schools_green.jpg" alt="Mountains" style="width:100%">
+				</div>
+			</div>
 		</div>
     </div>
 
