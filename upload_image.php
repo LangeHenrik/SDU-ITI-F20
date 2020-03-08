@@ -23,11 +23,11 @@
             <i><h2>Choose your pictures and upload here!</h2></i>
             <form action="" method="post">
                 <label for="image">Choose Your Image</label>
-                <br><input type="file" name="image" id="image"/><br>
+                <br><input type="file" name="image-upload" id="image-upload"/><br>
                 <label for="image-header">Image Header</label>
                 <br><input type="text" name="image-header" placeholder="Write a Title for Your Image"><br>
                 <label for="image-description">Image Description</label>
-                <br><textarea name="descripion" id="image-description" cols="30" rows="5" placeholder="Write a Description for Your Image"></textarea><br>
+                <br><textarea name="image-description" id="image-description" cols="30" rows="5" placeholder="Write a Description for Your Image"></textarea><br>
                 <button type="submit" value="upload" name="image-upload">UPLOAD</button>
 
             </form>

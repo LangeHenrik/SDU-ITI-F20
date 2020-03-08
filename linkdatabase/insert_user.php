@@ -2,7 +2,7 @@
 <?php
     if(array_key_exists('signup-submit', $_POST)){
         try{
-            $connection = new PDO("mysql:host=$server;port=3307;dbname=$database", 
+            $connection = new PDO("mysql:host=$server;dbname=$database", 
             $username_database, $password_database, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
             $stmt = $connection->prepare("INSERT INTO users (username, email, pwd) VALUES(:username, :email, :pwd)");
             
