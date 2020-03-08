@@ -2,7 +2,7 @@
     if(array_key_exists('image-upload', $_POST)) {
         require 'config.php';
         try{
-            $convertedImg = "data:".$_FILES['image-upload']['type'].";base64,".base64_encode(file_get_contents($_FILES['image-upload']['tmp_name']));
+            $uploadIMG = "data:".$_FILES['image-upload']['type'].";base64,".base64_encode(file_get_contents($_FILES['image-upload']['tmp_name']));
             $connection = new PDO("mysql:host=$server;dbname=$database", 
             $username_database, $password_database, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
             $stmt = $connection->prepare("INSERT INTO images (header, description, username, image) VALUES(:header, :description, :username, :image)");
@@ -19,7 +19,7 @@
             $usernameXSS = htmlspecialchars($usernameA);
             $stmt->bindParam(':username', $usernameXSS, PDO::PARAM_STR);
             
-            $stmt->bindParam(':image', $convertedImg, PDO::PARAM_STR);
+            $stmt->bindParam(':image', $uploadIMG, PDO::PARAM_STR);
 
             $stmt->execute(); 
             $stmt->setFetchMode(PDO::FETCH_ASSOC); 

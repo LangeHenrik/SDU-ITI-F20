@@ -1,10 +1,9 @@
 <?php
     require 'config.php';
         try {
-        $connection = new PDO("mysql:host=$servername;dbname=$database", $username_database,
-        $password_database,
-        array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-        $stmt = $connection->prepare("USERNAME");
+        $connection = new PDO("mysql:host=$server;dbname=$database", $username_database,
+        $password_database, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+        $stmt = $connection->prepare("SELECT username FROM users");
         $stmt->execute();
         $stmt->setFetchMode(PDO::FETCH_ASSOC); 
         $result = $stmt->fetchAll();
