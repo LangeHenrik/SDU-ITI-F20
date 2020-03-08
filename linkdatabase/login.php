@@ -2,7 +2,7 @@
     require __DIR__ . '/../config.php';
 
     try {
-        $connection = new PDO("mysql:host=$server;port=3306;dbname=$database", 
+        $connection = new PDO("mysql:host=$server;port=3307;dbname=$database", 
         $username_database, $password_database, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
         $stmt = $connection->prepare("SELECT username, pwd FROM users");
         $stmt->execute();

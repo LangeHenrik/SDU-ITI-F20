@@ -17,6 +17,8 @@
           </div>
         </main>
 
-<?php
-  include './linkdatabase/insert_user.php';
-?>
+      <?php
+        include './linkdatabase/insert_user.php';
+      ?>
+      </body>
+    </html>

@@ -1,13 +1,13 @@
 <?php
     require 'config.php';
     try{
-        $connection = new PDO("mysql:host=$server;dbname=$database", $username_database,
-        $password_database,
-        array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+        $connection = new PDO("mysql:host=$server;port=3307;dbname=$database", $username_database,
+        $password_database, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
         $stmt = $connection->prepare("SELECT * FROM images");
         $stmt->execute();
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
         $result = $stmt->fetchAll();
+        //print_r($result);
         echo "<div>";
             foreach($result as $row){
                 echo "<div id=formContent>Image Title: <p>$row[header]</p><br>";

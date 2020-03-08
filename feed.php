@@ -1,13 +1,12 @@
 <?php
   session_start();
   require "header.php";
+  include './linkdatabase/login.php';
 ?>
 
-<html>
-<!DOCTYPE html>
     <?php
         if(isset($_SESSION['username'])){
-            echo "<a href='./includes/logout.php'></a>";
+            echo "<a href='logout.php'></a>";
         } else{
             echo "<script> alert('You have to login to use this function!') </script>";
             echo "<script> location.href = 'index.php' </script>";
@@ -24,4 +23,4 @@
                 <?php include './linkdatabase/fetchimagedata.php';?>
             </div>
         </body>
-</html>
+    </html>
