@@ -53,7 +53,7 @@ include('header.php');
 
 <div id="main-content" >
 	<div class="container">
-		<div class="title">LOGIN </br>
+		<div class="title">LOGIN</br>
 		</div>
 
 		<form method="post" action="">
@@ -62,20 +62,18 @@ include('header.php');
 
 			 <label for="username"> </label>
 
-				<input type="text" class="form-control" name="usernameCon" placeholder="Username" /> <br />
+				<input type="text" name="usernameCon" placeholder="Username"/> <br />
 
 				 <label for="password"> </label>
-				<input type="password" class="form-control" name="passwordCon" placeholder="Password"  /> <br />
+				<input type="password" name="passwordCon" placeholder="Password"/> <br />
 
-				<input type="submit" class="btn" name="formConnexion" value="Connect"/>
-
-				Create an account - <a href="registration.php">Sign In </a> <br />
+				<input type="submit" class="btn" name="formConnexion" value="Connect"/> Create an account - <a href="registration.php">Sign In </a> <br />
 			</div>
 
 		</form>
     <?php
          if(isset($error)) {
-            echo '<font color="red">'.$error."</font>";
+            echo '<p id="verif_fail">'.$error."</p>";
          }
          ?>
 	</div>

@@ -1,10 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+
 body{
   background-color: #3498db;
   margin: 0 0 50px 0;
 }
 
 /* Footer (in all pages), fixed when scrolled */
-
 footer {
     position: fixed;
     height: 50px;
@@ -23,11 +25,10 @@ footer div {
   margin: auto;
 }
 
-/* Container for the registration and login page */
+/* Main container for the registration and login page */
 .container {
   min-width: 35%;
   max-width: 40%;
-  /*width: 360px;*/
   padding: 8% 0 0;
   margin: auto;
   text-align: center;
@@ -38,7 +39,7 @@ footer div {
   /* margin: 0 0 15px;*/
   padding: 15px;
   color: #ecf0f1;
-  font-size: 150%;
+  font-size: 1.5em;
 }
 
 .form {
@@ -56,61 +57,35 @@ footer div {
   /*outline: 0;*/
   background: #f2f2f2;
   width: 100%;
-
   border: 0;
   margin: 0 0 15px;
   padding: 15px;
   box-sizing: border-box;
   font-size: 14px;
 }
-.form button {
+.form .btn {
   font-family: "Roboto", sans-serif;
-  /*text-transform: uppercase;*/
-  /*outline: 0;*/
-  background: #4CAF50;
+  background: #3498db;
   width: 100%;
-
   border: 0;
   padding: 15px;
   color: #FFFFFF;
   font-size: 14px;
-  /*-webkit-transition: all 0.3 ease;*/
-  /*transition: all 0.3 ease;*/
   cursor: pointer;
 }
-.form button:hover,.form button:active,.form button:focus {
-  background: #43A047;
-}
-/* .form .message {
-  margin: 15px 0 0;
-  color: #b3b3b3;
-  font-size: 12px;
-}
-.form .message a {
-  color: #4CAF50;
-  text-decoration: none;
-}
-.form .register-form {
-  display: none;
+.form .btn:hover,.form .btn:active,.form .btn:focus {
+  background: #2980b9;
 }
 
-.container {
-  position: relative;
-  z-index: 1;
-  max-width: 300px;
-  margin: 0 auto;
-} */
 
 
 
-/* NAVIGATION BAR (on all page, rauto resize for users on mobile or tablet)*/
+/* NAVIGATION BAR (on all pages, auto resize for users on mobile or tablet)*/
 
 .navbar{
-  /* overflow: auto; */
   box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
   position: fixed;
   background-color: #333;
-
   top: 0;
   width: 100%;
   z-index: 9999;
@@ -121,16 +96,14 @@ footer div {
   margin: 0;
   padding: 0;
   overflow: hidden;
-
-
 }
 
 .navbar li {
   float: left;
   border-right: 1px solid #bbb;
-
 }
 
+/* Logout fixed right */
 .navbar li:last-child {
   border-right: none;
 }
@@ -143,12 +116,6 @@ footer div {
   text-decoration: none;
 }
 
-/* Logo in the navbar */
-.navbar span{
-  font-size: 17px;
-  padding: 12px;
-  color: white;
-}
 
 .navbar li a:hover {
   background-color: #111;
@@ -158,60 +125,21 @@ footer div {
   float: right;
 }
 
-/* @media screen and (max-width: 600px) {
-  .navbar ul li.right,
-  .navbar ul li {float: none;}
-} */
+/* Logo in the navbar */
+.navbar span{
+  font-size: 17px;
+  padding: 12px;
+  color: white;
+}
 
 
-
-/*.file-area*/
- /* .container input[type=file] {
-     position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    opacity: 0;
-    cursor: pointer;
-} */
-
-/*
-.uploadpage .container {
-  min-width: 25%;
-  max-width: 50%;
-  padding: 0 0 0;
-  margin: auto;
-  text-align: center;
-} */
-
-
-
-/* Non utilisé */
-/* .uploadpage p{
-  height: 120px;
-  width: 100%;
-  text-align: center;
-  vertical-align: center;
-  line-height: 120px;
-  color: black;
-  font-family: Arial;
-  position: relative;
-  word-break: break-all;
-margin: 0;
-padding: 0;
-} */
 
 
 
 /* Image Feed */
-
 .container_feed {
   min-width: 50%;
   max-width: 100%;
-  /*width: 360px;*/
   padding: 8% 0 0;
   margin: auto;
   text-align: center;
@@ -224,7 +152,6 @@ padding: 0;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-
 }
 
 .card {
@@ -242,20 +169,18 @@ padding: 0;
   margin: 0 auto 35px;
   padding: 15px;
   overflow: hidden;
-  /* white-space: pre-wrap;
+  white-space: pre-wrap;
   white-space: -moz-pre-wrap;
   white-space: -pre-wrap;
-  white-space: -o-pre-wrap;*/
+  white-space: -o-pre-wrap;
   word-wrap: break-word;
   text-align: justify;
   color: #ecf0f1;
-  /* position:relative; */
 }
 
 .card .messageinfo{
   width: 80%;
   margin:16px;
-  /* padding-top: 10px; */
   overflow: hidden;
   /* fix the info at the bottom of the card */
   position:absolute;
@@ -264,15 +189,17 @@ padding: 0;
   word-wrap: break-word;
 }
 
+/* Name of the uploader */
 .card .messageinfo #first {
-    /* width: 30%; */
     float:left;
     /* margin: 3px; */
     max-width: 50%;
     text-align: left;
 }
+
+/* Date of the upload */
 .card .messageinfo #second {
-  color: #7f8c8d;
+    color: #7f8c8d;
     float: right;
     /* margin: 3px; */
     max-width: 50%;
@@ -319,7 +246,6 @@ padding: 0;
 .container_userlist {
   min-width: 35%;
   max-width: 60%;
-  /*width: 360px;*/
   padding: 8% 0 8%;
   margin: auto;
   text-align: center;
@@ -327,7 +253,7 @@ padding: 0;
 }
 
 .search_field {
-  font-family: 'Montserrat';
+  font-family: 'Montserrat', 'Arial';
   font-size: 0.9em;
   color: white;
 }
@@ -336,7 +262,6 @@ padding: 0;
 /* width: 35%; */
 /* height: 100px;
 margin: auto; */
-
 }
 
 .user_card{
@@ -358,20 +283,13 @@ margin: auto; */
     margin: 0;
     font-size: 0.9em;
     overflow: hidden;
-    /* white-space: pre-wrap;
-    white-space: -moz-pre-wrap;
-    white-space: -pre-wrap;
-    white-space: -o-pre-wrap;*/
-}
-
-.user_card li{
-
 
 }
+
+
 .container_upload {
   min-width: 35%;
   max-width: 60%;
-  /*width: 360px;*/
   padding: 8% 0 0;
   margin: auto;
   text-align: center;
@@ -384,20 +302,21 @@ margin: auto; */
   padding-top: 50px;
 }
 
+
+/* confirmation message (create account / upload) */
 #verif_ok{
   color: green;
   font-weight: bold;
 }
 
+/* Error message (create account / upload) */
 #verif_fail{
   color: red;
   font-weight: bold;
-
 }
 
 
-/* To make it responsive for smaller screen */
-
+/* To make the navbar responsive for smaller screen (iphone and tablet)*/
 @media screen and (max-width: 600px) {
   .navbar ul li.right, .navbar ul li {
     float: none;
@@ -405,10 +324,7 @@ margin: auto; */
   .container{
     padding-top: 200px;
   }
-  .container_feed{
-    padding-top: 300px;
-  }
-  .container_userlist{
+  .container_feed, .container_upload, .container_userlist{
     padding-top: 300px;
   }
 

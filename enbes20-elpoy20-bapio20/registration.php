@@ -35,49 +35,39 @@ if (isset($_POST['formRegistration'])) {
 
             if($password == $password2) {
               $passhash = password_hash($_POST['password'], PASSWORD_DEFAULT);
-
               $stmt= $db->prepare("INSERT INTO user (username, password, email) VALUES ( ?, ?, ?)");
               $stmt->execute(array($username, $passhash, $email));
               $ok = "Account Created ! <a href=\"index.php\">Log in</a>";
-
             }
 
             else {
-
               $error = "Password not match";
-
             }
           }
 
           else {
-
           $error = "Already registred with this email";
-
           }
 
         }
 
         else {
-
           $error = "Username already taken";
         }
 
       }
 
       else {
-
         $error ="Invalid email";
       }
     }
 
     else {
-
       $error="Check your password";
     }
   }
 
   else {
-
     $error = "You need to fill all the fields";
   }
 }
@@ -90,32 +80,30 @@ if (isset($_POST['formRegistration'])) {
 		<form method="post" action="">
 
 			<div class="form">
-				<label class="control-label" for="username"></label>
-				<input type="text" class="form-control" name="username" placeholder="Username" value="<?php if(isset($username)) { echo $username; } ?>" /> <br />
+				<label for="username"></label>
+				<input type="text" name="username" placeholder="Username" value="<?php if(isset($username)) { echo $username; } ?>" /> <br />
 
-				<label class="control-label" for="password"></label>
-				<input type="password" class="form-control" name="password" placeholder="Password"  /> <br />
+				<label for="password"></label>
+				<input type="password" name="password" placeholder="Password"  /> <br />
 
-				<label class="control-label" for="password2"></label>
-				<input type="password" class="form-control"  name="password2"  placeholder="Retype password" /> <br />
+				<label for="password2"></label>
+				<input type="password" name="password2"  placeholder="Retype password" /> <br />
 
-				<label class="control-label" for="email"></label>
-				<input type="email" class="form-control" name="email" placeholder="Email" value="<?php if(isset($email)) { echo $email; } ?>" /> <br />
+				<label for="email"></label>
+				<input type="email" name="email" placeholder="Email" value="<?php if(isset($email)) { echo $email; } ?>" /> <br />
 
-				<input type="submit" class="btn btn-primary" name="formRegistration" value="Subscribe"  /> <br />
+				<input type="submit" class="btn" name="formRegistration" value="Subscribe"/> <br />
         <?php
               if(isset($error)) {
                  echo '<p id="verif_fail">'.$error."</p>";
               }
               if(isset($ok)){
                 echo '<p id="verif_ok">'.$ok."</p>";
-
               }
+
         ?>
       </div>
-
 		</form>
-
 	</div>
 </div>
 <?php include('footer.php') ?>
