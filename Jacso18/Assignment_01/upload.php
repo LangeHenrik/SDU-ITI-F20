@@ -20,30 +20,30 @@ include 'includes/autoload.php';
                 <li><a href="image_feed.php">Image feed</a></li>
                 <li><a href="upload.php">Upload picture</a></li>
                 <li><a href="user_list.php">Users</a></li>
+                <li>
+                    <form class="logout" method="POST">
+                        <input type="submit" name="logout" id="logout" value="Logout" />
+                    </form>
+                </li>
             </ul>
         </div>
     </nav>
     <div class="wrapper">
-        <div class="uploadform">
-            <form class= uploadform id="uploadform" method="POST" enctype="multipart/form-data">
+        <div class="div-form">
+            <form class= form id="form" method="POST" enctype="multipart/form-data">
                 <input type="text" name="title" id="title" placeholder="Title">
                 <br>
                 <label for="file">Select a file:</label>
                 <br>
-                <input type="button" id="loadFile" value="file" onclick="document.getElementById('filetoupload').click();" />
-                <input type="file" style="display:none;" id="filetoupload" name="filetoupload" />
+                <input type="file"  id="filetoupload" name="filetoupload" />
                 <br>
-                <textarea id="comment" name="comment" rows="2" cols="50" maxlength="150" placeholder="Write a comment" style="font-family:sans-serif"></textarea>
+                <textarea id="comment" name="comment" rows="4" cols="50" maxlength="150" placeholder="Write a comment" style="font-family:sans-serif"></textarea>
                 <br>
                 <input type="submit" name="upload" id="upload" value="upload">
             </form>
         </div>
     </div>
 
-
-    <form method="POST">
-        <input type="submit" name="logout" id="logout" value="Logout" />
-    </form>
     <?php
     session_start();
 

@@ -2,9 +2,9 @@
 include 'includes/autoload.php';
 
 
-    
-$message="";
-$username = $password = $email ="";
+
+$message = "";
+$username = $password = $email = "";
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
@@ -13,11 +13,18 @@ if (isset($_POST['submit'])) {
     $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_STRING);
     $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
     $userController = new UserController();
-    if ($userController->userExists($username) == false) {
-        $userController->createUser($username, $email, password_hash($password, PASSWORD_DEFAULT));
-        $message= 'Account has been created';
+
+
+    if (Utility::regexCheck($username, $password, $email)) {
+
+        if ($userController->userExists($username) == false) {
+            $userController->createUser($username, $email, password_hash($password, PASSWORD_DEFAULT));
+            $message = 'Account has been created';
+        } else {
+            $message = 'Username has already been used';
+        }
     } else {
-        $message= 'Username has already been used';
+        $message = 'Invalid username or password';
     }
 }
 
@@ -40,11 +47,11 @@ if (isset($_POST['submit'])) {
         <form class="form" onblur="" onsubmit="return checkform();" method="POST">
             <div class="field-name">
                 <i class="fas fa-user"></i>
-                <input type="text" name="username" id="username" placeholder="Username" onkeyup="checkname()" onchange="checkname()" onblur="checkname()" />
+                <input type="text" name="username" id="username" placeholder="Username" title="Must not contain special characters" onkeyup="checkname()" onchange="checkname()" onblur="checkname()" />
             </div>
             <div class="field-password">
                 <i class="fas fa-key"></i>
-                <input type="password" name="password" id="password" placeholder="Password" onkeyup="checkpassword()" onchange="checkpassword()" onblur="checkpassword()" />
+                <input type="password" name="password" id="password" placeholder="Password" title="minimum 8 characters" onkeyup="checkpassword()" onchange="checkpassword()" onblur="checkpassword()" />
             </div>
             <div class="field-email">
                 <i class="fas fa-envelope"></i>
@@ -57,7 +64,7 @@ if (isset($_POST['submit'])) {
                 <a href="index.php">back</a>
             </div>
             <div class="form-response">
-                <p><?php echo $message;?></p>
+                <p><?php echo $message; ?></p>
             </div>
         </form>
     </div>

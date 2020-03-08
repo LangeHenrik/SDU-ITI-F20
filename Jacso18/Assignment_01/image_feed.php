@@ -31,22 +31,26 @@ Utility::logoutPressed();
 <body>
     <nav>
         <div class="center">
-            <ul class="menu">
-                <li><input type="text" id="search" name="search" onload="showPosts(this.value)" onkeyup="showPosts(this.value);" />
+            <ul class="menu" method="POST">
                 <li><a href="image_feed.php">Image feed</a></li>
                 <li><a href="upload.php">Upload picture</a></li>
                 <li><a href="user_list.php">Users</a></li>
+                <li>
+                    <form class="logout" method="POST">
+                        <input type="submit" name="logout" id="logout" value="Logout" />
+                    </form>
+                </li>
+
             </ul>
         </div>
     </nav>
     <div class="wrapper">
+        <div class=search>
+            <input type="text" id="search" name="search" placeholder="Search post by user" onload="showPosts(this.value)" onkeyup="showPosts(this.value);" />
+        </div>
         <div class="content" id="content">
         </div>
     </div>
-
-    <form method="POST">
-        <input type="submit" name="logout" id="logout" value="Logout" />
-    </form>
 </body>
 
 </html>

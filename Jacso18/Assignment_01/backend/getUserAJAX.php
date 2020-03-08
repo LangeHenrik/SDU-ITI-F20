@@ -42,7 +42,8 @@
     foreach ($posts as $post) {
         echo '<div class="post">';
         echo "<h1>" . $post['title'] . "</h1>";
-        echo "<p>" . "Posted by: " . $post['username'] . " at " . $post['timestamp'] . "</p>";
+        echo "<h3>" . "Posted by: " . $post['username'] . "</h3>";
+        echo "<p>" . $post['timestamp'] . "</p>";
         echo '<img src="' . $post['image']. '"' . 'alt="alt_image.png"' . '"/>';
         echo "<p>" . $post['COMMENT'] . "</p>";
         echo "<br/>";

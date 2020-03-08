@@ -28,7 +28,6 @@ if (isset($_POST['login'])) {
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <title>Front page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
