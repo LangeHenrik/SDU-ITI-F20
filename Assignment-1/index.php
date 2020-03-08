@@ -17,15 +17,18 @@ session_start();
     <link rel="stylesheet" type="text/css" media="(max-width: 1000px)" href="css/mobile-view.css"/>
     <link rel="icon" href="img/icon.png" type="png" />
   </head>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script>
-  $(document).ready(function(){
-  $("button").click(function(){
-    $.ajax({url: "title.txt", success: function(result){
-      $("#title1").html(result);
-    }});
-  });
-});
+  function loadDoc() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("ajax").innerHTML =
+        this.responseText;
+      }
+    };
+    xhttp.open("GET", "title.txt", true);
+    xhttp.send();
+  }
   </script>
   <body>
     <div id="content">
@@ -43,6 +46,7 @@ session_start();
           <span>
             <button id="changeButton">Change the title</button>
           </span>
+        </div>
         </div>
         <?php
         require 'php/frontpage-content.php';

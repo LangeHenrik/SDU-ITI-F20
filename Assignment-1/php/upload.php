@@ -3,8 +3,8 @@ session_start();
 // Create database connection
 include 'config.php';
 
-if($_SESSION["loggedin"] != 1) {
-    echo("<script>location.href = '/index.php';</script>");
+if ($_SESSION["loggedin"] != 1) {
+    echo ("<script>location.href = '/index.php';</script>");
 }
 
 // If upload button is clicked ...
@@ -83,7 +83,6 @@ if (isset($_POST['upload'])) {
                             <input id="inputHeader" type="text" placeholder="Write a header" name="Header" required />
                             <textarea id="text" cols="40" rows="4" name="Description" placeholder="Say something..." required></textarea>
                             <button id="post" type="submit" name="upload">POST</button>
-                            
                         </form>
                     </div>
                 </div>
