@@ -1,15 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Registration</title>
-    <meta name="viewport" content="width=device width, initial scale=1.0">
-    <!--    main css-->
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <!--    awesome font-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-<body>
 <?php
 error_reporting(E_ALL);
 require_once 'sanitize_input.php';
@@ -25,23 +13,24 @@ require_once 'db_config.php';
         <label for="name">name:</label>
         <input type="text" id="name" name="name"><br>
         <p class="info" id="nameinfo"></p><br><br>
-        <label for="pass">password:</label>
-        <input type="password" id="pass" name="pass"><br>
-        <p class="info" id="passinfo"></p><br><br>
+        <label for="pwd">pwdword:</label>
+        <input type="pwdword" id="pwd" name="pwd" placeholder="pwdword"><br>
+        <p class="info" id="pwdinfo"></p><br>
+        <input type="pwdword" id="pwd-repeat" name="pwd-repeat" placeholder="Repeat pwdword"><br><br>
         <input type="submit" value="registration">
     </form>
     <script src="registration_form.js"></script>
 </div>
 
 <?php
-if (!empty($_POST) && $_POST["name"] != NULL && valid_human_name($_POST["name"]) && valid_password($_POST["pass"])) {
+if (!empty($_POST) && $_POST["name"] != NULL && valid_human_name($_POST["name"]) && valid_pwdword($_POST["pwd"])) {
     $user_register = $_POST["name"];
-    $pass_register = $_POST["pass"];
+    $pwd_register = $_POST["pwd"];
 
 
     try {
 //        try connect
-        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $dbusername, $dbpassword);
+        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $dbusername, $dbpwdword);
         // set the PDO error mode to exception
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -53,8 +42,8 @@ if (!empty($_POST) && $_POST["name"] != NULL && valid_human_name($_POST["name"])
         //sql to insert new user to the table
         $table_name = "MyGuests";
 
-        $sql = "INSERT INTO " . $table_name . " (name, pass)
-VALUES ('" . $user_register . "', '" . $pass_register . "');";
+        $sql = "INSERT INTO " . $table_name . " (name, pwd)
+VALUES ('" . $user_register . "', '" . $pwd_register . "');";
         $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
         $output_database = $stmt->fetchAll();
 
@@ -70,9 +59,9 @@ VALUES ('" . $user_register . "', '" . $pass_register . "');";
                 echo implode(" ",$v);
             }
         } else {
-            $pass_register = password_hash($pass_register, PASSWORD_DEFAULT);
-            $sql = "INSERT INTO " . $table_name . " (name, pass)
-VALUES ('" . $user_register . "', '" . $pass_register . "');";
+            $pwd_register = pwdword_hash($pwd_register, pwdWORD_DEFAULT);
+            $sql = "INSERT INTO " . $table_name . " (name, pwd)
+VALUES ('" . $user_register . "', '" . $pwd_register . "');";
 
 
             //show sql in console
@@ -95,13 +84,6 @@ VALUES ('" . $user_register . "', '" . $pass_register . "');";
 
 
 ?>
-
-
-<div class="footer">
-    <p>@Josef Sanda</p>
-</div>
-</body>
-</html>
 
 
 

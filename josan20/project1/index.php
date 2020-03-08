@@ -1,23 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Frontpage</title>
-    <meta name="viewport" content="width=device width, initial scale=1.0">
-    <!--    main css-->
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <!--    awesome font-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-<body>
+<?php
+include 'common/header.php';
+?>
+
+<h1>HOw are you?</h1>
 <?php
 
 
+
+include 'common/footer.php';
+if (session_status() == PHP_SESSION_NONE && $_SESSION["logged_in"] !== true){
+    echo "<h1>is session out</h1>";
+}
+print_r($_SESSION);
+echo "----------<br>";
+if ($_SESSION["logged_in"]){
+    var_dump($_SESSION["logged_in"]);
+}
+echo "----------<br>";
 ?>
-
-
-<div class="footer">
-    <p>@Josef Sanda</p>
-</div>
-</body>
-</html>

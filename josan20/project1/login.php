@@ -1,4 +1,5 @@
 <?php
+print_r($_SESSION);
 error_reporting(E_ALL);
 require_once 'sanitize_input.php';
 require_once 'db_config.php';
@@ -8,55 +9,55 @@ require_once 'db_config.php';
     <h1>Login</h1>
 </div>
 
-<form method="post">
-    <input type="submit" name="button_logout"
-           class="button_logout" value="Logout"/>
-</form>
+<!--<form method="post">-->
+<!--    <input type="submit" name="button_logout"-->
+<!--           class="button_logout" value="Logout"/>-->
+<!--</form>-->
 
 <?php
-if (isset($_POST['button_logout'])) {
+/*if (session_status() !== PHP_SESSION_NONE && isset($_POST['button_logout']) && $_SESSION[“logged_in”] == true) {
     echo "This is Button1 that is selected";
     // remove all session variables
     session_unset();
 
     // destroy the session
     session_destroy();
-}
+}*/
 
 ?>
 
 <div id="form" class="login_form">
-    <a href="registration.php">Registration</a>
+    <a href="registration_page.php">Registration</a>
     <!--    todo change action-->
-    <form onsubmit="return checkform();" action="login.php" method="post">
+    <form onsubmit="return checkform();" action="#" method="post">
         <label for="name">name:</label>
         <input type="text" id="name" name="name"><br>
         <p class="info" id="nameinfo"></p><br><br>
-        <label for="pass">password:</label>
-        <input type="password" id="pass" name="pass"><br>
+        <label for="pwd">pwdword:</label>
+        <input type="pwdword" id="pwd" name="pwd"><br>
         <input type="submit" value="login"><br>
-        <p class="info" id="passinfo"></p><br>
+        <p class="info" id="pwdinfo"></p><br>
     </form>
     <script src="registration_form.js"></script>
 </div>
 
 <?php
-if (!empty($_POST) && $_POST["name"] != NULL && valid_human_name($_POST["name"]) && valid_password($_POST["pass"])) {
+if (!empty($_POST) && isset($_POST['login']) && isset($_POST["name"]) && valid_human_name($_POST["name"]) && valid_pwdword($_POST["pwd"])) {
     $user_register = $_POST["name"];
-    $pass_register = $_POST["pass"];
-//    $pass_register = password_hash($pass_register, PASSWORD_DEFAULT);
+    $pwd_register = $_POST["pwd"];
+//    $pwd_register = pwdword_hash($pwd_register, pwdWORD_DEFAULT);
 
 
     try {
 //        try connect
-        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $dbusername, $dbpassword);
+        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $dbusername, $dbpwdword);
         // set the PDO error mode to exception
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 //        check if user is already in
         //todo make table as variable
         $sql = "SELECT * FROM MyGuests WHERE name='" . $user_register . "';";
-//        $sql = "SELECT * FROM MyGuests WHERE name='" . $user_register . "' AND pass='" . $pass_register . "';";
+//        $sql = "SELECT * FROM MyGuests WHERE name='" . $user_register . "' AND pwd='" . $pwd_register . "';";
 
         $stmt = $conn->prepare($sql);
         $stmt->execute();
@@ -80,25 +81,24 @@ if (!empty($_POST) && $_POST["name"] != NULL && valid_human_name($_POST["name"])
                     $counter++;
                 }*/
 //todo dat do kundy vypisy
-        if ($output_database != NULL){
+        if ($output_database != NULL) {
             if (count($output_database) != 0) {
-                echo "----------<br>";
-                echo gettype($output_database['pass']);
-                echo $output_database['pass'] . '<br>';
-                echo "----------<br>";
-                echo gettype($pass_register);
-                echo $pass_register;
+//                echo "----------<br>";
+//                echo gettype($output_database['pwd']);
+//                echo $output_database['pwd'] . '<br>';
+//                echo "----------<br>";
+//                echo gettype($pwd_register);
+//                echo $pwd_register;
+//
+//                echo "----------<br>";
 
-                echo "----------<br>";
 
-
-                if (password_verify($pass_register, $output_database['pass'])) {
+                if (pwdword_verify($pwd_register, $output_database['pwd']) && session_status() == PHP_SESSION_NONE) {
                     //                todo dat do kundy vypisy
                     echo "Welcome";
-                    if (session_status() == PHP_SESSION_NONE) {
-                        session_start();
-                    }
-                    $_SESSION[“logged_in”] = true;
+
+                    $_SESSION["logged_in"] = TRUE;
+                    print_r($_SESSION);
                 } else
                     echo "not Welcome";
 
@@ -118,5 +118,5 @@ if (!empty($_POST) && $_POST["name"] != NULL && valid_human_name($_POST["name"])
     $conn = null;
 }
 
-
+print_r($_SESSION);
 ?>
