@@ -8,4 +8,4 @@
 ### Assigment 1
 
 - Remeber to change the config.php
-- For test use the testimg.png in the main folder, because of the max size
+- For test use the testImage.png in the main folder, because of the max size
