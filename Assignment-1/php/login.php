@@ -3,15 +3,24 @@ require 'config.php';
 
 if (isset($_POST['login'])) {
 
-  $Password = htmlentities($_POST['Password']);
+  $Password = filter_var($_POST['Password'], FILTER_SANITIZE_STRING);
+  $Email = filter_var($_POST['Email'], FILTER_SANITIZE_STRING);
+  echo '<script>console.log("'. $Email .'"); </script>'; 
+
   
   try {
     // Connect and set PDO error to exception
     $db = new PDO("mysql:host=$DB_SERVER;port=3307;dbname=$DB_DATABASE", $DB_USERNAME, $DB_PASSWORD);
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql = "SELECT * FROM jumar18_micpe18_mihen13.user WHERE 't@t.dk' = Email;";
+    $sql2 = "SELECT * FROM jumar18_micpe18_mihen13.user WHERE t@t.dk = Email;";
+    $sql = "SELECT * FROM jumar18_micpe18_mihen13.user WHERE Email = :Email";
+    echo '<script>console.log("'. $sql .'"); </script>'; 
+    echo '<script>console.log("'. $sql2 .'"); </script>'; 
+    
+
 
     if($statement = $db->prepare($sql)) {
+      $statement->bindParam(":Email", $Email, PDO::PARAM_STR);
       if($statement->execute()) {
         if($statement->rowCount() == 1) {
           if($row = $statement->fetch()) {
@@ -52,7 +61,7 @@ if (isset($_POST['login'])) {
     <div class="form-container sign-in-container">
       <form method="POST" action="../index.php">
         <h1>Sign in</h1>
-        <input type="email" placeholder="Email" />
+        <input type="email" placeholder="Email" name="Email" />
         <input type="Password" placeholder="Password" name="Password" />
         <a href="#">Forgot your password?</a>
         <button type="submit" name="login">Sign In</button>
