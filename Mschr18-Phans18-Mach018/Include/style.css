@@ -207,25 +207,34 @@ div.myuploads h4 {
   margin-bottom: 10px;
 }
 div.picturecontainer {
-  width: 250px;
-  height: 280px;
+  width: 450px;
+  height: 200px;
   background-color: gray;
   border-radius: 7px;
   display: inline-block;
   float: left;
-  margin: 10px;
+  margin: 0 15px 15px 0;
 }
 div.picturecontainer img {
   max-height: 200px;
   max-width: 200px;
   border-radius: 5px;
-  display: block;
+  display: inline-block;
   margin: 10px 0 0 10px;
 }
 div.picturecontainer table {
-  color: #eee;
-  overflow: hidden;
+  color: black;
+  width: 220px;
+  margin-top: 5px;
+  display: inline-block;
+  vertical-align: top;
+  text-align: left;
+  border-spacing: 4px;
 
+}
+div.picturecontainer td,
+div.picturecontainer th {
+  vertical-align: top;
 }
 
 /* user content */
