@@ -41,7 +41,4 @@ if (!empty($result))
     } catch (PDOException $e){
         echo "Error: " . $e->getMessage();
     }
-function getusername(){
-    $username = filter_input(INPUT_POST, 'username');
-    return $username;
-}    
+
