@@ -61,10 +61,11 @@ if (!empty($_POST) && $_POST["name"] !== NULL && valid_human_name($_POST["name"]
 
 
         $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-        while($r = mysqli_fetch_assoc($stmt)) {
-            $rows[] = $r;
-        }
         $output_database = $stmt->fetchAll();
+
+        foreach ($output_database as $row) {
+            echo $row['pass']."<br />\n";
+        }
 
 //        print output from database
         $counter = 0;
@@ -79,11 +80,10 @@ if (!empty($_POST) && $_POST["name"] !== NULL && valid_human_name($_POST["name"]
         }
 
         if (count($output_database) !== 0) {
-            echo 'user is already in database<br>';
-            require_once('Users.php');
-            foreach(new Users(new RecursiveArrayIterator($stmt->fetchAll())) as $k=>$v) {
-                echo $v;
-            }
+            echo "----------<br>";
+            echo $output_database['pass'] . '<br>';
+            echo "----------<br>";
+
 
 
         } else {

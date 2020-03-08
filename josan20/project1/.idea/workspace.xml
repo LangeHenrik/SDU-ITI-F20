@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e6f4f31d-875d-4b48-8441-54c41d6de531" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Users.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/main.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/registration.php" beforeDir="false" afterPath="$PROJECT_DIR$/registration.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/registration_form.js" beforeDir="false" afterPath="$PROJECT_DIR$/registration_form.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sql_scripts.txt" beforeDir="false" afterPath="$PROJECT_DIR$/sql_scripts.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +69,7 @@
       <option name="presentableId" value="Default" />
       <updated>1583508618305</updated>
       <workItem from="1583508620995" duration="4871000" />
-      <workItem from="1583582648334" duration="17439000" />
+      <workItem from="1583582648334" duration="18319000" />
     </task>
     <servers />
   </component>
@@ -96,6 +93,10 @@
       <screen x="1680" y="23" width="1920" height="1057" />
     </state>
     <state x="2451" y="213" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1080.23.1080.1897/1680.23.1920.1057/0.23.1680.1027@1680.23.1920.1057" timestamp="1583584890922" />
+    <state x="2378" y="305" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1583685744848">
+      <screen x="1680" y="23" width="1920" height="1057" />
+    </state>
+    <state x="2378" y="305" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1080.23.1080.1897/1680.23.1920.1057/0.23.1680.1027@1680.23.1920.1057" timestamp="1583685744848" />
     <state x="2769" y="230" key="#main.php" timestamp="1583584825007">
       <screen x="1680" y="23" width="1920" height="1057" />
     </state>
