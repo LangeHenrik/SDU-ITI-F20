@@ -15,6 +15,8 @@
 
   </head>
     <body>
+
+      <!-- Check if the user is logged to call the good navbar -->
       <?php if (!empty($_SESSION['username'])) {
               include('navUser.php');
             }

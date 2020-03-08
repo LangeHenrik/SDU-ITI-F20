@@ -23,8 +23,9 @@ if(isset($_POST['formConnexion'])) {
      $res = $stmt->fetch();
      $isPasswordCorrect = password_verify($password, $res['password']);
 
+// Check if the user exist in the database
      if(!$res){
-       $error = "Wrong credentials 1";
+       $error = "This username is not in the database";
      }
      else{
        if($isPasswordCorrect){
@@ -37,8 +38,10 @@ if(isset($_POST['formConnexion'])) {
          //var_dump($res);
          header("Location: feed.php?id=".$_SESSION['id']);
        }
+
+// Check if the password match the databse
        else{
-         $error = "Wrong credentials 2";
+         $error = "Wrong Password";
        }
      }
    }
@@ -50,24 +53,22 @@ if(isset($_POST['formConnexion'])) {
 include('header.php');
 
 ?>
-
+<!-- Login form -->
 <div id="main-content" >
 	<div class="container">
-		<div class="title">LOGIN</br>
-		</div>
+		<div class="title">LOGIN</br></div>
 
 		<form method="post" action="">
-
 			<div class="form">
 
-			 <label for="username"> </label>
-
+			  <label for="username"> </label>
 				<input type="text" name="usernameCon" placeholder="Username"/> <br />
 
-				 <label for="password"> </label>
+				<label for="password"> </label>
 				<input type="password" name="passwordCon" placeholder="Password"/> <br />
 
 				<input type="submit" class="btn" name="formConnexion" value="Connect"/> Create an account - <a href="registration.php">Sign In </a> <br />
+
 			</div>
 
 		</form>
