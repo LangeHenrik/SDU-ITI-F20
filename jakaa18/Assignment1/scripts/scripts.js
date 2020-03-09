@@ -7,12 +7,14 @@ if (document.getElementById("register")) {
 function showHomeLink() {
     document.getElementById("uploadForm").style.display = "none";
     document.getElementById("imagePage").style.display = "block";
+    document.getElementById("usersPage").style.display = "none";
 }
 
 function showPhotoLink ()
 {
     document.getElementById("uploadForm").style.display = "block";
     document.getElementById("imagePage").style.display = "none";
+    document.getElementById("usersPage").style.display = "none";
 
 }
 function showUsersLink() {
