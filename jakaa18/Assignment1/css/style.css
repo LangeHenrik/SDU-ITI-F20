@@ -155,13 +155,13 @@ li a:hover {
 	grid-row: 2;
 	max-width: 204px;
 	min-width: 119px;
-	
-	
 }
 
 .homepage2{
+	display: none;
 	grid-column: 2 / span 3;
 	grid-row: 2 / span 2;
+
 }
 
 .homepage3{
