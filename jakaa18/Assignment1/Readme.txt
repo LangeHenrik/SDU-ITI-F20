@@ -1,7 +1,8 @@
 We had difficulties making it on time thanks to other assignments creeping up on us around the same time as this one. 
 For this reason, a few of the requirements have not been made and we are aware of it.
 
-Some of the things we knew we didn't have time for are:
+Some of the things we knew we failed to implement in time are:
+RegExp) We did not manage the ensure the RegExp got checked against the username when registering a new user.
 Security) Data sent from client to server is sent using proper HTTP Method
 	This was reached in a few places, but not all data sent was sent through HTTP Methods
 Security) The server cleans any input before examining it
