@@ -1,9 +1,8 @@
 <?php
 echo "*******************";
-			document.getElementById("steve").innerHTML = "Hello Dolly.";
+$title = "download";
 if(isset($_GET["grab"])){
     if(true){
-			document.getElementById("steve").innerHTML = "Hello Dolly.";
 
         /*
          * Grab image data from database
@@ -45,18 +44,20 @@ if(isset($_GET["grab"])){
         }else{
             echo "File grab failed, please try again.";
         }*/
-			document.getElementById("steve").innerHTML = "Hello Dolly.";
+	}
+		<?php
 		foreach ($grab as $pictures){
-			document.getElementById("steve").innerHTML = "Hello Dolly.";/*<img class="images" src="data:image/png;base64,' . base64_encode( $pictures['picture'] ) . '" >;*/
+			print '<img class="images" src="data:image/png;base64,' . base64_encode( $pictures['picture'] ) . '" >';
 			print '<div class="post container">';
 			print $post['user'].'</br><h2>'. $post['header'] .'</h2></br>';
 			print '<img class="images" src="data:image/png;base64,' . base64_encode( $pictures['picture'] ) . '" >';
 			print '</br>'.$post['description'].'</br>';
 			print '</div>';
-
 		}
-    }else{
+>
+		
+    /*}else{
         echo "Something went wrong. This error shouldn't be displayed.";
 		console.log("Hello world!");
-    }
+    }*/
 }

@@ -96,22 +96,12 @@ if ($_SESSION['logged_in']) : ?>
 			Then we unload all of this once we click off???
 			-->
 				
-			<!-- AJAX format:
-			"ajax": {
-                url: "http://localhost:8080/download",
-                dataSrc: 'pictures'
-            },
-			"image": [
-                { "data": "pic_id" },
-                { "data": "header" },
-                { "data": "description" },
-                { "data": "user" },
-                { "data": "picture" }
-            ]-->
 				<div class="image-container">
 					<div class="container1">
-						<form action="download.php" method="get" enctype="multipart/form-data" ip="steve">
-							<p id="steve2">This is a p element.</p>
+					
+						<form action="download.php" method="get" enctype="multipart/form-data">
+							
+							<p method="grab" id="steve2">This is a p element.</p>	
 						</form>
 					</div>
 					<div class="container1">
@@ -212,3 +202,19 @@ try {
     <script src="scripts/scripts.js"></script>
 <?php endif; ?>
 </body>
+
+
+
+			<!-- JSON format:
+			"ajax": {
+                url: "http://localhost:8080/download",
+                dataSrc: 'pictures'
+            },
+			"image": [
+                { "data": "pic_id" },
+                { "data": "header" },
+                { "data": "description" },
+                { "data": "user" },
+                { "data": "picture" }
+				
+            ]-->

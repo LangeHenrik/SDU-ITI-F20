@@ -41,3 +41,4 @@ function checkUsername($username) {
         xmlhttp.open("GET", "index.php?username=" + $username, true);
         xmlhttp.send();
     }
+}
