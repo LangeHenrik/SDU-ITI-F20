@@ -179,3 +179,9 @@ li a:hover {
 	grid-column: 1 / span 4;
 	grid-row: 3;
 }
+
+.homepage4{
+	display: none;
+	grid-column: 2 / span 3;
+	grid-row: 2 / span 2;
+}
