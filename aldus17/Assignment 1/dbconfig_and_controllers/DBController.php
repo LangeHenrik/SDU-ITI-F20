@@ -5,7 +5,7 @@ class DBController extends DBConnection
 {
     public function insertUser($username, $fullname, $email,  $password)
     {
-        $insert_query = 'INSERT INTO users (username, fullname, email, password) VALUES (:username, :fullname, :email, :password)';
+        $insert_query = 'INSERT INTO user (username, fullname, email, password) VALUES (:username, :fullname, :email, :password)';
         $prepare_statement = $this->openConnection()->prepare($insert_query);
         if ($prepare_statement !== false) {
 
@@ -30,8 +30,8 @@ class DBController extends DBConnection
 
     public function insertImage($username, $image, $title, $description)
     {
-        $select_query = '(SELECT userID FROM users WHERE username=:username)';
-        $insert_query = 'INSERT INTO images (userID, image, title, description) VALUES (' . $select_query . ', :image, :title, :description)';
+        $select_query = '(SELECT userID FROM user WHERE username=:username)';
+        $insert_query = 'INSERT INTO imagefeed (userID, image, title, description) VALUES (' . $select_query . ', :image, :title, :description)';
         $prepare_statement = $this->openConnection()->prepare($insert_query);
         if ($prepare_statement !== false) {
             $prepare_statement->bindParam(':username', $username);
@@ -54,7 +54,7 @@ class DBController extends DBConnection
 
     public function getUserByUsername($username)
     {
-        $select_query = 'SELECT * FROM users WHERE username=:username';
+        $select_query = 'SELECT * FROM user WHERE username=:username';
         $prepare_statement = $this->openConnection()->prepare($select_query);
         if ($prepare_statement !== false) {
             $prepare_statement->bindParam(':username', $username);
@@ -68,7 +68,7 @@ class DBController extends DBConnection
 
     public function getUserByUsernameAndMail($username, $email)
     {
-        $select_query = 'SELECT * FROM users WHERE username=:username AND email=:email';
+        $select_query = 'SELECT * FROM user WHERE username=:username AND email=:email';
         $prepare_statement = $this->openConnection()->prepare($select_query);
         if ($prepare_statement !== false) {
             $prepare_statement->bindParam(':username', $username);
@@ -83,7 +83,7 @@ class DBController extends DBConnection
 
     public function getAllUsers()
     {
-        $select_query = 'SELECT username, fullname FROM users';
+        $select_query = 'SELECT username, fullname FROM user';
         $prepare_statement = $this->openConnection()->prepare($select_query);
         $prepare_statement->execute();
         $query_result = $prepare_statement->fetchAll();
@@ -92,8 +92,8 @@ class DBController extends DBConnection
     public function getAllUserImages()
     {
         $select_query = 'SELECT username, image, title, description, creationTime
-        FROM users, images
-        WHERE images.userID=users.userID
+        FROM user, imagefeed
+        WHERE imagefeed.userID=user.userID
         ORDER BY creationTime DESC';
         $prepare_statement = $this->openConnection()->prepare($select_query);
         $prepare_statement->execute();
