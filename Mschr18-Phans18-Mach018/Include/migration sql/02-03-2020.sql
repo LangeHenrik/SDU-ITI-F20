@@ -47,11 +47,11 @@ CREATE TABLE picture (
     FOREIGN KEY (username) REFERENCES users(username)
 );
 
+# 09-03-2020
 ALTER TABLE `iti`.`picture` 
-ADD COLUMN `titel` VARCHAR(100) NOT NULL AFTER `username`;
-
+ADD COLUMN `titel` VARCHAR(50) NOT NULL AFTER `username`;
 ALTER TABLE `iti`.`picture` 
-ADD COLUMN `description` VARCHAR(100) NOT NULL AFTER `titel`;
+ADD COLUMN `description` VARCHAR(300) NOT NULL AFTER `titel`;
 
 -- Vi havde problem med at forbinde til databsen indtil vi kørte følgende
 # ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password'; 
