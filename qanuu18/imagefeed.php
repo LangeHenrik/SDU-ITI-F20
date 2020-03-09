@@ -3,7 +3,7 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="styling.css">
+    <link rel="stylesheet" href="extfiles/styling.css">
 </head>
 
 <body>
@@ -11,7 +11,7 @@
     <form class="userlist" name="userlist" method="GET" action="userlist.php">
         <p>
         <input type="button" onclick="loadDoc()" name="userlist" id="ulbtn" value="Userlist">
-        <p class="ulbtn" id=ulbtn></p>
+        <p class="ulbtn" id="display"></p>
         </p>
     </form>
 

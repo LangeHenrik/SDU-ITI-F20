@@ -2,6 +2,7 @@
 session_start();
 
 require_once 'extfiles/config.php';
+echo"helo";
 
 try
 {
@@ -9,6 +10,9 @@ try
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
     ));
 
+    
+        
+    
     $query = $conn->prepare("SELECT username FROM user");
     $query->execute();
     $query->setFetchMode(PDO::FETCH_ASSOC);
