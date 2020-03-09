@@ -96,7 +96,7 @@ if ($_SESSION['logged_in']) : ?>
 			Then we unload all of this once we click off???
 			-->
 			<form action="download.php" method="get" enctype="multipart/form-data">
-
+				
 			<!-- AJAX format:
 			"ajax": {
                 url: "http://localhost:8080/" +document.getElementById("pic_id").innerHTML + "/get-image",
@@ -184,8 +184,6 @@ try {
 (PDOException $e) {
     echo "ERROR" . $e->getMessage();
 }
-
-
 ?>
     <script src="scripts/scripts.js"></script>
 <?php endif; ?>

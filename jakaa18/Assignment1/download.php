@@ -1,6 +1,5 @@
 <?php
 echo "*******************";
-include('index.php');
 if(isset($_GET["grab"])){
     $check = getimagesize($_FILES["image"]["tmp_name"]);
     if($check !== false){
