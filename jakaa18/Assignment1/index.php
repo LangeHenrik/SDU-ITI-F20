@@ -97,7 +97,7 @@ if ($_SESSION['logged_in']) : ?>
         <div class="homepage4" name="usersPage" id="usersPage">
             <table name="usersTable" id="usersTable">
                 <tr>
-                    <th>Username</th>
+                    <th>All Users</th>
                 </tr>
                 <?php
 

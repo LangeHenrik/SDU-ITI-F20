@@ -23,7 +23,27 @@ function showUsersLink() {
     document.getElementById("usersPage").style.display = "block";
 }
 
+
+function checkRegister() {
+    let usernameValue = document.getElementById("username");
+    let usernameRegex =/^[A-Za-zÆØÅæøå _\-\d]{3,}$/;
+    let available = checkUsername(usernameValue.value);
+    let valid = checkRegEx(usernameValue, usernameRegex);
+    return available && valid;
+}
+
+function checkRegEx(nameTest, regExp) {
+    if (RegExp(regExp).test(nameTest.value)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+
+
 function checkUsername($username) {
+
     let xmlhttp = new XMLHttpRequest();
     let info = document.getElementById("usernameAvailable");
     let input = document.getElementById("regUsernameId");
