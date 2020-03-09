@@ -11,7 +11,7 @@
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     if (isset($_POST["myuploads"]) && $_POST["myuploads"]) {
-      $stmt = $conn->prepare("SELECT titel, imagebase64, descripton, uploaddate FROM picture WHERE username = :username");
+      $stmt = $conn->prepare("SELECT titel, imagebase64, description, uploaddate FROM picture WHERE username = :username");
       $stmt->bindParam(':username', $_SESSION['username']);
       $stmt->execute();
       $stmt->setFetchMode(PDO::FETCH_NUM);
@@ -29,7 +29,7 @@
         <?php
       }
     } else {
-      $stmtString = "SELECT titel, username, imagebase64, descripton, uploaddate FROM picture";
+      $stmtString = "SELECT titel, username, imagebase64, description, uploaddate FROM picture";
       $stmt = $conn->prepare($stmtString);
       $stmt->execute();
       $stmt->setFetchMode(PDO::FETCH_NUM);

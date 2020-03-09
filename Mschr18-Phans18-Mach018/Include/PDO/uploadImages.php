@@ -36,7 +36,7 @@
       {
         // Konverter til base64
         $image_base64 = base64_encode(file_get_contents($_FILES['picupload']['tmp_name'][$i]) );
-        $image_base64 = 'data:../Images/'.$imageFileType.';base64,'.$image_base64;
+        $image_base64 = 'data:image/'.$imageFileType.';base64,'.$image_base64;
 
         // Indsæt billede med id, dato, path og base64 string.
         $stmt = $conn->prepare("INSERT INTO picture (username, titel, description, uploaddate, imagename, imagebase64)
