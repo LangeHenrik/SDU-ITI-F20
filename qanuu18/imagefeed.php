@@ -7,7 +7,7 @@
 </head>
 
 <body>
-    <form class="userlist" name="userlist" method="GET" action="getallusers.php">
+    <form class="userlist" name="userlist" method="GET" action="userlist.php">
         
     
     <p>

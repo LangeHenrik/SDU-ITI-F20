@@ -29,7 +29,7 @@ function checkusername() {
 
 //Password
 
-let passwordRegEx = new RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d){6,}$/);
+let passwordRegEx = new RegExp(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,100}$/);
 let passwordInput = document.getElementById("passwordInput");
 let passwordInfo = document.getElementById("passwordInfo");
 passwordInput.addEventListener('keyup',checkpassword);
@@ -44,6 +44,6 @@ function checkpassword() {
 	} else {
 		console.log('Invalid Password entered');
 		passwordInput.style.borderColor = "red";
-		passwordInfo.innerText = "Password Invalid Must contain 6 characters with uppercase,lowercase letters. numbers and special characters ex (@)";
+		passwordInfo.innerText = "Password must contain one upper case letter, at least one digit and must be longer than 6 characteres with no spaces.";
 	}
 }
