@@ -5,7 +5,7 @@
  ?>
 <!DOCTYPE html><html>
   <head>
-    <title>ChalkBoard-Frontpage</title>
+    <title>ChalkBoard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--stylesheet-->
     <link rel="stylesheet" type="text/css" href="include/style.css">
