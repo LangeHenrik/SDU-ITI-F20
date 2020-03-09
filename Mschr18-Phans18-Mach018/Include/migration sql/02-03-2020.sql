@@ -46,3 +46,12 @@ CREATE TABLE picture (
     PRIMARY KEY (picid),
     FOREIGN KEY (username) REFERENCES users(username)
 );
+
+ALTER TABLE `iti`.`picture` 
+ADD COLUMN `titel` VARCHAR(100) NOT NULL AFTER `username`;
+
+ALTER TABLE `iti`.`picture` 
+ADD COLUMN `description` VARCHAR(100) NOT NULL AFTER `titel`;
+
+-- Vi havde problem med at forbinde til databsen indtil vi kørte følgende
+# ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password'; 
