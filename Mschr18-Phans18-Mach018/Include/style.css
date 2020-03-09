@@ -217,7 +217,7 @@ div.picturecontainer {
   margin: 0 15px 15px 0;
 }
 div.picturecontainer img {
-  max-height: 200px;
+  max-height: 180px;
   max-width: 200px;
   border-radius: 5px;
   display: inline-block;
