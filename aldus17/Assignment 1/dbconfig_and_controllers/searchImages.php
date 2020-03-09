@@ -29,9 +29,12 @@ if ($searchParameter !== "" || !empty($searchParameter)) {
 
 foreach ($imageData as $img) {
 
+    echo '<div class="imagePost">';
     echo "<h1>" . $img['title'] . "</h1>";
     echo "<p>" . $img['description'] . "</p>";
     echo '<img src="' . $img['image'] . '"/>';
     echo "<p><i>" . "Posted by: " . $img['username'] . str_repeat('&nbsp;', 2) . " created on: " . $img['creationTime'] . "</i></p>";
+    echo '</div>';
     echo "<hr>";
+    
 }
