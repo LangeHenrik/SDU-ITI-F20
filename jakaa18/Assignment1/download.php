@@ -35,7 +35,7 @@ if(isset($_GET["grab"])){
         $header = $_POST["header"];
         $description = $_POST["description"];
         //Grab image content from database
-        $grab = $conn->query("SELECT * FROM pictures WHERE pic_id = [CURRENT_SELECTION].pic_id");
+        $grab = $conn->query("SELECT header, description, user, picture FROM pictures ORDER BY pic_id DESC");
         if($grab){
             echo "File grabbed successfully.";
         }else{
