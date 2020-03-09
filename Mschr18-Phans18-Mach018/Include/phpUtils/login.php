@@ -31,7 +31,7 @@ try
     if ($rows < 1) {
       echo "<script>
               alert('Username is wrong');
-              window.location= 'index.php';
+              window.location= '../../index.php';
             </script>";
     } else {
       $fetchetUsername = $result[0][0];
@@ -47,7 +47,7 @@ try
       else {
         echo "<script>
                 alert('Pasword is wrong');
-                window.location= 'index.php';
+                window.location= '../../index.php';
               </script>";
       }
     }
