@@ -30,3 +30,7 @@
     text-align: center;
     overflow-wrap: break-word;
 }
+
+.search {
+    background: white;
+}
