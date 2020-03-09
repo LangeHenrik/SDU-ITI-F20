@@ -1,0 +1,18 @@
+img.horisontal-gallery {
+  display: block;
+  border: 1px solid #000;
+  min-height: 75px;
+  min-width: 75px;
+  max-height: 400px;
+  max-width: 200px;
+}
+
+.gallery_left {
+  padding: 5px;
+  float: left;
+}
+
+.gallery_left p {
+  max-width: 200px;
+  word-wrap:break-word;
+}

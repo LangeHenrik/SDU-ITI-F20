@@ -1,0 +1,18 @@
+div#player {
+    height: 15px;
+    width: 15px;
+    background-color: blue;
+    position: absolute;
+    top: auto;
+    left: auto;
+}
+
+div#level {
+    height: 100%;
+    width: 100%;
+    background-color: lightgreen;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: -999;
+}

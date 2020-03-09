@@ -1,0 +1,8 @@
+body {
+  background-color: powderblue;
+}
+
+p#paragraph {
+  font-weight: bold;
+  font-style: italic;
+}
