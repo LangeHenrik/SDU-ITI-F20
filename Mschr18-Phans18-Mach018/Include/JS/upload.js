@@ -38,5 +38,22 @@ picupload.onchange = function()
   }
   
   // Adding new images to container.
-  addImg(this.files["length"], this.files);
+  // addImg(this.files["length"], this.files);
+
+  for (let i = 0; i < this.files["length"]; i++) 
+  {
+    var img = document.createElement("img");
+    // Check filesize.
+    if (this.files[i]["size"]/1048576 > 2) 
+      img.src = "Include/Image is too big.png";
+    else
+      img.src = URL.createObjectURL(this.files[i]);
+      
+      var imgText = document.createElement("p");
+      imgText.innerHTML = "Name: " + this.files[i].name;
+      
+      container.appendChild(img);
+      container.appendChild(imgText);
+    
+  }
 }

@@ -19,8 +19,13 @@
 
     for ($i=0; $i < count($_FILES["picupload"]["name"]); $i++)
     {
+      // Is the file too big or has other errors?
+      if ($_FILES["picupload"]["error"][$i] != 0) {
+        continue;
+      }
+      
       $name = $_FILES['picupload']['name'][$i];
-      $target_dir = "Include/Images/";
+      $target_dir = "../Images/";
       $target_file = $target_dir . basename($_FILES["picupload"]["name"][$i]);
 
       // Find filtype
@@ -31,7 +36,7 @@
       {
         // Konverter til base64
         $image_base64 = base64_encode(file_get_contents($_FILES['picupload']['tmp_name'][$i]) );
-        $image_base64 = 'data:Include/Images/'.$imageFileType.';base64,'.$image_base64;
+        $image_base64 = 'data:../Images/'.$imageFileType.';base64,'.$image_base64;
 
         // Indsæt billede med id, dato, path og base64 string.
         $stmt = $conn->prepare("INSERT INTO picture (username, uploaddate, imagename, imagebase64)

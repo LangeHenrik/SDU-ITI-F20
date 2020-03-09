@@ -10,22 +10,6 @@
     // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // Find userid tilsvarende username
-
-
-  /*  $stmt = $conn->prepare("SELECT userid FROM users WHERE username = :username");
-    $stmt->bindParam(':username', $_SESSION["username"]);
-    $stmt->execute();
-    $stmt->setFetchMode(PDO::FETCH_NUM);
-    $userid = $stmt->fetchAll()[0][0];
-    echo $userid ;
-
-    // Hent imagebase64 uploaded af user
-    $stmt = $conn->prepare("SELECT imagebase64, uploaddate, imagename FROM picture WHERE userid = :userid");
-    $stmt->bindParam(':userid', $userid);
-    $stmt->execute();
-    $stmt->setFetchMode(PDO::FETCH_NUM);
-    $imagebase64Pics = $stmt->fetchAll();*/
     if (isset($_POST["myuploads"]) && $_POST["myuploads"]) {
       $stmt = $conn->prepare("SELECT imagebase64, imagename, uploaddate FROM picture WHERE username = :username");
       $stmt->bindParam(':username', $_SESSION['username']);
