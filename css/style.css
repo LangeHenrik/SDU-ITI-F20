@@ -112,4 +112,26 @@ button[type=submit]{
   background-color: rgb(25, 92, 238);
   color: #f2f2f2;
 }
-  
+
+
+#password-strength-status {
+  padding: 5px 10px;
+  color: #FFFFFF;
+  border-radius: 4px;
+  margin-top: 5px;
+}
+
+.medium-password {
+  background-color: #b7d60a;
+  border: #BBB418 1px solid;
+}
+
+.weak-password {
+  background-color: #ce1d14;
+  border: #AA4502 1px solid;
+}
+
+.strong-password {
+  background-color: #12CC1A;
+  border: #0FA015 1px solid;
+}
