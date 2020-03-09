@@ -159,10 +159,10 @@ div.upload input {
 }
 div.upload input#picupload {
   border-bottom: 1px solid black;
-  width: 300px;
+  max-width: 250px;
 }
 div.upload form {
-  width: 300px;
+  min-width: 250px;
   display: inline-block;
   vertical-align: top;
 }
@@ -196,7 +196,7 @@ div#preview p {
     display: block;
     float: none;
     min-height: 300px;
-    width: 300px;
+    min-width: 250px;
     margin-left: 0;
   }
 }
@@ -239,6 +239,15 @@ div.picturecontainer td,
 div.picturecontainer th {
   vertical-align: top;
 }
+@media only screen and (max-width: 800px) {
+div.picturecontainer {
+  width: auto;
+  height: auto;
+}
+  div.picturecontainer table {
+    display: block;
+  }
+}
 
 /* user content */
 div.users form,
@@ -262,6 +271,11 @@ div.users td {
 div.users th {
   font-weight: 600;
   background-color: gray;
+}
+@media only screen and (max-width: 800px) {
+  div.users table {
+    width: auto;
+  }
 }
 
 
