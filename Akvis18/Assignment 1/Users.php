@@ -4,7 +4,6 @@ $title = "List of users";
 include_once 'Shared/Navbar.php';
 include_once "Shared/DBConnect.php";
 $r = query( "SELECT avatar, username, created_on FROM user;", []);
-// todo Get a list of all users. Accessible after login.
 print "<div class='center'> ";
 foreach ($r as $user){
     print "<div class='user'>";

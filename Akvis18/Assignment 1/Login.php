@@ -28,9 +28,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <form method="post">
         <fieldset>
             <legend>Login to Facewall</legend>
-                <label for="username">Username</label> <br>
+                <label for="username">Username</label> <br/>
                 <input type="text" name="username" placeholder="Username"> <br/>
-                <label for="password">Password</label> <br>
+                <label for="password">Password</label> <br/>
                 <input type="password" name="password" placeholder="Password"><br/>
                 <button type="submit">Submit</button> <hr/>
                 Don't have a user? Make one <a href="/Register.php">here</a>.
