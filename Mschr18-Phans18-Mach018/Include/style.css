@@ -234,7 +234,7 @@ div.picturecontainer table {
   word-break: break-all;
 }
 div.picturecontainer th {
-  min-width: 57px;
+  min-width: 93px;
 }
 div.picturecontainer td,
 div.picturecontainer th {
@@ -282,6 +282,9 @@ div.users th {
 @media only screen and (max-width: 600px) {
   div.users table {
     width: auto;
+  }
+  div.users form br {
+    display: block;
   }
 }
 
