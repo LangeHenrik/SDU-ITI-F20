@@ -110,19 +110,36 @@ if ($_SESSION['logged_in']) : ?>
             ]-->
 				<div class="image-container">
 					
-					<img class=images src="https://images.unsplash.com/photo-1523895665936-7bfe172b757d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt="Snow" style="width:100%">
-					<img class=images src="https://images.unsplash.com/photo-1523895665936-7bfe172b757d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt="Forest" style="width:100%">
-					<img class=images src="https://images.unsplash.com/photo-1523895665936-7bfe172b757d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt="Mountains" style="width:100%">
-					<img class=images src="https://images.unsplash.com/photo-1523895665936-7bfe172b757d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt="Stone" style="width:100%">
-					<img class=images src="https://images.unsplash.com/photo-1523895665936-7bfe172b757d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt="Snow" style="width:100%">
-					<img class=images src="https://images.unsplash.com/photo-1523895665936-7bfe172b757d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt="Forest" style="width:100%">
-					<img class=images src="https://images.unsplash.com/photo-1523895665936-7bfe172b757d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt="Mountains" style="width:100%">
-					<img class=images src="https://images.unsplash.com/photo-1523895665936-7bfe172b757d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt="Stone" style="width:100%">
-					<img class=images src="https://images.unsplash.com/photo-1523895665936-7bfe172b757d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt="Snow" style="width:100%">
-					<img class=images src="https://images.unsplash.com/photo-1523895665936-7bfe172b757d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt="Forest" style="width:100%">
-					<img class=images src="https://images.unsplash.com/photo-1523895665936-7bfe172b757d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt="Mountains" style="width:100%">
-					<img class=images src="https://images.unsplash.com/photo-1523895665936-7bfe172b757d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt="Stone" style="width:100%">
-					
+					<div class="container1>
+						<text "Title"> hej</text>
+						<img class=images src="https://images.unsplash.com/photo-1523895665936-7bfe172b757d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt="Snow" style="width:100%">
+						<text "Description"> "Blob" </text>
+						<text "Author"> <i>By: Mig</i> </text>
+					</div>
+					<div class="container1>
+						<text "Title"> hej</text>
+						<img class=images src="https://images.unsplash.com/photo-1523895665936-7bfe172b757d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt="Snow" style="width:100%">
+						<text "Description"> "Blob" </text>
+						<text "Author"> <i>By: Mig</i> </text>
+					</div>
+					<div class="container1>
+						<text "Title"> hej</text>
+						<img class=images src="https://images.unsplash.com/photo-1523895665936-7bfe172b757d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt="Snow" style="width:100%">
+						<text "Description"> "Blob" </text>
+						<text "Author"> <i>By: Mig</i> </text>
+					</div>
+					<div class="container1>
+						<text "Title"> hej</text>
+						<img class=images src="https://images.unsplash.com/photo-1523895665936-7bfe172b757d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt="Snow" style="width:100%">
+						<text "Description"> "Blob" </text>
+						<text "Author"> <i>By: Mig</i> </text>
+					</div>
+					<div class="container1>
+						<text "Title"> hej</text>
+						<img class=images src="https://images.unsplash.com/photo-1523895665936-7bfe172b757d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt="Snow" style="width:100%">
+						<text "Description"> "Blob" </text>
+						<text "Author"> <i>By: Mig</i> </text>
+					</div>
 					//Title
 					//Image
 					//Description
