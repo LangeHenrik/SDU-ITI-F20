@@ -25,6 +25,9 @@ div.navbar nav a{
 	color:#08389A;
 	padding: 10px;
 }
+div.navbar nav a:hover{
+	background-color:#48FF00;
+}
 div.LoginForm{
 	float: none;
 	position: absolute;
@@ -34,6 +37,12 @@ div.LoginForm{
 
 body{
 	background-color: lightgrey;
+}
+
+@media screen and (max-width: 1000px) {
+  body {
+    background-color: #FA9999;
+  }
 }
 
 div.content {

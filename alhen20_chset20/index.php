@@ -8,6 +8,7 @@ if(session_status()==PHP_SESSION_NONE){
 
 <head>
 	<title>Front Page</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
@@ -28,10 +29,8 @@ if(session_status()==PHP_SESSION_NONE){
 			</nav>
 			<div class="LoginForm">
 				<form action="login.php" method="POST">
-					<label for="username" >username</label>
-					<input type="text" name="username" id="username"/>
-					<label for="password">password</label>
-					<input type="password" name="password" id="password"/>
+					<input type="text" name="username" id="username" placeholder="Username"/>
+					<input type="password" name="password" id="password" placeholder="Password"/>
 					<input type="submit" name="submit" id="submit" value="Login"/>
 				</form>
 			</div>
