@@ -1,5 +1,17 @@
-<!DOCTYPE html>
 
+<?php
+
+session_start();
+
+if(isset($_SESSION['username'])){
+    echo "<br><a href='logout.php'><input type=button value=Logout name=logout></a>";
+}
+else{
+    echo "<script> alert('Please login to procede! Please check your credentials.') </script>";
+    echo "<script> location.href = 'index.php' </script>";
+}
+?>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -7,15 +19,7 @@
 </head>
 
 <body>
-
-    <form class="userlist" name="userlist" method="GET" action="userlist.php">
-        <p>
-        <input type="button" onclick="loadDoc()" name="userlist" id="ulbtn" value="Userlist">
-        <p class="ulbtn" id="display"></p>
-        </p>
-    </form>
-
-    
+       
 
     <div id="userlistbtn">
     </div>
@@ -25,6 +29,11 @@
         <input type="submit" name="uploadImage" id="uloadbtn" value="Upload Picture">
         </p>
     </form>
+
+    <p>
+        <button onclick="loadDoc()" name="userlist" id="ulbtn"  >Userlist</button>
+        <p class="ulbtn" id="display"></p>
+        </p>
 
     <script src="extfiles/userlist.js "></script>
 

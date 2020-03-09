@@ -13,12 +13,12 @@ try
     
         
     
-    $query = $conn->prepare("SELECT username FROM user");
+    $query = $conn->prepare("SELECT user FROM userinfo");
     $query->execute();
     $query->setFetchMode(PDO::FETCH_ASSOC);
     $result = $query->fetchAll();
     foreach($result as $row) {
-        echo "<p>$row[username]</p>";
+        echo "<p>$row[user]</p>";
     }
 }
 catch(PDOException $e)

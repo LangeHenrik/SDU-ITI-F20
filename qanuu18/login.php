@@ -16,17 +16,32 @@ try
         }
         else
         {
-            $query = "SELECT * FROM user WHERE username = :username AND password = :password";
+            $usernameinput = filter_input(INPUT_POST,"username", FILTER_SANITIZE_STRING);
+            $passwordinput = filter_input(INPUT_POST,"password",FILTER_SANITIZE_STRING);
+
+            $query = "SELECT * FROM userinfo WHERE user = :username";
             $stmt = $conn->prepare($query);
             $stmt->execute(array(
-                'username' => $_POST["username"],
-                'password' => $_POST["password"]
+                'username' => $usernameinput
             ));
             $count = $stmt->rowCount();
 
             if ($count > 0)
             {
-                $_SESSION["username"] = $_POST["username"];
+                
+                while($result =  $stmt->fetch(PDO::FETCH_ASSOC)){
+
+                
+               
+                    if(password_verify ($passwordinput ,$result["password"])){
+
+                        $_SESSION["username"] = $usernameinput;
+                    break;
+                    }
+
+                    
+                }
+            
                 header("location:imagefeed.php");
             }
             else
