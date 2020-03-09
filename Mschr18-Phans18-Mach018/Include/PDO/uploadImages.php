@@ -23,7 +23,7 @@
       if ($_FILES["picupload"]["error"][$i] != 0) {
         continue;
       }
-      
+
       $name = $_FILES['picupload']['name'][$i];
       $target_dir = "../Images/";
       $target_file = $target_dir . basename($_FILES["picupload"]["name"][$i]);
@@ -39,9 +39,11 @@
         $image_base64 = 'data:../Images/'.$imageFileType.';base64,'.$image_base64;
 
         // Indsæt billede med id, dato, path og base64 string.
-        $stmt = $conn->prepare("INSERT INTO picture (username, uploaddate, imagename, imagebase64)
-                              VALUES(:username, NOW(), :imagename, :imagebase64)");
+        $stmt = $conn->prepare("INSERT INTO picture (username, titel, description, uploaddate, imagename, imagebase64)
+                              VALUES(:username, :titel, :description, NOW(), :imagename, :imagebase64)");
         $stmt->bindParam(':username', $_SESSION["username"]);
+        $stmt->bindParam(':titel', $_POST["titel"]);
+        $stmt->bindParam(':description', $_POST["description"]);
         $stmt->bindParam(':imagename', $name);
         $stmt->bindParam(':imagebase64', $image_base64);
         $stmt->execute();
