@@ -71,13 +71,13 @@ if ($_SESSION['logged_in']) : ?>
         </div>
         <div class="homepage1">
             <ul>
-                <li><a href="#" id="homelink">Home</a></li>
-                <li><a href="#" id="photolink">Your Photos</a></li>
-                <li><a href="#" id="userslink">Users</a></li>
+                <li><a onclick="showHomeLink()" href="#" id="homelink">Home</a></li>
+                <li><a onclick="showPhotoLink()" href="#" id="photolink">Upload Photos</a></li>
+                <li><a onclick="showUsersLink()" href="#" id="userslink">Users</a></li>
                 <li><a href="logout.php" id="logout">Logout</a></li>
             </ul>
         </div>
-		<div class="homepage2">
+		<div class="homepage2" id="uploadForm">
 			<form action="upload.php" method="post" enctype="multipart/form-data">
                 Select image to upload
                 <input type="file" name="image" id="fileId">
@@ -87,7 +87,7 @@ if ($_SESSION['logged_in']) : ?>
                 <textarea id="description" id="descriptionId" rows="4" cols="50" required></textarea>
             </form>
 		</div>
-		<div class="homepage3" name="Image_page">
+		<div class="homepage3" name="Image_page" id="imagePage">
 			<!-- Okay, so, first we go onto this part of the page.
 			Then we ask the database how many images exist in the database. (???)
 			Then we ask to get all images with every part of each tuple, possibly through AJAX.
