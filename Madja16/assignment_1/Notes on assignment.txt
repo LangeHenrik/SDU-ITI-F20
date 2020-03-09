@@ -1,4 +1,0 @@
-Images have an uploader, headers and descriptions.
-
-
-

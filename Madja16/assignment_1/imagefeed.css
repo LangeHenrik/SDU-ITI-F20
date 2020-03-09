@@ -1,0 +1,5 @@
+/* Limit image size */
+img {
+    max-height: 1024;
+    max-width: 768;
+}
