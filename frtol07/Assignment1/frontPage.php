@@ -86,6 +86,26 @@ include('db_config.php');
 ?>
 
 <?php
+
+////// Create test user
+
+$testUsername = "TorpedoTorben";
+$testPassword="1234";
+$testEmail = "test@test.com";
+$testPasswordHash = password_hash($testPassword,PASSWORD_DEFAULT);
+
+$stmt = "INSERT IGNORE INTO `users`(`username`, `password`, `email`)
+VALUES(:username,:password,:email)";
+
+$query = $pdo->prepare($stmt);
+$query->bindParam(':username', $testUsername, PDO::PARAM_STR);
+$query->bindParam(':password', $testPasswordHash, PDO::PARAM_STR);
+$query->bindParam(':email', $testEmail, PDO::PARAM_STR);
+
+$query->execute();
+//
+
+
 if (isset($_POST['loginUsername'])) {
 
     $user = htmlspecialchars($_POST['loginUsername']);

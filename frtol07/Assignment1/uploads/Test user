@@ -1,0 +1,4 @@
+$testUsername = "TorpedoTorben";
+$testPassword="1234";
+$testEmail = "test@test.com";
+$testPasswordHash = password_hash($testPassword,PASSWORD_DEFAULT);
