@@ -31,9 +31,10 @@ function checkUsername($username) {
             if (this.responseText.includes('available')) {
                 info.innerHTML = "Username available";
                 return true;
+            } else {
+                info.innerHTML = "Username not available";
+                return false;
             }
-            info.innerHTML = "Username not available";
-            return false;
         }
     };
     if ($username.length > 2) {
