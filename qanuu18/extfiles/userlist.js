@@ -5,6 +5,8 @@ function loadDoc() {
        document.getElementById("ulbtn").innerHTML = this.responseText;
       }
     };
-    xhttp.open("GET", "ajax_info.txt", true);
+    xhttp.open("GET", userlist.php, true);
     xhttp.send();
+
+
   }
