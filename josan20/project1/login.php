@@ -1,120 +1,167 @@
 <?php
-print_r($_SESSION);
-error_reporting(E_ALL);
-require_once 'sanitize_input.php';
-require_once 'db_config.php';
-?>
+// Initialize the session
+session_start();
 
-<div class="header">
-    <h1>Login</h1>
-</div>
-
-<form method="post">
-    <input type="submit" name="button_logout"
-           class="button_logout" value="Logout"/>
-</form>
-
-<?php
-if (session_status() !== PHP_SESSION_NONE && isset($_POST['button_logout'])) {
-    echo "This is Button1 that is selected";
-    unset($_SESSION['logged_in']);
-    // remove all session variables
-//    session_unset();
-
-    // destroy the session
-//    session_destroy();
-
+// Check if the user is already logged in, if yes then redirect him to welcome page
+if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
+    header("location: welcome.php");
+    exit;
 }
 
-?>
+// Include config file
+require_once "config.php";
 
-<div id="form" class="login_form">
-    <a href="registration_page.php">Registration</a>
-    <!--    todo change action-->
-    <form onsubmit="return checkform();" action="#" method="post">
-        <label for="name">name:</label>
-        <input type="text" id="name" name="name"><br>
-        <p class="info" id="nameinfo"></p><br><br>
-        <label for="pwd">password:</label>
-        <input type="password" id="pwd" name="pwd"><br>
-        <input type="submit" value="login"><br>
-        <p class="info" id="pwdinfo"></p><br>
-    </form>
-    <script src="registration_form.js"></script>
-</div>
+// Define variables and initialize with empty values
+$username = $password = "";
+$username_err = $password_err = "";
 
-<?php
-if (!empty($_POST) && isset($_POST['login']) && isset($_POST["name"]) && valid_human_name($_POST["name"]) && valid_password($_POST["pwd"])) {
-    $user_register = $_POST["name"];
-    $pwd_register = $_POST["pwd"];
-//    $pwd_register = password_hash($pwd_register, PASSWORD_DEFAULT);
+// Processing form data when form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    try {
-//        try connect
-        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $dbusername, $dbpassword);
-        // set the PDO error mode to exception
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-//        check if user is already in
-        //todo make table as variable
-        $sql = "SELECT * FROM MyGuests WHERE name='" . $user_register . "';";
-//        $sql = "SELECT * FROM MyGuests WHERE name='" . $user_register . "' AND pwd='" . $pwd_register . "';";
-
-        $stmt = $conn->prepare($sql);
-        $stmt->execute();
-
-        //sql to insert new user to the table
-        $table_name = "MyGuests";
-
-
-        $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-        $output_database = $stmt->fetch();
-
-//        print output from database
-        /*        $counter = 0;
-                echo "<br>";
-                echo "----------<br>";
-                echo implode(" ",$output_database[0]) . "<br>";
-                echo "----------<br>";
-                foreach(new RecursiveArrayIterator($output_database) as $k=>$v) {
-                    echo "(#" .$counter . "#)";
-                    echo implode(" ",$v) . "<br>";
-                    $counter++;
-                }*/
-//todo dat do kundy vypisy
-        if ($output_database != NULL) {
-            if (count($output_database) != 0) {
-//                echo "----------<br>";
-//                echo gettype($output_database['pwd']);
-//                echo $output_database['pwd'] . '<br>';
-//                echo "----------<br>";
-//                echo gettype($pwd_register);
-//                echo $pwd_register;
-//
-//                echo "----------<br>";
-echo "<h1>hi</h1>";
-
-                if (password_verify($pwd_register, $output_database['pwd']) && session_status() == PHP_SESSION_NONE) {
-                    //                todo dat do kundy vypisy
-                    echo "Welcome";
-
-                    $_SESSION["logged_in"] = TRUE;
-                    print_r($_SESSION);
-                } else
-                    echo "not Welcome";
-
-            } else {
-                echo 'user is not in database<br>';
-
-            }
-        }
-
-    } catch (PDOException $e) {
-        echo $sql . "<br>" . $e->getMessage();
+    // Check if username is empty
+    if (empty(trim($_POST["username"]))) {
+        $username_err = "Please enter username.";
+    } else {
+        $username = trim($_POST["username"]);
     }
 
-    echo "\nend";
+    // Check if password is empty
+    if (empty(trim($_POST["password"]))) {
+        $password_err = "Please enter your password.";
+    } else {
+        $password = trim($_POST["password"]);
+    }
 
-    $conn = null;
+    // Validate credentials
+    if (empty($username_err) && empty($password_err)) {
+        // Prepare a select statement
+        $sql = "SELECT id, username, password FROM MyGuests WHERE username = :username";
+
+        if ($stmt = $pdo->prepare($sql)) {
+            // Bind variables to the prepared statement as parameters
+            $stmt->bindParam(":username", $param_username, PDO::PARAM_STR);
+
+            // Set parameters
+            $param_username = trim($_POST["username"]);
+
+            // Attempt to execute the prepared statement
+            if ($stmt->execute()) {
+                // Check if username exists, if yes then verify password
+                if ($stmt->rowCount() == 1) {
+                    if ($row = $stmt->fetch()) {
+                        $id = $row["id"];
+                        $username = $row["username"];
+                        $hashed_password = $row["password"];
+                        if (password_verify($password, $hashed_password)) {
+                            // Password is correct, so start a new session
+                            session_start();
+
+                            // Store data in session variables
+                            $_SESSION["loggedin"] = true;
+                            $_SESSION["id"] = $id;
+                            $_SESSION["username"] = $username;
+
+                            // Redirect user to welcome page
+                            header("location: welcome.php");
+                        } else {
+                            // Display an error message if password is not valid
+                            $password_err = "The password you entered was not valid.";
+                        }
+                    }
+                } else {
+                    // Display an error message if username doesn't exist
+                    $username_err = "No account found with that username.";
+                }
+            } else {
+                echo "Oops! Something went wrong. Please try again later.";
+            }
+
+            // Close statement
+            unset($stmt);
+        }
+    }
+
+    // Close connection
+    unset($pdo);
 }
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="styles/style_form.css">
+    <style type="text/css">
+        body {
+            font: 14px sans-serif;
+        }
+
+        .wrapper {
+            width: 350px;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+<!--NAVIGATION BAR-->
+<style>
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        width: 200px;
+        background-color: #f1f1f1;
+    }
+
+    li a {
+        display: block;
+        color: #000;
+        padding: 8px 16px;
+        text-decoration: none;
+    }
+
+    /* Change the link color on hover */
+    li a:hover {
+        background-color: #555;
+        color: white;
+    }
+
+    .active {
+        background-color: #4CAF50;
+        color: white;
+    }
+</style>
+<nav>
+    <ul>
+        <li><a href="welcome.php">Welcome</a></li>
+        <li><a class="active" href="login.php">LogIn</a></li>
+        <li><a href="register.php">Registration</a></li>
+        <li><a href="upload_page.php">Upload</a></li>
+        <li><a href="image_feed_page.php">Image Feed</a></li>
+        <li><a href="user_list_page.php">User list</a></li>
+    </ul>
+</nav>
+<br>
+<div class="wrapper">
+    <h2>Login</h2>
+    <p>Please fill in your credentials to login.</p>
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+        <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
+            <label>Username</label>
+            <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
+            <span class="help-block"><?php echo $username_err; ?></span>
+        </div>
+        <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
+            <label>Password</label>
+            <input type="password" name="password" class="form-control">
+            <span class="help-block"><?php echo $password_err; ?></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Login">
+        </div>
+        <p>Don't have an account? <a href="register.php">Sign up now</a>.</p>
+    </form>
+</div>
+</body>
+</html>
