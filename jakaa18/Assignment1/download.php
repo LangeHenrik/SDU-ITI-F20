@@ -1,4 +1,5 @@
 <?php
+echo "*******************";
 if(isset($_GET["grab"])){
     $check = getimagesize($_FILES["image"]["tmp_name"]);
     if($check !== false){
@@ -38,6 +39,13 @@ if(isset($_GET["grab"])){
         $grab = $conn->query("SELECT header, description, user, picture FROM pictures ORDER BY pic_id DESC");
         if($grab){
             echo "File grabbed successfully.";
+			foreach($grab as $value){
+				echo "stuff: $value";
+			}
+			/*<text head> header </text>
+			<img> picture </img>
+			<text description> description </text>
+			<text user> "By: " + user </text>*/
         }else{
             echo "File grab failed, please try again.";
         }
