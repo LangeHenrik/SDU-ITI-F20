@@ -71,8 +71,13 @@ else{
         <div class="container">
             <div class="row">
 
+
+
+            <form action="http://localhost:8080/imagefeed.php">
+                <input type="submit" value="Go to main menu" />
+                </form>
                 <form action="uploadimage.php" method="POST" enctype="multipart/form-data">
-                <button type="button" href="locationimagefeed.php" onclick="location.href = document.referrer; return false;">Go Back</button>
+            
                     <h3 class="text-center">Upload image</h3>
 
                     <label for="Header">Title for image</label>

@@ -23,7 +23,9 @@ require_once 'extfiles/config.php';
     <link rel="stylesheet" href="extfiles/styling.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Image Page</title>
-
+<form action="http://localhost:8080/imagefeed.php">
+    <input type="submit" value="Go to main menu" />
+</form>
 </head>
 <body>
 

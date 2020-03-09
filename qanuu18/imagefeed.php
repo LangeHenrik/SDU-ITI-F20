@@ -23,6 +23,12 @@ else{
 
     <div id="userlistbtn">
     </div>
+    
+    <form class="viewimage" name="viewimage" method="POST" action="Viewimage.php">
+        <p>
+        <input type="submit" name="Viewimage" id="viewimagebtn" value="View Images">
+        </p>
+    </form>
 
     <form class="uploadImage" name="uploadImage" method="POST" action="uploadimage.php">
         <p>
