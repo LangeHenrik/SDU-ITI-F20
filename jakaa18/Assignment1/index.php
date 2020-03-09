@@ -56,7 +56,7 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
         $_SESSION['logged_in'] = false;
         echo 'wrong username or password';
     }
-//---------------------------------------------------------------------
+//---------------------------------------------------------------------s
 } else {
     $_SESSION['logged_in'] = false;
     echo 'logged out';
@@ -148,7 +148,21 @@ if ($_SESSION['logged_in']) : ?>
 				</div>
 			</form>
 		</div>
+        <div class="homepage4" name="usersPage" id="usersPage">
+            <table name="usersTable" id="usersTable">
+                <tr>
+                    <th>Username</th>
+                </tr>
+                <?php
 
+                $fetch = $conn->prepare("SELECT username FROM users");
+                $fetch->execute();
+                foreach ($fetch as $tuple) {
+                    echo '<tr><td>' . $tuple['username'].'</td></tr>';
+                }
+                ?>
+            </table>
+        </div>
 	</div>
 
 
@@ -176,7 +190,8 @@ if ($_SESSION['logged_in']) : ?>
         </div>
 
         <div class="register1" id="registerView">
-            <form action="index.php" method="post" onsubmit="return checkRegister('username', 'password'" )>
+            <p id="usernameAvailable" name="usernameAvailable"></p><br>
+            <form action="index.php" method="post">
                 <p> Username: (Max 100 chars)<input type="text" placeholder="Enter Username" name="regUsernameId" id="regUsernameId"
                                      required></p><br>
                 <p> Password: (Max 100 chars) <input type="password" placeholder="Enter Password" name="regPassId" id="regPassId"
@@ -192,6 +207,12 @@ if ($_SESSION['logged_in']) : ?>
 
 try {
     if (isset($_POST["regUsernameId"]) && isset($_POST["regPassId"])) {
+        if (isset($_GET["username"])){
+            $user = filter_var($_GET["username"], FILTER_SANITIZE_STRING);
+            $check = query("SELECT * FROM users WHERE username = ?;" ,[$user]);
+            echo (count($check) === 0) ? $user." is available" : $user." is not available";
+            
+        }
         $stmt = $conn->prepare("INSERT INTO users (username, password)
 			VALUES (:username, :password)");
         $new_user = htmlentities($_POST["regUsernameId"]);
