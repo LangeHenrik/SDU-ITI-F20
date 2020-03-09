@@ -167,7 +167,7 @@ div.upload form {
   vertical-align: top;
 }
 div#preview {
-  width: calc(100% - 330px);
+  width: calc(100% - 280px);
   max-width: 600px;
   margin-left: 20px;
   min-height: 200px;
@@ -176,6 +176,7 @@ div#preview {
   display: inline-block;
 }
 div#preview img {
+  max-width: 100%;
   max-height: 200px;
   border-radius: 5px;
   margin: 0 auto;;
@@ -185,7 +186,7 @@ div#preview p {
   background-color: #999;
   border-radius: 5px;
   padding: 10px 0;
-  width: 90%;
+  width: 100%;
   text-align: center;
   word-wrap: break-word;
   display: block;
