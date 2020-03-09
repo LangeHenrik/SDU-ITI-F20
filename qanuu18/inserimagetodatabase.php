@@ -3,11 +3,14 @@ session_start();
 
 require_once 'extfiles/config.php';
 
+
+
 try
 {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password, array(
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
     ));
+    
 
     $query = $conn->prepare("");
     $query->execute();
