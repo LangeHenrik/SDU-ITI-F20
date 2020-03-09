@@ -64,3 +64,15 @@ function checkUsername($username) {
         xmlhttp.send();
     }
 }
+
+function getAndCheckRegister($name, $regex){
+    if (isset($_POST[$name])){
+        $value = htmlentities($_POST[$name]);
+        if (preg_match($regex, $value)){
+            return $value;
+        } else {
+            return false;
+        }
+    }
+    return false;
+}

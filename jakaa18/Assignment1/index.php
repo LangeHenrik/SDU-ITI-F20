@@ -143,6 +143,8 @@ if ($_SESSION['logged_in']) : ?>
 
 try {
     if (isset($_POST["regUsernameId"]) && isset($_POST["regPassId"])) {
+        $userRegEx = '/^[A-Za-zÆØÅæøå _\-\d]{3,}$/';
+        $username = getAndCheckRegister('username', $userRegEx);
         if (isset($_GET["username"])){
             $user = filter_var($_GET["username"], FILTER_SANITIZE_STRING);
             $check = query("SELECT * FROM users WHERE username = ?;" ,[$user]);
