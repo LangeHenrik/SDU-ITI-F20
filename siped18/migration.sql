@@ -16,3 +16,4 @@ CREATE TABLE images (
     image VARCHAR(255),
 	FOREIGN KEY (name) REFERENCES USER(username) 
 );
+

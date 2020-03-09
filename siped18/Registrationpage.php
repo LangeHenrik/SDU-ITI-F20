@@ -62,7 +62,7 @@ if ($chk_u->rowCount() > 0) {
                 <p class="info" id="passwordinfo"></p>
 
                 <button type="submit" name="submit">Sign up</button> 
-                <p class="message"><a href="Frontpage.php"></a></p>
+                <p class="info"><a href="Frontpage.php"></a></p>
             </form>
         </div>
     </div>
