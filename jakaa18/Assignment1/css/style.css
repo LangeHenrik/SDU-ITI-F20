@@ -85,6 +85,17 @@ li a:hover {
 	justify-items: center;
 }
 
+.container1{
+	grid-column: auto !important;
+	grid-column: 1;
+	grid-row: auto;
+}
+
+.images1{
+	max-width: 256px;
+	max-height: 256px;
+}
+
 .images {
 	grid-column: auto !important;
 	grid-column: 1;
@@ -165,6 +176,6 @@ li a:hover {
 }
 
 .homepage3{
-	grid-column: 1;
+	grid-column: 1 / span 4;
 	grid-row: 3;
 }
