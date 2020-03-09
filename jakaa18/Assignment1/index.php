@@ -51,6 +51,7 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
         && password_verify($password, $correct_password)) {
         $_SESSION['logged_in'] = true;
         echo 'logged in!';
+        $_SESSION['sessionUser'] = $correct_username;
     } else {
         $_SESSION['logged_in'] = false;
         echo 'wrong username or password';
@@ -84,7 +85,7 @@ if ($_SESSION['logged_in']) : ?>
                 <input type="submit" name="imgSubmit" value="Upload" id="imgSubmit">
                 <p> Header: <input type ="text" name="header" id="header" required></p><br>
                 <label for="description">Image description: Max 300 characters!</label><br>
-                <textarea id="description" id="descriptionId" rows="4" cols="50" required></textarea>
+                <textarea name="imgDescription" id="description" id="descriptionId" rows="4" cols="50" required></textarea>
             </form>
 		</div>
 		<div class="homepage2" name="Image_page" id="imagePage">
@@ -94,9 +95,8 @@ if ($_SESSION['logged_in']) : ?>
 			Then we order them on the page.
 			Then we unload all of this once we click off???
 			-->
-			<form action="download.php" method="get" enctype?"multipart/form-data">
-				
-			
+			<form action="download.php" method="get" enctype="multipart/form-data">
+
 			<!-- AJAX format:
 			"ajax": {
                 url: "http://localhost:8080/" +document.getElementById("pic_id").innerHTML + "/get-image",
@@ -110,14 +110,14 @@ if ($_SESSION['logged_in']) : ?>
                 { "data": "picture" }
             ]-->
 				<div class="image-container">
-					<text> 
-					<div class="container1>
+
+					<div class="container1">
 						<text "Title"> hej</text>
 						<img class=images src="https://images.unsplash.com/photo-1523895665936-7bfe172b757d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt="Snow" style="width:100%">
 						<text "Description"> "Blob" </text>
 						<text "Author"> <i>By: Mig</i> </text>
 					</div>
-					<div class="container1>
+					<div class="container1">
 						<text "Title"> hej</text>
 						<img class=images src="https://images.unsplash.com/photo-1523895665936-7bfe172b757d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt="Snow" style="width:100%">
 						<text "Description"> "Blob" </text>
@@ -126,9 +126,10 @@ if ($_SESSION['logged_in']) : ?>
 				</div>
 			</form>
 		</div>
+
 	</div>
 
-	
+
 <!-- This section is the login page-->
 <?php else : ?>
 
