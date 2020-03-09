@@ -49,6 +49,7 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
 //This section is the main page.
 if ($_SESSION['logged_in']) : ?>
     <div class="grid-container2">
+	<body onload="showHomeLink()">
         <div class="header">
             <h1><?php echo 'Welcome to your homepage!' ?></h1>
         </div>
