@@ -20,7 +20,7 @@ try {
     $pass_register = "ahojky";
     $table_name = "MyGuests";
 
-    $sql = "INSERT INTO " . $table_name . " (name, pass)
+    $sql = "INSERT INTO " . $table_name . " (name, pwd)
 VALUES ('" . $user_register . "', '" . $pass_register . "');";
 
 

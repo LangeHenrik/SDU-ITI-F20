@@ -1,5 +1,5 @@
 <?php
-if (session_status() == PHP_SESSION_DISABLED)
+//if (session_status() == PHP_SESSION_DISABLED)
     session_start();
 ?>
 <!DOCTYPE html>

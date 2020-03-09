@@ -9,20 +9,22 @@ require_once 'db_config.php';
     <h1>Login</h1>
 </div>
 
-<!--<form method="post">-->
-<!--    <input type="submit" name="button_logout"-->
-<!--           class="button_logout" value="Logout"/>-->
-<!--</form>-->
+<form method="post">
+    <input type="submit" name="button_logout"
+           class="button_logout" value="Logout"/>
+</form>
 
 <?php
-/*if (session_status() !== PHP_SESSION_NONE && isset($_POST['button_logout']) && $_SESSION[“logged_in”] == true) {
+if (session_status() !== PHP_SESSION_NONE && isset($_POST['button_logout'])) {
     echo "This is Button1 that is selected";
+    unset($_SESSION['logged_in']);
     // remove all session variables
-    session_unset();
+//    session_unset();
 
     // destroy the session
-    session_destroy();
-}*/
+//    session_destroy();
+
+}
 
 ?>
 
@@ -33,8 +35,8 @@ require_once 'db_config.php';
         <label for="name">name:</label>
         <input type="text" id="name" name="name"><br>
         <p class="info" id="nameinfo"></p><br><br>
-        <label for="pwd">pwdword:</label>
-        <input type="pwdword" id="pwd" name="pwd"><br>
+        <label for="pwd">password:</label>
+        <input type="password" id="pwd" name="pwd"><br>
         <input type="submit" value="login"><br>
         <p class="info" id="pwdinfo"></p><br>
     </form>
@@ -42,15 +44,14 @@ require_once 'db_config.php';
 </div>
 
 <?php
-if (!empty($_POST) && isset($_POST['login']) && isset($_POST["name"]) && valid_human_name($_POST["name"]) && valid_pwdword($_POST["pwd"])) {
+if (!empty($_POST) && isset($_POST['login']) && isset($_POST["name"]) && valid_human_name($_POST["name"]) && valid_password($_POST["pwd"])) {
     $user_register = $_POST["name"];
     $pwd_register = $_POST["pwd"];
-//    $pwd_register = pwdword_hash($pwd_register, pwdWORD_DEFAULT);
-
+//    $pwd_register = password_hash($pwd_register, PASSWORD_DEFAULT);
 
     try {
 //        try connect
-        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $dbusername, $dbpwdword);
+        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $dbusername, $dbpassword);
         // set the PDO error mode to exception
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -91,9 +92,9 @@ if (!empty($_POST) && isset($_POST['login']) && isset($_POST["name"]) && valid_h
 //                echo $pwd_register;
 //
 //                echo "----------<br>";
+echo "<h1>hi</h1>";
 
-
-                if (pwdword_verify($pwd_register, $output_database['pwd']) && session_status() == PHP_SESSION_NONE) {
+                if (password_verify($pwd_register, $output_database['pwd']) && session_status() == PHP_SESSION_NONE) {
                     //                todo dat do kundy vypisy
                     echo "Welcome";
 
@@ -112,11 +113,8 @@ if (!empty($_POST) && isset($_POST['login']) && isset($_POST["name"]) && valid_h
         echo $sql . "<br>" . $e->getMessage();
     }
 
-
     echo "\nend";
 
     $conn = null;
 }
-
-print_r($_SESSION);
 ?>

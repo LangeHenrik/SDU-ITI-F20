@@ -9,28 +9,28 @@ require_once 'db_config.php';
 </div>
 
 <div id="form" class="registration_form">
-    <form onsubmit="return checkform();" action="registration.php" method="post">
+    <form onsubmit="return checkform();" action="index.php" method="post">
         <label for="name">name:</label>
         <input type="text" id="name" name="name"><br>
         <p class="info" id="nameinfo"></p><br><br>
-        <label for="pwd">pwdword:</label>
-        <input type="pwdword" id="pwd" name="pwd" placeholder="pwdword"><br>
+        <label for="pwd">password:</label>
+        <input type="password" id="pwd" name="pwd" placeholder="password"><br>
         <p class="info" id="pwdinfo"></p><br>
-        <input type="pwdword" id="pwd-repeat" name="pwd-repeat" placeholder="Repeat pwdword"><br><br>
+        <input type="password" id="pwd-repeat" name="pwd-repeat" placeholder="Repeat password"><br><br>
         <input type="submit" value="registration">
     </form>
     <script src="registration_form.js"></script>
 </div>
 
 <?php
-if (!empty($_POST) && $_POST["name"] != NULL && valid_human_name($_POST["name"]) && valid_pwdword($_POST["pwd"])) {
+if (!empty($_POST) && $_POST["name"] != NULL && valid_human_name($_POST["name"]) && valid_password($_POST["pwd"])) {
     $user_register = $_POST["name"];
     $pwd_register = $_POST["pwd"];
 
 
     try {
 //        try connect
-        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $dbusername, $dbpwdword);
+        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $dbusername, $dbpassword);
         // set the PDO error mode to exception
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -59,7 +59,7 @@ VALUES ('" . $user_register . "', '" . $pwd_register . "');";
                 echo implode(" ",$v);
             }
         } else {
-            $pwd_register = pwdword_hash($pwd_register, pwdWORD_DEFAULT);
+            $pwd_register = password_hash($pwd_register, PASSWORD_DEFAULT);
             $sql = "INSERT INTO " . $table_name . " (name, pwd)
 VALUES ('" . $user_register . "', '" . $pwd_register . "');";
 
