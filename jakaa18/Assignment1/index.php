@@ -48,7 +48,6 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
 
 //This section is the main page.
 if ($_SESSION['logged_in']) : ?>
-
     <div class="grid-container2">
         <div class="header">
             <h1><?php echo 'Welcome to your homepage!' ?></h1>
@@ -72,27 +71,18 @@ if ($_SESSION['logged_in']) : ?>
             </form>
 		</div>
 		<div class="homepage2" name="Image_page" id="imagePage">
-			<!-- Okay, so, first we go onto this part of the page.
-			Then we ask the database how many images exist in the database. (???)
-			Then we ask to get all images with every part of each tuple, possibly through AJAX.
-			Then we order them on the page.
-			Then we unload all of this once we click off???
-			-->
-				
-				<div class="image-container">
-				
-					<?php
-					$grab = $conn->query("SELECT header, description, user, picture FROM pictures ORDER BY pic_id DESC");
-						foreach ($grab as $pictures){
-							print '<div class="container1">';
-							print $pictures['user'].'</br><h2>'. $pictures['header'] .'</h2></br>';
-							print '<img class="images" src="data:image/png;base64,' . base64_encode( $pictures['picture'] ) . '" >';
-							print '</br>'.$pictures['description'].'</br>';
-							print '</div>';
-						}
-					?>
-				</div>
-			</form>
+			<div class="image-container">
+				<?php
+				$grab = $conn->query("SELECT header, description, user, picture FROM pictures ORDER BY pic_id DESC");
+					foreach ($grab as $pictures){
+						print '<div class="container1">';
+						print $pictures['user'].'</br><h2>'. $pictures['header'] .'</h2></br>';
+						print '<img class="images" src="data:image/png;base64,' . base64_encode( $pictures['picture'] ) . '" >';
+						print '</br>'.$pictures['description'].'</br>';
+						print '</div>';
+					}
+				?>
+			</div>
 		</div>
         <div class="homepage4" name="usersPage" id="usersPage">
             <table name="usersTable" id="usersTable">
