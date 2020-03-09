@@ -33,7 +33,7 @@ function checkLoggedIn(responseObject) {
 topNavBar.dashboard.addEventListener('click',()=>{
 
     //Clear contents from main content div
-    document.getElementById('main_content').innerHTML = "";
+    document.getElementsByClassName('main_content')[0].innerHTML = "";
 
     //Change active tab
     topNavBar.dashboard.className = "active";
@@ -45,7 +45,7 @@ topNavBar.dashboard.addEventListener('click',()=>{
 topNavBar.upload.addEventListener('click',()=>{
 
     //Clear contents from main content div
-    document.getElementById('main_content').innerHTML = "";
+    document.getElementsByClassName('main_content')[0].innerHTML = "";
 
     //Change active tab
     topNavBar.dashboard.className = "";
@@ -54,7 +54,7 @@ topNavBar.upload.addEventListener('click',()=>{
 
 
     //Create form to upload image
-    var mainContent = document.getElementById('main_content');
+    var mainContent = document.getElementsByClassName('main_content')[0];
 
     var displayMessages = document.createElement('ul');
     displayMessages.setAttribute('id','messages');
@@ -112,7 +112,7 @@ topNavBar.upload.addEventListener('click',()=>{
 topNavBar.users.addEventListener('click', () => {
 
     //Clear contents from main content div
-    document.getElementById('main_content').innerHTML = "";
+    document.getElementsByClassName('main_content')[0].innerHTML = "";
 
     //Change active tab
     topNavBar.dashboard.className = "";
@@ -198,7 +198,7 @@ document.addEventListener('click',function(e){
 
 function handleGetUsersResponse(responseObject) {
     if (responseObject.ok) {
-        var mainContent = document.getElementById('main_content');
+        var mainContent = document.getElementsByClassName('main_content')[0];
         var userTable = document.createElement("TABLE");
 
 

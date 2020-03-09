@@ -48,19 +48,19 @@ a{text-decoration: none;}
 a {color:#f2f2f2;}         /* Unvisited link  */
 a:visited {color:#f2f2f2;} /* Visited link    */
 
-#main_content{
-    text-align: center;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-}
+/*#main_content{*/
+/*    text-align: center;*/
+/*    -webkit-transform: translate(-50%, -50%);*/
+/*    transform: translate(-50%, -50%);*/
+/*    position: absolute;*/
+/*    top: 50%;*/
+/*    left: 50%;*/
+/*}*/
 
-#main_content ul{
+.main_content ul{
     list-style: none;
 }
-#main_content li{
+.main_content li{
     text-align: left;
     color: red;
     font-weight: bold;
