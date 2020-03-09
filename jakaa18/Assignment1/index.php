@@ -17,24 +17,7 @@
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-
-$host = "localhost";
-$dbusername = "root";
-$dbpassword = "root";
-
-$db = "jakaa18_jesha18";
-$charset = 'utf8mb4';
-$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
-$options = [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION];
-
-try {
-    $conn = new PDO($dsn, $dbusername, $dbpassword, $options);
-    // set the PDO error mode to exception
-
-    echo "DB Connected successfully \n";
-} catch (PDOException $e) {
-    echo "Connection failed: " . $e->getMessage();
-}
+require_once 'db_connect.php';
 
 //----------------------------------------------------------------
 if (isset($_POST["username"]) && isset($_POST["password"])) {
