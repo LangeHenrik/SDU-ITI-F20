@@ -51,6 +51,7 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
         && password_verify($password, $correct_password)) {
         $_SESSION['logged_in'] = true;
         echo 'logged in!';
+        $_SESSION['sessionUser'] = $correct_username;
     } else {
         $_SESSION['logged_in'] = false;
         echo 'wrong username or password';
@@ -84,7 +85,7 @@ if ($_SESSION['logged_in']) : ?>
                 <input type="submit" name="imgSubmit" value="Upload" id="imgSubmit">
                 <p> Header: <input type ="text" name="header" id="header" required></p><br>
                 <label for="description">Image description: Max 300 characters!</label><br>
-                <textarea id="description" id="descriptionId" rows="4" cols="50" required></textarea>
+                <textarea name="imgDescription" id="description" id="descriptionId" rows="4" cols="50" required></textarea>
             </form>
 		</div>
 		<div class="homepage3" name="Image_page" id="imagePage">

@@ -1,5 +1,5 @@
 <?php
-if(isset($_POST["submit"])){
+if(isset($_POST["imgSubmit"])){
     $check = getimagesize($_FILES["image"]["tmp_name"]);
     if($check !== false){
         $image = $_FILES['image']['tmp_name'];
@@ -31,13 +31,15 @@ if(isset($_POST["submit"])){
             echo "Connection failed: " . $e->getMessage();
         }
 
-        $user = $_SESSION["username"];
+        $user = $_SESSION["sessionUser"];
         $header = $_POST["header"];
-        $description = $_POST["description"];
+        $description = $_POST["imgDescription"];
         //Insert image content into database
         $insert = $conn->query("INSERT into pictures (header, description, user, picture) VALUES ('$header', '$description', '$user', '$imgContent')");
         if($insert){
             echo "File uploaded successfully.";
+            header("Location: index.php");
+            exit;
         }else{
             echo "File upload failed, please try again.";
         }
