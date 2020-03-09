@@ -80,25 +80,17 @@ if ($_SESSION['logged_in']) : ?>
 			-->
 				
 				<div class="image-container">
-					<div class="container1">
-					
-						<form action="download.php" method="get" enctype="multipart/form-data">
-							
-							<p method="grab" id="steve2">This is a p element.</p>	
-						</form>
-					</div>
-					<div class="container1">
-						<text "Title"> hej</text>
-						<img class=images src="https://images.unsplash.com/photo-1523895665936-7bfe172b757d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt="Snow" style="width:100%">
-						<text "Description"> "Blob" </text>
-						<text "Author"> <i>By: Mig</i> </text>
-					</div>
-					<div class="container1">
-						<text "Title"> hej</text>
-						<img class=images src="https://images.unsplash.com/photo-1523895665936-7bfe172b757d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt="Snow" style="width:100%">
-						<text "Description"> "Blob" </text>
-						<text "Author"> <i>By: Mig</i> </text>
-					</div>
+				
+					<?php
+					$grab = $conn->query("SELECT header, description, user, picture FROM pictures ORDER BY pic_id DESC");
+						foreach ($grab as $pictures){
+							print '<div class="container1">';
+							print $pictures['user'].'</br><h2>'. $pictures['header'] .'</h2></br>';
+							print '<img class="images" src="data:image/png;base64,' . base64_encode( $pictures['picture'] ) . '" >';
+							print '</br>'.$pictures['description'].'</br>';
+							print '</div>';
+						}
+					?>
 				</div>
 			</form>
 		</div>
@@ -185,19 +177,3 @@ try {
     <script src="scripts/scripts.js"></script>
 <?php endif; ?>
 </body>
-
-
-
-			<!-- JSON format:
-			"ajax": {
-                url: "http://localhost:8080/download",
-                dataSrc: 'pictures'
-            },
-			"image": [
-                { "data": "pic_id" },
-                { "data": "header" },
-                { "data": "description" },
-                { "data": "user" },
-                { "data": "picture" }
-				
-            ]-->

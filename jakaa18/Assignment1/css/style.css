@@ -101,7 +101,10 @@ li a:hover {
 	grid-column: 1;
 	grid-row: auto;
 	max-width: 256px;
+	min-width: 16px;
 	max-height: 256px;
+	min-height: 16px;
+	width: 100%;
 }
 
 .login1{
