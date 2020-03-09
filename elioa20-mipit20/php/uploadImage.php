@@ -57,7 +57,7 @@ if ($ok) {
     $pdo = new PDO("mysql:host=$servername;dbname=$dbname", $dbusername, $dbpassword);
 
     // calling stored procedure command
-    $sql = 'CALL InsertImage(:path,:header,:description,:uploadtime)';
+    $sql = 'CALL InsertImage(:path,:header,:description,:uploadtime,:username)';
 
     // prepare for execution of the stored procedure
     $stmt = $pdo->prepare($sql);
@@ -72,14 +72,25 @@ if ($ok) {
     $stmt->bindParam(':header', $header, PDO::PARAM_STR, 200);
     $stmt->bindParam(':description', $description, PDO::PARAM_STR, 200);
     $stmt->bindParam(':uploadtime', $datetime, PDO::PARAM_STR);
+    $stmt->bindParam(':username', $_SESSION['logged_in'], PDO::PARAM_STR);
+
 
     // execute the stored procedure
     $stmt->execute();
 
     $stmt->closeCursor();
 
-    // Upload file
-    $messages[] = "Successful upload";
+
+    $tmpName = $_FILES['file']["tmp_name"];
+    $name = basename($_FILES["file"]["name"]);
+
+    if(move_uploaded_file($tmpName,"$target_dir/$name")){
+        $messages[] = "Successful upload";
+    }
+    else{
+        $ok = false;
+        $messages[] = move_uploaded_file($tmpName,"$target_dir/$name");
+    }
 }
 
 echo json_encode(

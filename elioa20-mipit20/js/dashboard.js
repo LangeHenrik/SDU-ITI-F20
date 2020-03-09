@@ -1,10 +1,10 @@
-var request = new XMLHttpRequest();
+var login = new XMLHttpRequest();
 
-request.onload = () => {
+login.onload = () => {
     let responseObject = null;
 
     try {
-        responseObject = JSON.parse(request.responseText);
+        responseObject = JSON.parse(login.responseText);
     } catch (e) {
         console.error('Could not parse JSON');
     }
@@ -14,31 +14,84 @@ request.onload = () => {
     }
 };
 
-request.open("get", "../php/index.php", true);
-request.send();
+login.open("get", "../php/index.php", true);
+login.send();
+
+function checkLoggedIn(responseObject) {
+    if(!responseObject.ok){
+        window.location = "../views/login.html";
+    }
+}
 
 const topNavBar = {
-    dashboard: document.getElementById('dashboard'),
+    feed: document.getElementById('feed'),
     upload: document.getElementById('upload'),
     users: document.getElementById('users'),
     logout: document.getElementById('logout')
 };
 
-function checkLoggedIn(responseObject) {
-        if(!responseObject.ok){
-            window.location = "../views/login.html";
+if(topNavBar.feed.className === "active"){
+
+    var mainContent = document.getElementsByClassName('main_content')[0];
+    mainContent.innerHTML = "";
+
+    let divContainer = document.createElement('div');
+    divContainer.setAttribute('class','container');
+
+    //Get images from db
+    var request = new XMLHttpRequest();
+
+    request.onload = () => {
+        let responseObject = null;
+
+        try {
+            responseObject = JSON.parse(request.responseText);
+        } catch (e) {
+            console.error('Could not parse JSON');
         }
+
+        if (responseObject) {
+            handleGetImagesResponse(responseObject,mainContent,divContainer);
+        }
+    };
+
+    request.open("get", "../php/getImages.php", true);
+    request.send();
 }
 
-topNavBar.dashboard.addEventListener('click',()=>{
+topNavBar.feed.addEventListener('click',()=>{
 
     //Clear contents from main content div
-    document.getElementsByClassName('main_content')[0].innerHTML = "";
+    var mainContent = document.getElementsByClassName('main_content')[0];
+    mainContent.innerHTML = "";
 
     //Change active tab
-    topNavBar.dashboard.className = "active";
+    topNavBar.feed.className = "active";
     topNavBar.upload.className = "";
     topNavBar.users.className = "";
+
+    let divContainer = document.createElement('div');
+    divContainer.setAttribute('class','container');
+
+    //Get images from db
+    var request = new XMLHttpRequest();
+
+    request.onload = () => {
+        let responseObject = null;
+
+        try {
+            responseObject = JSON.parse(request.responseText);
+        } catch (e) {
+            console.error('Could not parse JSON');
+        }
+
+        if (responseObject) {
+            handleGetImagesResponse(responseObject,mainContent,divContainer);
+        }
+    };
+
+    request.open("get", "../php/getImages.php", true);
+    request.send();
 
 });
 
@@ -48,7 +101,7 @@ topNavBar.upload.addEventListener('click',()=>{
     document.getElementsByClassName('main_content')[0].innerHTML = "";
 
     //Change active tab
-    topNavBar.dashboard.className = "";
+    topNavBar.feed.className = "";
     topNavBar.upload.className = "active";
     topNavBar.users.className = "";
 
@@ -115,7 +168,7 @@ topNavBar.users.addEventListener('click', () => {
     document.getElementsByClassName('main_content')[0].innerHTML = "";
 
     //Change active tab
-    topNavBar.dashboard.className = "";
+    topNavBar.feed.className = "";
     topNavBar.upload.className = "";
     topNavBar.users.className = "active";
 
@@ -225,14 +278,13 @@ function handleGetUsersResponse(responseObject) {
 
 function handleUploadImageResponse(responseObject) {
 
+    let messagesList = document.getElementById('messages');
+    //In case they were errors before. Need to clear the list.
+    while(messagesList.firstChild){
+        messagesList.removeChild(messagesList.firstChild);
+    }
+
     if(!responseObject.ok) {
-
-        let messagesList = document.getElementById('messages');
-        //In case they were errors before. Need to clear the list.
-        while(messagesList.firstChild){
-            messagesList.removeChild(messagesList.firstChild);
-        }
-
         responseObject.messages.forEach((message) => {
             var li = document.createElement('li');
             li.textContent = message;
@@ -244,7 +296,38 @@ function handleUploadImageResponse(responseObject) {
 }
 
 
-document.getElementById("link_dashboard").onclick = function () {
+function handleGetImagesResponse(responseObject,mainContent,divContainer){
+
+    if(responseObject.messages !== null) {
+        responseObject.messages.forEach((image) => {
+
+            let divPic = document.createElement('div');
+            divPic.setAttribute('class', 'picture');
+
+            let divTitle = document.createElement('div');
+            divTitle.setAttribute('class', 'title');
+            divTitle.innerText = image.header + " Username: " + image.username + " Uploaded Time: " + image.uploadTime;
+
+            let img = document.createElement('img');
+            img.setAttribute('src', image.path);
+
+            let divDescription = document.createElement('div');
+            divDescription.setAttribute('class', 'desc');
+            divDescription.innerText = image.description;
+
+            divPic.appendChild(divTitle);
+            divPic.appendChild(img);
+            divPic.appendChild(divDescription);
+
+            divContainer.appendChild(divPic);
+        });
+
+        mainContent.appendChild(divContainer);
+    }
+}
+
+
+document.getElementById("link_feed").onclick = function () {
     return false;
 };
 

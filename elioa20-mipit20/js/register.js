@@ -39,7 +39,7 @@ function handleRegisterResponse(responseObject){
     if(responseObject.ok) {
         location.href = '../views/login.html';
     }else{
-        //In case they were errors before. Need to clear the list.
+        //In case they were errors before. Need to clear the list
         while(registerForm.messages.firstChild){
             registerForm.messages.removeChild(registerForm.messages.firstChild);
         }
