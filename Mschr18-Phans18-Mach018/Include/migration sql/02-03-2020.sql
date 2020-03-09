@@ -55,3 +55,4 @@ ADD COLUMN `description` VARCHAR(300) NOT NULL AFTER `titel`;
 
 -- Vi havde problem med at forbinde til databsen indtil vi kørte følgende
 # ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password'; 
+-- Hvor password er det password du vil bruge til db'en.
