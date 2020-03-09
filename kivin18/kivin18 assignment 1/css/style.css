@@ -37,6 +37,11 @@ input[type=text]:focus, input[type=password]:focus {
   outline: none;
 }
 
+textarea {
+  width: 40%;
+  resize: none;
+}
+
 .inputInfo {
   text-align: left;
   color: #f44336;
@@ -112,11 +117,7 @@ input[type=text]:focus, input[type=password]:focus {
   margin: 0 auto 10px;
 }
 
-#users {
-  display: none;
-}
-
-#upload {
+#users, #upload {
   display: none;
 }
 

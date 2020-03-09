@@ -22,8 +22,8 @@ if ($_SESSION["logged_in"] ?? false) {
             $uploadOk = false;
         }
     }
-    // Check file size (max 5 MB)
-    if ($_FILES["image"]["size"] > 5000000) {
+    // Check file size (max 2 MB)
+    if ($_FILES["image"]["size"] > 2000000) {
         echo "Your file is too large.";
         $uploadOk = false;
     }
