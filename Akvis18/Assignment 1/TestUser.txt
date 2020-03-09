@@ -1,0 +1,3 @@
+Test user is inserted if there is no other user in the db when trying to log in
+Username: Test
+Password: Test123!
