@@ -8,6 +8,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         include_once "Shared/DBConnect.php";
 
+        //insert test user
+        $test_pass = password_hash('Test123!', PASSWORD_DEFAULT);
+        query('INSERT IGNORE INTO user(user_id, username, email,password) VALUES (?,?,?,?);',[1,'swag-cat','test@test.dk', $test_pass]);
+
         $r = query("SELECT user_id, username, password FROM user WHERE username = ? ;", [$user]);
         if (password_verify($pass, $r[0]['password'])) {
             $_SESSION['LoggedIn'] = true;

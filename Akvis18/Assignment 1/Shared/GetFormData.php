@@ -19,7 +19,7 @@ function getImage($name){
     if(isset($_FILES[$name])){
         $ext = array('jpg','jpeg','png','gif');
         $file_name = $_FILES[$name]['name'];
-        $file_ext = strtolower( end(explode('.', $file_name)));
+        $file_ext = pathinfo($file_name)['extension'];
         $file_size = $_FILES[$name]['size'];
         $file_tmp = $_FILES[$name]['tmp_name'];
 
