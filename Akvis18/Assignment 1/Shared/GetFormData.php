@@ -16,7 +16,8 @@ function getAndMatchPost($name, $regex){
 
 function getImage($name){
     global $errors;
-    if(isset($_FILES[$name])){
+    if(isset($_FILES[$name]) && $_FILES[$name]['size'] > 0){
+        print_r($_FILES[$name]);
         $ext = array('jpg','jpeg','png','gif');
         $file_name = $_FILES[$name]['name'];
         $file_ext = pathinfo($file_name)['extension'];
