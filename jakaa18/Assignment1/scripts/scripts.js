@@ -25,7 +25,7 @@ function showUsersLink() {
 
 
 function checkRegister() {
-    let usernameValue = document.getElementById("username");
+    let usernameValue = document.getElementById("regUsernameId");
     let usernameRegex =/^[A-Za-zÆØÅæøå _\-\d]{3,}$/;
     let available = checkUsername(usernameValue.value);
     let valid = checkRegEx(usernameValue, usernameRegex);
