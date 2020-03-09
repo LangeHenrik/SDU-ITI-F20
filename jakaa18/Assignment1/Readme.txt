@@ -12,3 +12,4 @@ Security) Strings that build SQL statements are made in a way that avoids SQL in
 Security) Anything that is uploaded is cleaned to avoid cross-site scripting
 	Cleaning has not been done everywhere.
 	
+Ontop of this, the Upload Page logs one out after uploading a picture, but the picture does get uploaded and you just need to log in again.
