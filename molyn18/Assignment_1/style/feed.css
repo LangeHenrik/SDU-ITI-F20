@@ -1,0 +1,97 @@
+.box {
+    width: 30%;
+    float: left;
+    position: relative;
+    margin-left: 1.66%;
+    margin-right: 1.66%;
+    padding-bottom: 30%; /* = width for a 1:1 aspect ratio */
+    margin-bottom: 9em;
+}
+
+.user-box {
+    width: 30%;
+    float: left;
+    position: relative;
+    margin-left: 1.66%;
+    margin-right: 1.66%;
+    padding-bottom: 5%; /* = width for a 1:1 aspect ratio */
+    margin-bottom: 1em;
+}
+
+.content {
+    position:absolute;
+    height:100%;
+    width:100%;
+}
+
+.meta {
+    margin-top: -1.5%;
+    background: white;
+    padding: 2% 2% 2% 2%;
+    word-wrap: break-word
+}
+
+.meta h3 {
+    margin: 1% 0% 1% 0%;
+    font-size: 1.5vmax;
+    color: #85203b;
+}
+
+.meta span {
+    font-size: 1.2vmax;
+}
+
+.meta span.author {
+    font-weight: bold;
+}
+
+@media screen and (max-width: 540px) {
+    .box {
+        width: 95%;
+        padding-bottom: 100%; /* = width for a 1:1 aspect ratio */
+        margin-bottom: 6em;
+    }
+
+    .user-box {
+        width: 95%;
+        padding-bottom: 7.5%; /* = width for a 1:1 aspect ratio */
+        margin-bottom: 2em;
+    }
+
+    .meta h3 {
+        font-size: 2.5vmax;
+    }
+
+    .meta span {
+        font-size: 1.75vmax;
+    }
+}
+
+@media screen and (max-width: 960px) and (min-width: 540px) {
+    .box {
+        width: 46.5%;
+        padding-bottom: 46.5%; /* = width for a 1:1 aspect ratio */
+        margin-bottom: 9em;
+    }
+
+    .user-box {
+        width: 46.5%;
+        padding-bottom: 7.5%; /* = width for a 1:1 aspect ratio */
+        margin-bottom: 1em;
+    }
+
+    .meta h3 {
+        font-size: 2.5vmax;
+    }
+
+    .meta span {
+        font-size: 1.75vmax;
+    }
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
+}

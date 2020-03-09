@@ -1,0 +1,40 @@
+.form-box{
+    width: 25%;
+    padding: 2%;
+    background: #f8f8ff;
+    border-radius: 2%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.form-input{
+    border: 1px solid #f8f8ff;
+    padding: 1em;
+    width: 80%;
+    margin-bottom: 2%;
+    position: static;
+    background: #d2d2d2;
+}
+
+.form-button{
+    background: #85203b;
+    color: #ffffff;
+    padding: 1em;
+    border: none;
+    width: 100%;
+    position: static;
+    text-transform: uppercase;
+}
+
+.form-footer{
+    margin-top: 12px;
+    text-align: center;
+}
+
+#error {
+    color: #85203b;
+    margin: 2px;
+}
+

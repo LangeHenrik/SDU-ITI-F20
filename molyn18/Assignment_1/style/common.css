@@ -1,0 +1,36 @@
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #1A1A1D;
+    font-family: Arial, Helvetica, sans-serif;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    margin-bottom: 12px;
+    padding: 0;
+    padding-left: 1.66%;
+    overflow: hidden;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
+
+
+a {
+    display: block;
+    padding: 8px;
+}
