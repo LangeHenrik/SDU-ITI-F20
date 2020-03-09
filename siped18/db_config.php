@@ -10,6 +10,3 @@ try{
 }catch(PDOException $e){
     die('Unable to connect with the database');
 }
-
-include_once 'class.user.php';
-$user = new USER($DB_con);
