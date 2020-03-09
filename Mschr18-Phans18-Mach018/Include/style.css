@@ -83,6 +83,15 @@ nav.mainnav {
     display: none;
   }
 }
+@media only screen and (max-width: 620px) {
+  nav li:last-child {
+      float: left;
+  }
+  nav ul {
+    width: 300px;
+    margin: 0 auto;
+  }
+}
 
 /* frontpage coontent */
 div.welcomme h2 {
@@ -226,7 +235,7 @@ div.picturecontainer img {
 div.picturecontainer table {
   color: black;
   width: 220px;
-  margin-top: 5px;
+  margin: 5px;
   display: inline-block;
   vertical-align: top;
   text-align: left;
