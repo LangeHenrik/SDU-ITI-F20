@@ -77,7 +77,7 @@ if ($_SESSION['logged_in']) : ?>
                 <li><a href="logout.php" id="logout">Logout</a></li>
             </ul>
         </div>
-		<!--<div class="homepage2">
+		<div class="homepage2">
 			<form action="upload.php" method="post" enctype="multipart/form-data">
                 Select image to upload
                 <input type="file" name="image" id="fileId">
@@ -86,8 +86,8 @@ if ($_SESSION['logged_in']) : ?>
                 <label for="description">Image description: Max 300 characters!</label><br>
                 <textarea id="description" id="descriptionId" rows="4" cols="50" required></textarea>
             </form>
-		</div>-->
-		<div class="homepage2" name="Image_page">
+		</div>
+		<div class="homepage3" name="Image_page">
 			<!-- Okay, so, first we go onto this part of the page.
 			Then we ask the database how many images exist in the database. (???)
 			Then we ask to get all images with every part of each tuple, possibly through AJAX.
@@ -109,6 +109,15 @@ if ($_SESSION['logged_in']) : ?>
                 { "data": "picture" }
             ]-->
 				<div class="image-container">
+					
+					<img class=images src="https://images.unsplash.com/photo-1523895665936-7bfe172b757d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt="Snow" style="width:100%">
+					<img class=images src="https://images.unsplash.com/photo-1523895665936-7bfe172b757d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt="Forest" style="width:100%">
+					<img class=images src="https://images.unsplash.com/photo-1523895665936-7bfe172b757d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt="Mountains" style="width:100%">
+					<img class=images src="https://images.unsplash.com/photo-1523895665936-7bfe172b757d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt="Stone" style="width:100%">
+					<img class=images src="https://images.unsplash.com/photo-1523895665936-7bfe172b757d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt="Snow" style="width:100%">
+					<img class=images src="https://images.unsplash.com/photo-1523895665936-7bfe172b757d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt="Forest" style="width:100%">
+					<img class=images src="https://images.unsplash.com/photo-1523895665936-7bfe172b757d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt="Mountains" style="width:100%">
+					<img class=images src="https://images.unsplash.com/photo-1523895665936-7bfe172b757d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt="Stone" style="width:100%">
 					<img class=images src="https://images.unsplash.com/photo-1523895665936-7bfe172b757d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt="Snow" style="width:100%">
 					<img class=images src="https://images.unsplash.com/photo-1523895665936-7bfe172b757d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt="Forest" style="width:100%">
 					<img class=images src="https://images.unsplash.com/photo-1523895665936-7bfe172b757d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt="Mountains" style="width:100%">
