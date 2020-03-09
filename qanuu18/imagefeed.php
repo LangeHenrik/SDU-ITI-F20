@@ -9,10 +9,15 @@
 <body>
     <form class="userlist" name="userlist" method="GET" action="userlist.php">
         <p>
-        <input type="submit" onclick="loadDoc()" name="userlist" id="ulbtn" value="Userlist">
+        <input type="button" onclick="loadDoc()" name="userlist" id="ulbtn" value="Userlist">
         <p class="ulbtn" id=ulbtn></p>
         </p>
     </form>
+
+    
+
+    <div id="userlistbtn">
+    </div>
 
     <form class="uploadImage" name="uploadImage" method="POST" action="uploadimage.php">
         <p>
