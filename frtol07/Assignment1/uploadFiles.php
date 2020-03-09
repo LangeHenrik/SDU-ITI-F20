@@ -2,6 +2,13 @@
 ob_start();
 
 session_start();
+
+if (!isset($_SESSION['LoggedIn'])) {
+    print "<h2>Not allowed </h2>";
+    echo "You will be redirected to log in page in 5 seconds...";
+    echo "<meta http-equiv=Refresh content=5;url=frontPage.php>";
+    exit();
+}
 ?>
 
 <!DOCTYPE html>

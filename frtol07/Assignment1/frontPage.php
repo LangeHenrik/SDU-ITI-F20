@@ -1,10 +1,10 @@
 <?php
-
 ob_start();
 
 session_start();
-?>
 
+
+?>
 
 <html lang="en">
 
@@ -128,6 +128,8 @@ username=? ");
             if ($query->rowCount() > 0) {
 
                 $_SESSION['username'] = $user;
+                $_SESSION['LoggedIn'] = true;
+
 //            header('location:imageFeed.php');
                 echo "You will be redirected in 5 seconds...";
                 echo "<br>";
