@@ -8,7 +8,7 @@
         <form>
               <input type="text" id="searchValue" name="searchValue" placeholder="Enter search here. . .">
               <input type="submit" id="submit" value="Search">
-               Orderd by
+              <br> Orderd by
               <select name="orderBy" id="orderBy">
                 <option value="username" selected="selected">Username</option>
                 <option value="fullname">Fullname</option>

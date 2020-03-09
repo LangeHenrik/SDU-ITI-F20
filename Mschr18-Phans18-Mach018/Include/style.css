@@ -262,6 +262,12 @@ div.users table {
   border-spacing: 0px;
   width: 410px;
 }
+div.users form br {
+  display: none;
+}
+div.users select#orderBy {
+  width: 104px;
+}
 div.users th,
 div.users td {
   border: 1px solid #ddd;
@@ -272,7 +278,7 @@ div.users th {
   font-weight: 600;
   background-color: gray;
 }
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 600px) {
   div.users table {
     width: auto;
   }
