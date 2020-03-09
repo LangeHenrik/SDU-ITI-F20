@@ -4,9 +4,6 @@ container.overflow = scroll;
 
 function addImg(imgFileNr, files)
 {
-console.log(imgFileNr);
-console.log(files);
-
   if (imgFileNr > 0)
   {
     var img = document.createElement("img");
@@ -39,7 +36,7 @@ picupload.onchange = function()
       return;
     }
   }
-
+  
   // Adding new images to container.
   addImg(this.files["length"], this.files);
 }
