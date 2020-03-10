@@ -1,6 +1,6 @@
 <?php
 interface iCar {
-    public function getLenght();
-    public function setLenght($length);
+    public function getLength();
+    public function setLength($length);
 }
 ?>

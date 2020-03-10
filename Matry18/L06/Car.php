@@ -3,20 +3,24 @@
 include "iCar.php";
 
 class Car implements iCar{
-    private $lenght;
+    private $length;
     private $brand;
 
-    public function setLenght($lenght){
-        $this->lenght = $lenght;
+    public function setLength($length){
+        $this->length = $length;
     }
     
     public function setBrand($brand){
         $this->brand = $brand;
     }
-    
-    public function __toString() {
-        echo $this->$lenght;
-        echo $this->$brand;
+
+    public function getBrand(){
+        return $this->brand;
     }
+
+    public function getLength(){
+        return $this->length;
+    }
+    
 }
 ?>
