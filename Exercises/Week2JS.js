@@ -1,12 +1,16 @@
 console.log('js working');
 
 function checkform(){
-    checkname();
-    checkpassword();
-    checkphone();
-    checkemail();
-    checkzip();
-    return false;
+    if(
+    checkname()
+    && checkpassword()
+    && checkphone()
+    && checkemail()
+    && checkzip()) {
+        return true;
+    } else {
+        return false; 
+    }
 }
 
 //NAME
