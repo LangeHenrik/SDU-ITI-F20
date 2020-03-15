@@ -1,0 +1,30 @@
+@import "theme.css";
+
+table.table-userdata {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table.table-userdata td, table.table-userdata th {
+  border: 1px solid var(--color-border-light);
+  padding: 15px;
+}
+
+table.table-userdata th {
+  font-weight: normal;
+  background: var(--color-secondary-light);
+  color: var(--text-on-primary);
+}
+
+table.table-userdata tr:hover{
+  background: var(--color-surface);
+}
+
+@media only screen and (max-width: 600px)
+{
+
+table.table-userdata td, table.table-userdata th {
+  padding: 5px;
+}
+
+}

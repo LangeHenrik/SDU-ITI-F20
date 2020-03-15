@@ -1,0 +1,35 @@
+@import "theme.css";
+
+/* navigation bar */
+
+nav {
+  display: flex;
+  flex: 0 0 60px;
+  background: var(--color-primary);
+}
+
+nav a {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0px 20px;
+  color: var(--text-on-primary);
+  text-decoration: none;
+  text-align: center;
+}
+
+nav a:hover
+{
+  background: var(--color-primary-dark);
+}
+
+nav a[data-state="selected"]
+{
+  background: var(--color-secondary);
+}
+
+nav a[href*="login"], nav a[href*="logout"]
+{
+  margin-left: auto;
+}

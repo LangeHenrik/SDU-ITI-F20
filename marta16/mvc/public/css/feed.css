@@ -1,0 +1,79 @@
+@import "theme.css";
+
+/* post feed */
+
+div.feed-container {
+  justify-content: space-around;
+  flex-wrap: wrap;
+  display: flex;
+}
+
+div.feed-post {
+  display: flex;
+  flex-direction: column;
+  flex: 40vmin 0 0;
+  height: 40vmin;
+  margin: 10px;
+  background: var(--color-surface);
+  border: solid var(--color-border-light) 0.25px;
+  cursor: pointer;
+  transition: 0.1s;
+}
+
+div.feed-post:hover {
+  box-shadow: 0px 2px 10px -4px rgba(0, 0, 0, 0.75);
+}
+
+div.feed-post:hover img.feed-post-img {
+  object-fit: contain;
+}
+
+img.feed-post-img {
+  width: 100%;
+  object-fit: cover;
+  flex: 1;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+div.feed-post div.feed-post-body {
+  padding: 10px;
+  margin: 0px;
+}
+
+div.feed-post div.feed-post-body p {
+  padding: 0px;
+  margin: 0px;
+}
+
+div.feed-post div.feed-post-body p.feed-post-title {
+  display: inline-block;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+div.feed-post div.feed-post-body p.feed-post-username {
+  display: inline-block;
+  margin-left: 5px;
+  color: var(--text-on-primary-dim);
+  font-weight: normal;
+}
+
+div.feed-post div.feed-post-body p.feed-post-username:hover {
+  color: var(--color-secondary);
+  text-decoration: underline;
+}
+
+div.feed-post div.feed-post-body p.feed-post-description {
+  margin-top: 10px;
+}
+
+@media only screen and (max-width: 600px)
+{
+
+div.feed-post {
+  flex: 100vw;
+  height: 100vw;
+}
+
+}
