@@ -8,10 +8,12 @@ body {
 .topnav{
     background-color: grey;
     overflow: hidden;
-    position: relative;
+    position: fixed;
+    top: 0;
     width: 100%;
     padding: 0;
     margin: 0;
+    left: 0;
 }
 
 .topnav ul{
@@ -46,13 +48,23 @@ a{text-decoration: none;}
 a {color:#f2f2f2;}         /* Unvisited link  */
 a:visited {color:#f2f2f2;} /* Visited link    */
 
-#main_content{
-    text-align: center;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    position: absolute;
-    top: 50%;
-    left: 50%;
+/*#main_content{*/
+/*    text-align: center;*/
+/*    -webkit-transform: translate(-50%, -50%);*/
+/*    transform: translate(-50%, -50%);*/
+/*    position: absolute;*/
+/*    top: 50%;*/
+/*    left: 50%;*/
+/*}*/
+
+.main_content ul{
+    list-style: none;
+}
+.main_content li{
+    text-align: left;
+    color: red;
+    font-weight: bold;
+    padding: 10px 25px;
 }
 
 input[type=text] {
@@ -85,3 +97,67 @@ input[type="file"]::-webkit-file-upload-button{
     width: 200px;
     height: 30px;
 }
+
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 40px 30px ;
+    backgroud: gray;
+}
+ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+li{
+    flaot:left;
+}
+.container c {
+    max-width: 1200px;
+    margin: auto;
+    background: #f2f2f2;
+    overflow: auto;
+}
+
+.picture {
+    margin: 5px;
+    border: 3px solid #ccc;
+    float: left;
+    width: 390px;
+}
+
+.picture img {
+    width: 100%;
+    height: auto;
+}
+
+.desc {
+    padding: 15px;
+    text-align: center;
+}
+
+.title {
+    padding: 15px;
+    text-align: center;
+}
+
+.btn_next {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    position: fixed;
+    left:3%;
+    top: 90%;
+}
+
+
+
+

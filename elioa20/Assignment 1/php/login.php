@@ -51,7 +51,7 @@ try {
                     $messages[] ='Invalid Password';
                 }
                 else{
-                    $_SESSION['logged_in'] = true;
+                    $_SESSION['logged_in'] = $username;
                     $ok = true;
                     $messages[] = 'Successful Login';
                 }
