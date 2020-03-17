@@ -17,4 +17,16 @@ class User extends Database {
 		return true;
 	}
 
+	public function getAll () {
+
+		$sql = "SELECT username FROM users";
+
+		$stmt = $this->conn->prepare($sql);
+		$stmt->execute();
+
+		$result = $stmt->fetchAll();
+
+		return $result;
+	}
+
 }
