@@ -1,26 +1,39 @@
 <?php
 
 require_once 'db_config.php';
-	
-class Database extends DB_Config {
+
+class Database extends DB_Config
+{
 
 	public $conn;
-	
-	public function __construct() {
+	private $charset = "utf8";
+	private $options = [
+		PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+		PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+		PDO::ATTR_EMULATE_PREPARES   => false,
+	];
+
+	public function __construct()
+	{
+		$dsn = 'mysql:host=' . DB_Config::$db_hostname . ';dbname=' . DB_Config::$db_name . ';charset=' . $this->charset;
+
 		try {
-			
-			$this->conn = new PDO("mysql:host=$this->servername;dbname=$this->dbname",
-			$this->username,
-			$this->password,
-			array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-			
+			$this->conn = new PDO($dsn, DB_Config::$db_username, DB_Config::$db_password, $this->options);
+
+			if ($this->conn == null) {
+				echo 'no connection to database, pdoconnection is null';
+				return false;
+			}
+
+			return $this->conn;
 		} catch (PDOException $e) {
-			echo "Error: " . $e->getMessage();
+			echo "Connection failed: " . $e->getMessage();
+			echo "ERROR";
 		}
 	}
-	
-	public function __destruct() {
+
+	public function __destruct()
+	{
 		$this->conn = null;
 	}
-	
 }

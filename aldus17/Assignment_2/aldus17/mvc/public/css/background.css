@@ -1,0 +1,12 @@
+* {
+    background: -webkit-linear-gradient(left, #7577FA 20px, transparent 1%) center, -webkit-linear-gradient(#7577FA 20px, transparent 1%) center, #9192FB;
+    background: linear-gradient(90deg, #7577FA 20px, transparent 1%) center, linear-gradient(#7577FA 20px, transparent 1%) center, #9192FB;
+    background-size: 22px 22px;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}

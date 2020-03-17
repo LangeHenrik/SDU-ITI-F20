@@ -1,0 +1,102 @@
+* {
+    background: -webkit-linear-gradient(left, #7577FA 20px, transparent 1%) center, -webkit-linear-gradient(#7577FA 20px, transparent 1%) center, #9192FB;
+    background: linear-gradient(90deg, #7577FA 20px, transparent 1%) center, linear-gradient(#7577FA 20px, transparent 1%) center, #9192FB;
+    background-size: 22px 22px;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.inner_login_form_container {
+    background: rgba(86, 88, 233, 0.8);
+    border-radius: 10px;
+    width: 85%;
+    height: 100%;
+    height: auto;
+    position: absolute;
+    left: 10%;
+    top: 30%;
+    padding: 16px;
+    margin: 0 auto;
+    text-align: center;
+    text-decoration: none;
+}
+
+.inner_login_form_container h1 {
+    background: none;
+}
+
+.inner_login_form_container label {
+    background: none;
+    display: table-cell;
+    text-align: center;
+}
+
+.inner_login_form_container input {
+    display: table-cell;
+    text-align: center;
+}
+
+input[type=text],
+input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    background: #f1f1f1;
+    font-size: 16px;
+}
+
+input[type=text]:focus,
+input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+.registerReferBtn {
+    background-color: rgb(48, 48, 48);
+    background: rgb(45, 45, 160);
+    color: white;
+    padding: 16px 20px;
+    margin: 8px;
+    border: none;
+    cursor: pointer;
+    width: 30%;
+    opacity: 0.9;
+}
+
+.registerReferBtn:hover {
+    opacity: 3;
+    color: green;
+}
+
+.loginbtn {
+    background-color: rgb(48, 48, 48);
+    color: white;
+    background: rgb(45, 45, 160);
+    padding: 16px 20px;
+    margin: 8px;
+    border: none;
+    cursor: pointer;
+    width: 30%;
+    opacity: 0.9;
+}
+
+.loginbtn:hover {
+    opacity: 3;
+    color: green;
+}
+
+#messageWarning p {
+    position: absolute;
+    word-wrap: break-word;
+    height: 20px;
+    background: red;
+    margin: auto;
+}
+
+.index_footer {
+    position: absolute;
+}

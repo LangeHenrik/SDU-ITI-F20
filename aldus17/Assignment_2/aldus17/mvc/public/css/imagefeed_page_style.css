@@ -1,0 +1,36 @@
+@import 'background.css';
+@import 'nav.css';
+.imagefeed_content {
+    padding-top: 150px;
+}
+
+.imagePost {
+    width: 100%;
+    height: 1000px;
+    margin: 0 auto;
+    max-width: 730px;
+    min-width: 300px;
+    height: auto;
+    box-sizing: border-box;
+}
+
+.imagePost img {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.imagePost h1 {
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    overflow-wrap: break-word;
+}
+
+.imagePost p {
+    text-align: center;
+    overflow-wrap: break-word;
+}
+
+.search {
+    background: white;
+}

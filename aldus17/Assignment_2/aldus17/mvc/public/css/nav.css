@@ -1,0 +1,51 @@
+.navbar {
+    overflow: hidden;
+    background-color: rgba(86, 88, 233, 0.8);
+    background: rgba(86, 88, 233, 0.8);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+}
+
+.navbar ul {
+    background-color: rgba(86, 88, 233, 0.8);
+    background: rgba(86, 88, 233, 0.8);
+}
+
+.navbar li {
+    float: none;
+    display: inline-flex;
+    justify-content: center;
+}
+
+.navbar li a {
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    background-color: rgba(86, 88, 233, 0.8);
+    background: rgba(86, 88, 233, 0.8);
+}
+
+li a:hover {
+    background-color: green;
+}
+
+.inner_container button {
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    border: none;
+    font-size: 17px;
+    background-color: rgba(86, 88, 233, 0.8);
+    background: rgba(86, 88, 233, 0.8);
+}
+
+.inner_container button:hover {
+    background-color: green;
+}
