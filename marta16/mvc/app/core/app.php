@@ -13,7 +13,7 @@ class App
 	public function __construct()
 	{
 		// get array of parsed URL
-		$url = self::parseURL();
+		$url = self::parse_url();
 
 		// perform any routing here from the parsed URL!
 
@@ -60,7 +60,7 @@ class App
 		call_user_func_array([$this->controller, $this->method], $this->params);
 	}
 
-	static function parseURL()
+	static function parse_url()
 	{
 		// get url, add slashes if needed and remove base
 		// e.g. ("/my/base/public/foo/bar/" -> "/foo/bar" -> "foo/bar")

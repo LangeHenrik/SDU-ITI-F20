@@ -5,7 +5,17 @@ class UsersController extends Controller
 	public function index()
 	{
 		// default behaviour
-		self::REDIRECT("/users/login");	
+		self::redirect("/users/login");	
+	}
+
+	public function list()
+	{
+		// include user model
+		$this->model("user");
+
+		// get and display all users
+		$data["users"] = UserModel::list();
+		$this->view("users/list", $data);
 	}
 
 	public function login()
@@ -14,14 +24,14 @@ class UsersController extends Controller
 		$data["form"] = "login";
 		
 		// login landing page
-		if (self::is_GET())
+		if (self::is_get())
 		{
 			$this->view("users/index", $data);
 			return;
 		}
 
 		// user login (POST)
-		if (self::is_POST())
+		if (self::is_post())
 		{
 			// filter input
 			$username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_STRING);
@@ -36,7 +46,7 @@ class UsersController extends Controller
 				session_unset();
 				$_SESSION["logged_in"] = true;
 				$_SESSION["username"] = $username;
-				self::REDIRECT_HOME();
+				self::redirect("/home");
 			}
 			else
 			{
@@ -50,7 +60,7 @@ class UsersController extends Controller
 	public function logout()
 	{
 		session_unset();
-		self::REDIRECT_HOME();
+		self::redirect("/home");
 	}
 
 	public function register()
@@ -59,14 +69,14 @@ class UsersController extends Controller
 		$data["form"] = "register";
 		
 		// register landing page
-		if (self::is_GET())
+		if (self::is_get())
 		{
 			$this->view("users/index", $data);
 			return;
 		}
 
 		// user registration (POST)
-		if (self::is_POST())
+		if (self::is_post())
 		{
 
 			// create user model
@@ -85,7 +95,7 @@ class UsersController extends Controller
 			// !is_null($my_array = wp_get_category($id)
 			if (($err = $user->create($hash)) === true)
 			{
-				self::REDIRECT("/users/login");
+				self::redirect("/users/login");
 			}
 			// something went wrong
 			else

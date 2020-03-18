@@ -9,9 +9,9 @@ class HomeController extends Controller
 		$data = [];
 
 		// load user-data if logged in
-		if (self::is_SESSION_LOGGED_IN())
+		if (self::is_logged_in())
 		{
-			$user->fetch(self::SESSION_USERNAME());
+			$user->fetch(self::session_username());
 			$data["user"] = $user;
 		}
 

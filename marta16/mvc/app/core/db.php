@@ -2,12 +2,12 @@
 
 class DB
 {
-	public $db;
+	static public $db;
 
 	public function __construct()
 	{
 		// load configuration
-		require_once "config.php";
+		require "config.php";
 
 		// database configuration
 		$dsn = "mysql:host=$db_host;dbname=$db_name;charset=$db_charset";
@@ -19,18 +19,15 @@ class DB
 		];
 	
 		// connect to database
-		try
-		{
-			$this->db = new PDO($dsn, $db_user, $db_pswd, $db_conf);
-		}
-		catch(PDOException $ex)
-		{
+		try	{
+			self::$db = new PDO($dsn, $db_user, $db_pswd, $db_conf);
+		} catch(PDOException $ex) {
 			die($ex);
 		}
 	}
 
 	public function __destruct()
 	{
-		$this->db = null;
+		// $this->db = null;
 	}
 }
