@@ -2,7 +2,7 @@ function getUserImages(searchParameter) {
 
     var ajax = new XMLHttpRequest();
 
-    ajax.open("GET", "dbconfig_and_controllers/searchImages.php?searchParameter=" + searchParameter, true);
+    ajax.open("GET", "/aldus17/mvc/public/user/searchImage/" + searchParameter, true);
     ajax.send();
     ajax.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {

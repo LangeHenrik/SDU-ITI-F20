@@ -14,7 +14,7 @@
 
         <div id="upload-picture-container" class="upload_picture_container">
             <h1>Upload page</h1>
-            <form method="post" action="upload_page.php" enctype="multipart/form-data">
+            <form method="post" action="/aldus17/mvc/public/user/upload" enctype="multipart/form-data">
                 <input type="text" name="title" id="title" class="title" placeholder="Enter title of the image here" required />
                 <br>
                 <textarea type="text" id="description" name="description" maxlength="250" placeholder="Type a description to the image"></textarea>
@@ -26,36 +26,6 @@
                 <br>
                 <input type="submit" name="uploadbtn" id="uploadbtn" class="uploadbtn" value="Upload image" />
             </form>
-            <?php
-
-            $title = filter_input(INPUT_POST, "title", FILTER_SANITIZE_STRING);
-            $description = filter_input(INPUT_POST, "description", FILTER_SANITIZE_STRING);
-            $usercontroller = new UserController();
-
-            if (isset($_POST['uploadbtn'])) {
-
-                $imageFile = $_FILES["imageToBeUploaded"]["name"];
-                $target_dir = "../upload/";
-                $target_file = $target_dir . basename($_FILES["imageToBeUploaded"]["name"]);
-
-                // Select file type
-                $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-
-                // Valid file extensions
-                $extensions_arr = array("jpg", "jpeg", "png", "gif");
-
-                if (in_array($imageFileType, $extensions_arr)) {
-
-                    // Read image path, convert to base64 encoding
-                    $imageConvertTo_base64 = base64_encode(file_get_contents($_FILES['imageToBeUploaded']['tmp_name']));
-
-                    // Format the image SRC:  data:{mime};base64,{data};
-                    $image = 'data:image/' . $imageFileType . ';base64,' . $imageConvertTo_base64;
-
-                    $usercontroller->uploadImage($_SESSION['username'], $image, $title, $description);
-                }
-            }
-            ?>
         </div>
 
     <?php else : ?>
