@@ -32,7 +32,8 @@ class Router {
 		
 		require_once 'Restricted.php';
 		if(restricted(get_class($this->controller), $this->method)) {
-			echo 'Access Denied';
+			header('Location: /aldus17/mvc/public/index');
+			echo 'restricted';
 		} else {
 			call_user_func_array([$this->controller, $this->method], $this->params);
 		}

@@ -15,10 +15,10 @@ class Database extends DB_Config
 
 	public function __construct()
 	{
-		$dsn = 'mysql:host=' . DB_Config::$db_hostname . ';dbname=' . DB_Config::$db_name . ';charset=' . $this->charset;
+		$dsn = 'mysql:host=' . $this->servername . ';dbname=' . $this->dbname . ';charset=' . $this->charset;
 
 		try {
-			$this->conn = new PDO($dsn, DB_Config::$db_username, DB_Config::$db_password, $this->options);
+			$this->conn = new PDO($dsn, $this->username, $this->password, $this->options);
 
 			if ($this->conn == null) {
 				echo 'no connection to database, pdoconnection is null';

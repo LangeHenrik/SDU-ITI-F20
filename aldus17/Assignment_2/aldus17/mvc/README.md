@@ -5,8 +5,8 @@
 Deadline: TBA
 
 Assignment 2 criteria:
-* []
-* []
+* [] Move functionality to MVC
+* [] Make API
 * []
 * []
 * []

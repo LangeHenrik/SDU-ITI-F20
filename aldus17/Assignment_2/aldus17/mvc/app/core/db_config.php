@@ -6,6 +6,8 @@ class DB_Config {
 	protected $password = 'admin';
 	protected $dbname = 'aldus17';
 
+	
+
 }
 	
 	

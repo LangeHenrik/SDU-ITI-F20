@@ -14,8 +14,17 @@ class ApiController extends Controller {
 	}
 	
 	public function users () {
-		$users = $this->model('User')->getAll();
+		$users = $this->model('User')->getAllUsers();
 		echo json_encode($users, JSON_PRETTY_PRINT);
+	}
+
+	public function images() {
+		$images = $this->model('Image')->getAllImages();
+		echo json_encode($images, JSON_PRETTY_PRINT);
+	}
+
+	public function imageSearch() {
+		
 	}
 
 
