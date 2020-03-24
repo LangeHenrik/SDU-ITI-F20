@@ -13,7 +13,11 @@ class Image extends Database
             $prepare_statement->bindParam(':title', $title);
             $prepare_statement->bindParam(':description', $description);
 
-            $prepare_statement->execute([$username, $image, $title,  $description]);
+            if ($prepare_statement->execute([$username, $image, $title,  $description])) {
+                return true;
+            }else {
+                return false;
+            }
         }
     }
 

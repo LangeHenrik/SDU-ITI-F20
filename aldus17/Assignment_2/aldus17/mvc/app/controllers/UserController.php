@@ -44,8 +44,10 @@ class UserController extends Controller
                 // Format the image SRC:  data:{mime};base64,{data};
                 $image = 'data:image/' . $imageFileType . ';base64,' . $imageConvertTo_base64;
 
-                if ($this->model('Image')->insertImage($_SESSION['username'], $image, $title, $description)) {
+                if ($this->model('Image')->insertImageByUsername($_SESSION['username'], $image, $title, $description)) {
+                    echo 'Picture uploaded';
                     return true;
+                    
                 } else {
                     echo 'Error occured while uploading image';
                     return false;
@@ -72,11 +74,12 @@ class UserController extends Controller
         if ($searchParameter !== "" || !empty($searchParameter)) {
             $searchParameter = strtolower($searchParameter);
             $searchParameterLength = strlen($searchParameter);
+            echo $searchParameter . " i am here" . $searchParameterLength;
             foreach ($imageResults as $image) {
-                if (stristr($searchParameter, substr($image['username'], 0, $searchParameterLength))) {
+                
                     $viewbag['imagedata'] = array_push($imageData, $image);
-                    print_r($viewbag['imagedata']);
-                }
+                    
+                
             }
         } else {
             // get all image data if search did not find anything

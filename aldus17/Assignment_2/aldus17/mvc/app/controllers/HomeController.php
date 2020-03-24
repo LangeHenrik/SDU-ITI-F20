@@ -53,7 +53,13 @@ class HomeController extends Controller
 				//header('Location: /mvc/public/home/front_page');
 			} else {
 				$_SESSION['logged_in'] = false;
-				$this->view('home/login');
+
+                echo "<div id='messageWarning'><p>" .
+                    "Username or password is wrong" .
+                    "</p></br> " .
+                    "</div>";
+                exit();
+				
 			}
 		}
 	}
