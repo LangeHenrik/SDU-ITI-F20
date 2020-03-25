@@ -66,6 +66,7 @@ class App
 		// e.g. ("/my/base/public/foo/bar/" -> "/foo/bar" -> "foo/bar")
 		$url = filter_var($_SERVER["REQUEST_URI"], FILTER_SANITIZE_URL);
 		$url = str_replace(BASE_URL . "/public", "", $url);
+		$url = str_replace("-", "_", $url);
 		$url = trim($url, "/");
 
 		// split url into array; remove empty elements

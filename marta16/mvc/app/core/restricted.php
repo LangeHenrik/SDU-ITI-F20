@@ -7,7 +7,9 @@ function is_restricted($controller, $method)
 	$restricted_methods = array(
 		// "SomeController" => array("method1", "method2", "...)
 		"HomeController" => array("restricted", "logout"),
-		"UsersController" => array("list", "logout")
+		"UsersController" => array("list", "logout"),
+		"FeedController" => array("list", "upload"),
+		"ApiController" => array()
 	);
 	
 	if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] == true)

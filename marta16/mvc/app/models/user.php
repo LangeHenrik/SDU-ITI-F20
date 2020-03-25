@@ -37,7 +37,7 @@ class UserModel extends DB
 		return (isset($this->username) && isset($this->hash));
 	}
 
-	static function list()
+	static function get_all()
 	{
 		try
 		{

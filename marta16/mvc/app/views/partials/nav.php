@@ -5,6 +5,7 @@
 	<? if (self::is_logged_in()): ?>
 
 		<a data-state="<?= self::url_path_has("/users/list") ? "selected" : "" ?>"href="<?=DIR_PUBLIC?>/users/list">Users</a>
+		<a data-state="<?= self::url_path_has("/feed") ? "selected" : "" ?>"href="<?=DIR_PUBLIC?>/feed">Feed</a>
 		<a href="<?=DIR_PUBLIC?>/users/logout">Logout</a>
 
 	<? else: ?>

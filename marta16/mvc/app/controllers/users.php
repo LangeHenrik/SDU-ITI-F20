@@ -5,7 +5,7 @@ class UsersController extends Controller
 	public function index()
 	{
 		// default behaviour
-		self::redirect("/users/login");	
+		self::redirect("/users/login");
 	}
 
 	public function list()
@@ -14,15 +14,19 @@ class UsersController extends Controller
 		$this->model("user");
 
 		// get and display all users
-		$data["users"] = UserModel::list();
+		$data["users"] = UserModel::get_all();
 		$this->view("users/list", $data);
 	}
 
 	public function login()
 	{
+		// is already logged in
+		if (self::is_logged_in())
+			self::redirect("/home");
+
 		// form specification
 		$data["form"] = "login";
-		
+
 		// login landing page
 		if (self::is_get())
 		{
@@ -39,7 +43,7 @@ class UsersController extends Controller
 
 			// create user model
 			$user = $this->model("user");
-			
+
 			// authenticate user
 			if ($user->authenticate($username, $password))
 			{
@@ -65,9 +69,13 @@ class UsersController extends Controller
 
 	public function register()
 	{
+		// is already logged in
+		if (self::is_logged_in())
+			self::redirect("/home");
+
 		// form specification
 		$data["form"] = "register";
-		
+
 		// register landing page
 		if (self::is_get())
 		{
