@@ -9,6 +9,16 @@ class User extends Database {
 		return $res;
 	}
 
+	public function getAllApi(){
+		$sql = "SELECT username FROM user";
+		$stmt = $this->conn->prepare($sql);
+		$stmt->execute();
+
+		$result=$stmt->fetchAll();
+
+		return $result; 
+	}
+
 	public function getAll ($q = null) {
 		if($q == null){
 		    $sql = "SELECT id_user, username, email FROM user";

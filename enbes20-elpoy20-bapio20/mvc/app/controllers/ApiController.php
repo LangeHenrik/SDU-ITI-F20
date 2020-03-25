@@ -1,7 +1,7 @@
 <?php
 
 class ApiController extends Controller {
-	
+
 	public function __construct () {
 		header('Content-Type: application/json');
 		//check api-key?
@@ -10,11 +10,11 @@ class ApiController extends Controller {
 	}
 
 	public function index ($param) {
-		
+
 	}
-	
+
 	public function users () {
-		$users = $this->model('User')->getAll();
+		$users = $this->model('User')->getAllApi();
 		echo json_encode($users, JSON_PRETTY_PRINT);
 	}
 
