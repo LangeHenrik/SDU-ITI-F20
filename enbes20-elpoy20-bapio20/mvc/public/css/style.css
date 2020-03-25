@@ -1,0 +1,331 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+
+body{
+  background-color: #3498db;
+  margin: 0 0 50px 0;
+}
+
+/* Footer (in all pages), fixed when scrolled */
+footer {
+    position: fixed;
+    height: 50px;
+    background-color: #2980b9;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin-bottom: 0px;
+    display:flex;
+}
+
+footer div {
+  flex:1;
+  text-align: center;
+  color: #ecf0f1;
+  margin: auto;
+}
+
+/* Main container for the registration and login page */
+.container {
+  min-width: 35%;
+  max-width: 40%;
+  padding: 8% 0 0;
+  margin: auto;
+  text-align: center;
+}
+
+.title {
+  font-family: 'Montserrat';
+  /* margin: 0 0 15px;*/
+  padding: 15px;
+  color: #ecf0f1;
+  font-size: 1.5em;
+}
+
+.form {
+  position: relative;
+  /*z-index: 1;*/
+  background: #FFFFFF;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.form input {
+  font-family: "Roboto", sans-serif;
+  /*outline: 0;*/
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.form .btn {
+  font-family: "Roboto", sans-serif;
+  background: #3498db;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  cursor: pointer;
+}
+.form .btn:hover,.form .btn:active,.form .btn:focus {
+  background: #2980b9;
+}
+
+
+
+
+/* NAVIGATION BAR (on all pages, auto resize for users on mobile or tablet)*/
+
+.navbar{
+  box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+  position: fixed;
+  background-color: #333;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.navbar li {
+  float: left;
+  border-right: 1px solid #bbb;
+}
+
+/* Logout fixed right */
+.navbar li:last-child {
+  border-right: none;
+}
+
+.navbar li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 16px 16px;
+  text-decoration: none;
+}
+
+
+.navbar li a:hover {
+  background-color: #111;
+}
+
+.navbar ul li.right {
+  float: right;
+}
+
+/* Logo in the navbar */
+.navbar span{
+  font-size: 17px;
+  padding: 12px;
+  color: white;
+}
+
+
+
+
+
+/* Image Feed */
+.container_feed {
+  min-width: 50%;
+  max-width: 100%;
+  padding: 8% 0 0;
+  margin: auto;
+  text-align: center;
+}
+
+.cards-list {
+  margin: 20px auto;
+  z-index: 0;
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.card {
+  margin: 80px auto;
+  width: 300px;
+  height: auto;
+  border-radius: 40px;
+  box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+  transition: 0.4s;
+  background-color: #333;
+  position: relative;
+}
+
+.card .message{
+  margin: 0 auto 35px;
+  padding: 15px;
+  overflow: hidden;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+  text-align: justify;
+  color: #ecf0f1;
+}
+
+.card .messageinfo{
+  width: 80%;
+  margin:16px;
+  overflow: hidden;
+  /* fix the info at the bottom of the card */
+  position:absolute;
+  bottom:0;
+  font-size: 0.7em;
+  word-wrap: break-word;
+}
+
+/* Name of the uploader */
+.card .messageinfo #first {
+    float:left;
+    /* margin: 3px; */
+    max-width: 50%;
+    text-align: left;
+}
+
+/* Date of the upload */
+.card .messageinfo #second {
+    color: #7f8c8d;
+    float: right;
+    /* margin: 3px; */
+    max-width: 50%;
+    text-align: right;
+}
+
+.card .card_image {
+  width: inherit;
+  height: 300px;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+
+}
+
+.card .card_image img {
+  width: inherit;
+  height: inherit;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  object-fit: cover;
+}
+
+.card .card_title {
+  text-align: center;
+  border-radius: 0px 0px 40px 40px;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 25px;
+  margin-top: -80px;
+  height: 40px;
+}
+
+ .card:hover {
+  transform: scale(1.1, 1.1);
+  box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25),
+    -5px -5px 30px 15px rgba(0,0,0,0.22);
+}
+
+.title-white {
+  color: white;
+}
+
+
+.container_userlist {
+  min-width: 35%;
+  max-width: 60%;
+  padding: 8% 0 8%;
+  margin: auto;
+  text-align: center;
+  font-family: 'Montserrat', 'Arial';
+}
+
+.search_field {
+  font-family: 'Montserrat', 'Arial';
+  font-size: 0.9em;
+  color: white;
+}
+
+.user_list{
+/* width: 35%; */
+/* height: 100px;
+margin: auto; */
+}
+
+.user_card{
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.19);
+  padding: 5px 0;
+  background-color: white;
+  /* padding: 8px 16px; */
+  border-bottom: 1px solid #ddd;
+  width: 100%;
+  overflow: hidden;
+  margin: 20px 0;
+  word-wrap: break-word;
+
+}
+
+.user_card ul {
+    list-style-type: none;
+    padding: 3px;
+    margin: 0;
+    font-size: 0.9em;
+    overflow: hidden;
+
+}
+
+
+.container_upload {
+  min-width: 35%;
+  max-width: 60%;
+  padding: 8% 0 0;
+  margin: auto;
+  text-align: center;
+  font-family: 'Montserrat', 'Arial';
+}
+
+.uploadpage #file {
+  height: 120px;
+  border: 4px dashed #95a5a6;
+  padding-top: 50px;
+}
+
+
+/* confirmation message (create account / upload) */
+#verif_ok{
+  color: green;
+  font-weight: bold;
+}
+
+/* Error message (create account / upload) */
+#verif_fail{
+  color: red;
+  font-weight: bold;
+}
+
+
+/* To make the navbar responsive for smaller screen (iphone and tablet)*/
+@media screen and (max-width: 600px) {
+  .navbar ul li.right, .navbar ul li {
+    float: none;
+  }
+  .container{
+    padding-top: 200px;
+  }
+  .container_feed, .container_upload, .container_userlist{
+    padding-top: 300px;
+  }
+
+}

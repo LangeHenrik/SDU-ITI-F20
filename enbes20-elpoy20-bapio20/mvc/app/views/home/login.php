@@ -1,11 +1,24 @@
-<?php include '../app/views/partials/menu.php'; ?>
+<!-- Login form -->
+<div id="main-content" >
+	<div class="container">
+		<div class="title">LOGIN</br></div>
+		<form method="post" action="<?= URL.'home/login' ?>">
+			<div class="form">
+			 <?php
+		         if(isset($viewbag['error'])) {
+		            echo '<p id="verif_fail">'.$viewbag['error']."</p>";
+		         }
+	         ?>
+			  <label for="username"> </label>
+				<input type="text" name="usernameCon" placeholder="Username"/> <br />
 
-<br/>
-You are now logged in!
-<br><br>
-<form method="POST" action="/Exercises/mvc/public/home/logout">
-	<input type="submit" value="log out"/>
-</form>
+				<label for="password"> </label>
+				<input type="password" name="passwordCon" placeholder="Password"/> <br />
 
+				<input type="submit" class="btn" name="formConnexion" value="Connect"/> Create an account - <a href="<?= URL ?>home/register">Sign up </a> <br />
 
-<?php include '../app/views/partials/foot.php'; ?>
+			</div>
+
+		</form>
+	</div>
+</div>

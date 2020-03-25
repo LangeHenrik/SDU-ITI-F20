@@ -7,7 +7,9 @@ class Controller {
 	}
 	
 	public function view($view, $viewbag = []) {
+		include '../app/views/partials/header.php';
 		require_once '../app/views/' . $view . '.php';
+		include '../app/views/partials/footer.php';
 	}
 	
 	public function post () {
