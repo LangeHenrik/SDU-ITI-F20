@@ -47,7 +47,6 @@ class UserController extends Controller
                 if ($this->model('Image')->insertImageByUsername($_SESSION['username'], $image, $title, $description)) {
                     echo 'Picture uploaded';
                     return true;
-                    
                 } else {
                     echo 'Error occured while uploading image';
                     return false;
@@ -58,44 +57,20 @@ class UserController extends Controller
 
     public function imagefeed()
     {
-        $this->view('user/imagefeed_page');
-
-        
-    }
-
-    public function searchImage($searchParameter) {
-        $searchParameter = filter_input(INPUT_GET, 'searchParameter', FILTER_SANITIZE_STRING);
-
         $imageResults = $this->model('Image')->getAllImages();
 
-        $imageData = array();
+        $viewbag['images'] = $imageResults;
 
+        $this->view('user/imagefeed_page', $viewbag);
+    }
 
-        if ($searchParameter !== "" || !empty($searchParameter)) {
-            $searchParameter = strtolower($searchParameter);
-            $searchParameterLength = strlen($searchParameter);
-            echo $searchParameter . " i am here" . $searchParameterLength;
-            foreach ($imageResults as $image) {
-                
-                    $viewbag['imagedata'] = array_push($imageData, $image);
-                    
-                
-            }
-        } else {
-            // get all image data if search did not find anything
-            $viewbag['imagedata'] = $imageResults;
-        }
+    public function searchImage()
+    {
+        $searchParameter = filter_input(INPUT_GET, 'searchParameter', FILTER_SANITIZE_STRING);
 
-        /* foreach ($imageData as $img) {
+        $viewbag['userImages'] = $this->model('Image')->getAllUserImages($searchParameter);
 
-            echo '<div class="imagePost">';
-            echo "<h1>" . $img['title'] . "</h1>";
-            echo "<p>" . $img['description'] . "</p>";
-            echo '<img src="' . $img['image'] . '"/>';
-            echo "<p><i>" . "Posted by: " . $img['username'] . str_repeat('&nbsp;', 2) . " created on: " . $img['creationTime'] . "</i></p>";
-            echo '</div>';
-            echo "<hr>";
-        } */
+        /* $imageData = array(); */
     }
 
     public function userlist()

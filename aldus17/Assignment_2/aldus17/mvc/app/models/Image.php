@@ -56,6 +56,18 @@ class Image extends Database
         }
     }
 
+    public function getAllUserImages($username) {
+        $select_query = 'SELECT username, image, title, description, creationTime
+        FROM user, imagefeed
+        WHERE imagefeed.userID=(SELECT userID FROM user WHERE user.username=:username)
+        ORDER BY creationTime DESC';
+        $prepare_statement = $this->conn->prepare($select_query);
+        $prepare_statement->bindParam(':username', $username);
+        $prepare_statement->execute();
+        $query_result = $prepare_statement->fetchAll();
+        return $query_result;
+    }
+
     public function getAllImages()
     {
         $select_query = 'SELECT username, image, title, description, creationTime

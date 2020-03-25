@@ -1,7 +1,7 @@
 <html>
 
 <head>
-<script src="../js/js.js"></script>
+    <script src="../js/js.js"></script>
 </head>
 
 <body>
@@ -26,6 +26,10 @@
         </div>
 
     <?php else : ?>
+
+        <head>
+            <link rel="stylesheet" href="../css/index_page_style.css">
+        </head>
 
         <?php include_once '../app/views/home/login.php'; ?>
 

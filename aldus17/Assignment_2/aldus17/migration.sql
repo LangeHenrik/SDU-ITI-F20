@@ -40,5 +40,5 @@ CREATE TABLE imagefeed (
 INSERT INTO
 	imagefeed (userID, image, title, description)
 VALUES
-	((SELECT userID FROM user WHERE user.username='willien'),'public/images/cwwBXiMibTY.jpg', 'Motorcycle', 'Ride in the dessert'),
-	((SELECT userID FROM user WHERE user.username='bjarkech'), 'public/images/mxdDX98iMKo.jpg', 'German Shepherd', 'Picture of my dog while on vacation');
+	((SELECT userID FROM user WHERE user.username='willien'),'/aldus17/mvc/public/images/cwwBXiMibTY.jpg', 'Motorcycle', 'Ride in the dessert'),
+	((SELECT userID FROM user WHERE user.username='bjarkech'), '/aldus17/mvc/public/images/mxdDX98iMKo.jpg', 'German Shepherd', 'Picture of my dog while on vacation');

@@ -1,14 +1,4 @@
-* {
-    background: -webkit-linear-gradient(left, #7577FA 20px, transparent 1%) center, -webkit-linear-gradient(#7577FA 20px, transparent 1%) center, #9192FB;
-    background: linear-gradient(90deg, #7577FA 20px, transparent 1%) center, linear-gradient(#7577FA 20px, transparent 1%) center, #9192FB;
-    background-size: 22px 22px;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, Helvetica, sans-serif;
-}
-
+@import 'background.css';
 .inner_login_form_container {
     background: rgba(86, 88, 233, 0.8);
     border-radius: 10px;
