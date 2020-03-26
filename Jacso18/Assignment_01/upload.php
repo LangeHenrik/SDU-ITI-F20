@@ -14,20 +14,7 @@ include 'includes/autoload.php';
 </head>
 
 <body>
-    <nav>
-        <div class="center">
-            <ul class="menu">
-                <li><a href="image_feed.php">Image feed</a></li>
-                <li><a href="upload.php">Upload picture</a></li>
-                <li><a href="user_list.php">Users</a></li>
-                <li>
-                    <form class="logout" method="POST">
-                        <input type="submit" name="logout" id="logout" value="Logout" />
-                    </form>
-                </li>
-            </ul>
-        </div>
-    </nav>
+
     <div class="wrapper">
         <div class="div-form">
             <form class= form id="form" method="POST" enctype="multipart/form-data">

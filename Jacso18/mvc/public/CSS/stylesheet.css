@@ -1,0 +1,219 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: lightgrey;
+    font-family: sans-serif;
+}
+
+/* Menu elements */
+
+nav {
+    top: 0;
+    position: fixed;
+    width: 100%;
+    background-color: lightgrey;
+    margin-bottom: 0px;
+}
+
+ul.menu {
+    background-color: lightgrey;
+    max-width: 100%;
+    min-width: 50%;
+    list-style-type: none;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+div.center {
+    display: table;
+    margin: 0 auto;
+}
+
+li:hover a {
+    color: grey;
+}
+
+li {
+    margin: 0px;
+    float: left;
+}
+
+@media only screen and (min-width: 435px) {
+    li a {
+        display: block;
+        color: white;
+        text-decoration: none;
+        text-align: center;
+        padding: 20px;
+    }
+    form.logout input[type=submit] {
+        border: none;
+        outline: none;
+        background: none;
+        padding: 20px;
+        font-size: 16px;
+        color: white;
+    }
+}
+
+@media only screen and (max-width: 435px) {
+    li a {
+        display: block;
+        color: white;
+        text-decoration: none;
+        text-align: center;
+        padding: 8px;
+        font-size:14px;
+    }
+    form.logout input[type=submit] {
+        border: none;
+        outline: none;
+        background: none;
+        padding: 8px;
+        font-size: 14px;
+        color: white;
+    }
+}
+
+form.logout:hover input {
+    color: grey;
+}
+
+/* End of menu elements */
+
+/* Forms */
+
+div.div-form {
+    max-width: 400px;
+    min-width: 280px;
+    height: auto;
+    background: whitesmoke;
+    color: black;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    padding: 60px;
+    resize: both;
+    box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.75);
+}
+
+div.div-form input {
+    width: 100%;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+div.div-form input[type="text"], input[type="password"] {
+    border: none;
+    border-bottom: 0.5px solid grey;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: black;
+    font-size: 16px;
+}
+
+div.div-form textarea {
+    resize: none;
+    width: 100%;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    border: none;
+    border-bottom: 0.5px solid grey;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: black;
+    font-size: 16px;
+}
+
+div.div-form input[type="submit"] {
+    border: none;
+    outline: none;
+    height: 40px;
+    background: red;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+/* User form end */
+
+/* Image feed start */
+
+div.wrapper {
+    margin-top: 80px;
+    box-sizing: border-box;
+}
+div.search{
+    text-align:center;
+}
+div.search input{
+    margin-bottom: 5px;
+    border:none;
+    outline: none;
+    border-bottom: 0.5px solid grey;
+}
+
+div.post {
+    background: whitesmoke;
+    border-radius: 2px;
+    box-shadow: 0px 0px 1px 1px rgba(184, 175, 184, 0.56);
+    padding-top: 1px;
+    margin-top: 5px;
+    margin: 0 auto;
+    max-width: 600px;
+    min-width: 300px;
+    height: auto;
+    box-sizing: border-box;
+}
+
+div.post h3 {
+    margin-top: 5px;
+}
+
+div.post h3 {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+div.post p {
+    padding-left: 5px;
+    padding-right: 5px;
+    overflow-wrap: break-word;
+}
+
+div.post img {
+    width: 100%;
+}
+
+/* Image feed end */
+
+/* Upload page start */
+
+/* div.wrapper{
+    margin-top: 80px;
+}
+
+div.uploadform{
+    background: whitesmoke;
+    border-radius: 2px;
+    box-shadow: 0px 0px 1px 1px rgba(184,175,184,0.56);
+    margin: 0 auto;
+    width:400px;
+    height:auto;
+    box-sizing: border-box;
+}
+
+form.uploadform{
+    margin: 10px;
+}
+ */
