@@ -14,13 +14,13 @@
 				<label for="username"></label>
 				<input type="text" name="username" placeholder="Username" value="<?php if(isset($username)) { echo $username; } ?>" /> <br />
 				<label for="password"></label>
-				<input type="password" name="password" placeholder="Password"  /> <br />
+				<input type="password" name="password" placeholder="Password" /> <br />
 				<label for="password2"></label>
-				<input type="password" name="password2"  placeholder="Retype password" /> <br />
+				<input type="password" name="password2" placeholder="Retype password" /> <br />
 				<label for="email"></label>
 				<input type="email" name="email" placeholder="Email" value="<?php if(isset($email)) { echo $email; } ?>" /> <br />
-				<input type="submit" class="btn" name="formRegistration" value="Subscribe"/> <br />
-		      </div>
+				<input type="submit" class="btn" name="formRegistration" value="Subscribe" /> <br />
+			</div>
 		</form>
 	</div>
 </div>
