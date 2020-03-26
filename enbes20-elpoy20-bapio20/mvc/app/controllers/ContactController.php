@@ -18,36 +18,46 @@ class ContactController extends Controller {
 	  $viewbag['output_userlist']="";
 	  if ($q === "") {
 	    $res = $this->model('User')->getAll();
-	    while ($row = $res->fetch()){
-	    		$viewbag['output_userlist'] = $viewbag['output_userlist'] . "
-	    		<div class='user_card'>
-	          		<ul class=''>
-			            <li>
-		      				<div>Username : ". $row['username'] ."</div>
-		      			 	<div>Email : ". $row['email'] ."</div>
-			            </li>
-	    			</ul>
-	        	</div>
-	    		";
-	      }
+
+	     //while ($row = $res->fetch()){
+			 $row = $res->fetchAll();
+			 $viewbag['output_userlist'] =  $row;
+
+			// print($row);
+			//	var_dump($row);
+	    // 		$viewbag['output_userlist'] = $viewbag['output_userlist'] . "
+	    // 		<div class='user_card'>
+	    //       		<ul class=''>
+			//             <li>
+		  //     				<div>Username : ". $row['username'] ."</div>
+		  //     			 	<div>Email : ". $row['email'] ."</div>
+			//             </li>
+	    // 			</ul>
+	    //     	</div>
+	    // 		";
+	   //   }
 	  } else {
 	    $res = $this->model('User')->getAll($q);
-	    while ($row = $res->fetch()){
-	    		$viewbag['output_userlist'] = $viewbag['output_userlist'] . "
-	    		<div class='user_card'>
-		          <ul class=''>
-		            <li>
-		              <div>Username : ". $row['username'] ."</div>
-		              <div>Email : ". $row['email'] ."</div>
-		            </li>
-    		      </ul>
-	            </div>
-	    		";
-	      }
-	      echo $viewbag['output_userlist'];
-	      die();
+			$row = $res->fetchAll();
+			$viewbag['output_userlist'] =  $row;
+
+
+	    // while ($row = $res->fetch()){
+	    // 		$viewbag['output_userlist'] = $viewbag['output_userlist'] . "
+	    // 		<div class='user_card'>
+		  //         <ul class=''>
+		  //           <li>
+		  //             <div>Username : ". $row['username'] ."</div>
+		  //             <div>Email : ". $row['email'] ."</div>
+		  //           </li>
+    	// 	      </ul>
+	    //         </div>
+	    // 		";
+	    //   }
+	      //die();
 	  }
 	  $res->closeCursor(); // End the request
 	  $this->view('contacts/index', $viewbag);
 	}
+
 }
