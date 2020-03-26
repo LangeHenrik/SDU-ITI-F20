@@ -11,25 +11,6 @@ class FeedController extends Controller{
 		$row = $res->fetchAll();
 		$viewbag['output_userlist'] =  $row;
 
-		// while ($row = $res->fetch()){
-		// 	$viewbag['output_feed'] .= "
-		// 		<div class='card'>
-		// 			<div class='card_title title-white'>
-		// 				<p>". $row['header'] ."</p>
-		// 			</div>
-		// 			<div class='card_image'>
-		// 				<img src=".$row['image'] ." >
-		// 			</div>
-		// 	        <div class='message'><div>" . $row['description'] ."</div>
-		// 	          <div class='messageinfo'>
-		// 	            <div id='first'><i>Upload by : ".$row['username']."</i></div>
-		//
-		// 	            <div id='second'>".$row['created']."</div>
-		// 	          </div>
-		// 	        </div>
-		// 		</div>
-		// 	";
-		// }
 		$res->closeCursor(); // Finish processing the request
 		$this->view('feed/index', $viewbag);
 	}
