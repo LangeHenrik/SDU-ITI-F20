@@ -11,6 +11,8 @@
 <body>
     <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) : ?>
         <?php include_once '../app/views/partials/menu.php'; ?>
+        <?php include_once '../app/views/partials/uploadStatus.php'; ?>
+
 
         <div id="upload-picture-container" class="upload_picture_container">
             <h1>Upload page</h1>
@@ -30,7 +32,7 @@
 
     <?php else : ?>
 
-
+        <?php include_once '../app/views/partials/restricted.php'; ?>
 
     <?php endif; ?>
 </body>

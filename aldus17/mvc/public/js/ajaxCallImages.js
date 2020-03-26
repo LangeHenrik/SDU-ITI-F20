@@ -10,7 +10,7 @@ function getUserImages(searchParameter) {
 
 
     }
-    ajax.open("GET", "/mvc/public/user/searchImage/" + searchParameter, true);
+    ajax.open("GET", "/aldus17/mvc/public/user/imagefeedSearch/" + searchParameter, true);
     ajax.send();
 }
 

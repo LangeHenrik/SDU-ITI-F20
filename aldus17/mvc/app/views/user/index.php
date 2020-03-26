@@ -23,8 +23,7 @@
         </div>
         <?php include '../app/views/partials/foot.php'; ?>
     <?php else : ?>
-
-
+        <?php include_once '../app/views/partials/restricted.php'; ?>
 
     <?php endif; ?>
 </body>

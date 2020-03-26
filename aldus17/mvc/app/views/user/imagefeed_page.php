@@ -37,7 +37,7 @@
 
     <?php else : ?>
 
-
+        <?php include_once '../app/views/partials/restricted.php'; ?>
 
     <?php endif; ?>
 

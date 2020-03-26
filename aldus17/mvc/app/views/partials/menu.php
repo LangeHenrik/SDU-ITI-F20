@@ -16,7 +16,7 @@
                 <li> <a href="/aldus17/mvc/public/user/imagefeed">Imagefeed</a></li>
                 <li> <a href="/aldus17/mvc/public/user/userlist">Userlist</a></li>
                 <li>
-                    <form method="post" action="/aldus17/mvc/public/home/logout">
+                    <form method="post" action="/mvc/public/home/logout">
                         <div class="inner_container">
                             <button class="logoutbtn" name="logoutbtn" type="submit"><a href="/aldus17/mvc/public/home/logout">log out</a></button>
                         </div>
@@ -27,9 +27,9 @@
 
     <?php else : ?>
 
-        <head>
+        <!-- <head>
             <link rel="stylesheet" href="../css/index_page_style.css">
-        </head>
+        </head> -->
 
         <?php include_once '../app/views/home/login.php'; ?>
 

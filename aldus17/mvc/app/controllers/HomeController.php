@@ -32,34 +32,28 @@ class HomeController extends Controller
 			$_SESSION['logged_in'] = true;
 			$this->view('home/login');*/
 
-		$username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-		$password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+		if (isset($_POST['username']) && isset($_POST['password'])) {
+			$username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+			$password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
-		$userResult = $this->model('User')->getUserByUsername($username);
+			$userResult = $this->model('User')->getUserByUsername($username);
 
+			foreach ($userResult as $user) {
+				if ($user['username'] == $username && password_verify($password, $user['password'])) {
+					$_SESSION['logged_in'] = true;
+					$viewbag['fullname'] = $user['fullname'];
+					$viewbag['username'] = $user['username'];
 
+					$_SESSION['username'] = $user['username'];
+					$_SESSION['fullname'] = $user['fullname'];
 
-		foreach ($userResult as $user) {
-			if ($user['username'] == $username && password_verify($password, $user['password'])) {
-				$_SESSION['logged_in'] = true;
-				$viewbag['fullname'] = $user['fullname'];
-				$viewbag['username'] = $user['username'];
+					$this->view('user/index', $viewbag);
 
-				$_SESSION['username'] = $user['username'];
-				$_SESSION['fullname'] = $user['fullname'];
-
-				$this->view('user/index', $viewbag);
-
-				//header('Location: /mvc/public/home/front_page');
-			} else {
-				$_SESSION['logged_in'] = false;
-
-                echo "<div id='messageWarning'><p>" .
-                    "Username or password is wrong" .
-                    "</p></br> " .
-                    "</div>";
-                exit();
-				
+					//header('Location: /mvc/public/home/front_page');
+				} else {
+					$_SESSION['logged_in'] = false;
+					exit();
+				}
 			}
 		}
 	}
@@ -136,7 +130,6 @@ class HomeController extends Controller
 					"</br> " .
 					"</div>";
 				exit();
-				
 			} else {
 				$this->model('User')->insertUser($username, $fullname, $email, $password);
 				echo "<div id='messageSuccess'>" .
@@ -154,6 +147,11 @@ class HomeController extends Controller
 	public function restricted()
 	{
 		echo 'Welcome - you must be logged in';
+	}
+
+	public function wrongUsernameOrPassword()
+	{
+		$this->view('partials/wrongUsernameOrPassword');
 	}
 
 	public function logout()
