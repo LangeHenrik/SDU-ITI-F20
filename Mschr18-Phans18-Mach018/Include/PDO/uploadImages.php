@@ -28,7 +28,10 @@
         $image_base64 = base64_encode(file_get_contents($_FILES['picupload']['tmp_name'][$i]) );
         $image_base64 = 'data:image/'.$imageFileType.';base64,'.$image_base64;
         $titel = filter_var($_POST["titel"], FILTER_SANITIZE_STRING);
+        $titel = $titel != "" ? $titel : $name;
+        $titel = substr($titel, 0, 20);
         $description = filter_var($_POST["description"], FILTER_SANITIZE_STRING);
+        $description = substr($description, 0, 240);
 
         // Indsæt billede med id, dato, path og base64 string.
         $stmt = $conn->prepare("INSERT INTO picture (username, titel, description, uploaddate, imagename, imagebase64)
