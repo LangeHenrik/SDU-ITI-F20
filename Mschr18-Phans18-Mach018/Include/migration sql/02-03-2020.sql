@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS 'MSchr18-Phans18-Mach018';
-CREATE DATABASE 'MSchr18-Phans18-Mach018';
-USE 'MSchr18-Phans18-Mach018';
+DROP DATABASE IF EXISTS MSchr18_Phans18_Mach018;
+CREATE DATABASE MSchr18_Phans18_Mach018;
+USE MSchr18_Phans18_Mach018;
 
 CREATE TABLE users (
 	userid INT NOT NULL AUTO_INCREMENT,
@@ -13,15 +13,15 @@ CREATE TABLE users (
 );
 
 # 03-03-2020
-ALTER TABLE `iti`.`users` 
+ALTER TABLE `MSchr18_Phans18_Mach018`.`users` 
 ADD UNIQUE INDEX `username_UNIQUE` (`username` ASC) VISIBLE;
 
 # 04-03-2020
-ALTER TABLE `iti`.`users` 
+ALTER TABLE `MSchr18_Phans18_Mach018`.`users` 
 CHANGE COLUMN `passw` `passw` VARCHAR(255) NOT NULL ;
 
 # 04-03-2020
-ALTER TABLE `iti`.`users` 
+ALTER TABLE `MSchr18_Phans18_Mach018`.`users` 
 ADD COLUMN `signup` DATE NOT NULL AFTER `email`;
 
 # 04-03-2020
@@ -30,7 +30,7 @@ CREATE TABLE picture (
     userid INT NOT NULL,
     uploaddate DATE NOT NULL,
     imagename VARCHAR(200) NOT NULL,
-    imagebase64 LONGTEXT NOT NULL,
+    imagebase64 BLOB NOT NULL,
     PRIMARY KEY (picid),
     FOREIGN KEY (userid) REFERENCES users(userid)
 );
@@ -48,9 +48,9 @@ CREATE TABLE picture (
 );
 
 # 09-03-2020
-ALTER TABLE `iti`.`picture` 
+ALTER TABLE `MSchr18_Phans18_Mach018`.`picture` 
 ADD COLUMN `titel` VARCHAR(50) NOT NULL AFTER `username`;
-ALTER TABLE `iti`.`picture` 
+ALTER TABLE `MSchr18_Phans18_Mach018`.`picture` 
 ADD COLUMN `description` VARCHAR(300) NOT NULL AFTER `titel`;
 
 # 09-03-2020
