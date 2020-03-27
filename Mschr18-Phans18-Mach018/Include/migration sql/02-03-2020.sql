@@ -54,7 +54,7 @@ ALTER TABLE `MSchr18_Phans18_Mach018`.`picture`
 ADD COLUMN `description` VARCHAR(240) NOT NULL AFTER `titel`;
 
 # 09-03-2020
--- Adding admin user with username: "admin", and password: "Administrator1!"
+-- Adding admin user with username: admin , and password: Administrator1!
 INSERT INTO users (username, passw, fullname, phone, email, signup) VALUES
 ('admin', '$2y$10$bl48UKL80MWqPTZxu7Fc6OOclpCz/X1gf6ZZa/5/Sf5YGC3kDbOJm', 'Mr. Administrator', '+1234567890', 'admin@mail.dk', NOW());
 
