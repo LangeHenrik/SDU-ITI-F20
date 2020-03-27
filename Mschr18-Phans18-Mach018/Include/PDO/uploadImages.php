@@ -42,8 +42,8 @@
         $stmt = $conn->prepare("INSERT INTO picture (username, titel, description, uploaddate, imagename, imagebase64)
                               VALUES(:username, :titel, :description, NOW(), :imagename, :imagebase64)");
         $stmt->bindParam(':username', $_SESSION["username"]);
-        $stmt->bindParam(':titel', $_POST["titel"]);
-        $stmt->bindParam(':description', $_POST["description"]);
+        $stmt->bindParam(':titel', $_POST["titel"]);                       // Vi bør sanitize her.
+        $stmt->bindParam(':description', $_POST["description"]);           // Vi bør sanitize her.
         $stmt->bindParam(':imagename', $name);
         $stmt->bindParam(':imagebase64', $image_base64);
         $stmt->execute();
@@ -53,7 +53,7 @@
       }
       else
       {
-        echo "<script> console.log('File(s) vere not of correct type'); </script>" ;
+        echo "<script> console.log('File(s) were not of correct type'); </script>" ;
       }
     }
     header('location:../../upload.php');
