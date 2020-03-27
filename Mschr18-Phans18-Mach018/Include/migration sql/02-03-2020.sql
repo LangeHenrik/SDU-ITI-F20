@@ -49,9 +49,9 @@ CREATE TABLE picture (
 
 # 09-03-2020
 ALTER TABLE `MSchr18_Phans18_Mach018`.`picture` 
-ADD COLUMN `titel` VARCHAR(50) NOT NULL AFTER `username`;
+ADD COLUMN `titel` VARCHAR(20) NOT NULL AFTER `username`;
 ALTER TABLE `MSchr18_Phans18_Mach018`.`picture` 
-ADD COLUMN `description` VARCHAR(300) NOT NULL AFTER `titel`;
+ADD COLUMN `description` VARCHAR(240) NOT NULL AFTER `titel`;
 
 # 09-03-2020
 -- Adding admin user with username: "admin", and password: "Administrator1!"
