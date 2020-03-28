@@ -2,7 +2,7 @@
   $searchValue;
   $orderBy;
     if (isset($_GET["searchValue"])) {
-      $searchValue = $_GET["searchValue"];
+      $searchValue = filter_var($_GET["searchValue"], FILTER_SANITIZE_STRING);
     } else {
       $searchValue = NULL;
     }
