@@ -12,13 +12,9 @@ class ApiController extends Controller {
 	public function index ($param) {
 
 	}
-
+	//GET http://localhost:8080/enbes20-elpoy20-bapio20/mvc/public/api/users
 	public function users () {
 		$users = $this->model('User')->getAllApi();
-		echo json_encode($users, JSON_PRETTY_PRINT);
-	}
-	public function images () {
-		$users = $this->model('User')->getImageUserApi();
 		echo json_encode($users, JSON_PRETTY_PRINT);
 	}
 
@@ -33,18 +29,14 @@ class ApiController extends Controller {
 		}
 	}
 
+	//GET http://localhost:8080/enbes20-elpoy20-bapio20/mvc/public/api/pictures/users/{id}
 	public function getPictures($id){
 
 		$pictures = $this->model('Feed')->getImageUserApi($id);
 		echo json_encode($pictures, JSON_PRETTY_PRINT);
 
-		// $user_response_decode = json_decode($id);
-		// $user_id = $user_response_decode[0]->id;
-		// if ($user_id == '')
-		// 		echo '--> not found
-		// ';
-		// 	return $user_id;
 	}
+
 
 
 
