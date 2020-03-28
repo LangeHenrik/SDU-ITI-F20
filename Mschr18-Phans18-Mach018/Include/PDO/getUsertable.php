@@ -16,23 +16,20 @@
     try 
     {
         $stmtString = "SELECT username, fullname, signup FROM users";
-
         if ($searchValue != NULL) {
-          $stmtString .= " WHERE ( username = :username
-                              OR fullname = :fullname";
-          if (DateTime::createFromFormat('Y-m-d', $searchValue) !== FALSE) {
-            $stmtString .=  " OR signup = :signup)";
-          } else {
-            $stmtString .=  ")";
-          }
+          $stmtString .= " WHERE ( username LIKE CONCAT('%', :username, '%')
+                              OR fullname LIKE CONCAT('%', :fullname, '%')
+                              OR signup LIKE CONCAT('%', :signup, '%'))";
         }
-        $stmtString .= " ORDER BY $orderBy;";
+        $stmtString .= " ORDER BY $orderBy " . ($_GET["descCheck"] ?? "") . ";";
 
         $stmt = $conn->prepare($stmtString);
-        $stmt->bindParam(':username', $searchValue);
-        $stmt->bindParam(':fullname', $searchValue);
-        if (DateTime::createFromFormat('Y-m-d', $searchValue) !== FALSE)
-            $stmt->bindParam(':signup', $searchValue);
+
+        if ($searchValue != NULL) {
+          $stmt->bindParam(':username', $searchValue);
+          $stmt->bindParam(':fullname', $searchValue);
+          $stmt->bindParam(':signup', $searchValue);
+        }
 
         $stmt->execute();
         $stmt->setFetchMode(PDO::FETCH_NUM); // FETCH_NUM -> returnerer array indexeret i colonner angivet i tal.
@@ -40,23 +37,22 @@
         $result = $stmt->fetchAll();
     }
     catch(PDOException $e)
-    {
-        echo "<br><p> Connection failed: " . $e->getMessage() . ". code: " . $e->getCode() . "</p>";
-    }
+    { ?>
+        <br><p> Connection failed: <?=$e->getMessage()?><br/>code: <?=$e->getCode()?></p>;
+    <?php }
 
     if (!empty($result)) {
         $rows = count($result);
         $cols = count($result[0]);
-        $echoString = '';
-        for ($i=0; $i < $rows; $i++) {
-            $echoString .= "<tr>";
-            for ($j=0; $j < $cols; $j++) {
-                $echoString .= '<td>' . $result[$i][$j] . '</td>';
-            }
-            $echoString .= "</tr>";
-        }
-        echo $echoString;
+        for ($i=0; $i < $rows; $i++) { ?>
+            <tr>
+            <?php for ($j=0; $j < $cols; $j++) { ?>
+                <td>
+                    <?=$result[$i][$j]?>
+                </td>
+            <?php } ?>
+            </tr>
+        <?php }
     }
-
     $conn = null;
 ?>
