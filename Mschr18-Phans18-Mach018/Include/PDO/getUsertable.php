@@ -24,7 +24,7 @@
         $stmtString .= " ORDER BY $orderBy " . ($_GET["descCheck"] ?? "") . ";";
 
         $stmt = $conn->prepare($stmtString);
-
+        
         if ($searchValue != NULL) {
           $stmt->bindParam(':username', $searchValue);
           $stmt->bindParam(':fullname', $searchValue);

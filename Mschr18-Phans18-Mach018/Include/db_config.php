@@ -1,7 +1,4 @@
 <?php
-    $servername = "localhost";
-    $dbname = "MSchr18_Phans18_Mach018";
-
     if (is_dir("C:\Users\madsw")) 
     {
         $username = "root";
@@ -22,11 +19,12 @@
         // Hej Henrik, skriv dine oplysninger her.
         $username = "root";
         $password = "password";    
-        $servername = "localhost";
-        $dbname = "MSchr18_Phans18_Mach018";
     }
+    $servername = "localhost";
+    $dbname = "MSchr18_Phans18_Mach018";
 
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    // set the PDO error mode to exception
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $options = array(
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+    );
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password, $options);
 ?>
