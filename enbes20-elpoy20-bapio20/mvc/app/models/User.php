@@ -19,6 +19,18 @@ class User extends Database {
 		return $result;
 	}
 
+	public function getUserByIdApi($id){
+
+		$sql = "SELECT id_user, username FROM user WHERE id_user=:id";
+		$stmt = $this->conn->prepare($sql);
+		$stmt->bindParam(':id', $id, PDO::PARAM_INT);
+		$stmt->execute();
+
+		$result=$stmt->fetchAll(PDO::FETCH_ASSOC);
+
+		return $result;
+
+	}
 
 
 	public function getAll ($q = null) {

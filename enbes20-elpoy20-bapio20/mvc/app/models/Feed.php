@@ -17,9 +17,14 @@ class Feed extends Database {
 		$stmt->bindParam(':id', $id, PDO::PARAM_INT);
 		$stmt->execute();
 
-		//$result=$stmt->fetchAll(PDO::FETCH_ASSOC);
-		$result=$stmt->fetchAll(PDO::FETCH_OBJ);
+		$result=$stmt->fetchAll(PDO::FETCH_ASSOC);
+		//$result=$stmt->fetchAll(PDO::FETCH_OBJ);
 
 		return $result;
 	}
+
+	// public function uploadImage($param_array){
+	// 	$stmt= $this->conn->prepare("INSERT INTO images (image, header, description, created, user_id) VALUES ( ?, ?, ?, ?, ?)");
+	//
+	// }
 }
