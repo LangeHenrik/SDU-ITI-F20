@@ -10,7 +10,7 @@ if (isset($_POST['login'])) {
   
   try {
     // Connect and set PDO error to exception
-    $db = new PDO("mysql:host=$DB_SERVER;port=3307;dbname=$DB_DATABASE", $DB_USERNAME, $DB_PASSWORD);
+    $db = new PDO($PDO_CONFIG, $DB_USERNAME, $DB_PASSWORD);
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $sql2 = "SELECT * FROM jumar18_micpe18_mihen13.user WHERE t@t.dk = Email;";
     $sql = "SELECT * FROM jumar18_micpe18_mihen13.user WHERE Email = :Email";

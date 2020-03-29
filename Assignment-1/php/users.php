@@ -41,7 +41,7 @@ if($_SESSION["loggedin"] != 1) {
         require_once 'config.php';
 
         try {
-          $db = new PDO("mysql:host=$DB_SERVER;port=3307;dbname=$DB_DATABASE", $DB_USERNAME, $DB_PASSWORD);
+          $db = new PDO($PDO_CONFIG, $DB_USERNAME, $DB_PASSWORD);
           // set the PDO error mode to exception
           $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
           // selects the data
