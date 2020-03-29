@@ -5,7 +5,7 @@
   require_once('include/db_config.php');
 
   try {
-    $stmtString = "SELECT titel, username, imagebase64, description, uploaddate FROM picture";
+    $stmtString = "SELECT titel, username, imagebase64, description, uploaddate, picid FROM picture";
     if (isset($_POST["myuploads"]) && $_POST["myuploads"]) {
       $stmt = $conn->prepare($stmtString . " WHERE username = :username");
       $stmt->bindParam(':username', $_SESSION['username']);
@@ -18,7 +18,7 @@
     for ($i=0; !empty($imagebase64Pics) && $i < count($imagebase64Pics); $i++)
     {
       ?>
-        <div class="picturecontainer">
+        <div class="picturecontainer" id="<?=$i?>">
           <table>
             <tr>
               <td class="titel">Titel: <?=$imagebase64Pics[$i][0]?></td>
@@ -35,6 +35,13 @@
               <td class="date">Date: <?=$imagebase64Pics[$i][4]?></td>
             </tr>
           </table>
+          <form action="include/PDO/deleteImage.php" method="POST">
+            <input type="hidden" name="deletebtn" value="<?=$imagebase64Pics[$i][5]?>"/>
+          </form>
+          <a  class="deleteBtn" href="#" onclick="this.parentNode.children[1].submit()">
+            <div class="X1"></div>
+            <div class="X2"></div>
+          </a>
         </div>
       <?php
     }
