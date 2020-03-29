@@ -1,10 +1,12 @@
 <?php
-session_start();
+if(session_status() === "PHP_SESSION_NONE") {
+  session_start();
+}
 // Create database connection
 include 'config.php';
 ?>
 
-<?php if($_SESSION["loggedin"] != 1): ?>
+<?php if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"]  != true): ?>
 <div id="menu" class="nav">
   <ul>
     <li><a href="../index.php">Frontpage</a></li>

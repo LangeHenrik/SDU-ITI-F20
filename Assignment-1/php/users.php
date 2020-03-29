@@ -3,7 +3,7 @@ session_start();
 // Create database connection
 include 'config.php';
 
-if($_SESSION["loggedin"] != 1) {
+if($_SESSION["loggedin"] != true) {
     echo("<script>location.href = '/index.php';</script>");
 }
 ?>
