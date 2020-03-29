@@ -6,7 +6,7 @@ if(session_status() === "PHP_SESSION_NONE") {
 include 'config.php';
 ?>
 
-<?php if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"]  != true): ?>
+<?php if(!isset($_SESSION["loggedin"]) && $_SESSION["loggedin"]  != true): ?>
 <div id="menu" class="nav">
   <ul>
     <li><a href="../index.php">Frontpage</a></li>
