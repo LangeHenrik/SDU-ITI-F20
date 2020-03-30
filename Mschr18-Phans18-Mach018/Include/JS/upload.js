@@ -58,34 +58,55 @@ picupload.onchange = function()
   } 
 }
 
-console.log("got in here");
 var picContainers = document.getElementsByClassName("picturecontainer");
 for (x of picContainers) {
-  console.log("got in foreach");
   x.addEventListener("mouseenter", displayCloseBtn );
   x.addEventListener("mouseleave", displayCloseBtn );
 }
 
+var timer;
 function displayCloseBtn(event) {
-  console.log(event);
   var deleteBtn = this.lastChild.previousSibling;
 
   if (event.type == "mouseenter") {
+    clearTimeout(timer);
+    timer = setTimeout( createHoverStyle, 1000);
     deleteBtn.style = "visibility: visible;" 
                     + "opacity: 1;";
   }
-  else
+  else {
+    clearTimeout(timer);
     deleteBtn.style = "visibility: hidden;" 
                     + "opacity: 0;";
+    var delhov = document.getElementById("delhov"); 
+    if (delhov) {
+      var head = document.getElementsByTagName("head")[0];
+      head.removeChild(delhov);
+    }                
+  }
 
   var crosses = deleteBtn.children;
   for (i = 0; i < crosses.length; i++) {
     if (event.type == "mouseenter")
-      crosses[i].style = "transition: all 1s ease-out;"
+      crosses[i].style = "transition: all 1s ease-out 0s;"
                        + "opacity: 1;"
                        + (i==0 ? "transform: translate(7px, 0) rotate(405deg);" 
                                : "transform: translate(7px, -20px) rotate(315deg);");
     else
       crosses[i].style = "opacity: 0;";
   }
+}
+
+function createHoverStyle() {
+    var css = ".deleteBtn:hover{ background: radial-gradient(circle, red 10%, gray 80%);" 
+                              + "transform: scale(1.3); }";
+    var style = document.createElement('style');
+    style.id = "delhov";
+
+    if (style.styleSheet) {
+        style.styleSheet.cssText = css;
+    } else {
+        style.appendChild(document.createTextNode(css));
+    }
+    document.getElementsByTagName("head")[0].appendChild(style);
 }

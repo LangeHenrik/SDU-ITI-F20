@@ -19,29 +19,31 @@
     {
       ?>
         <div class="picturecontainer" id="<?=$i?>">
-          <table>
-            <tr>
-              <td class="titel">Titel: <?=$imagebase64Pics[$i][0]?></td>
-              <td class="byuser">By: <?=$imagebase64Pics[$i][1]?></td>
-            </tr>
-            <tr>
-              <td>
-                <img src= <?=$imagebase64Pics[$i][2]?> alt="<?=$imagebase64Pics[$i][1]?> : <?=$imagebase64Pics[$i][0]?>" >
-              </td>
-              <td class="descripton">Descripton: <br><?=$imagebase64Pics[$i][3]?></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td class="date">Date: <?=$imagebase64Pics[$i][4]?></td>
-            </tr>
-          </table>
-          <form action="include/PDO/deleteImage.php" method="POST">
-            <input type="hidden" name="deletebtn" value="<?=$imagebase64Pics[$i][5]?>"/>
-          </form>
-          <a  class="deleteBtn" href="#" onclick="this.parentNode.children[1].submit()">
-            <div class="X1"></div>
-            <div class="X2"></div>
-          </a>
+            <table>
+                <tr>
+                    <td class="titel">Titel: <?=$imagebase64Pics[$i][0]?></td>
+                    <td class="byuser">By: <?=$imagebase64Pics[$i][1]?></td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src= <?=$imagebase64Pics[$i][2]?> alt="<?=$imagebase64Pics[$i][1]?> : <?=$imagebase64Pics[$i][0]?>" >
+                    </td>
+                  <td class="descripton">Descripton: <br><?=$imagebase64Pics[$i][3]?></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="date">Date: <?=$imagebase64Pics[$i][4]?></td>
+                </tr>
+            </table> 
+            <?php if(isset($_POST["myuploads"]) && $_POST["myuploads"]) { ?> 
+                <form action="include/PDO/deleteImage.php" method="POST">
+                    <input type="hidden" name="deletebtn" value="<?=$imagebase64Pics[$i][5]?>"/>
+                </form>
+                <a  class="deleteBtn" href="#" onclick="this.parentNode.children[1].submit()">
+                    <div class="X1"></div>
+                    <div class="X2"></div>
+                </a>
+            <?php } ?>
         </div>
       <?php
     }

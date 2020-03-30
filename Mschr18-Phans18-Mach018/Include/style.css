@@ -243,10 +243,6 @@ div.picturecontainer:hover {
   background-color: grey;
   transition: all 0.2s ease;
 }
-.deleteBtn:hover {
-  background: radial-gradient(circle, red 10%, gray 80%);
-  transform: scale(1.3);
-}
 .X1, .X2 {
   width: 5px;
   height: 20px;
