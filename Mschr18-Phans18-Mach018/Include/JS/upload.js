@@ -67,22 +67,21 @@ for (x of picContainers) {
 var timer;
 function displayCloseBtn(event) {
   var deleteBtn = this.lastChild.previousSibling;
-
   if (event.type == "mouseenter") {
     clearTimeout(timer);
     timer = setTimeout( createHoverStyle, 1000);
-    deleteBtn.style = "visibility: visible;" 
-                    + "opacity: 1;";
+    deleteBtn.style = "visibility: visible;"
+    this.getElementsByClassName("byuser")[0].style = "padding-right: 25px; width: 215px; transition: all 1s ease-out";
   }
   else {
     clearTimeout(timer);
-    deleteBtn.style = "visibility: hidden;" 
-                    + "opacity: 0;";
+    deleteBtn.style = "visibility: hidden;";
     var delhov = document.getElementById("delhov"); 
     if (delhov) {
       var head = document.getElementsByTagName("head")[0];
       head.removeChild(delhov);
-    }                
+    }
+    this.getElementsByClassName("byuser")[0].style = "padding-right: 0px; width: 240px;";                
   }
 
   var crosses = deleteBtn.children;
