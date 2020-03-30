@@ -5,7 +5,7 @@ function restricted ($controller, $method) {
 							'HomeController' => array('restricted', 'logout'),
 							'FeedController' => array('restricted', 'index', 'upload'),
 							'ContactController' => array('restricted', 'index'),
-							'ApiController' => array('restricted', 'users'),
+							'ApiController' => array(),
 							'ErrorController' => array()
 							);
 	if(isset($_SESSION['id']) && $_SESSION['id'] == true) {
