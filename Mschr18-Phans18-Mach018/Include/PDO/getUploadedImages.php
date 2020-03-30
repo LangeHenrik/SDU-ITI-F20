@@ -21,14 +21,21 @@
         <div class="picturecontainer" id="<?=$i?>">
             <table>
                 <tr>
-                    <td class="titel">Titel: <?=$imagebase64Pics[$i][0]?></td>
-                    <td class="byuser">By: <?=$imagebase64Pics[$i][1]?></td>
+                    <td class="titel" width="200">
+                        Titel: <?=$imagebase64Pics[$i][0]?>
+                    </td>
+                    <td class="byuser" width="240" style="<?=isset($_POST["myuploads"]) && $_POST["myuploads"] ? "padding-right: 25px;" : ""?>">
+                        By: <?=$imagebase64Pics[$i][1]?>
+                    </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td height="170">
                         <img src= <?=$imagebase64Pics[$i][2]?> alt="<?=$imagebase64Pics[$i][1]?> : <?=$imagebase64Pics[$i][0]?>" >
                     </td>
-                  <td class="descripton">Descripton: <br><?=$imagebase64Pics[$i][3]?></td>
+                    <td class="descripton">
+                        Descripton: 
+                        <br><?=$imagebase64Pics[$i][3]?>
+                    </td>
                 </tr>
                 <tr>
                     <td></td>
