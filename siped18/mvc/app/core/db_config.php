@@ -1,4 +1,3 @@
-
 <?php
 class DB_Config {
 	
