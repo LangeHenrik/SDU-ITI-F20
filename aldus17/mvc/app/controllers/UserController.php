@@ -62,6 +62,7 @@ class UserController extends Controller
 
     public function uploadStatus($status)
     {
+        // upload status
 
         if ($status = true) {
             $viewbag['uploadStatus'] = 1;
