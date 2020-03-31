@@ -1,0 +1,49 @@
+body {
+	background-color: lightgrey;
+}
+
+@media only screen and (max-width: 600px) {
+    body {
+        background-color: pink;
+    }
+}
+
+.Menu {
+    text-align: center;
+    height: 100px;
+}
+.Menu li a {
+    display: block;
+    background-color: blue;
+    color: white;
+    padding: 20px;
+    text-decoration: none;
+}
+.Menu li a:hover {
+    background-color: purple;
+}
+.Menu li {
+    float: left;
+    text-decoration: none;
+}
+ul.menu-bar {
+    background-color: lightgrey;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+      
+}
+.content {
+    background-color: rgb(180, 35, 35);
+    text-align: center;
+    margin-top: 0px;
+    
+}
+.image img {
+    max-width: 150px;
+    border-radius: 50px;
+}
+.picture {
+    border: 4px solid rgb(72, 102, 202);
+}
