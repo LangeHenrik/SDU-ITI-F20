@@ -12,7 +12,7 @@ class Router {
 		if(isset($url[0])) {
 			$url[0] = ucfirst($url[0]);
 		}
-
+		
 		if(file_exists('../app/controllers/' . $url[0] . 'Controller.php')) {
 			$this->controller = $url[0] . 'Controller';
 			unset($url[0]);
