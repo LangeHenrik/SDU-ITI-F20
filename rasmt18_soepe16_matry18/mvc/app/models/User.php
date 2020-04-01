@@ -52,4 +52,11 @@ class User extends Database
         }
 
     }
+
+    public function list() {
+        $sql = "SELECT username, user_id FROM user";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
 }
