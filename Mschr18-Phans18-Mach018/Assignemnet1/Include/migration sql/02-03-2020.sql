@@ -2,10 +2,10 @@ DROP DATABASE IF EXISTS Mschr18_Phans18_Mach018;
 CREATE DATABASE Mschr18_Phans18_Mach018;
 USE Mschr18_Phans18_Mach018;
 
-CREATE TABLE users (
+CREATE TABLE user (
 	userid INT NOT NULL AUTO_INCREMENT,
     username VARCHAR(10) NOT NULL,
-    passw VARCHAR(30) NOT NULL,
+    password VARCHAR(30) NOT NULL,
     fullname VARCHAR(100) NOT NULL,
     phone VARCHAR(25) NOT NULL,
     email VARCHAR(320) NOT NULL,
@@ -13,16 +13,16 @@ CREATE TABLE users (
 );
 
 # 03-03-2020
-ALTER TABLE `Mschr18_Phans18_Mach018`.`users` 
+ALTER TABLE `Mschr18_Phans18_Mach018`.`user` 
 ADD UNIQUE INDEX `username_UNIQUE` (`username` ASC) VISIBLE;
 
 # 04-03-2020
-ALTER TABLE `Mschr18_Phans18_Mach018`.`users` 
-CHANGE COLUMN `passw` `passw` VARCHAR(255) NOT NULL ;
+ALTER TABLE `Mschr18_Phans18_Mach018`.`user` 
+CHANGE COLUMN `password` `password` VARCHAR(255) NOT NULL ;
 
 # 04-03-2020
-ALTER TABLE `Mschr18_Phans18_Mach018`.`users` 
-ADD COLUMN `signup` DATE NOT NULL AFTER `email`;
+ALTER TABLE `Mschr18_Phans18_Mach018`.`user` 
+ADD COLUMN `signup_date` DATE NOT NULL AFTER `email`;
 
 # 04-03-2020
 CREATE TABLE picture (
@@ -32,7 +32,7 @@ CREATE TABLE picture (
     imagename VARCHAR(200) NOT NULL,
     imagebase64 BLOB NOT NULL,
     PRIMARY KEY (picid),
-    FOREIGN KEY (userid) REFERENCES users(userid)
+    FOREIGN KEY (userid) REFERENCES user(userid)
 );
 
 # 08-03-2020
@@ -44,7 +44,7 @@ CREATE TABLE picture (
     imagename VARCHAR(200) NOT NULL,
     imagebase64 LONGTEXT NOT NULL,
     PRIMARY KEY (picid),
-    FOREIGN KEY (username) REFERENCES users(username)
+    FOREIGN KEY (username) REFERENCES user(username)
 );
 
 # 09-03-2020
@@ -55,7 +55,7 @@ ADD COLUMN `description` VARCHAR(240) NOT NULL AFTER `titel`;
 
 # 09-03-2020
 -- Adding admin user with username: admin , and password: Administrator1!
-INSERT INTO users (username, passw, fullname, phone, email, signup) VALUES
+INSERT INTO user (username, password, fullname, phone, email, signup_date) VALUES
 ('admin', '$2y$10$bl48UKL80MWqPTZxu7Fc6OOclpCz/X1gf6ZZa/5/Sf5YGC3kDbOJm', 'Mr. Administrator', '+1234567890', 'admin@mail.dk', NOW());
 
 -- Vi havde problem med at forbinde til databasen indtil vi kørte følgende

@@ -9,7 +9,7 @@
     $result;
     try 
     {
-        $stmtString = "SELECT username FROM users  WHERE ( username = :newusername)";
+        $stmtString = "SELECT username FROM user WHERE ( username = :newusername)";
 
         $stmt = $conn->prepare($stmtString);
         $stmt->bindParam(':newusername', $newusername);

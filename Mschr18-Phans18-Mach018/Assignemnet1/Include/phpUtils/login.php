@@ -16,7 +16,7 @@ try
           "password" => filter_var($_POST["password"], FILTER_SANITIZE_STRING)); // Remove all characters except letters, digits and !#$%&'*+-=?^_`{|}~@.[].
 
     // Indset ny bruger.
-    $stmt = $conn->prepare("SELECT username, passw, fullname FROM users WHERE username = :username");
+    $stmt = $conn->prepare("SELECT username, password, fullname FROM user WHERE username = :username");
     $stmt->bindParam(':username', $inputArr["username"]);
     $stmt->execute();
     $stmt->setFetchMode(PDO::FETCH_NUM); // FETCH_NUM -> returnerer array indexeret i colonner angivet i tal.                                         // Andre return methoder er beskrevet her: https://www.php.net/manual/en/pdostatement.fetch.php

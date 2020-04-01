@@ -15,7 +15,7 @@
     $result;
     try 
     {
-        $stmtString = "SELECT username, fullname, signup FROM users";
+        $stmtString = "SELECT username, fullname, signup_date FROM user";
         if ($searchValue != NULL) {
           $stmtString .= " WHERE ( username LIKE CONCAT('%', :username, '%')
                               OR fullname LIKE CONCAT('%', :fullname, '%')
