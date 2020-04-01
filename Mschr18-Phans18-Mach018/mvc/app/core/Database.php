@@ -8,7 +8,7 @@ class Database extends DB_Config {
 	
 	public function __construct() {
 		try {
-			
+			parent::__construct();
 			$this->conn = new PDO("mysql:host=$this->servername;dbname=$this->dbname",
 			$this->username,
 			$this->password,
