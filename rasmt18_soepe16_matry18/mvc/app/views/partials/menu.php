@@ -8,6 +8,7 @@
     <body>
         <div class="Menu">
             <ul class=menu-bar>
+
                 <li><a href="/rasmt18_soepe16_matry18/mvc/public/Home/">Frontpage</a></li>
                 <li><a href="/rasmt18_soepe16_matry18/mvc/public/Home/register">Registration</a></li>
                 <?php if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']) : ?>

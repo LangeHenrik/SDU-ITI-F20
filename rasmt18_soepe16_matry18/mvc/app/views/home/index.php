@@ -1,12 +1,11 @@
 <?php include '../app/views/partials/menu.php'; ?>
     <div class="content">
-        <script src="./javascript/Menu.js"></script>
         <h1>ITI - Assignment 2</h1>
         <p>Group Members</p>
         <ul>
             <li>Mathias Tryggedsson</li>
             <li>Rasmus Thomsen</li>
-            <li>Søren Pederson</li>
+            <li>Søren Pedersen</li>
         </ul>
         <b>Login credentials for Henrik</b>
         <br>
