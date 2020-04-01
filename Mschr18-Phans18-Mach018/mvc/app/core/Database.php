@@ -13,6 +13,7 @@ class Database extends DB_Config {
 			$this->username,
 			$this->password,
 			array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+			echo "<br><br> content of conn: " . ($this->conn == null ? "true" : "false") . "<br><br>";
 			
 		} catch (PDOException $e) {
 			echo "Error: " . $e->getMessage();

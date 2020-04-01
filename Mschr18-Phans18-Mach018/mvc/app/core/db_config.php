@@ -28,7 +28,6 @@ class DB_Config {
 			$this->$username = "root";
 			$this->$password = "martins login";
 		}
-
 	}
 	
 }
