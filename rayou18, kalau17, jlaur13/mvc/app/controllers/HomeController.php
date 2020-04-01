@@ -26,13 +26,21 @@ class HomeController extends Controller {
 			$this->view('home/login');
 		}
 	}
+
+    public function signup($username,$password,$repeat_password) {
+        if($this->model('User')->signup($username,$password,$repeat_password)) {
+            $this->view('partials/signup_form');
+        }
+    }
+
+
 	
 	public function logout() {
 		
 		
 		//if($this->post()) {
 			session_unset();
-			header('Location: /Exercises/mvc/public/home/loggedout');
+			header('Location: /rayou18,%20kalau17,%20jlaur13/mvc/public/home/loggedout');
 		//} else {
 		//	echo 'You can only log out with a post method';
 		//}

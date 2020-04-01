@@ -2,7 +2,7 @@
 class User extends Database {
 	
 	public function login($username){
-		$sql = "SELECT username, password FROM users WHERE username = :username";
+		$sql = "SELECT username, password FROM user WHERE username = :username";
 		
 		$stmt = $this->conn->prepare($sql);
 		$stmt->bindParam(':username', $username);
@@ -17,16 +17,21 @@ class User extends Database {
 		return true;
 	}
 
+    public function signup($username,$password){
+
+	    return true;
+    }
+
+
+
 	public function getAll () {
-
-		$sql = "SELECT username FROM users";
-
+		$sql = "SELECT username FROM user";
 		$stmt = $this->conn->prepare($sql);
 		$stmt->execute();
-
 		$result = $stmt->fetchAll();
-
 		return $result;
 	}
+
+
 
 }
