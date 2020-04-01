@@ -21,7 +21,7 @@
         $password = "password";    
     }
     $servername = "localhost";
-    $dbname = "MSchr18_Phans18_Mach018";
+    $dbname = "Mschr18_Phans18_Mach018";
 
     $options = array(
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
