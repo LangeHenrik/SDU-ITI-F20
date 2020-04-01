@@ -1,17 +1,16 @@
 function getUserImages(searchParameter) {
 
-    var ajax = new XMLHttpRequest();
+    var xmlhttp = new XMLHttpRequest();
 
 
-    ajax.onreadystatechange = function() {
+    xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById("imagefeed").innerHTML = this.responseText;
         };
 
-
     }
-    ajax.open("GET", "/aldus17/mvc/public/user/imagefeedSearch/" + searchParameter, true);
-    ajax.send();
+    xmlhttp.open("GET", "/aldus17/mvc/app/services/searchImages.php?searchParameter=" + searchParameter, true);
+    xmlhttp.send();
 }
 
 document.addEventListener("DOMContentLoaded", function() {

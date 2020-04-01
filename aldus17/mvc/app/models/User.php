@@ -1,23 +1,9 @@
 <?php
+
+
+
 class User extends Database
 {
-
-    /*public function login($username){
-		$sql = "SELECT username, password FROM users WHERE username = :username";
-		
-		$stmt = $this->conn->prepare($sql);
-		$stmt->bindParam(':username', $username);
-		$stmt->execute();
-
-		$result = $stmt->fetch(); //fetchAll to get multiple rows
-
-		print_r($result);
-
-
-		//todo: make an actual login function!!
-		return true;
-	}*/
-
     public function insertUser($username, $fullname, $email,  $password)
     {
         $insert_query = 'INSERT INTO user (username, fullname, email, password) VALUES (:username, :fullname, :email, :password)';

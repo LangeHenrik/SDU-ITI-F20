@@ -22,9 +22,12 @@ class UserController extends Controller
     public function upload()
     {
         $this->view('user/upload_page');
+        $viewbag = array();
+
 
         $title = filter_input(INPUT_POST, "title", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         $description = filter_input(INPUT_POST, "description", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $_SESSION['uploadMessage'] = 0;
 
         if (isset($_POST['uploadbtn'])) {
 
@@ -53,82 +56,27 @@ class UserController extends Controller
                 header("refresh:1;url=/aldus17/mvc/public/user/upload");
                 //header('Location: /aldus17/mvc/public/user/uploadStatus/true');
                 echo 'Picture uploaded';
+                $_SESSION['uploadMessage'] = 1;
+                
             } else {
                 //header('Location: /aldus17/mvc/public/user/uploadStatus/false');
                 echo 'Error occured while uploading image, make sure it is in "jpg", "jpeg", "png", "gif"';
+                header("Location: /aldus17/mvc/public/user/upload");
+                $_SESSION['uploadMessage'] = 2;
             }
-        }
-    }
 
-    public function uploadStatus($status)
-    {
-        // upload status
-
-        if ($status = true) {
-            $viewbag['uploadStatus'] = 1;
-            $this->view('user/upload');
-        } else {
-            $viewbag['uploadStatus'] = 0;
-            $this->view('user/upload');
+            
+            
         }
+        
+        
     }
 
     public function imagefeed()
     {
-        $imageResults = $this->model('Image')->getAllImages();
-
-        $viewbag['images'] = $imageResults;
-
         $this->view('user/imagefeed_page');
+        $this->model('Image')->getAllImages();
     }
-
-    public function imagefeedSearch($searchParameter)
-    {
-
-
-        $imageResults = $this->model('Image')->getAllImages();
-
-        if (isset($_GET['searchParameter'])) {
-
-            $searchParameter = filter_input(INPUT_GET, 'searchParameter', FILTER_SANITIZE_STRING);
-
-            //$viewbag['userImages'] = $this->model('Image')->getAllUserImages($searchParameter);
-
-            $imageData = array();
-            $viewbag = array();
-
-
-            if ($searchParameter !== "" || !empty($searchParameter)) {
-                $searchParameter = strtolower($searchParameter);
-                $searchParameterLength = strlen($searchParameter);
-                foreach ($imageResults as $image) {
-                    if (stristr($searchParameter, substr($image['username'], 0, $searchParameterLength))) {
-                        array_push($viewbag['images'], $image);
-                        $this->view('user/imagefeed_page', $viewbag);
-                    }
-                }
-            } else {
-                // get all image data if search did not find anything
-                $viewbag['images'] = $viewbag['userImages'];
-                $this->view('user/imagefeed_page', $viewbag);
-            }
-
-
-
-            /* foreach ($imageData as $img) {
-
-                echo '<div class="imagePost">';
-                echo "<h1>" . $img['title'] . "</h1>";
-                echo "<p>" . $img['description'] . "</p>";
-                echo '<img src="' . $img['image'] . '"/>';
-                echo "<p><i>" . "Posted by: " . $img['username'] . str_repeat('&nbsp;', 2) . " created on: " . $img['creationTime'] . "</i></p>";
-                echo '</div>';
-                echo "<hr>";
-            } */
-        }
-    }
-
-    /* $imageData = array(); */
 
 
     public function userlist()

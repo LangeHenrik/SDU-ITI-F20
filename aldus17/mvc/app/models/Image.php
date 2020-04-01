@@ -1,4 +1,7 @@
 <?php
+
+require_once $_SERVER['DOCUMENT_ROOT'] . '/aldus17/mvc/app/core/Database.php';
+
 class Image extends Database
 {
 

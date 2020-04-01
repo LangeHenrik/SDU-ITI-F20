@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/upload_page_style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <script src="../js/uploadUtility.js"></script>
     <html lang="en">
 </header>
 
 <body>
     <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) : ?>
         <?php include_once '../app/views/partials/menu.php'; ?>
-        <?php include_once '../app/views/partials/uploadStatus.php'; ?>
+
 
 
         <div id="upload-picture-container" class="upload_picture_container">
@@ -23,11 +24,23 @@
                 <br>
                 <div class="upload-btn-wrapper">
                     <button class="choosefilebtn">Choose image to upload</button>
-                    <input type="file" id="imageToBeUploaded" class="imageToBeUploaded" name="imageToBeUploaded" required />
+                    <input type="file" id="imageToBeUploaded" class="imageToBeUploaded" name="imageToBeUploaded" onchange="loadFile(event)" required />
+                    <br>
+                    <img id="output" width="500" />
                 </div>
-                <br>
+               	
+                <p> The only allowed formats are "jpg", "jpeg", "png", "gif"</p>
                 <input type="submit" name="uploadbtn" id="uploadbtn" class="uploadbtn" value="Upload image" />
             </form>
+
+            <?php
+            if ($_SESSION['uploadMessage'] == 1) {
+                echo '<h4>Uploaded picture successfully</h4>';
+            } elseif ($_SESSION['uploadMessage'] == 2) {
+                echo '<h4> Error while uploading picture, picture must be either jpg, jpeg, png or gif format</h4>';
+            } else {
+            }
+            ?>
         </div>
 
     <?php else : ?>
