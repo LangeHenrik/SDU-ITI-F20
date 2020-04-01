@@ -3,6 +3,7 @@
         <title>ITI - Assignment 2</title>
         <script src="../js/js.js"></script>
         <script src="../js/regExRegistration.js"></script>
+        <script src="../js/ajax.js"></script>
         <link rel="stylesheet" href="../css/styling.css">
     </head>
     <body>
