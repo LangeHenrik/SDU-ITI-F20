@@ -17,7 +17,7 @@ class DB_Config {
 		{
 			$this->username = "root";
 			$this->password = "mysql";
-			}
+		}
 		else if (is_dir("C:\Users\Peter Hansen"))
 		{
 			$this->username = "root";
