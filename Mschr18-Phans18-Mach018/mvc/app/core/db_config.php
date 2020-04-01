@@ -3,31 +3,30 @@ class DB_Config {
 
 	// Hej Henrik, skriv dine oplysninger her.
 	protected $username = "root";
-	protected $password = "password";
+	protected $password = "passw";
 	protected $servername = "localhost";
 	protected $dbname = "Mschr18_Phans18_Mach018";
 
 	protected function __construct() {
-
 		if (is_dir("C:\Users\madsw"))
 		{
-			$username = "root";
-			$password = "password";
+			$this->username = "root";
+			$this->password = "password";
 		}
 		else if (is_dir("/Users/peterhansen"))
 		{
-			$username = "root";
-			$password = "mysql";
+			$this->$username = "root";
+			$this->$password = "mysql";
 		}
 		else if (is_dir("C:\Users\Peter Hansen"))
 		{
-			$username = "root";
-			$password = "mysql";
+			$this->$username = "root";
+			$this->$password = "mysql";
 		}
 		else if (is_dir("C:\Users\martin"))
 		{
-			$username = "root";
-			$password = "martins login";
+			$this->$username = "root";
+			$this->$password = "martins login";
 		}
 
 	}
