@@ -58,6 +58,6 @@ ADD COLUMN `description` VARCHAR(240) NOT NULL AFTER `titel`;
 INSERT INTO users (username, passw, fullname, phone, email, signup) VALUES
 ('admin', '$2y$10$bl48UKL80MWqPTZxu7Fc6OOclpCz/X1gf6ZZa/5/Sf5YGC3kDbOJm', 'Mr. Administrator', '+1234567890', 'admin@mail.dk', NOW());
 
--- Vi havde problem med at forbinde til databsen indtil vi kørte følgende
+-- Vi havde problem med at forbinde til databasen indtil vi kørte følgende
 # ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password'; 
 -- Hvor password er det password du vil bruge til db'en.
