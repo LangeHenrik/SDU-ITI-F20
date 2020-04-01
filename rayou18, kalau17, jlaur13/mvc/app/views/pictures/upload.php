@@ -1,15 +1,20 @@
-<?php include '../app/views/partials/menu.php'; ?>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<?php include "../partials/header.php" ?>
+<?php include "../partials/menu.php" ?>
 
-<!--    Hello there, --><?//=$viewbag['username']?>
-    <form>
+<?php
+if(POST){
+    echo yes;
+}
+?>
+
+    <form method="POST" enctype = "multipart/form-data">
         <div class="form-group">
             <label for="exampleInputTitle">Title</label>
-            <input type="text" class="form-control" id="exampleInputTitle" aria-describedby="TitleHelp" placeholder="Enter title">
+            <input type="text" class="form-control" name="header" id="exampleInputTitle" aria-describedby="TitleHelp" placeholder="Enter title">
         </div>
         <div class="form-group">
             <label for="exampleInputPicture">Picture</label>
-            <input type="file" class="form-control" id="exampleInputPicture" placeholder="Picture">
+            <input type="file" class="form-control" name="file" id="exampleInputPicture" placeholder="Picture">
         </div>
         <div class="form-group">
             <label for="exampleInputDescription">Description for picture:</label>
@@ -18,4 +23,4 @@
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 
-<?php include '../app/views/partials/foot.php'; ?>
+<?php include "../partials/foot.php" ?>
