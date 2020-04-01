@@ -1,6 +1,6 @@
-  <?php
-    include_once('header.php');
-  ?>
+<?php
+  include_once('header.php');
+?>
 
     <section id="content">
       <h1 id="title">Sign up to </h1> <?php include_once('Include/phpUtils/chalkbord.php') ?>
