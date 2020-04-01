@@ -50,6 +50,7 @@ class User extends Database
     public function list() {
         $sql = "SELECT username, user_id FROM user";
         $stmt = $this->conn->prepare($sql);
+        $stmt->setFetchMode(PDO::FETCH_ASSOC); //for at få associative array
         $stmt->execute();
         return $stmt->fetchAll();
     }
