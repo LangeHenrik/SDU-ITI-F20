@@ -1,24 +1,29 @@
 <?php
 class User extends Database {
 	
-	public function login($username){
-		$sql = "SELECT username, password FROM user WHERE username = :username";
-		
-		$stmt = $this->conn->prepare($sql);
-		$stmt->bindParam(':username', $username);
-		$stmt->execute();
+	public function login($username_input, $password_input){
 
-		$result = $stmt->fetch(); //fetchAll to get multiple rows
+        $sql ="SELECT username,password FROM user WHERE username=:username;";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':username',$username_input,PDO::PARAM_STR);
+        $stmt->execute();
+        $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-		print_r($result);
+        foreach ($data as $row) {
+            if($row['username'] == $username_input && password_verify($password_input,$row['password'])){
+              return true;
+            }
+        }
 
-
-		//todo: make an actual login function!!
-		return true;
+		return false;
 	}
 
-    public function signup($username,$password){
-
+    public function signup($username,$hashed_password){
+        $stmt = $this->conn->prepare("INSERT INTO user (username,password) values(:username,:password);");
+        //$stmt->execute();
+        $stmt->bindParam(':username',$username, PDO::PARAM_STR);
+        $stmt->bindParam(':password',$hashed_password, PDO::PARAM_STR);
+        $stmt->execute();
 	    return true;
     }
 

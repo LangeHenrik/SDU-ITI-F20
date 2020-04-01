@@ -28,7 +28,7 @@
           <p>Must match your first password entry</p>
         </div>
         <input id="signup_btn" class="buttons" type="submit" name="button" value="Submit">
-        <input type="submit" class="buttons" action="" value="Login Instead">
+        <input type="submit" type="submit" class="buttons" action="" value="Login Instead">
       </form>
     </div>
   </div>

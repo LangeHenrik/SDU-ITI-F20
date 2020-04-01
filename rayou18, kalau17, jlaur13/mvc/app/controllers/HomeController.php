@@ -20,17 +20,42 @@ class HomeController extends Controller {
 		echo 'Welcome - you must be logged in';
 	}
 	
-	public function login($username) {
-		if($this->model('User')->login($username)) {
-			$_SESSION['logged_in'] = true;
-			$this->view('home/login');
-		}
+	public function login() {
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        $username_input = filter_var($_POST["username"],FILTER_SANITIZE_STRING);
+        $password_input = filter_var($_POST["password"],FILTER_SANITIZE_STRING);
+
+            if($this->model('User')->login($username_input,$password_input)) {
+			    $_SESSION['logged_in'] = true;
+                $_SESSION['username'] = $username_input;
+                $this->view('home/index');
+		    }
+            else{
+                $this->view('partials/login_form');
+            }
+        }
+
+        if($_SERVER['REQUEST_METHOD'] == 'GET'){
+            $this->view('partials/login_form');
+        }
 	}
 
-    public function signup($username,$password,$repeat_password) {
-        if($this->model('User')->signup($username,$password,$repeat_password)) {
+
+    public function signup() {
+	    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+	        $username_input_sanitized = filter_var($_POST["username"],FILTER_SANITIZE_STRING);
+            $password_input = filter_var($_POST["password"],FILTER_SANITIZE_STRING);
+            $repeatPassword = filter_var($_POST["repeat_password"],FILTER_SANITIZE_STRING);
+            $password_hash = password_hash($password_input, PASSWORD_BCRYPT);
+
+	        $this->model('User')->signup($username_input_sanitized,$password_hash);
+	        $this->view('partials/signup_form');
+
+        }
+        if($_SERVER['REQUEST_METHOD'] == 'GET'){
             $this->view('partials/signup_form');
         }
+
     }
 
 

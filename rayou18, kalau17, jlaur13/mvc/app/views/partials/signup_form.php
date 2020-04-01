@@ -6,14 +6,14 @@
     <meta charset="utf-8">
     <title>Signup</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-   <link rel="stylesheet" href="\rayou18, kalau17, jlaur13\mvc\public\styles\signupform_style.css">
+   <link rel="stylesheet" href="/rayou18, kalau17, jlaur13/mvc/public/styles/signupform_style.css">
   </head>
   <body>
 
   <div class="container">
     <div class="signup">
       <h2 id="form-name">Sign Up</h2>
-      <form onkeyup="return program()" action="../../../public/home/signup" method="post">
+      <form onkeyup="return program()" action="/rayou18, kalau17, jlaur13/mvc/public/Home/signup" method="post">
         <div class="form-group">
           <label for="username"><i class="fas fa-user"></i></label>
           <input id="usernameInput" type="text" name="username" placeholder="Your Username" required>
@@ -29,12 +29,12 @@
           <input id="repeatPasswordInput" type="password" name="repeat_password" placeholder="Repeat your password" required>
           <p>Must match your first password entry</p>
         </div>
-        <input id="signup_btn" class="buttons" type="submit" name="button" value="Submit">
-        <input type="submit" class="buttons" action="" value="Login Instead">
+        <input  type="submit" id="signup_btn" class="buttons"  name="button" value="Submit">
+        <input   class="buttons" action="" value="Login Instead">
       </form>
     </div>
   </div>
 
-  <script src="\rayou18, kalau17, jlaur13\mvc/public\js\signup_script.js" type="text/javascript"></script>
+  <script src="/rayou18, kalau17, jlaur13/mvc/public/js/signup_script.js" type="text/javascript"></script>
   </body>
 </html>
