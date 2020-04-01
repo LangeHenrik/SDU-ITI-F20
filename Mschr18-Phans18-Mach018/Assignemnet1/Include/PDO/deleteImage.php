@@ -9,8 +9,8 @@
     if( isset( $_POST["deletebtn"] ) )
     {
       $picid = filter_var( $_POST["deletebtn"], FILTER_SANITIZE_NUMBER_INT );
-      echo "what is in deleteBtn? $picid";
-      
+      //echo "what is in deleteBtn? $picid";
+
       $stmt = $conn->prepare("DELETE FROM picture WHERE picid = :picid AND username = :username ;");
       $stmt->bindParam(':username', $_SESSION["username"]);
       $stmt->bindParam(':picid', $picid);

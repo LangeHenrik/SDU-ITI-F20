@@ -11,7 +11,6 @@
     }
     else if (is_dir("/Users/peterhansen"))
 		{
-      echo "<script> console.log('Hello world!''); </script>";
 			$username = "root";
 			$password = "mysql";
 		}
