@@ -18,9 +18,9 @@
     <header>
       <?php
         if( isset($_SESSION['logged_in']) && ($_SESSION['logged_in']) ) {
-          include_once('Include/phpUtils/navMain.php');
+          include_once('navMain.php');
         } else {
-          include_once('Include/phpUtils/navLogin.php');
+          include_once('navLogin.php');
         }
       ?>
     </header>
