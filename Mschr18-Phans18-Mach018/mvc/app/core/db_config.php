@@ -5,7 +5,7 @@ class DB_Config {
 	protected $username = "root";
 	protected $password = "password";    
 	protected $servername = "localhost";
-	protected $dbname = "MSchr18_Phans18_Mach018";
+	protected $dbname = "Mschr18_Phans18_Mach018";
 	
 	protected function __construct() {
 
