@@ -29,22 +29,21 @@ class Image extends Database {
         <div class='image'>
         
         <?php 
-
             foreach ($result as $row) {
                 $header = htmlentities($row['header']);
                 $description = htmlentities($row['description']);
                 $username = htmlentities($row['username']);
                 $img = htmlentities($row['img']);
         ?>
-            <div class='picture'><b>Title of the image:</b> <p> <?=$header?> </p>
+            <div class='picture'><b>Title of the image:</b><p><?=$header?></p>
             <br>
-            <b>Description:</b> <p> <?=$description?> <p>
+            <b>Description:</b><p><?=$description?><p>
             <br>
-            <b>Contributer:</b> <p> <?=$username?> <p>
+            <b>Contributer:</b><p><?=$username?><p>
             <br>
             <b>Image:</b>
             <br>
-            <img src= '<?=$img?>' alt=''></img>
+            <img src='<?=$img?>' alt=''></img>
             <br></div>
         <?php
             }
