@@ -3,9 +3,8 @@
 class HomeController extends Controller {
 	
 	public function index ($param) {
-		//This is a proof of concept - we do NOT want HTML in the controllers!
-		echo '<br><br>Home Controller Index Method<br>';
-		echo 'Param: ' . $param . '<br><br>';
+
+        $this->view('home/index');
 	}
 	
 	public function other ($param1 = 'first parameter', $param2 = 'second parameter') {
@@ -32,7 +31,7 @@ class HomeController extends Controller {
 		
 		//if($this->post()) {
 			session_unset();
-			header('Location: /Exercises/mvc/public/home/loggedout');
+			header('Location: /kivin18/mvc/public/home/loggedout');
 		//} else {
 		//	echo 'You can only log out with a post method';
 		//}
