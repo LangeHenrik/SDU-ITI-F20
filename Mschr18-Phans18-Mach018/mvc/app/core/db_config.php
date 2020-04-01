@@ -2,8 +2,8 @@
 class DB_Config {
 
 	// Hej Henrik, skriv dine oplysninger her.
-	protected $username = "root";
-	protected $password = "passw";
+	protected $username = "";
+	protected $password = "";
 	protected $servername = "localhost";
 	protected $dbname = "Mschr18_Phans18_Mach018";
 
