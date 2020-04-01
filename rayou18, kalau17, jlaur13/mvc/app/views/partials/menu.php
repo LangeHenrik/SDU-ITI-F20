@@ -12,21 +12,6 @@
 <!---->
 <?php //endif; ?>
 
-<!--<nav class="navbar navbar-expand-sm bg-dark navbar-dark navbar-static-top navbar-toggler">-->
-<!--    <a class="navbar-brand" href="#">Index</a>-->
-<!--    <ul class="navbar-nav mr-auto">-->
-<!--         <li class="nav-item">-->
-<!--            <a class="nav-link" href="#">Upload Image</a>-->
-<!--        </li>-->
-<!--        <li class="nav-item">-->
-<!--            <a class="nav-link" href="#">Image Feed</a>-->
-<!--        </li>-->
-<!--        <li class="nav-item">-->
-<!--            <a class="nav-link" href="#">Login</a>-->
-<!--        </li>-->
-<!--    </ul>-->
-<!--</nav>-->
-
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div class="mx-auto order-0">
         <a class="navbar-brand" href="#">Menu</a>
