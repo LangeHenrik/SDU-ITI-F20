@@ -19,7 +19,7 @@
         if ($searchValue != NULL) {
           $stmtString .= " WHERE ( username LIKE CONCAT('%', :username, '%')
                               OR fullname LIKE CONCAT('%', :fullname, '%')
-                              OR signup LIKE CONCAT('%', :signup, '%'))";
+                              OR signup_date LIKE CONCAT('%', :signup_date, '%'))";
         }
         $stmtString .= " ORDER BY $orderBy " . ($_GET["descCheck"] ?? "") . ";";
 
@@ -28,7 +28,7 @@
         if ($searchValue != NULL) {
           $stmt->bindParam(':username', $searchValue);
           $stmt->bindParam(':fullname', $searchValue);
-          $stmt->bindParam(':signup', $searchValue);
+          $stmt->bindParam(':signup_date', $searchValue);
         }
 
         $stmt->execute();
