@@ -17,4 +17,9 @@ class ImageController extends Controller {
         $_SESSION['username'], $_POST['image']);
 
     }
+
+    public function loadImages() {
+        $this->model('Image')->loadImagesFromModel();
+
+    }
 }

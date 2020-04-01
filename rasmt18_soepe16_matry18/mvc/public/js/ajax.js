@@ -3,7 +3,7 @@ function getImage(){
     var img_id = 1;
 // Initialize the HTTP request.
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'getImage.php');
+    xhr.open('GET', '/rasmt18_soepe16_matry18/mvc/public/Image/loadImages');
     var divid = document.getElementById('content');
 // Track the state changes of the request.
     xhr.onreadystatechange = function () {

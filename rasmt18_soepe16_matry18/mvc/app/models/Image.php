@@ -21,4 +21,32 @@ class Image extends Database {
 
     }
 
+    public function loadImagesFromModel() {
+        $stmt = $conn->prepare("Select * from image");
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        ?>
+        <div class='image'>
+        
+        <?php 
+            foreach ($result as $row) {
+        ?>
+            <div class='picture'><b>Title of the image:</b> <p> <?php $row[header] ?> </p>
+            <br>
+            <b>Description:</b> <p> <?php $row[description] ?> <p>
+            <br>
+            <b>Contributer:</b> <p> <?php $row[username] ?> <p>
+            <br>
+            <b>Image:</b>
+            <br>
+            <img src= '<?php $row[img]?>' alt=''></img>
+            <br></div>
+        <?php
+            }
+        ?>
+        </div>
+        <?php
+    }
+
 }
+?>
