@@ -24,7 +24,7 @@ try
     $stmt = $conn->prepare("INSERT INTO user (username, password, fullname, phone, email, signup_date)
                            VALUES (:username, :passw, :fullname, :phone, :email, now());");
     $stmt->bindParam(':username', $inputArr["username"]);
-    $stmt->bindParam(':password', $inputArr["passw"]);
+    $stmt->bindParam(':password', $inputArr["password"]);
     $stmt->bindParam(':fullname', $inputArr["fullname"]);
     $stmt->bindParam(':phone', $inputArr["phone"]);
     $stmt->bindParam(':email', $inputArr["email"]);
