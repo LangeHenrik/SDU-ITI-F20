@@ -2,6 +2,11 @@
 
 class UploadController extends Controller {
 
+    public function index () {
+        $this->view('upload');
+
+    }
+
 
     public function uploadPictures(){
         $name = 'kasper';
