@@ -15,18 +15,18 @@ class DB_Config {
 		}
 		else if (is_dir("/Users/peterhansen"))
 		{
-			$this->$username = "root";
-			$this->$password = "mysql";
+			$this->username = "root";
+			$this->password = "mysql";
 		}
 		else if (is_dir("C:\Users\Peter Hansen"))
 		{
-			$this->$username = "root";
-			$this->$password = "mysql";
+			$this->username = "root";
+			$this->password = "mysql";
 		}
 		else if (is_dir("C:\Users\martin"))
 		{
-			$this->$username = "root";
-			$this->$password = "martins login";
+			$this->username = "root";
+			$this->password = "martins login";
 		}
 	}
 	
