@@ -29,5 +29,5 @@ class DB_Config {
 			$this->password = "martins login";
 		}
 	}
-
+	
 }
