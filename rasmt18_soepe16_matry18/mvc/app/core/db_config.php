@@ -1,10 +1,13 @@
 <?php
 class DB_Config {
 	
-	protected $servername = 'localhost';
-	protected $username = 'rodsur';
-	protected $password = 'password';
-	protected $dbname = 'rasmt18_soepe16_matry18';
+	//protected $servername = 'localhost'; 			//Søren
+	//protected $username = 'rodsur'; 				// Søren
+	protected $password = 'password'; 				//Søren, Rasmus
+	protected $dbname = 'rasmt18_soepe16_matry18'; 	//Alle
+
+	protected $servername = '127.0.0.1'; 			// Rasmus
+	protected $username = 'rasmt18';				// Rasmus
 
 }
 	

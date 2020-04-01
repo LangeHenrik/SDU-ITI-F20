@@ -9,7 +9,12 @@ class ImageController extends Controller {
     }
 
     public function upload(){
-
+        
         $this->view('image/upload');
+    }
+    public function uploadImage() {
+        $this->model('Image')->upload($_POST['header'],$_POST['description'], 
+        $_SESSION['username'], $_POST['image']);
+
     }
 }
