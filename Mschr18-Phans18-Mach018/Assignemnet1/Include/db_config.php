@@ -1,5 +1,5 @@
 <?php
-    if (is_dir("C:\Users\madsw")) 
+    if (is_dir("C:\Users\madsw"))
     {
         $username = "root";
         $password = "password";
@@ -9,16 +9,22 @@
         $username = "root";
         $password = "mysql";
     }
+    else if (is_dir("/Users/peterhansen"))
+		{
+      echo "<script> console.log('Hello world!''); </script>";
+			$username = "root";
+			$password = "mysql";
+		}
     else if (is_dir("C:\Users\martin"))
     {
         $username = "root";
         $password = "martins login";
     }
-    else 
+    else
     {
         // Hej Henrik, skriv dine oplysninger her.
         $username = "root";
-        $password = "password";    
+        $password = "password";
     }
     $servername = "localhost";
     $dbname = "MSchr18_Phans18_Mach018";

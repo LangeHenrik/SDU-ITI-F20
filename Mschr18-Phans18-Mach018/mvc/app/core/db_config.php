@@ -1,18 +1,23 @@
 <?php
 class DB_Config {
-	
+
 	// Hej Henrik, skriv dine oplysninger her.
 	protected $username = "root";
-	protected $password = "password";    
+	protected $password = "password";
 	protected $servername = "localhost";
 	protected $dbname = "Mschr18_Phans18_Mach018";
-	
+
 	protected function __construct() {
 
-		if (is_dir("C:\Users\madsw")) 
+		if (is_dir("C:\Users\madsw"))
 		{
 			$username = "root";
 			$password = "password";
+		}
+		else if (is_dir("/Users/peterhansen"))
+		{
+			$username = "root";
+			$password = "mysql";
 		}
 		else if (is_dir("C:\Users\Peter Hansen"))
 		{
@@ -35,6 +40,3 @@ class DB_Config {
 */
 
 }
-	
-	
-	
