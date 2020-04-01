@@ -21,5 +21,3 @@ function getImage(){
 // Send the request to send-ajax-data.php
     xhr.send(null);
 }
-
-getImage();

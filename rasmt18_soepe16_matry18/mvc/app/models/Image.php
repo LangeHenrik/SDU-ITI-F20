@@ -22,7 +22,7 @@ class Image extends Database {
     }
 
     public function loadImagesFromModel() {
-        $stmt = $conn->prepare("Select * from image");
+        $stmt = $this->conn->prepare("Select * from image");
         $stmt->execute();
         $result = $stmt->fetchAll();
         ?>
