@@ -18,13 +18,7 @@ class User extends Database
         if ($result['username'] == $username && password_verify($password, $result['password'])) {
             $_SESSION['username'] = $username;
             return true;
-        } else {
-
         }
-        print_r($result);
-
-
-        //todo: make an actual login function!!
         return false;
     }
 

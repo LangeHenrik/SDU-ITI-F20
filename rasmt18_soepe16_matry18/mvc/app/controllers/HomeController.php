@@ -22,13 +22,17 @@ class HomeController extends Controller {
 	}
 	
 	public function login() {
-        //TODO tjek post før check af variabler
-		if($this->post() && $this->model('User')->login($_POST['username'], $_POST['password'])) {
-			$_SESSION['logged_in'] = true;
-			header('Location: /rasmt18_soepe16_matry18/mvc/public/Image/index');
-		} else {
-		    $this->view('home/login');
+        if (isset($_POST['username']) && isset($_POST['password'])){
+            $username = $_POST['username'];
+            $password = $_POST['password'];
+            if($this->post() && $this->model('User')->login($username, $password)) {
+                $_SESSION['logged_in'] = true;
+                header('Location: /rasmt18_soepe16_matry18/mvc/public/Image/index');
+            }
+        } else {
+            $this->view('home/login');
         }
+
 	}
 	
 	public function logout() {
@@ -50,7 +54,6 @@ class HomeController extends Controller {
         } else {
             $this->view('home/register');
         }
-
     }
 	
 }
