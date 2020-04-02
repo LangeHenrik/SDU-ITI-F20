@@ -6,4 +6,10 @@
 .wrapper {
     text-align: center;
     margin: 0 auto;
+    padding: 50px;
+}
+
+.form-control {
+    width: 25%;
+    margin: 0 auto;
 }
