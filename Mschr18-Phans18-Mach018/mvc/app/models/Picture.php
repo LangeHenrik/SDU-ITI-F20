@@ -1,32 +1,34 @@
 <?php
-class User extends Database {
+class Picture extends Database {
 	
-	public function login($username){
-		$sql = "SELECT username, password FROM user WHERE username = :username";
-		
-		$stmt = $this->conn->prepare($sql);
-		$stmt->bindParam(':username', $username);
+	// Returns all pictures uploaded by the user.
+	public function getMyPictures($username){
+		$stmtString = "SELECT titel, username, imagebase64, description, uploaddate, picid FROM picture";
+
+		if (isset($_POST["myuploads"]) && $_POST["myuploads"]) {
+			$stmt = $conn->prepare($stmtString . " WHERE username = :username");
+			$stmt->bindParam(':username', $_SESSION['username']);
+		}
 		$stmt->execute();
-
-		$result = $stmt->fetch(); //fetchAll to get multiple rows
-
-		print_r($result);
-
-
-		//todo: make an actual login function!!
-		return true;
+		$stmt->setFetchMode(PDO::FETCH_NUM);
+		return $stmt->fetchAll();
 	}
 
+	// Gets all pictures uploaded by all users
 	public function getAll () {
-
-		$sql = "SELECT username FROM user";
-
-		$stmt = $this->conn->prepare($sql);
+		$stmtString = "SELECT titel, username, imagebase64, description, uploaddate, picid FROM picture";
+		$stmt = $conn->prepare($stmtString);
 		$stmt->execute();
+		$stmt->setFetchMode(PDO::FETCH_NUM);
+		return $stmt->fetchAll();
+	}
 
-		$result = $stmt->fetchAll();
+	public function deletePicture($picid) {
 
-		return $result;
+	}
+
+	public function uploadPicture() {
+		
 	}
 
 }
