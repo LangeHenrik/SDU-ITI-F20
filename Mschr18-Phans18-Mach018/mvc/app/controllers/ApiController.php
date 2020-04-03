@@ -18,6 +18,9 @@ class ApiController extends Controller {
 		echo json_encode($users, JSON_PRETTY_PRINT);
 	}
 
+	public function error401() {
+		// TODO
+	}
 
 
 }

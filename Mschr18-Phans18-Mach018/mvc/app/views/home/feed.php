@@ -7,7 +7,8 @@
       <div class="feed" id="feed">
 
         <?php
-          include_once('include/PDO/getUploadedImages.php');
+          
+          //include_once('include/PDO/getUploadedImages.php');
         ?>
         
       </div>
