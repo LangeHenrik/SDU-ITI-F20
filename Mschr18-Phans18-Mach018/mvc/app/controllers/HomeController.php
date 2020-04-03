@@ -26,7 +26,7 @@ class HomeController extends Controller {
 	public function feed () {
 		$picture = $this->model('Picture');
 		$viewbag['pictures'] = $picture->getAll();
-		$this->view('user_content/feed', $viewbag);
+		$this->view('home/feed', $viewbag);
 	}
 
 	public function other ($param1 = 'first parameter', $param2 = 'second parameter') {
@@ -42,7 +42,7 @@ class HomeController extends Controller {
 	}
 
 	public function restricted () {
-		echo 'Welcome - you must be logged in';
+		$this->view('home/401');
 	}
 
 	// login is only available with post method. 
@@ -71,7 +71,7 @@ class HomeController extends Controller {
 		}
 	}
 
-	public function error401() {
+	public function page401() {
 		$this->view('home/401');
 	}
 

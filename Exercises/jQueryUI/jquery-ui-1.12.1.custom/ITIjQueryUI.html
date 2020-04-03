@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <link href="jquery-ui.css" rel="stylesheet">
+        <title>ITI jQuery UI Examples</title>
+    </head>
+    <body>
+
+        <div id="slider"></div>    
+
+        <div id="progressbar"></div>  
+
+        <script src="external/jquery/jquery.js"></script>
+        <script src="jquery-ui.js"></script>
+
+        <script>
+
+            $( "#slider" ).slider({
+                range: true,
+                values: [ 17, 67 ]
+            });
+
+
+            $( "#progressbar" ).progressbar({
+                value: 20
+            });
+
+
+            $('#slider')
+                .mouseup(function() {
+                    myfunction();
+            });
+
+            $('#slider')
+                .blur(function() {
+                    myfunction();
+            });
+
+            function myfunction() { $('#progressbar').progressbar({ value: $('#slider').slider("option", "values")[1]-$('#slider').slider("option", "values")[0] }); }
+
+            myfunction();
+
+        </script>
+
+
+    </body>
+</html>
