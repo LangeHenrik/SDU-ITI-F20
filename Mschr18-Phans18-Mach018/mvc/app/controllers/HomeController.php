@@ -10,8 +10,8 @@ class HomeController extends Controller {
 		$this->view('home/index');
 	}
 
-	// createUser is only available with post method. 
-	public function createUser() {
+	// createUser is only available with post method.
+	public function createUser () {
 		$viewbag = $this->post();
 		if ($viewbag) {
 			$this->model('User', $viewbag);
@@ -41,13 +41,9 @@ class HomeController extends Controller {
 
 	}
 
-	public function restricted () {
-		$this->view('home/401');
-	}
-
-	// login is only available with post method. 
+	// login is only available with post method.
 	public function login() {
-		$loginCredentials = $this->post(); 
+		$loginCredentials = $this->post();
 		if ($loginCredentials) {
 			if($this->model('User')->login($loginCredentials)) {
 				$_SESSION['logged_in'] = true;

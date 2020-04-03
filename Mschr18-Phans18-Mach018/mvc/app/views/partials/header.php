@@ -1,8 +1,3 @@
-<?php
-  if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-  }
-?>
 <!DOCTYPE html><html>
   <head>
     <title>ChalkBoard</title>
@@ -24,6 +19,11 @@
   </head>
   <!--Comment-->
   <body>
+    <?php
+      //echo "Controller: " . $_SESSION['controller'] . "</br>";
+      echo "Method: " .$_SESSION['method'] . "</br>";
+      echo "Params: " .$_SESSION['method'] . "</br>";
+    ?>
     <header>
       <?php
         if( isset($_SESSION['logged_in']) && ($_SESSION['logged_in']) ) {
