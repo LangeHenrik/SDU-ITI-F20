@@ -7,21 +7,19 @@ class HomeController extends Controller {
 		//This is a proof of concept - we do NOT want HTML in the controllers!
 		//echo '<br><br>Home Controller Index Method<br>';
 		//echo 'Param: ' . $param . '<br><br>';
-		$this->view('home/index', $viewbag);
+		$this->view('home/index');
 	}
 
 	// Feed page is added in restrictions
 	public function feed () {
 		$picture = $this->model('Picture');
-
+		$viewbag['pictures'] = $picture->getAll();
+		$this->view('user_content/feed', $viewbag);
 	}
 
 	public function other ($param1 = 'first parameter', $param2 = 'second parameter') {
 		$user = $this->model('User');
-		print_r($user);
 		$user->name = $param1;
-		echo "<br>";
-		print_r($user);
 		$viewbag['username'] = $user->name;
 		//$viewbag['pictures'] = $this->model('pictures')->getUserPictures($user);
 		$this->view('home/index', $viewbag);
