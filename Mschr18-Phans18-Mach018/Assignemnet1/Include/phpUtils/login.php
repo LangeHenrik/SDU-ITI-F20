@@ -15,7 +15,6 @@ try
     array("username" => filter_var($_POST["username"], FILTER_SANITIZE_STRING), // Strip tags, optionally strip or encode special characters.
           "password" => filter_var($_POST["password"], FILTER_SANITIZE_STRING)); // Remove all characters except letters, digits and !#$%&'*+-=?^_`{|}~@.[].
 
-    // Indset ny bruger.
     $stmt = $conn->prepare("SELECT username, password, fullname FROM user WHERE username = :username");
     $stmt->bindParam(':username', $inputArr["username"]);
     $stmt->execute();
