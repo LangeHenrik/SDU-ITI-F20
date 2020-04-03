@@ -2,7 +2,7 @@
   include_once('../app/views/partials/header.php');
 ?>
     <section id="content">
-        <h1 id="title">Welcomme to </h1> <?php include_once('../app/views/partials/chalkbordlogo.php') ?>
+        <h1 id="title">Welcomme to </h1> <?php include('../app/views/partials/chalkbordlogo.php') ?>
         <div class="welcomme" id="welcomme">
           <h2><i class="fas fa-user-friends fa-xs"></i> Connect widt you friends.</h2>
           <h2><i class="fas fa-image fa-xs"></i> Post images.</h2>

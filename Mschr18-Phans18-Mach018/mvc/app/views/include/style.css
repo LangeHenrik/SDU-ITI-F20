@@ -1,367 +1,50 @@
 /* general */
 body {
   background-color: #bbb;
-  margin: 5px;
 }
-section#content{
-  height: calc(100% - 220px) ;;
-  background-color: #333;
-  color: #ddd;
-  margin: 15px 0;
-  padding: 10px;
-  border: 3px solid black;
-  border-radius: 7px;
-  overflow: auto;
-}
-section#content a {
-  color: #ddd;
-  text-decoration: underline;
-}
-
-/* chalkbord logo */
-div.chalkboard {
-  display: inline-block;
-  margin-left: 5px;
-}
-div.chalkboard h1 {
-  margin: 5px 0;
-}
-div.chalkboard h3 {
-  margin-top: -10px;
-  margin-left: 60px;
-}
-section#content h1#title {
-  float: left;
-  margin: 5px 0;
-  margin-left: 10px;
-}
-
-/* top nav */
 nav {
   background-color: gray;
-  border-radius: 7px;
-  padding: 5px 10px;
 }
-nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
+.navbar-light .navbar-nav .nav-link{
+  color: rgba(0,0,0,0.7);
+  font-weight: bold;
 }
-nav li {
-  float: left;
+.navbar-light .navbar-nav .nav-link:hover{
+  color: rgba(255,255,255,0.7);
 }
 nav li:last-child {
     float: right;
 }
-nav a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-nav a:hover {
-  background-color: #999;
-}
-nav form {
-  padding: 14px 16px;
-  margin: 0;
-}
-nav form label {
-  color: white;
-  text-align: center;
-  display: inline;
-  padding-right: 5px;
-}
-/* mainnav */
-nav.mainnav {
-}
-/* loginnav */
-@media only screen and (max-width: 840px) {
-  nav.loginnav form  {
-    display: none;
-  }
-}
 @media only screen and (max-width: 620px) {
-  nav li:last-child {
+  nav linav-item:last-child {
       float: left;
   }
-  nav ul {
-    width: 300px;
-    margin: 0 auto;
-  }
 }
 
-/* frontpage coontent */
-div.welcomme h2 {
+
+/* chalkbord logo */
+div.chalkboard {
+  display: inline-block;
+}
+div.chalkboard h1.brand {
+  display: inline-block;
+  font-size: 24px ;
+  font-weight: bold;
   margin: 5px 0;
-  margin-left: 30px;
 }
-div.welcomme form {
-  display: none;
+div.chalkboard h1.icon {
+  margin: 0 -5px 10px;
 }
-@media only screen and (max-width: 840px) {
-  div.welcomme form {
-    display: block;
-    margin: 10px 0 0 50px;
-  }
-  div.welcomme form input{
-    margin: 10px 0;
-    display: block;
-  }
-}
-
-/* registration content */
-div.registration form {
-  margin-left: 30px;
-}
-div.registration label {
-  width: 200px;
-  display: inline-block;
-}
-div.registration p.valid {
-  color: #FAA;
-  display: inline-block;
-  margin: 0;
-  float: right;
-}
-div.registration input {
-  margin-bottom: 20px;
-  width: 200px;
-}
-div.registration input#signup {
-  margin-left: 20px;
-  width: auto;
-}
-div.registration p.info {
-  display: inline-block;
-  margin: 0;
-  margin-left: 30px;
-}
-@media only screen and (max-width: 800px) {
-  div.registration p.info {
-    display: inherit;
-    margin: 0;
-  }
-  div.registration input {
-    margin-bottom: 0;
-  }
-}
-
-/* upload contetn */
-div.upload {
-  margin: 0 20px;
-}
-div.select {
-  background-color: #ccc;
-  color: #000;
-  padding: 20px;
-  border-radius: 7px;
-  margin-bottom: 20px;
-}
-div.upload h4 {
-  margin: -15px 0 10px -15px;;
-}
-div.upload input {
-  display: block;
-}
-div.upload input#picupload {
-  border-bottom: 1px solid black;
-  max-width: 250px;
-}
-div.upload form {
-  min-width: 250px;
-  display: inline-block;
-  vertical-align: top;
-}
-div#preview {
-  width: calc(100% - 280px);
-  max-width: 600px;
-  margin-left: 20px;
-  min-height: 200px;
-  border: 2px dashed #999;
-  border-radius: 7px;
-  display: inline-block;
-}
-div#preview img {
-  max-width: 100%;
-  max-height: 200px;
-  border-radius: 5px;
-  margin: 0 auto;;
-  display: block;
-}
-div#preview p {
-  background-color: #999;
-  border-radius: 5px;
-  padding: 10px 0;
-  width: 100%;
-  text-align: center;
-  word-wrap: break-word;
-  display: block;
-  margin: 0 auto;
-}
-@media only screen and (max-width: 800px) {
-  div#preview {
-    display: block;
-    float: none;
-    min-height: 300px;
-    min-width: 250px;
-    margin-left: 0;
-  }
-}
-
-div.myuploads h4 {
-  color: #ddd;
-  margin: 0;
-  margin-bottom: 10px;
-}
-div.picturecontainer {
-  width: 450px;
-  height: 220px;
-  background-color: gray;
-  border-radius: 7px;
-  display: inline-block;
-  float: left;
-  margin: 0 15px 15px 0;
-  padding: 5px;
-  transition: all .2s ease-out;
-  overflow: hidden;
-}
-div.picturecontainer:hover {
-  transform: scale(1.05);
-}
-
-.deleteBtn {
-  position: absolute; 
-  top: 5px; 
-  right: 5px; 
-  width: 20px; 
-  height: 20px;
-  transition: all 0.2s ease;
-}
-.X1, .X2 {
-  width: 5px;
-  height: 20px;
-  background-color: black;
-  border-radius: 5px;
-  opacity: 0;
-}
-.X1 {
-  transform: translate(-550px, 0) rotate(90deg);
-}
-.X2 {
-  transform: translate(7px, 310px);
-}
-
-div.picturecontainer table {
-  color: white;
-}
-div.picturecontainer td.descripton {
-  vertical-align: top;
-}
-div.picturecontainer td.byuser,
-div.picturecontainer td.date {
+div.chalkboard h2.version {
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: -10px;
   text-align: right;
-}
 
-div.picturecontainer img {
-  max-height: 170px;
-  max-width: 200px;
-  border-radius: 5px;
-}
-
-/* user content */
-div.users form,
-div.users table {
-  margin: 5px 0;
-  margin-left: 30px;
-  color:  #ddd;
-  text-align: left;
-}
-div.users table {
-  margin-top: 30px;
-  border-spacing: 0px;
-  width: 410px;
-}
-div.users form br {
-  display: none;
-}
-div.users select#orderBy {
-  width: 104px;
-}
-div.users th,
-div.users td {
-  border: 1px solid #ddd;
-  padding: 5px;
-  font-weight: 400;
-}
-div.users th {
-  font-weight: 600;
-  background-color: gray;
-}
-@media only screen and (max-width: 600px) {
-  div.users table {
-    width: auto;
-  }
-  div.users form br {
-    display: block;
-  }
 }
 
 
-/* footer */
-footer div.assignment {
-  background-color: gray;
-  border-top-left-radius: 7px;
-  border-top-right-radius: 7px;
-  margin-bottom: 0;
-  color: white;
-  text-align: center;
-  padding: 0 auto;
-}
-footer div.assignment p {
-  margin: 0;
-  padding: 10px 0;
-}
-footer div.Participants {
-  background-color: gray;
-  border-bottom-left-radius: 7px;
-  border-bottom-right-radius: 7px;
-  margin-top: 0;
-  color: white;
-}
-footer ul {
-  display: flex;
-  align-items: stretch;
-  justify-content: space-between;
-  width: 80%;
-  list-style-type: none;
-  margin: 0 auto;
-  padding: 0;
-  padding-bottom: 10px;
-  overflow: hidden;
-
-}
-footer  li {
-  float: left;
-}
-
-/* Unauthorized */
-div.Unauthorized h1,
-div.Unauthorized h2 {
-  text-align: center;
-}
-div.Unauthorized a {
-  color: #333;
-  font-weight: 600;
-}
-div.Unauthorized form {
-  display: block;
-  width: 175;
-  margin: 0 auto;
-}
-div.Unauthorized form input{
-  margin: 10px 0;
-  display: block;
+/* font awsome */
+form .fa-user {
+    margin: 0 1px;
 }
