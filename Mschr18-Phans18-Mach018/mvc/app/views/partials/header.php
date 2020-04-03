@@ -14,7 +14,7 @@
     <!-- OBS Bootstrap Style in fotter -->
 
     <!-- lokal stylesheet-->
-    <link rel="stylesheet" type="text/css" href="<?= URL.'css/style.css' ?>">
+    <link rel="stylesheet" type="text/css" href="/Mschr18-Phans18-Mach018/mvc/public/css/style.css">
 
   </head>
   <!--Comment-->
