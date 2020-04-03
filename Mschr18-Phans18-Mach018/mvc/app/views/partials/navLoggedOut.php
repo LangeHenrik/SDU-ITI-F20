@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light ">
-  <a class="navbar-brand" href="#">
+  <a class="navbar-brand" href="Home">
     <?php include('../app/views/partials/chalkbordlogo.php') ?>
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

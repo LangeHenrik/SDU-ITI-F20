@@ -1,4 +1,4 @@
-<form class="form-inline" method="post" action="Include/phpUtils/login.php" >
+<form class="form-inline my-2 my-lg-0" method="post" action="Include/phpUtils/login.php" >
   <label class="sr-only" for="usernameInput">Username</label>
   <div class="input-group mr-sm-2">
     <div class="input-group-prepend">
