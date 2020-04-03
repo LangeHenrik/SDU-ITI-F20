@@ -5,6 +5,10 @@ body {
 nav {
   background-color: gray;
 }
+.navbar-light .navbar-toggler  {
+  margin-left: 10px;
+  padding: 0 8px !important;
+}
 .navbar-light .navbar-nav .nav-link{
   color: rgba(0,0,0,0.7);
   font-weight: bold;
@@ -16,8 +20,25 @@ nav {
   padding: 0;
   margin: -20px 10px -20px 0;
 }
-@media only screen and (max-width: 620px) {
-
+.custom-nav-collapse-show,
+.custom-nav-collapse {
+  display: none;
+}
+nav .form-inline {
+  margin: 0;
+}
+@media only screen and (max-width: 990px) {
+  .custom-nav-collapse {
+    display: inline;
+  }
+}
+@media only screen and (max-width: 760px) {
+  .custom-nav-collapse {
+    display: none;
+  }
+  .custom-nav-collapse-show {
+    display: block;
+  }
 }
 
 

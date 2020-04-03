@@ -11,9 +11,12 @@
           <h2>Please login or <a href="registration.php">sign up <i class="fas fa-user-plus fa-s"></i></a></h2>
 
 
-          <?php
-            include('../app/views/partials/loginform.php');
-           ?>
+          <form class="orm-group custom-nav-collapse-show" method="post" action="Include/phpUtils/login.php" >
+            <?php
+              include('../app/views/partials/loginFormContent.php');
+             ?>
+           </form>
+
         </div>
     </section>
 

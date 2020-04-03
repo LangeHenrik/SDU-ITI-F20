@@ -21,10 +21,6 @@
   <body>
     <header>
       <?php
-        if( isset($_SESSION['logged_in']) && ($_SESSION['logged_in']) ) {
-          include_once('navLoggedIn.php');
-        } else {
-          include_once('navLoggedOut.php');
-        }
+        include_once('navbar.php');
       ?>
     </header>
