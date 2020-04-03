@@ -2,7 +2,7 @@
 
 class HomeController extends Controller {
 
-	// Main page / homepage
+	// Main / home / default - page.
 	public function index ($param) {
 		//This is a proof of concept - we do NOT want HTML in the controllers!
 		//echo '<br><br>Home Controller Index Method<br>';
@@ -10,6 +10,7 @@ class HomeController extends Controller {
 		$this->view('home/index');
 	}
 
+	// createUser is only available with post method. 
 	public function createUser() {
 		$viewbag = $this->post();
 		if ($viewbag) {
@@ -44,22 +45,30 @@ class HomeController extends Controller {
 		echo 'Welcome - you must be logged in';
 	}
 
-	public function login($username) {
-		if($this->model('User')->login($username)) {
-			$_SESSION['logged_in'] = true;
-			$this->view('home/login');
+	// login is only available with post method. 
+	public function login() {
+		$loginCredentials = $this->post(); 
+		if ($loginCredentials) {
+			if($this->model('User')->login($loginCredentials)) {
+				$_SESSION['logged_in'] = true;
+				$this->view('home/feed');
+			}
+			else {
+				// Failed to login
+			}
+		}
+		else {
+			// You can only log in with a post method
 		}
 	}
 
 	public function logout() {
-
-
-		//if($this->post()) {
+		if($this->post()) {
 			session_unset();
 			header('Location: /Mschr18-Phans18-Mach018/mvc/public/home');
-		//} else {
-		//	echo 'You can only log out with a post method';
-		//}
+		} else {
+			// You can only log in with a post method.
+		}
 	}
 
 	public function error401() {

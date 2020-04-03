@@ -1,23 +1,39 @@
 <?php
 class User extends Database {
 	
-	public function login($username){
-		$sql = "SELECT username, password FROM user WHERE username = :username";
-		
-		$stmt = $this->conn->prepare($sql);
-		$stmt->bindParam(':username', $username);
-		$stmt->execute();
+	public function login($loginCredentials) {
+		try 
+		{
+			$username = filter_var($loginCredentials["username"], FILTER_SANITIZE_STRING); // Strip tags, optionally strip or encode special characters.
+			$password = filter_var($loginCredentials["password"], FILTER_SANITIZE_STRING); // Remove all characters except letters, digits and !#$%&'*+-=?^_`{|}~@.[].
+			
+			// Are either username or password empty?
+			if (!$username || !$password) {
+				return false;
+			}
 
-		$result = $stmt->fetch(); //fetchAll to get multiple rows
+			$stmt = $conn->prepare("SELECT password, fullname FROM user WHERE username = :username");
+			$stmt->bindParam(':username', $username);
+			$stmt->execute();
+			$stmt->setFetchMode(PDO::FETCH_ASSOC); // FETCH_NUM -> returnerer array indexeret i colonner angivet i tal.                                         // Andre return methoder er beskrevet her: https://www.php.net/manual/en/pdostatement.fetch.php
+			$result = $stmt->fetch();
 
-		print_r($result);
-
-
-		//todo: make an actual login function!!
-		return true;
+			if (!$result && password_verify($password, $result['password'])) { 
+					$_SESSION['logged_in'] = true;
+					$_SESSION['Fullname'] = $result['fullname'];
+					$_SESSION['username'] = $loginCredentials["username"];
+					return true;
+			} else { 
+				return false;
+			}
+		}
+		catch(PDOException $e)
+		{ ?>
+			Connection failed: <?=$e->getMessage()?> \n code <?=$e->getCode()?>
+		<?php } 
 	}
 
-	public function getAll () {
+	public function getAll ($searchValue) {
 
 		$sql = "SELECT username FROM user";
 
