@@ -14,16 +14,11 @@
     <!-- OBS Bootstrap Style in fotter -->
 
     <!-- lokal stylesheet-->
-    <link rel="stylesheet" type="text/css" href="../app/views/include/style.css">
+    <link rel="stylesheet" type="text/css" href="~/css/style.css">
 
   </head>
   <!--Comment-->
   <body>
-    <?php
-      //echo "Controller: " . $_SESSION['controller'] . "</br>";
-      echo "Method: " .$_SESSION['method'] . "</br>";
-      echo "Params: " .$_SESSION['method'] . "</br>";
-    ?>
     <header>
       <?php
         if( isset($_SESSION['logged_in']) && ($_SESSION['logged_in']) ) {

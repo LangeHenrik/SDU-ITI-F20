@@ -5,7 +5,7 @@ class HomeController extends Controller {
 	// Main / home / default - page.
 	public function index ($param) {
 		//This is a proof of concept - we do NOT want HTML in the controllers!
-		//echo '<br><br>Home Controller Index Method<br>';
+		echo '<br>Home Controller Index Method<br>';
 		//echo 'Param: ' . $param . '<br><br>';
 		$this->view('home/index');
 	}
@@ -24,6 +24,7 @@ class HomeController extends Controller {
 
 	// Feed page is added in restrictions
 	public function feed () {
+		echo '<br>Home Controller feed Method<br>';
 		$picture = $this->model('Picture');
 		$viewbag['pictures'] = $picture->getAll();
 		$this->view('home/feed', $viewbag);
@@ -68,6 +69,7 @@ class HomeController extends Controller {
 	}
 
 	public function page401() {
+		echo '<br>Home Controller page401 Method<br>';
 		$this->view('home/401');
 	}
 
