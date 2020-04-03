@@ -6,7 +6,7 @@
 
       <div class="registration" id="registration">
         <div class="wrapper">
-          <form name="signupForm" id="signupform" onsubmit="return checkform();" action="createUser.php" method="post">
+          <form name="signupForm" id="signupform" onsubmit="return checkform();" action="Mschr18-Phans18-Mach018/mvc/public/home/createUser" method="post">
 
             <label for="fullname" >Full name*<p class="valid" id="fullnamevalid"></p></label> <br>
             <input type="text" name="fullname" id="fullname" tabindex="1" required/>

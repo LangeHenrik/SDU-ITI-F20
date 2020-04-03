@@ -10,6 +10,17 @@ class HomeController extends Controller {
 		$this->view('home/index');
 	}
 
+	public function createUser() {
+		$viewbag = $this->post();
+		if ($viewbag) {
+			$this->model('User', $viewbag);
+		}
+		else {
+			// You can only create user with post method
+			header('Location: /Mschr18-Phans18-Mach018/mvc/public/home/other');
+		}
+	}
+
 	// Feed page is added in restrictions
 	public function feed () {
 		$picture = $this->model('Picture');
@@ -23,6 +34,10 @@ class HomeController extends Controller {
 		$viewbag['username'] = $user->name;
 		//$viewbag['pictures'] = $this->model('pictures')->getUserPictures($user);
 		$this->view('home/index', $viewbag);
+	}
+
+	public function registration () {
+
 	}
 
 	public function restricted () {
@@ -45,6 +60,10 @@ class HomeController extends Controller {
 		//} else {
 		//	echo 'You can only log out with a post method';
 		//}
+	}
+
+	public function error401() {
+		$this->view('home/401');
 	}
 
 	public function loggedout() {

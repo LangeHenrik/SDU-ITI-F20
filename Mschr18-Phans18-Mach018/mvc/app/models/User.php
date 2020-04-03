@@ -29,4 +29,8 @@ class User extends Database {
 		return $result;
 	}
 
+	public function createUser($viewbag) {
+		
+	}
+
 }
