@@ -23,9 +23,9 @@ class User extends Database {
 
 		$stmt = $this->conn->prepare($sql);
 		$stmt->execute();
+		$stmt->setFetchMode(PDO::FETCH_ASSOC);
 
 		$result = $stmt->fetchAll();
-
 		return $result;
 	}
 

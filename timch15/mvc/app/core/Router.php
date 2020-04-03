@@ -15,7 +15,7 @@ class Router {
 		}
 
 		if(file_exists('../app/controllers/' . $url[0] . 'Controller.php')) {
-			echo $url[0];
+			// echo $url[0];
 			$this->controller = $url[0] . 'Controller';
 			unset($url[0]);
 		}
