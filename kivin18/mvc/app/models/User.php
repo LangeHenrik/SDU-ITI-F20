@@ -1,7 +1,7 @@
 <?php
 class User extends Database {
 	
-	public function login($username){
+	public function login($username, $password){
 		$sql = "SELECT username, password FROM user WHERE username = :username";
 		
 		$stmt = $this->conn->prepare($sql);

@@ -1,6 +1,6 @@
 <?php include '../app/views/partials/menu.php'; ?>
 
-<form id="loginForm" method="post">
+<form id="loginForm" enctype="multipart/form-data">
     <div class="form-group">
         <label for="username">Username</label>
         <input type="text" class="form-control" id="username" name="username" placeholder="Enter username">

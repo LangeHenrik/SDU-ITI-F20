@@ -19,14 +19,16 @@ class HomeController extends Controller {
 		echo 'Welcome - you must be logged in';
 	}
 	
-	public function login($username) {
-//		if($this->model('User')->login($username)) {
+	public function login() {
+	    $username = htmlentities($_POST['username']);
+	    $password = htmlentities($_POST['password']);
+//		if($this->model('User')->login($username, $password)) {
 //			$_SESSION['logged_in'] = true;
 //			$this->view('home/login');
 //		} else {
 //            echo 'Wrong info';
 //        }
-        echo 'Wrong info';
+        echo $_POST['username'] . $_POST['password'];
 	}
 
     public function register($username) {
