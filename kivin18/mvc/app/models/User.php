@@ -1,32 +1,25 @@
 <?php
-class User extends Database {
-	
-	public function login($username, $password){
-		$sql = "SELECT username, password FROM user WHERE username = :username";
-		
-		$stmt = $this->conn->prepare($sql);
-		$stmt->bindParam(':username', $username);
-		$stmt->execute();
 
-		$result = $stmt->fetch(); //fetchAll to get multiple rows
+class User extends Database
+{
 
-		print_r($result);
+    public function login($username, $password)
+    {
+        $sql = "SELECT username, password FROM user WHERE username = :username";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':username', $username);
+        $stmt->execute();
+        $result = $stmt->fetch();
+        return $username == $result['username'] && password_verify($password, $result['password']);
+    }
 
-
-		//todo: make an actual login function!!
-		return true;
-	}
-
-	public function getAll () {
-
-		$sql = "SELECT username FROM user";
-
-		$stmt = $this->conn->prepare($sql);
-		$stmt->execute();
-
-		$result = $stmt->fetchAll();
-
-		return $result;
-	}
+    public function getAll()
+    {
+        $sql = "SELECT username FROM user";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        return $result;
+    }
 
 }

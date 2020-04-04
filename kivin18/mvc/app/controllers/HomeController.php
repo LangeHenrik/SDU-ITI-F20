@@ -22,13 +22,13 @@ class HomeController extends Controller {
 	public function login() {
 	    $username = htmlentities($_POST['username']);
 	    $password = htmlentities($_POST['password']);
-//		if($this->model('User')->login($username, $password)) {
-//			$_SESSION['logged_in'] = true;
-//			$this->view('home/login');
-//		} else {
-//            echo 'Wrong info';
-//        }
-        echo $_POST['username'] . $_POST['password'];
+		if($this->model('User')->login($username, $password)) {
+			$_SESSION['logged_in'] = true;
+            $_SESSION['user'] = $username;
+			$this->view('home/login');
+		} else {
+            echo 'Wrong info';
+        }
 	}
 
     public function register($username) {
