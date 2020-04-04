@@ -17,6 +17,7 @@ class Router {
 			$this->controller = $url[0] . 'Controller';
 			unset($url[0]);
 		}
+
 		
 		require_once '../app/controllers/' . $this->controller . '.php';
 		$this->controller = new $this->controller;
@@ -29,7 +30,7 @@ class Router {
 		}
 		
 		$this->params = $url ? array_values($url) : [];
-		
+
 		require_once 'Restricted.php';
 		if(restricted(get_class($this->controller), $this->method)) {
 			echo 'Access Denied';

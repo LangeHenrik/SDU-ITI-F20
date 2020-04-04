@@ -7,7 +7,7 @@ class Controller {
 	}
 	
 	public function view($view, $viewbag = []) {
-		require_once '../app/views/' . $view . '.php';
+		require_once __DIR__ . "/../views/{$view}.php";
 	}
 	
 	public function post () {
