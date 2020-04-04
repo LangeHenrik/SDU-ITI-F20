@@ -6,12 +6,17 @@ nav .form-inline {
   margin: 4px 0;
 }
 footer {
-  background-color: gray;
-  color: white;
-  margin: 0 5px;
-  padding-top: 10px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.custom-tooltip::after {
+  content: "<i class="fas fa-info-circle"></i>"
+}
+.custom-tooltip i.fas {
+  font-size: 10px;
+  vertical-align: top;
 }
 
 .navbar-brand {
