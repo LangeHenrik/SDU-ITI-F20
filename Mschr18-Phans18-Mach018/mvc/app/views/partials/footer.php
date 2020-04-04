@@ -1,22 +1,37 @@
-    <footer >
-      <div class="container">
-        <div class="row assignment " id="assignment" >
-          <div class="col-12 justify-content-center">
-            <p class="text-center">SDU - Assignement - Internet Technology <br>Created by:</p>
-          </div>
-        </div>
-        <div class="row participants" id="participants" >
-          <div class="col-6 justify-content-center">
-            <p class="text-center">Mads Willum Christiansen SDU - mach018</p>
-          </div>
-          <div class="col-6 justify-content-center">
-            <p class="text-center">Peter Buch Hansen SDU - phans18</p>
-          </div>
-          <!--<div class="col">
-            <p class="text-center">Martin Bremholm Schrøder SDU - mschr18</p>
-          </div>-->
-        </div>
-      </div>
+    <footer>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+
+          <!--
+            SDU - Assignement - Internet Technology :: by
+
+            Mads Willum Christiansen : mach018
+            Peter Buch Hansen : phans18
+            Martin Bremholm Schrøder SDU - mschr18
+          -->
+        <a class="navbar-brand" href="https://www.sdu.dk/">
+          <img src="/Mschr18-Phans18-Mach018/mvc/public/svg/sduLogo.svg" alt="SDU">
+        </a>
+        <span class="navbar-text custom-tooltip" data-toggle="tooltip" data-placement="top"
+          title="Course Internet Technology
+                 Lector: Henrik Lange
+                 hela@mmmi.sdu.com">
+           Course ITI <i class="fas fa-info-circle"></i>
+        </span>
+        <span class="navbar-text mr-auto">
+           &nbsp by:
+        </span>
+        <span class="navbar-text mr-auto custom-tooltip" data-toggle="tooltip" data-placement="top"
+          title="Mads Willum Christiansen
+                 mach018@student.sdu.dk">
+           mach018 <i class="fas fa-info-circle"></i>
+        </span>
+        <span class="navbar-text mr-auto custom-tooltip" data-toggle="tooltip" data-placement="top"
+          title="Peter Buch Hansen
+                 phans18@student.sdu.dk">
+           phans18 <i class="fas fa-info-circle"></i>
+        </span>
+      </nav>
     </footer>
   </body>
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -28,4 +43,9 @@
             alert('Username or Pasword is wrong');    // Password is wrong, but we wont tell
         </script>
     <?php } ?>
+  <script type="text/javascript">
+    $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+    })
+  </script>
 </html>
