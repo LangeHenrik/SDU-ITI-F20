@@ -13,3 +13,8 @@
     width: 25%;
     margin: 0 auto;
 }
+
+#banner {
+    text-align: center;
+    border: solid black 2px;
+}

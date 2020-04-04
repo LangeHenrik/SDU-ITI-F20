@@ -20,13 +20,20 @@ class HomeController extends Controller {
 	}
 	
 	public function login($username) {
-		if($this->model('User')->login($username)) {
-			$_SESSION['logged_in'] = true;
-			$this->view('home/login');
-		}
+//		if($this->model('User')->login($username)) {
+//			$_SESSION['logged_in'] = true;
+//			$this->view('home/login');
+//		} else {
+//            echo 'Wrong info';
+//        }
+        echo 'Wrong info';
 	}
-	
-	public function logout() {
+
+    public function register($username) {
+        $this->view('home/register');
+    }
+
+    public function logout() {
 		
 		
 		//if($this->post()) {
