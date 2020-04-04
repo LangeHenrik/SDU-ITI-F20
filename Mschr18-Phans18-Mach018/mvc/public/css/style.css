@@ -2,20 +2,18 @@
 body {
   background-color: #bbb;
 }
-nav {
+nav .form-inline {
+  margin: 4px 0;
+}
+footer {
   background-color: gray;
+  color: white;
+  margin: 0 5px;
+  padding-top: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
-.navbar-light .navbar-toggler  {
-  margin-left: 10px;
-  padding: 0 8px !important;
-}
-.navbar-light .navbar-nav .nav-link{
-  color: rgba(0,0,0,0.7);
-  font-weight: bold;
-}
-.navbar-light .navbar-nav .nav-link:hover{
-  color: rgba(255,255,255,0.7);
-}
+
 .navbar-brand {
   padding: 0;
   margin: -20px 10px -20px 0;
@@ -24,12 +22,10 @@ nav {
 .custom-nav-collapse {
   display: none;
 }
-nav .form-inline {
-  margin: 0;
-}
 @media only screen and (max-width: 990px) {
   .custom-nav-collapse {
     display: inline;
+    margin-top: 2px;
   }
 }
 @media only screen and (max-width: 760px) {

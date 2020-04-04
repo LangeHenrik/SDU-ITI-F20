@@ -32,11 +32,7 @@
           </form>
         </div>
 
-
-
-
         <script src="Include/JS/registration.js"></script>
-
       </div>
     </section>
 
