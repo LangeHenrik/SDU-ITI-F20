@@ -1,5 +1,31 @@
 <?php
+/*************************     INFO N STUFF     ******************************** 
+ echo " \$_SERVER['HTTP_HOST'] : ------------- " . $_SERVER['HTTP_HOST'];
+ echo "<br> \$_SERVER['DOCUMENT_ROOT'] : --- " . $_SERVER['DOCUMENT_ROOT'];
+ echo "<br> \$_SERVER['REQUEST_URI'] : .--------- " . $_SERVER['REQUEST_URI'];
+ echo "<br> \$_SERVER['SCRIPT_NAME'] : .--------- " . $_SERVER['SCRIPT_NAME'];
+ echo "<br> \$_SERVER['SCRIPT_FILENAME'] : --- " . $_SERVER['SCRIPT_FILENAME'];
+ echo "<br> \$_SERVER['PATH_INFO'] : -------------- " . $_SERVER['PATH_INFO'];
+ echo "<br> \$_SERVER['PHP_SELF'] : ---------------- " . $_SERVER['PHP_SELF'];
+ echo "<br> \$_SERVER['HTTP_HOST'] : ------------- " . $_SERVER['HTTP_HOST'];
+ echo "<br> __DIR__ : ------------------------------------ " . __DIR__;
+ echo "<br> dirname(__DIR__) : ------------------------ " . dirname(__DIR__);
+  echo "<br> getcwd() : ------------------------------------ " . getcwd();
+  echo "<br> __FILE__ : ----------------------------------- " . __FILE__;
+  ?>
+  <br><br>
+    <a target="_blank" href="https://www.php.net/manual/en/reserved.variables.server.php">
+      https://www.php.net/manual/en/reserved.variables.server.php
+    </a><?php
+  echo "<br> \$_SERVER :";
+  ?>
+  <pre><?=print_r($_SERVER)?></pre> 
+  <?php
+  die();
+*******************************************************************************/
+  
   include_once('../app/views/partials/header.php');
+
 ?>
     <section id="content">
         <h1 id="title">Welcomme to </h1> <?php include('../app/views/partials/chalkbordlogo.php') ?>
