@@ -1,6 +1,6 @@
 <?php if( isset($_SESSION['logged_in']) && ($_SESSION['logged_in']) ) { ?>
 
-    <form class="form-inline" method="post" action="Include/phpUtils/logout.php" >
+    <form class="form-inline" method="post" action="<?=BASE_URL?>>Home/logout" >
       <div class="input-group input-group-sm mr-2">
         <div class="input-group-prepend">
           <span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -17,7 +17,7 @@
 
 <?php } else { ?>
 
-    <form class="form-inline" method="post" action="Include/phpUtils/login.php" >
+    <form class="form-inline" method="post" action="<?=BASE_URL?>Home/login" >
       <div class="input-group input-group-sm mr-2">
         <div class="input-group-prepend">
           <span class="input-group-text" ><i class="fas fa-user"></i></span>
