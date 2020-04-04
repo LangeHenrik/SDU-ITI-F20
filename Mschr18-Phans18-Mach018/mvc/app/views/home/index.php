@@ -9,7 +9,7 @@
           <h2><i class="fas fa-image fa-xs"></i> Post images.</h2>
           <h2><i class="far fa-comments fa-xs"></i> Share comments.</h2>
           <br>
-          <h2>Please login or <a href="registration.php">sign up <i class="fas fa-user-plus fa-s"></i></a></h2>
+          <h2>Please login or <a href="<?=BASE_URL?>Home/signup">sign up <i class="fas fa-user-plus fa-s"></i></a></h2>
 
 
           <?php

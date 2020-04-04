@@ -7,18 +7,17 @@ class HomeController extends Controller {
 		//This is a proof of concept - we do NOT want HTML in the controllers!
 		//echo '<br>Home Controller Index Method<br>';
 		//echo 'Param: ' . $param . '<br><br>';
-		$this->view('home/index');
+		$this->view('Home/index');
 	}
 
 	// createUser is only available with post method.
-	public function createUser () {
-		$viewbag = $this->post();
-		if ($viewbag) {
-			$this->model('User', $viewbag);
+	public function createUser() {
+		if ($this->post()) {
+			$this->model('User');
 		}
 		else {
 			// You can only create user with post method
-			header('Location: /Mschr18-Phans18-Mach018/mvc/public/home/other');
+			$this->view('Home/index');
 		}
 	}
 
@@ -26,7 +25,7 @@ class HomeController extends Controller {
 	public function feed () {
 		$picture = $this->model('Picture');
 		$viewbag['pictures'] = $picture->getAll();
-		$this->view('home/feed', $viewbag);
+		$this->view('Home/feed', $viewbag);
 	}
 
 	public function other ($param1 = 'first parameter', $param2 = 'second parameter') {
@@ -34,41 +33,43 @@ class HomeController extends Controller {
 		$user->name = $param1;
 		$viewbag['username'] = $user->name;
 		//$viewbag['pictures'] = $this->model('pictures')->getUserPictures($user);
-		$this->view('home/index', $viewbag);
+		$this->view('Home/index', $viewbag);
 	}
 
-	public function registration () {
-
+	public function signup() {
+		if ($this->post()) {
+			
+		}
 	}
 
 	// login is only available with post method.
 	public function login() {
-		$loginCredentials = $this->post();
-		if ($loginCredentials) {
-			if($this->model('User')->login($loginCredentials)) {
+		if ($this->post()) {
+			if($this->model('User')->login()) {
 				$_SESSION['logged_in'] = true;
-				$this->view('home/feed');
+				$this->view('Home/feed');
 			}
 			else {
-				// Failed to login
+				$viewbag['loginFailed'] = true;
+				$this->view('Home/index', $viewbag);
 			}
 		}
 		else {
-			// You can only log in with a post method
+			$this->view('Home/index');
 		}
 	}
 
 	public function logout() {
 		if($this->post()) {
 			session_unset();
-			header('Location: /Mschr18-Phans18-Mach018/mvc/public/home');
+			$this->view('Home/index');
 		} else {
 			// You can only log in with a post method.
 		}
 	}
 
 	public function page401() {
-		$this->view('home/401');
+		$this->view('Home/401');
 	}
 
 	public function loggedout() {
