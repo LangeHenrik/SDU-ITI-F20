@@ -2,24 +2,12 @@
 body {
   background-color: #bbb;
 }
-nav .form-inline {
+
+nav
+.form-inline {
   margin: 4px 0;
 }
-footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-}
-
-.custom-tooltip::after {
-  content: "<i class="fas fa-info-circle"></i>"
-}
-.custom-tooltip i.fas {
-  font-size: 10px;
-  vertical-align: top;
-}
-
-.navbar-brand {
+nav.navbar-brand {
   padding: 0;
   margin: -20px 10px -20px 0;
 }
@@ -42,30 +30,51 @@ footer {
   }
 }
 
+section.content .chalkboard  {
+  margin-top: 5px;
+}
+.page-titel {
+  display: inline-block;
+  vertical-align: top;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+
+
+
 
 /* chalkbord logo */
-div.chalkboard {
+.chalkboard {
   display: inline-block;
 }
-div.chalkboard h1.brand {
+.chalkboard h1.brand {
   display: inline-block;
   font-size: 24px ;
   font-weight: bold;
   margin: 5px 0;
 }
-div.chalkboard h1.icon {
+.chalkboard h1.icon {
   margin: 0 -5px 10px;
 }
-div.chalkboard h2.version {
+.chalkboard h2.version {
   font-size: 12px;
   font-weight: bold;
   margin-top: -10px;
   text-align: right;
-
 }
 
 
 /* font awsome */
-form .fa-user {
+.fa-user {
     margin: 0 1px;
+}
+
+.custom-tooltip .fa-info-circle {
+  font-size: 10px;
+  vertical-align: top;
 }
