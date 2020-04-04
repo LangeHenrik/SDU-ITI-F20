@@ -1,5 +1,5 @@
 <?php
-/*************************     INFO N STUFF     ******************************** 
+/*************************     INFO N STUFF     ********************************
  echo " \$_SERVER['HTTP_HOST'] : ------------- " . $_SERVER['HTTP_HOST'];
  echo "<br> \$_SERVER['DOCUMENT_ROOT'] : --- " . $_SERVER['DOCUMENT_ROOT'];
  echo "<br> \$_SERVER['REQUEST_URI'] : .--------- " . $_SERVER['REQUEST_URI'];
@@ -19,11 +19,11 @@
     </a><?php
   echo "<br> \$_SERVER :";
   ?>
-  <pre><?=print_r($_SERVER)?></pre> 
+  <pre><?=print_r($_SERVER)?></pre>
   <?php
   die();
 *******************************************************************************/
-  
+
   include_once('../app/views/partials/header.php');
 
 ?>
@@ -37,11 +37,9 @@
           <h2>Please login or <a href="registration.php">sign up <i class="fas fa-user-plus fa-s"></i></a></h2>
 
 
-          <form class="orm-group custom-nav-collapse-show" method="post" action="Include/phpUtils/login.php" >
-            <?php
-              include('../app/views/partials/loginFormContent.php');
+          <?php
+              include('../app/views/partials/logInForm.php');
              ?>
-           </form>
 
         </div>
     </section>

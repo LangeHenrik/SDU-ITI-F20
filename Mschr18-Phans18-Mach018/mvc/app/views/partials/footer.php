@@ -1,4 +1,4 @@
-    <footer class="fixed-bottom">
+    <footer >
       <div class="container">
         <div class="row assignment " id="assignment" >
           <div class="col-12 justify-content-center">

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark sticky-top bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="/Mschr18-Phans18-Mach018/mvc/public/Home/Index">
     <?php include('../app/views/partials/chalkbordlogo.php') ?>
   </a>
