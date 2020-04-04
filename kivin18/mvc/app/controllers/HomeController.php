@@ -20,6 +20,10 @@ class HomeController extends Controller {
 	}
 	
 	public function login() {
+	    if(empty($_POST['username']) || empty($_POST['password'])) {
+            header('Location: /kivin18/mvc/public/home/');
+            return;
+        }
 	    $username = htmlentities($_POST['username']);
 	    $password = htmlentities($_POST['password']);
 		if($this->model('User')->login($username, $password)) {
@@ -27,7 +31,8 @@ class HomeController extends Controller {
             $_SESSION['user'] = $username;
 			$this->view('home/login');
 		} else {
-            echo 'Wrong info';
+		    $viewbag['login_info'] = 'Wrong username or password';
+            $this->view('home/index', $viewbag);
         }
 	}
 

@@ -10,7 +10,7 @@ class User extends Database
         $stmt->bindParam(':username', $username);
         $stmt->execute();
         $result = $stmt->fetch();
-        return $username == $result['username'] && password_verify($password, $result['password']);
+        return ($username == $result['username'] && $password == $result['password']);
     }
 
     public function getAll()

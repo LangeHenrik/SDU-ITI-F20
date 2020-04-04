@@ -4,21 +4,21 @@ function q(search) {
     return document.querySelector(search);
 }
 
-if (q('button#loginButton')) {
-    q('button#loginButton').addEventListener('click', function () {
-        let form = new FormData(q('form#loginForm'));
-        fetch('/kivin18/mvc/public/user/login', {
-            method: 'POST',
-            body: form
-        }).then(function (response) {
-            return response.text();
-        }).then(function (text) {
-            q('small#loginInfo').innerHTML = text;
-        }).catch(function (error) {
-            q('small#loginInfo').innerHTML = 'Request failed: ' + error;
-        });
-    });
-}
+// if (q('button#loginButton')) {
+//     q('button#loginButton').addEventListener('click', function () {
+//         let form = new FormData(q('form#loginForm'));
+//         fetch('/kivin18/mvc/public/user/login', {
+//             method: 'POST',
+//             body: form
+//         }).then(function (response) {
+//             return response.text();
+//         }).then(function (text) {
+//             q('small#loginInfo').innerHTML = text;
+//         }).catch(function (error) {
+//             q('small#loginInfo').innerHTML = 'Request failed: ' + error;
+//         });
+//     });
+// }
 
 // Login
 // if (document.getElementById('loginButton')) {
