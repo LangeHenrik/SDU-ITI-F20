@@ -1,28 +1,34 @@
 <?php
-/*************************     INFO N STUFF     ******************************** 
- echo " \$_SERVER['HTTP_HOST'] : ------------- " . $_SERVER['HTTP_HOST'];
- echo "<br> \$_SERVER['DOCUMENT_ROOT'] : --- " . $_SERVER['DOCUMENT_ROOT'];
- echo "<br> \$_SERVER['REQUEST_URI'] : .--------- " . $_SERVER['REQUEST_URI'];
- echo "<br> \$_SERVER['SCRIPT_NAME'] : .--------- " . $_SERVER['SCRIPT_NAME'];
- echo "<br> \$_SERVER['SCRIPT_FILENAME'] : --- " . $_SERVER['SCRIPT_FILENAME'];
- echo "<br> \$_SERVER['PATH_INFO'] : -------------- " . $_SERVER['PATH_INFO'];
- echo "<br> \$_SERVER['PHP_SELF'] : ---------------- " . $_SERVER['PHP_SELF'];
- echo "<br> \$_SERVER['HTTP_HOST'] : ------------- " . $_SERVER['HTTP_HOST'];
- echo "<br> __DIR__ : ------------------------------------ " . __DIR__;
- echo "<br> dirname(__DIR__) : ------------------------ " . dirname(__DIR__);
-  echo "<br> getcwd() : ------------------------------------ " . getcwd();
-  echo "<br> __FILE__ : ----------------------------------- " . __FILE__;
-  ?>
+//*************************     INFO N STUFF     ******************************** 
+?>
+  $_SERVER['HTTP_HOST'] : ------------- <?=$_SERVER['HTTP_HOST']?>
+  <br> $_SERVER['DOCUMENT_ROOT'] : --- <?=$_SERVER['DOCUMENT_ROOT']?>
+  <br> $_SERVER['REQUEST_URI'] : .--------- <?=$_SERVER['REQUEST_URI']?>
+  <br> $_SERVER['SCRIPT_NAME'] : .--------- <?=$_SERVER['SCRIPT_NAME']?>
+  <br> $_SERVER['SCRIPT_FILENAME'] : --- <?=$_SERVER['SCRIPT_FILENAME']?>
+  <br> $_SERVER['PATH_INFO'] : -------------- <?=$_SERVER['PATH_INFO'] ?? 'NULL / Not set'?>
+  <br> $_SERVER['HTTP_REFERER'] : -------- <?=$_SERVER['HTTP_REFERER'] ?? 'NULL / Not set'?>
+  <br> $_SERVER['PHP_SELF'] : ---------------- <?=$_SERVER['PHP_SELF']?>
+  <br> $_SERVER['HTTP_HOST'] : ------------- <?=$_SERVER['HTTP_HOST']?>
+  <br> DIRECTORY_SEPARATOR : ------------- <?=DIRECTORY_SEPARATOR?>
+  <br> __DIR__ : ------------------------------------- <?=__DIR__?>
+  <br> dirname(__DIR__) : ------------------------- <?=dirname(__DIR__)?>
+  <br> getcwd() : ------------------------------------- <?=getcwd()?>
+  <br> __FILE__ : ------------------------------------ <?=__FILE__?>
   <br><br>
-    <a target="_blank" href="https://www.php.net/manual/en/reserved.variables.server.php">
-      https://www.php.net/manual/en/reserved.variables.server.php
-    </a><?php
-  echo "<br> \$_SERVER :";
-  ?>
-  <pre><?=print_r($_SERVER)?></pre> 
+      <?php define('BASE_URL', '//' . $_SERVER['HTTP_HOST'] . '/Mschr18-Phans18-Mach018/mvc/public/'); ?>
+      <a target="_blank" href="<?=BASE_URL?>">BASE_URL</a> : --------------------------------- <?=BASE_URL?>
+  <br><br>
+      <a target="_blank" href="https://www.php.net/manual/en/reserved.variables.server.php">
+          https://www.php.net/manual/en/reserved.variables.server.php
+      </a>
+  <br> $_SERVER :
+      <pre>
+          <?php print_r($_SERVER) ?>
+      </pre> 
   <?php
   die();
-*******************************************************************************/
+//*******************************************************************************/
   
   include_once('../app/views/partials/header.php');
 
