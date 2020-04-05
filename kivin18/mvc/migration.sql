@@ -3,6 +3,7 @@ CREATE DATABASE IF NOT EXISTS kivin18 CHARACTER SET utf8mb4 COLLATE utf8mb4_unic
 USE kivin18;
 
 CREATE TABLE user(
+    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     username VARCHAR(50) NOT NULL,
     password TEXT NOT NULL,
     join_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -10,11 +11,11 @@ CREATE TABLE user(
 );
 
 CREATE TABLE image(
-    image_id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     username VARCHAR(50) NOT NULL,
     image BLOB,
     header varchar(50),
     description TEXT,
     date_added TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY (image_id)
+    PRIMARY KEY (id)
 );
