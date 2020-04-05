@@ -1,3 +1,4 @@
+    </section>
     <footer>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
@@ -24,12 +25,12 @@
         <span class="navbar-text mr-auto custom-tooltip" data-toggle="tooltip" data-placement="top"
           title="Mads Willum Christiansen
                  mach018@student.sdu.dk">
-           mach018 <i class="fas fa-info-circle"></i>
+           <i class="fas fa-fingerprint">mach018 </i> <i class="fas fa-info-circle"></i>
         </span>
         <span class="navbar-text mr-auto custom-tooltip" data-toggle="tooltip" data-placement="top"
           title="Peter Buch Hansen
                  phans18@student.sdu.dk">
-           phans18 <i class="fas fa-info-circle"></i>
+           <i class="fas fa-fingerprint"></i>phans18  <i class="fas fa-info-circle"></i>
         </span>
       </nav>
     </footer>

@@ -24,3 +24,4 @@
         include_once('navbar.php');
       ?>
     </header>
+    <section class="container-fluid content" >
