@@ -22,10 +22,22 @@ class HomeController extends Controller {
 	}
 
 	// Feed page is added in restrictions
-	public function feed () {
+	public function feed() {
 		$picture = $this->model('Picture');
-		$viewbag['pictures'] = $picture->getAll();
+		$viewbag = $picture->getAll();
 		$this->view('Home/feed', $viewbag);
+	}
+
+	// Users page is restricted
+	public function users() {
+		$user = $this->model('User');
+		$viewbag = $user->getAll();
+		$this->view('Home/users', $viewbag);
+	}
+
+	// Upload is restricted
+	public function upload() {
+
 	}
 
 	public function other ($param1 = 'first parameter', $param2 = 'second parameter') {
@@ -36,9 +48,13 @@ class HomeController extends Controller {
 		$this->view('Home/index', $viewbag);
 	}
 
+	// reach registration page. 
 	public function signup() {
-		if ($this->post()) {
+		if (!(isset($_SESSION['logged_in']) && $_SESSION['logged_in'])) {
 			
+		}
+		else {
+			header('Location: ' . BASE_URL . 'Home/index');
 		}
 	}
 
@@ -47,22 +63,22 @@ class HomeController extends Controller {
 		if ($this->post()) {
 			if($this->model('User')->login()) {
 				$_SESSION['logged_in'] = true;
-				$this->view('Home/feed');
+				header('Location: ' . BASE_URL . 'Home/feed');
 			}
 			else {
-				$viewbag['loginFailed'] = true;
-				$this->view('Home/index', $viewbag);
+				$_SESSION['loginFailed'] = true;
+				header('Location: ' . BASE_URL . 'Home/index');
 			}
 		}
 		else {
-			$this->view('Home/index');
+			header('Location: ' . BASE_URL . 'Home/index');
 		}
 	}
 
 	public function logout() {
 		if($this->post()) {
 			session_unset();
-			$this->view('Home/index');
+			header('Location: ' . BASE_URL . 'Home/index');
 		} else {
 			// You can only log in with a post method.
 		}

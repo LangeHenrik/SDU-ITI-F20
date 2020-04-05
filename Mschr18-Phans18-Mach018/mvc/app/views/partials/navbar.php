@@ -19,25 +19,25 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav " >
       <li class="nav-item">
-        <a class="nav-link" href="<?=BASE_URL?>Home/Index">Home <i class="fas fa-home"></i></a>
+        <a class="nav-link" href="<?=BASE_URL?>Home/index">Home <i class="fas fa-home"></i></a>
       </li>
 
       <?php if( isset($_SESSION['logged_in']) && ($_SESSION['logged_in']) ) { ?>
 
           <li class="nav-item">
-            <a class="nav-link"  href="<?=BASE_URL?>Home/Feed">ChalkBoard-Feed <i class="fas fa-comment-alt"></i></a>
+            <a class="nav-link"  href="<?=BASE_URL?>Home/feed">ChalkBoard-Feed <i class="fas fa-comment-alt"></i></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link"  href="<?=BASE_URL?>Home/Upload">Upload <i class="fas fa-file-upload"></i></i></a>
+            <a class="nav-link"  href="<?=BASE_URL?>Home/upload">Upload <i class="fas fa-file-upload"></i></i></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link"  href="<?=BASE_URL?>Home/Users">Users <i class="fas fa-address-book"></i></i></a>
+            <a class="nav-link"  href="<?=BASE_URL?>Home/users">Users <i class="fas fa-address-book"></i></i></a>
           </li>
 
       <?php } else { ?>
 
         <li class="nav-item">
-          <a class="nav-link"  href="<?=BASE_URL?>Home/Registration">Sign up <i class="fas fa-user-plus"></i></a>
+          <a class="nav-link"  href="<?=BASE_URL?>Home/registration">Sign up <i class="fas fa-user-plus"></i></a>
         </li>
 
       <?php } ?>
