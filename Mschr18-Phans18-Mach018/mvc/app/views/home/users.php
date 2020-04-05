@@ -5,7 +5,7 @@
     <section id="content">
       <h1 id="title">Users on </h1> <?php include_once('../app/views/partials/chalkbordlogo.php') ?>
       <div class="users" id="users">
-        <form>
+        <form action="<?=BASE_URL?>Home/users/">
               <input type="text" id="searchValue" name="searchValue" value="<?=$_GET["searchValue"] ?? ""?>" 
               autofocus placeholder="Enter search here. . ." onfocus="this.selectionStart = this.selectionEnd = this.value.length;">
               <input type="submit" id="submit" value="Search">

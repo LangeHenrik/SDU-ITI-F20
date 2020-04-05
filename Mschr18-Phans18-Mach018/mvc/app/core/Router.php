@@ -38,14 +38,7 @@ class Router {
 		} else {
 			call_user_func_array([$this->controller, $this->method], $this->params);
 		}
-
-
 	}
-
-
-
-
-
 
 	public function parseUrl () {
 
@@ -56,5 +49,4 @@ class Router {
 		$url = explode('/', $url);
 		return array_slice($url, 4);
 	}
-
 }
