@@ -11,10 +11,10 @@
         <small id="loginInfo" class="form-text text-muted"></small>
     </div>
     <button type="submit" class="btn btn-primary" id="loginButton" name="loginButton">Login</button>
-    <a class="btn btn-primary" href="/kivin18/mvc/public/home/register">Register</a>
+    <a class="btn btn-primary" href="/kivin18/mvc/public/home/registerpage">Register</a>
 </form>
-<?php if (isset($viewbag['login_info'])) {
-    echo $viewbag['login_info'];
+<?php if (isset($viewbag['user_info'])) {
+    echo $viewbag['user_info'];
 } ?>
 
 <?php include '../app/views/partials/foot.php'; ?>

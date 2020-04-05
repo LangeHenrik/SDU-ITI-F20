@@ -13,6 +13,18 @@ class User extends Database
         return ($username == $result['username'] && $password == $result['password']);
     }
 
+    public function register($username, $password)
+    {
+        $stmt = $this->conn->prepare('INSERT INTO user (username, password) VALUES (?, ?)');
+        if (preg_match("/^\S\w{5,50}$/", $username) && preg_match("/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/", $password)) {
+            $hashed_pass = password_hash($password, PASSWORD_DEFAULT);
+            $stmt->execute([$username, $hashed_pass]);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public function getAll()
     {
         $sql = "SELECT username FROM user";
