@@ -1,5 +1,7 @@
 <?php include '../app/views/partials/menu.php'; ?>
-
+<div class="pb-2 mt-4 mb-2 border-bottom">
+    <h1>Register</h1>
+</div>
 <form method="post" action="/kivin18/mvc/public/home/register">
     <div class="form-group">
         <label for="username">Username</label>

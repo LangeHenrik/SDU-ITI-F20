@@ -3,13 +3,21 @@
     font-weight: bold;
 }
 
+form {
+    margin-top: 5%;
+}
+
 .wrapper {
     text-align: center;
     margin: 0 auto;
-    padding: 50px;
+    padding: 25px;
 }
 
 .form-control {
-    width: 25%;
+    width: 30%;
     margin: 0 auto;
+}
+
+.jumbotron {
+    text-align: left;
 }
