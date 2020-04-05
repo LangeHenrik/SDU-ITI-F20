@@ -1,12 +1,12 @@
 <?php
-  include_once('header.php');
-?>
+  include_once('../app/views/partials/header.php');
+  ?>
     <section id="content">
-      <h1 id="title">Sign up to </h1> <?php include_once('Include/phpUtils/chalkbord.php') ?>
+      <h1 id="title">Sign up to </h1> <?php include('../app/views/partials/chalkbordlogo.php') ?>
 
       <div class="registration" id="registration">
         <div class="wrapper">
-          <form name="signupForm" id="signupform" onsubmit="return checkform();" action="Mschr18-Phans18-Mach018/mvc/public/home/createUser" method="post">
+          <form name="signupForm" id="signupform" onsubmit="return checkform();" action="<?=BASE_URL?>home/createUser" method="post">
 
             <label for="fullname" >Full name*<p class="valid" id="fullnamevalid"></p></label> <br>
             <input type="text" name="fullname" id="fullname" tabindex="1" required/>
@@ -32,10 +32,10 @@
           </form>
         </div>
 
-        <script src="Include/JS/registration.js"></script>
+        <script src="js/registration.js"></script>
       </div>
     </section>
 
 <?php
- include_once('footer.php');
+ include_once('../app/views/partials/footer.php');
 ?>

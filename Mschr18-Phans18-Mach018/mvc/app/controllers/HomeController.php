@@ -24,7 +24,7 @@ class HomeController extends Controller {
 	// Feed page is added in restrictions
 	public function feed() {
 		$picture = $this->model('Picture');
-		$viewbag = $picture->getAll();
+		$viewbag = $picture->getPictures();
 		$this->view('Home/feed', $viewbag);
 	}
 
@@ -37,7 +37,9 @@ class HomeController extends Controller {
 
 	// Upload is restricted
 	public function upload() {
-
+		$picture = $this->model('Picture');
+		$viewbag = $picture->getPictures($_SESSION['username']);
+		$this->view('home/upload', $viewbag);
 	}
 
 	public function other ($param1 = 'first parameter', $param2 = 'second parameter') {
@@ -51,7 +53,7 @@ class HomeController extends Controller {
 	// reach registration page. 
 	public function signup() {
 		if (!(isset($_SESSION['logged_in']) && $_SESSION['logged_in'])) {
-			
+			$this->view('home/registration');
 		}
 		else {
 			header('Location: ' . BASE_URL . 'Home/index');
@@ -76,20 +78,11 @@ class HomeController extends Controller {
 	}
 
 	public function logout() {
-		if($this->post()) {
-			session_unset();
-			header('Location: ' . BASE_URL . 'Home/index');
-		} else {
-			// You can only log in with a post method.
-		}
+		session_unset();
+		header('Location: ' . BASE_URL . 'Home/index');
 	}
 
 	public function page401() {
 		$this->view('Home/401');
 	}
-
-	public function loggedout() {
-		echo 'You are now logged out';
-	}
-
 }
