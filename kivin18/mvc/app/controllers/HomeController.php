@@ -67,8 +67,13 @@ class HomeController extends Controller
         header('Location: /kivin18/mvc/public/home/');
     }
 
-    public function users() {
-        $viewbag = $this->model('User')->getUsers();
+    public function users()
+    {
+        $result = $this->model('User')->getUsers();
+        $viewbag = [];
+        foreach ($result as $user) {
+            array_push($viewbag, $user);
+        }
         $this->view('home/users', $viewbag);
     }
 

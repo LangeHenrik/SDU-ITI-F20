@@ -18,6 +18,6 @@ form {
     margin: 0 auto;
 }
 
-.jumbotron {
+.jumbotron, .list-group {
     text-align: left;
 }
