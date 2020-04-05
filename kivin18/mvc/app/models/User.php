@@ -25,9 +25,9 @@ class User extends Database
         }
     }
 
-    public function getAll()
+    public function getUsers()
     {
-        $sql = "SELECT username FROM user";
+        $sql = "SELECT username, join_date FROM user";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         $result = $stmt->fetchAll();

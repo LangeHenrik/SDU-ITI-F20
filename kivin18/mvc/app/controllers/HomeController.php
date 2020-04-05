@@ -63,17 +63,13 @@ class HomeController extends Controller
 
     public function logout()
     {
-        //if($this->post()) {
         session_unset();
-        header('Location: /kivin18/mvc/public/home/loggedout');
-        //} else {
-        //	echo 'You can only log out with a post method';
-        //}
+        header('Location: /kivin18/mvc/public/home/');
     }
 
-    public function loggedout()
-    {
-        echo 'You are now logged out';
+    public function users() {
+        $viewbag = $this->model('User')->getUsers();
+        $this->view('home/users', $viewbag);
     }
 
 }
