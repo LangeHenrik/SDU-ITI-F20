@@ -1,6 +1,6 @@
     </section>
     <footer>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-bottom">
 
 
           <!--
@@ -42,8 +42,8 @@
       <script>
           alert('Username or Pasword is wrong');
       </script>
-  <?php } 
-        unset($_SESSION['loginFailed']);  
+  <?php }
+        unset($_SESSION['loginFailed']);
   ?>
   <script type="text/javascript">
     $(function () {

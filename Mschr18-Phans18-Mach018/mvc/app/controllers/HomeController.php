@@ -1,7 +1,6 @@
 <?php
 
 class HomeController extends Controller {
-
 	// Main / home / default - page.
 	public function index ($param) {
 		//This is a proof of concept - we do NOT want HTML in the controllers!
@@ -50,7 +49,7 @@ class HomeController extends Controller {
 		$this->view('Home/index', $viewbag);
 	}
 
-	// reach registration page. 
+	// reach registration page.
 	public function signup() {
 		if (!(isset($_SESSION['logged_in']) && $_SESSION['logged_in'])) {
 			$this->view('home/registration');

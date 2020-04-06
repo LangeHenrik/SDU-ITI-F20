@@ -1,6 +1,6 @@
 <!DOCTYPE html><html>
   <head>
-    <title>ChalkBoard</title>
+    <title><?= $_SESSION['page_titel'] ?></title>
 
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -24,4 +24,11 @@
         include_once('navbar.php');
       ?>
     </header>
-    <section class="container-fluid content" >
+    <section class="container-fluid">
+
+      <div class="jumbotron">
+        <div class="container">
+          <h1 class="page-titel"><?= $_SESSION['page_header::before'] . "ChalkB<i class='fas fa-chalkboard'></i>rd" . $_SESSION['page_header::after']?> </h1>
+          <p class="lead"><?= $_SESSION['page_sub_header']?></p>
+        </div>
+      </div>

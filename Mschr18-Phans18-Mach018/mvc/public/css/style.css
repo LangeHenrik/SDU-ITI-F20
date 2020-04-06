@@ -1,28 +1,36 @@
 /* general */
 body {
-  background-color: #bbb;
+  background-color: #bbb;;
+  padding: 75px 0;
+  color: white;
 }
-
+body a {
+  color: rgba(255,255,255,.5);
+  text-decoration: underline;
+}
+body a:hover {
+  color: rgba(255,255,255,.75);
+}
 nav
 .form-inline {
   margin: 4px 0;
 }
-nav.navbar-brand {
+nav .navbar-brand {
   padding: 0;
   margin: -20px 10px -20px 0;
 }
 .custom-nav-collapse-show,
-.custom-nav-collapse {
+nav .custom-nav-collapse {
   display: none;
 }
 @media only screen and (max-width: 990px) {
-  .custom-nav-collapse {
+nav  .custom-nav-collapse {
     display: inline;
     margin-top: 2px;
   }
 }
 @media only screen and (max-width: 760px) {
-  .custom-nav-collapse {
+nav .custom-nav-collapse {
     display: none;
   }
   .custom-nav-collapse-show {
@@ -30,12 +38,17 @@ nav.navbar-brand {
   }
 }
 
-section.content .chalkboard  {
-  margin-top: 5px;
+section div.jumbotron {
+  padding: 32px 16px;
+  background-color: #333;
 }
-.page-titel {
-  display: inline-block;
-  vertical-align: top;
+section div.custom-container{
+  padding: 20px 0;
+  background-color: #333;
+  border-radius: 5px;
+}
+section div.page form div.input-group {
+  margin-bottom: 10px;
 }
 
 footer {
@@ -47,6 +60,9 @@ footer {
 
 
 
+.center {
+  text-align: center;
+}
 
 /* chalkbord logo */
 .chalkboard {
@@ -73,8 +89,14 @@ footer {
 .fa-user {
     margin: 0 1px;
 }
-
 .custom-tooltip .fa-info-circle {
   font-size: 10px;
   vertical-align: top;
+}
+.carousel-item h1 i.fas {
+  font-size: 100px;
+}
+
+hr {
+  border-top: 1px solid rgba(255,255,255,0.5);
 }

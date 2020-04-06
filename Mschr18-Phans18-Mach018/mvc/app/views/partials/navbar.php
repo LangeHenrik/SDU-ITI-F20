@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
   <a class="navbar-brand" href="<?=BASE_URL?>home/Index">
     <?php include('../app/views/partials/chalkbordlogo.php') ?>
   </a>
@@ -17,7 +17,7 @@
   </div>
 
   <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav " > 
+    <ul class="navbar-nav " >
       <li class="nav-item">
         <a class="nav-link" href="<?=BASE_URL?>home/index">home <i class="fas fa-home"></i></a>
       </li>
