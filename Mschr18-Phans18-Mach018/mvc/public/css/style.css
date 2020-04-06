@@ -51,6 +51,26 @@ section div.page form div.input-group {
   margin-bottom: 10px;
 }
 
+.card {
+  background-color: #333;
+  margin: 0 15px 15px 0;
+  border-radius: 15px;
+  border: 2px solid #333;
+  display: inline-block;
+  vertical-align: top;
+}
+.card img {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border: 2px solid #FFF;
+}
+.card-body {
+  padding-bottom: 0;
+}
+.card-footer {
+  padding-top: 0;
+}
+
 footer {
   position: absolute;
   bottom: 0;
