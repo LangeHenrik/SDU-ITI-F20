@@ -34,7 +34,6 @@
             <?php }
             ?>
         </div>
-
     </div>
 
     <!-- Bootstrap scripts-->

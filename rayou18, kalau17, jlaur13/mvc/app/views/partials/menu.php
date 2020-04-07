@@ -25,7 +25,7 @@
                 <a class="nav-link" href="#">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href=#>Image Feed</a>
+                <a class="nav-link" href=../../public/imagefeed/getallimages>Image Feed</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Upload Image</a>
