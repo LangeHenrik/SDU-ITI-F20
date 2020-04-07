@@ -28,10 +28,12 @@
             <a class="nav-link"  href="<?=BASE_URL?>home/feed">ChalkBoard-Feed <i class="fas fa-comment-alt"></i></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link"  href="<?=BASE_URL?>home/upload">Upload <i class="fas fa-file-upload"></i></i></a>
+            <a class="nav-link" data-toggle="modal" data-target="#uploadModal">
+              Upload <i class="fas fa-file-upload"></i>
+            </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link"  href="<?=BASE_URL?>home/users">Users <i class="fas fa-address-book"></i></i></a>
+            <a class="nav-link" data-toggle="modal" data-target="#exampleModal">Users <i class="fas fa-address-book"></i></a>
           </li>
 
       <?php } else { ?>
@@ -50,3 +52,9 @@
     ?>
   </div>
 </nav>
+
+<?php
+  if( isset($_SESSION['logged_in']) && ($_SESSION['logged_in']) ) {
+      include('uploadModal.php');
+  }
+?>
