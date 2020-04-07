@@ -4,14 +4,14 @@ function getImage(){
 // Initialize the HTTP request.
     var xhr = new XMLHttpRequest();
     xhr.open('GET', '/rasmt18_soepe16_matry18/mvc/public/Image/loadImages');
-    var divid = document.getElementById('content');
+    var divid = document.getElementById('imageContainer');
 // Track the state changes of the request.
     xhr.onreadystatechange = function () {
         var DONE = 4; // readyState 4 means the request is done.
         var OK = 200; // status 200 is a successful return.
         if (xhr.readyState === DONE) {
             if (xhr.status === OK) {
-                divid.insertAdjacentHTML("beforeend", xhr.responseText);
+                divid.innerHTML=xhr.responseText;
             } else {
                 console.log('Error: ' + xhr.status); // An error occurred during the request.
             }
