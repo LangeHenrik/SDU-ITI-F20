@@ -19,7 +19,7 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav " >
       <li class="nav-item">
-        <a class="nav-link" href="<?=BASE_URL?>home/index">home <i class="fas fa-home"></i></a>
+        <a class="nav-link" href="<?=BASE_URL?>home/index">Home <i class="fas fa-home"></i></a>
       </li>
 
       <?php if( isset($_SESSION['logged_in']) && ($_SESSION['logged_in']) ) { ?>
