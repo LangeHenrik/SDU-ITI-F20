@@ -17,7 +17,7 @@ class UploadController extends Controller {
             $file = $_POST["file"];
 
             $picture = $this->model('Picture')->upload($name , $header , $description , $file);
-            $this->view('partials/signup_form');
+            $this->view('pictures/upload');
 
         }
     }

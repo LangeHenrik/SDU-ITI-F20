@@ -15,7 +15,7 @@
 
 ?>
 
-    <form method="POST" enctype = "multipart/form-data">
+    <form action="/rayou18, kalau17, jlaur13/mvc/public/Upload/uploadPictures" method="POST" enctype = "multipart/form-data">
         <div class="form-group">
             <label for="exampleInputTitle">Title</label>
             <input type="text" class="form-control" name="header" id="exampleInputTitle" aria-describedby="TitleHelp" placeholder="Enter title">
