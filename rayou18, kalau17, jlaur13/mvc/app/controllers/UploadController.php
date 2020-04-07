@@ -3,7 +3,7 @@
 class UploadController extends Controller {
 
     public function index () {
-        $this->view('upload');
+        $this->view('pictures/upload');
 
     }
 

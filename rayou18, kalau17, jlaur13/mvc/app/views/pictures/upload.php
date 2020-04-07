@@ -1,10 +1,18 @@
-<?php include "../partials/header.php" ?>
-<?php include "../partials/menu.php" ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+</head>
+<body>
+<?php include "../app/views/partials/menu.php" ?>
 
 <?php
-if(POST){
-    echo yes;
-}
+
 ?>
 
     <form method="POST" enctype = "multipart/form-data">
@@ -23,4 +31,9 @@ if(POST){
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 
-<?php include "../partials/foot.php" ?>
+
+
+
+
+
+<?php include "../app/views/partials/foot.php" ?>
