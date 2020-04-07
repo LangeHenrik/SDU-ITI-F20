@@ -25,60 +25,34 @@
            </div>
         </div>
         <?php
-        if (!empty($viewbag)) {
-          for ($i=0; $i < count($viewbag); $i++) {
-            ?>
-            <div class="card picturecontainer" style="width: 14rem;" id="card_<?=$i?>">
-              <img class="card-img-top" src=<?=$viewbag[$i][2]?> alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title"><?=$viewbag[$i][0]?></h5>
-                <p class="card-text"><?=$viewbag[$i][3]?></p>
-              </div>
-              <div class="card-footer">
-                <div class="row">
-                  <div class="col">
-                    <small class="float-left text-muted"><?=$viewbag[$i][1]?></small>
-                  </div>
-                  <div class="col">
-                    <small class="float-right text-muted"><?=$viewbag[$i][4]?></small>
-                  </div>
-                </div>
-
-
-              </div>
-            </div>
-            <?php
-          }
-        }
-
           if (!empty($viewbag)) {
             for ($i=0; $i < count($viewbag); $i++) {
               ?>
-                <!--<div class="picturecontainer" id="<?//=$i?>">
-                    <table>
-                        <tr>
-                            <td class="titel" width="200">Titel: <?//=$viewbag[$i][0]?></td>
-                            <td class="byuser" width="240">By: <?//=$viewbag[$i][1]?></td>
-                        </tr>
-                        <tr>
-                            <td height="170">
-                                <img src= <?//=$viewbag[$i][2]?> alt="Picture by <?//=$viewbag[$i][1]?>, titeled <?=$viewbag[$i][0]?>" >
-                            </td>
-                            <td class="descripton">Descripton:<br><?//=$viewbag[$i][3]?></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td class="date">Date: <?//=$viewbag[$i][4]?></td>
-                        </tr>
-                    </table>
-                      <form action="include/PDO/deleteImage.php" method="POST">
-                          <input type="hidden" name="deletebtn" value="<?//=$viewbag[$i][5]?>"/>
-                      </form>
-                      <a  class="deleteBtn" href="#" onclick="this.parentNode.children[1].submit()">
-                          <div class="X1"></div>
-                          <div class="X2"></div>
-                      </a>
-                </div>-->
+              <div class="card picturecontainer" style="width: 14rem;" id="card_<?=$i?>">
+                <img class="card-img-top" src=<?=$viewbag[$i][2]?> alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title"><?=$viewbag[$i][0]?></h5>
+                  <p class="card-text"><?=$viewbag[$i][3]?></p>
+                </div>
+                <div class="card-footer">
+                  <div class="row">
+                    <div class="col">
+                      <small class="float-left text-muted"><?=$viewbag[$i][1]?></small>
+                    </div>
+                    <div class="col">
+                      <small class="float-right text-muted"><?=$viewbag[$i][4]?></small>
+                    </div>
+                  </div>
+                </div>
+                <form action="include/PDO/deleteImage.php" method="POST">
+                    <input type="hidden" name="deletebtn" value="<?=$viewbag[$i][5]?>"/>
+                </form>
+                <a  class="deleteBtn" href="#" onclick="this.parentNode.children[1].submit()">
+                    <div class="X1"></div>
+                    <div class="X2"></div>
+                </a>
+                <script src="/Mschr18-Phans18-Mach018/mvc/public/js/upload.js"></script>
+              </div>
               <?php
             }
           }
