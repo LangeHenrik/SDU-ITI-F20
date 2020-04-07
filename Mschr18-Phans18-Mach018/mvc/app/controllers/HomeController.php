@@ -5,7 +5,7 @@ class HomeController extends Controller {
 	// Main / home / default - page.
 	public function index () {
 		if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) {
-			$viewbag = $picture->getPictures($_SESSION['username']);
+			$viewbag = $this->model('Picture')->getPictures($_SESSION['username']);
 			$this->view('home/index', $viewbag);
 		}
 		else {
