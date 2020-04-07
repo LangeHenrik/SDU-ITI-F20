@@ -12,21 +12,6 @@
 <!---->
 <?php //endif; ?>
 
-<!--<nav class="navbar navbar-expand-sm bg-dark navbar-dark navbar-static-top navbar-toggler">-->
-<!--    <a class="navbar-brand" href="#">Index</a>-->
-<!--    <ul class="navbar-nav mr-auto">-->
-<!--         <li class="nav-item">-->
-<!--            <a class="nav-link" href="#">Upload Image</a>-->
-<!--        </li>-->
-<!--        <li class="nav-item">-->
-<!--            <a class="nav-link" href="#">Image Feed</a>-->
-<!--        </li>-->
-<!--        <li class="nav-item">-->
-<!--            <a class="nav-link" href="#">Login</a>-->
-<!--        </li>-->
-<!--    </ul>-->
-<!--</nav>-->
-
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div class="mx-auto order-0">
         <a class="navbar-brand" href="#">Menu</a>
@@ -40,7 +25,7 @@
                 <a class="nav-link" href="#">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href=#>Image Feed</a>
+                <a class="nav-link" href=../../public/imagefeed/getallimages>Image Feed</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Upload Image</a>
@@ -50,8 +35,12 @@
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link" href="#">Login</a>
+                <a class="nav-link" onclick="callAjax()">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/rayou18,%20kalau17,%20jlaur13/mvc/public/Home/signup">Sign Up</a>
             </li>
         </ul>
     </div>
 </nav>
+
