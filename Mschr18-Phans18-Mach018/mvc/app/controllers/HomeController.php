@@ -78,13 +78,13 @@ class HomeController extends Controller {
 	public function upload() {
 		$picture = $this->model('Picture');
 		$viewbag = $picture->getPictures($_SESSION['username']);
-		$this->view('home/upload', $viewbag);
+		$this->view('home/uploadModal', $viewbag);
 	}
 	// Uploading og pictures
 	public function uploadPicture() {
 		if ($this->post()) {
 			$this->model('Picture')->uploadPicture();
-			header('Location: ' . BASE_URL . 'home/upload');
+			header('Location: ' . BASE_URL . 'home/uploadModal');
 		}
 		else {
 			header('Location: ' . BASE_URL . 'home/index');
