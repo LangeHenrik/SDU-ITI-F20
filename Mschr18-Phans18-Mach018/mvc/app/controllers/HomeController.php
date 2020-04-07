@@ -9,6 +9,16 @@ class HomeController extends Controller {
 		$this->view('Home/index');
 	}
 
+	// reach registration page.
+	public function signup() {
+		if (!(isset($_SESSION['logged_in']) && $_SESSION['logged_in'])) {
+			$this->view('home/registration');
+		}
+		else {
+			header('Location: ' . BASE_URL . 'Home/index');
+		}
+	}
+
 	// createUser is only available with post method.
 	public function createUser() {
 		if ($this->post()) {
@@ -47,16 +57,6 @@ class HomeController extends Controller {
 		$viewbag['username'] = $user->name;
 		//$viewbag['pictures'] = $this->model('pictures')->getUserPictures($user);
 		$this->view('Home/index', $viewbag);
-	}
-
-	// reach registration page.
-	public function signup() {
-		if (!(isset($_SESSION['logged_in']) && $_SESSION['logged_in'])) {
-			$this->view('home/registration');
-		}
-		else {
-			header('Location: ' . BASE_URL . 'Home/index');
-		}
 	}
 
 	// login is only available with post method.
