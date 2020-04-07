@@ -5,7 +5,7 @@
 #99738E
 #2F2FA2 Nav color
  */
-
+/*
 *{
     margin: 0;
     padding: 0;
@@ -53,22 +53,14 @@ form{
     width: 70%;
 }
 
-label{
-    position: absolute;
-}
+
 
 input:focus{
     transition: 0.5s;
     border-bottom: 3px solid #F64C72;
 }
 
-i{
-    display: inline;
-}
 
-.replock{
-    color: lightgray;
-}
 
 .buttons{
     padding: 9px;
@@ -85,9 +77,25 @@ i{
     transition: 0.5s;
     background-color: #553D67;
 }
+*/
 
-p{
+
+.replock{
+    color: lightgray;
+}
+.field_info{
     color: lightgray;
     font-family: arial;
     font-size: 10px;
+}
+
+.login-form {
+    width: 340px;
+    margin: 50px auto;
+}
+.login-form form {
+    margin-bottom: 15px;
+    background: #f7f7f7;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    padding: 30px;
 }

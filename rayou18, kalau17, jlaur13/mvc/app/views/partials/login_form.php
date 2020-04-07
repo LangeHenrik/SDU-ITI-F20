@@ -44,11 +44,7 @@
                 <a href="/rayou18, kalau17, jlaur13/mvc/public/Home/signup">Create an Account</a>
             </p>
         </div>
-
-
-
-
-
+  
  <!-- </div> -->
   </body>
 </html>
