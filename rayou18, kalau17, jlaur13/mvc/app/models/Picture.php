@@ -22,6 +22,7 @@ class Picture extends Database {
         return true;
     }
 
+
     public function getAll () {
 
         $sql = "SELECT * FROM picture;";
@@ -30,7 +31,7 @@ class Picture extends Database {
         $stmt->execute();
 
         $result = $stmt->fetchAll();
-
+        $jsonreturn = json_encode($result);
         return $result;
     }
 
