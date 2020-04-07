@@ -71,6 +71,10 @@ section div.page form div.input-group {
   padding-top: 0;
 }
 
+.costum-mt-32 {
+  margin-top: 32px;
+}
+
 footer {
   position: absolute;
   bottom: 0;
