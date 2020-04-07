@@ -7,7 +7,7 @@ class HomeController extends Controller {
         if(isset($_SESSION['username'])&& isset($_SESSION['logged_in'])&& $_SESSION['logged_in'] == true){
             $viewbag['username'] =  $_SESSION['username'];
         }
-        $this->view('home/index', $viewbag);
+        $this->view('home/index',$viewbag);
 
 	}
 
@@ -37,7 +37,8 @@ class HomeController extends Controller {
                 header("Location: /rayou18, kalau17, jlaur13/mvc/public/Home/index");
 		    }
             else{
-                $this->view('partials/login_form');
+                $viewbag['wrongLogin'] = 'wrong Username or Password';
+                $this->view('partials/login_form',$viewbag);
             }
         }
 
