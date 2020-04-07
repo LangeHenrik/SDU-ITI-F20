@@ -11,7 +11,7 @@ class UploadController extends Controller {
     public function uploadPictures(){
 
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
-            $name = "JohnDoe"; //filter_var($_POST["username"],FILTER_SANITIZE_STRING);
+            $name = filter_var($_SESSION['username'],FILTER_SANITIZE_STRING);
             $header = filter_var($_POST["header"],FILTER_SANITIZE_STRING);
             $description = filter_var($_POST["description"],FILTER_SANITIZE_STRING);
             $file_ext=strtolower(end(explode('.',$_FILES['file']['name'])));
