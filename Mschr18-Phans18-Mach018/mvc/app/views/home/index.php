@@ -44,14 +44,14 @@
                     </div>
                   </div>
                 </div>
-                <form action="include/PDO/deleteImage.php" method="POST">
+                <form action="<?=BASE_URL?>home/deletePicture" method="POST">
                     <input type="hidden" name="deletebtn" value="<?=$viewbag[$i][5]?>"/>
                 </form>
-                <a  class="deleteBtn" href="#" onclick="this.parentNode.children[1].submit()">
+                <a  class="deleteBtn" href="#" onclick="this.previousSibling.previousSibling.submit()">
                     <div class="X1"></div>
                     <div class="X2"></div>
                 </a>
-                <script src="/Mschr18-Phans18-Mach018/mvc/public/js/upload.js"></script>
+                <script src="/Mschr18-Phans18-Mach018/mvc/public/js/home.js"></script>
               </div>
               <?php
             }

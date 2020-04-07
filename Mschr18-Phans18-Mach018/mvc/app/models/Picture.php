@@ -72,7 +72,7 @@ class Picture extends Database {
 	}
 
 	// Delete selected picture
-	public function deletePicture($picid) {
+	public function deletePicture() {
 		try
 		{
 			if( isset( $_POST["deletebtn"] ) ) {
