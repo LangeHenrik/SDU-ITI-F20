@@ -33,7 +33,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-toggle="modal" data-target="#exampleModal">Users <i class="fas fa-address-book"></i></a>
+            <a class="nav-link"  href="<?=BASE_URL?>home/users">Users <i class="fas fa-address-book"></i></i></a>
           </li>
 
       <?php } else { ?>
