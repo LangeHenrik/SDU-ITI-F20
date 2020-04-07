@@ -1,22 +1,27 @@
 <?php
+  $_SESSION['page_titel'] .= " | Users";
+  $_SESSION['page_header::before'] = "";
+  $_SESSION['page_header::after'] = " Feed.";
+  $_SESSION['page_sub_header'] = "Follow image feed for updates whenever new stories are uploaded.";
+
   include_once('../app/views/partials/header.php');
 ?>
     <section id="content">
       <h1 id="title">Users on </h1> <?php include('../app/views/partials/chalkbordlogo.php') ?>
       <div class="users" id="users">
         <form action="<?=BASE_URL?>Home/users/">
-              <input type="text" id="searchValue" name="searchValue" value="<?=$_GET["searchValue"] ?? ""?>" 
+              <input type="text" id="searchValue" name="searchValue" value="<?=$_GET["searchValue"] ?? ""?>"
               autofocus placeholder="Enter search here. . ." onfocus="this.selectionStart = this.selectionEnd = this.value.length;">
               <input type="submit" id="submit" value="Search">
               <br> Orderd by
-              <select name="orderBy" id="orderBy"> 
+              <select name="orderBy" id="orderBy">
                 <option value="username">Username</option>
-                
+
                 <?php if ($_GET["orderBy"] == "fullname") {?>
                   <option value="fullname" selected>Fullname</option>
                 <?php } else {?>
                   <option value="fullname">Fullname</option>
-                
+
                 <?php } if ($_GET["orderBy"] == "signup") {?>
                   <option value="signup" selected>Signup Date</option>
                 <?php } else {?>
@@ -33,7 +38,7 @@
             <th>Fullname</th>
             <th>Signup Date</th>
           </tr>
-          <?php 
+          <?php
             if (!empty($viewbag)) {
               $rows = count($viewbag);
               $cols = count($viewbag[0]);
