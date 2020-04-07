@@ -25,10 +25,10 @@
                 <a class="nav-link" href="#">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href=../../public/imagefeed/getallimages>Image Feed</a>
+                <a class="nav-link" href="/rayou18, kalau17, jlaur13/mvc/public/imagefeed/getallimages">Image Feed</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Upload Image</a>
+                <a class="nav-link" href="#">Upload Image</a>pl
             </li>
         </ul>
     </div>
