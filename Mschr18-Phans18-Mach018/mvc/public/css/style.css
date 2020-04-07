@@ -71,9 +71,47 @@ section div.page form div.input-group {
   padding-top: 0;
 }
 
-.costum-mt-32 {
-  margin-top: 32px;
+.card.new {
+  display: block;
+  margin: 0 auto;
 }
+.card.new i.card-img-top.fas {
+  font-size: 200px;
+  text-align: center;
+  background-color: #eee;
+  color: rgba(0,0,0,0.5);
+  border: 5px solid rgba(0,0,0,0.5);
+}
+.card.new .card-body input,
+.card.new .card-body textarea {
+  width: 100%;
+  background-color: #333;
+  color: white;
+  padding: 5px;
+  border: 1px dashed rgba(255,255,255,.5);
+}
+.card.new .card-body input::placeholder,
+.card.new .card-body textarea::placeholder {
+      color: rgba(255,255,255,0.8)
+}
+
+.card.new .card-body input {
+  margin-bottom: 16px;
+}
+
+
+.modal-content {
+  color: black;
+  background-color: #aaa;
+}
+.modal-content hr,
+.modal-footer {
+  border-top: 1px solid black;
+}
+.modal-header {
+  border-bottom: 1px solid black;
+}
+
 
 footer {
   position: absolute;
@@ -98,10 +136,10 @@ div.picturecontainer:hover {
   transform: scale(1.05);
 }
 .deleteBtn {
-  position: absolute; 
-  top: 5px; 
-  right: 5px; 
-  width: 20px; 
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 20px;
   height: 20px;
   transition: all 0.2s ease;
 }
@@ -157,6 +195,12 @@ div.picturecontainer:hover {
   font-size: 100px;
 }
 
+
+/* Bootstrap */
 hr {
   border-top: 1px solid rgba(255,255,255,0.5);
+}
+
+.costum-mt-32 {
+  margin-top: 32px;
 }

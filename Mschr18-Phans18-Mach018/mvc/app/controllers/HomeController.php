@@ -84,11 +84,8 @@ class HomeController extends Controller {
 	public function uploadPicture() {
 		if ($this->post()) {
 			$this->model('Picture')->uploadPicture();
-			header('Location: ' . BASE_URL . 'home/uploadModal');
 		}
-		else {
-			header('Location: ' . BASE_URL . 'home/index');
-		}
+		header('Location: ' . BASE_URL . 'home/index');
 	}
 	// Delete picture
 	public function deletePicture() {

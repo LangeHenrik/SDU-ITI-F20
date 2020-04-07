@@ -9,6 +9,7 @@
   if (!empty($viewbag)) {
     for ($i=0; $i < count($viewbag); $i++) {
       ?>
+
       <div class="card picturecontainer" style="width: 18rem;" id="card_<?=$i?>">
         <img class="card-img-top" src=<?=$viewbag[$i][2]?> alt="Card image cap">
         <div class="card-body">
@@ -24,13 +25,12 @@
               <small class="float-right text-muted"><?=$viewbag[$i][4]?></small>
             </div>
           </div>
-
-
         </div>
       </div>
+      
       <?php
     }
   }
-  
+
  include_once('../app/views/partials/footer.php');
 ?>

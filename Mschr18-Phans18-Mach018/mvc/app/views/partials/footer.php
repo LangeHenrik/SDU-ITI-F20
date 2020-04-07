@@ -52,6 +52,16 @@
 
     $('#myModal').on('shown.bs.modal', function () {
       $('#myInput').trigger('focus')
+    });
+
+    $('#picupload').on('change',function(){
+        //get the file name
+        var fileName = $(this).val().replace(/^.*\\/, "");
+        console.log(fileName);
+        //replace the "Choose a file" label
+        $(this).next('.custom-file-label').html(fileName);
     })
+
+    $('.file-upload').file_upload();
   </script>
 </html>

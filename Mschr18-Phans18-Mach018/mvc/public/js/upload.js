@@ -1,58 +1,78 @@
-var picupload = document.getElementById('picupload');
-var container = document.getElementById("preview");
-
-function addImg(imgFileNr, files)
-{
-  if (imgFileNr > 0)
-  {
-    var img = document.createElement("img");
-    img.src = URL.createObjectURL(files[imgFileNr-1]);
-
-    var imgText = document.createElement("p");
-    imgText.innerHTML = "Name: " + files[imgFileNr-1].name;
-
-    container.appendChild(img);
-    container.appendChild(imgText);
-
-    addImg(--imgFileNr, files);
-  }
-}
+var imageSrc = document.getElementById("image-src");
+  imageSrc.style.cssText = 'display: none;';
+var imageNone = document.getElementById("image-none");
+  imageNone.style.cssText = 'display: block;';
+var imageError = document.getElementById("image-error");
+  imageError.style.cssText = 'display: none;';
+var imageText = document.getElementById("image-text");
+  imageText.innerHTML = "";
+  imageText.style.cssText = 'display: none;';
 
 picupload.onchange = function()
 {
-  // Cleaning out children.
-  while (container.children["length"] > 0) {
-    container.removeChild(container.children[0]);
-  }
+  imageSrc.style.cssText = 'display: none;';
+  imageNone.style.cssText = 'display: none;';
+  imageError.style.cssText = 'display: none;';
+  imageText.innerHTML = "";
+  imageText.style.cssText = 'display: none;';
 
-  // Is any of the files bad?
-  for (var i = 0; i < this.files["length"]; i++)
+  if (this.files.length == 0)
   {
-    if (!this.files[i].type.match("image.*"))
+    console.log("0 files." );
+    imageNone.style.cssText = 'display: block;';
+    return;
+  }
+  else if (this.files.length == 1)
+  {
+    console.log("1 file.");
+
+    if (this.files[0]["size"]/1048576 > 2)
     {
-      alert('File type is not a supported image type');
-      this.value = '';
+      console.log("File size to big.");
+      imageError.style.cssText = 'display: block;';
+      imageText.style.cssText = 'display: block;';
+      imageText.innerHTML = "Sorry image size is to big.";
+      return;
+    }
+    else if (!this.files[0].type.match("image.*"))
+    {
+      console.log("file not correct type.");
+      imageError.style.cssText = 'display: block;';
+      imageText.style.cssText = 'display: block;';
+      imageText.innerHTML = "File type not suported!";
+      return;
+    }
+    else
+    {
+      console.log("image selected.");
+      imageSrc.style.cssText = 'display: block;';
+      imageSrc.src = URL.createObjectURL(this.files[0]);
       return;
     }
   }
-  
-  // Adding new images to container.
-  // addImg(this.files["length"], this.files);
-
-  for (let i = 0; i < this.files["length"]; i++) 
+  else
   {
-    var img = document.createElement("img");
-    // Check filesize.
-    if (this.files[i]["size"]/1048576 > 2) 
-      img.src = "Include/Image is too big.png";
-    else
-      img.src = URL.createObjectURL(this.files[i]);
-      
-      var imgText = document.createElement("p");
-      imgText.innerHTML = "Name: " + this.files[i].name;
-      
-      container.appendChild(img);
-      container.appendChild(imgText);
-    
-  } 
+    console.log("Too many files sellected.")
+    imageError.style.cssText = 'display: block;';
+    imageText.style.cssText = 'display: block;';
+    imageText.innerHTML = "You can only sellect one image!";
+    return;
+  }
+}
+
+var textarea = document.querySelector('textarea');
+
+textarea.addEventListener('keydown', autosize);
+
+function autosize(){
+  var element = this;
+  setTimeout(styleHeight(element),0);
+}
+
+function styleHeight(element){
+  element.style.cssText = 'height:auto; padding:0';
+
+  var newHeight = element.scrollHeight+50;
+  element.style.cssText = 'height:' + newHeight + 'px;'
+                        + 'resize: none;';
 }
