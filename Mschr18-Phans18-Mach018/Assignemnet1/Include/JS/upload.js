@@ -1,6 +1,5 @@
 var picupload = document.getElementById('picupload');
 var container = document.getElementById("preview");
-container.overflow = scroll;
 
 function addImg(imgFileNr, files)
 {

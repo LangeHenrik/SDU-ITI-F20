@@ -159,6 +159,7 @@ div.select {
   padding: 20px;
   border-radius: 7px;
   margin-bottom: 20px;
+  height: 260px;
 }
 div.upload h4 {
   margin: -15px 0 10px -15px;;
@@ -176,6 +177,8 @@ div.upload form {
   vertical-align: top;
 }
 div#preview {
+  overflow: auto;
+  max-height: 238px;
   width: calc(100% - 280px);
   max-width: 600px;
   margin-left: 20px;
