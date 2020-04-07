@@ -35,10 +35,8 @@ class Picture extends Database {
 					continue;
 				}
 				$name = $_FILES['picupload']['name'][$i];
-				$target_dir = "../Images/";
-				$target_file = $target_dir . basename($_FILES["picupload"]["name"][$i]);
 				// Find filetype
-				$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+				$imageFileType = strtolower(pathinfo(basename($name),PATHINFO_EXTENSION));
 				// Check sufix
 				if( getimagesize($_FILES["picupload"]["tmp_name"][$i]) !== false ) {
 					// Convert to base64
@@ -60,9 +58,6 @@ class Picture extends Database {
 					$stmt->bindParam(':imagename', $name);
 					$stmt->bindParam(':imagebase64', $image_base64);
 					$stmt->execute();
-
-					// Upload file
-					move_uploaded_file($_FILES['picupload']['tmp_name'][$i],$target_dir.$name);
 				}
 				else
 				{
