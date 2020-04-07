@@ -35,8 +35,12 @@
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link" href="#">Login</a>
+                <a class="nav-link" onclick="callAjax()">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/rayou18,%20kalau17,%20jlaur13/mvc/public/Home/signup">Sign Up</a>
             </li>
         </ul>
     </div>
 </nav>
+

@@ -3,17 +3,22 @@
 class HomeController extends Controller {
 	
 	public function index ($param) {
-		//This is a proof of concept - we do NOT want HTML in the controllers!
-		echo '<br><br>Home Controller Index Method<br>';
-		echo 'Param: ' . $param . '<br><br>';
+        $user = $this->model('User');
+        if(isset($_SESSION['username'])&& isset($_SESSION['logged_in'])&& $_SESSION['logged_in'] == true){
+            $viewbag['username'] =  $_SESSION['username'];
+        }
+        $this->view('home/index', $viewbag);
+
 	}
 	
 	public function other ($param1 = 'first parameter', $param2 = 'second parameter') {
-		$user = $this->model('User');
-		$user->name = $param1;
-		$viewbag['username'] = $user->name;
+	/*	$user = $this->model('User');
+		if(isset($_SESSION['username'])&& isset($_SESSION['logged_in'])&& $_SESSION['logged_in'] == true){
+            $viewbag['username'] =  $_SESSION['username'];
+        }
+		//$viewbag['username'] = $user->name;
 		//$viewbag['pictures'] = $this->model('pictures')->getUserPictures($user);
-		$this->view('home/index', $viewbag);
+		$this->view('home/index', $viewbag); */
 	}
 	
 	public function restricted () {
