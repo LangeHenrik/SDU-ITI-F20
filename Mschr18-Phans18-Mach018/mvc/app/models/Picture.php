@@ -14,6 +14,12 @@ class Picture extends Database {
 		$stmt->execute();
 		$stmt->setFetchMode(PDO::FETCH_NUM);
 		$pictures = $stmt->fetchAll();
+		// If not empty, add a '.' if there isn't any
+		for($i = 0; $i < count($pictures); $i++) {
+			if ($pictures[$i][3]) {
+				$pictures[$i][3] .= (substr($pictures[$i][3], -1) === '.') ? '' : '.'; 
+			}
+		}
 		return $pictures;
 	}
 
