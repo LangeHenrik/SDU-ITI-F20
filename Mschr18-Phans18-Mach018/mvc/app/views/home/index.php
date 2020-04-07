@@ -37,12 +37,12 @@
           <div class="carousel-item text-center p-4">
             <h1><i class="fas fa-image fa-xs"></i></h1>
             <h4>Post images.</h4>
-            <p>Upload images to ChalkB<i class='fas fa-chalkboard'></i>rd <br>And tell you story with a titel and a comment. </p>
+            <p>Upload images to ChalkB<i class='fas fa-chalkboard'></i>rd <br>And tell your story with a titel and a comment. </p>
           </div>
           <div class="carousel-item text-center p-4">
             <h1><i class="fas fa-comments fa-xs"></i></h1>
             <h4>Comments.</h4>
-            <p>Soon to come on ChalkB<i class='fas fa-chalkboard'></i>rd <br>Ad commets to others users images. </p>
+            <p>Soon to come on ChalkB<i class='fas fa-chalkboard'></i>rd <br>Add comments to others users images. </p>
           </div>
       </div>
       <a class="carousel-control-prev" href="#carouselContent" role="button" data-slide="prev">
@@ -59,7 +59,7 @@
       <hr>
       <h2 class="center">Get started today <a href="<?=BASE_URL?>Home/signup">sign up <i class="fas fa-user-plus fa-s"></i></a></h2>
       <br>
-      <h2 class="center">Alredy a member. </h2>
+      <h2 class="center">Already a member. </h2>
       <br>
       <div class="container">
         <?php

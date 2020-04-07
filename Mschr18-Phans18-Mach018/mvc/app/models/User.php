@@ -4,8 +4,8 @@ class User extends Database {
 	public function login() {
 		try 
 		{
-			$username = $this->filter("username"); // Strip tags, optionally strip or encode special characters.
-			$password = $this->filter("password"); // Remove all characters except letters, digits and !#$%&'*+-=?^_`{|}~@.[].
+			$username = User::filter("username"); // Strip tags, optionally strip or encode special characters.
+			$password = User::filter("password"); // Remove all characters except letters, digits and !#$%&'*+-=?^_`{|}~@.[].
 			// Are either username or password empty?
 			if (!$username || !$password) {
 				return false;
@@ -32,9 +32,9 @@ class User extends Database {
 	}
 
 	public function &getAll () {
-		$searchValue = isset($_GET["searchValue"]) 	? filter_var($_GET["searchValue"], FILTER_SANITIZE_STRING)
+		$searchValue = isset($_GET["searchValue"]) 	? User::filter("searchValue")
 													: NULL;
-		$orderBy = isset($_GET["orderBy"]) ? filter_var($_GET["orderBy"], FILTER_SANITIZE_STRING) : "Username";
+		$orderBy = isset($_GET["orderBy"]) ? User::filter("orderBy") : "Username";
 		try 
 		{
 			$stmtString = "SELECT username, fullname, signup_date FROM user";
@@ -43,7 +43,7 @@ class User extends Database {
 								OR fullname LIKE CONCAT('%', :fullname, '%')
 								OR signup_date LIKE CONCAT('%', :signup_date, '%'))";
 			}
-			$stmtString .= " ORDER BY $orderBy " . (isset($_GET["descCheck"]) ? filter_var($_GET["descCheck"], FILTER_SANITIZE_STRING) : "") . ";";
+			$stmtString .= " ORDER BY $orderBy " . (isset($_GET["descCheck"]) ? User::filter("descCheck") : "") . ";";
 			$stmt = $this->conn->prepare($stmtString);
 			if ($searchValue != NULL) {
 				$stmt->bindParam(':username', $searchValue);
@@ -65,14 +65,14 @@ class User extends Database {
 		try
 		{
 			array_filter($_POST, function(&$input) { $input = trim($input); });
-			$fullname = filter_var($_POST["fullname"], FILTER_SANITIZE_STRING); // Strip tags, optionally strip or encode special characters.
-			$username = filter_var($_POST["newusername"], FILTER_SANITIZE_STRING);
-			$password = password_hash(filter_var($_POST["newpassword"], FILTER_SANITIZE_STRING), PASSWORD_DEFAULT); // Hashing password right away.
-			$phone = filter_var($_POST["phone"], FILTER_SANITIZE_NUMBER_INT);   // Remove all characters except digits, plus and minus sign.
-			$email = filter_var($_POST["email"], FILTER_SANITIZE_EMAIL);        // Remove all characters except letters, digits and !#$%&'*+-=?^_`{|}~@.[].
+			$fullname = User::filter("fullname"); // Strip tags, optionally strip or encode special characters.
+			$username = User::filter("newusername");
+			$password = password_hash(User::filter("newpassword"), PASSWORD_DEFAULT); // Hashing password right away.
+			$phone = User::filter("phone", FILTER_SANITIZE_NUMBER_INT);   // Remove all characters except digits, plus and minus sign.
+			$email = User::filter("email", FILTER_SANITIZE_EMAIL);        // Remove all characters except letters, digits and !#$%&'*+-=?^_`{|}~@.[].
 
 			// Indset ny bruger.
-			$stmt = $conn->prepare("INSERT INTO user (username, password, fullname, phone, email, signup_date)
+			$stmt = $this->conn->prepare("INSERT INTO user (username, password, fullname, phone, email, signup_date)
 									VALUES (:username, :password, :fullname, :phone, :email, now());");
 			$stmt->bindParam(':username', $username);
 			$stmt->bindParam(':password', $password);
@@ -91,7 +91,9 @@ class User extends Database {
 		<?php }
 	}
 
-	private function filter($name, $filter = FILTER_SANITIZE_STRING) {
+	// Filter _POST or _GET requests with _REQUEST
+	private static function filter($name, $filter = FILTER_SANITIZE_STRING) {
 		return filter_var($_REQUEST[$name], $filter);
 	}
+
 }

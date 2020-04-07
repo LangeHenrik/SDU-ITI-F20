@@ -6,7 +6,7 @@ class HomeController extends Controller {
 		//This is a proof of concept - we do NOT want HTML in the controllers!
 		//echo '<br>Home Controller Index Method<br>';
 		//echo 'Param: ' . $param . '<br><br>';
-		$this->view('Home/index');
+		$this->view('home/index');
 	}
 
 	// reach registration page.
@@ -15,18 +15,24 @@ class HomeController extends Controller {
 			$this->view('home/registration');
 		}
 		else {
-			header('Location: ' . BASE_URL . 'Home/index');
+			header('Location: ' . BASE_URL . 'home/index');
 		}
 	}
 
 	// createUser is only available with post method.
 	public function createUser() {
 		if ($this->post()) {
-			$this->model('User');
+			if ($this->model('User')->createUser()) {
+				$this->view('home/index');
+			}
+			else {
+				// Posibly some error handling;
+				$this->view('home/index');
+			}
 		}
 		else {
 			// You can only create user with post method
-			$this->view('Home/index');
+			$this->view('home/index');
 		}
 	}
 
@@ -34,14 +40,14 @@ class HomeController extends Controller {
 	public function feed() {
 		$picture = $this->model('Picture');
 		$viewbag = $picture->getPictures();
-		$this->view('Home/feed', $viewbag);
+		$this->view('home/feed', $viewbag);
 	}
 
 	// Users page is restricted
 	public function users() {
 		$user = $this->model('User');
 		$viewbag = $user->getAll();
-		$this->view('Home/users', $viewbag);
+		$this->view('home/users', $viewbag);
 	}
 
 	// Upload is restricted
@@ -56,7 +62,7 @@ class HomeController extends Controller {
 		$user->name = $param1;
 		$viewbag['username'] = $user->name;
 		//$viewbag['pictures'] = $this->model('pictures')->getUserPictures($user);
-		$this->view('Home/index', $viewbag);
+		$this->view('home/index', $viewbag);
 	}
 
 	// login is only available with post method.
@@ -64,24 +70,25 @@ class HomeController extends Controller {
 		if ($this->post()) {
 			if($this->model('User')->login()) {
 				$_SESSION['logged_in'] = true;
-				header('Location: ' . BASE_URL . 'Home/feed');
+				header('Location: ' . BASE_URL . 'home/feed');
 			}
 			else {
 				$_SESSION['loginFailed'] = true;
-				header('Location: ' . BASE_URL . 'Home/index');
+				header('Location: ' . BASE_URL . 'home/index');
 			}
 		}
 		else {
-			header('Location: ' . BASE_URL . 'Home/index');
+			header('Location: ' . BASE_URL . 'home/index');
 		}
 	}
 
+	// logging out is restricted
 	public function logout() {
 		session_unset();
-		header('Location: ' . BASE_URL . 'Home/index');
+		header('Location: ' . BASE_URL . 'home/index');
 	}
 
 	public function page401() {
-		$this->view('Home/401');
+		$this->view('home/401');
 	}
 }
