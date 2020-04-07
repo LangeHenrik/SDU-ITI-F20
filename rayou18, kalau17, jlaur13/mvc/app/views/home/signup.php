@@ -1,5 +1,12 @@
 <?php include '../app/views/partials/menu.php'; ?>
 
-    Hello there, <?=$viewbag['username']?>
+    <br/>
+    You are now signed up!
+    <br><br>
+
+
+
+
+
 
 <?php include '../app/views/partials/foot.php'; ?>
