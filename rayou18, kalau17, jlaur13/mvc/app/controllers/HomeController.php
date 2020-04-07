@@ -33,7 +33,8 @@ class HomeController extends Controller {
             if($this->model('User')->login($username_input,$password_input)) {
 			    $_SESSION['logged_in'] = true;
                 $_SESSION['username'] = $username_input;
-                $this->view('home/index');
+                //$this->view('home/index');
+                header("Location: /rayou18, kalau17, jlaur13/mvc/public/Home/index");
 		    }
             else{
                 $this->view('partials/login_form');
@@ -54,7 +55,7 @@ class HomeController extends Controller {
             $password_hash = password_hash($password_input, PASSWORD_BCRYPT);
 
 	        $this->model('User')->signup($username_input_sanitized,$password_hash);
-	        $this->view('partials/signup_form');
+            header("Location: /rayou18, kalau17, jlaur13/mvc/public/Home/index");
 
         }
         if($_SERVER['REQUEST_METHOD'] == 'GET'){
