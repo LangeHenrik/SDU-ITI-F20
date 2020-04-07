@@ -4,20 +4,29 @@
 }
 
 form {
-    margin-top: 5%;
+    margin-top: 2%;
 }
 
 .wrapper {
     text-align: center;
     margin: 0 auto;
-    padding: 25px;
+    padding: 1%;
 }
 
 .form-control {
-    width: 30%;
+    width: auto;
     margin: 0 auto;
 }
 
 .jumbotron, .list-group {
     text-align: left;
+}
+
+.fileInput {
+    width: 0px;
+    height: 0px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
 }

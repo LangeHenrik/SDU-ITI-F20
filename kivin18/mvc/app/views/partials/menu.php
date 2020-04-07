@@ -20,14 +20,14 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) : ?>
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Images</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/kivin18/mvc/public/home/upload">Upload</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/kivin18/mvc/public/user/users">Users</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#">Disabled</a>
             </li>
         </ul>
             <div class="navbar-nav">

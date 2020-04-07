@@ -13,7 +13,7 @@ CREATE TABLE user(
 CREATE TABLE image(
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     username VARCHAR(50) NOT NULL,
-    image BLOB,
+    image MEDIUMBLOB,
     header varchar(50),
     description TEXT,
     date_added TIMESTAMP DEFAULT CURRENT_TIMESTAMP,

@@ -4,6 +4,13 @@ function q(search) {
     return document.querySelector(search);
 }
 
+if(q('.fileInput')) {
+    q('.fileInput').addEventListener('change', function () {
+        let fileName = q('.fileInput').value.split('\\').pop();
+        q('#uploadInfo').innerHTML = fileName;
+    });
+}
+
 // if (q('button#loginButton')) {
 //     q('button#loginButton').addEventListener('click', function () {
 //         let form = new FormData(q('form#loginForm'));

@@ -6,7 +6,7 @@
 <ul class="list-group">
     <?php
     foreach ($viewbag as &$user):
-        echo '<li class="list-group-item list-group-item-dark">' . 'Username: ' . $user['username'] . '</li>';
+        echo '<li class="list-group-item list-group-item-dark">' . $user['username'] . '</li>';
         echo '<li class="list-group-item list-group-item-light">' . 'Joined: ' . $user['join_date'] . '</li>';
     endforeach;
     ?>
