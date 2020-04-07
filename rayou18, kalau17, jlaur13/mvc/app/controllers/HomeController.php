@@ -1,7 +1,7 @@
 <?php
 
 class HomeController extends Controller {
-	
+
 	public function index ($param) {
         $user = $this->model('User');
         if(isset($_SESSION['username'])&& isset($_SESSION['logged_in'])&& $_SESSION['logged_in'] == true){
@@ -10,7 +10,7 @@ class HomeController extends Controller {
         $this->view('home/index', $viewbag);
 
 	}
-	
+
 	public function other ($param1 = 'first parameter', $param2 = 'second parameter') {
 	/*	$user = $this->model('User');
 		if(isset($_SESSION['username'])&& isset($_SESSION['logged_in'])&& $_SESSION['logged_in'] == true){
@@ -20,7 +20,7 @@ class HomeController extends Controller {
 		//$viewbag['pictures'] = $this->model('pictures')->getUserPictures($user);
 		$this->view('home/index', $viewbag); */
 	}
-	
+
 	public function restricted () {
 		echo 'Welcome - you must be logged in';
 	}
@@ -64,10 +64,10 @@ class HomeController extends Controller {
     }
 
 
-	
+
 	public function logout() {
-		
-		
+
+
 		//if($this->post()) {
 			session_unset();
 			header('Location: /rayou18,%20kalau17,%20jlaur13/mvc/public/home/loggedout');
@@ -75,9 +75,9 @@ class HomeController extends Controller {
 		//	echo 'You can only log out with a post method';
 		//}
 	}
-	
+
 	public function loggedout() {
 		echo 'You are now logged out';
 	}
-	
+
 }
