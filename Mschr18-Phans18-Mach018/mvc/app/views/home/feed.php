@@ -9,7 +9,7 @@
   if (!empty($viewbag)) {
     for ($i=0; $i < count($viewbag); $i++) {
       ?>
-      <div class="card" style="width: 18rem;" id="card_<?=$i?>">
+      <div class="card picturecontainer" style="width: 18rem;" id="card_<?=$i?>">
         <img class="card-img-top" src=<?=$viewbag[$i][2]?> alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title"><?=$viewbag[$i][0]?></h5>

@@ -80,7 +80,7 @@ class HomeController extends Controller {
 		$viewbag = $picture->getPictures($_SESSION['username']);
 		$this->view('home/upload', $viewbag);
 	}
-	// Uploading og images
+	// Uploading og pictures
 	public function uploadPicture() {
 		if ($this->post()) {
 			$this->model('Picture')->uploadPicture();
@@ -89,6 +89,13 @@ class HomeController extends Controller {
 		else {
 			header('Location: ' . BASE_URL . 'home/index');
 		}
+	}
+	// Delete picture
+	public function deletePicture() {
+		if ($this->post()) {
+			$this->model('Picture')->deletePicture();
+		}
+		header('Location: ' . BASE_URL . 'home/index');
 	}
 
 	// logging out is restricted

@@ -2,7 +2,7 @@
 class Picture extends Database {
 	
 	// Return all pictures uploaded (by the user) by reference.
-	public function &getPictures($username = NULL){
+	public function &getPictures($username = NULL) {
 		$stmtString = "SELECT titel, username, imagebase64, description, uploaddate, picid FROM picture";
 		if (isset($username) && $username != NULL) {
 			$stmt = $this->conn->prepare($stmtString . " WHERE username = :username");
@@ -35,10 +35,8 @@ class Picture extends Database {
 					continue;
 				}
 				$name = $_FILES['picupload']['name'][$i];
-				$target_dir = "../Images/";
-				$target_file = $target_dir . basename($_FILES["picupload"]["name"][$i]);
 				// Find filetype
-				$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+				$imageFileType = strtolower(pathinfo(basename($name),PATHINFO_EXTENSION));
 				// Check sufix
 				if( getimagesize($_FILES["picupload"]["tmp_name"][$i]) !== false ) {
 					// Convert to base64
@@ -60,9 +58,6 @@ class Picture extends Database {
 					$stmt->bindParam(':imagename', $name);
 					$stmt->bindParam(':imagebase64', $image_base64);
 					$stmt->execute();
-
-					// Upload file
-					move_uploaded_file($_FILES['picupload']['tmp_name'][$i],$target_dir.$name);
 				}
 				else
 				{
@@ -76,8 +71,25 @@ class Picture extends Database {
 		<?php }
 	}
 
+	// Delete selected picture
 	public function deletePicture($picid) {
+		try
+		{
+			if( isset( $_POST["deletebtn"] ) ) {
+				$picid = filter_var( $_POST["deletebtn"], FILTER_SANITIZE_NUMBER_INT );
 
+				$stmt = $this->conn->prepare("DELETE FROM picture WHERE picid = :picid AND username = :username ;");
+				$stmt->bindParam(':username', $_SESSION["username"]);
+				$stmt->bindParam(':picid', $picid);
+				if($stmt->execute()) return true;
+			}
+			echo "<script> console.log('deletebtn must have contained an invalid or wrong picid'); </script>" ;
+			return false;
+		}
+		catch(PDOException $e)
+		{ ?>
+			<br><p> Connection failed: <?=$e->getMessage()?><br/>code: <?=$e->getCode()?></p>;
+		<?php }
 	}
 
 }
