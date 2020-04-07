@@ -47,7 +47,11 @@
   ?>
   <script type="text/javascript">
     $(function () {
-    $('[data-toggle="tooltip"]').tooltip()
+      $('[data-toggle="tooltip"]').tooltip()
+    })
+
+    $('#myModal').on('shown.bs.modal', function () {
+      $('#myInput').trigger('focus')
     })
   </script>
 </html>
