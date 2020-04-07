@@ -61,7 +61,5 @@
         //replace the "Choose a file" label
         $(this).next('.custom-file-label').html(fileName);
     })
-
-    $('.file-upload').file_upload();
   </script>
 </html>
