@@ -13,9 +13,12 @@ class ImageController extends Controller {
         $this->view('image/upload');
     }
     public function uploadImage() {
-        $this->model('Image')->upload($_POST['header'],$_POST['description'], 
-        $_SESSION['username'], $_POST['image']);
-
+        if($this->post()){
+            $viewbag['response'] = $this->model('Image')->upload($_POST['header'],$_POST['description'], 
+            $_SESSION['username'], $_POST['image']);
+            $this->view('image/upload', $viewbag);        
+        
+        }
     }
 
     public function loadImages() {

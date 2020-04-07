@@ -24,7 +24,7 @@ class User extends Database
 
     public function register($username, $password, $passwordVerify)
     {
-        print_r($_POST);
+        //print_r($_POST);
         if ($password !== $passwordVerify) {
             return false;
         }
@@ -40,9 +40,12 @@ class User extends Database
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(':username', $username);
             $stmt->bindParam(':password', $password);
-            $stmt->execute();
+            if($stmt->execute()){
+                return "You have succesfully created an account";
+            }
+
         } catch (PDOException $e) {
-            echo "Error: " . $e->getMessage();
+            return "Error: " . $e->getMessage();
         }
 
     }

@@ -23,9 +23,11 @@
                 <input type="Submit" name="submit" value="Register" id="submit" disabled>
             </fieldset>
         </form>
+        <div class="response" id="response">
+            <h3><?= $viewbag['response'] ?></h3>     
+        </div>
         <p>If you are having trouble registering, please contact support.</p>
         <br>
-    </div>
 
 
 <?php include '../app/views/partials/foot.php'; ?>

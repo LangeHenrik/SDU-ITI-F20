@@ -20,6 +20,9 @@
                     <input type ="submit" value="Submit" name="submit"/>
                 </fieldset>
             </form>
+            <div class="response" id="response">
+                <h3><?= $viewbag['response'] ?></h3>    
+            </div>
         <p>If you are having trouble uploading, please contact support.</p>
         <br>
       </form>

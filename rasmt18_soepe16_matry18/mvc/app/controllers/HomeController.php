@@ -50,7 +50,8 @@ class HomeController extends Controller {
 
 	public function register() {
 	    if($this->post()){
-            $this->model('User')->register($_POST['username'], $_POST['password'], $_POST['password2']);
+			$viewbag['response'] = $this->model('User')->register($_POST['username'], $_POST['password'], $_POST['password2']);
+			$this->view('home/register', $viewbag);
         } else {
             $this->view('home/register');
         }
