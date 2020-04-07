@@ -4,7 +4,8 @@ function restricted ($controller, $method) {
 
 	$restricted_urls = array(	'HomeController' => array('restricted', 'logout'),
                                 'ImageController' => array('index'),
-                                'UserController' => array('index')
+                                'UserController' => array('index'),
+                                'ApiController' => array()
 							
 							);
 
