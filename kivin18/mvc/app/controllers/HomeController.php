@@ -86,4 +86,9 @@ class HomeController extends Controller
         $this->view('home/upload');
     }
 
+    public function images() {
+        $viewbag = $this->model('Image')->getImages();
+        $this->view('home/images', $viewbag);
+    }
+
 }

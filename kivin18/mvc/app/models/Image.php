@@ -56,4 +56,19 @@ class Image extends Database
 
     }
 
+    public function getImages()
+    {
+        $stmt = $this->conn->query('SELECT username, image, header, description, date_added FROM image ORDER BY image_id DESC');
+        $content = [];
+        while ($row = $stmt->fetch()) {
+            $image['username'] = $row['username'];
+            $image['header'] = $row['header'];
+            $image['description'] = $row['description'];
+            $image['image'] = $row['image'];
+            $image['date_added'] = $row['date_added'];
+            array_push($content, $image);
+        }
+        return $content;
+    }
+
 }

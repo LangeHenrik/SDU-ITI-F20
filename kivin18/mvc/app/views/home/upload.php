@@ -1,4 +1,5 @@
 <?php include '../app/views/partials/menu.php'; ?>
+
     <div class="pb-2 mt-4 mb-2 border-bottom">
         <h1>Upload image</h1>
     </div>

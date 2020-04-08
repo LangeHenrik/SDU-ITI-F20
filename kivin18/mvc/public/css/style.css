@@ -30,3 +30,9 @@ form {
     position: absolute;
     z-index: -1;
 }
+
+.userImage {
+    margin: 1%;
+    word-wrap: break-word;
+    overflow:auto
+}

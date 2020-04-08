@@ -21,7 +21,7 @@
         <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) : ?>
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="#">Images</a>
+                <a class="nav-link" href="/kivin18/mvc/public/home/images">Images</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/kivin18/mvc/public/home/upload">Upload</a>
