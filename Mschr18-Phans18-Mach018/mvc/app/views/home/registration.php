@@ -62,7 +62,7 @@
          <input type="password" name="password" id="newpassword" class=" form-control" placeholder="Password" aria-describedby="password" required>
 
          <div class="input-group-append">
-           <button onclick="toggleviewpassword()" class=" rounded-right btn btn-light" type="button"><i id="toggle-fas-eye" class="fas fa-eye-slash"></i></button>
+           <button onclick="toggleviewpassword()" class=" rounded-right btn btn-light toggle-Pasword" type="button"><i id="toggle-fas-eye" class="fas fa-eye-slash"></i></button>
          </div>
 
          <span class="custom-tooltip" data-toggle="tooltip" data-html="true" data-placement="left"

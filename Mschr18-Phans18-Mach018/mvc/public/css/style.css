@@ -204,6 +204,9 @@ div.picturecontainer:hover {
   margin-right: -38px;
   padding-top: 2px;
 }
+.btn.toggle-Pasword {
+  color: blue;
+}
 
 
 /* Bootstrap */
