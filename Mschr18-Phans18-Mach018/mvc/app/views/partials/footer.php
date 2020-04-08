@@ -48,7 +48,7 @@
   <script type="text/javascript">
     $(function () {
       $('[data-toggle="tooltip"]').tooltip()
-    })
+    });
 
     $('#myModal').on('shown.bs.modal', function () {
       $('#myInput').trigger('focus')
@@ -60,6 +60,6 @@
         console.log(fileName);
         //replace the "Choose a file" label
         $(this).next('.custom-file-label').html(fileName);
-    })
+    });
   </script>
 </html>

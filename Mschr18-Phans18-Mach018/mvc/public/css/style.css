@@ -99,6 +99,10 @@ section div.page form div.input-group {
   margin-bottom: 16px;
 }
 
+.page form {
+  max-width: 300px;
+  margin: 0 auto;
+}
 
 .modal-content {
   color: black;
@@ -193,6 +197,12 @@ div.picturecontainer:hover {
 }
 .carousel-item h1 i.fas {
   font-size: 100px;
+}
+.page form i.fa-question-circle  {
+  font-size: 1.5rem;
+  margin: 5px;
+  margin-right: -38px;
+  padding-top: 2px;
 }
 
 

@@ -6,7 +6,7 @@
           <span class="input-group-text"><i class="fas fa-user"></i></span>
         </div>
         <div class="input-group-append">
-          <span class="input-group-text"><b><?php echo $_SESSION['Fullname'] . " : " . $_SESSION['username']?></b></i></span>
+          <span class="input-group-append"><b><?php echo $_SESSION['Fullname'] . " : " . $_SESSION['username']?></b></i></span>
         </div>
       </div>
 
