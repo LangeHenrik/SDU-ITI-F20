@@ -12,8 +12,6 @@
         </div>
 
         <div class="modal-body">
-
-
           <div class="custom-file">
             <input type="file" class="custom-file-input" name="picupload[]" id="picupload" accept="image/*" required>
             <label class="custom-file-label" for="picupload">Choose file...</label>
@@ -21,7 +19,7 @@
 
           <hr>
 
-          <div class="card new picturecontainer" style="width: 18rem;" id="card">
+          <div class="card new picturecontainer" style="width: 26rem;" id="card">
             <img class="card-img-top" id="image-src" src="" alt="Brokken image!">
             <!--i class="card-img-top fas fa-image" style="font-s"></i>
 
@@ -30,13 +28,9 @@
             <i class="card-img-top fas fa-image" id="image-error"></i>
             <p class="card-img-top image-text" id="image-text"></p>
 
-
             <div class="card-body">
               <input type="text" name="titel" maxlength="20" value="" placeholder="Give a titel...">
               <textarea name="description" maxlength="240" placeholder="Give a  Description..." style="resize: none; width: 100%; height: auto;"></textarea>
-
-              <h5 class="card-title"><?=$viewbag[$i][0]?></h5>
-              <p class="card-text"><?=$viewbag[$i][3]?></p>
             </div>
             <div class="card-footer">
               <div class="row">
@@ -49,24 +43,6 @@
               </div>
             </div>
           </div>
-
-
-
-
-          <!--input type="file" name="picupload[]" id="picupload" multiple accept="image/*" required>
-
-
-          <input type="text" name="titel" maxlength="20" value="" placeholder="Titel">
-
-          <div class="select" id="select">
-
-              <textarea name="description" maxlength="240" placeholder="Description" style="resize: none; width: 300px; height: 100px;"></textarea>
-
-
-            <div id="preview" name="preview">
-            </div>
-          </div-->
-
         </div>
 
         <div class="modal-footer">
