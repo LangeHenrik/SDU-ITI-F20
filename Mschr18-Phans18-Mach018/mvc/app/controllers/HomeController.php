@@ -76,8 +76,6 @@ class HomeController extends Controller {
 	}
 	// Upload is restricted
 	public function upload() {
-		$picture = $this->model('Picture');
-		$viewbag = $picture->getPictures($_SESSION['username']);
 		$this->view('home/uploadModal', $viewbag);
 	}
 	// Uploading og pictures
