@@ -75,13 +75,6 @@ section div.page form div.input-group {
   display: block;
   margin: 0 auto;
 }
-.card.new i.card-img-top.fas {
-  font-size: 200px;
-  text-align: center;
-  background-color: #eee;
-  color: rgba(0,0,0,0.5);
-  border: 5px solid rgba(0,0,0,0.5);
-}
 .card.new .card-body input,
 .card.new .card-body textarea {
   width: 100%;
@@ -115,7 +108,27 @@ section div.page form div.input-group {
 .modal-header {
   border-bottom: 1px solid black;
 }
-
+.modal-content .card.new i.card-img-top.fa-image,
+.modal-content .card.new i.card-img-top.fa-exclamation-triangle {
+  text-align: center;
+  background-color: #eee;
+  color: rgba(0,0,0,0.5);
+  border: 5px solid rgba(0,0,0,0.5);
+}
+.modal-content .card.new i.card-img-top.fa-image {
+  font-size: 150px;;
+  padding: 25px;
+}
+.modal-content .card.new i.card-img-top.fa-exclamation-triangle {
+  font-size: 120px;;
+  padding: 40px;
+  padding: 30px 0 50px 0;
+}
+.modal-content .card.new p.card-img-top.image-text {
+  text-align: center;
+  color: rgba(0,0,0,0.5);
+  margin: -50px 0 50px 0;
+}
 
 footer {
   position: absolute;
