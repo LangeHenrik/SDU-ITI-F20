@@ -23,11 +23,24 @@ class Picture extends Database {
         $sql = "SELECT * FROM picture;";
 
         $stmt = $this->conn->prepare($sql);
-        $stmt->execute();
+       $stmt->execute();
 
         $result = $stmt->fetchAll();
-        $jsonreturn = json_encode($result);
+        //$jsonreturn = json_encode($result);
         return $result;
+    }
+
+    public function getPictureForUser($userID){
+        $sql = "SELECT picture.* FROM picture INNER JOIN user ON user.username = picture.user AND user.user_id = :userID;";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':userID', $userID,PDO::PARAM_STR);
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+
+        return $result;
+    }
+    public  function postPicture(){
+
     }
 
 }

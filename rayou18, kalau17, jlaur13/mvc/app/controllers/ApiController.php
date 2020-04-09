@@ -19,8 +19,15 @@ class ApiController extends Controller {
 		echo json_encode($users, JSON_PRETTY_PRINT);
 	}
 
+	public function pictures($param1, $param2){
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-
+        }
+        if($_SERVER['REQUEST_METHOD'] == 'GET'){
+            $pictures = $this->model('Picture')->getPictureForUser($param2);
+            echo json_encode($pictures, JSON_PRETTY_PRINT);
+        }
+    }
 
 
 }
