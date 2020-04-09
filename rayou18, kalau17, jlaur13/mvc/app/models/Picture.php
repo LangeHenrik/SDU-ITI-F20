@@ -17,8 +17,7 @@ class Picture extends Database {
     }
 
     public function getRecentPicture($username){
-        $sql = "SELECT picture_id AS image_id FROM picture WHERE user = :username;";
-
+        $sql = "SELECT MAX(picture_id) AS image_id FROM picture WHERE user = :username;";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(':username', $username,PDO::PARAM_STR);
 

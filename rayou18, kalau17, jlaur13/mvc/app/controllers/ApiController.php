@@ -26,8 +26,8 @@ class ApiController extends Controller {
            $jd = json_decode($_POST["json"]);
 
            $usernameByID = $this->model('User')->getUsernameByID($param2);
-           echo$usernameByID;
-           if($this->model('User')->login($jd->{"username"},$jd->{"password"}) && $jd->{"username"} == $usernameByID){
+
+           if($this->model('User')->login($jd->{"username"},$jd->{"password"}) && $jd->{"username"} == $usernameByID['username']){
 
                //picture upload
                $username = $jd->{"username"};
