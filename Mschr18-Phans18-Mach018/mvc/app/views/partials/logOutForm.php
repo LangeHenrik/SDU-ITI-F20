@@ -1,5 +1,5 @@
 <form class="form-inline mx-auto " style="width: 310; margin-bottom: 0;" method="post" action="<?=BASE_URL?>Home/logout" >
-  <div class="input-group input-group-sm mr-2">
+  <div class="input-group input-group-sm mr-2" style="width: auto;">
     <div class="input-group-prepend">
       <span class="input-group-text"><i class="fas fa-user"></i></span>
     </div>

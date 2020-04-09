@@ -19,7 +19,7 @@
 
           <hr>
 
-          <div class="card new picturecontainer" style="width: 18rem;" id="card">
+          <div class="card new " style="width: 18rem;" id="card">
             <img class="card-img-top" id="image-src" src="" alt="Brokken image!">
             <!--i class="card-img-top fas fa-image" style="font-s"></i>
 
