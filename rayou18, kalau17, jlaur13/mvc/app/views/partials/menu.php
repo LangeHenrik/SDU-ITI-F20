@@ -37,7 +37,7 @@
     </div>
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
         <ul class="navbar-nav ml-auto">
-            <?php if ($_SESSION['logged_in'] == false){ ?>
+            <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == false){ ?>  //TODO
             <li class="nav-item">
                 <a class="nav-link" onclick="callAjax()" href="#">Login</a>
             </li>

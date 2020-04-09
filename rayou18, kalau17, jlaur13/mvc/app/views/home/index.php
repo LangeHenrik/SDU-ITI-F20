@@ -14,7 +14,7 @@
 <?php include '../app/views/partials/menu.php'; ?>
 
 
-Hello there, <?=$viewbag['username']?>
+Hello there, <?php if(isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true){$viewbag['username'];} ?>
 
 <div id="ajaxHolder">
 
