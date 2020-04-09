@@ -3,11 +3,15 @@
 class HomeController extends Controller {
 
 
-	public function index () {
+	public function index ($parameter = false) {
+	    $Restricted = $parameter;
         $user = $this->model('User');
         $viewbag = null;
         if(isset($_SESSION['username'])&& isset($_SESSION['logged_in'])&& $_SESSION['logged_in'] == true){
             $viewbag['username'] =  $_SESSION['username'];
+        }
+        if($Restricted == true){
+            $viewbag['restricted'] = $parameter;
         }
         $this->view('home/index',$viewbag);
 
