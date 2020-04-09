@@ -36,3 +36,8 @@ form {
     word-wrap: break-word;
     overflow:auto
 }
+
+.carousel{
+    max-width: 700px;
+    margin: 0 auto;
+}

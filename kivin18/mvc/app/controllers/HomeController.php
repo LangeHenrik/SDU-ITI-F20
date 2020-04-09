@@ -37,7 +37,7 @@ class HomeController extends Controller
         if ($this->model('User')->login($username, $password)) {
             $_SESSION['logged_in'] = true;
             $_SESSION['user'] = $username;
-            $this->view('home/login');
+            header('Location: /kivin18/mvc/public/home/welcome');
         } else {
             $viewbag['user_info'] = 'Wrong username or password';
             $this->view('home/index', $viewbag);
@@ -99,6 +99,11 @@ class HomeController extends Controller
     {
         $viewbag = $this->model('Image')->getImages();
         $this->view('home/images', $viewbag);
+    }
+
+    public function welcome() {
+        $viewbag = $this->model('Image')->getImages();
+        $this->view('home/welcome', $viewbag);
     }
 
 }

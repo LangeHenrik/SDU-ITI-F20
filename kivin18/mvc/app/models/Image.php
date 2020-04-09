@@ -41,7 +41,6 @@ class Image extends Database
 
         if ($uploadOk) {
             $stmt = $this->conn->prepare('INSERT INTO image(username, image, header, description) VALUES (?, ?, ?, ?)');
-            //$path = htmlentities($_FILES["image"]["name"]);
             $image = file_get_contents($_FILES["image"]["tmp_name"]);
             $header = htmlentities($_POST["imageHeader"]);
             $description = htmlentities($_POST["description"]);
