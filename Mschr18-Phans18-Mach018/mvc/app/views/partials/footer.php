@@ -58,16 +58,14 @@
         $(this).next('.custom-file-label').html(fileName);
     });
   </script>
+
   <?php
     if( isset($_SESSION['logged_in']) && ($_SESSION['logged_in']) ) {
-        include('uploadModal.php');
-        include('imageCommentModal.php');
+        include('modalUpload.php');
+        include('modalCommentImage.php');
     }
   ?>
   <script type="text/javascript">
-  $('#myModal').on('shown.bs.modal', function () {
-    $('#myInput').trigger('focus')
-  });
 
   $('#myModal').on('shown.bs.modal', function () {
     $('#myInput').trigger('focus')

@@ -28,7 +28,7 @@
             <a class="nav-link"  href="<?=BASE_URL?>home/feed">ChalkBoard-Feed <i class="fas fa-comment-alt"></i></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-toggle="modal" data-target="#uploadModal">
+            <a class="nav-link" data-toggle="modal" data-target="#modalUpload">
               Upload <i class="fas fa-file-upload"></i>
             </a>
           </li>
@@ -37,7 +37,7 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" data-toggle="modal" data-target="#imageCommentModal">
+            <a class="nav-link" data-toggle="modal" data-target="#modalCommentImage">
               imageComment <i class="fas fa-comment-dots"></i>
             </a>
           </li>
