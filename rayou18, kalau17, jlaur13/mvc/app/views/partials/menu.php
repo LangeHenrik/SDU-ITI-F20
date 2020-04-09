@@ -22,7 +22,7 @@
     <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="#">Home</a>
+                <a class="nav-link" href=/rayou18,%20kalau17,%20jlaur13/mvc/public/home>Home</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href=/rayou18,%20kalau17,%20jlaur13/mvc/public/imagefeed>Image Feed</a>
@@ -37,7 +37,7 @@
     </div>
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
         <ul class="navbar-nav ml-auto">
-            <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true){ ?>  //TODO
+            <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true){ ?>
                 <li class="nav-item">
                     <a class="nav-link" href="/rayou18,%20kalau17,%20jlaur13/mvc/public/Home/logout">Logout</a>
                 </li>
