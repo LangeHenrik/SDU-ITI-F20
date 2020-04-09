@@ -26,11 +26,15 @@
     </header>
     <section class="container-fluid">
 
-      <div class="custom-container custom-nav-collapse-show mb-2">
-      <?php
-        include('../app/views/partials/logOutForm.php');
-      ?>
-    </div>
+      <?php if( isset($_SESSION['logged_in']) && ($_SESSION['logged_in']) ) { ?>
+
+        <div class="custom-container custom-nav-collapse-show mb-2">
+        <?php
+          include('../app/views/partials/logOutForm.php');
+        ?>
+        </div>
+        
+      <?php } ?>
 
       <div class="jumbotron">
         <div class="container">

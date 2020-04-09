@@ -1,4 +1,4 @@
-<div class="modal fade" id="uploadModal" tabindex="-1" role="dialog" aria-labelledby="uploadModal" aria-hidden="true">
+<div class="modal fade" id="modalUpload" tabindex="-1" role="dialog" aria-labelledby="modalUpload" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
 
@@ -19,7 +19,7 @@
 
           <hr>
 
-          <div class="card new picturecontainer" style="width: 18rem;" id="card">
+          <div class="card new " style="width: 18rem;" id="card">
             <img class="card-img-top" id="image-src" src="" alt="Brokken image!">
             <!--i class="card-img-top fas fa-image" style="font-s"></i>
 
