@@ -28,7 +28,7 @@
 
       <div class="custom-container custom-nav-collapse-show mb-2">
       <?php
-      include('../app/views/partials/logOutForm.php');
+        include('../app/views/partials/logOutForm.php');
       ?>
     </div>
 
