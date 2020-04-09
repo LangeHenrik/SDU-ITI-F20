@@ -30,7 +30,7 @@ class User extends Database {
 
 
 	public function getAll () {
-		$sql = "SELECT username FROM user";
+		$sql = "SELECT user_id,username FROM user";
 		$stmt = $this->conn->prepare($sql);
 		$stmt->execute();
 		$result = $stmt->fetchAll();
