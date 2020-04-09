@@ -59,7 +59,7 @@ section div.page form div.input-group {
   display: inline-block;
   vertical-align: top;
 }
-.card img {
+.card img, .fa-image, .fa-exclamation-triangle {
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   border: 2px solid #FFF;
