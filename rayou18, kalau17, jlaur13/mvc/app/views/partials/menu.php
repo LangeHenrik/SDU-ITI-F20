@@ -25,13 +25,13 @@
                 <a class="nav-link" href=/rayou18,%20kalau17,%20jlaur13/mvc/public/home>Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href=/rayou18,%20kalau17,%20jlaur13/mvc/public/imagefeed>Image Feed</a>
+                <a class="nav-link" href=/rayou18,%20kalau17,%20jlaur13/mvc/public/imageFeed>Image Feed</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/rayou18,%20kalau17,%20jlaur13/mvc/public/Upload">Upload Image</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/rayou18,%20kalau17,%20jlaur13/mvc/public/userlist">User List</a>
+                <a class="nav-link" href="/rayou18,%20kalau17,%20jlaur13/mvc/public/UserList">User List</a>
             </li>
         </ul>
     </div>
