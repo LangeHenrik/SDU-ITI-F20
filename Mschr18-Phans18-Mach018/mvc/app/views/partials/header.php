@@ -26,6 +26,12 @@
     </header>
     <section class="container-fluid">
 
+      <div class="custom-container custom-nav-collapse-show mb-2">
+      <?php
+      include('../app/views/partials/logOutForm.php');
+      ?>
+    </div>
+
       <div class="jumbotron">
         <div class="container">
           <h1 class="page-titel"><?= $_SESSION['page_header::before'] . "ChalkB<i class='fas fa-chalkboard'></i>rd" . $_SESSION['page_header::after']?> </h1>
