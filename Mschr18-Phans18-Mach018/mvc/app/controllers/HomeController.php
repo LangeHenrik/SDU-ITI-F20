@@ -82,10 +82,6 @@ class HomeController extends Controller {
 		$viewbag = $user->getAll();
 		$this->view('home/users', $viewbag);
 	}
-	// Upload is restricted
-	public function upload() {
-		$this->view('home/uploadModal', $viewbag);
-	}
 	// Uploading og pictures
 	public function uploadPicture() {
 		if ($this->post()) {
