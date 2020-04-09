@@ -37,17 +37,17 @@
     </div>
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
         <ul class="navbar-nav ml-auto">
-            <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == false){ ?>  //TODO
-            <li class="nav-item">
-                <a class="nav-link" onclick="callAjax()" href="#">Login</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/rayou18,%20kalau17,%20jlaur13/mvc/public/Home/signup">Sign Up</a>
-            </li>
+            <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true){ ?>  //TODO
+                <li class="nav-item">
+                    <a class="nav-link" href="/rayou18,%20kalau17,%20jlaur13/mvc/public/Home/logout">Logout</a>
+                </li>
             <?php }
             else{ ?>
                 <li class="nav-item">
-                    <a class="nav-link" href="/rayou18,%20kalau17,%20jlaur13/mvc/public/Home/logout">Logout</a>
+                    <a class="nav-link" onclick="callAjax()" href="#">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/rayou18,%20kalau17,%20jlaur13/mvc/public/Home/signup">Sign Up</a>
                 </li>
             <?php } ?>
         </ul>
