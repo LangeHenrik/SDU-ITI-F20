@@ -91,6 +91,26 @@ class User extends Database {
 		<?php }
 	}
 
+	public function usernameAvailable() {
+		try 
+		{
+			$newusername = User::filter('newusername');
+			$stmtString = "SELECT username FROM user WHERE ( username = :newusername)";
+
+			$stmt = $this->conn->prepare($stmtString);
+			$stmt->bindParam(':newusername', $newusername);
+			$stmt->execute();
+			if($stmt->rowCount() > 0)
+			{
+				echo "exists";
+			}
+		}
+		catch(PDOException $e)
+		{ ?>
+			<br><p> Connection failed: <?=$e->getMessage()?><br/>code: <?=$e->getCode()?></p>;
+		<?php }
+	}
+
 	// Filter _POST or _GET requests with _REQUEST
 	private static function filter($name, $filter = FILTER_SANITIZE_STRING) {
 		return filter_var($_REQUEST[$name], $filter);

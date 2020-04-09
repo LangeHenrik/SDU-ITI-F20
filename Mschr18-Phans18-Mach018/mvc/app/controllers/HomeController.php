@@ -44,6 +44,14 @@ class HomeController extends Controller {
 			$this->view('home/index');
 		}
 	}
+	public function usernameAvailable() {
+		if ($this->get()) {
+			$this->model('User')->usernameAvailable();
+		}
+		else {
+			header('Location: ' . BASE_URL . 'home/index');
+		}
+	}
 	// login is only available with post method.
 	public function login() {
 		if ($this->post()) {
