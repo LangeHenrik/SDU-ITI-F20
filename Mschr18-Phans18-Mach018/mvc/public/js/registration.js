@@ -83,7 +83,7 @@ function isUsernameAvailabil() {
           }
         }
     };
-    xmlhttp.open("GET", "Include/PDO/isUsernameAvailabil.php?newusername=" + newusernameInput.value  , true);
+    xmlhttp.open("GET", "/Mschr18-Phans18-Mach018/mvc/public/home/usernameAvailable/?newusername=" + newusernameInput.value  , true);
     xmlhttp.send();
 }
 
