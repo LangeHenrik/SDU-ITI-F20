@@ -1,5 +1,10 @@
-<?php include '../app/views/partials/menu.php';
+<?php include '../app/views/partials/menu.php'; ?>
 
+    <div class="pb-2 mt-4 mb-2 border-bottom">
+        <h1>Images</h1>
+    </div>
+
+<?php
 foreach ($viewbag as $image) {
 
     echo "<div class='userImage'/>";

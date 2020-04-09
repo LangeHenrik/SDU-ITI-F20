@@ -5,8 +5,11 @@ class HomeController extends Controller
 
     public function index($param)
     {
-
-        $this->view('home/index');
+        if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) {
+            $this->view('home/index');
+        } else {
+            header('Location: /kivin18/mvc/public/home/images');
+        }
     }
 
     public function other($param1 = 'first parameter', $param2 = 'second parameter')
@@ -43,7 +46,11 @@ class HomeController extends Controller
 
     public function registerpage()
     {
-        $this->view('home/register');
+        if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) {
+            $this->view('home/register');
+        } else {
+            header('Location: /kivin18/mvc/public/home/images');
+        }
     }
 
     public function register()
@@ -77,16 +84,19 @@ class HomeController extends Controller
         $this->view('home/users', $viewbag);
     }
 
-    public function upload() {
+    public function upload()
+    {
         $this->view('home/upload');
     }
 
-    public function addImage() {
+    public function addImage()
+    {
         $this->model('Image')->upload();
         $this->view('home/upload');
     }
 
-    public function images() {
+    public function images()
+    {
         $viewbag = $this->model('Image')->getImages();
         $this->view('home/images', $viewbag);
     }
