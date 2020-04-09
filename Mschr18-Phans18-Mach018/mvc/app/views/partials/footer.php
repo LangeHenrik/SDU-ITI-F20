@@ -50,10 +50,6 @@
       $('[data-toggle="tooltip"]').tooltip()
     });
 
-    $('#myModal').on('shown.bs.modal', function () {
-      $('#myInput').trigger('focus')
-    });
-
     $('#picupload').on('change',function(){
         //get the file name
         var fileName = $(this).val().replace(/^.*\\/, "");
@@ -61,5 +57,21 @@
         //replace the "Choose a file" label
         $(this).next('.custom-file-label').html(fileName);
     });
+  </script>
+  <?php
+    if( isset($_SESSION['logged_in']) && ($_SESSION['logged_in']) ) {
+        include('uploadModal.php');
+        include('imageCommentModal.php');
+    }
+  ?>
+  <script type="text/javascript">
+  $('#myModal').on('shown.bs.modal', function () {
+    $('#myInput').trigger('focus')
+  });
+
+  $('#myModal').on('shown.bs.modal', function () {
+    $('#myInput').trigger('focus')
+  });
+
   </script>
 </html>

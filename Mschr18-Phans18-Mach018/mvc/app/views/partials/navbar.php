@@ -36,6 +36,12 @@
             <a class="nav-link"  href="<?=BASE_URL?>home/users">Users <i class="fas fa-address-book"></i></i></a>
           </li>
 
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="modal" data-target="#imageCommentModal">
+              imageComment <i class="fas fa-comment-dots"></i>
+            </a>
+          </li>
+
       <?php } else { ?>
 
         <li class="nav-item">
@@ -52,9 +58,3 @@
     ?>
   </div>
 </nav>
-
-<?php
-  if( isset($_SESSION['logged_in']) && ($_SESSION['logged_in']) ) {
-      include('uploadModal.php');
-  }
-?>
