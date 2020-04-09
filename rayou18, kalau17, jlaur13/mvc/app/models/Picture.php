@@ -13,21 +13,43 @@ class Picture extends Database {
         $stmt->bindParam(':file', $file,PDO::PARAM_STR);
         $stmt->execute();
 
-
         return true;
     }
 
+    public function getRecentPicture($username){
+        $sql = "SELECT MAX(picture_id) AS image_id FROM picture WHERE user = :username;";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':username', $username,PDO::PARAM_STR);
+
+        $stmt->execute();
+        $result = $stmt->fetch((PDO::FETCH_ASSOC));
+
+        return  $result;
+    }
 
     public function getAll () {
 
         $sql = "SELECT * FROM picture;";
 
         $stmt = $this->conn->prepare($sql);
-        $stmt->execute();
+       $stmt->execute();
 
         $result = $stmt->fetchAll();
-        $jsonreturn = json_encode($result);
+        //$jsonreturn = json_encode($result);
         return $result;
+    }
+
+    public function getPictureForUser($userID){
+        $sql = "SELECT picture as image,  header as title, description FROM picture INNER JOIN user ON user.username = picture.user AND user.user_id = :userID;";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':userID', $userID,PDO::PARAM_STR);
+        $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $result;
+    }
+    public  function postPicture(){
+
     }
 
 }
