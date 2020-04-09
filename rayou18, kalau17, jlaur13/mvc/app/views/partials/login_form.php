@@ -43,9 +43,11 @@
             <p class="text-center">
                 <a href="/rayou18, kalau17, jlaur13/mvc/public/Home/signup">Create an Account</a>
             </p>
+            <?php if(isset($viewbag['wrongLogin'])){?>
             <p class="text-center wrong_info">
-                <?=$viewbag['wrongLogin']?>
+                <?php echo $viewbag['wrongLogin'];?>
             </p>
+            <?php }?>
         </div>
   
  <!-- </div> -->
