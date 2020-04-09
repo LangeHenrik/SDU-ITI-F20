@@ -79,6 +79,7 @@ class HomeController extends Controller {
 
 	public function loggedout() {
 		echo 'You are now logged out';
+        header('Location: /rayou18,%20kalau17,%20jlaur13/mvc/public/home');
 	}
 
 }
