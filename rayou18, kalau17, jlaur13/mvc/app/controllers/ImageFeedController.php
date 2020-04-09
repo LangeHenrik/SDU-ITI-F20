@@ -3,7 +3,7 @@
 
 class ImageFeedController extends Controller
 {
-    public function getAllImages()
+    public function index()
     {
         $images = $this->model('Picture')->getAll();
         $viewbag["image"] = $images;
