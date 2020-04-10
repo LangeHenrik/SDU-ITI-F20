@@ -1,21 +1,21 @@
 <?php
 class Controller {
-	
+
 	public function model($model) {
 		require_once '../app/models/' . $model . '.php';
 		return new $model();
 	}
-	
+
 	public function view($view, &$viewbag = []) {
-		require_once '../app/views/' . $view . '.php';	
+		require_once '../app/views/' . $view . '.php';
 	}
-	
-	public function post ($param = NULL) {
+
+	public function post ($params = NULL) {
 		return $_SERVER['REQUEST_METHOD'] === 'POST';
 	}
-	
+
 	public function get () {
 		return $_SERVER['REQUEST_METHOD'] === 'GET';
 	}
-	
+
 }

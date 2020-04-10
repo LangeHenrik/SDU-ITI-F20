@@ -1,8 +1,8 @@
 <?php
 class User extends Database {
-	
+
 	public function login() {
-		try 
+		try
 		{
 			$username = User::filter("username"); // Strip tags, optionally strip or encode special characters.
 			$password = User::filter("password"); // Remove all characters except letters, digits and !#$%&'*+-=?^_`{|}~@.[].
@@ -16,26 +16,26 @@ class User extends Database {
 			$stmt->setFetchMode(PDO::FETCH_ASSOC); // FETCH_NUM -> returnerer array indexeret i colonner angivet i tal.                                         // Andre return methoder er beskrevet her: https://www.php.net/manual/en/pdostatement.fetch.php
 			$result = $stmt->fetch();
 
-			if ($result && password_verify($password, $result['password'])) { 
+			if ($result && password_verify($password, $result['password'])) {
 					$_SESSION['logged_in'] = true;
 					$_SESSION['fullname'] = $result['fullname'];
 					$_SESSION['username'] = $username;
 					return true;
-			} else { 
+			} else {
 				return false;
 			}
 		}
 		catch(PDOException $e)
 		{ ?>
 			<br><p> Connection failed: <?=$e->getMessage()?><br/>code: <?=$e->getCode()?></p>;
-		<?php } 
+		<?php }
 	}
 
 	public function &getAll () {
 		$searchValue = isset($_GET["searchValue"]) 	? User::filter("searchValue")
 													: NULL;
 		$orderBy = isset($_GET["orderBy"]) ? User::filter("orderBy") : "Username";
-		try 
+		try
 		{
 			$stmtString = "SELECT username, fullname, signup_date FROM user";
 			if ($searchValue != NULL) {
@@ -92,7 +92,7 @@ class User extends Database {
 	}
 
 	public function usernameAvailable() {
-		try 
+		try
 		{
 			$newusername = User::filter('newusername');
 			$stmtString = "SELECT username FROM user WHERE ( username = :newusername)";
@@ -114,6 +114,21 @@ class User extends Database {
 	// Filter _POST or _GET requests with _REQUEST
 	private static function filter($name, $filter = FILTER_SANITIZE_STRING) {
 		return filter_var($_REQUEST[$name], $filter);
+	}
+
+
+	// API Fucktions
+
+	public function apiGetUsers() {
+
+		$stmtString = "SELECT userid AS 'user_id', username FROM user ";
+
+		$stmt = $this->conn->prepare($stmtString);
+		$stmt->execute();
+
+		$result = $stmt->fetchAll();
+
+		return $result;
 	}
 
 }
