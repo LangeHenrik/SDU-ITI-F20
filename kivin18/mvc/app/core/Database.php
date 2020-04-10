@@ -12,7 +12,7 @@ class Database extends DB_Config {
 			$this->conn = new PDO("mysql:host=$this->servername;dbname=$this->dbname",
 			$this->username,
 			$this->password,
-			array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+			array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC));
 			
 		} catch (PDOException $e) {
 			echo "Error: " . $e->getMessage();
