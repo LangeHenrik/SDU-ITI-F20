@@ -40,7 +40,7 @@ class Image extends Database
         }
 
         if ($uploadOk) {
-            $stmt = $this->conn->prepare('INSERT INTO image(username, image, header, description) VALUES (?, ?, ?, ?)');
+            $stmt = $this->conn->prepare('INSERT INTO image(username, image, title, description) VALUES (?, ?, ?, ?)');
             $image = file_get_contents($_FILES["image"]["tmp_name"]);
             $header = htmlentities($_POST["imageHeader"]);
             $description = htmlentities($_POST["description"]);
@@ -57,10 +57,25 @@ class Image extends Database
 
     public function getImages()
     {
-        $stmt = $this->conn->prepare('SELECT username, image, header, description, date_added FROM image ORDER BY image_id DESC');
+        $stmt = $this->conn->prepare('SELECT username, image, title, description, date_added FROM image ORDER BY image_id DESC');
         $stmt->execute();
         $result = $stmt->fetchAll();
         return $result;
     }
+
+    public function getApiImages($id)
+    {
+        $stmt = $this->conn->prepare('SELECT image, title, description FROM image INNER JOIN user ON image.username = user.username WHERE user_id = ? ORDER BY image_id DESC');
+        $stmt->execute([$id]);
+        $content = [];
+        while ($row = $stmt->fetch()) {
+            $temp = $row['image'];
+            $row['image'] = base64_encode($temp);
+            array_push($content, $row);
+        }
+        return $content;
+    }
+
+
 
 }

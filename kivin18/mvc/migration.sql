@@ -4,18 +4,18 @@ USE kivin18;
 
 CREATE TABLE user(
     user_id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    username VARCHAR(50) NOT NULL,
+    username VARCHAR(50) NOT NULL UNIQUE,
     password TEXT NOT NULL,
     join_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY (username)
+    PRIMARY KEY (user_id)
 );
 
 CREATE TABLE image(
     image_id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     username VARCHAR(50) NOT NULL,
     image MEDIUMBLOB,
-    header varchar(50),
+    title varchar(50),
     description TEXT,
     date_added TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY (id)
+    PRIMARY KEY (image_id)
 );
