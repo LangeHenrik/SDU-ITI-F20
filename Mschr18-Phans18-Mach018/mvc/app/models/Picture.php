@@ -1,6 +1,6 @@
 <?php
 class Picture extends Database {
-	
+
 	// Return all pictures uploaded (by the user) by reference.
 	public function &getPictures($username = NULL) {
 		$stmtString = "SELECT titel, username, imagebase64, description, uploaddate, picid FROM picture";
@@ -17,7 +17,7 @@ class Picture extends Database {
 		// If not empty, add a '.' if there isn't any
 		for($i = 0; $i < count($pictures); $i++) {
 			if ($pictures[$i][3]) {
-				$pictures[$i][3] .= (substr($pictures[$i][3], -1) === '.') ? '' : '.'; 
+				$pictures[$i][3] .= (substr($pictures[$i][3], -1) === '.') ? '' : '.';
 			}
 		}
 		return $pictures;
@@ -92,4 +92,30 @@ class Picture extends Database {
 		<?php }
 	}
 
+
+	// API Fucktions
+
+	public function apiPostPicture() {
+
+		$stmtString = "SELECT userid AS 'user_id', username FROM user ";
+
+		$stmt = $this->conn->prepare($stmtString);
+		$stmt->execute();
+
+		$result = $stmt->fetchAll();
+
+		return $result;
+	}
+
+	public function apiGetPicture() {
+
+		$stmtString = "SELECT userid AS 'user_id', username FROM user ";
+
+		$stmt = $this->conn->prepare($stmtString);
+		$stmt->execute();
+
+		$result = $stmt->fetchAll();
+
+		return $result;
+	}
 }
