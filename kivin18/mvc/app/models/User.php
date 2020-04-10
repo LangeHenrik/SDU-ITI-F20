@@ -34,4 +34,13 @@ class User extends Database
         return $result;
     }
 
+    public function getUserIdAndName() {
+        $sql = "SELECT user_id, username FROM user";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        return $result;
+    }
+
+
 }
