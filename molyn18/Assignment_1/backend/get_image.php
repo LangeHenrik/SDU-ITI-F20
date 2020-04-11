@@ -18,7 +18,6 @@ try {
     $image = $stmt->fetch();
 
     header("Content-type: image/jpeg");
-    $image['img']??= '';
     echo base64_decode($image['img']);
 
 
