@@ -22,13 +22,11 @@ class ApiController extends Controller {
 
 	public function pictures () {
 		if ($this->post()) {
-			echo "ok post";
-			//$postRespons = $this->model('picture')->apiPostPicture();
-			//echo json_encode($postRespons , JSON_PRETTY_PRINT);
+			$postRespons = $this->model('picture')->apiPostPicture();
+			echo json_encode($postRespons , JSON_PRETTY_PRINT);
 		} elseif ($this->get()) {
-			echo "ok get";
-			//$getRespons = $this->model('picture')->apiGetPicture();
-			//echo json_encode($getRespons , JSON_PRETTY_PRINT);
+			$getRespons = $this->model('picture')->apiGetPicture();
+			echo json_encode($getRespons , JSON_PRETTY_PRINT);
 		}
 	}
 
