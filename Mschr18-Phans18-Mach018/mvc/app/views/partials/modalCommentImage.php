@@ -7,18 +7,18 @@
 
 
         <div class="card" style="width: 18rem;">
-          <img class="card-img-top" src="/Mschr18-Phans18-Mach018/mvc/public/svg/sduLogo.svg" alt="Brokken image!">
+          <img class="card-img-top" id="commentImg" src="" alt="Brokken image!">
           <div class="card-body">
-            <h5 class="card-title">This is a test titel</h5>
-            <p class="card-text">This is youst some random texst for the test.</p>
+            <h5 class="card-title" id="commentImgTitle"></h5>
+            <p class="card-text" id="commentImgDescription"></p>
           </div>
           <div class="card-footer">
             <div class="row">
               <div class="col">
-                <small class="float-left text-muted"><?=$_SESSION['username']?></small>
+                <small class="float-left text-muted" id="commentImgAuther"></small>
               </div>
               <div class="col">
-                <small class="float-right text-muted"><?=date('Y-m-d')?></small>
+                <small class="float-right text-muted" id="commentImgDate"></small>
               </div>
             </div>
           </div>
@@ -29,26 +29,23 @@
     </div>
     <div class="col-md-6 col-comment">
 
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Comment image</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body "> <!-- removed "comment" from class -->
 
+          <!-- Messages that go here are from https://bootsnipp.com/snippets/4MGa2 -->
 
-
-
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Comment image</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body comment ">
-
-
-            chat goes her
-
-
-          </div>
-
-
-
+        </div>
+        <div class="modal-footer footer-comment col-md-11">
+            <!-- Comment post form -->
+            <textarea class="form-control col-md" id="inputComment" rows="3"></textarea>
+            <input type="hidden" id="inputPicid">
+            <button type="submit" id="commentPost" class="btn btn-primary col-md-2">Post</button>
+        </div>
 
     </div>
   </div>

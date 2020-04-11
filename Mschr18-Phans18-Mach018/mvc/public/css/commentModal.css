@@ -1,0 +1,19 @@
+/**************** MESSAGES *****************/
+/* Message Item */
+.msg {
+    padding: 8px 10px 5px;
+    border-bottom: 1px solid #ddd;
+}
+/* Message Sender */
+.message-wrap .media-heading {
+    color: #2285b3;
+    font-weight: 700;
+}
+/* Message Time */
+.time {
+    color: grey;
+}
+.footer-comment {
+  position: absolute;
+  bottom: 0;
+}

@@ -15,6 +15,9 @@
 
     <!-- lokal stylesheet-->
     <link rel="stylesheet" type="text/css" href="/Mschr18-Phans18-Mach018/mvc/public/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/Mschr18-Phans18-Mach018/mvc/public/css/commentModal.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"> 
 
   </head>
   <!--Comment-->

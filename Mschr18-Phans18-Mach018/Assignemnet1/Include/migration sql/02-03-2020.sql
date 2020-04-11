@@ -61,3 +61,18 @@ INSERT INTO user (username, password, fullname, phone, email, signup_date) VALUE
 -- Vi havde problem med at forbinde til databasen indtil vi kørte følgende
 # ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password'; 
 -- Hvor password er det password du vil bruge til db'en.
+
+CREATE TABLE chat (
+	chatid INT NOT NULL AUTO_INCREMENT,
+    username VARCHAR(10) NOT NULL,
+    picid INT NOT NULL,
+    comment VARCHAR(240) NOT NULL,
+    timestamp TIMESTAMP NOT NULL,
+    PRIMARY KEY (chatid),
+    FOREIGN KEY (username) REFERENCES user(username),
+    FOREIGN KEY (picid) REFERENCES picture(picid)
+);
+
+INSERT INTO chat (username, picid, comment, timestamp) VALUES
+('admin', 7, 'This is an extremely beautiful image!', NOW()),
+('mach018', 7, 'Myeah i mean.. It\'s not exactly Rembrandt is it..', NOW());
