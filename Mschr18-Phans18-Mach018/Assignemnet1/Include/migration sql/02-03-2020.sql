@@ -72,7 +72,3 @@ CREATE TABLE chat (
     FOREIGN KEY (username) REFERENCES user(username),
     FOREIGN KEY (picid) REFERENCES picture(picid)
 );
-
-INSERT INTO chat (username, picid, comment, timestamp) VALUES
-('admin', 7, 'This is an extremely beautiful image!', NOW()),
-('mach018', 7, 'Myeah i mean.. It\'s not exactly Rembrandt is it..', NOW());
