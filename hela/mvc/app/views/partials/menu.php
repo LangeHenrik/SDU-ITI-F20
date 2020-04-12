@@ -1,6 +1,7 @@
 <html>
     <head>
     <script src="../js/js.js"></script>
+    <!-- INCLUDE BOOTSTRAP CSS HERE -->
     </head>
     <body>
 

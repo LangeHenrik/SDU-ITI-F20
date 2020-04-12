@@ -18,6 +18,23 @@ class ApiController extends Controller {
 		echo json_encode($users, JSON_PRETTY_PRINT);
 	}
 
+	public function search($query) {
+
+		$queryWords = explode('+', $query);
+
+		$properString = '';
+
+		foreach ($queryWords as $word) {
+			$properString .= ' ' . $word;
+		}
+
+		$properString = trim($properString);
+		echo 'You searched for query: "' . $properString . '"';
+
+
+	}
+
+
 
 
 }
