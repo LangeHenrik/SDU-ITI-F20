@@ -16,10 +16,19 @@ class User extends Database {
 		//todo: make an actual login function!!
 		return true;
 	}
-
+        public function register(){
+            $username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
+            $password = filter_var($_POST['password'],FILTER_SANITIZE_STRING);
+            $sql="INSERT INTO users(username, password) VALUES(:username,:password)";
+            $hashed_password= password_hash($password, PASSWORD_DEFAULT);
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(':username', $username);
+            $stmt->bindParam(':password',$hashed_password);
+            $stmt->execute();
+        }
 	public function getAll () {
 
-		$sql = "SELECT username FROM users";
+		$sql = "SELECT id, username FROM users";
 
 		$stmt = $this->conn->prepare($sql);
 		$stmt->execute();

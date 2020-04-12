@@ -17,7 +17,14 @@ class ApiController extends Controller {
 		$users = $this->model('User')->getAll();
 		echo json_encode($users, JSON_PRETTY_PRINT);
 	}
-
+        public function search($query){
+            $queryWords= explode('+', $query);
+            $properString = '';
+            foreach ($queryWords as $word){
+                $properString .= ' ' . $word;
+            }
+            echo 'You searched for query:' . $properString;
+        }
 
 
 }

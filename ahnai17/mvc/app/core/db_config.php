@@ -3,9 +3,8 @@ class DB_Config {
 	
 	protected $servername = 'localhost';
 	protected $username = 'root';
-	protected $password = 'root';
-	protected $dbname = 'hela';
-
+	protected $password = 'C/|gkRgkYbJ8';
+	protected $dbname = 'ahnai17';
 }
 	
 	
