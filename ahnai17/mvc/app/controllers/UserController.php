@@ -2,10 +2,8 @@
 
 class UserController extends Controller {
 	
-	public function index ($param) {
-		
+	public function index ($param) {	
 	}
-	
 	public function register($username, $password) {
             if ($this->post()){
                 $this->model('User')->register($username,$password);
