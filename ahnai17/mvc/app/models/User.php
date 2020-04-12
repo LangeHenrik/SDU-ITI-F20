@@ -3,18 +3,17 @@ class User extends Database {
 	
 	public function login($username){
 		$sql = "SELECT username, password FROM users WHERE username = :username";
-		
 		$stmt = $this->conn->prepare($sql);
 		$stmt->bindParam(':username', $username);
 		$stmt->execute();
-
 		$result = $stmt->fetch(); //fetchAll to get multiple rows
-
 		print_r($result);
-
-
+                if($result!=null){
 		//todo: make an actual login function!!
 		return true;
+                } else {
+                    return false;
+                }
 	}
         public function register(){
             $username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
