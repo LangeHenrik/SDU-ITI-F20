@@ -114,6 +114,7 @@ class Picture extends Database {
 		$stmt = $this->conn->prepare($stmtString);
 		$stmt->execute();
 
+		//$stmt->setFetchMode( -==- ); PDO::FETCH_BOTH (Default) // PDO::FETCH_ASSOC // PDO::FETCH_NUM
 		$result = $stmt->fetchAll();
 
 		return $result;
