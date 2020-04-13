@@ -55,6 +55,19 @@ class User extends Database
             var_dump($this->db->error);
         }
     }
+    public function getUserByID($user_id)
+    {
+        $select_query = 'SELECT username, password FROM user WHERE user.userid=:userID';
+        $prepare_statement = $this->conn->prepare($select_query);
+        if ($prepare_statement !== false) {
+            $prepare_statement->bindParam(':userID', $user_id);
+            $prepare_statement->execute();
+            $query_result = $prepare_statement->fetchAll();
+            return $query_result;
+        } else {
+            var_dump($this->db->error);
+        }
+    }
     public function getUserByUsernameAndMail($username, $email)
     {
         $select_query = 'SELECT * FROM user WHERE username=:username AND email=:email';

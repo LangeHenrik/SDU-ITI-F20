@@ -21,7 +21,7 @@
             <h3 class="front_page-subheader">Welcome to the Homepage <i><?= $viewbag['fullname'] . ' ' ?></i></br>
                 Your username is: <i><?= $viewbag['username'] ?></i></h3>
         </div>
-        <?php include '../app/views/partials/foot.php'; ?>
+        
     <?php else : ?>
         <?php include_once '../app/views/partials/restricted.php'; ?>
 

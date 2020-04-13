@@ -1,4 +1,43 @@
-console.log("js successfully loaded")
+console.log("js successfully loaded");
+var my_css_class = { backgroundColor: 'blue', color: '#fff' };
+
+var body = {
+    fontFamily: 'Arial, Helvetica, sans-serif',
+    textAlign: 'center',
+    background: 'linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab)',
+    backgroundSize: '400% 400%',
+    animation: 'gradient 15s ease infinite',
+};
+
+$(window).load(function() {
+    $('body').css(body);
+});
+
+/* $(document).ready(function() {
+
+    // Total seconds to wait
+    var seconds = 3;
+
+    function countdown() {
+        seconds = seconds - 1;
+        if (seconds < 0) {
+            // Chnage your redirection link here
+            window.location = "https://duckdev.com";
+        } else {
+            // Update remaining seconds
+            document.getElementById("redirectMsg").innerHTML = seconds;
+            // Count down using javascript
+            window.setTimeout("countdown()", 1000);
+        }
+    }
+
+    // Run countdown function
+
+    countdown();
+    console.log(countdown());
+
+}); */
+
 
 function checkForm() {
     checkFullname();
@@ -61,10 +100,12 @@ function checkUsername() {
 function validatePassword() {
     if (document.getElementById('password').value == document.getElementById('password_confirm').value) {
         document.getElementById('message').style.color = 'LawnGreen';
+        document.getElementById('password_confirm-label').style.color = 'LawnGreen';
         document.getElementById('message').innerHTML = 'password matching';
         return true;
     } else {
         document.getElementById('message').style.color = 'Maroon';
+        document.getElementById('password_confirm-label').style.color = 'Maroon';
         document.getElementById('message').innerHTML = 'password not matching';
 
         return false;
