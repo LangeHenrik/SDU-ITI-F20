@@ -12,5 +12,12 @@ class UserController extends Controller {
                 header('Status: 403 You Do Not Have Access To This Page');
                 echo '403 Forbidden';
             }
+            
+	}
+        public function login($username) {
+		if($this->model('User')->login($username)) {
+			$_SESSION['logged_in'] = true;
+			$this->view('home/login');
+		}
 	}
 }

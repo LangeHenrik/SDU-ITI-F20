@@ -20,8 +20,8 @@ class HomeController extends Controller {
 		echo 'Welcome - you must be logged in';
 	}
 	
-	public function login($username) {
-		if($this->model('User')->login($username)) {
+	public function login() {
+		if($this->model('User')->login()) {
 			$_SESSION['logged_in'] = true;
 			$this->view('home/login');
 		}
@@ -30,14 +30,23 @@ class HomeController extends Controller {
 	public function logout() {
 		if($this->post()) {
 			session_unset();
-			header('Location: /Exercises/mvc/public/home/loggedout');
+			header('Location: /ahnai17/mvc/public/home/loggedout');
 		} else {
 			echo 'You can only log out with a post method';
 		}
 	}
-	
+	public function register() {
+            if ($this->post()){
+                $this->model('User')->register();
+                $this->view('home/registration');
+            } else {
+                header('Status: 403 You Do Not Have Access To This Page');
+                echo '403 Forbidden';
+            }
+	}
 	public function loggedout() {
 		echo 'You are now logged out';
+                header('Location: /ahnai17/mvc/public/home/login');
 	}
 	
 }

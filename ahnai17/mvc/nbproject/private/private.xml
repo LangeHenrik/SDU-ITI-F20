@@ -4,22 +4,16 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Ahmadullah/Documents/GitHub/SDU-ITI-F20/ahnai17/mvc/app/views/home/login.php</file>
-            <file>file:/C:/Users/Ahmadullah/Documents/GitHub/SDU-ITI-F20/ahnai17/mvc/app/views/partials/foot.php</file>
-            <file>file:/C:/Users/Ahmadullah/Documents/GitHub/SDU-ITI-F20/ahnai17/mvc/app/services/MathService.php</file>
-            <file>file:/C:/Users/Ahmadullah/Documents/GitHub/SDU-ITI-F20/ahnai17/mvc/app/models/User.php</file>
-            <file>file:/C:/Users/Ahmadullah/Documents/GitHub/SDU-ITI-F20/ahnai17/mvc/public/index.php</file>
-            <file>file:/C:/Users/Ahmadullah/Documents/GitHub/SDU-ITI-F20/ahnai17/mvc/app/init.php</file>
             <file>file:/C:/Users/Ahmadullah/Documents/GitHub/SDU-ITI-F20/ahnai17/mvc/app/controllers/UserController.php</file>
-            <file>file:/C:/Users/Ahmadullah/Documents/GitHub/SDU-ITI-F20/ahnai17/mvc/app/core/db_config.php</file>
             <file>file:/C:/Users/Ahmadullah/Documents/GitHub/SDU-ITI-F20/ahnai17/mvc/app/views/home/index.php</file>
+            <file>file:/C:/Users/Ahmadullah/Documents/GitHub/SDU-ITI-F20/ahnai17/mvc/app/core/db_config.php</file>
             <file>file:/C:/Users/Ahmadullah/Documents/GitHub/SDU-ITI-F20/ahnai17/mvc/app/views/partials/menu.php</file>
             <file>file:/C:/Users/Ahmadullah/Documents/GitHub/SDU-ITI-F20/ahnai17/mvc/app/controllers/ApiController.php</file>
             <file>file:/C:/Users/Ahmadullah/Documents/GitHub/SDU-ITI-F20/ahnai17/mvc/app/core/Database.php</file>
+            <file>file:/C:/Users/Ahmadullah/Documents/GitHub/SDU-ITI-F20/ahnai17/mvc/app/models/User.php</file>
             <file>file:/C:/Users/Ahmadullah/Documents/GitHub/SDU-ITI-F20/ahnai17/mvc/app/controllers/HomeController.php</file>
             <file>file:/C:/Users/Ahmadullah/Documents/GitHub/SDU-ITI-F20/ahnai17/mvc/public/js/js.js</file>
-            <file>file:/C:/Users/Ahmadullah/Documents/GitHub/SDU-ITI-F20/ahnai17/mvc/app/core/Restricted.php</file>
             <file>file:/C:/Users/Ahmadullah/Documents/GitHub/SDU-ITI-F20/ahnai17/mvc/app/core/Controller.php</file>
-            <file>file:/C:/Users/Ahmadullah/Documents/GitHub/SDU-ITI-F20/ahnai17/mvc/app/core/Router.php</file>
         </group>
     </open-files>
 </project-private>
