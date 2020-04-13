@@ -95,28 +95,89 @@ class Picture extends Database {
 
 	// API Fucktions
 
-	public function apiPostPicture() {
+	public function apiPostPicture($idParam) {
+		$jasonData = json_decode($_POST['json']);
 
-		$stmtString = "SELECT userid AS 'user_id', username FROM user ";
+		$userid = (int)$idParam; // alredy SANITIZE with is_numeric()
+		$imagebase64;
+		$title = filter_var($jasonData->title, FILTER_SANITIZE_STRING);
+		$description = filter_var($jasonData->description, FILTER_SANITIZE_STRING);
+		$username = filter_var($jasonData->username, FILTER_SANITIZE_STRING);
+		$password = filter_var($jasonData->password , FILTER_SANITIZE_STRING);
+		if ( base64_encode(base64_decode($jasonData->image, true)) === $jasonData->image){
+			$imagebase64 = $jasonData->image;
+		} else {
+		  return "json->image: is Not valid";
+		}
 
-		$stmt = $this->conn->prepare($stmtString);
-		$stmt->execute();
+		try
+		{
+			$stmtString = "SELECT password FROM user WHERE userid = :userid AND username = :username";
+			$stmt = $this->conn->prepare($stmtString);
+			$stmt->bindParam(':userid', $userid);
+			$stmt->bindParam(':username', $username);
+			$stmt->execute();
+			$stmt->setFetchMode(PDO::FETCH_ASSOC);
+			$result = $stmt->fetch();
 
-		$result = $stmt->fetchAll();
+			if ($result && password_verify($password, $result['password'])) {
 
-		return $result;
+				$stmtString = "INSERT INTO picture (username, titel, description, uploaddate, imagename, imagebase64)
+											 VALUES(:username, :title, :description, NOW(), 'noneapi', :imagebase64)";
+
+				$stmt = $this->conn->prepare($stmtString);
+				$stmt->bindParam(':username', $username);
+				$stmt->bindParam(':title', $title);
+				$stmt->bindParam(':description', $description);
+				$stmt->bindParam(':imagebase64', $imagebase64);
+				$stmt->execute();
+
+				$stmtString = "SELECT LAST_INSERT_ID()AS 'image_id' FROM picture ";
+
+				$stmt = $this->conn->prepare($stmtString);
+				$stmt->execute();
+				$stmt->setFetchMode(PDO::FETCH_ASSOC);
+				$result = $stmt->fetch();
+
+
+				return $result;
+			}
+			else {
+				return "user_id, password or username is invalid!";
+			}
+		}
+		catch(PDOException $e)
+		{
+			$string = "Connection failed:";
+			$string .= $e->getMessage();
+			$string .= "code: ";
+				$string .=$e->getCode();
+			return $string;
+		}
+
 	}
 
-	public function apiGetPicture() {
+	public function apiGetPicture($idParam) {
+		$userid = (int)$idParam; // alredy SANITIZE with is_numeric()
 
-		$stmtString = "SELECT userid AS 'user_id', username FROM user ";
+		try
+		{
+			$stmtString = "SELECT imagebase64 AS 'image', titel, userid AS 'user_id', description FROM picture, user WHERE user.username = picture.username AND user.userid = :userid";
+			$stmt = $this->conn->prepare($stmtString);
+			$stmt->bindParam(':userid', $userid);
+			$stmt->execute();
+			$stmt->setFetchMode(PDO::FETCH_ASSOC);
+			$result = $stmt->fetchAll();
 
-		$stmt = $this->conn->prepare($stmtString);
-		$stmt->execute();
-
-		//$stmt->setFetchMode( -==- ); PDO::FETCH_BOTH (Default) // PDO::FETCH_ASSOC // PDO::FETCH_NUM
-		$result = $stmt->fetchAll();
-
-		return $result;
+			return $result;
+		}
+		catch(PDOException $e)
+		{
+			$string = "Connection failed:";
+			$string .= $e->getMessage();
+			$string .= "code: ";
+				$string .=$e->getCode();
+			return $string;
+		}
 	}
 }

@@ -126,6 +126,7 @@ class User extends Database {
 		$stmt = $this->conn->prepare($stmtString);
 		$stmt->execute();
 
+		$stmt->setFetchMode( PDO::FETCH_ASSOC);
 		$result = $stmt->fetchAll();
 
 		return $result;
