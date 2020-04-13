@@ -96,7 +96,7 @@ class HomeController extends Controller {
 				  }
 				}
 				else {
-				  $viewbag['error']="Your password should have at least 8 characters, one lower case char, one upper case, and at least one number";
+				  $viewbag['error']="Your password should have at least 8 characters, one lower case char, one upper case, and at least one number, and a special char";
 				}
 			}
 			else {
