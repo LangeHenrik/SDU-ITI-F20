@@ -35,7 +35,7 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body "> <!-- removed "comment" from class -->
+        <div class="modal-body overflow-handling"> <!-- removed "comment" from class -->
 
           <!-- Messages that go here are from https://bootsnipp.com/snippets/4MGa2 -->
 

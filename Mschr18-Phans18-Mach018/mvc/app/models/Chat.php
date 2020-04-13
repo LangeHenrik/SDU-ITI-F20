@@ -12,13 +12,13 @@ class Chat extends Database {
 			if (!$picid) {
 				echo "Invalid picid";
 			}
-			$stmtString = "SELECT username, comment, timestamp FROM chat WHERE picid = :picid;";
+			$stmtString = "SELECT chatid, username, comment, timestamp FROM chat WHERE picid = :picid;";
 			$stmt = $this->conn->prepare($stmtString);
 			$stmt->bindParam(':picid', $picid);
 			$stmt->execute();
 			$stmt->setFetchMode(PDO::FETCH_ASSOC); // FETCH_NUM -> returnerer array indexeret i colonner angivet i tal.                                         // Andre return methoder er beskrevet her: https://www.php.net/manual/en/pdostatement.fetch.php
 			$result = $stmt->fetchAll();
-			echo json_encode($result);
+			return $result;
 		}
 		catch(PDOException $e)
 		{ ?>
@@ -40,7 +40,30 @@ class Chat extends Database {
 			$stmt->bindParam(':picid', $picid);
 			$stmt->bindParam(':comment', $comment);
 			$result = $stmt->execute();
-			echo $result == 1 ? true : false;
+			return $result == 1 ? true : false;
+		}
+		catch(PDOException $e)
+		{ ?>
+			<br><p> Connection failed: <?=$e->getMessage()?><br/>code: <?=$e->getCode()?></p>;
+		<?php }
+	}
+
+	public function update() {
+		try
+		{
+			$picid = Chat::filter('picid', FILTER_SANITIZE_NUMBER_INT);
+			$chatid = Chat::filter('chatid');
+			if (!$picid && !$chatid) {
+				echo "Invalid picid or chatid";
+			}
+			$stmtString = "SELECT chatid, username, comment, timestamp FROM chat WHERE picid = :picid AND chatid > :chatid;";
+			$stmt = $this->conn->prepare($stmtString);
+			$stmt->bindParam(':picid', $picid);
+			$stmt->bindParam(':chatid', $chatid);
+			$stmt->execute();
+			$stmt->setFetchMode(PDO::FETCH_ASSOC); // FETCH_NUM -> returnerer array indexeret i colonner angivet i tal.                                         // Andre return methoder er beskrevet her: https://www.php.net/manual/en/pdostatement.fetch.php
+			$result = $stmt->fetchAll();
+			return $result;
 		}
 		catch(PDOException $e)
 		{ ?>

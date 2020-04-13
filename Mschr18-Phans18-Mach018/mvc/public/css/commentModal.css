@@ -17,3 +17,7 @@
   position: absolute;
   bottom: 0;
 }
+.overflow-handling {
+    overflow: auto;
+    max-height: 80%;
+}
