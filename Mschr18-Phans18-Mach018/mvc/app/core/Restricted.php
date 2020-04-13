@@ -4,7 +4,7 @@ function restricted ($controller, $method) {
 
 	$restricted_urls = array(	
 								'HomeController' => array('logout', 'feed', 'users', 'upload'),
-								'ChatController' => array('getChat' , 'index', 'postChat', 'error401'),
+								'ChatController' => array('getChat' , 'index', 'postChat'),
 								'ApiController'  => array()
 							);
 

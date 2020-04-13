@@ -10,11 +10,11 @@ class Controller {
 		require_once '../app/views/' . $view . '.php';
 	}
 
-	public function post ($params = NULL) {
+	public function isPost ($params = NULL) {
 		return $_SERVER['REQUEST_METHOD'] === 'POST';
 	}
 
-	public function get () {
+	public function isGet () {
 		return $_SERVER['REQUEST_METHOD'] === 'GET';
 	}
 
