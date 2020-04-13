@@ -32,7 +32,7 @@ class Router {
 
 		require_once 'Restricted.php';
 		if(restricted(get_class($this->controller), $this->method)) {
-			$this->method = 'page401';
+			$this->method = '401';
 			$this->params =[];
 			call_user_func_array([$this->controller, $this->method], $this->params);
 		} else {

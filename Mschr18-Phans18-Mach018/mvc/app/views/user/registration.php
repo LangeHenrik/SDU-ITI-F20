@@ -10,7 +10,7 @@
 
 <div class="page container-fluid custom-container">
   <div class="container">
-    <form name="signupForm" id="signupform" onsubmit="return checkform();" action="<?=BASE_URL?>home/createUser" method="post">
+    <form name="signupForm" id="signupform" onsubmit="return checkform();" action="<?=BASE_URL?>user/createUser" method="post">
 
        <label for="fullname">Full name*</label>
 

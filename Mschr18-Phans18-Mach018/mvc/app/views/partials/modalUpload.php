@@ -2,7 +2,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
 
-      <form method="post" action="<?=BASE_URL?>home/uploadPicture" enctype='multipart/form-data'>
+      <form method="post" action="<?=BASE_URL?>picture/uploadPicture" enctype='multipart/form-data'>
 
         <div class="modal-header">
           <h5 class="modal-title">Upload</h5>

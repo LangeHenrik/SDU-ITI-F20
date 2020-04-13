@@ -3,8 +3,10 @@
 function restricted ($controller, $method) {
 
 	$restricted_urls = array(	
-								'HomeController' => array('logout', 'feed', 'users', 'upload'),
-								'ChatController' => array('getChat' , 'index', 'postChat'),
+								'HomeController' => array(),
+								'ChatController' => array('getChat', 'postChat', 'updateChat'),
+								'UserController' => array('logout', 'users'),
+								'PictureController' => array('feed', 'uploadPicture' , 'deletePicture'),
 								'ApiController'  => array()
 							);
 

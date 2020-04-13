@@ -44,7 +44,7 @@
                     </div>
                   </div>
                 </div>
-                <form action="<?=BASE_URL?>home/deletePicture" method="POST">
+                <form action="<?=BASE_URL?>picture/deletePicture" method="POST">
                     <input type="hidden" name="deletebtn" value="<?=$viewbag[$i][5]?>"/>
                 </form>
                 <a  class="deleteBtn" href="#" onclick="this.previousSibling.previousSibling.submit()">
@@ -107,7 +107,7 @@
 
     <div class="container">
       <hr>
-      <h2 class="center">Get started today <a href="<?=BASE_URL?>Home/signup">sign up <i class="fas fa-user-plus fa-s"></i></a></h2>
+      <h2 class="center">Get started today <a href="<?=BASE_URL?>user/signup">sign up <i class="fas fa-user-plus fa-s"></i></a></h2>
       <br>
       <h2 class="center">Already a member. </h2>
       <br>

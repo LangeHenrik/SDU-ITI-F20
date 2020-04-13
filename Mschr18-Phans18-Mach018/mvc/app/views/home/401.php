@@ -9,7 +9,7 @@
         <?php
           include('../app/views/partials/loginform.php');
          ?>
-         <h2><a href="<?=BASE_URL?>home/signup">Sign up <i class="fas fa-user-plus fa-s"></i></a></h2>
+         <h2><a href="<?=BASE_URL?>user/signup">Sign up <i class="fas fa-user-plus fa-s"></i></a></h2>
 
       </div>
     </section>

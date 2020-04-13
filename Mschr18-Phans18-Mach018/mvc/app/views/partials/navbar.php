@@ -25,7 +25,7 @@
       <?php if( isset($_SESSION['logged_in']) && ($_SESSION['logged_in']) ) { ?>
 
           <li class="nav-item">
-            <a class="nav-link"  href="<?=BASE_URL?>home/feed">
+            <a class="nav-link"  href="<?=BASE_URL?>picture/feed">
               ChalkBoard-Feed <i class="fas fa-comment-alt"></i>
             </a>
           </li>
@@ -35,7 +35,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link"  href="<?=BASE_URL?>home/users">
+            <a class="nav-link"  href="<?=BASE_URL?>user/users">
               Users <i class="fas fa-address-book"></i>
             </a>
           </li>
@@ -43,7 +43,7 @@
       <?php } else { ?>
 
         <li class="nav-item">
-          <a class="nav-link"  href="<?=BASE_URL?>home/signup">Sign up <i class="fas fa-user-plus"></i></a>
+          <a class="nav-link"  href="<?=BASE_URL?>user/signup">Sign up <i class="fas fa-user-plus"></i></a>
         </li>
 
       <?php } ?>
