@@ -2,22 +2,22 @@
 
 ## Task
 
-Deadline: TBA
+Deadline: Monday, 27 April 2020
 
 Assignment 2 criteria:
-* [] Move functionality to MVC
-* [] Make API
-* [] GET localhost:8080/xx/mvc/public/api/users (API)
+* [X] Move Assignment 1 functionality to MVC assignment 2
+* [X] Make API
+* [X] GET localhost:8080/xx/mvc/public/api/users (API)
 * * Returns json containing “user_id” and “username” of all users
 
-* [] GET localhost:8080/xx/mvc/public/api/pictures/user/2 (API)
+* [X] GET localhost:8080/xx/mvc/public/api/pictures/user/2 (API)
 * * Returns json containing “image_id”, “title”, “description” and “image” for all user 2’s images
 
-* [] POST localhost:8080/xx/mvc/public/api/pictures/user/2 (API)
+* [X] POST localhost:8080/xx/mvc/public/api/pictures/user/2 (API)
 * * $_POST[‘json’] will contain json which has “image” in base64 format, “title”, “description”, “username” & “password”
 * * Returns the “image_id”
 
-* []
+* [] 
 
 
 From Assignment 1, its criteria:

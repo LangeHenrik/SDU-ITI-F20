@@ -5,7 +5,6 @@ class UserController extends Controller
 
     public function index($param)
     {
-        //This is a proof of concept - we do NOT want HTML in the controllers!
         $viewbag = array();
 
         if (isset($_SESSION['username']) && isset($_SESSION['logged_in'])) {
@@ -21,6 +20,7 @@ class UserController extends Controller
 
     public function upload()
     {
+        ob_start();
         $this->view('user/upload_page');
         $viewbag = array();
 
@@ -41,8 +41,6 @@ class UserController extends Controller
             // Valid file extensions
             $extensions_arr = array("jpg", "jpeg", "png", "gif");
 
-
-
             if (in_array($imageFileType, $extensions_arr)) {
 
                 // Read image path, convert to base64 encoding
@@ -51,25 +49,19 @@ class UserController extends Controller
                 // Format the image SRC:  data:{mime};base64,{data};
                 $image = 'data:image/' . $imageFileType . ';base64,' . $imageConvertTo_base64;
 
-
                 $this->model('Image')->insertImageByUsername($_SESSION['username'], $image, $title, $description);
                 header("refresh:1;url=/aldus17/mvc/public/user/upload");
                 //header('Location: /aldus17/mvc/public/user/uploadStatus/true');
-                echo 'Picture uploaded';
-                $_SESSION['uploadMessage'] = 1;
                 
+                $_SESSION['uploadMessage'] = 1;
+                exit();
             } else {
                 //header('Location: /aldus17/mvc/public/user/uploadStatus/false');
                 echo 'Error occured while uploading image, make sure it is in "jpg", "jpeg", "png", "gif"';
                 header("Location: /aldus17/mvc/public/user/upload");
                 $_SESSION['uploadMessage'] = 2;
             }
-
-            
-            
         }
-        
-        
     }
 
     public function imagefeed()

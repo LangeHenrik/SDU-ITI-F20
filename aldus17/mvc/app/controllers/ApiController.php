@@ -43,18 +43,21 @@ class ApiController extends Controller
 	}
 	private function postPictures($user_id)
 	{
-		$imageData = json_decode($_POST['json']);
-		$title = filter_var($imageData->title, FILTER_SANITIZE_STRING);
-		$description = filter_var($imageData->description, FILTER_SANITIZE_STRING);
-		$image = filter_var($imageData->image, FILTER_SANITIZE_STRING);
-		$username = filter_Var($imageData->username, FILTER_SANITIZE_STRING);
-		$password = filter_Var($imageData->password, FILTER_SANITIZE_STRING);
+		// php://input is a read-only stream that allows you to read raw data from the request body.
+		// https://stackoverflow.com/questions/28365349/php-notice-trying-to-get-property-of-non-object
+
+		$imageData = (array) json_decode(file_get_contents('php://input'), TRUE);
+		$title = filter_var($imageData['json']['title'], FILTER_SANITIZE_STRING);
+		$description = filter_var($imageData['json']['description'], FILTER_SANITIZE_STRING);
+		$image = filter_var($imageData['json']['image'], FILTER_SANITIZE_STRING);
+		$username = filter_Var($imageData['json']['username'], FILTER_SANITIZE_STRING);
+		$password = filter_Var($imageData['json']['password'], FILTER_SANITIZE_STRING);
 
 		$user = $this->model('User')->getUserByID($user_id);
 		$imageObject = array();
 
-		if ($username == $user['username'] && password_verify($password, $user['password'])) {
-			$imageID = $image->model('Image')->insertImageByUserID($user_id, $title, $description, $image);
+		if ($username == $user[0]['username'] && password_verify($password, $user[0]['password'])) {
+			$imageID = $this->model('Image')->insertImageByUserID($user_id, $image, $title, $description);
 			$imageObject['imageID'] = $imageID;
 			echo json_encode($imageObject);
 		}
@@ -75,5 +78,4 @@ class ApiController extends Controller
 
 		echo json_encode($imageObjects, JSON_PRETTY_PRINT);
 	}
-	
 }

@@ -1,32 +1,49 @@
-* {
-    background: -webkit-linear-gradient(left, #7577FA 20px, transparent 1%) center, -webkit-linear-gradient(#7577FA 20px, transparent 1%) center, #9192FB;
-    background: linear-gradient(90deg, #7577FA 20px, transparent 1%) center, linear-gradient(#7577FA 20px, transparent 1%) center, #9192FB;
-    background-size: 22px 22px;
-    box-sizing: border-box;
+/* @import 'background.css'; */
+
+.registerBody #registerBody {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
 }
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .inner_register_form_container {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
     background: rgba(86, 88, 233, 0.8);
-    width: 85%;
+    border-radius: 10px;
+    width: 65%;
     height: 100%;
     height: auto;
-    position: absolute;
-    left: 10%;
-    top: 10%;
+    /* left: 20%;
+    top: 35%; */
     padding: 16px;
-    margin: 0 auto;
-    border-radius: 10px;
+    margin: 50px auto;
     text-align: center;
+    align-items: center;
     text-decoration: none;
+}
+
+.inner_register_form_container:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
 .inner_register_form_container label {
     background: none;
-    display: table-cell;
+    /*  display: table-cell; */
     text-align: center;
 }
 
@@ -35,6 +52,8 @@ body {
     text-align: center;
 }
 
+
+/*
 .inner_register_form_container h1 {
     background: none;
 }
@@ -53,13 +72,14 @@ body {
 
 .inner_register_form_container i {
     background: none;
-}
+} */
 
-input[type=text],
+
+/* input[type=text],
 input[type=password],
 input[type=email],
 input[type=tel] {
-    width: 100%;
+    width: 95%;
     padding: 15px;
     margin: 5px 0 22px 0;
     display: inline-block;
@@ -73,7 +93,7 @@ input[type=password]:focus {
     background-color: #ddd;
     outline: none;
     font-size: 16px;
-}
+} */
 
 hr {
     border: 1px solid #000000;
@@ -97,7 +117,8 @@ hr {
     color: green;
 }
 
-#messageWarning {
+
+/* #messageWarning {
     position: absolute;
     word-wrap: break-word;
     width: inherit;
@@ -129,4 +150,4 @@ hr {
     background: forestgreen;
     margin: 5px;
     text-align: center;
-}
+} */
