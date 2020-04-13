@@ -41,7 +41,7 @@ if(isset($_POST['formConnexion'])) {
 
 // Check if the password match the databse
        else{
-         $error = "Wrong Password";
+         $error = "Wrong password/Username combination. Please try again";
        }
      }
    }

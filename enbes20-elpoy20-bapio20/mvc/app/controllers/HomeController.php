@@ -42,7 +42,7 @@ class HomeController extends Controller {
 		            }
 		            // Check if the password match the databse
 		            else {
-		                $viewbag['error'] = "Wrong Password";
+		                $viewbag['error'] = "Wrong password/Username combination. Please try again";
 		            }
 		        }
 		    } else {
@@ -79,7 +79,7 @@ class HomeController extends Controller {
 				              $viewbag['success'] = "Account Created ! <a href='".URL."home/login'>Log in</a>";
 				        }
 				        else {
-				          $viewbag['error'] = "Password not match";
+				          $viewbag['error'] = "Both password not match";
 				        }
 				      }
 				      else {
@@ -96,7 +96,7 @@ class HomeController extends Controller {
 				  }
 				}
 				else {
-				  $viewbag['error']="Check your password";
+				  $viewbag['error']="Your password should have at least 8 characters, one lower case char, one upper case, and at least one number";
 				}
 			}
 			else {

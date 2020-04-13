@@ -15,7 +15,7 @@
 				<label for="password"> </label>
 				<input type="password" name="passwordCon" placeholder="Password" /> <br />
 
-				<input type="submit" class="btn" name="formConnexion" value="Connect" /> Create an account - <a href="<?= URL ?>home/register">Sign up </a> <br />
+				<input type="submit" class="btn" name="formConnexion" value="Connect" /> <a href="<?= URL ?>home/register">Create an account </a> <br />
 
 			</div>
 
