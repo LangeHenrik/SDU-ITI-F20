@@ -3,7 +3,7 @@
 class UserController extends Controller {
 
 	public function index () {
-		if ($this->isPost() || $this->isGet()) {
+		if ($this->isPost()) {
 			echo "fail";
 		}
 		else {

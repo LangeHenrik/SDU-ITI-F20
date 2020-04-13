@@ -24,8 +24,8 @@
             <!--i class="card-img-top fas fa-image" style="font-s"></i>
 
             <img class="card-img-top" id="image-src" src=<?//=$viewbag[$i][2]?> alt="Card image cap"-->
-            <i class="card-img-top fas fa-image" id="image-none"></i>
-            <i class="card-img-top fas fa-exclamation-triangle" id="image-error"></i>
+            <i class="card-img-top fas fa-image cornerstyle-image" id="image-none"></i>
+            <i class="card-img-top fas fa-exclamation-triangle cornerstyle-image" id="image-error"></i>
             <p class="card-img-top image-text" id="image-text"></p>
 
             <div class="card-body">
