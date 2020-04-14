@@ -15,10 +15,10 @@
                 <a class="nav-link" href="/njens16/mvc/public/home/images">Images</a>
             </li>
             <li class="nav-item <?php if($viewbag["page"] == "users"): ?>active<?php endif; ?>">
-                <a class="nav-link" href="/njens16/mvc/public/home/users">Users</a>
+                <a class="nav-link" href="/njens16/mvc/public/user/users">Users</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/njens16/mvc/public/home/logout">Log out</a>
+                <a class="nav-link" href="/njens16/mvc/public/user/logout">Log out</a>
             </li>
 <?php else:; ?>
             <li class="nav-item <?php if($viewbag["page"] == "register"): ?>active<?php endif; ?>">

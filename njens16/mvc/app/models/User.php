@@ -1,20 +1,28 @@
 <?php
 class User extends Database {
 	
-	public function login($username){
+    public function login ()
+    {
+        $username = filter_var($_POST["username"], FILTER_SANITIZE_SPECIAL_CHARS);
+        $password = $_POST["password"];
 		$sql = "SELECT username, password FROM user WHERE username = :username";
 		
 		$stmt = $this->conn->prepare($sql);
 		$stmt->bindParam(':username', $username);
 		$stmt->execute();
 
-		$result = $stmt->fetch(); //fetchAll to get multiple rows
+		$result = $stmt->fetch(); 
 
-		print_r($result);
+        if ($result === false)
+        {
+            return false;
+        } 
+        if (password_verify($password, $result["password"]))
+        {
+            return true;
+        }
 
-
-		//todo: make an actual login function!!
-		return true;
+		return false;
 	}
 
 	public function getAll () {
