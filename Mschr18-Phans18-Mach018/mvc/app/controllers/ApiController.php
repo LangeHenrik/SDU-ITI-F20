@@ -10,7 +10,11 @@ class ApiController extends Controller {
 	}
 
 	public function index ($param) {
-
+		echo "URL: ".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+		$headers = apache_request_headers();
+		foreach ($headers as $header => $value) {
+			echo "$header: $value \n";
+		}
 	}
 
 	public function users () {

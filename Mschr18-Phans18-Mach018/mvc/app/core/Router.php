@@ -33,7 +33,10 @@ class Router {
 		require_once 'Restricted.php';
 		if(restricted(get_class($this->controller), $this->method)) {
 			$this->method = 'index';
-			$this->params =['401'];
+			if (get_class($this->controller)!='ApiController') {
+				$this->params =['401'];
+			}
+
 			call_user_func_array([$this->controller, $this->method], $this->params);
 		} else {
 			call_user_func_array([$this->controller, $this->method], $this->params);
