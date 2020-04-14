@@ -17,7 +17,7 @@
     overflow: auto;
     height: 80%;
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   .modal.comment .col-card,
   .modal.comment .col-comment {
     height: 50%;
@@ -33,7 +33,7 @@
     padding: 8px 10px 5px;
     border: 1px solid #ddd;
     background-color: #1e90ff;
-    width: 400px;
+    width: 350px;
     border-radius: 10px;
     margin-bottom: 10px;
 }
@@ -53,4 +53,9 @@
 
 .whitespace-conserver {
     white-space: pre-wrap;
+}
+
+.modal.comment .col-card .card {
+  width: 80% !important;
+  min-width: 18rem !important;
 }
