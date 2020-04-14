@@ -28,7 +28,10 @@
             <button type="submit" class="btn btn-primary" id="loginbtn">login</button>
             <a href="/aldus17/mvc/public/home/register" class="btn btn-primary" role="button" aria-pressed="true">Register</a>
         </div>
-
+        <?php if (isset($_SESSION['ErrorMsg'])) {
+            echo $_SESSION['ErrorMsg'];
+            $_SESSION['ErrorMsg'] = null;
+        } ?>
     </form>
 
 </body>

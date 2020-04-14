@@ -16,14 +16,11 @@ class HomeController extends Controller
     // TODO: Move the HTML echos to the loginService class
     public function login($username)
     {
-        if (isset($_POST['username']) && isset($_POST['password'])) {
-            $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-            $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-
+        if ($this->post()) {
             $userResult = $this->model('User')->getUserByUsername($username);
             $this->loginService = new LoginService();
-            if (!empty($userResult)) {
-                if ($userResult[0]['username'] == $username && password_verify($password, $userResult[0]['password'])) {
+            if (!empty($userResult) || !is_null($userResult)) {
+                if ($userResult != false) {
                     $_SESSION['logged_in'] = true;
                     $viewbag['fullname'] = $userResult[0]['fullname'];
                     $viewbag['username'] = $userResult[0]['username'];
@@ -35,26 +32,37 @@ class HomeController extends Controller
 
                     //header('Location: /mvc/public/home/front_page');
                 } else {
-                    $this->view('home/index');
+                    /*  $this->view('home/index'); */
                     $_SESSION['logged_in'] = false;
-                    echo "<div id='messageWarning'><p>" .
+                    /*  echo "<div id='messageWarning'><p>" .
                         "Username or password is wrong" .
                         "</p></br> " .
-                        "</div>";
-                    exit();
+                        "</div>"; */
+
+                    $_SESSION['ErrorMsg'] = "<div class='alert alert-warning alert-dismissible' data-dismiss='alert' role='alert'>" .
+                        "<button type='button' class='close' data-dismiss='alert'>&times;</button>" .
+                        "<strong>Warning!</strong> Username or password is wrong </div>";
+                    header('Location: /aldus17/mvc/public/home/login');
+                    
                 }
             } else {
-                $this->view('home/index');
+                /* $this->view('home/index'); */
                 $_SESSION['logged_in'] = false;
-                echo "<div id='messageWarning'><p>" .
+                /* echo "<div id='messageWarning'><p>" .
                     "Username or password field is empty" .
                     "</p></br> " .
-                    "</div>";
-                exit();
+                    "</div>"; */
+                $_SESSION['ErrorMsg'] = "<div class='alert alert-warning alert-dismissible' data-dismiss='alert' role='alert'>" .
+                    "<button type='button' class='close' data-dismiss='alert'>&times;</button>" .
+                    "<strong>Warning!</strong> Username or password field is empty </div>";
+                header('Location: /aldus17/mvc/public/home/login');
+                
             }
         } else {
             $this->view('home/index');
         }
+
+        //header('Location: /aldus17/mvc/public/home/register');
     }
 
     public function register()
@@ -112,10 +120,7 @@ class HomeController extends Controller
         echo 'Welcome - you must be logged in';
     }
 
-    public function wrongUsernameOrPassword()
-    {
-        $this->view('partials/wrongUsernameOrPassword');
-    }
+
 
     public function logout()
     {

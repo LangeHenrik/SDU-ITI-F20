@@ -1,7 +1,5 @@
 <?php
 
-
-
 class User extends Database
 {
     public function insertUser($username, $fullname, $email,  $password)
@@ -30,15 +28,30 @@ class User extends Database
     }
     public function getUserByUsername($username)
     {
-        $select_query = 'SELECT fullname, username, password FROM user WHERE username=:username';
-        $prepare_statement = $this->conn->prepare($select_query);
-        if ($prepare_statement !== false) {
-            $prepare_statement->bindParam(':username', $username);
-            $prepare_statement->execute([$username]);
-            $query_result = $prepare_statement->fetchAll();
-            return $query_result;
+
+        $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+        if (!empty($_POST['password']) || !empty($_POST['username'])) {
+            if (isset($_POST['username']) && isset($_POST['password'])) {
+
+                $select_query = 'SELECT fullname, username, password FROM user WHERE username=:username';
+                $prepare_statement = $this->conn->prepare($select_query);
+
+                $prepare_statement->bindParam(':username', $username);
+                $prepare_statement->execute([$username]);
+                $query_result = $prepare_statement->fetchAll();
+
+                if ($query_result[0]['username'] == $username && password_verify($password, $query_result[0]['password'])) {
+                    return $query_result;
+                } else {
+                    return false;
+                }
+            } else {
+                return false;
+            }
         } else {
-            var_dump($this->db->error);
+            return null;
         }
     }
 

@@ -28,13 +28,6 @@
                     <textarea type="text" id="description" name="description" class="form-control" maxlength="250" placeholder="Type a description to the image"></textarea>
                     <br>
                 </div>
-                <!-- <div class="upload-btn-wrapper">
-                    <button class="choosefilebtn">Choose image to upload</button>
-                    <input type="file" id="imageToBeUploaded" class="imageToBeUploaded" name="imageToBeUploaded" onchange="loadFile(event)" required />
-                    <br>
-                    <img id="output" width="500" />
-                    
-                </div> -->
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">

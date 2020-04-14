@@ -16,7 +16,9 @@ class LoginService
     }
 
     // TODO: make same sort of logic as in RegisterService
+    public function checkForEmpty($userResult) {
 
+    }
 
     private function setError($error)
     {
