@@ -26,6 +26,9 @@ class Router {
 				$this->method = $url[1];
 				unset($url[1]);
 			}
+			else if (get_class($this->controller)!='ApiController') {
+				$this->params =['404'];
+			}
 		}
 
 		$this->params = $url ? array_values($url) : [];
