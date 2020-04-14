@@ -38,7 +38,7 @@
          <div class="input-group-prepend">
            <span class="input-group-text"><i class="fas fa-user"></i></span>
          </div>
-         <input type="text" name="username" id="newusername" class="rounded-right form-control" placeholder="Username" aria-describedby="username" required>
+         <input type="text" name="newusername" id="newusername" class="rounded-right form-control" placeholder="Username" aria-describedby="username" required>
          <span class="custom-tooltip" data-toggle="tooltip" data-html="true" data-placement="left"
            title="Should contain.<br>
                   - Between 2 and 4 words.<br>
@@ -58,7 +58,7 @@
          <div class="input-group-prepend">
            <span class="input-group-text"><i class="fas fa-key"></i></span>
          </div>
-         <input type="password" name="password" id="newpassword" class=" form-control" placeholder="Password" aria-describedby="password" required>
+         <input type="password" name="newpassword" id="newpassword" class=" form-control" placeholder="Password" aria-describedby="password" required>
 
          <div class="input-group-append">
            <button onclick="toggleviewpassword()" class=" rounded-right btn btn-light toggle-Pasword" type="button"><i id="toggle-fas-eye" class="fas fa-eye-slash"></i></button>
