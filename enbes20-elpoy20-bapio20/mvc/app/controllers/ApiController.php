@@ -31,7 +31,6 @@ class ApiController extends Controller {
 	}
 
 		//GET http://localhost:8080/enbes20-elpoy20-bapio20/mvc/public/api/pictures/user/{id}
-		//POST http://localhost:8080/enbes20-elpoy20-bapio20/mvc/public/api/pictures/user/{id}
 		public function getPictures($id){
 
 			$pictures = $this->model('Feed')->getImageUserApi($id);
@@ -39,36 +38,45 @@ class ApiController extends Controller {
 
 		}
 
-		private function postPictures($id){
+		//POST http://localhost:8080/enbes20-elpoy20-bapio20/mvc/public/api/pictures/user/{id}
+		public function postPictures($id){
 			//https://www.php.net/manual/fr/function.json-decode.php
-			$postPictures = $_POST['json'];
-			$json = json_decode($postPictures);
-			if (json_last_error() === JSON_ERROR_NONE) {
-			    echo "ITS JSON";
-			} else {
-			    echo "NO JSON";
-			}
-			$image = filter_var($json->image, FILTER_SANITIZE_STRING);
-			$header = filter_var($json->header, FILTER_SANITIZE_STRING);
-			$description = filter_var($json->description, FILTER_SANITIZE_STRING);
-			$username = filter_var($json->username, FILTER_SANITIZE_STRING);
-			$password = filter_var($json->password, FILTER_SANITIZE_STRING);
+			//$postPictures = $_POST['json'];
+
+			$json = json_decode($_POST['json'],true);
+		  $image = filter_var($json['image'],FILTER_SANITIZE_STRING);
+			//$image = filter_var($json->image, FILTER_SANITIZE_STRING);
+			// $header = filter_var($json['header'], FILTER_SANITIZE_STRING);
+			$header = $json['title'];
+
+			$description = filter_var($json['description'], FILTER_SANITIZE_STRING);
+			//$description = filter_var($json->description, FILTER_SANITIZE_STRING);
+			$username = filter_var($json['username'], FILTER_SANITIZE_STRING);
+			//$username = filter_var($json->username, FILTER_SANITIZE_STRING);
+			$password = filter_var($json['password'], FILTER_SANITIZE_STRING);
+			//$password = filter_var($json->password, FILTER_SANITIZE_STRING);
 			$date=date("Y-m-d H:i:s");
+			//print_r($json);
 
-			$user = $this->model('User')->getUserByIdApi($id);
-			$post_object = array();
+			//$user = $this->model('User')->getUserByIdApi($id);
+			$userID = $this->model('User')->checkUserApi($username, $password);
+			//$post_object = array();
 
 
-			if($username == $user['username'] && password_verify($password, $user['password'])){
-				$uploadPicture = $image->model('Feed')->upload(array($image, $header, $description,$date ,$user_id));
-				$post_object['image_id'] = $post_id;
+			if($userID == $id){
 
-				echo json_encode($post_object);
+				$uploadPicture = $this->model('Feed')->upload(array($image, $header, $description,$date ,$id));
+				$uploadPicture = array('id'=>$uploadPicture);
+				echo json_encode($uploadPicture,JSON_PRETTY_PRINT);
+
+				//$post_object['image_id'] = $post_id;
+
+			 	//echo json_encode($post_object);
 
 
 			}
 			else {
-				echo 'error';
+				echo 'error credentials';
 			}
 		}
 
