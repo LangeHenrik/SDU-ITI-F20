@@ -11,6 +11,18 @@ class ApiController extends Controller {
 
 	public function index ($param) {
 
+
+		if (array of params contatin == 401) {
+			echo "restricted";
+		} else if (404) {
+			echo "not found";
+		}
+
+		echo "URL: ".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+		$headers = apache_request_headers();
+		foreach ($headers as $header => $value) {
+			echo "$header: $value \n";
+		}
 	}
 
 	public function users () {
