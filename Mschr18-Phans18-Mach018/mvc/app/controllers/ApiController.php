@@ -17,10 +17,10 @@ class ApiController extends Controller {
 
 		if (isset($param) && $param == 401) {
 			echo "$param restricted \n";
-			header('Status: 401');
+			header('Status: 401', true, 401);
 		} else if (isset($param) && $param == 404) {
 			echo "$param not found \n";
-			header('Status: 404');
+			header('Status: 404', true, 404);
 		}
 
 		echo "URL: ".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
