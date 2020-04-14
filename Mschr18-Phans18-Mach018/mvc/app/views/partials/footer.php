@@ -38,7 +38,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 <?php // Loading script for commentsection in feed
 if(substr($_SERVER['REQUEST_URI'], -4) === 'feed') { ?>
-    <script src="<?=BASE_URL?>js/comment.js" defer>
+    <script src="<?=BASE_URL?>js/comment.js" defer></script>
 <?php } ?>
 <?php // Displaying login failed alert if loginFailed
 if (isset($_SESSION['loginFailed']) && $_SESSION['loginFailed']) { ?>
