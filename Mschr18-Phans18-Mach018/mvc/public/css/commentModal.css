@@ -1,4 +1,32 @@
 /**************** MESSAGES *****************/
+.modal.comment .col-card .card {
+  display: block;
+  margin: auto;
+}
+.modal.comment .col-comment {
+  color: black;
+  background-color: #aaa;
+}
+
+.modal.comment .col-card,
+.modal.comment .col-comment {
+  height: 100%;
+}
+.col-comment .modal-body.overflow-handling {
+    overflow: auto;
+    max-height: 80%;
+}
+@media only screen and (max-width: 768px) {
+  .modal.comment .col-card,
+  .modal.comment .col-comment {
+    height: 50%;
+  }
+  .col-comment .modal-body.overflow-handling {
+      max-height: 50%;
+  }
+}
+
+
 /* Message Item */
 .msg {
     padding: 8px 10px 5px;
@@ -13,14 +41,7 @@
 .time {
     color: grey;
 }
-.footer-comment {
-  position: absolute;
-  bottom: 0;
-}
-.overflow-handling {
-    overflow: auto;
-    max-height: 80%;
-}
+
 .whitespace-conserver {
     white-space: pre-wrap;
 }

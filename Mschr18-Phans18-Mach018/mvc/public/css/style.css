@@ -134,24 +134,6 @@ section div.page form div.input-group {
   margin: -50px 0 26px 0;
 }
 
-.modal.comment .col-card .card {
-  display: block;
-  margin: auto;
-}
-.modal.comment .col-comment {
-  color: black;
-  background-color: #aaa;
-}
-.modal.comment .modal-body.comment {
-  position: absolute;
-  bottom: 0;
-}
-@include media-breakpoint-up(md) {
-  .modal.comment .row  {
-    height: auto;
-  }
-}
-
 .unauthorized {
   text-align: center;
 }
