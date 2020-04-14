@@ -2,7 +2,7 @@
 /* Message Item */
 .msg {
     padding: 8px 10px 5px;
-    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
 }
 /* Message Sender */
 .message-wrap .media-heading {
@@ -20,4 +20,7 @@
 .overflow-handling {
     overflow: auto;
     max-height: 80%;
+}
+.whitespace-conserver {
+    white-space: pre-wrap;
 }
