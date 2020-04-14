@@ -3,9 +3,9 @@ var pictureContainers = document.getElementsByClassName('picturecontainer card')
 var inputPicid = document.getElementById('inputPicid');
 var latestChatId = 0;
 
-// Load chat when CommentModal displays 
+// Load chat when CommentModal displays
 for (let i = 0; i < pictureContainers.length; i++) {
-    pictureContainers[i].onclick = function() { 
+    pictureContainers[i].onclick = function() {
         updateModalPicturecard(this);
         fetchModalChat(this.id);
         // Set picid for posting
@@ -58,19 +58,26 @@ async function fetchModalChat(picid) {
     });
 }
 
+var userid = document.getElementById('userid').innerHTML.split(':')[1].trim();
 function insertNewChat(chatObj) {
     // If we are updating with latest chat id put it in.
     if (latestChatId < parseInt(chatObj['chatid'])) {
         latestChatId = parseInt(chatObj['chatid']);
-    
+
         var modalBody = $('#modalCommentImage')[0].getElementsByClassName('modal-body')[0];
 
-        var divMediaBody = document.createElement('div');   divMediaBody.className = 'media-body msg';
-        var smallTime = document.createElement('small');    smallTime.className = 'pull-right time';    
-        var iClock = document.createElement('i');           iClock.className = 'fa fa-clock-o';       
-        var h5Heading = document.createElement('h5');       h5Heading.className = 'media-heading';      
-        var smallComment = document.createElement('small'); smallComment.className = 'col-sm-11 whitespace-conserver';       
-        
+        var divMediaBody = document.createElement('div');
+
+        if (chatObj['username'] == userid ) {
+          divMediaBody.className = 'media-body msg you';
+        } else {
+          divMediaBody.className = 'media-body msg';
+        }
+        var smallTime = document.createElement('small');    smallTime.className = 'pull-right time';
+        var iClock = document.createElement('i');           iClock.className = 'fa fa-clock-o';
+        var h5Heading = document.createElement('h5');       h5Heading.className = 'media-heading';
+        var smallComment = document.createElement('small'); smallComment.className = 'col-sm-11 whitespace-conserver';
+
         smallTime.innerHTML = chatObj['timestamp'] + ' ';
         h5Heading.innerHTML = chatObj['username'];
         smallComment.innerHTML = chatObj['comment'];
@@ -101,25 +108,25 @@ inputComment.onkeyup = function(event) {
 
 // Post comment
 commentPost.onclick = function() {
-    if (inputComment.value) {       
+    if (inputComment.value) {
         let formData = new FormData();
         formData.append("picid", inputPicid.value);
         formData.append("comment", inputComment.value);
         inputComment.value = '';
-        
+
         fetch('/Mschr18-Phans18-Mach018/mvc/public/chat/postChat', {
             method: 'POST',
             body: formData
         })
         .then(response => { return response.text() })
-        .then(data => { 
+        .then(data => {
             if(data == 1) {
                 // console.log('success, data was 1!')
                 updateChat();
-            } 
+            }
             else {
                 console.error('Post comment returned false. Error message from server was:\n' + data);
-            } 
+            }
         })
         .catch((error) => {
             console.error('Error:', error);
@@ -129,7 +136,7 @@ commentPost.onclick = function() {
 
 
 
-// Automatically update chat 
+// Automatically update chat
 var timer;
 $("#modalCommentImage").on('shown.bs.modal', function(){ // used to be 'show.bs.modal'
     clearInterval(timer);
@@ -179,4 +186,3 @@ function scrollToBottomOfModal() {
         modalBody.scrollTop = modalBody.scrollHeight;
     }
 }
-

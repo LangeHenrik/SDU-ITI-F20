@@ -10,11 +10,12 @@
 
 .modal.comment .col-card,
 .modal.comment .col-comment {
+  overflow: auto;
   height: 100%;
 }
 .col-comment .modal-body.overflow-handling {
     overflow: auto;
-    max-height: 80%;
+    height: 80%;
 }
 @media only screen and (max-width: 768px) {
   .modal.comment .col-card,
@@ -22,7 +23,7 @@
     height: 50%;
   }
   .col-comment .modal-body.overflow-handling {
-      max-height: 50%;
+      height: 50%;
   }
 }
 
@@ -30,16 +31,24 @@
 /* Message Item */
 .msg {
     padding: 8px 10px 5px;
-    border-top: 1px solid #ddd;
+    border: 1px solid #ddd;
+    background-color: #1e90ff;
+    width: 400px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.msg.you {
+  background-color: #2dda55;
+  margin-left: auto;
 }
 /* Message Sender */
 .message-wrap .media-heading {
-    color: #2285b3;
+    color: rgba(0,0,0,0.5);
     font-weight: 700;
 }
 /* Message Time */
 .time {
-    color: grey;
+    color: rgba(0,0,0,0.5);
 }
 
 .whitespace-conserver {
