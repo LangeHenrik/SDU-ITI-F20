@@ -101,7 +101,7 @@ inputComment.onkeyup = function(event) {
 
 // Post comment
 commentPost.onclick = function() {
-    if (inputComment.value) {       
+    if (inputComment.value.trim()) {       
         let formData = new FormData();
         formData.append("picid", inputPicid.value);
         formData.append("comment", inputComment.value);
