@@ -1,15 +1,18 @@
 <?php
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/jacso18/mvc/app/core/Controller.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/jacso18/mvc/app/models/Post.php';
+
 class UtilityFunctions
 {
 
 
+    
     public function __construct()
     {
     }
 
-    public static function regexCheck($username, $password, $email)
+    public function regexCheck($username, $password, $email)
     {
         $usrRegex = '/[A-Za-zÆØÅæøå1-9]{1,}/';
         $pswdRegex = '/[A-Za-zÆØÅæøå\d@$!%*#?&]{8,}/';

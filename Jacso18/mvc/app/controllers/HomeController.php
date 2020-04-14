@@ -45,20 +45,16 @@ class HomeController extends Controller
 		if (isset($_POST['username']) && isset($_POST['password'])) {
 			$username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
 			$password = filter_var($_POST['password'], FILTER_SANITIZE_STRING);
-			$users = $this->model('User')->getUserFromUsername($username);
-			foreach ($users as $user) {
-				$hash = $user['password'];
-				if ($user['username'] == $username && password_verify($password, $hash)) {
-					$_SESSION['logged_in'] = true;
-					$_SESSION['username'] = $username;
-					echo 'succes';
-					header('Location: /jacso18/mvc/public/home/image_feed');
-				} else {
-					header('Location: /jacso18/mvc/public/home/login');
-				}
+			if ($this->model('user')->isUser($username, $password)) {
+				$_SESSION['logged_in'] = true;
+				$_SESSION['username'] = $username;
+				header('Location: /jacso18/mvc/public/home/image_feed');
+			} else {
+				header('Location: /jacso18/mvc/public/home/login');
 			}
 		}
 	}
+
 
 	public function logout()
 	{

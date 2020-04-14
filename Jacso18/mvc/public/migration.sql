@@ -11,7 +11,7 @@ Create TABLE users(
     );
 
 CREATE TABLE posts(
-    post_id INT PRIMARY KEY AUTO_INCREMENT,
+    image_id INT PRIMARY KEY AUTO_INCREMENT,
     user_id INT,
     title VARCHAR(100),
     image MEDIUMBLOB NOT NULL,
