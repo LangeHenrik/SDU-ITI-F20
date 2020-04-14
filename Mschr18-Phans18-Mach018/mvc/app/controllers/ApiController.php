@@ -13,6 +13,7 @@ class ApiController extends Controller {
 
 
 		if (array of params contatin == 401) {
+			set header
 			echo "restricted";
 		} else if (404) {
 			echo "not found";

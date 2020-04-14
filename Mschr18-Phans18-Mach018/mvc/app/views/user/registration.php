@@ -10,7 +10,7 @@
 
 <div class="page container-fluid custom-container">
   <div class="container">
-    <form name="signupForm" id="signupform" onsubmit="return checkform();" action="<?=BASE_URL?>user/createUser" method="post">
+    <form class="signup-form" name="signupForm" id="signupform" onsubmit="return checkform();" action="<?=BASE_URL?>user/createUser" method="post">
 
        <label for="fullname">Full name*</label>
 
@@ -21,9 +21,10 @@
          <input type="text" name="fullname" id="fullname" class="rounded-right form-control" placeholder="Full Name" aria-describedby="fullname" required>
          <span class="custom-tooltip" data-toggle="tooltip" data-html="true" data-placement="left"
            title="Should contain.<br>
-                  - Between 2 and 4 words.<br>
-                  - Seberated by space.<br>
-                  - Big and Small letters.">
+                  - Between 2 and 4 words,<br>
+                  &nbsp&nbsp seberated by space.<br>
+                  - Allowed upper, lowercase lettes:<br>
+                  &nbsp&nbsp A to Z, Æ, Ø, and Å.">
             <i class="fas fa-question-circle"></i>
          </span>
 
@@ -40,10 +41,9 @@
          </div>
          <input type="text" name="newusername" id="newusername" class="rounded-right form-control" placeholder="Username" aria-describedby="username" required>
          <span class="custom-tooltip" data-toggle="tooltip" data-html="true" data-placement="left"
-           title="Should contain.<br>
-                  - Between 2 and 4 words.<br>
-                  - Seberated by space.<br>
-                  - Big and Small letters.">
+           title="Must contain 5 t0 10 characters.<br>
+                  &nbsp&nbsp Allowed lettes: A to Z and a to z.<br>
+                  &nbsp&nbsp Allowed numbers: 0 to 9.">
             <i class="fas fa-question-circle"></i>
          </span>
 
@@ -65,10 +65,14 @@
          </div>
 
          <span class="custom-tooltip" data-toggle="tooltip" data-html="true" data-placement="left"
-           title="Should contain.<br>
-                  - Between 2 and 4 words.<br>
-                  - Seberated by space.<br>
-                  - Big and Small letters.">
+           title="Must be at least 8 characters.<br>
+                  - At least one uppercase letter.<br>
+                  - At least one lowercase letter.<br>
+                  - At least one number.<br>
+                  - At least one special character.<br>
+                  &nbsp&nbsp Allowed lettes: A to Z and a to z.<br>
+                  &nbsp&nbsp Allowed numbers: 0 to 9.<br>
+                  &nbsp&nbsp Allowed special: @ $ ! % * ? & , .<br>">
             <i class="fas fa-question-circle"></i>
          </span>
          <div class="invalid-feedback" id="password-invalid-txt">
@@ -84,10 +88,9 @@
          </div>
          <input type="text" name="phone" id="phone" class="rounded-right form-control" placeholder="phone" aria-describedby="phone" required>
          <span class="custom-tooltip" data-toggle="tooltip" data-html="true" data-placement="left"
-           title="Should contain.<br>
-                  - Between 2 and 4 words.<br>
-                  - Seberated by space.<br>
-                  - Big and Small letters.">
+           title="Should be between 8-24 digits.<br>
+                  - Must begin with +<br>
+                  &nbsp&nbsp e.g. +45 12 36 78 09">
             <i class="fas fa-question-circle"></i>
          </span>
          <div class="invalid-feedback" id="phone-invalid-txt">
@@ -104,9 +107,11 @@
          <input type="text" name="email" id="email" class="rounded-right form-control" placeholder="Email" aria-describedby="email" required>
          <span class="custom-tooltip" data-toggle="tooltip" data-html="true" data-placement="left"
            title="Should contain.<br>
-                  - Between 2 and 4 words.<br>
-                  - Seberated by space.<br>
-                  - Big and Small letters.">
+                  - Recipient name.<br>
+                  - @ symbol.<br>
+                  - Domain name.<br>
+                  - Top-level domain.<br>
+                  &nbsp&nbsp e.g. user@domaine.com">
             <i class="fas fa-question-circle"></i>
          </span>
          <div class="invalid-feedback" id="email-invalid-txt">

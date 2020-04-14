@@ -1,4 +1,4 @@
-<form class="form-group custom-nav-collapse-show" method="post" action="<?=BASE_URL?>user/login" >
+<form class="login-form form-group custom-nav-collapse-show" method="post" action="<?=BASE_URL?>user/login" >
   <div class="input-group input-group-sm mr-2">
     <div class="input-group-prepend">
       <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>

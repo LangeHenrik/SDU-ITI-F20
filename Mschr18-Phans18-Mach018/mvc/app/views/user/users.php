@@ -8,8 +8,8 @@
 ?>
   <div class="page container-fluid custom-container">
     <div class="container">
-      
-      <form action="<?=BASE_URL?>user/users/">
+
+      <form class="usersearch-form"action="<?=BASE_URL?>user/users/">
         <div class="form-row align-items-center">
           <div class="col-auto">
             <label for="searchValue">Search value</label>
