@@ -152,6 +152,9 @@ section div.page form div.input-group {
   }
 }
 
+.unauthorized {
+  text-align: center;
+}
 footer {
   position: absolute;
   bottom: 0;
