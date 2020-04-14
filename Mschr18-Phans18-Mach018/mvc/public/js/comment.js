@@ -38,14 +38,19 @@ async function fetchModalChat(picid) {
     })
     .then(response => { return response.json() })
     .then(chatCollection => {
-        var modalBody = $('#modalCommentImage')[0].getElementsByClassName('modal-body')[0];
-            // Clearing modal body
-        while (modalBody.lastChild) {
-            modalBody.removeChild(modalBody.lastChild);
+        if (typeof chatCollection == 'string' && chatCollection.startsWith('Connection failed')) {
+            console.error("Error in fetchModalChat(). Error Message from server:\n" + chatCollection);
         }
-            // Inserting new chat elements
-        for (let i = 0; i < chatCollection.length; i++) {
-            insertNewChat(chatCollection[i]);
+        else {
+            var modalBody = $('#modalCommentImage')[0].getElementsByClassName('modal-body')[0];
+                // Clearing modal body
+            while (modalBody.lastChild) {
+                modalBody.removeChild(modalBody.lastChild);
+            }
+                // Inserting new chat elements
+            for (let i = 0; i < chatCollection.length; i++) {
+                insertNewChat(chatCollection[i]);
+            }
         }
     })
     .catch((error) => {
@@ -64,7 +69,7 @@ function insertNewChat(chatObj) {
         var smallTime = document.createElement('small');    smallTime.className = 'pull-right time';    
         var iClock = document.createElement('i');           iClock.className = 'fa fa-clock-o';       
         var h5Heading = document.createElement('h5');       h5Heading.className = 'media-heading';      
-        var smallComment = document.createElement('small'); smallComment.className = 'col-sm-11';       
+        var smallComment = document.createElement('small'); smallComment.className = 'col-sm-11 whitespace-conserver';       
         
         smallTime.innerHTML = chatObj['timestamp'] + ' ';
         h5Heading.innerHTML = chatObj['username'];
@@ -76,36 +81,50 @@ function insertNewChat(chatObj) {
         divMediaBody.appendChild(h5Heading);
         divMediaBody.appendChild(smallComment);
     }
-    // else dont insert anything
+    // else dont insert anything. That might fix dublicate insertions.
 }
 
 var inputComment = document.getElementById('inputComment');
 var commentPost = document.getElementById('commentPost');
+
+// Submit message on [ENTER] but not on [SHIFT]+[ENTER]
+inputComment.onkeydown = function(event) {
+    if (event.keyCode == 13 && !event.shiftKey) {
+        commentPost.onclick();
+    }
+}
+inputComment.onkeyup = function(event) {
+    if (event.keyCode == 13 && !event.shiftKey) {
+        inputComment.value = '';
+    }
+}
+
 // Post comment
-
 commentPost.onclick = function() {
-    let formData = new FormData();
-    formData.append("picid", inputPicid.value);
-    formData.append("comment", inputComment.value);
-    inputComment.value = '';
-
-    fetch('/Mschr18-Phans18-Mach018/mvc/public/chat/postChat', {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => { return response.text() })
-    .then(data => { 
-        if(data == 1) {
-            // console.log('success, data was 1!')
-            updateChat();
-        } 
-        else {
-            console.error('Post comment returned false');
-        } 
-    })
-    .catch((error) => {
-        console.error('Error:', error);
-    });
+    if (inputComment.value) {       
+        let formData = new FormData();
+        formData.append("picid", inputPicid.value);
+        formData.append("comment", inputComment.value);
+        inputComment.value = '';
+        
+        fetch('/Mschr18-Phans18-Mach018/mvc/public/chat/postChat', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => { return response.text() })
+        .then(data => { 
+            if(data == 1) {
+                // console.log('success, data was 1!')
+                updateChat();
+            } 
+            else {
+                console.error('Post comment returned false. Error message from server was:\n' + data);
+            } 
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+    }
 };
 
 
@@ -134,13 +153,18 @@ function updateChat() {
     })
     .then(response => { return response.json() })
     .then(newChat => {
-        var modalBody = $('#modalCommentImage')[0].getElementsByClassName('modal-body')[0];
-            // Inserting new chat elements
-        for (let i = 0; i < newChat.length; i++) {
-            insertNewChat(newChat[i]);
+        if (typeof newChat == 'string' && newChat.startsWith('Connection failed')) {
+            console.error("Error in updateChat(). Error Message from server:\n" + newChat);
         }
-        if (newChat.length > 0) {
-            scrollToBottomOfModal();
+        else {
+            var modalBody = $('#modalCommentImage')[0].getElementsByClassName('modal-body')[0];
+                // Inserting new chat elements
+            for (let i = 0; i < newChat.length; i++) {
+                insertNewChat(newChat[i]);
+            }
+            if (newChat.length > 0) {
+                scrollToBottomOfModal();
+            }
         }
     })
     .catch((error) => {

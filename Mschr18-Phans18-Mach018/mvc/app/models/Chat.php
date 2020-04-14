@@ -21,31 +21,34 @@ class Chat extends Database {
 			return $result;
 		}
 		catch(PDOException $e)
-		{ ?>
-			<br><p> Connection failed: <?=$e->getMessage()?><br/>code: <?=$e->getCode()?></p>;
-		<?php }
+		{
+			return "Connection failed: $e->getMessage() \ncode: $e->getCode";
+		}
 	}
 
 	public function post() {
 		try
 		{
-			$picid = Chat::filter('picid', FILTER_SANITIZE_NUMBER_INT);
 			$comment = Chat::filter('comment');
-			if (!$picid && !$comment) {
-				echo "Invalid picid or comment";
+			if (!empty(trim($comment))) {
+				$picid = Chat::filter('picid', FILTER_SANITIZE_NUMBER_INT);
+				if (!$picid && !$comment) {
+					echo "Invalid picid or comment";
+				}
+				$stmtString = "INSERT INTO chat (username, picid, comment, timestamp) VALUES (:username, :picid, :comment, NOW());";
+				$stmt = $this->conn->prepare($stmtString);
+				$stmt->bindParam(':username', $_SESSION['username']);
+				$stmt->bindParam(':picid', $picid);
+				$stmt->bindParam(':comment', $comment);
+				$result = $stmt->execute();
+				return $result == 1 ? true : "Error in insertion, nothing was inserted. though nothing broke";
 			}
-			$stmtString = "INSERT INTO chat (username, picid, comment, timestamp) VALUES (:username, :picid, :comment, NOW());";
-			$stmt = $this->conn->prepare($stmtString);
-			$stmt->bindParam(':username', $_SESSION['username']);
-			$stmt->bindParam(':picid', $picid);
-			$stmt->bindParam(':comment', $comment);
-			$result = $stmt->execute();
-			return $result == 1 ? true : false;
+			else return "Comment contained nothing. nothing was inserted";
 		}
 		catch(PDOException $e)
-		{ ?>
-			<br><p> Connection failed: <?=$e->getMessage()?><br/>code: <?=$e->getCode()?></p>;
-		<?php }
+		{
+			return "Connection failed: $e->getMessage() \ncode: $e->getCode";
+		}
 	}
 
 	public function update() {
@@ -66,9 +69,9 @@ class Chat extends Database {
 			return $result;
 		}
 		catch(PDOException $e)
-		{ ?>
-			<br><p> Connection failed: <?=$e->getMessage()?><br/>code: <?=$e->getCode()?></p>;
-		<?php }
+		{
+			return "Connection failed: $e->getMessage() \ncode: $e->getCode";
+		}
 	}
 
 	// Filter _POST or _GET requests with _REQUEST
