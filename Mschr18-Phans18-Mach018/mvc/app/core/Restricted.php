@@ -7,7 +7,7 @@ function restricted ($controller, $method) {
 								'ChatController' => array('getChat', 'postChat', 'updateChat'),
 								'UserController' => array('logout', 'users'),
 								'PictureController' => array('feed', 'uploadPicture' , 'deletePicture'),
-								'ApiController'  => array()
+								'ApiController'  => array('restricted')
 							);
 
 	if(isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {

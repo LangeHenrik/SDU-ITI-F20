@@ -9,13 +9,16 @@ class ApiController extends Controller {
 		//or die();
 	}
 
+	public function restricted() {
+		echo "we dont go here.. exept when we are logged in. hello " . $_SESSION['fullname'];
+	}
+	
 	public function index ($param) {
 
-
-		if (array of params contatin == 401) {
-			echo "restricted";
-		} else if (404) {
-			echo "not found";
+		if (isset($param) && $param == 401) {
+			echo "$param restricted \n";
+		} else if (isset($param) && $param == 404) {
+			echo "$param not found \n";
 		}
 
 		echo "URL: ".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];

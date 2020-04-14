@@ -20,24 +20,24 @@ class Router {
 
 		require_once '../app/controllers/' . $this->controller . '.php';
 		$this->controller = new $this->controller;
-
+		
 		if(isset($url[1])) {
 			if(method_exists($this->controller, $url[1])) {
 				$this->method = $url[1];
 				unset($url[1]);
 			}
-			else if (get_class($this->controller)!='ApiController') {
-				$this->params =['404'];
+			else if (get_class($this->controller) == 'ApiController') {
+				$this->params = ['404'];
 			}
 		}
 
-		$this->params = $url ? array_values($url) : [];
+		$this->params += $url ? $url : [];
 
 		require_once 'Restricted.php';
 		if(restricted(get_class($this->controller), $this->method)) {
 			$this->method = 'index';
-			if (get_class($this->controller)!='ApiController') {
-				$this->params =['401'];
+			if (get_class($this->controller) == 'ApiController') {
+				array_unshift($this->params, '401');
 			}
 
 			call_user_func_array([$this->controller, $this->method], $this->params);
