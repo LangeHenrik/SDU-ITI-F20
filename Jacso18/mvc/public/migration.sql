@@ -15,7 +15,7 @@ CREATE TABLE posts(
     user_id INT,
     title VARCHAR(100),
     image MEDIUMBLOB NOT NULL,
-    comment VARCHAR(150) NOT NULL DEFAULT '',
+    description VARCHAR(150) NOT NULL DEFAULT '',
     timestamp DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY(user_id) REFERENCES users(user_id)
 );
