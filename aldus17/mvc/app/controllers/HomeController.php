@@ -17,10 +17,11 @@ class HomeController extends Controller
     public function login($username)
     {
         if ($this->post()) {
-            $userResult = $this->model('User')->getUserByUsername($username);
+            $userResult = $this->model('User')->getUserByUsernameForLogin($username);
             $this->loginService = new LoginService();
-            if (!empty($userResult) || !is_null($userResult)) {
-                if ($userResult != false) {
+            $userCheck = $this->loginService->checkLogin($userResult);
+            if ($userCheck != null) {
+                if ($userCheck == true) {
                     $_SESSION['logged_in'] = true;
                     $viewbag['fullname'] = $userResult[0]['fullname'];
                     $viewbag['username'] = $userResult[0]['username'];
@@ -39,11 +40,7 @@ class HomeController extends Controller
                         "</p></br> " .
                         "</div>"; */
 
-                    $_SESSION['ErrorMsg'] = "<div class='alert alert-warning alert-dismissible' data-dismiss='alert' role='alert'>" .
-                        "<button type='button' class='close' data-dismiss='alert'>&times;</button>" .
-                        "<strong>Warning!</strong> Username or password is wrong </div>";
-                    header('Location: /aldus17/mvc/public/home/login');
-                    
+                    $_SESSION['ErrorMsg'] = $this->loginService->errors[0];
                 }
             } else {
                 /* $this->view('home/index'); */
@@ -52,11 +49,8 @@ class HomeController extends Controller
                     "Username or password field is empty" .
                     "</p></br> " .
                     "</div>"; */
-                $_SESSION['ErrorMsg'] = "<div class='alert alert-warning alert-dismissible' data-dismiss='alert' role='alert'>" .
-                    "<button type='button' class='close' data-dismiss='alert'>&times;</button>" .
-                    "<strong>Warning!</strong> Username or password field is empty </div>";
+                $_SESSION['ErrorMsg'] = $this->loginService->errors[0];
                 header('Location: /aldus17/mvc/public/home/login');
-                
             }
         } else {
             $this->view('home/index');
@@ -69,50 +63,47 @@ class HomeController extends Controller
     {
         $this->view('home/registration_page');
 
-        $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
-        $fullname = filter_input(INPUT_POST, 'fullname', FILTER_SANITIZE_STRING);
-        $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING);
-        $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
-        $cpassword = filter_input(INPUT_POST, 'password_confirm', FILTER_SANITIZE_STRING);
 
 
-        if (isset($_POST['registerbtn'])) {
-            $this->registerService = new RegisterService();
-            if ($this->registerService->checkForSamePassword($password, $cpassword)) {
-                echo $this->registerService->errors[0];
-                exit();
+        if ($this->post()) {
+            if (isset($_POST['registerbtn'])) {
+                $this->registerService = new RegisterService();
+                if ($this->registerService->checkForSamePassword()) {
+                    echo $this->registerService->errors[0];
+                    exit();
+                }
+
+                if ($this->registerService->regexCheckPassword()) {
+                    echo $this->registerService->errors[0];
+                    exit();
+                }
+
+                if ($this->registerService->regexCheckUsername()) {
+                    echo $this->registerService->errors[0];
+                    exit();
+                }
+
+                if ($this->registerService->regexCheckFullname()) {
+                    echo $this->registerService->errors[0];
+                    exit();
+                }
+
+                if ($this->registerService->regexCheckEmail()) {
+                    echo $this->registerService->errors[0];
+                    exit();
+                }
+
+                if ($this->registerService->checkUser() == true) {
+                    echo $this->registerService->errors[0];
+                    exit();
+                } else {
+                    $this->registerService->registerUser();
+                    header("refresh:3;url=/aldus17/mvc/public/home/login");
+                    echo $this->registerService->errors[0];
+                }
             }
-
-            if ($this->registerService->regexCheckPassword($password)) {
-                echo $this->registerService->errors[0];
-                exit();
-            }
-
-            if ($this->registerService->regexCheckUsername($username)) {
-                echo $this->registerService->errors[0];
-                exit();
-            }
-
-            if ($this->registerService->regexCheckFullname($fullname)) {
-                echo $this->registerService->errors[0];
-                exit();
-            }
-
-            if ($this->registerService->regexCheckEmail($email)) {
-                echo $this->registerService->errors[0];
-                exit();
-            }
-
-            if ($this->registerService->checkUser($username, $fullname, $email, $password) == true) {
-                echo $this->registerService->errors[0];
-                exit();
-            } else {
-                $this->registerService->registerUser($username, $fullname, $email, $password);
-                header("refresh:3;url=/aldus17/mvc/public/home/login");
-                echo $this->registerService->errors[0];
-            }
+            //header('Location: /aldus17/mvc/public/home/register');
         }
-        //header('Location: /aldus17/mvc/public/home/register');
     }
 
     public function restricted()

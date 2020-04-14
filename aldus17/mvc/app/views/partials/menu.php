@@ -25,7 +25,7 @@
                 </li>
             </ul>
         </div> -->
-        <nav class="navbar navbar-default fixed-top" role="navigation">
+        <nav class="navbar navbar-default fixed-top" id="navbar" role="navigation">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
@@ -33,16 +33,16 @@
                     <span class="icon-bar"></span>
                 </button>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-left">
+            <div class="collapse navbar-collapse">
+                <ul class="nav justify-content-left">
                     <li><a class="active" href="/aldus17/mvc/public/user/index">Home</a></li>
                 </ul>
-                <ul class="nav navbar-nav navbar-center">
+                <ul class="nav justify-content-center">
                     <li> <a href="/aldus17/mvc/public/user/upload">Upload</a></li>
                     <li> <a href="/aldus17/mvc/public/user/imagefeed">Imagefeed</a></li>
                     <li> <a href="/aldus17/mvc/public/user/userlist">Userlist</a></li>
                 </ul>
-                <ul class="nav navbar-nav navbar-right">
+                <ul class="nav justify-content-right">
                     <li>
                         <form method="post" action="/aldus17/mvc/public/home/logout">
                             <div class="inner_container">
@@ -59,5 +59,5 @@
     <?php else : ?>
 
         <?php include_once '../app/views/home/login.php'; ?>
-        
+
     <?php endif; ?>

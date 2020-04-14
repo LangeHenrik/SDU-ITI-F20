@@ -6,7 +6,14 @@ class RegisterService
 {
 
     private $userModel;
+    private $username;
+    private $fullname;
+    private $email;
+    private $password;
+    private $cpassword;
+
     public $errors;
+
 
 
     public function __construct()
@@ -14,10 +21,17 @@ class RegisterService
 
         $this->userModel = new User();
         $this->errors = array();
+        $this->username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
+        $this->fullname = filter_input(INPUT_POST, 'fullname', FILTER_SANITIZE_STRING);
+        $this->email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING);
+        $this->password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
+        $this->cpassword = filter_input(INPUT_POST, 'password_confirm', FILTER_SANITIZE_STRING);
     }
 
-    public function checkForSamePassword($password, $cpassword)
+    public function checkForSamePassword()
     {
+        $password = $this->password;
+        $cpassword = $this->cpassword;
         if ($password != $cpassword) {
 
             $error = "<div class='alert alert-warning alert-dismissible' data-dismiss='alert' role='alert'>" .
@@ -30,8 +44,9 @@ class RegisterService
         }
     }
 
-    public function regexCheckPassword($password)
+    public function regexCheckPassword()
     {
+        $password = $this->password;
         $uppercase = preg_match('@[A-Z]@', $password);
         $lowercase = preg_match('@[a-z]@', $password);
         $number = preg_match('@[0-9]@', $password);
@@ -46,8 +61,9 @@ class RegisterService
             return false;
         }
     }
-    public function regexCheckUsername($username)
+    public function regexCheckUsername()
     {
+        $username = $this->username;
         $regexCheckUsername = preg_match('/^([A-Za-z0-9]){4,20}$/', $username);
         if (empty($username) || !$regexCheckUsername) {
             $error = "<div class='alert alert-warning alert-dismissible' data-dismiss='alert' role='alert'>" .
@@ -61,8 +77,9 @@ class RegisterService
             return false;
         }
     }
-    public function regexCheckFullname($fullname)
+    public function regexCheckFullname()
     {
+        $fullname = $this->fullname;
         $regexCheckFullname = preg_match('/(^(\w+\s+\D).+$)/', $fullname);
         if (empty($fullname) || !$regexCheckFullname) {
             $error = "<div class='alert alert-warning alert-dismissible' data-dismiss='alert' role='alert'>" .
@@ -77,8 +94,9 @@ class RegisterService
             return false;
         }
     }
-    public function regexCheckEmail($email)
+    public function regexCheckEmail()
     {
+        $email = $this->email;
         $regexCheckEmail = preg_match('/(\b[\w\.-]+@[\w\.-]+\.\w{2,26}\b)/', $email);
         if (empty($email) || !$regexCheckEmail) {
             $error = "<div class='alert alert-warning alert-dismissible' data-dismiss='alert' role='alert'>" .
@@ -93,8 +111,9 @@ class RegisterService
         }
     }
 
-    public function checkUser($username, $fullname, $email, $password)
+    public function checkUser()
     {
+        $username = $this->username;
         if ($this->userModel->checkIfUserExists($username) == true) {
             $error = "<div class='alert alert-warning alert-dismissible' data-dismiss='alert' role='alert'>" .
                 "<button type='button' class='close' data-dismiss='alert'>&times;</button>" .
@@ -107,8 +126,14 @@ class RegisterService
             return false;
         }
     }
-    public function registerUser($username, $fullname, $email, $password)
+    public function registerUser()
     {
+
+        $username = $this->username;
+        $fullname = $this->fullname;
+        $email = $this->email;
+        $password = $this->password;
+
         $this->userModel->insertUser($username, $fullname, $email, $password);
         $error = "<div id='successMessageAlert' class='alert alert-success alert-dismissible' data-dismiss='alert' role='alert'>" .
             "<button type='button' class='close' data-dismiss='alert'>&times;</button>" .

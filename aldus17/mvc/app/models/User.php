@@ -26,7 +26,7 @@ class User extends Database
             var_dump($this->db->error);
         }
     }
-    public function getUserByUsername($username)
+    public function getUserByUsernameForLogin($username)
     {
 
         $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
@@ -54,6 +54,17 @@ class User extends Database
             return null;
         }
     }
+
+    public function getFullnameAndUsername($username)
+    {
+        $select_query = 'SELECT fullname, username, password FROM user WHERE username=:username';
+        $prepare_statement = $this->conn->prepare($select_query);
+        $prepare_statement->bindParam(':username', $username);
+        $prepare_statement->execute([$username]);
+        $query_result = $prepare_statement->fetchAll();
+        return $query_result;
+    }
+
 
     public function getUserdataByUserID($user_id)
     {
@@ -107,7 +118,7 @@ class User extends Database
 
     public function checkIfUserExists($username)
     {
-        $userResult = $this->getUserByUsername($username);
+        $userResult = $this->getFullnameAndUsername($username);
 
         if (sizeof($userResult) >= 1) {
             return true;
