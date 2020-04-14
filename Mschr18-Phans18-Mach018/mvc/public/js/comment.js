@@ -73,20 +73,21 @@ function insertNewChat(chatObj) {
         } else {
           divMediaBody.className = 'media-body msg';
         }
-        var smallTime = document.createElement('small');    smallTime.className = 'pull-right time';
+
+        var smallTime = document.createElement('small');    smallTime.className = 'msg-time';
         var iClock = document.createElement('i');           iClock.className = 'fa fa-clock-o';
-        var h5Heading = document.createElement('h5');       h5Heading.className = 'media-heading';
-        var smallComment = document.createElement('small'); smallComment.className = 'col-sm-11 whitespace-conserver';
+        var smallByUser = document.createElement('small');  smallByUser.className = 'msg-by-user';
+        var pComment = document.createElement('p');         pComment.className = 'msg-comment';
 
         smallTime.innerHTML = chatObj['timestamp'] + ' ';
-        h5Heading.innerHTML = chatObj['username'];
-        smallComment.innerHTML = chatObj['comment'];
+        smallByUser.innerHTML = chatObj['username'];
+        pComment.innerHTML = chatObj['comment'];
 
         modalBody.appendChild(divMediaBody);
         divMediaBody.appendChild(smallTime);
         smallTime.appendChild(iClock);
-        divMediaBody.appendChild(h5Heading);
-        divMediaBody.appendChild(smallComment);
+        divMediaBody.appendChild(smallByUser);
+        divMediaBody.appendChild(pComment);
     }
     // else dont insert anything. That might fix dublicate insertions.
 }
@@ -108,7 +109,7 @@ inputComment.onkeyup = function(event) {
 
 // Post comment
 commentPost.onclick = function() {
-    if (inputComment.value.trim()) {       
+    if (inputComment.value.trim()) {
         let formData = new FormData();
         formData.append("picid", inputPicid.value);
         formData.append("comment", inputComment.value);

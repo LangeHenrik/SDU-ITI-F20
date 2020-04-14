@@ -2,6 +2,8 @@
 .modal.comment .col-card .card {
   display: block;
   margin: auto;
+  width: 80% !important;
+  min-width: 18rem !important;
 }
 .modal.comment .col-comment {
   color: black;
@@ -35,27 +37,38 @@
     background-color: #1e90ff;
     width: 350px;
     border-radius: 10px;
+    border-bottom-left-radius: 0;
     margin-bottom: 10px;
 }
 .msg.you {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 0px;
   background-color: #2dda55;
   margin-left: auto;
 }
-/* Message Sender */
-.message-wrap .media-heading {
-    color: rgba(0,0,0,0.5);
-    font-weight: 700;
+.msg::after {
+  content: " ";
+  position: absolute;
+  margin-left: -30px;
+  margin-top: -15px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent #1e90ff transparent transparent;
 }
-/* Message Time */
-.time {
-    color: rgba(0,0,0,0.5);
+.msg.you::after {
+  left: 100%;
+  margin-left: -17px;
+  border-color: transparent transparent transparent #2dda55;
 }
-
-.whitespace-conserver {
-    white-space: pre-wrap;
+.msg-by-User {
+  display: block;
+  color: rgba(0,0,0,0.5);
 }
-
-.modal.comment .col-card .card {
-  width: 80% !important;
-  min-width: 18rem !important;
+.msg-time {
+  float: right;
+  color: rgba(0,0,0,0.5);
+}
+.msg-comment {
+  white-space: pre-wrap;
+  margin: 10px;
 }
