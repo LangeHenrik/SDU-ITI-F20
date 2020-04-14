@@ -51,6 +51,15 @@ section div.page form div.input-group {
   margin-bottom: 10px;
 }
 
+.page form.login-form,
+.page form.signup-form {
+  max-width: 300px;
+  margin: 0 auto;
+}
+.tooltip-inner {
+    text-align: left;
+    max-width: 250px;
+}
 .card {
   background-color: #333;
   margin: 0 15px 15px 0;
@@ -92,11 +101,6 @@ section div.page form div.input-group {
   margin-bottom: 16px;
 }
 
-.page form {
-  max-width: 300px;
-  margin: 0 auto;
-}
-
 .modal-content {
   color: black;
   background-color: #aaa;
@@ -129,37 +133,10 @@ section div.page form div.input-group {
   color: rgba(0,0,0,0.5);
   margin: -50px 0 26px 0;
 }
-/*.modal .modal-card .col-card {
-  height: 100%;
-}
-.modal.comment .modal-card .col-comment {
-  background-color: white;
-}
-@include media-breakpoint-up(md) {
-  .modal .modal-card .col-card,
-  .modal .modal-card .col-comment {
-    height: auto;
-  }
-}*/
 
-.modal.comment .col-card .card {
-  display: block;
-  margin: auto;
+.unauthorized {
+  text-align: center;
 }
-.modal.comment .col-comment {
-  color: black;
-  background-color: #aaa;
-}
-.modal.comment .modal-body.comment {
-  position: absolute;
-  bottom: 0;
-}
-@include media-breakpoint-up(md) {
-  .modal.comment .row  {
-    height: auto;
-  }
-}
-
 footer {
   position: absolute;
   bottom: 0;
