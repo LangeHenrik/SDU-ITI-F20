@@ -32,8 +32,8 @@ class Router {
 
 		require_once 'Restricted.php';
 		if(restricted(get_class($this->controller), $this->method)) {
-			$this->method = '401';
-			$this->params =[];
+			$this->method = 'index';
+			$this->params =['401'];
 			call_user_func_array([$this->controller, $this->method], $this->params);
 		} else {
 			call_user_func_array([$this->controller, $this->method], $this->params);

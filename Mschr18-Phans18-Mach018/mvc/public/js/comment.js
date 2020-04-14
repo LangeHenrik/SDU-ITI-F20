@@ -139,7 +139,9 @@ function updateChat() {
         for (let i = 0; i < newChat.length; i++) {
             insertNewChat(newChat[i]);
         }
-        scrollToBottomOfModal();
+        if (newChat.length > 0) {
+            scrollToBottomOfModal();
+        }
     })
     .catch((error) => {
         console.error('Error:', error);
