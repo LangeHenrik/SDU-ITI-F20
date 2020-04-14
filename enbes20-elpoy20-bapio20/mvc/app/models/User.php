@@ -10,7 +10,7 @@ class User extends Database {
 	}
 
 	public function getAllApi(){
-		$sql = "SELECT id_user, username  FROM user";
+		$sql = "SELECT id_user AS user_id, username  FROM user";
 		$stmt = $this->conn->prepare($sql);
 		$stmt->execute();
 
@@ -30,6 +30,21 @@ class User extends Database {
 		$result=$stmt->fetchAll(PDO::FETCH_ASSOC);
 
 		return $result;
+
+	}
+
+	public function checkUserApi($username, $password){
+		$sql = "SELECT id_user, password FROM user WHERE username = :username";
+		$stmt = $this->conn->prepare($sql);
+		$stmt->bindParam(':username', $username, PDO::PARAM_STR);
+		$stmt->execute();
+		$result=$stmt->fetch(PDO::FETCH_ASSOC);
+		if(password_verify($password, $result['password'])){
+			echo "checkUserApi";
+			return $result['id_user'];
+		}else{
+			return 'error';
+		}
 
 	}
 

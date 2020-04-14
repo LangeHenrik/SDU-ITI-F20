@@ -12,7 +12,7 @@ class Feed extends Database {
 
 	public function getImageUserApi($id){
 
-		$sql = "SELECT id, header AS title, description, user_id, created, image FROM user INNER JOIN images ON user.id_user = images.user_id WHERE id_user = :id ORDER BY created DESC";
+		$sql = "SELECT id AS image_id, header AS title, description, user_id, created, image FROM user INNER JOIN images ON user.id_user = images.user_id WHERE id_user = :id ORDER BY created DESC";
 		$stmt = $this->conn->prepare($sql);
 		$stmt->bindParam(':id', $id, PDO::PARAM_INT);
 		$stmt->execute();
