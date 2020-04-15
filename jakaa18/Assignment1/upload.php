@@ -3,7 +3,7 @@ if(isset($_POST["imgSubmit"])){
     $check = getimagesize($_FILES["image"]["tmp_name"]);
     if($check !== false){
         $image = $_FILES['image']['tmp_name'];
-        $imgContent = addslashes(file_get_contents($image));
+        $imgContent = base64_encode(file_get_contents($image));
 
         /*
          * Insert image data into database
