@@ -1,2 +1,14 @@
-
-
+.content {
+    display: flex;
+    justify-content: center;
+    padding: 6px;
+    background-color: rosybrown;
+}
+@media (min-width: 600px) {
+    .content {
+        display: flex;
+        justify-content: center;
+        padding: 6px;
+        background-color: brown;
+    }
+}

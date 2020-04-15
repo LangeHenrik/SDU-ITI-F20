@@ -39,14 +39,10 @@ class User extends Database {
             }
         }
 	public function getAll () {
-
 		$sql = "SELECT id, username FROM users";
 		$stmt = $this->conn->prepare($sql);
 		$stmt->execute();
-
 		$result = $stmt->fetchAll();
-
 		return $result;
 	}
-
 }
