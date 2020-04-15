@@ -24,7 +24,7 @@ class User extends Database {
         public function register(){
             $username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
             $password = filter_var($_POST['password'],FILTER_SANITIZE_STRING);
-            $checkUsername="SELECT username FROM users WHERE username = :username";
+            $checkUsername = $this->conn->prepare("SELECT username FROM users WHERE username = :username");
             $checkUsername->bindParam(':username', $username);
             $checkUsername->execute();
         if($checkUsername->rowCount() > 0){
