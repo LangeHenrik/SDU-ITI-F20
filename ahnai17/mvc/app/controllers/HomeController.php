@@ -21,16 +21,22 @@ class HomeController extends Controller {
 	}
 	
 	public function login() {
+            if ($this->post()){
 		if($this->model('User')->login()) {
 			$_SESSION['logged_in'] = true;
-			$this->view('home/login');
+			header('Location: /ahnai17/mvc/public/Image/upload_page');
 		}
+            } else {
+                echo "failed to login";
+            }
 	}
-	
+	public function Login_page(){
+            $this->view('home/login');
+        }
 	public function logout() {
 		if($this->post()) {
 			session_unset();
-			header('Location: /ahnai17/mvc/public/home/loggedout');
+			header('Location: /ahnai17/mvc/public/home/login_page');
 		} else {
 			echo 'You can only log out with a post method';
 		}

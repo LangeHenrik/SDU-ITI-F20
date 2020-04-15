@@ -12,7 +12,17 @@
     </head>
     <body>
         <div class="content">
+ <?php     
+        if (isset($_SESSION['logged_in'])){
+ ?> 
+            <form method="post" action="/ahnai17/mvc/public/home/logout">
+                <input type="submit" name="log out" value="logout">
+            </form>
+                          
 <?php
-    echo "logged in" . $_SESSION['logged_in'];
+ }
+    if (isset($_SESSION['logged_in'])){
+        echo "logged in" . $_SESSION['logged_in'];
+    }
 ?>
     

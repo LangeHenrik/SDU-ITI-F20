@@ -9,10 +9,13 @@ class ImageController extends Controller {
         }
     }
     public function getImages() {
-        
+       
     }
     public function uploadImage() {
-        
+       
+    }
+    public function upload_page(){
+        $this->view('home/upload');
     }
 }
 
