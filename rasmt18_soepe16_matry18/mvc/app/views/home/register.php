@@ -22,7 +22,7 @@
             </div>
         </form>
         <div class="response" id="response">
-            <h3><?= $viewbag['response'] ?></h3>
+            <?= $viewbag['response'] ?>
         </div>
         <hr>
         <p class="text-info">If you are having trouble registering, please contact support.</p>
