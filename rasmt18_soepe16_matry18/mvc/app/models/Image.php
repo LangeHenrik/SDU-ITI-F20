@@ -43,16 +43,17 @@ class Image extends Database {
                 $username = htmlentities($row['username']);
                 $img = htmlentities($row['image']);
         ?>
-            <div class='picture'><b>Title of the image:</b><p><?=$header?></p>
-            <br>
-            <b>Description:</b><p><?=$description?><p>
-            <br>
-            <b>Contributer:</b><p><?=$username?><p>
-            <br>
-            <b>Image:</b>
-            <br>
-            <img src='<?=$img?>' alt=''></img>
-            <br></div>
+            <div class='picture'>
+                <h3 class="text-info">Title of the image:</h3>
+                <p><?=$header?></p>
+                <h4 class="text-info">Description:</h4>
+                <p><?=$description?><p>
+                <h4 class="text-info">Contributer:</h4>
+                <p><?=$username?><p>
+                <h4 class="text-info">Image:</h4>
+                <img class="img-fluid rounded" src='<?=$img?>' alt='loaded picture'></img>
+                <hr>
+            </div>
         <?php
             }
         ?>
