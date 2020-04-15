@@ -1,11 +1,10 @@
 <?php include '../app/views/partials/menu.php'; ?>
-
 <div class="content" id="upload">
     <div class="jumbotron bg-white">
         <h1>Upload page</h1>
         <h2>Here you can upload your images</h2>
         <hr>
-        <form action="/rasmt18_soepe16_matry18/mvc/public/Image/uploadImage" method ="POST" enctype = "multipart/form-data">
+        <form action="/rasmt18_soepe16_matry18/mvc/public/Image/upload" method ="POST" enctype = "multipart/form-data">
             <div class="form-group">
                 <fieldset>
                     <legend>Upload image:</legend>   
