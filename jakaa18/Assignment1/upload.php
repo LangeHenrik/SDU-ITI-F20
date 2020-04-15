@@ -3,7 +3,8 @@ if(isset($_POST["imgSubmit"])){
     $check = getimagesize($_FILES["image"]["tmp_name"]);
     if($check !== false){
         $image = $_FILES['image']['tmp_name'];
-        $imgContent = base64_encode(file_get_contents($image));
+        $type = pathinfo($path, PATHINFO_EXTENSION);
+        $imgContent = 'data:image/' . $type . ';base64' . base64_encode(file_get_contents($image));
 
         /*
          * Insert image data into database
@@ -21,8 +22,11 @@ if(isset($_POST["imgSubmit"])){
         //Insert image content into database
         //$insert = $conn->prepare("INSERT into pictures (header, description, user, picture) VALUES ('$header', '$description', '$user', '$imgContent')");
         $insert = $conn->prepare("INSERT into pictures (header, description, user, picture) VALUES (?, ?, ?, ?)");
-        $insert->bind_param("sssb", htmlspecialchars($header), htmlspecialchars($description), htmlspecialchars($user), $imgContent);
-        if($insert){
+        $insert->bindParam(1, htmlspecialchars($header));
+        $insert->bindParam(2, htmlspecialchars($description));
+        $insert->bindParam(3, htmlspecialchars($user));
+        $insert->bindParam(4, $imgContent, PDO::PARAM_LOB);
+        if($insert->execute()){
             echo "File uploaded successfully.";
             header("Location: index.php");
             exit;
