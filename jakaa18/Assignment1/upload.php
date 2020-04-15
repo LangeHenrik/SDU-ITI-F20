@@ -21,7 +21,7 @@ if(isset($_POST["imgSubmit"])){
         //Insert image content into database
         //$insert = $conn->prepare("INSERT into pictures (header, description, user, picture) VALUES ('$header', '$description', '$user', '$imgContent')");
         $insert = $conn->prepare("INSERT into pictures (header, description, user, picture) VALUES (?, ?, ?, ?)");
-        $insert->bind_param("sssb", $header, $description, $user, $imgContent);
+        $insert->bind_param("sssb", htmlspecialchars($header), htmlspecialchars($description), htmlspecialchars($user), $imgContent);
         if($insert){
             echo "File uploaded successfully.";
             header("Location: index.php");
