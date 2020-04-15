@@ -24,7 +24,7 @@
                 <br>
                 <input type="password" name="password" required>
                 <br>
-                <input type="submit" name="submit" id= "submit" value="Login" >
+                <input class="btn btn-primary"type="submit" name="submit" id= "submit" value="Login" >
             </fieldset>
         </form>
         <p>Don't have an account yet, don't worry. Just enter the registration page in the link below</p>
