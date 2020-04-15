@@ -70,7 +70,7 @@ class User extends Database
         $stmt = $this->conn->prepare($sql);
 
         $stmt->bindParam(':username', $username);
-        $stmt->bindParam(':password', $password);
+        //$stmt->bindParam(':password', $password);
         $stmt->bindParam(':userid', $userid);
 
         $stmt->execute();
