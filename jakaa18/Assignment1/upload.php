@@ -19,7 +19,9 @@ if(isset($_POST["imgSubmit"])){
         $header = $_POST["header"];
         $description = $_POST["imgDescription"];
         //Insert image content into database
-        $insert = $conn->query("INSERT into pictures (header, description, user, picture) VALUES ('$header', '$description', '$user', '$imgContent')");
+        //$insert = $conn->prepare("INSERT into pictures (header, description, user, picture) VALUES ('$header', '$description', '$user', '$imgContent')");
+        $insert = $conn->prepare("INSERT into pictures (header, description, user, picture) VALUES (?, ?, ?, ?)");
+        $insert->bind_param("sssb", $header, $description, $user, $imgContent);
         if($insert){
             echo "File uploaded successfully.";
             header("Location: index.php");
