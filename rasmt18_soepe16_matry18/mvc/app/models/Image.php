@@ -60,6 +60,24 @@ class Image extends Database {
         </div>
         <?php
     }
+    
+    public function ApiUploadImage($UploadInfo) {
+
+        $userid = filter_var($UploadInfo['userid'], FILTER_SANITIZE_NUMBER_INT);
+        $title = filter_var($UploadInfo['title'], FILTER_SANITIZE_STRING);
+        $description = filter_var($UploadInfo['description'], FILTER_SANITIZE_STRING);
+        $image = $UploadInfo['image'];
+
+        $stmt = $this->conn->prepare("INSERT INTO image (title, description, user_id, image) VALUES(:title, :description, :user_id, :image)");
+
+        $stmt->bindParam(':user_id', $userid, PDO::PARAM_STR);
+        $stmt->bindParam(':title', $title, PDO::PARAM_STR);
+        $stmt->bindParam(':description', $description, PDO::PARAM_STR);
+        $stmt->bindParam(':image', $image, PDO::PARAM_STR);
+        
+        $stmt->execute();
+
+    }
 
 }
 ?>

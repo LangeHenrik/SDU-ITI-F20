@@ -58,4 +58,29 @@ class User extends Database
         $stmt->execute();
         return $stmt->fetchAll();
     }
+
+    public function verifyUser($UploadInfo) {
+        $username = filter_var($UploadInfo['username'], FILTER_SANITIZE_STRING);
+        $password = filter_var($UploadInfo['password'], FILTER_SANITIZE_STRING);
+        $userid = filter_var($UploadInfo['userid'], FILTER_SANITIZE_NUMBER_INT);
+
+        $sql = "SELECT username, password, user_id FROM user WHERE username = :username 
+                && user_id = :userid";
+
+        $stmt = $this->conn->prepare($sql);
+
+        $stmt->bindParam(':username', $username);
+        $stmt->bindParam(':password', $password);
+        $stmt->bindParam(':userid', $userid);
+
+        $stmt->execute();
+
+        $result = $stmt->fetch();
+
+        if(password_verify($password, $result['password'])) {
+            return true;
+        }
+        return false;
+
+    }
 }

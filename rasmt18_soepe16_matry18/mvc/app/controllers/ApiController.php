@@ -12,4 +12,14 @@ class ApiController extends Controller
         echo json_encode($users,JSON_PRETTY_PRINT);
 
     }
+    public function pictures($user, $id) {
+        if($this->post()) {
+            $UploadInfo = json_decode($_POST['json']);
+            $UploadInfo['userid'] = $id;
+            if($this->model('User')->verifyUser($UploadInfo)) {
+                $postedImage = $this->model('Image')->ApiUploadImage($UploadInfo);
+            }
+        }
+
+    }
 }
