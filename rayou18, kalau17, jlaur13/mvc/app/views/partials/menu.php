@@ -1,17 +1,3 @@
-<!--<html>-->
-<!--    <head>-->
-<!--    <script src="../js/js.js"></script>-->
-<!--    </head>-->
-<!--    <body>-->
-<!---->
-<!--<div style="background-color: lightblue;">Menu partial view</div>-->
-
-<?php //if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']) : ?>
-<!---->
-<!--<a href="/Henrik/mvc/public/user/logout">log out</a>-->
-<!---->
-<?php //endif; ?>
-
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div class="mx-auto order-0">
         <a class="navbar-brand" href="#">Menu</a>
@@ -47,7 +33,7 @@
                     <a class="nav-link" onclick="callAjax()" href="#">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/rayou18,%20kalau17,%20jlaur13/mvc/public/Home/signup">Sign Up</a>
+                    <a class="nav-link" onclick="signUpAjax()" href="#">Sign Up</a>
                 </li>
             <?php } ?>
         </ul>
