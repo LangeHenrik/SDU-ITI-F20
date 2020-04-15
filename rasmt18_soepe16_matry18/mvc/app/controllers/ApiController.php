@@ -3,7 +3,7 @@ class ApiController extends Controller
 {
     public function __construct()
     {
-        header('Content-Type: application/josn');
+        header('Content-Type: application/json');
     }
 
     public function users() {

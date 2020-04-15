@@ -8,7 +8,7 @@ class User extends Database
         $username = filter_var($username, FILTER_SANITIZE_STRING);
         $password = filter_var($password, FILTER_SANITIZE_STRING);
 
-        $sql = "SELECT username, password FROM user WHERE username = :username";
+        $sql = "SELECT username, password, user_id FROM user WHERE username = :username";
 
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(':username', $username);
@@ -17,6 +17,7 @@ class User extends Database
         $result = $stmt->fetch(); //fetchAll to get multiple rows
         if ($result['username'] == $username && password_verify($password, $result['password'])) {
             $_SESSION['username'] = $username;
+            $_SESSION['user_id'] = $result['user_id'];
             return true;
         }
         return false;
