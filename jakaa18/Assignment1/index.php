@@ -78,7 +78,7 @@ if ($_SESSION['logged_in']) : ?>
 					foreach ($grab as $pictures){
 						print '<div class="container1">';
 						print $pictures['user'].'</br><h2>'. $pictures['header'] .'</h2></br>';
-						print '<img class="images" src="data:image/;base64,' . base64_encode( $pictures['picture'] ) . '" >';
+						print '<img class="images"  src="data:image/jpeg;base64,' . base64_encode( $pictures['picture'] ) . '" />';
 						print '</br>'.$pictures['description'].'</br>';
 						print '</div>';
 					}
