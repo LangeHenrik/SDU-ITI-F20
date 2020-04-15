@@ -11,6 +11,7 @@
         crossorigin="anonymous"></script>
     </head>
     <body>
+        <div class="content">
 <?php
     echo "logged in" . $_SESSION['logged_in'];
 ?>

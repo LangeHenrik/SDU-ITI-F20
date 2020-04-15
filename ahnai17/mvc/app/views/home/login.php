@@ -1,7 +1,7 @@
 <?php include '../app/views/partials/header.php';
 
 ?>
-<form custom-nav-collapse-show" method="post" action="/ahnai17/mvc/public/Home/login">
+<form custom-nav-collapse-show" method="post" action="/ahnai17/mvc/public/home/login">
     <div class="form-group">
                     <label for="inputname">Username</label>
                     <input type="text" class="form-control" id="username" name="username" placeholder="Enter username" required>
