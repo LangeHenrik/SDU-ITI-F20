@@ -34,6 +34,31 @@ class User extends Database {
 
         $result = $stmt->fetchAll();
 		return $result;
-	}
+    }
+
+    public function registerUser()
+    {
+        $username = filter_var($_POST["username"], FILTER_SANITIZE_STRING);
+        $password = $_POST["password"];
+        $password = password_hash($password, PASSWORD_BCRYPT);
+
+
+        $sql = "SELECT * FROM user WHERE username = :username";
+
+		$stmt = $this->conn->prepare($sql);
+        $stmt->bindValue(":username", $username);
+        $stmt->execute();
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);        
+        if($user === false)
+            {
+                $sql = "INSERT INTO user(username, password) VALUES(:username, :password)";
+		        $stmt = $this->conn->prepare($sql);
+                $stmt->bindValue(":password", $password);
+                $stmt->bindValue(":username", $username);
+                $stmt->execute();
+                return true;
+            }
+        return false;
+    }
 
 }

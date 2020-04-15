@@ -13,20 +13,7 @@ include '../app/views/partials/menu.php';
         echo "<br>test<br>";
 } ?>
 <?php else: ?>
-        </div>
-        <div class = "col-4">
-        <br>
-        <form action="/njens16/mvc/public/user/login" method="post">
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input type="username" class="form-control" id="username" name="username">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" id="passwod" name="password">
-            </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+    <?php header("Location: /njens16/mvc/public/user/login");?>
 <?php endif; ?>
         </div>
     </div>

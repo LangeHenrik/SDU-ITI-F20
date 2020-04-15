@@ -4,11 +4,16 @@ class UserController extends Controller {
 	
     public function index () 
     {
-		
+        header('Location: /njens16/mvc/public/home/frontpage');
 	}
 	
-    public function login($username) 
+    public function login() 
     {
+        if(isset($_SESSION['logged_in']) && $_SESSION['logged_in'])
+        {
+            header("Location: /njens16/mvc/public/home/index");
+        }
+
         if($this->post())
         {
             if($this->model("User")->login()) 
@@ -19,12 +24,15 @@ class UserController extends Controller {
             }
             else
             {
-                echo "error loggin in";
+                $viewbag["page"] = "login";
+                $viewbag["errMsg"] = "Wrong username or password";
+                $this->view("user/login", $viewbag);
             }
         }
         else
         {
-            header("Location: /njens16/mvc/public/home/frontpage");
+            $viewbag["page"] = "login";
+            $this->view("user/login", $viewbag);
         }
 	}
 	
@@ -41,11 +49,38 @@ class UserController extends Controller {
 	
     public function users()
     {
-        $viewbag['page'] = "users";
+        $viewbag["page"] = "users";
         $viewbag["users"] = $this->model("User")->getAll();
         $this->view("user/userPage", $viewbag);
     }
-
+    
+    public function register()
+    {
+        if(isset($_SESSION['logged_in']) && $_SESSION['logged_in'])
+        {
+            header("Location: /njens16/mvc/public/home/index");
+        }
+        $viewbag["page"] = "register";
+        if ($this->post())
+        {
+            if ($this->model("User")->registerUser())
+            {
+                $viewbag["page"] = "login";
+                $viewbag["succsessMsg"] = "User created successfully";
+                $this->view("user/login", $viewbag);
+            }
+            else
+            {
+                $viewbag["errMsg"] = "Error creating user";
+                $this->view("user/registration", $viewbag);
+            }
+        }
+        else
+        {
+            $viewbag["page"] = "register";
+            $this->view("user/registration", $viewbag);
+        }
+    }
 
 
 }

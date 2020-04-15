@@ -7,10 +7,10 @@
         </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
+<?php if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']) : ?>
             <li class="nav-item <?php if($viewbag["page"] == "home"): ?>active<?php endif; ?>">
             <a class="nav-link" href="/njens16/mvc/public/home/frontpage">Home</a>
             </li>
-<?php if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']) : ?>
             <li class="nav-item  <?php if($viewbag["page"] == "images"): ?>active<?php endif; ?>">
                 <a class="nav-link" href="/njens16/mvc/public/home/images">Images</a>
             </li>
@@ -21,8 +21,10 @@
                 <a class="nav-link" href="/njens16/mvc/public/user/logout">Log out</a>
             </li>
 <?php else:; ?>
-            <li class="nav-item <?php if($viewbag["page"] == "register"): ?>active<?php endif; ?>">
-                <a class="nav-link" href="/njens16/mvc/public/home/register">Register</a>
+             <li class="nav-item <?php if($viewbag["page"] == "login"): ?>active<?php endif; ?>">
+                <a class="nav-link" href="/njens16/mvc/public/user/login">Login</a>
+           <li class="nav-item <?php if($viewbag["page"] == "register"): ?>active<?php endif; ?>">
+                <a class="nav-link" href="/njens16/mvc/public/user/register">Register</a>
 <?php endif; ?>
        </ul>
     </div>
