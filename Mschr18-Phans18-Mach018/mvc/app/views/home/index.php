@@ -19,6 +19,15 @@ if( isset($_SESSION['logged_in']) && ($_SESSION['logged_in']) ) {
   <div class="page container-fluid custom-container mb-2">
     <div class="container">
       My Toolboks.
+      <hr>
+
+      <a class="weatherwidget-io" href="https://forecast7.com/en/40d71n74d01/new-york/" data-label_1="ODENSE" data-label_2="WEATHER" data-theme="original" >NEW YORK WEATHER</a>
+      <script>
+      !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+      </script>
+
+
+
     </div>
   </div>
   <div class="page container-fluid custom-container mb-2 myuploads" id="myuploads">
