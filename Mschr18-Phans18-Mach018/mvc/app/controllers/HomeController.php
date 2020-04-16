@@ -2,14 +2,6 @@
 
 class HomeController extends Controller {
 
-	public function __construct () {
-		header('Accept: application/json');
-		header('Accept-Encoding: *');
-		//check api-key?
-		//check username and password?
-		//or die();
-	}
-
 	// Main / home / default - page.
 	public function index ($param) {
 		if (isset($param) && $param == 401) {
