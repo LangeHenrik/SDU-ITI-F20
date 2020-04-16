@@ -41,3 +41,14 @@ th {
     background: rgba(86, 88, 233, 0.8);
     color: white;
 }
+
+
+/* can use https://loading.io/css/ if interested in pure loading icons*/
+
+.bs-example {
+    display: inline-block;
+    position: relative;
+    margin: 5px;
+    width: 30px;
+    height: 33px;
+}

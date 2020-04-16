@@ -5,8 +5,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/userlist_page_style.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-    <script src="../js/ajaxCallUserlist.js"></script>
     <html lang="en">
 </header>
 
@@ -20,22 +18,54 @@
                 <h1>User list</h1>
 
                 <table class="userlist_table">
-                    <tr>
-                        <th>ID</th>
-                        <th> Username</th>
-                    </tr>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th> Username</th>
+                        </tr>
+                    </thead>
+
+                    <!-- <button id="getUserlistbtn">Load/refresh</button> -->
+                    <!-- <button class="btn btn-primary" id="getUserlistbtn" type="button">
+                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                        <span class="sr-only">Loading...</span>
+                    </button>
+                    <button type="button" class="btn btn-default btn-sm">
+                        <span class="glyphicon glyphicon-refresh"></span> Refresh
+                    </button> -->
+                    <!-- <button type="button" id="getUserlistbtn" class="btn btn-primary btn-block normal"><i class="fa fa-repeat"></i>
+                        Load/refresh</button> -->
+                    <!-- <img src="../images/ajax-loader.gif" id="loading-indicator" style="display:none" /> -->
+                    <button type="button" id="getUserlistbtn" class="btn btn-primary">
+                        <div class="bs-example">
+                            <div class="spinner-border">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                            <!-- <div class="lds-ring">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div> -->
+                        </div>Load/refresh
+                    </button>
+
                     <?php //Data from the Ajax will be put into tbody 
                     ?>
-                    <button id="getUserlistbtn">Load/refresh</button>
-                    <tbody id="data"></tbody>
+                    <tbody id="userlistdata" class="userlistdata"></tbody>
 
                 </table>
+
+
             </div>
 
         </div>
 
         </div>
 
+        <script src="../js/userlistEvents.js"></script>
+        <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
     <?php else : ?>
         <?php include_once '../app/views/partials/restricted.php'; ?>
 

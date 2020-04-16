@@ -1,9 +1,11 @@
 <?php
+require_once $_SERVER['DOCUMENT_ROOT'] . '/aldus17/mvc/app/services/UploadService.php';
 
 class UserController extends Controller
 {
+    private $uploadService;
 
-    public function index($param)
+    public function index()
     {
         $viewbag = array();
 
@@ -20,48 +22,26 @@ class UserController extends Controller
 
     public function upload()
     {
-        
         ob_start();
         $this->view('user/upload_page');
-        $viewbag = array();
+        //$viewbag = array();
 
+        //$_SESSION['uploadMessage'] = 0;
 
-
-        $_SESSION['uploadMessage'] = 0;
         if ($this->post()) {
+            $this->uploadService = new UploadService();
 
-            if (isset($_POST['uploadbtn'])) {
+            $uploadImage = $this->uploadService->uploadPicture($_SESSION['username']);
 
-                $imageFile = $_FILES["imageToBeUploaded"]["name"];
-                $target_dir = "../upload/";
-                $target_file = $target_dir . basename($_FILES["imageToBeUploaded"]["name"]);
-
-                // Select file type
-                $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-
-                // Valid file extensions
-                $extensions_arr = array("jpg", "jpeg", "png", "gif");
-
-                if (in_array($imageFileType, $extensions_arr)) {
-
-                    // Read image path, convert to base64 encoding
-                    $imageConvertTo_base64 = base64_encode(file_get_contents($_FILES['imageToBeUploaded']['tmp_name']));
-
-                    // Format the image SRC:  data:{mime};base64,{data};
-                    $image = 'data:image/' . $imageFileType . ';base64,' . $imageConvertTo_base64;
-
-                    $this->model('Image')->insertImageByUsername($_SESSION['username'], $image);
-                    header("refresh:1;url=/aldus17/mvc/public/user/upload");
-                    //header('Location: /aldus17/mvc/public/user/uploadStatus/true');
-
-                    $_SESSION['uploadMessage'] = 1;
-                    exit();
-                } else {
-                    //header('Location: /aldus17/mvc/public/user/uploadStatus/false');
-                    echo 'Error occured while uploading image, make sure it is in "jpg", "jpeg", "png", "gif"';
-                    header("Location: /aldus17/mvc/public/user/upload");
-                    $_SESSION['uploadMessage'] = 2;
-                }
+            if ($uploadImage == null) {
+                $_SESSION['uploadMsg'] = $this->uploadService->errors[0];
+                header("Location: /aldus17/mvc/public/user/upload");
+            } elseif ($uploadImage == false) {
+                $_SESSION['uploadMsg'] = $this->uploadService->errors[0];
+                header("Location: /aldus17/mvc/public/user/upload");
+            } else {
+                $_SESSION['uploadMsg'] = $this->uploadService->errors[0];
+                header("Location: /aldus17/mvc/public/user/upload");
             }
         }
     }

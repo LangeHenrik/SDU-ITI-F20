@@ -1,0 +1,45 @@
+.navbar ul {
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.navbar li {
+    float: left;
+    width: 20%;
+}
+
+.navbar li:hover a::before {
+    right: 0;
+    left: 0;
+}
+
+.navbar a {
+    color: #848484;
+    font-size: 20px;
+    text-decoration: none;
+    text-align: center;
+    padding: 20px 0;
+    display: block;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #e74c3c;
+}
+
+.navbar a::before {
+    content: "";
+    transition: all 0.4s ease-in-out;
+    position: absolute;
+    right: 50%;
+    left: 50%;
+    bottom: 0;
+    height: 2px;
+    background-color: #e74c3c;
+}
+
+.navbar a:hover::before {
+    right: 0;
+    left: 0;
+}

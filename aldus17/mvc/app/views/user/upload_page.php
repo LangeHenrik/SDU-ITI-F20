@@ -4,16 +4,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/upload_page_style.css">
-    <script type='text/javascript' src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script src="../js/uploadUtility.js"></script>
     <html lang="en">
 </header>
 
 <body>
     <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) : ?>
         <?php include_once '../app/views/partials/menu.php'; ?>
-
-
 
         <div id="upload-picture-container" class="upload_picture_container">
             <h1>Upload page</h1>
@@ -63,19 +59,17 @@
                 <input type="submit" name="uploadbtn" id="uploadbtn" class="uploadbtn" value="Upload image" />
             </form>
 
-            <?php
-            if (!empty($_SESSION['uploadMessage'])) {
-                if ($_SESSION['uploadMessage'] == 1) {
-                    echo '<h4>Uploaded picture successfully</h4>';
-                } elseif ($_SESSION['uploadMessage'] == 2) {
-                    echo '<h4> Error while uploading picture, picture must be either jpg, jpeg, png or gif format</h4>';
-                }
+            <?php if (isset($_SESSION['uploadMsg'])) {
+                echo $_SESSION['uploadMsg'];
+                $_SESSION['uploadMsg'] = null;
             } else {
-                echo '<h4>Please upload a picture</h4>';
-            }
-            ?>
+                echo "<div class='alert alert-info alert-dismissible' data-dismiss='alert' role='alert'>" .
+                    "<button type='button' class='close' data-dismiss='alert'>&times;</button>" .
+                    "<strong>Information!</strong> Please upload a picture </div>";
+            } ?>
         </div>
-        
+        <script type='text/javascript' src="../js/uploadUtility.js"></script>
+        <script type='text/javascript' src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 
     <?php else : ?>
 

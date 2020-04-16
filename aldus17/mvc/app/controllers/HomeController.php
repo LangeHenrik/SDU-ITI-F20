@@ -16,6 +16,7 @@ class HomeController extends Controller
     // TODO: Move the HTML echos to the loginService class
     public function login($username)
     {
+
         if ($this->post()) {
             $userResult = $this->model('User')->getUserByUsernameForLogin($username);
             $this->loginService = new LoginService();
@@ -29,27 +30,18 @@ class HomeController extends Controller
                     $_SESSION['username'] = $userResult[0]['username'];
                     $_SESSION['fullname'] = $userResult[0]['fullname'];
 
-                    $this->view('user/index', $viewbag);
+                    //$this->view('user/index', $viewbag);
 
-                    //header('Location: /mvc/public/home/front_page');
+                    header('Location: /aldus17/mvc/public/user/index');
+                    exit();
                 } else {
-                    /*  $this->view('home/index'); */
                     $_SESSION['logged_in'] = false;
-                    /*  echo "<div id='messageWarning'><p>" .
-                        "Username or password is wrong" .
-                        "</p></br> " .
-                        "</div>"; */
-
                     $_SESSION['ErrorMsg'] = $this->loginService->errors[0];
                 }
             } else {
-                /* $this->view('home/index'); */
                 $_SESSION['logged_in'] = false;
-                /* echo "<div id='messageWarning'><p>" .
-                    "Username or password field is empty" .
-                    "</p></br> " .
-                    "</div>"; */
                 $_SESSION['ErrorMsg'] = $this->loginService->errors[0];
+
                 header('Location: /aldus17/mvc/public/home/login');
             }
         } else {

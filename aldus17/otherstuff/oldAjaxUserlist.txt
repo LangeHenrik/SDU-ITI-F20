@@ -1,7 +1,7 @@
-function getUserlist() {
-    var ajax = new XMLHttpRequest();
+ /* var ajax = new XMLHttpRequest();
     ajax.open("GET", "/aldus17/mvc/public/api/users", true);
     ajax.send();
+    var status = false;
 
     ajax.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
@@ -21,12 +21,10 @@ function getUserlist() {
                 html += "</tr>";
             }
             document.getElementById("data").innerHTML = html;
+            status = true;
+        } else {
+            status = false;
         }
     };
-}
-
-document.addEventListener("DOMContentLoaded", function() {
-    getUserlist();
-    document.getElementById('getUserlistbtn').addEventListener('click', getUserlist, false);
-
-});
+    status = false;
+    return status; */
