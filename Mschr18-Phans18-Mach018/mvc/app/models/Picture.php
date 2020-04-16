@@ -34,7 +34,7 @@ class Picture extends Database {
 					// Skip this picture upload and move on to the next.
 					continue;
 				}
-				$name = $_FILES['picupload']['name'][$i];
+				$name = filter_var($_FILES['picupload']['name'][$i], FILTER_SANITIZE_STRING);
 				// Find filetype
 				$imageFileType = strtolower(pathinfo(basename($name),PATHINFO_EXTENSION));
 				// Check sufix
