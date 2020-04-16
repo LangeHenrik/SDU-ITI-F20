@@ -3,7 +3,7 @@ if( isset($_SESSION['logged_in']) && ($_SESSION['logged_in']) ) {
   $_SESSION['page_titel'] .= " | Home";
   $_SESSION['page_header::before'] = "";
   $_SESSION['page_header::after'] = " Home.";
-  $_SESSION['page_sub_header'] = "";
+  $_SESSION['page_sub_header'] = "Manage your picture collection and check out the toolbox.";
 } else {
 
   $_SESSION['page_titel'] .= " | Frontpage";
@@ -18,7 +18,7 @@ if( isset($_SESSION['logged_in']) && ($_SESSION['logged_in']) ) {
   ?>
   <div class="page container-fluid custom-container mb-2">
     <div class="container-fluid">
-      My Toolboks.
+      My Toolbox.
       <hr>
 
       <a class="weatherwidget-io" href="https://forecast7.com/en/40d71n74d01/new-york/" data-label_1="ODENSE" data-label_2="WEATHER" data-theme="original" >NEW YORK WEATHER</a>

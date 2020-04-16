@@ -2,7 +2,7 @@
   $_SESSION['page_titel'] .= " | Users";
   $_SESSION['page_header::before'] = "";
   $_SESSION['page_header::after'] = " Users.";
-  $_SESSION['page_sub_header'] = "Follow image feed for updates whenever new stories are uploaded.";
+  $_SESSION['page_sub_header'] = "Search the user database.";
 
   include_once('../app/views/partials/header.php');
 ?>
