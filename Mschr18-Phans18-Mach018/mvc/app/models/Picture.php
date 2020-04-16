@@ -104,11 +104,23 @@ class Picture extends Database {
 		$description = filter_var($jasonData->description, FILTER_SANITIZE_STRING);
 		$username = filter_var($jasonData->username, FILTER_SANITIZE_STRING);
 		$password = filter_var($jasonData->password , FILTER_SANITIZE_STRING);
-		if ( base64_encode(base64_decode($jasonData->image, true)) === $jasonData->image){
-			$imagebase64 = $jasonData->image;
-		} else {
-		  return "json->image: is Not valid";
+
+		// Is $jasonData->image base64 encode and contains only base64.
+		preg_match("/^(data:image\/([a-zA-Z]{3,4});base64,)([A-Za-z0-9+\/]*={0,2})$/",$jasonData->image , $matches);
+		if ( ($matches[0] == "") || ( strlen($jasonData->image ) != strlen($matches[0]) ) ) {
+			return "The data at ['jason']->image of type base64. Contains invalid base64 code.";
 		}
+		if (!preg_match("/^(data:image\/(jpe?g|png);base64,)$/", $matches[1] )) {
+			$errorstring = "The data at ['jason']->image of type base64. must declare image data type like 'data:image/jpeg;base64, ...' In the begining.";
+			if (preg_match("/^([a-zA-Z]{3,4})$/", $matches[2] )) {
+				$errorstring .= " Type must be either jpeg, jpg or png, type was '". $matches[2] ."'.";
+			}
+			return $errorstring;
+		}
+		if ( base64_decode($matches[3], true) === false ) {
+			return "The base64 data in ['jason']->image is invalid.";
+		}
+		$imagebase64 = $matches[0];
 
 		try
 		{
