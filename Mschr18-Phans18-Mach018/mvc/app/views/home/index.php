@@ -17,7 +17,7 @@ include_once('../app/views/partials/header.php');
 if( isset($_SESSION['logged_in']) && ($_SESSION['logged_in']) ) {
   ?>
   <div class="page container-fluid custom-container mb-2">
-    <div class="container">
+    <div class="container-fluid">
       My Toolboks.
       <hr>
 
@@ -31,7 +31,7 @@ if( isset($_SESSION['logged_in']) && ($_SESSION['logged_in']) ) {
     </div>
   </div>
   <div class="page container-fluid custom-container mb-2 myuploads" id="myuploads">
-    <div class="container">
+    <div class="container-fluid">
       My uploads.
     </div>
   </div>
