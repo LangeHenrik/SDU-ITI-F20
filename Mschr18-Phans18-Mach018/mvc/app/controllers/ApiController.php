@@ -12,7 +12,7 @@ class ApiController extends Controller {
 	public function restricted() {
 		echo "we dont go here.. exept when we are logged in. hello " . $_SESSION['fullname'];
 	}
-	
+
 	public function index ($param) {
 
 		if (isset($param) && $param == 401) {
