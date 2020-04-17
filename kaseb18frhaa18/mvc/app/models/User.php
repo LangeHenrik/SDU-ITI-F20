@@ -46,6 +46,8 @@ class User extends Database
 							$_SESSION["id"] = $id;
 							$_SESSION["username"] = $username;
 							$_SESSION["name"] = $name;
+
+							// Redirect user to welcome page
 							return true;
 
 						} else {
@@ -61,7 +63,6 @@ class User extends Database
 					echo 'Caught exception: ', $e->getMessage(), "\n";
 				}
 			}
-		$sql = "SELECT user_id, username FROM users";
 
 			// Close connection
 		}

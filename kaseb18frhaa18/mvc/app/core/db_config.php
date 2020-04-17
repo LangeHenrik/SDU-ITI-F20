@@ -1,6 +1,5 @@
 <?php
-class DB_Config {
-	
+class db_config {
 	protected $servername = 'localhost:3306';
 	protected $username = 'root';
 	protected $password = '8484';

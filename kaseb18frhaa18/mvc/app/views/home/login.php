@@ -1,10 +1,10 @@
-<?php include_once '../partials/header.php'; ?>
+<?php include_once '../app/views/partials/header.php'; ?>
 <div class="wrapper">
     <div class="content">
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <h1>Login</h1>
             <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-                <input type="text" name="username" placeholder="Username" class="form-control" value="<?php echo $username; ?>">
+                <input type="text" name="username" placeholder="Username" class="form-control" value="">
                 <span class="help-block"><?php echo $username_err; ?></span>
             </div>
             <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
