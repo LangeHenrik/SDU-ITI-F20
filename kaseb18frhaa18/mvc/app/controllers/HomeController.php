@@ -3,9 +3,7 @@
 class HomeController extends Controller {
 	
 	public function index ($param) {
-		//This is a proof of concept - we do NOT want HTML in the controllers!
-		echo '<br><br>Home Controller Index Method<br>';
-		echo 'Param: ' . $param . '<br><br>';
+		header('Location: /kaseb18frhaa18/mvc/public/home/index');
 	}
 	
 	public function other ($param1 = 'first parameter', $param2 = 'second parameter') {
