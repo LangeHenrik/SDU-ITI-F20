@@ -1,0 +1,23 @@
+CREATE DATABASE IF NOT EXISTS madja16_test;
+
+USE madja16_test;
+
+CREATE TABLE users (
+user_id int (11) AUTO_INCREMENT PRIMARY KEY NOT NULL,
+username VARCHAR(255) UNIQUE NOT NULL,
+user_password VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE user_images (
+image_id int (11) AUTO_INCREMENT PRIMARY KEY NOT NULL,
+description VARCHAR(255) NOT NULL,
+title VARCHAR(255) NOT NULL,
+image MEDIUMBLOB NOT NULL,
+image_owner int(11) NOT NULL,
+
+-- For testing purposes don't use foreign key when testing direct insertion
+    CONSTRAINT fk_user_images_users
+    FOREIGN KEY (image_owner) REFERENCES users (user_id)
+    ON DELETE CASCADE
+    ON UPDATE RESTRICT
+);

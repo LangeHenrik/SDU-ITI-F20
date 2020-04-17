@@ -1,0 +1,16 @@
+'json' => '{
+           "image": "'.$rightImage.'",'
+           . '"title": "'.$rightTitle.'",'
+           . '"description":"'.$rightDescription.'",'
+           . '"username":"'.$_POST['username'].'",'
+           . '"password":"'.$_POST['password'].'"
+           }'
+
+
+{
+"image": "bobimage",
+"title": "bobtitle",
+"description":"bobdescription",
+"username":"bobusername",
+"password":"bobpassword"
+}

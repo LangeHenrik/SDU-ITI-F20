@@ -1,0 +1,51 @@
+API requirements
+
+    GET request returns all usernames and their ID's: !!!!!!!! should be done !!!!!!!!
+
+    POST request to post an image with a header and a description !!!!!!!! should be done !!!!!!!!
+
+    GET request that returns all images that belongs to the given ID !!!!!!!! should be done !!!!!!!!
+
+    NOTE: Create endpoints according to assignment description!
+
+Do all from assignment 1 in the MVC framework for assignment 2
+
+    Proper restriction
+
+    Ajax call
+
+    Scale properly to different screen sizes
+
+    The following pages
+
+        Frontpage (index)
+
+            Not restricted to registered users
+            Contains login form
+            Contains link to registration page
+
+        Sign up page
+
+            Not restricted to registered users
+            Contains sign up form
+            regex
+
+        Upload image page
+
+            Restricted to registered users
+            Upload image with header and description
+
+        Image feed
+
+            Restricted to registered users
+            Shows all images, headers and descriptions from any user along with their username
+
+        User list
+
+            Restricted to registered users
+            A list of all users in the system
+
+
+Record video of assignment
+
+    use test.php

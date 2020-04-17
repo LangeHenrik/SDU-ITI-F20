@@ -1,7 +1,5 @@
 console.log('js working');
 
-let returnInfo = document.getElementById('returninfo');
-
 function checkform(){
     if(
     checkname()
