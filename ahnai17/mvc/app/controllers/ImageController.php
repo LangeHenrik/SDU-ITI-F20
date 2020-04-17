@@ -8,8 +8,8 @@ class ImageController extends Controller {
             header('Location: /ahnai17/mvc/public/home/index');
         }
     }
-    public function getImages() {
-        $this->getImages();
+    public function getImages($user_name) {
+        $this->getImages($user_name);
     }
     public function uploadImage() {
        
