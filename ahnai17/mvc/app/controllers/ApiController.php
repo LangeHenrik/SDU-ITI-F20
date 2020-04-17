@@ -27,7 +27,7 @@ class ApiController extends Controller {
         }
         public function images(){
             $images= $this->model('Image')->getAllImagesFromUser();
-            echo json_encode($users, JSON_PRETTY_PRINT);
+            echo json_encode($images, JSON_PRETTY_PRINT);
         }
 
 }

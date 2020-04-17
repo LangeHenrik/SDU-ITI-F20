@@ -9,7 +9,14 @@ class Image extends Database {
         
     }
     public function uploadImage(){
-        $image_name;
+        if(isset($_FILES['image'])){
+            $file_name = $_FILES['image']['name'];
+            $file_size =$_FILES['image']['size'];
+            $file_tmp =$_FILES['image']['tmp_name'];
+            $file_type=$_FILES['image']['type'];
+        }
+        $sql='INSERT INTO images(image_id, Title, Description, Image_base64, user_id)
+              VALUES(img_id, :Title,:Description, base64, :user_id)';
     }
     
 }
