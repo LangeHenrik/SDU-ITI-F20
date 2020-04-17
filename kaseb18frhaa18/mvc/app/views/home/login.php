@@ -1,11 +1,18 @@
-<?php include '../app/views/partials/menu.php'; ?>
-
-<br/>
-You are now logged in!
-<br><br>
-<form method="POST" action="/Exercises/mvc/public/home/logout">
-	<input type="submit" value="log out"/>
-</form>
-
-
-<?php include '../app/views/partials/foot.php'; ?>
+<?php include_once '../partials/header.php'; ?>
+<div class="wrapper">
+    <div class="content">
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+            <h1>Login</h1>
+            <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
+                <input type="text" name="username" placeholder="Username" class="form-control" value="<?php echo $username; ?>">
+                <span class="help-block"><?php echo $username_err; ?></span>
+            </div>
+            <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
+                <input type="password" name="password" placeholder="Password" class="form-control">
+                <span class="help-block"><?php echo $password_err; ?></span>
+            </div>
+            <a>Not registered? <a id="createaccount" href="registration.php">Create an Account now!</a></a>
+            <button type="submit" class="btn btn-primary" value="Login">Log In</button>
+        </form>
+    </div>
+</div>

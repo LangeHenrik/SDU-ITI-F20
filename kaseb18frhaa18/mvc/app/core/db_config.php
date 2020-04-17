@@ -1,10 +1,10 @@
 <?php
 class DB_Config {
 	
-	protected $servername = 'localhost';
+	protected $servername = 'localhost:3306';
 	protected $username = 'root';
-	protected $password = 'root';
-	protected $dbname = 'hela';
+	protected $password = '8484';
+	protected $dbname = 'kaseb18frhaa18';
 
 }
 	
