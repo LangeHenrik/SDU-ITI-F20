@@ -1,4 +1,4 @@
-<?php include '../app/views/partials/header.php';
+<?php include_once '../app/views/partials/header.php';
 ?>
 <div class="item">
         <div class="col-lg-6 mx-auto">
@@ -11,12 +11,12 @@
                     <small class="text-uppercase font-weight-bold text-muted">Choose file</small></label>
                 </div>
             </div>
-    <p class="font-italic text-white text-center">The uploaded image will be rendered here</p>
+    <p class="font-italic text-white text-center">The uploaded image will be shown here</p>
     <div class="image-area mt-4"><img id="imageResult"
     src="#" alt="" class="img-fluid rounded shadow-sm mx-auto d-block"></div>
         </div>
 </div>
- 
+<script src="/ahnai17/mvc/public/js/show_image.js"></script>
 
-<?php include '../app/views/partials/foot.php';
+<?php include_once '../app/views/partials/foot.php';
 

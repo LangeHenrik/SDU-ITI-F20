@@ -5,17 +5,14 @@ class ImageController extends Controller {
         if ($this->post()) {
             echo 'failed access';
         } else {
-            header('Location: ' . BASE_URL . 'home/index');
+            header('Location: /ahnai17/mvc/public/home/index');
         }
     }
     public function getImages() {
-       
+        $this->getImages();
     }
     public function uploadImage() {
        
-    }
-    public function upload_page(){
-        $this->view('home/upload');
     }
 }
 

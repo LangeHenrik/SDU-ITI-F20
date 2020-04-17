@@ -1,4 +1,4 @@
-<?php include '../app/views/partials/header.php';
+<?php include_once '../app/views/partials/header.php';
 
 ?>
 <form custom-nav-collapse-show" method="post" action="/ahnai17/mvc/public/home/login">
@@ -17,4 +17,4 @@
                 <a href="/ahnai17/mvc/public/home/registration" class="btn btn-primary">Create account</a>
 </form>
 <script src="../js/js.js"></script>
-<?php include '../app/views/partials/foot.php'; 
+<?php include_once '../app/views/partials/foot.php'; 
