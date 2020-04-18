@@ -20,12 +20,20 @@
             <form method="post" action="/ahnai17/mvc/public/home/logout">
                 <input type="submit" name="log out" value="logout" class="btn btn-primary">
                 <a href="/ahnai17/mvc/public/home/Home_page" class="btn btn-primary">Home</a>
+                <a href="/ahnai17/mvc/public/home/upload_page" class="btn btn-primary">Upload</a>
             </form>
         
                           
 <?php
- }
-   /* if (isset($_SESSION['logged_in'])){
+ }/* else {
+?>
+            <form class="form-group">
+                <a href="/ahnai17/mvc/public/home/Home_page" class="btn btn-primary">Home</a>
+                <a href="/ahnai17/mvc/public/home/Login_page" class="btn btn-primary">Login page</a>
+            </form>
+<?php
+}
+    if (isset($_SESSION['logged_in'])){
         echo "logged in" . $_SESSION['logged_in'];
     }*/
 ?>

@@ -25,7 +25,7 @@ class ApiController extends Controller {
             }
             echo 'You searched for query:' . $properString;
         }
-        public function images(){
+        public function pictures(){
             $images= $this->model('Image')->getAllImagesFromUser();
             echo json_encode($images, JSON_PRETTY_PRINT);
         }

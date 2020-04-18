@@ -5,7 +5,7 @@ class ImageController extends Controller {
         if ($this->post()) {
             echo 'failed access';
         } else {
-            header('Location: /ahnai17/mvc/public/home/index');
+            header('Location: /ahnai17/mvc/public/home/Home_page');
         }
     }
     public function getImages($user_name) {

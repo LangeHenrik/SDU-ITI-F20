@@ -1,6 +1,11 @@
-<?php include '../app/views/partials/header.php'; ?>
+<?php include '../app/views/partials/header.php';
+if (isset($_SESSION['logged_in'])==false){?>
+    <form class="form-group">
+        <a href="/ahnai17/mvc/public/home/Login_page" class="btn btn-primary">Login page</a>
+    </form>
 
-<h1>Welcome
-<?php echo $_SESSION['username'];?>
-</h1>
+<?php
+}
+
+?>
 <?php include '../app/views/partials/foot.php'; ?>
