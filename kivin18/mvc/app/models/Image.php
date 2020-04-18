@@ -70,12 +70,24 @@ class Image extends Database
         $content = [];
         while ($row = $stmt->fetch()) {
             $temp = $row['image'];
-            $row['image'] = base64_encode($temp);
+            $row['image'] = "data:image/jpeg;base64," . base64_encode($temp);
             array_push($content, $row);
         }
         return $content;
     }
 
+    public function postApiImage()
+    {
+        $stmt = $this->conn->prepare('INSERT INTO image(username, image, title, description) VALUES (?, ?, ?, ?)');
+        $json = json_decode($_POST['json']);
+        $username = htmlentities($json->username);
+        $image = file_get_contents($json->image);
+        $header = htmlentities($json->title);
+        $description = htmlentities($json->description);
+        $stmt->execute([$username, $image, $header, $description]);
+        $response = $this->conn->query('SELECT LAST_INSERT_ID()');
+        return $response->fetch()['LAST_INSERT_ID()'];
+    }
 
 
 }

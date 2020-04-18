@@ -18,10 +18,17 @@ class ApiController extends Controller {
 	}
 
 	public function pictures ($user, $id) {
-	    $images = $this->model('Image')->getApiImages($id);
-        echo json_encode($images, JSON_PRETTY_PRINT);
+	    if ($this->post()) {
+	        if($this->model('User')->apiUserId() == $id) {
+                $response = $this->model('Image')->postApiImage();
+                $array = array('image_id' => $response);
+                $json = json_encode($array, JSON_PRETTY_PRINT);
+                echo $json;
+            }
+        } else {
+            $images = $this->model('Image')->getApiImages($id);
+            echo json_encode($images, JSON_PRETTY_PRINT);
+        }
     }
-
-
 
 }

@@ -42,5 +42,17 @@ class User extends Database
         return $result;
     }
 
+    public function apiUserId() {
+        $json = json_decode($_POST['json']);
+        if ($this->login($json->username, $json->password)) {
+            $sql = "SELECT user_id FROM user WHERE username = :username";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(':username', $json->username);
+            $stmt->execute();
+            $result = $stmt->fetch();
+            return $result['user_id'];
+        }
+    }
+
 
 }
