@@ -18,6 +18,13 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <?php if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) : ?>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/kivin18/mvc/public/home/createtestuser   ">Create test user</a>
+            </li>
+        </ul>
+        <?php endif; ?>
         <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) : ?>
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">

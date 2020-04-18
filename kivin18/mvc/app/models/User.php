@@ -65,5 +65,11 @@ class User extends Database
         }
     }
 
+ public function createTestUser() {
+     // Create test user
+     $stmt = $this->conn->prepare('INSERT IGNORE INTO user(username, password) VALUES ("TestUser", ?)');
+     $test_pass = password_hash("qweQWE123@", PASSWORD_DEFAULT);
+     $stmt->execute([$test_pass]);
+ }
 
 }

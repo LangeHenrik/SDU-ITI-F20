@@ -110,4 +110,10 @@ class HomeController extends Controller
         }
     }
 
+    public function createtestuser() {
+        $this->model('User')->createTestUser();
+        $viewbag['user_info'] = 'Test user created. Username: TestUser, password: qweQWE123@';
+        $this->view('home/index', $viewbag);
+    }
+
 }
