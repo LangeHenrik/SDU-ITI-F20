@@ -38,5 +38,8 @@ class Image extends Database {
             }  
         }
     }
+    public function apiPostImage() {
+        
+    }
 }
 
