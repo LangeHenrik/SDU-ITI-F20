@@ -31,4 +31,15 @@ class ApiController extends Controller {
         }
     }
 
+    public function checkusername ($username) {
+	    $users = $this->model('User')->getUsers();
+	    $found = false;
+        foreach ($users as $user) {
+            if ($username === $user['username']) {
+                $found = true;
+            }
+	    }
+        echo $found;
+    }
+
 }
