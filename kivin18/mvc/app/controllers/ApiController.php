@@ -39,7 +39,7 @@ class ApiController extends Controller {
                 $found = true;
             }
 	    }
-        echo $found;
+        echo $found ? "Username is taken" : "Username is available";
     }
 
 }
