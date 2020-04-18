@@ -12,7 +12,7 @@ class ImageController extends Controller {
         $this->getImages($user_name);
     }
     public function uploadImage() {
-       
+       $this->model('Image')->uploadImage();
     }
 }
 
