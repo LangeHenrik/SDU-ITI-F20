@@ -7,11 +7,6 @@
                 enctype='multipart/form-data'>
                 <input id="upload" type="file" onchange="readURL(this);" class="form-control border-0">
                 <label id="upload-label" for="upload" class="font-weight-light text-muted">Choose file</label>
-                <div class="input-group-append">
-                    <label for="upload" class="btn btn-light m-0 rounded-pill px-4">
-                    <i class="fa fa-cloud-upload mr-2 text-muted"></i>
-                    <small class="text-uppercase font-weight-bold text-muted">Choose file</small></label>
-                </div>
                 <div class="form-group">
                     <label for="title">Title</label>
                     <input type="text" class="form-control" id="title"
@@ -22,6 +17,7 @@
                     <input type="text" class="form-control" id="description" name="description" 
                     placeholder="Enter image description">
                 </div>
+                <input class="btn btn-secondary" type="submit" value="Upload image" name="submit">
             </form>
         </div>
     <p class="font-italic text-white text-center">The uploaded image will be shown here</p>

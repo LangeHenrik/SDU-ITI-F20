@@ -16,6 +16,8 @@ class User extends Database {
 		$result = $stmt->fetch(); //fetchAll to get multiple rows
 		print_r($result);
                 if(password_verify($password,  $result['password'])){
+                    $_SESSION['username']=$result['username'];
+                    $_SESSION['id']=$result['id'];
 		return true;
                 } else {
                     return false;

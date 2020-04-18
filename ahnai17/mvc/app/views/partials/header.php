@@ -20,7 +20,6 @@
             <form method="post" action="/ahnai17/mvc/public/home/logout">
                 <input type="submit" name="log out" value="logout" class="btn btn-primary">
                 <a href="/ahnai17/mvc/public/home/Home_page" class="btn btn-primary">Home</a>
-                <a href="/ahnai17/mvc/public/home/upload_page" class="btn btn-primary">Upload</a>
             </form>
         
                           
