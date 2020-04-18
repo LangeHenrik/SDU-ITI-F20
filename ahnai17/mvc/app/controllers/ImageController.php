@@ -13,6 +13,8 @@ class ImageController extends Controller {
     }
     public function uploadImage() {
        $this->model('Image')->uploadImage();
+       echo 'Image upload was succesful';
+       $this->view('home/upload');
     }
 }
 

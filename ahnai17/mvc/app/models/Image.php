@@ -26,10 +26,11 @@ class Image extends Database {
                 $description = filter_var($_POST["description"], FILTER_SANITIZE_STRING);
                 $description = substr($description, 0, 100);
                 $stmt = $this->conn->prepare("INSERT INTO images (Title, 
-                                              Description, Image_base64, user_id)
-                                              VALUES(:Title, :Description, :Image_base64, :user_id)");
+                                            Description, Image_base64, user_id, Image_name)
+                                            VALUES(:Title, :Description, :Image_base64, :user_id, :image_name)");
                 $stmt->bindParam(':user_id', $_SESSION["id"]);
                 $stmt->bindParam(':Title', $title);
+                $stmt->bindParam(':image_name',$file_name);
                 $stmt->bindParam(':Description', $description);
                 $stmt->bindParam(':Image_base64', $image_64);
                 $stmt->execute();

@@ -2,7 +2,8 @@
 class User extends Database {
 	
 	public function login(){
-		$sql = "SELECT id, username, password FROM users WHERE username = :username";
+		
+                $sql = "SELECT id, username, password FROM users WHERE username = :username";
                 $username=filter_input(INPUT_POST, 'username');
                 $password=filter_input(INPUT_POST, 'password');
                 if (!$username || !$password) {//if either field is empty
@@ -19,6 +20,7 @@ class User extends Database {
                     $_SESSION['username'] = $result['username'];
                     $_SESSION['id'] = $result['id'];
                     return true;
+              
                 } else {
                     return false;
                 }
