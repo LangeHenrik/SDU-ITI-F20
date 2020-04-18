@@ -15,13 +15,22 @@ class User extends Database
 
     public function register($username, $password)
     {
-        $stmt = $this->conn->prepare('INSERT INTO user (username, password) VALUES (?, ?)');
-        if (preg_match("/^\S\w{5,50}$/", $username) && preg_match("/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/", $password)) {
-            $hashed_pass = password_hash($password, PASSWORD_DEFAULT);
-            $stmt->execute([$username, $hashed_pass]);
-            return true;
-        } else {
-            return false;
+        try {
+            $stmt = $this->conn->prepare('INSERT INTO user (username, password) VALUES (?, ?)');
+            if (preg_match("/^\S\w{5,50}$/", $username) && preg_match("/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/", $password)) {
+                $hashed_pass = password_hash($password, PASSWORD_DEFAULT);
+                $stmt->execute([$username, $hashed_pass]);
+                return true;
+            } else {
+                return false;
+            }
+        } catch (PDOException $exception) {
+            $duplicate = "Integrity constraint violation: 1062 Duplicate entry";
+            if (strpos($exception->getMessage(), $duplicate) !== FALSE) {
+                return false;
+            } else {
+                throw $exception;
+            }
         }
     }
 
@@ -34,7 +43,8 @@ class User extends Database
         return $result;
     }
 
-    public function getUserIdAndName() {
+    public function getUserIdAndName()
+    {
         $sql = "SELECT user_id, username FROM user";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
@@ -42,7 +52,8 @@ class User extends Database
         return $result;
     }
 
-    public function apiUserId() {
+    public function apiUserId()
+    {
         $json = json_decode($_POST['json']);
         if ($this->login($json->username, $json->password)) {
             $sql = "SELECT user_id FROM user WHERE username = :username";
