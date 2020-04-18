@@ -89,7 +89,7 @@ class HomeController extends Controller
         $this->view('home/upload');
     }
 
-    public function addImage()
+        public function addimage()
     {
         $this->model('Image')->upload();
         $this->view('home/upload');

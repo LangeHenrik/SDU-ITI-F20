@@ -4,7 +4,7 @@
         <h1>Upload image</h1>
     </div>
     <div class="form-group" id="upload">
-        <form id="uploadForm" method="post" enctype="multipart/form-data" action="/kivin18/mvc/public/home/addImage">
+        <form id="uploadForm" method="post" enctype="multipart/form-data" action="/kivin18/mvc/public/home/addimage">
             <div class="form-group">
                 <label class="lead" for="imageHeader">Title</label>
                 <input type="text" class="form-control" name="imageHeader" id="imageHeader" maxlength="50" placeholder="Image title">
