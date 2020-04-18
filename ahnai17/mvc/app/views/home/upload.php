@@ -25,8 +25,9 @@
             </form>
         </div>
     <p class="font-italic text-white text-center">The uploaded image will be shown here</p>
-<div class="image-area mt-4"><img id="imageResult"
-src="#" alt="" class="img-fluid rounded shadow-sm mx-auto d-block"></div>
+        <div class="image-area mt-4"><img id="imageResult" src="#" alt=""
+            class="img-fluid rounded shadow-sm mx-auto d-block">
+        </div>
     </div>
 </div>
 <script src="/ahnai17/mvc/public/js/show_image.js"></script>
