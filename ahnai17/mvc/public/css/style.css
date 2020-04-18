@@ -47,7 +47,7 @@ body {
         display: flex;
         justify-content: center;
         padding: 6px;
-        background-color: brown;
+        background-color: turquoise;
     }
 .upload {
     opacity: 0;
