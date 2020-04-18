@@ -102,8 +102,12 @@ class HomeController extends Controller
     }
 
     public function welcome() {
-        $viewbag = $this->model('Image')->getImages();
-        $this->view('home/welcome', $viewbag);
+        if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) {
+            header('Location: /kivin18/mvc/public/home/');
+        } else {
+            $viewbag = $this->model('Image')->getImages();
+            $this->view('home/welcome', $viewbag);
+        }
     }
 
 }

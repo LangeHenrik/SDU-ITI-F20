@@ -3,7 +3,7 @@
 function restricted($controller, $method)
 {
 
-    $restricted_urls = array('HomeController' => array('restricted', 'logout', 'users', 'upload', 'welcome', 'images', 'addimage'),
+    $restricted_urls = array('HomeController' => array('restricted', 'logout', 'users', 'upload', 'images', 'addimage'),
         'ApiController' => array()
     );
 
