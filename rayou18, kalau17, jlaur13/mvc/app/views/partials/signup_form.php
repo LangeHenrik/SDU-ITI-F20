@@ -22,7 +22,7 @@
                 <label for="password"> <i class="fas fa-lock"></i></label>
                 <input class="form-control" id="passwordInput" type="password" name="password" placeholder="Password"
                        required>
-                <p class="field_info">Must contain: 1 captital letter, 1 small letter and a length of 8</p>
+                <p class="field_info">Must contain: 1 capital letter, 1 small letter and a length of 8</p>
             </div>
             <div class="form-group">
                 <label for="repeat_password"> <i class="fas fa-lock replock"></i></label>
@@ -31,12 +31,12 @@
                 <p class="field_info">Must match your first password entry</p>
             </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-block"> Signup</button>
+                <button type="submit" class="btn btn-dark btn-block"> Signup</button>
             </div>
         </form>
         <p class="text-center">
 
-            <a href="/rayou18, kalau17, jlaur13/mvc/public/Home/login">Login</a>
+            <a onclick="callAjax()" href="#">Login</a>
         </p>
         <p class="text-center">
             <a href="/rayou18, kalau17, jlaur13/mvc/public/Home"">Go back to Homepage</a>

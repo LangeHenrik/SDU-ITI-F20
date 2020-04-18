@@ -10,20 +10,20 @@
 </head>
 <body>
     <div class="login-form">
-        <form action="/rayou18, kalau17, jlaur13/mvc/public/Home/login" method="POST">
+        <form action="/rayou18, kalau17, jlaur13/mvc/public/Home/login" onsubmit="checkLogin(event)" method="POST">
             <h2 class="text-center">Login</h2>
             <div class="form-group">
-                <input type="text" name="username" class="form-control" placeholder="Username" required="required">
+                <input type="text" id="username" name="username" class="form-control" placeholder="Username" required="required">
             </div>
             <div class="form-group">
-                <input type="password" name="password" class="form-control" placeholder="Password" required="required">
+                <input type="password" id="password" name="password" class="form-control" placeholder="Password" required="required">
             </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-block"> Login</button>
+                <button type="submit" class="btn btn-dark btn-block"> Login</button>
             </div>
         </form>
         <p class="text-center">
-            <a href="/rayou18, kalau17, jlaur13/mvc/public/Home/signup">Create an Account</a>
+            <a onclick="signUpAjax()" href="#">Create an Account</a>
         </p>
         <?php if (isset($viewbag['wrongLogin'])) { ?>
             <p class="text-center wrong_info">
