@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS imagesblob
     `name`        varchar(200) NOT NULL,
     `user`        varchar(200) NOT NULL,
     `description` varchar(200) NOT NULL,
-    `header`      varchar(200) NOT NULL,
+    `title`      varchar(200) NOT NULL,
     `image`       longtext     NOT NULL
 ) ENGINE = InnoDB
   DEFAULT CHARSET = latin1;

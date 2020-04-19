@@ -1,18 +1,6 @@
 <?php
 
 class ApiController extends Controller {
-	
-//	public function __construct () {
-//		header('Content-Type: application/json');
-//		//check api-key?
-//		//check username and password?
-//		//or die();
-//	}
-
-//	public function index ($param) {
-//
-//	}
-
 
     public function users () {
         $users = $this->model('User') -> getUserNamesAndIDs();
@@ -44,7 +32,9 @@ class ApiController extends Controller {
                 echo $json_users;
             }
         } else if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'GET'){
+
             $pictures = $this->model('Pictures') -> getPicturesFromUser($userID);
+
             $json_users = json_encode($pictures, JSON_PRETTY_PRINT);
             echo $json_users;
         }

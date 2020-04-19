@@ -1,7 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="84d9c24b-e92f-4db2-b3df-fae53592c18d" name="Default Changelist" comment="" />
+    <list default="true" id="84d9c24b-e92f-4db2-b3df-fae53592c18d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercises/Week1HtmlExercise.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercises/Week2CSS.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercises/Week2CSSExercise.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercises/Week2CSSExercise.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercises/Week2JS.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercises/Week2JS.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercises/Week2JSCatMouse.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Exercises/Week2JSCatMouse.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frtol07/mvc/app/controllers/ApiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/frtol07/mvc/app/controllers/ApiController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frtol07/mvc/app/migration.sql" beforeDir="false" afterPath="$PROJECT_DIR$/frtol07/mvc/app/migration.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frtol07/mvc/app/models/ImageFeedblobs.php" beforeDir="false" afterPath="$PROJECT_DIR$/frtol07/mvc/app/models/ImageFeedblobs.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frtol07/mvc/app/models/Pictures.php" beforeDir="false" afterPath="$PROJECT_DIR$/frtol07/mvc/app/models/Pictures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frtol07/mvc/app/models/UploadImage.php" beforeDir="false" afterPath="$PROJECT_DIR$/frtol07/mvc/app/models/UploadImage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frtol07/mvc/app/models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/frtol07/mvc/app/models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frtol07/mvc/app/views/images/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/frtol07/mvc/app/views/images/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frtol07/mvc/app/views/images/indexblobs.php" beforeDir="false" afterPath="$PROJECT_DIR$/frtol07/mvc/app/views/images/indexblobs.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frtol07/mvc/app/views/partials/menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/frtol07/mvc/app/views/partials/menu.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frtol07/mvc/app/views/upload/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/frtol07/mvc/app/views/upload/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frtol07/mvc/public/images/cplusplus.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frtol07/mvc/public/js/js.js" beforeDir="false" afterPath="$PROJECT_DIR$/frtol07/mvc/public/js/js.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yaliu20/execise2 firsttry.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yaliu20/exercise1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yaliu20/hello.txt" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,11 +61,21 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1587302236088</updated>
-      <workItem from="1587302237456" duration="183000" />
+      <workItem from="1587302237456" duration="13424000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="-882" y="0" width="898" height="1068" key="dock-window-1" timestamp="1587317521906">
+      <screen x="-1858" y="0" width="1858" height="1080" />
+    </state>
+    <state x="-882" y="0" width="898" height="1068" key="dock-window-1/69.0.1851.1080/-1858.0.1858.1080@69.0.1851.1080" timestamp="1587317521906" />
+    <state x="-922" y="75" width="814" height="1068" key="dock-window-2" timestamp="1587320899288">
+      <screen x="-1858" y="0" width="1858" height="1080" />
+    </state>
+    <state x="-922" y="75" width="814" height="1068" key="dock-window-2/69.0.1851.1080/-1858.0.1858.1080@69.0.1851.1080" timestamp="1587320899288" />
   </component>
 </project>

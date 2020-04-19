@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style><?php include 'CSS/style.css'; ?></style>
-        <script><?php include 'js/js.js'; ?></script>
+
 
 </head>
 <body>

@@ -8,6 +8,7 @@ class UploadImage extends Database
     public function upload()
     {
         $target_dir = "images/";
+//        $target_dir = "frtol07/mvc/public/images/";
         $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
@@ -57,7 +58,9 @@ class UploadImage extends Database
                 $user = $_SESSION['username'];
                 $header = $_POST['header'];
                 $description = $_POST['description'];
-                $base64 ="data:image;base64," . base64_encode($target_file);
+
+                $file = file_get_contents($target_file);
+                $base64 ="data:image;base64," . base64_encode($file);
                 $image = $target_file;
 
 //         Prepared statement  -> not blob
@@ -72,7 +75,7 @@ class UploadImage extends Database
                 $query->execute();
 
 //         Prepared statement  -> blob
-                $query = "INSERT INTO imagesblob (name,user,description,header,image) VALUES(:name,:user,:description,:header,:image)";
+                $query = "INSERT INTO imagesblob (name,user,description,title,image) VALUES(:name,:user,:description,:header,:image)";
                 $query = $this->conn->prepare($query);
                 $query->bindParam(':name', $name, PDO::PARAM_STR);
                 $query->bindParam(':user', $user, PDO::PARAM_STR);

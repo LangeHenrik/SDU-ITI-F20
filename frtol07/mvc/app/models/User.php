@@ -63,6 +63,17 @@ username=? ");
 
         return $result;
     }
-
+    public function validateUsers($username, $password) {
+        $sqlStmt = $this->conn->prepare("SELECT user_id, password FROM users WHERE username = :username");
+        $sqlStmt->bindparam(':username', $username);
+        $sqlStmt->execute();
+        $sqlStmt->setFetchMode(PDO::FETCH_ASSOC);
+        $result = $sqlStmt->fetchAll();
+        if (password_verify($password, $result[0]['password'])) {
+            return $result[0]['user_id'];
+        } else {
+            return 'error';
+        }
+    }
 
 }

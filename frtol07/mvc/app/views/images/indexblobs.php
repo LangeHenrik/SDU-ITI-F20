@@ -11,7 +11,7 @@
         foreach ($viewbag as $value) {
             echo "<div class='container'> ";
             echo "<div class='header'>";
-            echo $value['header'];
+            echo $value['title'];
             echo "</div>";
             echo "<div class='description'>";
             echo $value['description'];
@@ -23,8 +23,10 @@
             echo $value['user'];
             echo "</div>";
             echo "" . "<br>";
-            echo '<img class="main-image" src="data:image/jpeg;base64,' . base64_encode($value['image']) . '"  width="250" height="250"/>';
-//            echo '<img class="main-image" src="data:image/jpeg;base64,' . base64_encode($value['image']) . '"  "/>';
+            $image =$value['image'];
+            echo "<img src='$image'>";
+//            echo "<img src='$image' width=\"250\" height=\"250\">";
+//    echo '<img class="main-image" src="data:image/jpeg;base64,' . base64_encode($value['image']) . '"  "/>';
             echo "</div>";
             echo "</div>";
             echo "</div>";

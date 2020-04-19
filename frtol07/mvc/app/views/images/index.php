@@ -21,7 +21,9 @@
             echo "</div>";
             echo "" . "<br>";
             echo "<div class='image'> ";
-            echo '<img src="' . $value["image"] . '" width="250" height="250"/>';
+            $image = "../". $value["image"];
+//            echo '<img src="' . $value["image"] . '" width="250" height="250"/>';
+            echo '<img src="' . $image . '" width="250" height="250"/>';
             echo "</div>";
             echo "</div>";
         }
