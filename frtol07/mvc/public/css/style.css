@@ -1,0 +1,243 @@
+* {
+    /*background-color: #121212;*/
+
+}
+
+
+P {
+    text-align: center
+}
+
+H1 {
+    text-align: center
+}
+
+H2 {
+    text-align: center
+}
+
+H3 {
+    text-align: center
+}
+
+H4 {
+    text-align: center
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: relative; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 20%; /* Full width */
+    height: 10%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+
+    min-width:250px;
+    max-width:250px;
+}
+
+.modal:hover {
+
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 2% auto; /* 15% from the top and centered */
+    padding: 2px;
+    border: 1px solid #888;
+    width: 90%; /* Could be more or less, depending on screen size */
+}
+
+/* Close name modal */
+.close {
+    color: black;
+    margin: 5% auto; /* 15% from the top and centered */
+    width: auto; /* Full width */
+    height: auto; /* Full height */
+    float: right;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.image {
+    text-align: center;
+    /*width: 30%;*/
+    /*height: 200px;*/
+    /*border: 5px dashed #f7a239;*/
+}
+
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 10px 10px 5px grey;
+}
+
+.container {
+    text-align: center;
+    padding: 10px ;
+
+
+}
+
+
+.inputbox {
+    border-radius: 7px;
+    padding: 15px 32px;
+    font-size: 20px;
+
+
+}
+
+.inputbox:hover {
+    background-color: lavender;
+
+}
+
+.btn {
+    text-align: center;
+    background-color: lightsteelblue;
+    /*background-color: lightslategray;*/
+    border-radius: 7px;
+    width: 7%;
+    font-size: 12px;
+    padding: 12px ;
+    min-width:125px;
+    max-width:125px;
+    font-weight: bolder;
+    margin: 5px;
+
+}
+
+.bigBtn {
+    text-align: center;
+    background-color: lightsteelblue;
+    border-radius: 7px;
+    font-size: 16px;
+    padding: 15px 32px;
+    width: 12%;
+    /*height: 12%;*/
+    min-width:250px;
+    max-width:250px;
+
+
+}
+
+.bigBtn:hover {
+    background-color: darkseagreen;
+}
+
+.btn:hover {
+    background-color: darkseagreen;
+}
+
+.label {
+    border-radius: 7px;
+    text-align: center;
+    background-color: lightblue;
+    padding: 4px 12px 4px;
+    font-size: 18px;
+
+}
+
+.header {
+    font-weight: bold;
+    border-radius: 11px;
+    text-align: center;
+    background-color: lightblue;
+    padding: 4px 12px;
+    font-size: 21px;
+    min-width:250px;
+    max-width:250px;
+    margin:0 auto;
+
+}
+
+.description{
+    font-weight: bolder;
+    border-radius: 7px;
+    text-align: center;
+    background-color: lavender;
+    padding: 4px 12px;
+    font-size: 14px;
+    min-width:200px;
+    max-width:200px;
+    margin:0 auto;
+}
+
+.upLoadBy{
+    font-weight: bolder;
+    border-radius: 7px;
+    text-align: center;
+    background-color: lightgoldenrodyellow;
+    padding: 4px 12px;
+    font-size: 14px;
+    min-width:150px;
+    max-width:150px;
+    margin:0 auto;
+}
+
+.upLoadName{
+    font-weight: bolder;
+    color: whitesmoke;
+    border-radius: 7px;
+    text-align: center;
+    background-color: ButtonShadow;
+    padding: 4px 12px;
+    font-size: 14px;
+    min-width:100px;
+    max-width:100px;
+    margin:0 auto;
+
+}
+
+.search{
+    border-radius: 7px;
+    text-align: center;
+    background-color: lightblue;
+    padding: 4px 12px;
+    font-size: 18px;
+    min-width:100px;
+    max-width:100px;
+    margin:0 auto;
+}
+
+
+
+.txtArea {
+    border-radius: 7px;
+    text-align: center;
+    background-color: aliceblue;
+    font-size: 18px;
+    padding: 4px 12px;
+}
+
+.inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.inputfile + label {
+    font-size: 1.25em;
+    /*font-weight: 700;*/
+    /*color: white;*/
+    /*background-color: black;*/
+    display: inline-block;
+}
+
+/*.inputfile:focus + label,*/
+/*.inputfile + label:hover {*/
+/*    background-color: red;*/
+/*}*/
