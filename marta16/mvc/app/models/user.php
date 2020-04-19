@@ -24,6 +24,7 @@ class UserModel extends DB
 				return false;
 
 			// get hashed password and other information
+			$this->id = $row["id"];
 			$this->username = $row["username"];
 			$this->name = $row["name"];
 			$this->hash = $row["pswdhash"];
@@ -35,34 +36,6 @@ class UserModel extends DB
 
 		// return true if essential values are set
 		return (isset($this->username) && isset($this->hash));
-	}
-
-	static function get_all()
-	{
-		try
-		{
-			// query
-			$query = self::$db->query("SELECT * FROM users");
-			$users = [];
-
-			// populate users array
-			foreach($query as $row)
-			{
-				$user = new UserModel();
-	
-				$user->id = $row["id"];
-				$user->username = $row["username"];
-				$user->name = $row["name"];
-				$user->email = $row["email"];
-	
-				$users[] = $user;
-			}
-	
-			return $users;
-		
-		} catch (PDOException $e) {
-			return false;
-		}
 	}
 
 	public function create($hash)
@@ -95,5 +68,83 @@ class UserModel extends DB
 
 		// verify password with hash
 		return password_verify($password, $this->hash);
+	}
+
+	// -- STATIC METHODS ------------------------------------------
+
+	static function get_all()
+	{
+		try
+		{
+			// query
+			$query = self::$db->query("SELECT * FROM users");
+			$users = [];
+
+			// populate users array
+			foreach($query as $row)
+			{
+				$user = new UserModel();
+	
+				$user->id = $row["id"];
+				$user->username = $row["username"];
+				$user->name = $row["name"];
+				$user->email = $row["email"];
+	
+				$users[] = $user;
+			}
+	
+			return $users;
+		
+		} catch (PDOException $e) {
+			return false;
+		}
+	}
+
+	static function get_all_less()
+	{
+		try
+		{
+			// query
+			$query = self::$db->query("SELECT * FROM users");
+			$users = [];
+
+			// populate users array
+			foreach($query as $row)
+			{
+				$user = new stdClass();
+	
+				$user->user_id = $row["id"];
+				$user->username = $row["username"];
+	
+				$users[] = $user;
+			}
+	
+			return $users;
+		
+		} catch (PDOException $e) {
+			return false;
+		}
+	}
+
+	static function get_username_from_user_id($user_id)
+	{
+		try {
+
+			// query
+			$query = self::$db->prepare("SELECT * FROM users WHERE id = :id");
+			$query->bindParam(":id", $user_id);
+			$query->execute();
+			$row = $query->fetch(PDO::FETCH_ASSOC);
+
+			// check if query succeeds
+			if(!$row)
+				return false;
+
+			// return associated username
+			return $row["username"];
+		
+		} catch (PDOException $e) {
+			return false;
+		}
 	}
 }
