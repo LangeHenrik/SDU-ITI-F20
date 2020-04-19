@@ -100,7 +100,6 @@ class UsersController extends Controller
 			$hash = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
 			// register user
-			// !is_null($my_array = wp_get_category($id)
 			if (($err = $user->create($hash)) === true)
 			{
 				self::redirect("/users/login");
@@ -108,7 +107,7 @@ class UsersController extends Controller
 			// something went wrong
 			else
 			{
-				$data["error"] = "Registration failed: $err.";
+				$data["error"] = "Registration failed: $err";
 				$this->view("users/index", $data);
 			}
 

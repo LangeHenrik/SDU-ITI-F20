@@ -27,6 +27,7 @@ button {
   cursor: pointer;
   width: auto;
   border-radius: 0px;
+  outline: none;
 }
 
 button:hover {
