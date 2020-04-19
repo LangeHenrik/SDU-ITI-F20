@@ -18,6 +18,8 @@
 	<link rel="stylesheet" href="<?=DIR_CSS?>/upload.css">
 	<link rel="stylesheet" href="<?=DIR_CSS?>/users.css">
 
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" >
+
+	<script type="text/javascript" src="<?=DIR_JS?>/script.js" defer></script>
 
 </head>
