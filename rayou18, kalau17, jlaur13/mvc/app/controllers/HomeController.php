@@ -31,6 +31,7 @@ class HomeController extends Controller {
                 $_SESSION['username'] = $username_input;
                 //$this->view('home/index');
                 header("Location: /rayou18, kalau17, jlaur13/mvc/public/Home/index");
+                exit();
 		    }
             else{
                 $viewbag['wrongLogin'] = 'wrong Username or Password';

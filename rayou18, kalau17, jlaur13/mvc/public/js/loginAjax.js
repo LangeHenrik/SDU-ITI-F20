@@ -31,6 +31,9 @@ function checkLogin(event) {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById("ajaxHolder").innerHTML = this.responseText;
         }
+        if (this.readyState == 4 && this.status == 302) {
+            window.location = "/rayou18,%20kalau17,%20jlaur13/mvc/public/";
+        }
     }
     xttp.open("POST", "/rayou18,%20kalau17,%20jlaur13/mvc/public/Home/login");
     xttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
