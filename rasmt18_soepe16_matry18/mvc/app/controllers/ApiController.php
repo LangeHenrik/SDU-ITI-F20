@@ -20,6 +20,10 @@ class ApiController extends Controller
             if($this->model('User')->verifyUser($UploadInfo)) {
                 $postedImage = $this->model('Image')->ApiUploadImage($UploadInfo);
             }
+        } elseif ($this->get()) {
+            $result = $this->model('Image')->getUserImages($id);
+            echo json_encode($result,JSON_PRETTY_PRINT);
+
         }
 
     }

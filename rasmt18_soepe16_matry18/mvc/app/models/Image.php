@@ -83,5 +83,17 @@ class Image extends Database {
 
     }
 
+    public function getUserImages($user_id) {
+
+        $sql = "SELECT image, title, description FROM image WHERE image.user_id = :user_id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $stmt->bindParam(':user_id', $user_id);
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+
+        return $result;
+    }
+
 }
 ?>
