@@ -61,7 +61,7 @@ include 'config.php';
           echo "<img src=../img/pictures/" . $row['Image'] . " class='avatar' />";
           echo "</div>";
           echo "<div class='uname'><b><i>~ " . $row['Username'] . " ~</i></b></div>";
-          echo "<p id='userdate'>" . date("d-M-Y", $row['BDate']) . "</p>";
+          echo "<p id='userdate'>" . $row['BDate'] . "</p>";
           echo "</div>";
           echo "</div>";
         }
