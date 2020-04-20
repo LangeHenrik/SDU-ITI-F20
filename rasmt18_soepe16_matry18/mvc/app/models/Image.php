@@ -3,10 +3,17 @@ class Image extends Database {
 
     public function upload($header, $description, $user) {
         //https://www.geeksforgeeks.org/php-_files-array-http-file-upload-variables/
+        $allowedTypes = array(IMAGETYPE_PNG, IMAGETYPE_JPEG);
+        $detectedType = exif_imagetype($_FILES['image']['tmp_name']);
+        $error = !in_array($detectedType, $allowedTypes);
+        
+        if($error == true) {
+            return array('danger' => "The chosen filetype was wrong!");
+        }
         $convertedImg = "data:".$_FILES['image']['type'].";base64,".base64_encode(file_get_contents($_FILES['image']['tmp_name']));
-                
+        
         try {
-
+            
             $stmt = $this->conn->prepare("INSERT INTO image (title, description, user_id, image) VALUES(:header, :description, :user_id, :image)");
             
             $header = filter_var($header, FILTER_SANITIZE_STRING);
@@ -20,13 +27,14 @@ class Image extends Database {
             
             $stmt->bindParam(':image', $convertedImg, PDO::PARAM_STR);
             
-            if($stmt->execute()){
-                return "You have succesfully uploaded an image";
+            if($stmt->execute()) 
+            {
+                return array('succes' => "You have succesfully uploaded an image");
             }
         } catch (PDOException $e) {
-            return "Error: " . $e->getMessage();
+            return array('danger' => 'Something went wrong, make sure you are trying to upload a correct file format');
         }
-
+            
     }
 
     public function loadImagesFromModel() {
@@ -74,7 +82,6 @@ class Image extends Database {
             $stmt->bindParam(':title', $title, PDO::PARAM_STR);
             $stmt->bindParam(':description', $description, PDO::PARAM_STR);
             $stmt->bindParam(':image', $image, PDO::PARAM_STR);
-
             $stmt->execute();
         } catch (PDOException $e) {
             return "Error: " . $e->getMessage();

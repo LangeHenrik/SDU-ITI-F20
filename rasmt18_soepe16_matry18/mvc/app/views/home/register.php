@@ -21,9 +21,26 @@
                 </fieldset>
             </div>
         </form>
-        <div class="response" id="response">
-            <?= $viewbag['response'] ?>
-        </div>
+            <?php if(isset($viewbag['succes'])) 
+            {
+                ?>
+                <div class="alert alert-success alert-dismissible" fade show role="alert">
+                    <?= $viewbag['succes'] ?>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <?php
+            } elseif(isset($viewbag['danger'])) 
+            { ?>
+                <div class="alert alert-danger alert-dismissible" fade show role="alert">
+                    <?= $viewbag['danger'] ?>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <?php
+            }?>
         <hr>
         <p class="text-info">If you are having trouble registering, please contact support.</p>
         <br>
