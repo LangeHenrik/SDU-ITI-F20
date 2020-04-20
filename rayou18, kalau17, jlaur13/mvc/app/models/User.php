@@ -28,12 +28,22 @@ class User extends Database {
     }
 
 
+    public function getUsernameByID($user_id){
+        $sql = ("SELECT username FROM user WHERE user_id = :userID;");
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':userID',$user_id, PDO::PARAM_STR);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+
 
 	public function getAll () {
-		$sql = "SELECT user_id,username FROM user";
+		$sql = "SELECT user_id,username FROM user ORDER BY user_id ASC";
 		$stmt = $this->conn->prepare($sql);
 		$stmt->execute();
-		$result = $stmt->fetchAll();
+		$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 		return $result;
 	}
 
