@@ -2,23 +2,19 @@
 
 class HomeController extends Controller {
 
-	public function index ($param) {
+
+	public function index ($parameter = false) {
+	    $Restricted = $parameter;
         $user = $this->model('User');
+        $viewbag = null;
         if(isset($_SESSION['username'])&& isset($_SESSION['logged_in'])&& $_SESSION['logged_in'] == true){
             $viewbag['username'] =  $_SESSION['username'];
         }
+        if($Restricted == true){
+            $viewbag['restricted'] = $parameter;
+        }
         $this->view('home/index',$viewbag);
 
-	}
-
-	public function other ($param1 = 'first parameter', $param2 = 'second parameter') {
-	/*	$user = $this->model('User');
-		if(isset($_SESSION['username'])&& isset($_SESSION['logged_in'])&& $_SESSION['logged_in'] == true){
-            $viewbag['username'] =  $_SESSION['username'];
-        }
-		//$viewbag['username'] = $user->name;
-		//$viewbag['pictures'] = $this->model('pictures')->getUserPictures($user);
-		$this->view('home/index', $viewbag); */
 	}
 
 	public function restricted () {
