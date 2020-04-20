@@ -1,4 +1,7 @@
-<?php include '../app/views/partials/menu.php'; ?>
+<?php
+$path = "../partials/menu.php";
+echo "Path : $path";
+include $path;?>
 
 Hello there, <?=$viewbag['username']?>
 
