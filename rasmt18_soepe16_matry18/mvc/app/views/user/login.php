@@ -15,7 +15,7 @@
         <br>
         <b>Password: Passw0rd</b>
         <hr>
-        <form name="login" method="POST" action="/rasmt18_soepe16_matry18/mvc/public/Home/login">
+        <form name="login" method="POST" action="/rasmt18_soepe16_matry18/mvc/public/User/login">
             <div class="form-group">
                 <fieldset>
                     <legend>Please enter your credentials to login</legend>
@@ -40,7 +40,7 @@
             }?>
             <hr>
             <p class="text-info">Don't have an account yet, don't worry. Just enter the registration page in the link below</p>
-            <a href="/rasmt18_soepe16_matry18/mvc/public/Home/register">Registration page</a>
+            <a href="/rasmt18_soepe16_matry18/mvc/public/User/register">Registration page</a>
         </form>
     </div>
 </div>
