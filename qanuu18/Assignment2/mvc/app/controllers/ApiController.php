@@ -21,6 +21,9 @@ class ApiController extends Controller {
 
 	public function pushusertoDB(){
 
+		$postUsers = $this->model('postUser')->postUser();
+		echo json_encode($postUsers, JSON_PRETTY_PRINT);
+
 
 
 	}
@@ -29,14 +32,14 @@ class ApiController extends Controller {
 		$images = $this->model('getImage')->getAllImages();
 		echo json_encode($images, JSON_PRETTY_PRINT);
 
-
 	}
   
-	public function pushimagetodb(){
+	public function postImages(){
 
 
-		
+		$postimages = $this->model('postImages')->postImages();
+		echo json_encode($images, JSON_PRETTY_PRINT);
 	}
-
+	
 
 }

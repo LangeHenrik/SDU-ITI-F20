@@ -22,8 +22,14 @@ else{
        
 
     <div id="userlistbtn">
+   
+     <ul>
+
+     <li><a class="<?php echo htmlspecialchars($Buttonvalues);?>" href="Viewimage.php">Viewimage</a></li>
+
+    <li><a class="<?php echo htmlspecialchars($Buttonvalues);?>" href="" 
     </div>
-    
+       
     <form class="viewimage" name="viewimage" method="POST" action="Viewimage.php">
         <p>
         <input type="submit" name="Viewimage" id="viewimagebtn" value="View Images">
