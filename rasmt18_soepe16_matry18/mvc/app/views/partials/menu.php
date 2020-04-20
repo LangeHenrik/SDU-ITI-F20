@@ -10,9 +10,10 @@
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <ul class="navbar-nav mr-auto">
+                <?php if(!isset($_SESSION['logged_in'])) : ?>
                 <li class="nav-item"><a class="nav-link" href="/rasmt18_soepe16_matry18/mvc/public/User/login">Frontpage</a></li>
                 <li class="nav-item"><a class="nav-link" href="/rasmt18_soepe16_matry18/mvc/public/User/register">Registration</a></li>
-                <?php if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']) : ?>
+                    <?php elseif(isset($_SESSION['logged_in']) && $_SESSION['logged_in']) : ?>
                     <li class="nav-item"><a class="nav-link" href="/rasmt18_soepe16_matry18/mvc/public/Image/">Image feed</a></li>
                     <li class="nav-item"><a class="nav-link" href="/rasmt18_soepe16_matry18/mvc/public/Image/upload">Upload</a></li>
                     <li class="nav-item"><a class="nav-link" href="/rasmt18_soepe16_matry18/mvc/public/User/">Userlist</a></li>
