@@ -42,11 +42,12 @@ class User extends Database
             $stmt->bindParam(':username', $username);
             $stmt->bindParam(':password', $password);
             if($stmt->execute()){
-                return "You have succesfully created an account";
+                
+                return array('succes' => "You have succesfully created an account!");
             }
 
         } catch (PDOException $e) {
-            return "Error: " . $e->getMessage();
+            return array('danger' => "Error occured please check all credentials have been filled out correctly");
         }
 
     }

@@ -27,6 +27,17 @@
                     <input class="btn btn-primary" type="submit" name="submit" id= "submit" value="Login" >
                 </fieldset>
             </div>
+            <?php if(isset($viewbag['danger'])) 
+            {
+                ?>
+                <div class="alert alert-danger alert-dismissible" fade show role="alert">
+                    <?= $viewbag['danger'] ?>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <?php
+            }?>
             <hr>
             <p class="text-info">Don't have an account yet, don't worry. Just enter the registration page in the link below</p>
             <a href="registration.php">Registration page</a>

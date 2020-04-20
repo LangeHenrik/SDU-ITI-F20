@@ -9,14 +9,6 @@ class HomeController extends Controller {
         $this->view('home/index');
 	}
 	
-	public function other ($param1 = 'first parameter', $param2 = 'second parameter') {
-		$user = $this->model('User');
-		$user->name = $param1;
-		$viewbag['username'] = $user->name;
-		//$viewbag['pictures'] = $this->model('pictures')->getUserPictures($user);
-		$this->view('home/index', $viewbag);
-	}
-	
 	public function restricted () {
 		echo 'Welcome - you must be logged in';
 	}
@@ -25,36 +17,27 @@ class HomeController extends Controller {
         if (isset($_POST['username']) && isset($_POST['password'])){
             $username = $_POST['username'];
             $password = $_POST['password'];
-            if($this->post() && $this->model('User')->login($username, $password)) {
+            if($this->model('User')->login($username, $password)) {
                 $_SESSION['logged_in'] = true;
                 header('Location: /rasmt18_soepe16_matry18/mvc/public/Image/index');
-            }
-        } else {
-            $this->view('home/login');
-        }
-
+			} else {
+				$viewbag['danger'] = "Username and password not accepted";
+				$this->view('home/index', $viewbag);
+			}
+		}
 	}
 	
 	public function logout() {
-		//if($this->post()) {
-			session_unset();
-			header('Location: /rasmt18_soepe16_matry18/mvc/public/Home/');
-		//} else {
-		//	echo 'You can only log out with a post method';
-		//}
-	}
-	
-	public function loggedout() {
-		echo 'You are now logged out';
+		session_unset();
+		header('Location: /rasmt18_soepe16_matry18/mvc/public/Home/');
 	}
 
 	public function register() {
 	    if($this->post()){
-			$viewbag['response'] = $this->model('User')->register($_POST['username'], $_POST['password'], $_POST['password2']);
+			$viewbag =  $this->model('User')->register($_POST['username'], $_POST['password'], $_POST['password2']);
 			$this->view('home/register', $viewbag);
         } else {
             $this->view('home/register');
         }
     }
-	
 }
