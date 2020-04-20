@@ -23,12 +23,11 @@ class ApiController extends Controller {
 
 
 
-
-
 	}
 
 	public function getimages(){
-
+		$images = $this->model('getImage')->getAllImages();
+		echo json_encode($images, JSON_PRETTY_PRINT);
 
 
 	}
