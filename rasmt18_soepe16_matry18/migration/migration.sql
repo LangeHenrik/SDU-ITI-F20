@@ -5,7 +5,7 @@ USE rasmt18_soepe16_matry18;
 create table user
 (
     user_id  int auto_increment primary key,
-    username varchar(100) not null unique,
+    username varchar(24) not null unique,
     password varchar(100) not null
 );
 

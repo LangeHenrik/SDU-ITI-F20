@@ -20,7 +20,7 @@
                 <fieldset>
                     <legend>Please enter your credentials to login</legend>
                     <label for="username">Username</label>
-                    <input class="form-control" type="text" name="username" placeholder="Please input your username" autofocus autocomplete="off" required>
+                    <input class="form-control" type="text" name="username" maxlength="24" placeholder="Please input your username" autofocus autocomplete="off" required>
                     <label for="password">Password</label>
                     <input class="form-control" type="password" name="password" placeholder="Please input your password" required>
                     <br>
