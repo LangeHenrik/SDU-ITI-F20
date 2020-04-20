@@ -46,7 +46,7 @@ class Router {
 			$url = $url . "/";
 		}
 		$url = explode('/', $url);
-		return array_slice($url, 1);
+		return array_slice($url, 1); // Originalt havde et offset på 4, ved ikke hvorfor
 	}
 	
 }
