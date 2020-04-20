@@ -47,7 +47,12 @@ class User extends Database
             }
 
         } catch (PDOException $e) {
-            return array('danger' => "Error occured please check all credentials have been filled out correctly");
+            if ($e->errorInfo[1] == 1062) {
+                return array('danger' => "Username already exists");
+            } else {
+                return array('danger' => "Error occured please check all credentials have been filled out correctly");
+            }
+
         }
 
     }

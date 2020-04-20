@@ -40,7 +40,7 @@
             }?>
             <hr>
             <p class="text-info">Don't have an account yet, don't worry. Just enter the registration page in the link below</p>
-            <a href="registration.php">Registration page</a>
+            <a href="/rasmt18_soepe16_matry18/mvc/public/Home/register">Registration page</a>
         </form>
     </div>
 </div>
