@@ -25,9 +25,16 @@ class ApiController extends Controller {
             }
             echo 'You searched for query:' . $properString;
         }
-        public function pictures(){
-            $images= $this->model('Image')->getAllImagesFromUser();
-            echo json_encode($images, JSON_PRETTY_PRINT);
+        public function pictures($username,$id){
+            if ($username=="user" && is_numeric($id)){
+                if ($this->get()){
+                    $getimages= $this->model('Image')->APIgetImagesfromUser($username,$id);
+                    echo json_encode($getimages, JSON_PRETTY_PRINT);
+                }elseif ($this->post()) {
+                    $postimages= $this->model('Image')->APIpostImages($id);
+                    echo json_encode($postimages, JSON_PRETTY_PRINT);
+                }
+            }
         }
 
 }

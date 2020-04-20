@@ -5,7 +5,10 @@ if (isset($_SESSION['logged_in'])==false){?>
     </form>
 
 <?php
-}
-
+} else {
 ?>
-<?php include '../app/views/partials/foot.php'; ?>
+<form class="form-group" method="get" action="/ahnai17/mvc/public/home/getImages">
+    <button type="submit" class="btn btn-primary">Show images</button>
+</form>
+<?php }
+include '../app/views/partials/foot.php'; ?>

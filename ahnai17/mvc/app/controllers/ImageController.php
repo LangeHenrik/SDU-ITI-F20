@@ -8,8 +8,10 @@ class ImageController extends Controller {
             header('Location: /ahnai17/mvc/public/home/Home_page');
         }
     }
-    public function getImages($user_name) {
-        $this->getImages($user_name);
+    public function getImages() {
+        $images = $this->model('Image');
+        $viewbag = $images->getImages();
+        $this->view('Feed/feed', $viewbag);
     }
     public function uploadImage() {
        $this->model('Image')->uploadImage();
