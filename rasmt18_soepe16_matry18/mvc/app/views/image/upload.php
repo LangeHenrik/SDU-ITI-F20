@@ -10,11 +10,11 @@
                     <legend>Upload image:</legend>   
                     <label for="header">Image title:</label>
                     <br>
-                    <input class="form-control" type="text" name="header" placeholder="Select title" autofocus required>
+                    <input class="form-control" type="text" name="header" placeholder="Select title" maxlength="50" autofocus required>
                     <br>
                     <label for="description">Description:</label>
                     <br>
-                    <textarea class="form-control" id="description" name="description" placeholder="Here you can write the description for the image." rows="4" cols="50" required></textarea>
+                    <textarea class="form-control" id="description" name="description" maxlength="255" placeholder="Here you can write the description for the image." rows="4" cols="50" required></textarea>
                     <br>
                     <label for="image">Select image(The chosen file types can be PNG and JPEG):</label>
                     <br>
