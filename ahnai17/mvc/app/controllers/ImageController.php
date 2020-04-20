@@ -18,5 +18,6 @@ class ImageController extends Controller {
        echo 'Image upload was succesful';
        $this->view('home/upload');
     }
+    
 }
 
