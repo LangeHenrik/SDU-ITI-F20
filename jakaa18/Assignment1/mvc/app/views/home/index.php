@@ -5,4 +5,4 @@ include $path;?>
 
 Hello there, <?=$viewbag['username']?>
 
-<?php include '../app/views/partials/foot.php'; ?>
+<?php include '../partials/foot.php'; ?>

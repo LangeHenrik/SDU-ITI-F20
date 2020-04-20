@@ -46,7 +46,7 @@ class Router {
 			$url = $url . "/";
 		}
 		$url = explode('/', $url);
-		return array_slice($url, 4);
+		return array_slice($url, 1);
 	}
 	
 }
