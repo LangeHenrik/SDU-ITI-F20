@@ -93,17 +93,17 @@ if( isset($_SESSION['logged_in']) && ($_SESSION['logged_in']) ) {
         <div class="carousel-item active text-center p-4">
           <h1><i class="fas fa-user-friends fa-xs"></i></h1>
           <h4>Connect with you friends.</h4>
-          <p>Share moments and stories on ChalkB<i class='fas fa-chalkboard'></i>rd <br>with family, friends, and the world </p>
+          <p>Share moments and stories on ChalkB<i class='fas fa-chalkboard'></i>rd <br>with family, friends, and the world.</p>
         </div>
         <div class="carousel-item text-center p-4">
           <h1><i class="fas fa-image fa-xs"></i></h1>
           <h4>Post images.</h4>
-          <p>Upload images to ChalkB<i class='fas fa-chalkboard'></i>rd <br>And tell your story with a titel and a comment. </p>
+          <p>Upload images to ChalkB<i class='fas fa-chalkboard'></i>rd <br>and tell your story with a titel and a comment.</p>
         </div>
         <div class="carousel-item text-center p-4">
           <h1><i class="fas fa-comments fa-xs"></i></h1>
           <h4>Comments.</h4>
-          <p>Soon to come on ChalkB<i class='fas fa-chalkboard'></i>rd <br>Add comments to others users images. </p>
+          <p>Comment on images on ChalkB<i class='fas fa-chalkboard'></i>rd <br>and connect with others.</p>
         </div>
       </div>
       <a class="carousel-control-prev" href="#carouselContent" role="button" data-slide="prev">
