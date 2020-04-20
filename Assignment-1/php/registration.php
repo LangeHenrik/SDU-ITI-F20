@@ -4,6 +4,7 @@ require 'config.php';
 
 // If upload button is clicked ...
 if (isset($_POST['upload'])) {
+  echo '<script>console.log("Button click"); </script>';
   
   // Get email
   $Email = htmlentities($_POST['Email']);
@@ -41,14 +42,15 @@ if (isset($_POST['upload'])) {
     $db->prepare($sql)->execute();
 
     // shows if the connection fails
-    echo "Connected successfully";
+    echo '<script>console.log("Error connecting before exception"); </script>';
 
     if (move_uploaded_file($_FILES['Image']['tmp_name'], $target)) {
-      echo "Image uploaded successfully";
+      echo '<script>console.log("Image uploaded"); </script>';
     } else {
-      echo "Failed to upload image";
+      echo '<script>console.log("Error uploading"); </script>';
     }
   } catch (PDOException $e) {
+    echo '<script>console.log("Error connecting - Exception ' . $e->getMessage() . '")</script>';
     echo "Connection failed: " . $e->getMessage();
   }
 }
