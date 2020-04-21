@@ -6,6 +6,7 @@ class ImageController extends Controller {
     }
 
     public function upload(){
+        $viewbag = null;
         if($this->post()){
             $header = $_POST['header'];
             $description = $_POST['description'];

@@ -1,5 +1,5 @@
 <?php
-class ApiController extends Controller
+class ApuController extends Controller
 {
     public function __construct()
     {
@@ -11,6 +11,9 @@ class ApiController extends Controller
         $users = $this->model('User')->list();
         echo json_encode($users,JSON_PRETTY_PRINT);
 
+    }
+    public function index(){
+        echo 'Index';
     }
     public function pictures($user, $id) {
         if($this->post()) {
@@ -27,4 +30,5 @@ class ApiController extends Controller
         }
 
     }
+
 }
