@@ -34,7 +34,7 @@ class ApiController extends Controller
 	private function postPicture($user_id)
 	{
 		$image_id = $this->model('Picture')->addPicture($user_id);
-		echo json_encode($image_id, JSON_NUMERIC_CHECK, JSON_PRETTY_PRINT);
+		echo json_encode($image_id, JSON_PRETTY_PRINT);
 	}
 
 	private function getPictures($user_id)

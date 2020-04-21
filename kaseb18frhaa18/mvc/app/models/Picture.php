@@ -60,7 +60,7 @@ class Picture extends Database
                 $stmt->execute();
 
                 $last_id = $this->conn->lastInsertId("image_id");
-                return $last_id;
+                return array("image_id" => $last_id);
             }
         }
     }
