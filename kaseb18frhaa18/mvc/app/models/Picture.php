@@ -41,6 +41,11 @@ class Picture extends Database
 
         $result = $stmt->fetch();
 
+        //Måske lav test på image, om den overholder image kriterier.
+        //kan gøres med at dele stringen op, for at se om den over formen, som sendes
+        //eks: $photo = 'data:image/' . $imageFileType . ';base64,' . $image_base64; => dette er hvad der indsættes i databasen
+        // $extensions_arr = array("jpg", "jpeg", "png", "gif"); på imagefiletype
+
         if ($username === $result['username'] && password_verify($password, $result['password'])) {
             $title = $jsonBody->title;
             $description = $jsonBody->description;
