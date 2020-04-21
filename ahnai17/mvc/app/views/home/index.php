@@ -7,7 +7,7 @@ if (isset($_SESSION['logged_in'])==false){?>
 <?php
 } else {
 ?>
-<form class="form-group" method="get" action="/ahnai17/mvc/public/home/getImages">
+<form class="form-group" method="post" action="/ahnai17/mvc/public/image/getImages">
     <button type="submit" class="btn btn-primary">Show images</button>
 </form>
 <?php }
