@@ -1,6 +1,6 @@
 <?php
 class User extends Database
-{	
+{
 	public function login($username, $password)
 	{
 		$username = $password = $name = "";
@@ -29,7 +29,7 @@ class User extends Database
 					$sql = 'SELECT person_id, name, username, passwordHash FROM person WHERE username = :username';
 					$parameters = array(array(":username", $username));
 					$stmt = talkToDB($sql, $parameters);
-					
+
 					// Check if username exists, if yes then verify password
 					if (count($stmt) == 1) {
 						$row = $stmt[0];
@@ -49,7 +49,6 @@ class User extends Database
 
 							// Redirect user to welcome page
 							return true;
-
 						} else {
 							return false;
 						}
@@ -70,7 +69,7 @@ class User extends Database
 
 	public function getAll()
 	{
-		$sql = "SELECT username FROM users";
+		$sql = "SELECT username, user_id FROM user";
 		$stmt = $this->conn->prepare($sql);
 		$stmt->execute();
 		$result = $stmt->fetchAll();
