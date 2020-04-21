@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/imagefeed_page_style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-    <script src="../js/ajaxCallImages.js"></script>
+
     <html lang="en">
 
 </header>
@@ -20,18 +20,28 @@
                 <h1>All posted images</h1>
 
                 <h4> Search for username:
-                    <input type="text" class="search" name="search" id="search" placeholder="search for username" onload="getUserImages(this.value);" onkeyup="getUserImages(this.value);" />
+                    <div class="searchContainer">
+                        <div>
+                            <input type="text" class="search" name="search" id="search" placeholder="search for username" onload="getUserImages(this.value);" onkeyup="getUserImages(this.value);" />
+                        </div>
+                        <div class="bs-example">
+                            <div class="spinner-border">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                        </div>
+                    </div>
                 </h4>
 
                 <?php // Data from the Ajax call will be put into the div imagefeed 
                 ?>
                 <div class="imagefeed" id="imagefeed">
-                
+
                 </div>
 
             </div>
         </div>
 
+        <script src="../js/ajaxCallImages.js"></script>
     <?php else : ?>
 
         <?php include_once '../app/views/partials/restricted.php'; ?>

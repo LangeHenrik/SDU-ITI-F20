@@ -18,9 +18,9 @@ class LoginService
     // TODO: make same sort of logic as in RegisterService
     public function checkLogin($userResult)
     {
-        $ErrorMsgUsernameOrPassword = "<div class='alert alert-warning alert-dismissible' data-dismiss='alert' role='alert'>" .
+        $ErrorMsgUsernameOrPassword = "<div class='alert alert-danger alert-dismissible' data-dismiss='alert' role='alert'>" .
             "<button type='button' class='close' data-dismiss='alert'>&times;</button>" .
-            "<strong>Warning!</strong> Username or password is wrong </div>";
+            "<strong>Error!</strong> Username or password is wrong </div>";
 
         $ErrorMsgEmptyField = "<div class='alert alert-warning alert-dismissible' data-dismiss='alert' role='alert'>" .
             "<button type='button' class='close' data-dismiss='alert'>&times;</button>" .

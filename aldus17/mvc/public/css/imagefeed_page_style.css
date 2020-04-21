@@ -31,6 +31,13 @@
     overflow-wrap: break-word;
 }
 
+.searchContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
 .search {
     background: white;
 }

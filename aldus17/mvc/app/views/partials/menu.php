@@ -11,7 +11,7 @@
     <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) : ?>
 
         <nav id="nav" class="navbar smart-scroll navbar-expand-lg navbar-light bg-light fixed-top">
-            <a class="navbar-brand" id="home" href="/aldus17/mvc/public/user/index">PicShare</a>
+            <a class="navbar-brand" id="home" href="/aldus17/mvc/public/user/index">ImagePoster</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
