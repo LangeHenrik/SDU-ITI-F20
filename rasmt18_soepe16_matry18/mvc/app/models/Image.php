@@ -83,6 +83,13 @@ class Image extends Database {
             $stmt->bindParam(':description', $description, PDO::PARAM_STR);
             $stmt->bindParam(':image', $image, PDO::PARAM_STR);
             $stmt->execute();
+
+            $stmt = $this->conn->prepare("SELECT image_id FROM image ORDER BY image_id DESC LIMIT 1");
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            $stmt->execute();
+            $result = $stmt->fetch();
+
+            return $result;
         } catch (PDOException $e) {
             return "Error: " . $e->getMessage();
         }

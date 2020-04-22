@@ -15,10 +15,10 @@ class ApiController extends Controller
     public function pictures($user, $id) {
         if($this->post()) {
             $UploadInfo = json_decode($_POST['json'], true);
-            print_r($UploadInfo);
             $UploadInfo['userid'] = $id;
             if($this->model('User')->verifyUser($UploadInfo)) {
                 $postedImage = $this->model('Image')->ApiUploadImage($UploadInfo);
+                echo json_encode($postedImage,JSON_PRETTY_PRINT);
             }
         } elseif ($this->get()) {
             $result = $this->model('Image')->getUserImages($id);

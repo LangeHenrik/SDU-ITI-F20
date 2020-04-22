@@ -11,7 +11,7 @@ create table user
 
 create table image
 (
-    img_id      int auto_increment primary key,
+    image_id      int auto_increment primary key,
     title       varchar(50)  not null,
     description varchar(255) not null,
     user_id     int not null,
