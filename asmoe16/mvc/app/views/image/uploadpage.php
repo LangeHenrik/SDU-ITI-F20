@@ -1,7 +1,7 @@
 <?php include '../app/views/partials/menu.php'; ?>
 
 
-<form action="upload.php" method="post" enctype="multipart/form-data">
+<form action="/asmoe16/mvc/public/image/upload" method="post" enctype="multipart/form-data">
 	<div class="form-group">
 		<label for="fileUpload"> Select image to upload</label>
     <input type="file" class="form-control-file" name="fileUpload" id="fileUpload">

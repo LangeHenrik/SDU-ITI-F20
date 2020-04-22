@@ -1,6 +1,7 @@
 <?php
 
 class UserController extends Controller {
+
 	
 	public function index ($param) {
 		//This is a proof of concept - we do NOT want HTML in the controllers!

@@ -1,6 +1,15 @@
 <?php
 class User extends Database {
 	
+	public function getId(string $username) : string {
+		$sql = "SELECT user_id FROM user WHERE username = :username";
+		$stmt = $this->conn->prepare($sql);
+		$stmt->bindParam(':username',$username);
+		$stmt->execute();
+		$result = $stmt->fetch();
+		return strval($result['user_id']);
+	}
+
 	public function login(){
 		if( !(isset($_POST['username']) && isset($_POST['password'])) ){
 			return false;
