@@ -43,10 +43,11 @@ class Router {
 		
 		$url = filter_var($_SERVER['REQUEST_URI'], FILTER_SANITIZE_URL);
 		if(substr($url, -1) !== "/") {
-			$url = $url . "/";
+			$url = $url . "/"; //If the url doesn't end with a /, add a / to the end
 		}
-		$url = explode('/', $url);
-		return array_slice($url, 1); // Originalt havde et offset på 4, ved ikke hvorfor
+		$url = explode('/', $url); //turn url into an array, delimited by /
+		return array_slice($url, 1); // Originally had an offset of 4, but thanks to differences in coding
+        // base, an offset of 1 works better
 	}
 	
 }

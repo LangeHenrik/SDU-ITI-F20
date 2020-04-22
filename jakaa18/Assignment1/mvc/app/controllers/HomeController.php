@@ -4,7 +4,10 @@ class HomeController extends Controller {
 	
 	public function index ($param) {
 		//This is a proof of concept - we do NOT want HTML in the controllers!
-		echo '<br><br>Home Controller Index Method<br>';
+        $path = "../app/views/home/index.php";
+        echo "Path : $path";
+        include $path;
+        echo '<br><br>Home Controller Index Method<br>';
 		echo 'Param: ' . $param . '<br><br>';
 	}
 	

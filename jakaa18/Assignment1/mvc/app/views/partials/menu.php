@@ -1,6 +1,6 @@
 <html>
     <head>
-    <script src="../js/js.js"></script>
+    <script src="/mvc/public/js/js.js"></script>
     </head>
     <body>
 
