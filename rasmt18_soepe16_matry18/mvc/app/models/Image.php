@@ -16,10 +16,10 @@ class Image extends Database {
             
             $stmt = $this->conn->prepare("INSERT INTO image (title, description, user_id, image) VALUES(:header, :description, :user_id, :image)");
             
-            $header = filter_var($header, FILTER_SANITIZE_STRING);
+            $header = filter_var(htmlentities($header), FILTER_SANITIZE_STRING);
             $stmt->bindParam(':header', $header, PDO::PARAM_STR);
             
-            $description = filter_var($description, FILTER_SANITIZE_STRING);
+            $description = filter_var(htmlentities($description), FILTER_SANITIZE_STRING);
             $stmt->bindParam(':description', $description, PDO::PARAM_STR);
             
             $user = $_SESSION['user_id'];
@@ -71,9 +71,9 @@ class Image extends Database {
     
     public function ApiUploadImage($UploadInfo) {
 
-        $userid = filter_var($UploadInfo['userid'], FILTER_SANITIZE_NUMBER_INT);
-        $title = filter_var($UploadInfo['title'], FILTER_SANITIZE_STRING);
-        $description = filter_var($UploadInfo['description'], FILTER_SANITIZE_STRING);
+        $userid = filter_var(htmlentities($UploadInfo['userid']), FILTER_SANITIZE_NUMBER_INT);
+        $title = filter_var(htmlentities($UploadInfo['title']), FILTER_SANITIZE_STRING);
+        $description = filter_var(htmlentities($UploadInfo['description']), FILTER_SANITIZE_STRING);
         $image = $UploadInfo['image'];
         try {
             $stmt = $this->conn->prepare("INSERT INTO image (title, description, user_id, image) VALUES(:title, :description, :user_id, :image)");
