@@ -6,4 +6,11 @@ class ImageController extends Controller {
 		//This is a proof of concept - we do NOT want HTML in the controllers!
 		$this->view('home/index');
 	}
+
+	public function uploadpage()
+	{
+		$this->view('image/uploadpage');
+	}
+	
+
 }
