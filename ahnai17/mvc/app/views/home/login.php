@@ -14,7 +14,7 @@
                     <input type="checkbox" class="form-check-input" id="checkform" required>
                 </div>
                 <button type="submit" class="btn btn-primary">Log in</button>
-                <a href="/ahnai17/mvc/public/home/registration" class="btn btn-primary">Create account</a>
+                <a href="/ahnai17/mvc/public/home/registration_page" class="btn btn-primary">Create account</a>
 </form>
 <script src="../js/js.js"></script>
 <?php include_once '../app/views/partials/foot.php'; 

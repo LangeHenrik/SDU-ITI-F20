@@ -53,7 +53,10 @@ class HomeController extends Controller {
 			echo 'You can only log out with a post method';
 		}
 	}
-	public function register() {
+        public function registration_page() {
+            $this->view('home/registration');
+        }
+        public function register() {
             if ($this->post()){
                 $this->model('User')->register();
                 $this->view('home/registration');

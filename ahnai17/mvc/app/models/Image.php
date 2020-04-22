@@ -9,13 +9,6 @@ class Image extends Database {
         $stmt->execute();
         $stmt->setFetchMode(PDO::FETCH_NUM);
         $images=$stmt->fetchAll();
-        for($i = 0; $i < count($images); $i++) 
-        {
-			//if ($images[$i][3]) 
-            //{
-            //    $images[$i][3] .= (substr($images[$i][3], -1) === '.') ? '' : '.';
-			//}
-        }
         return $images;
     }
     public function uploadImage(){
