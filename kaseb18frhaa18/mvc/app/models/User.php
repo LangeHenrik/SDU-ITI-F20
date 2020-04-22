@@ -1,72 +1,47 @@
 <?php
 class User extends Database
-{	
+{
 	public function login($username, $password)
 	{
-		$username = $password = $name = "";
-		$username_err = $password_err = "";
+		try {
+			$name = "";
+			$sql = 'SELECT user_id, name, username, passwordHash FROM person WHERE username = :username';
+			$stmt = $this->conn->prepare($sql);
+			$stmt->bindParam('username', $username, PDO::PARAM_STR);
+			$stmt->execute();
+			$parameters = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-		if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-			//check if username is empty
-			if (empty(trim($_POST["username"]))) {
-				$username_err = "Please enter username.";
-			} else {
-				$username = filter_var(trim($_POST["username"]), FILTER_SANITIZE_STRING);
-			}
-
-			//check if password is empty
-			if (empty(trim($_POST["password"]))) {
-				$password_err = "Please enter password.";
-			} else {
-				$password = filter_var(trim($_POST["password"]), FILTER_SANITIZE_STRING);
-			}
-
-			//validate data
-			if (empty($username_err) && empty($password_err)) {
-				// Prepare a statement
-				try {
-					$sql = 'SELECT person_id, name, username, passwordHash FROM person WHERE username = :username';
-					$parameters = array(array(":username", $username));
-					$stmt = talkToDB($sql, $parameters);
-					
-					// Check if username exists, if yes then verify password
-					if (count($stmt) == 1) {
-						$row = $stmt[0];
-						$id = $row["person_id"];
-						$username = $row["username"];
-						$name = $row["name"];
-						$hashed_password = $row["passwordHash"];
-						if (password_verify($password, $hashed_password)) {
-							// Password is correct, so start a new session
-							session_start();
-
-							// Store data in session variables
-							$_SESSION["loggedin"] = true;
-							$_SESSION["id"] = $id;
-							$_SESSION["username"] = $username;
-							$_SESSION["name"] = $name;
-
-							// Redirect user to welcome page
-							return true;
-
-						} else {
-							return false;
-						}
-					} else {
-						// Display an error message if username doesn't exist
-						$username_err = "No account found with that username.";
-					}
-					// Close statement
-
-				} catch (Exception $e) {
-					echo 'Caught exception: ', $e->getMessage(), "\n";
+			foreach ($parameters as $value){
+				if($value['username'] == $username && password_verify($password, $value['passwordHash'])){
+					return true;
 				}
 			}
-
-			// Close connection
+		} catch (Exception $e) {
+			echo 'exceptionelle <br>';
+			echo 'Caught exception: ', $e->getMessage(), "\n";
+			return false;
 		}
 	}
+
+	public function register($name, $username, $password){
+		try{
+			//hashed password
+			$password_hashed = password_hash($password, PASSWORD_DEFAULT);
+			//rdy sql
+			$sql = 'INSERT INTO person (name, username, passwordHash) VALUES (:name, :username, :password)';
+			$stmt = $this->conn->prepare($sql);
+			$stmt->bindParam('name', $name, PDO::PARAM_STR);
+			$stmt->bindParam('username', $username, PDO::PARAM_STR);
+			$stmt->bindParam('password', $password_hashed, PDO::PARAM_STR);
+			$stmt->execute();
+			return true;
+						
+		} catch (Exception $e) {
+			echo 'Caught exception: ', $e->getMessage(), "\n";
+			return false;
+		}
+	}
+
 
 	public function getAll()
 	{

@@ -1,4 +1,4 @@
-<?php include_once '../partials/header.php'; ?>
+<?php include '../app/views/partials/header.php'; ?>
 
 <div class="wrapper">
   <div class="content">

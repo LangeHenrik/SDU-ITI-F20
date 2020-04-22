@@ -82,7 +82,6 @@ body {
     .wrapper .content {
         flex-direction: column;
     }
-
 }
 
 @media screen and (min-width: 1500px) {
@@ -325,4 +324,16 @@ div.description h4 {
     border: 2px dotted white;
     margin: 10px;
     overflow: auto;
+}
+
+#nameOfUser {
+    text-align: center;
+    background-color: #3399FF;
+    color: white;
+    width: auto;
+    height: auto;
+    float: right;
+    margin-right: 40px;
+    font-size: 1.5em;
+    padding: 10px;
 }

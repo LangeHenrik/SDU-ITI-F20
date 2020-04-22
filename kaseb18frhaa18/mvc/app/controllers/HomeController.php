@@ -1,43 +1,55 @@
 <?php
 
-class HomeController extends Controller {
-	
-	public function index ($param) {
-		header('Location: /kaseb18frhaa18/mvc/public/home/index');
+class HomeController extends Controller
+{
+
+	public function index($param)
+	{
+		if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
+			echo '<script>alert("You have already logged in. Wish to create an account?")</script>';
+			$this->view('home/registration');
+		} else {
+			$this->view('home/index');
+		}
 	}
-	
-	public function other ($param1 = 'first parameter', $param2 = 'second parameter') {
+
+	public function other($param1 = 'first parameter', $param2 = 'second parameter')
+	{
 		$user = $this->model('User');
 		$user->name = $param1;
 		$viewbag['username'] = $user->name;
 		//$viewbag['pictures'] = $this->model('pictures')->getUserPictures($user);
 		$this->view('home/index', $viewbag);
 	}
-	
-	public function restricted () {
-		echo 'Welcome - you must be logged in';
-	}
-	
-	public function login($username) {
-		if($this->model('User')->login($username)) {
-			$_SESSION['logged_in'] = true;
-			$this->view('home/login');
+
+	public function login()
+	{
+		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+			$username = filter_var($_POST["username"], FILTER_SANITIZE_STRING);
+			$password = filter_var($_POST["password"], FILTER_SANITIZE_STRING);
+
+			if ($this->model('user')->login($username, $password)) {
+				$_SESSION['logged_in'] = true;
+				echo '<script>alert("Log in Success")</script>';
+				$this->view('home/UploadPage');
+			} else {
+				echo '<script>alert("Log in Not Success. Try Again")</script>';
+				$this->view('home/index');
+			}
 		}
 	}
-	
-	public function logout() {
-		
-		
-		//if($this->post()) {
+
+	public function logout()
+	{
+		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			session_unset();
-			header('Location: /Exercises/mvc/public/home/loggedout');
-		//} else {
-		//	echo 'You can only log out with a post method';
-		//}
+			session_destroy();
+			echo '<script>alert("You have been logged out. Redirecting to registration. ")</script>';
+			$this->view("home/registration");
+		}
 	}
-	
-	public function loggedout() {
-		echo 'You are now logged out';
+
+	public function showUser(){
+		printf($_SESSION["name"]);
 	}
-	
 }

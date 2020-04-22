@@ -1,2 +1,2 @@
-<?php include_once '../app/views/partials/header.php'; ?>
-<?php include_once 'login.php'; ?>
+<?php include '../app/views/partials/header.php'; ?>
+<?php include '../app/views/partials/login.php'; ?>
