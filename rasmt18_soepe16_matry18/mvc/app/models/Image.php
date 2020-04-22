@@ -46,10 +46,10 @@ class Image extends Database {
         
         <?php 
             foreach ($result as $row) {
-                $header = htmlentities($row['title']);
-                $description = htmlentities($row['description']);
-                $username = htmlentities($row['username']);
-                $img = htmlentities($row['image']);
+                $header = $row['title'];
+                $description = $row['description'];
+                $username = $row['username'];
+                $img = $row['image'];
         ?>
             <div class='picture'>
                 <h3 class="text-info">Title of the image:</h3>
