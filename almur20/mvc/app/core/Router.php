@@ -2,7 +2,7 @@
 
 class Router {
 	
-	protected $controller = 'HomeController';
+	protected $controller = 'FrontController';
 	protected $method = 'index';
 	protected $params = [];
 	
@@ -15,7 +15,7 @@ class Router {
 
 		if(file_exists('../app/controllers/' . $url[0] . 'Controller.php')) {
 			$this->controller = $url[0] . 'Controller';
-			unset($url[0]);
+			unset($url[0]); //Makes "inivisble" the [0] parameter of the array
 		}
 		
 		require_once '../app/controllers/' . $this->controller . '.php';
@@ -30,6 +30,7 @@ class Router {
 		
 		$this->params = $url ? array_values($url) : [];
 		
+		//Check if controller and method are restricted
 		require_once 'Restricted.php';
 		if(restricted(get_class($this->controller), $this->method)) {
 			echo 'Access Denied';
@@ -40,8 +41,8 @@ class Router {
 	}
 	
 	public function parseUrl () {
-		
 		$url = filter_var($_SERVER['REQUEST_URI'], FILTER_SANITIZE_URL);
+		//Add / if to the final of the URL if it doesn't have one 
 		if(substr($url, -1) !== "/") {
 			$url = $url . "/";
 		}

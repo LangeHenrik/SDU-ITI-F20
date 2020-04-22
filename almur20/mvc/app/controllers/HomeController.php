@@ -5,7 +5,7 @@ class HomeController extends Controller {
 	public function index ($param) {
 		//This is a proof of concept - we do NOT want HTML in the controllers!
 		echo '<br><br>Home Controller Index Method<br>';
-		echo 'Param: ' . $param . '<br><br>';
+		echo 'Param 1: ' . $param . '<br><br>';
 	}
 	
 	public function other ($param1 = 'first parameter', $param2 = 'second parameter') {
