@@ -14,8 +14,8 @@
     <div class="form-check">
             <input type="checkbox" class="form-check-input" id="checkform" required>
     </div>
-            <button type="submit" class="btn btn-primary">Confirm Account information</button>
-            <a href="/ahnai17/mvc/public/home/login" class="btn btn-primary">Login</a>
+            <button type="submit" class="btn btn-primary">Complete registration</button>
+            <a href="/ahnai17/mvc/public/home/login_page" class="btn btn-primary">Login page</a>
 </form>
 <script src="/ahnai17/mvc/public/js/form_check.js"></script>
 <?php include_once '../app/views/partials/foot.php'; 
