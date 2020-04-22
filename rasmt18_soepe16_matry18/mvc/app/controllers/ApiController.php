@@ -13,6 +13,10 @@ class ApiController extends Controller
 
     }
     public function pictures($user, $id) {
+        $user = filter_var($user, FILTER_SANITIZE_STRING);
+        if ($user != "user") {
+            return null;
+        }
         if($this->post()) {
             $UploadInfo = json_decode($_POST['json'], true);
             print_r($UploadInfo);
