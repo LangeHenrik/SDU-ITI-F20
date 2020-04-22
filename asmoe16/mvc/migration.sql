@@ -26,11 +26,7 @@ SELECT image.image_path,image.header,image.description,member.username,image.own
 FROM
 image INNER JOIN member ON image.owner_id = member.user_id;
 
-
-
 --DROP USER IF EXISTS 'asmoe16'@'localhost';
 --CREATE USER 'asmoe16'@'localhost' IDENTIFIED BY 'asmoe16';
 --GRANT ALL PRIVILEGES ON asmoe16.* TO 'asmoe16'@'localhost';
 --FLUSH PRIVILEGES;
-
-
