@@ -22,9 +22,9 @@ CREATE TABLE image (
 DROP VIEW IF EXISTS user_image;
 CREATE VIEW user_image
 AS
-SELECT image.image_path,image.header,image.description,member.username,image.owner_id
+SELECT image.image_path,image.header,image.description,user.username,image.owner_id
 FROM
-image INNER JOIN member ON image.owner_id = member.user_id;
+image INNER JOIN user ON image.owner_id = user.user_id;
 
 --DROP USER IF EXISTS 'asmoe16'@'localhost';
 --CREATE USER 'asmoe16'@'localhost' IDENTIFIED BY 'asmoe16';
