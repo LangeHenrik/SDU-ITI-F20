@@ -42,6 +42,8 @@ body {
     background-color: #757f9a;
     background-image: linear-gradient(147deg, #757f9a 0%, #d7dde8 100%);
 }
+#floated-imgs { float:bottom; }
+#floated-imgs img {display: block; }
 @media (min-width: 600px) {
     .content {
         display: flex;
@@ -87,5 +89,7 @@ body {
     background-color: #757f9a;
     background-image: linear-gradient(147deg, #757f9a 0%, #d7dde8 100%);
 }
+#floated-imgs { float: bottom; }
+#floated-imgs img {display: block; }
 }
 
