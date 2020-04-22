@@ -4,7 +4,6 @@ class User extends Database
 	public function login($username, $password)
 	{
 		try {
-			$name = "";
 			$sql = 'SELECT user_id, name, username, passwordHash FROM person WHERE username = :username';
 			$stmt = $this->conn->prepare($sql);
 			$stmt->bindParam('username', $username, PDO::PARAM_STR);
@@ -45,7 +44,7 @@ class User extends Database
 
 	public function getAll()
 	{
-		$sql = "SELECT username FROM users";
+		$sql = "SELECT username, user_id FROM user";
 		$stmt = $this->conn->prepare($sql);
 		$stmt->execute();
 		$result = $stmt->fetchAll();

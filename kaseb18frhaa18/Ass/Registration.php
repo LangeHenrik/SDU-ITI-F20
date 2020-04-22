@@ -2,48 +2,49 @@
 <html>
 
 <head>
-  <title>Registration</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="RegexInputChecker.js"></script>
-  <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Registration</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="RegexInputChecker.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <!--Comment-->
 
 <body>
-  <div class="wrapper">
-    <div class="menu">
-      <h2>Menu</h2>
-      <ul>
-        <li> <a href=index.php>Login</a></li>
-        <li> <a href=registration.php>Register</a></li>
-        <li> <a href=UploadPage.php>Upload</a></li>
-        <li> <a href=imagefeed.php>Image Feed</a></li>
-        <li> <a href=user_list.php>User List</a></li>
-        <form method="POST">
-          <button name="logout" type="logout" value="logout">Log out</button>
-        </form>
-      </ul>
+    <div class="wrapper">
+        <div class="menu">
+            <h2>Menu</h2>
+            <ul>
+                <li> <a href=index.php>Login</a></li>
+                <li> <a href=registration.php>Register</a></li>
+                <li> <a href=UploadPage.php>Upload</a></li>
+                <li> <a href=imagefeed.php>Image Feed</a></li>
+                <li> <a href=user_list.php>User List</a></li>
+                <form method="POST">
+                    <button name="logout" type="logout" value="logout">Log out</button>
+                </form>
+            </ul>
+        </div>
     </div>
-  </div>
 
-  <div class="wrapper">
-    <div class="content">
-      <form method="post">
-        <h1>Registration</h1>
-        <input placeholder="Name" type="text" name="name" id="name" onblur="return checkName()" />
-        <span id="name_err"></span>
+    <div class="wrapper">
+        <div class="content">
+            <form method="post">
+                <h1>Registration</h1>
+                <input placeholder="Name" type="text" name="name" id="name" onblur="return checkName()" />
+                <span id="name_err"></span>
+                <input placeholder="Username" type="text" name="username" id="username"
+                    onblur="return checkUserName()" />
+                <span id="username_err"></span>
 
-        <input placeholder="Username" type="text" name="username" id="username" onblur="return checkUserName()" />
-        <span id="username_err"></span>
+                <input placeholder="Password" type="password" name="password" id="password"
+                    onblur="return checkPassword()" />
+                <span id="password_err"></span>
 
-        <input placeholder="Password" type="password" name="password" id="password" onblur="return checkPassword()" />
-        <span id="password_err"></span>
+                <button type="submit" name="register" class="btn btn-primary" value="Register">Register Now</button>
+            </form>
 
-        <button type="submit" name="register" class="btn btn-primary" value="Register">Register Now</button>
-      </form>
-
+        </div>
     </div>
-  </div>
 </body>
 
 </html>
@@ -69,11 +70,10 @@ if (isset($_POST['register'])) {
     $statement = 'INSERT INTO person (name, username, passwordHash) VALUES (:name, :username, :password)';
     $parameters = array(array(":name", $name), array(":username", $username), array(":password", $password));
     $inserted = talkToDB($statement, $parameters);
-    if ($inserted == 1062){
+    if ($inserted == 1062) {
       echo '<script>alert("Username already taken")</script>';
-    }
-    else{
-    echo '<script>alert("Registration Success")</script>';
+    } else {
+      echo '<script>alert("Registration Success")</script>';
     }
   } else {
     echo '<script>alert("Registration not Success. Try again.")</script>';
