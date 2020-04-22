@@ -7,7 +7,7 @@ class HomeController extends Controller {
 		echo '<br><br>Home Controller Index Method<br>';
 		echo 'Param: ' . $param . '<br><br>';
 	}
-	
+/*	
 	public function other ($param1 = 'first parameter', $param2 = 'second parameter') {
 		$user = $this->model('User');
 		$user->name = $param1;
@@ -15,18 +15,19 @@ class HomeController extends Controller {
 		//$viewbag['pictures'] = $this->model('pictures')->getUserPictures($user);
 		$this->view('home/index', $viewbag);
 	}
-	
+*/	
 	public function restricted () {
 		echo 'Welcome - you must be logged in';
 	}
-	
+/*	
 	public function login($username) {
 		if($this->model('User')->login($username)) {
 			$_SESSION['logged_in'] = true;
 			$this->view('home/login');
 		}
 	}
-	
+*/
+/*
 	public function logout() {
 		
 		
@@ -41,5 +42,5 @@ class HomeController extends Controller {
 	public function loggedout() {
 		echo 'You are now logged out';
 	}
-	
+*/	
 }
