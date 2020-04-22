@@ -8,14 +8,14 @@
                 <fieldset>
                     <legend>Registration for system:</legend>
                     <label for = "username">Username: </label>
-                    <p class="text-danger" id="usernameStatus"> </p>
                     <input class="form-control" type="text" name="username" id="username" placeholder="Write username here" maxlength="24" autofocus required>
+                    <p class="text-danger" id="usernameStatus"> </p>
                     <label for = "password">Password: </label>
-                    <p class="text-danger" id="passwordStatus"> </p>
                     <input class="form-control" type="password" name="password" id="password" placeholder="Write password here" required >
+                    <p class="text-danger" id="passwordStatus"> </p>
                     <label for = "password2">Retype password: </label>
-                    <p class="text-danger" id="password2Status"> </p>
                     <input class="form-control" type="password" name="password2" id="password2" placeholder="Write password again" required >
+                    <p class="text-danger" id="password2Status"> </p>
                     <br>
                     <input class="btn btn-primary" type="Submit" name="submit" value="Register" id="submit" disabled>
                 </fieldset>
