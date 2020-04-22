@@ -1,6 +1,5 @@
 <?php
-$path = "../app/views/partials/sidebar.php";
-echo "Path : $path";
+$path = '../app/views/partials/sidebar.php';
 include $path;?>
 
 Hello there, <?=$viewbag['username']?>
