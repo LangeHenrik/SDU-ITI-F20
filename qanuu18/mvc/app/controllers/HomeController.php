@@ -3,6 +3,13 @@
 class HomeController extends Controller {
 	
 	public function index ($param) {
+
+		if($param == 'homePage'){
+
+
+			$this->view('home/home');
+
+		}
 		
 	}
 	
@@ -28,7 +35,7 @@ class HomeController extends Controller {
 
 
 			$_SESSION['logged_in'] = true;
-			$this->view('home/login');
+			$this->view('home/menu');
 
 		}
 		}

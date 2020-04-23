@@ -6,7 +6,7 @@
 <body>
     <h1>Sign In or Sign Up</h2>
     <div id="frm">
-        <form class="login" name="frontpage" method="POST" action="/qanuu18/mvc/public/home/login.php">
+        <form class="login" name="frontpage" method="POST" action="/qanuu18/mvc/public/home/index.php">
             <p>
                 <label>Username:</label>
                 <input type="text" id="user" name="username">
