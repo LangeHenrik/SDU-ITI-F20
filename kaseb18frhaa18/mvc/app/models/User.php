@@ -10,8 +10,8 @@ class User extends Database
 			$stmt->execute();
 			$parameters = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-			foreach ($parameters as $value){
-				if($value['username'] == $username && password_verify($password, $value['password'])){
+			foreach ($parameters as $value) {
+				if ($value['username'] == $username && password_verify($password, $value['password'])) {
 					return true;
 				}
 			}
@@ -21,8 +21,9 @@ class User extends Database
 		}
 	}
 
-	public function register($name, $username, $password){
-		try{
+	public function register($name, $username, $password)
+	{
+		try {
 			//hashed password
 			$password_hashed = password_hash($password, PASSWORD_DEFAULT);
 			//rdy sql
@@ -33,7 +34,6 @@ class User extends Database
 			$stmt->bindParam('password', $password_hashed, PDO::PARAM_STR);
 			$stmt->execute();
 			return true;
-						
 		} catch (Exception $e) {
 			echo 'Caught exception: ', $e->getMessage(), "\n";
 			return false;
@@ -48,5 +48,32 @@ class User extends Database
 		$stmt->execute();
 		$result = $stmt->fetchAll();
 		return $result;
+	}
+
+	public function getUsers($user)
+	{
+		$statement = "SELECT name, username FROM user";
+		//$users = talkToDB($statement, null);
+		$stmt = $this->conn->prepare($statement);
+		$stmt->execute();
+		$users = $stmt->fetchAll();
+
+		// lookup all hints from array if $q is different from ""
+		if ($user == "") {
+			return $users;
+		} else {
+			$q = filter_var($user, FILTER_SANITIZE_STRING);
+			$q = strtolower($q);
+			$len = strlen($q);
+			$specificUsers = array();
+			foreach ($users as $name) {
+				if (stristr($q, substr($name['name'], 0, $len)) || stristr($q, substr($name['username'], 0, $len))) {
+					array_push($specificUsers, $name);
+				}
+			}
+			return $specificUsers;
+		}
+
+		// 
 	}
 }
