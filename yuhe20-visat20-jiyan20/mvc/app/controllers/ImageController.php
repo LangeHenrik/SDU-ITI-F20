@@ -17,6 +17,6 @@ class ImageController extends Controller {
     }
 
     public function IMAGES () {
-        $this->model('Image')->loadImagesFromModel();
+        $this->model('Image')->loadImages();
     }
 }
