@@ -4,8 +4,10 @@ function restricted($controller, $method)
 {
 
 	$restricted_urls = array(
-		'HomeController' => array('restricted'),
-		'ApiController' => array()
+		'HomeController' => array('logout'),
+		'ApiController' => array(),
+		'RegistrationController' => array(),
+		'ImagefeedController' => array('index')
 	);
 
 	if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {

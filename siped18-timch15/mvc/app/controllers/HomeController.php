@@ -2,40 +2,35 @@
 
 class HomeController extends Controller
 {
-
-	public function index($param)
+	public function index()
 	{
-		$viewbag = [];
-		$this->view('home/index', $viewbag);
+		$this->view('home/index');
 	}
 
-
-
-	public function restricted()
+	public function login()
 	{
-		echo 'Welcome - you must be logged in';
-	}
+		if ($this->post()) {
+			$username = filter_var($_POST["username"], FILTER_SANITIZE_STRING);
+			$password = filter_var($_POST["password"], FILTER_SANITIZE_STRING);
 
-	public function login($username)
-	{
-		if ($this->model('User')->login($username)) {
-			$_SESSION['logged_in'] = true;
-			$this->view('home/login');
+			if ($this->model('User')->login($username, $password)) {
+				$_SESSION['logged_in'] = true;
+				$_SESSION['currentUser'] = $username;
+
+				header("Location: /siped18-timch15/mvc/public/imagefeed");
+				return;
+			}
 		}
+		header("Location: /siped18-timch15/mvc/public");
 	}
 
 	public function logout()
 	{
 		if ($this->post()) {
 			session_unset();
-			header('Location: /siped18-timch15/mvc/public/home/loggedout');
+			header('Location: /siped18-timch15/mvc/public/home');
 		} else {
 			echo 'You can only log out with a post method';
 		}
-	}
-
-	public function loggedout()
-	{
-		header('Location: /siped18-timch15/mvc/public/home');
 	}
 }

@@ -15,7 +15,9 @@
             <li><a href="/siped18-timch15/mvc/public/upload">Upload page</a></li>
             <li><a href="/siped18-timch15/mvc/public/imagefeed">Image feed</a></li>
             <li><a href="/siped18-timch15/mvc/public/userlist">User list</a></li>
-            <button class='logout'><a href="/siped18-timch15/mvc/public/user/logout">log out</a></button>
+            <form method="POST" action="/siped18-timch15/mvc/public/home/logout">
+                <input type="submit" name="logout" class="logout" value="Logout">
+            </form>
         </ul>
 
     <?php } else { ?>
@@ -23,9 +25,6 @@
         <ul class="menu">
             <li><a href="/siped18-timch15/mvc/public/">Frontpage</a></li>
             <li><a href="/siped18-timch15/mvc/public/registration">Registration page</a></li>
-            <form method="POST" action="/siped18-timch15/mvc/public/home/logout">
-                <input type="submit" name="logout" class="logout" value="Logout">
-            </form>
         </ul>
 
     <?php } ?>

@@ -6,10 +6,10 @@
         <div class="login-wrapper">
             <h1>Login</h1>
 
-            <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+            <form method="POST" action="/siped18-timch15/mvc/public/home/login">
 
                 <label for="username">Username</label>
-                <input type="text" name="username" id="username" value="<?= $login_name ?? '' ?>" />
+                <input type="text" name="username" id="username" value="<?= $viewbag['username'] ?? '' ?>" />
                 <br />
                 <label for="password">Password&nbsp;</label>
                 <input type="password" name="password" id="password" />
