@@ -3,7 +3,7 @@
     <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) { ?>
         <div class="form_div">
             <h2>Welcome <?php echo $_SESSION['username'];?></h2>
-            <form action="<?php $_SESSION['logged_in'] = false;?>" method="POST">
+            <form method="POST" action="../public/user/logout">
                 <input type="submit" value="Log out"/>
             </form>
         </div>
@@ -26,6 +26,6 @@
             </br>
             <a href="registration.php"><button>Register</button></a>
         </div>
-    <?php } ?>
+    <?php }?>
 
 <?php include '../app/views/partials/foot.php'; ?>

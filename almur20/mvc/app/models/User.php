@@ -25,6 +25,8 @@ class User extends Database {
                     $_SESSION['logged_in'] = true;
 					$_SESSION['username'] = $result['username'];
 					$_SESSION['user_id'] = $result['user_id'];
+                    //echo("<script>console.log('encontro usuario');</script>");
+                    //console.log('Encontro usuario.');
                 } else {
                     $login_message = '<p>Incorrect password.</p>';
                     $_SESSION['logged_in'] = false;
@@ -39,7 +41,11 @@ class User extends Database {
         } catch (PDOException $e) {
             echo "Error: " . $e->getMessage();
         }
-	}
+    }
+    
+    public function logout() {
+        $_SESSION['logged_in'] = false;
+    }
 
 	public function register() {
 		$user = trim($_POST['input_username']);
@@ -100,8 +106,8 @@ class User extends Database {
 		$stmt = $this->conn->prepare($sql);
 		$stmt->execute();
 
-		$result = $stmt->fetchAll();
-
+        $result = $stmt->fetchAll();
+        
 		return $result;
 	}
 

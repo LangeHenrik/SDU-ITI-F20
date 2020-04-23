@@ -1,6 +1,6 @@
 <?php
 
-class UserController extends Controller {
+class ImageController extends Controller {
 	
 	public function index ($param) {
 		

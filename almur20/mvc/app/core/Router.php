@@ -32,6 +32,7 @@ class Router {
 		
 		//Check if controller and method are restricted
 		require_once 'Restricted.php';
+		//print_r($_SESSION);
 		if(restricted(get_class($this->controller), $this->method)) {
 			echo 'Access Denied';
 		} else {
