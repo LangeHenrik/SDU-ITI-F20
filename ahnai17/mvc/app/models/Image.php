@@ -18,9 +18,13 @@ class Image extends Database {
             $file_size =$_FILES['upload']['size'];
             $file_tmp;
             $file_type=strtolower(pathinfo(basename($file_name),PATHINFO_EXTENSION));
+            $extensions= array("jpeg","jpg","png");
             if($file_size > 2097152){
                 $errors[]='File size must be 2 MB or less';
                 echo 'error image size is too big';
+                return false;
+            } else if (in_array($file_type,$extensions)=== false){
+                echo 'sorry but only images of type jpeg, jpg and png can be uploaded';
                 return false;
             } else {
                 $image_64 = base64_encode(file_get_contents($_FILES['upload']['tmp_name']));
