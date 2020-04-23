@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- basic.html -->
     <title></title>
@@ -8,5 +9,6 @@
     <script src="myscripts.js"></script>
     <link rel="stylesheet" type="text/css" href="/kaseb18frhaa18/mvc/public/css/style.css"> 
 </head>
-    <?php include ('navbar.php');?>
+<?php include('navbar.php'); ?>
+
 </html>

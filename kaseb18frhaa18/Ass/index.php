@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($username_err) && empty($password_err)) {
         // Prepare a statement
         try {
-            $sql = 'SELECT user_id, name, username, passwordHash FROM person WHERE username = :username';
+            $sql = 'SELECT user_id, name, username, password FROM user WHERE username = :username';
             $parameters = array(array(":username", $username));
             $stmt = talkToDB($sql, $parameters);
             // Check if username exists, if yes then verify password
@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $id = $row["person_id"];
                 $username = $row["username"];
                 $name = $row["name"];
-                $hashed_password = $row["passwordHash"];
+                $hashed_password = $row["password"];
                 if (password_verify($password, $hashed_password)) {
                     // Password is correct, so start a new session
                     session_start();
@@ -112,7 +112,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                 <h1>Login</h1>
                 <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-                    <input type="text" name="username" placeholder="Username" class="form-control" value="<?php echo $username; ?>">
+                    <input type="text" name="username" placeholder="Username" class="form-control"
+                        value="<?php echo $username; ?>">
                     <span class="help-block"><?php echo $username_err; ?></span>
                 </div>
                 <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
