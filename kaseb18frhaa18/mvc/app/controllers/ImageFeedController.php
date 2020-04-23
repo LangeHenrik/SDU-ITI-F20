@@ -6,4 +6,8 @@ class ImageFeedController extends Controller
 	{
 		$this->view('home/imageFeed');
 	}
+
+	public function loadImageFeed(){
+		echo "<h2>hi</h2>";
+	}
 }

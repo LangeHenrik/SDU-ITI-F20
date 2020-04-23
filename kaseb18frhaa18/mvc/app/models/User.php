@@ -4,14 +4,14 @@ class User extends Database
 	public function login($username, $password)
 	{
 		try {
-			$sql = 'SELECT user_id, name, username, passwordHash FROM person WHERE username = :username';
+			$sql = 'SELECT user_id, name, username, password FROM user WHERE username = :username';
 			$stmt = $this->conn->prepare($sql);
 			$stmt->bindParam('username', $username, PDO::PARAM_STR);
 			$stmt->execute();
 			$parameters = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 			foreach ($parameters as $value){
-				if($value['username'] == $username && password_verify($password, $value['passwordHash'])){
+				if($value['username'] == $username && password_verify($password, $value['password'])){
 					return true;
 				}
 			}
@@ -26,7 +26,7 @@ class User extends Database
 			//hashed password
 			$password_hashed = password_hash($password, PASSWORD_DEFAULT);
 			//rdy sql
-			$sql = 'INSERT INTO person (name, username, passwordHash) VALUES (:name, :username, :password)';
+			$sql = 'INSERT INTO user (name, username, password) VALUES (:name, :username, :password)';
 			$stmt = $this->conn->prepare($sql);
 			$stmt->bindParam('name', $name, PDO::PARAM_STR);
 			$stmt->bindParam('username', $username, PDO::PARAM_STR);

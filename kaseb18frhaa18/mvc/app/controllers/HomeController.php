@@ -3,7 +3,7 @@
 class HomeController extends Controller
 {
 
-	public function index($param)
+	public function index()
 	{
 		if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
 			echo '<script>alert("You have already logged in. Wish to create an account?")</script>';
