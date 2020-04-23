@@ -16,7 +16,7 @@
             <a href="./front" <?php echo ($_SESSION['actual_page'] == 'frontpage' ? 'class="active"' : '' );?>>Frontpage</a>
             <a href="./registration" <?php echo ($_SESSION['actual_page'] == 'registration' ? 'class="active"' : '' );?>>Registration</a>
             <?php if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']) {?>
-            <a href="upload.php">Upload</a>
+            <a href="./image/upload" <?php echo ($_SESSION['actual_page'] == 'upload' ? 'class="active"' : '' );?>>Upload</a>
             <a href="./image/feed" <?php echo ($_SESSION['actual_page'] == 'imagefeed' ? 'class="active"' : '' );?>>Image feed</a>
             <a href="./user/list" <?php echo ($_SESSION['actual_page'] == 'userlist' ? 'class="active"' : '' );?>>User list</a>
             <?php }?>
