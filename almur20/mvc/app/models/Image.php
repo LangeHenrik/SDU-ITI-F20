@@ -29,8 +29,8 @@ class Image extends Database {
             $status_message = '';
             require_once './upload_img.php';
     
-            $header = trim($_POST['input_img_header']);
-            $description = trim($_POST['input_img_description']);
+            $header = htmlspecialchars(trim($_POST['input_img_header']));
+            $description = htmlspecialchars(trim($_POST['input_img_description']));
             $new_image = $target_file;
     
             filter_input(FILTER_SANITIZE_STRING, $header, FILTER_FLAG_NO_ENCODE_QUOTES);

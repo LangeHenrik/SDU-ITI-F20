@@ -15,7 +15,7 @@
 
     // Check if file already exists
     while (file_exists($target_file)) {
-        $target_file = 'user_images/a' . substr($target_file, 12);
+        $target_file = './user_images/a' . substr($target_file, 14); //12
     }
 
     // Check file size
