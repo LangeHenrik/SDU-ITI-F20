@@ -26,7 +26,7 @@ class UserController extends Controller
     public function users()
     {
         $users = $this->model('User')->getAll();
-        echo json_encode($users, JSON_PRETTY_PRINT);
+        $this->view('home/userList', $users);
 	}
 	
 	public function login(){

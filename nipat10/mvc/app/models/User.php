@@ -82,13 +82,12 @@ class User extends Database
 
     public function getAll()
     {
-        $sql = "SELECT username FROM user";
+        $sql = "SELECT id,username FROM users ORDER BY id ASC";
 
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
 
-        $result = $stmt->fetchAll();
-
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }
 }
