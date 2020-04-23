@@ -18,16 +18,27 @@ class ApiController extends Controller {
 		echo json_encode($users, JSON_PRETTY_PRINT);
 	}
 
-	public function pictures($id) {
-		$images = $this->model('Image')->getImagesByUser($id);
-		for ($i = 0; $i < count($images); $i++) {
-			$path = './' . $images[$i]['image'];
-			$type = pathinfo($path, PATHINFO_EXTENSION);
-			$data = file_get_contents($path);
-			$base64 = base64_encode($data);
-			$images[$i]['image'] = $base64;
+	public function pictures($user, $id) {
+		if ($this->post()) {
+			//POST
+			$json_result = json_decode($_POST['json'],true);
+			$image = $json_result['image'];
+			$title = $json_result['title'];
+			$description = $json_result['description'];
+			$user = $json_result['username'];
+			$password = $json_result['password'];
+			$this->model('Image')->uploadImageBase64($id,$image,$title,$description,$user,$password);
+		} else {
+			$images = $this->model('Image')->getImagesByUser($id);
+			for ($i = 0; $i < count($images); $i++) {
+				$path = $images[$i]['image'];
+				$type = pathinfo($path, PATHINFO_EXTENSION);
+				$data = file_get_contents($path);
+				$base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
+				$images[$i]['image'] = $base64;
+			}
+			echo json_encode($images, JSON_PRETTY_PRINT);
 		}
-		echo json_encode($images, JSON_PRETTY_PRINT);
 	}
 
 }

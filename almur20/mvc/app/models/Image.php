@@ -89,4 +89,48 @@ class Image extends Database {
             echo $e->getMessage();
         }
     }
+
+    public function uploadImageBase64($user_id,$image,$title,$description,$user,$password) {
+        try {
+            $search_query = "SELECT user_id, username, password FROM user WHERE user_id=:user_id;";
+            $stmt = $this->conn->prepare($search_query);
+            $stmt->bindParam(':user_id', $user_id, PDO::PARAM_STR);
+
+            $stmt->execute();
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+
+            if ($stmt->rowCount() >= 1) {
+                $result = $stmt->fetch();
+                if ($result['username'] == $user)  
+                    if (password_verify($password, $result['password'])) {
+                        list($type, $image) = explode(';', $image);
+                        list(, $image) = explode(',', $image);
+                        $image = base64_decode($image);
+                        $image_name = 'user_images/' . $user_id . $title . '.' . substr($type,strpos($type,'/')+1);
+                        file_put_contents($image_name, $image);
+
+                        $insert_query = "INSERT INTO image (image, header, description)
+                                        VALUES (:image, :header, :description)";
+    
+                        $stmt = $this->conn->prepare($insert_query);
+                        $stmt->bindParam(':image', $image_name, PDO::PARAM_STR);
+                        $stmt->bindParam(':header', $title, PDO::PARAM_STR);
+                        $stmt->bindParam(':description', $description, PDO::PARAM_STR);
+        
+                        $stmt->execute();
+        
+                        $relation_query = 'INSERT INTO user_image (user_id, image_id)
+                                            VALUES (
+                                                '.$user_id.',
+                                                (SELECT image_id FROM image WHERE image="'.$image_name.'")
+                                            )';
+        
+                        $stmt = $this->conn->prepare($relation_query);
+                        $stmt->execute();
+                    } 
+            }       
+        } catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
+        }
+    }
 }
