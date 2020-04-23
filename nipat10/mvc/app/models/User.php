@@ -44,21 +44,40 @@ class User extends Database
 	}
 }
 
-    public function login($username)
+    public function login()
     {
-        //$sql = "SELECT username, password FROM user WHERE username = :username";
+		$username = strip_tags($_REQUEST['username']);
+		$password = strip_tags($_REQUEST['password']);
+		
+        $sql = "SELECT username, password FROM user WHERE username = :username";
         
-        //$stmt = $this->conn->prepare($sql);
-        //$stmt->bindParam(':username', $username);
-        //$stmt->execute();
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':username', $username);
+        $stmt->execute();
+	
+		$result = $stmt->fetch(PDO::FETCH_ASSOC); //fetchAll to get multiple rows
 
-        //$result = $stmt->fetch(); //fetchAll to get multiple rows
+		//Check if row count is above 0, by doing so, we know whether a user with that username exists.
+		if ($stmt->rowCount() > 0) {
 
-        //print_r($result);
+			//Check if password is correct by unhashing and verifying it.
+			if(password_verify($password, $row['password'])){
+	
+				//Successfully log user in and provide information to session.
+				$_SESSION["logged_in"] = true;
+				$_SESSION['user_id'] = $row['id'];
+				$_SESSION['username'] = $username;
+	
+				$message[] = 'Successful login!';
+				
+			} else {
+				$message[] = 'Incorrect username/password combination!';
+			}
+		} else {
+			$message[] = 'No such username in the system!';
+		}
 
-
-        //todo: make an actual login function!!
-        return true;
+		return $message;
     }
 
     public function getAll()
