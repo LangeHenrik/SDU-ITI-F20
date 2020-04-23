@@ -1,4 +1,4 @@
 <?php
-class User extends Database
+class Picture extends Database
 {
 }

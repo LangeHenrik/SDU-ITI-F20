@@ -12,5 +12,5 @@ class ImagefeedController extends Controller
 		$viewbag['userPostDescription'] = "Description"; //TODO
 
 		$this->view('home/imagefeed', $viewbag);
-    }
+	}
 }

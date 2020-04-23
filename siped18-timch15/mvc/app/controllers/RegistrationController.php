@@ -2,5 +2,4 @@
 
 class RegistrationController extends Controller
 {
-    
 }
