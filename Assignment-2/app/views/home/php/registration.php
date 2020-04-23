@@ -56,7 +56,7 @@ if (isset($_POST['upload'])) {
 }
 
 ?>
-<form method="POST" action="../index.php" enctype="multipart/form-data">
+<form method="POST" action="../../../../../index.php" enctype="multipart/form-data">
   <h1>Create account</h1>
   <!-- check the email for unwanted characters -->
   <input type="email" placeholder="Email" name="Email" title="Email can not contain special characters" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" required />
