@@ -1,6 +1,7 @@
 <html>
     <head>
     <script src="../js/js.js"></script>
+    <link rel="stylesheet" href="extfiles/styling.css">
     </head>
     <body>
 
@@ -11,29 +12,16 @@
 <a href="/qanuu18/mvc/public/user/logout">log out</a>
 
 
-<?php endif; ?>
-
-
-<!DOCTYPE html>
-<html>
-
-<head>
-    <link rel="stylesheet" href="extfiles/styling.css">
-</head>
-
-<body>
-       
-
     <div id="userlistbtn">
     </div>
     
-    <form class="viewimage" name="viewimage" method="POST" action="Viewimage.php">
+    <form class="viewimage" name="viewimage" method="POST" action="/qanuu18/mvc/public/home/Viewimage.php">
         <p>
         <input type="submit" name="Viewimage" id="viewimagebtn" value="View Images">
         </p>
     </form>
 
-    <form class="uploadImage" name="uploadImage" method="POST" action="uploadimage.php">
+    <form class="uploadImage" name="uploadImage" method="POST" action="/qanuu18/mvc/public/home/uploadimage.php">
         <p>
         <input type="submit" name="uploadImage" id="uloadbtn" value="Upload Picture">
         </p>
@@ -44,8 +32,10 @@
         <p class="ulbtn" id="display"></p>
         </p>
 
-    <script src="public/userlist.js"></script>
+    <script src="extfiles/userlist.js "></script>
 
 
 </body>
 </html>
+<?php endif; ?>
+

@@ -3,14 +3,11 @@
 class HomeController extends Controller {
 	
 	public function index ($param) {
+		//This is a proof of concept - we do NOT want HTML in the controllers!
+		//echo '<br><br>Home Controller Index Method<br>';
+		//echo 'Param: ' . $param . '<br><br>';
 
-		if($param == 'homePage'){
-
-
-			$this->view('home/home');
-
-		}
-		
+		$this->view('home/index');
 	}
 	
 	public function other ($param1 = 'first parameter', $param2 = 'second parameter') {
@@ -26,21 +23,26 @@ class HomeController extends Controller {
 	}
 	
 	public function login($username) {
-
-
-		if($this->post()){
-
-
 		if($this->model('User')->login($username)) {
-
-
 			$_SESSION['logged_in'] = true;
-			$this->view('home/menu');
-
-		}
+			$this->view('home/login');
 		}
 	}
-	
+
+
+	public function homepage(){
+
+		$this->view('home/index');
+
+
+	}
+
+
+
+	public function registration(){
+
+		$this->view('home/registration');
+	}
 	public function logout() {
 		
 		
@@ -49,31 +51,45 @@ class HomeController extends Controller {
 			header('Location: /qanuu18/mvc/public/home/loggedout');
 		} else {
 			echo 'You can only log out with a post method';
-		
 	}
 }
-	
+
 	public function loggedout() {
 		echo 'You are now logged out';
 
-		$this->view('home/home');
+		$this->view('home/loginpage');
 
 	}
 
-	public function homePage(){
+	public function Loginpage(){
+		$this->view('home/loginpage');
 
-
-		$this->view('home/home');
-	}
-
-
-
-
-
-	public function registration(){
-
-		$this->view('home/registration');
-	}
 
 	}
 	
+	public function register() {
+
+
+        if($this->post()){
+
+            $this->model('User')->register();
+            $this->view('qannu18/mvc7public/home/registration');
+            
+            echo $username . ' username is now registered.';
+            //echo json_encode($users, JSON_PRETTY_PRINT);
+
+
+        }
+        
+    else { 
+
+
+        header('Status: 403 Nou No Not Have Access To This Page');
+        echo '403 Forbidden';
+    }
+
+
+
+	
+}
+}

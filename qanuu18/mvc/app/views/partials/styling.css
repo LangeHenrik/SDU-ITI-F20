@@ -1,0 +1,38 @@
+body{
+    background: #eee;
+}
+
+#frm{
+    border: solid gray 1px;
+    width: 20%;
+    border-radius: 5%;
+    margin: 100px auto;
+    background: white;
+    padding: 50px;
+}
+#btn{
+    color: #fff;
+    background: #337ab7;
+    padding: 5px;
+    margin-left: 69%;
+}
+#btnregister {
+    color: #fff;
+    background: #337ab7;
+    padding: 5px;
+    margin-left: 69%;
+}
+.form-div {
+    border: solid gray 1px;
+    width: 20%;
+    border-radius: 5%;
+    margin: 100px auto;
+    background: white;
+    padding: 50px;
+}
+#ulbtn23 {
+    color: #fff;
+    background: #337ab7;
+    padding: 5px;
+    margin-left: 69%;
+}

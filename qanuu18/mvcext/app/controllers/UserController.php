@@ -18,7 +18,7 @@ class UserController extends Controller {
         if($this->post()){
 
             $this->model('User')->register();
-            $this->view('qannu18/mvc7public/home/registration');
+            $this->view('qannu18/mvc/public/home/registration');
             
             echo $username . ' username is now registered.';
             //echo json_encode($users, JSON_PRETTY_PRINT);

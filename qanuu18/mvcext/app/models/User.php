@@ -32,7 +32,7 @@ class User extends Database {
 
     public function register(){
 
-	//	if(isset($_POST['submitbtn'])){
+		if(isset($_POST['submitbtn'])){
 
 		$username = $_POST['username'];
 
@@ -57,7 +57,7 @@ class User extends Database {
             echo "<div class='form'>
             <h3>You are registered successfully.</h3>
 			<br/>Click here to <a href='index.php'>Login</a></div>";*/
-		//}
+		}
         } 
    
 
@@ -86,7 +86,5 @@ echo 'YOU log out';
 
 		 echo'register';
 	}
-
-	
 
 }
