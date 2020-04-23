@@ -16,7 +16,6 @@ class User extends Database
 				}
 			}
 		} catch (Exception $e) {
-			echo 'exceptionelle <br>';
 			echo 'Caught exception: ', $e->getMessage(), "\n";
 			return false;
 		}

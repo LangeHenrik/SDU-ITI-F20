@@ -24,9 +24,9 @@ class HomeController extends Controller
 
 	public function login()
 	{
-		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-			$username = filter_var($_POST["username"], FILTER_SANITIZE_STRING);
-			$password = filter_var($_POST["password"], FILTER_SANITIZE_STRING);
+		if ($this->post()) {
+			$username = filter_var(trim($_POST["username"]), FILTER_SANITIZE_STRING);
+			$password = filter_var(trim($_POST["password"]), FILTER_SANITIZE_STRING);
 
 			if ($this->model('user')->login($username, $password)) {
 				$_SESSION['logged_in'] = true;
@@ -41,7 +41,7 @@ class HomeController extends Controller
 
 	public function logout()
 	{
-		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+		if ($this->post()) {
 			session_unset();
 			session_destroy();
 			echo '<script>alert("You have been logged out. Redirecting to registration. ")</script>';
