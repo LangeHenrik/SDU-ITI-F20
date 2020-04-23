@@ -1,10 +1,18 @@
 <?php include '../app/views/partials/menu.php'; ?>
 <?php if (isset($viewbag['images'])): ?>
 
-	
-<select name="user-image-selector" id="user-image-selector">
-	<option value="">All</option>
-</select>
+<form action="/asmoe16/mvc/public/image/index/" method="get" accept-charset="utf-8">
+
+	<select name="user" id="user">
+		<option>All</option>
+		<?php if (isset($viewbag['users'])): ?>
+			<?php foreach ($viewbag['users'] as $user): ?>
+				<option value="<?=$user['username']?>"><?=$user['username']?></option>
+			<?php endforeach; ?>
+		<?php endif; ?>
+	</select>
+	<button>Update</button>
+</form>	
 
 <div class="container">
 	<?php foreach ($viewbag['images'] as $img): ?>

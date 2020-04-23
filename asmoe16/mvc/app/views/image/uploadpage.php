@@ -5,6 +5,20 @@
 	<div class="form-group">
 		<label for="fileUpload"> Select image to upload</label>
     <input type="file" class="form-control-file" name="fileUpload" id="fileUpload">
+		<?php if ( isset($viewbag['error']) ):
+			$error =& $viewbag['error']; ?>
+			<small id="inputHelp" class="form-text text-danger">
+				<?php if (isset($error['image']) && !$error['image']): ?>
+					File is not an image. Only gif, jpg and png are allowed.
+				<?php endif; ?>
+				<?php if (isset($error['size']) && !$error['size']): ?>
+					File may not be greater then 1GB.
+				<?php endif; ?>
+				<?php if (isset($error['db']) && !$error['db']): ?>
+					Something went wrong. Please try again later.
+				<?php endif; ?>
+			</small>
+		<?php endif; ?>
 	</div>
 	<div class="form-group">
 		<label for="header">Title</label>

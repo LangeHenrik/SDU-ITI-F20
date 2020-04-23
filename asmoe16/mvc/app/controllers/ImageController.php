@@ -3,25 +3,25 @@
 class ImageController extends Controller {
 	
 	public function index (string $username="") {
-		//This is a proof of concept - we do NOT want HTML in the controllers!
 		$imageModel = $this->model('Image');
 		$images = array();
-		if ($username !== "") {
-			$userModel = $this->model('User');
+		$userModel = $this->model('User');
+		if ( isset( $_GET['user'] ) && ($_GET['user'] !== 'All') ) {
+			$username = $_GET['user'];
+		} 
+		if ( $username !== "" ) {
 			$images = $imageModel->list_images( $userModel->getId($username) );
 		} else {
 			$images = $imageModel->list_images();
 		}
-
+		$viewbag['users'] = $userModel->list_users();
 		$viewbag['images'] = $images;
 		$this->view('image/index',$viewbag);
-
 	}
 
 	public function uploadpage() {
 		$this->view('image/uploadpage');
 	}
-	
 
 	public function upload() {
 		if ($this->post()) {
@@ -31,9 +31,11 @@ class ImageController extends Controller {
 				header('Location: /asmoe16/mvc/public/image/index');
 			} else {
 				// Something went wrong tell the user what
+				$viewbag['error'] = $ImageModel->getError();
+				$this->view('image/uploadpage',$viewbag);
 			}
 		} else {
-			$this->uploadpage();
+			header('Location: /asmoe16/mvc/public/image/uploadpage');
 		}
 	}
 

@@ -71,5 +71,11 @@ class UserController extends Controller {
 		session_unset();
 		header('Location: /asmoe16/mvc/public/home/index');
 	}
+
+	public function list() {
+		$UserModel = $this->model('User');
+		$viewbag['users'] = $UserModel->list_users();
+		$this->view('user/list',$viewbag);
+	}
 	
 }

@@ -27,8 +27,9 @@
 			fpage("Home","home/index");
 			fpage("Images","image/index");
 			if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']) {
+				fpage("List users","user/list");
 				fpage('Upload image','image/uploadpage');
-				fpage("log out","user/logout");
+				fpage("Log out","user/logout");
 			} else {
 				fpage("Register","user/registration");
 				fpage("Log in","user/loginpage");

@@ -10,6 +10,11 @@ class User extends Database {
 		return strval($result['user_id']);
 	}
 
+	protected $userInfo = array();
+	public function getInfo() {
+		return $this->userInfo;
+	}
+
 	public function login(){
 		if( !(isset($_POST['username']) && isset($_POST['password'])) ){
 			return false;
@@ -27,6 +32,9 @@ class User extends Database {
 			$_SESSION['logged_in'] = true;
 			$_SESSION['username'] = $result['username'];
 			$_SESSION['user_id'] = $result['user_id'];
+			$this->userInfo['username'] = $result['username'];
+			$this->userInfo['user_id'] = $result['user_id'];
+			error_log(">> user_id = " . $result['user_id']);
 			return true;
 		}
 		return false;
@@ -68,4 +76,9 @@ class User extends Database {
 		return !$exists;
 	}
 
+	public function list_users() {
+		$stmt = $this->conn->prepare("SELECT user_id,username FROM user");
+		$stmt->execute();
+		return $stmt->fetchAll(PDO::FETCH_ASSOC);
+	}
 }
