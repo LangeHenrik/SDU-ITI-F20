@@ -2,12 +2,9 @@
 
 class ImageFeedController extends Controller
 {
-	public function index($param)
+	public function index()
 	{
 		$this->view('home/imageFeed');
-	}
-
-	public function loadImageFeed(){
-		echo "<h2>hi</h2>";
+		$this->model('Picture')->loadImageFeed();
 	}
 }
