@@ -12,9 +12,11 @@ class UserController extends Controller
         if ($this->post()) {
 			$register_attempt = $this->model('User')->register();
 			if($register_attempt){
-				//registration succesful
+                //registration succesful
+                header('Location: /nipat10/mvc/public/home');
 			} else{
-				//registration unsuccesful
+                //registration unsuccesful
+                header('Location: /nipat10/mvc/public/home/register');
 			}
         } else {
             echo 'You can only register with a post method';
@@ -31,7 +33,8 @@ class UserController extends Controller
 		if ($this->post()) {
 			$login_attempt = $this->model('User')->login();
 			
-			//Send message to login view	
+            //Send message to login view
+            header('Location: /nipat10/mvc/public/home/index');	
 			
         } else {
             echo 'You can only register with a post method';

@@ -49,13 +49,13 @@ class User extends Database
 		$username = strip_tags($_REQUEST['username']);
 		$password = strip_tags($_REQUEST['password']);
 		
-        $sql = "SELECT username, password FROM user WHERE username = :username";
+        $sql = "SELECT * FROM users WHERE username = :username";
         
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(':username', $username);
         $stmt->execute();
 	
-		$result = $stmt->fetch(PDO::FETCH_ASSOC); //fetchAll to get multiple rows
+		$row = $stmt->fetch(PDO::FETCH_ASSOC); //fetchAll to get multiple rows
 
 		//Check if row count is above 0, by doing so, we know whether a user with that username exists.
 		if ($stmt->rowCount() > 0) {

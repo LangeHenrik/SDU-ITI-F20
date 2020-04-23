@@ -6,24 +6,24 @@ class HomeController extends Controller
     {
         $this->view('home/index');
     }
-    
+
     public function register()
     {
         //Check whether user is logged in or not.
         //If user is logged in, show message.
         //If user is not logged in, show the register form
         //if (isset($_SESSION['username'])) {
-          //  $this->view('home/index');
+        //  $this->view('home/index');
         //} else {
-            $this->view('home/register');
+        $this->view('home/register');
         //}
     }
-    
+
     public function restricted()
     {
         echo 'Welcome - you must be logged in';
     }
-    
+
     public function login($username)
     {
         if ($this->model('User')->login($username)) {
@@ -31,7 +31,7 @@ class HomeController extends Controller
             $this->view('home/login');
         }
     }
-    
+
     public function logout()
     {
         if ($this->post()) {
@@ -41,7 +41,7 @@ class HomeController extends Controller
             echo 'You can only log out with a post method';
         }
     }
-    
+
     public function loggedout()
     {
         echo 'You are now logged out';
