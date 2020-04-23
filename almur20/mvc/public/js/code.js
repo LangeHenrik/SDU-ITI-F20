@@ -7,7 +7,7 @@ function filterResults(str, img_exists, stmt) {
       document.getElementById("image_square").innerHTML=this.responseText;
     }
   }
-  xmlhttp.open("GET","filter_search.php?filter="+str+"&image_exists="+img_exists+"&stmt="+stmt,true);
+  xmlhttp.open("GET","./filter_search.php?filter="+str+"&image_exists="+img_exists+"&stmt="+stmt,true);
   xmlhttp.send();
 }
 

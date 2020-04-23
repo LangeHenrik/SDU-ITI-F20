@@ -34,7 +34,8 @@ class Router {
 		require_once 'Restricted.php';
 		//print_r($_SESSION);
 		if(restricted(get_class($this->controller), $this->method)) {
-			echo 'Access Denied';
+			header('Location: ../front');
+			//echo 'Access Denied';
 		} else {
 			call_user_func_array([$this->controller, $this->method], $this->params);
 		}

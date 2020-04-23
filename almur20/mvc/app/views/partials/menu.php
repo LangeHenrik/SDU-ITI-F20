@@ -17,12 +17,15 @@
             <a href="./registration" <?php echo ($_SESSION['actual_page'] == 'registration' ? 'class="active"' : '' );?>>Registration</a>
             <?php if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']) {?>
             <a href="upload.php">Upload</a>
-            <a href="image_feed.php">Image feed</a>
+            <a href="./image/feed" <?php echo ($_SESSION['actual_page'] == 'imagefeed' ? 'class="active"' : '' );?>>Image feed</a>
             <a href="./user/list" <?php echo ($_SESSION['actual_page'] == 'userlist' ? 'class="active"' : '' );?>>User list</a>
             <?php }?>
             <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                 <i class="fa fa-bars"></i>
             </a>
+            <?php if($_SESSION['actual_page'] == 'imagefeed') {?>
+                <input type="text" placeholder="Filter results by username" id="input_filter" name="input_filter" onkeyup="filterResults(this.value,<?php echo ($_SESSION['images_count'] > 0) ? 1:0;?>,<?php echo $_SESSION['images_count'];?>)"></input>
+            <?php }?>
         </div>	
     </nav>
 

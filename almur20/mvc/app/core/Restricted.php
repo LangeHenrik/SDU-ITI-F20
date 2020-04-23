@@ -7,7 +7,7 @@ function restricted ($controller, $method) {
 								'FrontController' => array(),
 								'RegistrationController' => array(),
 								'UserController' => array('list'),
-								'ImageController' => array()
+								'ImageController' => array('feed')
 							);
 
 	if(isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
