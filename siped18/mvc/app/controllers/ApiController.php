@@ -3,6 +3,7 @@
 class ApiController extends Controller {
 	
 	public function __construct () {
+		
 		header('Content-Type: application/json');
 		//check api-key?
 		//check username and password?

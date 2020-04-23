@@ -3,9 +3,8 @@
 class HomeController extends Controller {
 	
 	public function index ($param) {
-		//This is a proof of concept - we do NOT want HTML in the controllers!
-		echo '<br><br>Home Controller Index Method<br>';
-		echo 'Param: ' . $param . '<br><br>';
+		
+		$this->view('home/index');
 	}
 	
 	public function other ($param1 = 'first parameter', $param2 = 'second parameter') {
@@ -20,8 +19,8 @@ class HomeController extends Controller {
 		echo 'Welcome - you must be logged in';
 	}
 	
-	public function login($username) {
-		if($this->model('User')->login($username)) {
+	public function login($username, $password) {
+		if($this->model('User')->login($username, $password)) {
 			$_SESSION['logged_in'] = true;
 			$this->view('home/login');
 		}

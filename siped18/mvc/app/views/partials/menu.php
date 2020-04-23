@@ -42,8 +42,8 @@
                 </div>';
         } elseif ($_SESSION['logged_in'] == false){
             echo '<div class="navbar">
-                    <a href="index.php"Login</a>
-                    <a href="Registrationpage.php">Registration</a>
+                    <a href="/siped18/mvc/public/Home">Login</a>
+                    <a href="/siped18/mvc/public/Register/">Registration</a>
                 </div>';
         }
 
