@@ -24,7 +24,7 @@
                 <i class="fa fa-bars"></i>
             </a>
             <?php if($_SESSION['actual_page'] == 'imagefeed') {?>
-                <input type="text" placeholder="Filter results by username" id="input_filter" name="input_filter" onkeyup="filterResults(this.value,<?php echo ($_SESSION['images_count'] > 0) ? 1:0;?>,<?php echo $_SESSION['images_count'];?>)"></input>
+                <input type="text" placeholder="Search by username" id="input_filter" name="input_filter" onkeyup="filterResults(this.value,<?php echo ($_SESSION['images_count'] > 0) ? 1:0;?>,<?php echo $_SESSION['images_count'];?>)"></input>
             <?php }?>
         </div>	
     </nav>

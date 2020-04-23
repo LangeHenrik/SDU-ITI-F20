@@ -68,4 +68,25 @@ class Image extends Database {
             }
         }
     }
+
+    public function getImagesByUser($id) {
+        try {
+            $join_query = "SELECT I.image, I.header as title, I.description
+                            FROM user_image J
+                            JOIN user U ON J.user_id=U.user_id
+                            JOIN image I ON J.image_id=I.image_id
+                            WHERE U.user_id=$id";
+            $stmt = $this->conn->prepare($join_query);
+    
+            $stmt->execute();
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            if ($stmt->rowCount() >= 1) {                
+                $results = $stmt->fetchAll();
+                return $results;
+            }
+        }
+        catch(PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
 }
