@@ -21,7 +21,7 @@ class HomeController extends Controller
 				return;
 			}
 		}
-		header("Location: /siped18-timch15/mvc/public");
+		header("Location: /siped18-timch15/mvc/public");	//login failed, form action redirect quick fix
 	}
 
 	public function logout()
