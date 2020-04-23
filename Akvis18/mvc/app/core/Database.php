@@ -7,8 +7,7 @@ class Database extends DB_Config {
 	public $conn;
 	
 	public function __construct() {
-		try {
-			
+        try {
 			$this->conn = new PDO("mysql:host=$this->servername;dbname=$this->dbname",
 			$this->username,
 			$this->password,
@@ -22,5 +21,14 @@ class Database extends DB_Config {
 	public function __destruct() {
 		$this->conn = null;
 	}
-	
+
+    function query($query, $paramArray=[], $fetchMode = PDO::FETCH_ASSOC){
+        $stmt = $this->conn -> prepare($query);
+        $stmt -> execute($paramArray);
+        if (strstr($query,'SELECT')){
+            $stmt -> setFetchMode($fetchMode);
+            return $stmt -> fetchAll();
+        }
+        return null;
+    }
 }

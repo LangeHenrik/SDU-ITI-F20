@@ -32,7 +32,12 @@ class Router {
 		
 		require_once 'Restricted.php';
 		if(restricted(get_class($this->controller), $this->method)) {
-			echo 'Access Denied';
+            header("HTTP/1.0 403 Forbidden");
+            print "<h1>403 Forbidden</h1>";
+            print "Please login before accessing </br>";
+            print "You'll be redirected shortly, if not click <a href='/'>here</a>.";
+            print "<script src=\"/akvis18/mvc/public/js/RedirectIndex.js\"></script>";
+            exit();
 		} else {
 			call_user_func_array([$this->controller, $this->method], $this->params);
 		}
