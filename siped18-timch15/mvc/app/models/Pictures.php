@@ -1,5 +1,5 @@
 <?php
-$dbFile = '/Users/signethuesenpedersen/Documents/SDU-ITI-F20/siped18/mvc/app/core/Database.php';
+$dbFile = '/Users/signethuesenpedersen/Documents/SDU-ITI-F20/siped18/mvc/app/core/Database.php';    //TODO
 require_once $dbFile;
 
 class Pictures extends Database{
