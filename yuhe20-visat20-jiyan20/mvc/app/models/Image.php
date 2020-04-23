@@ -29,6 +29,7 @@ class Image extends Database {
             }
         } catch (PDOException $e) {
             return array('danger' => 'Error!');
+        }
     }
 
     public function loadImages () {

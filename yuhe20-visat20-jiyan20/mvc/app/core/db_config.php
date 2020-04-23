@@ -8,11 +8,8 @@ class DB_Config {
 	protected $password_database = "160170";
 	protected $portdb = "3307";
 	#$password = "root";
-	?>
-
-
-
 }
-	
+
+?>
 	
 	

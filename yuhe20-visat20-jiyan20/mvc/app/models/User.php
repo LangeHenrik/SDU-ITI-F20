@@ -36,7 +36,7 @@ class User extends Database {
 		return $result;
 	}
 
-	public function register ($username, $email $pwd, $pwd_repeat) {
+	public function register ($username, $email, $pwd, $pwd_repeat) {
 		if ($pwd != $pwd_repeat) {
 			return false;
 		}

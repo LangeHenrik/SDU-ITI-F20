@@ -13,7 +13,7 @@ class ImageController extends Controller {
             $user_id = $_SESSION['userid'];
             $viewbag = $this->model('Image')->upload($header, $description, $userid);
         }
-        $this->view('image/upload', $viewbag)
+        $this->view('image/upload', $viewbag);
     }
 
     public function IMAGES () {
