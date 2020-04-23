@@ -12,9 +12,9 @@
 <nav class="menu">
 <ul>
 <li><a href="/nipat10/mvc/public/home">Frontpage</A></li>
-<li><a href="/nipat10/mvc/public/register">Registration</A></li>
-<li><a href="/nipat10/mvc/public/upload">Upload-images</A></li>
-<li><a href="/nipat10/mvc/public/imageFeed">Image-Feed</A></li>
+<li><a href="/nipat10/mvc/public/home/register">Registration</A></li>
+<li><a href="/nipat10/mvc/public/home/upload">Upload-images</A></li>
+<li><a href="/nipat10/mvc/public/image/images">Image-Feed</A></li>
 <li><a href="/nipat10/mvc/public/user/users">User list</A></li>
 </ul>
 

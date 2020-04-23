@@ -19,6 +19,10 @@ class HomeController extends Controller
         //}
     }
 
+    public function upload(){
+        $this->view('home/upload');
+    }
+
     public function restricted()
     {
         echo 'Welcome - you must be logged in';
