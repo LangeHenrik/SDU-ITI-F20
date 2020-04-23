@@ -3,11 +3,8 @@
 <head>
     <?php include '../app/views/partials/header.php'?>
     <title>Image Feed</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-          crossorigin="anonymous">
     <link rel="stylesheet" href="/rayou18_kalau17_jlaur13/mvc/public/styles/background.css">
+    <link rel="stylesheet" href="/rayou18_kalau17_jlaur13/mvc/public/styles/imagefeed.css">
 </head>
 <body>
     <?php include "../app/views/partials/menu.php" ?>
@@ -23,12 +20,12 @@
                 $pictureOwner = $item['user'];
                 ?>
                 <div class="col-lg-3 col-md-4 col-6">
-                    <div class="border rounded-lg bg-gradient">
-                        <h2> <?php echo $header; ?></h2>
+                    <div class="border rounded rounded-lg wrapper-background">
+                        <h2 class="word-wrapper"> <?php echo $header; ?></h2>
                         <img class="img-fluid img-thumbnail rounded" src="<?php echo $picture; ?>"
                              alt="<?php echo $header; ?>">
-                        <p><?php echo $description; ?></p>
-                        <p><?php echo $pictureOwner; ?></p>
+                        <p class="word-wrapper"><?php echo $description; ?></p>
+                        <p class="float-right badge badge-dark"><?php echo $pictureOwner; ?></p>
                     </div>
                 </div>
             <?php }

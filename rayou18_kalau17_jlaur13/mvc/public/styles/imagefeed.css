@@ -1,0 +1,17 @@
+.word-wrapper {
+    word-wrap: break-word;
+}
+
+.wrapper-background {
+    background-color: #FFFFFF;
+}
+
+p.word-wrapper {
+    margin-top: -5px;
+    padding-top: 5px;
+}
+
+.badge {
+    margin-top: 1px;
+    opacity: 85%;
+}
