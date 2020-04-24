@@ -3,6 +3,7 @@
     <meta charset="UTF-8">
     <title>Welcome to Odin's Blog | Register</title>
     <link rel="stylesheet" type="text/css" href="/elioa20/mvc/public/css/registerStylesheet.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
 <form class="register-form" method="post">

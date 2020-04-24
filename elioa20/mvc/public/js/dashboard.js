@@ -5,37 +5,18 @@ const topNavBar = {
     logout: document.getElementById('logout')
 };
 
-if(topNavBar.feed.className === "active"){
-
+if (topNavBar.feed.className === "active") {
     var mainContent = document.getElementsByClassName('main_content')[0];
     mainContent.innerHTML = "";
 
     let divContainer = document.createElement('div');
-    divContainer.setAttribute('class','container');
+    divContainer.setAttribute('class', 'container');
 
-    //Get images from db
-    var request = new XMLHttpRequest();
+    ajaxCallGetImages(mainContent, divContainer);
 
-    request.onload = () => {
-        let responseObject = null;
-
-        try {
-            responseObject = JSON.parse(request.responseText);
-        } catch (e) {
-            console.error('Could not parse JSON');
-        }
-
-        if (responseObject) {
-            handleGetImagesResponse(responseObject,mainContent,divContainer);
-        }
-    };
-
-    request.open("get", "/elioa20/mvc/public/home/feed", true);
-    request.send();
 }
 
-topNavBar.feed.addEventListener('click',()=>{
-
+$("#feed").click(function () {
     //Clear contents from main content div
     var mainContent = document.getElementsByClassName('main_content')[0];
     mainContent.innerHTML = "";
@@ -46,32 +27,13 @@ topNavBar.feed.addEventListener('click',()=>{
     topNavBar.users.className = "";
 
     let divContainer = document.createElement('div');
-    divContainer.setAttribute('class','container');
+    divContainer.setAttribute('class', 'container');
 
-    //Get images from db
-    var request = new XMLHttpRequest();
-
-    request.onload = () => {
-        let responseObject = null;
-
-        try {
-            responseObject = JSON.parse(request.responseText);
-        } catch (e) {
-            console.error('Could not parse JSON');
-        }
-
-        if (responseObject) {
-            handleGetImagesResponse(responseObject,mainContent,divContainer);
-        }
-    };
-    request.open("get", "/elioa20/mvc/public/home/feed", true);
-    request.send();
-
+    ajaxCallGetImages(mainContent, divContainer);
 });
 
-topNavBar.upload.addEventListener('click',()=>{
-
-    //Clear contents from main content div
+$("#upload").click(function () {
+//Clear contents from main content div
     document.getElementsByClassName('main_content')[0].innerHTML = "";
 
     //Change active tab
@@ -79,65 +41,19 @@ topNavBar.upload.addEventListener('click',()=>{
     topNavBar.upload.className = "active";
     topNavBar.users.className = "";
 
-
     //Create form to upload image
     var mainContent = document.getElementsByClassName('main_content')[0];
 
     var displayMessages = document.createElement('ul');
-    displayMessages.setAttribute('id','messages');
+    displayMessages.setAttribute('id', 'messages');
 
-
-    var form = document.createElement("form");
-
-    form.setAttribute('id','upload-form');
-    form.setAttribute('method',"post");
-    form.setAttribute('enctype',"multipart/form-data");
-
-    var labelHeader = document.createElement('label');
-    labelHeader.setAttribute("for",'header');
-    labelHeader.innerHTML = "Image Header";
-
-    var header = document.createElement("input"); //input element, text
-    header.setAttribute('type',"text");
-    header.setAttribute('name',"header");
-    header.setAttribute('id',"header");
-
-    var labelDescription = document.createElement('label');
-    labelDescription.setAttribute("for",'description');
-    labelDescription.innerHTML = "Image Description";
-
-
-    var description = document.createElement("input"); //input element, text
-    description.setAttribute('type',"text");
-    description.setAttribute('name',"description");
-    description.setAttribute('id',"description");
-
-    var file = document.createElement("input");
-    file.setAttribute('type','file');
-    file.setAttribute('id','file');
-
-    var uploadButton = document.createElement("input");
-    uploadButton.setAttribute('type',"button");
-    uploadButton.setAttribute('id',"upload_image");
-    uploadButton.setAttribute('id',"upload_image");
-    uploadButton.setAttribute('value',"Upload Image");
-
-
-
-    form.appendChild(labelHeader);
-    form.appendChild(header);
-    form.appendChild(labelDescription);
-    form.appendChild(description);
-    form.appendChild(file);
-    form.appendChild(uploadButton);
+    var form = createImageUploadForm();
 
     mainContent.appendChild(displayMessages);
     mainContent.appendChild(form);
-
 });
 
-topNavBar.users.addEventListener('click', () => {
-
+$("#users").click(function () {
     //Clear contents from main content div
     document.getElementsByClassName('main_content')[0].innerHTML = "";
 
@@ -146,83 +62,26 @@ topNavBar.users.addEventListener('click', () => {
     topNavBar.upload.className = "";
     topNavBar.users.className = "active";
 
-    var request = new XMLHttpRequest();
-
-    request.onload = () => {
-        let responseObject = null;
-
-        try {
-            responseObject = JSON.parse(request.responseText);
-        } catch (e) {
-            console.error('Could not parse JSON');
-        }
-
-        if (responseObject) {
-            handleGetUsersResponse(responseObject);
-        }
-    };
-
-    //todo
-    request.open("get", "/elioa20/mvc/public/home/users", true);
-    request.send();
-
+    ajaxCallGetUsers();
 });
 
-topNavBar.logout.addEventListener('click',()=>{
-
-    var request = new XMLHttpRequest();
-
-    request.onload = () => {
-        let responseObject = null;
-
-        try {
-            responseObject = JSON.parse(request.responseText);
-        } catch (e) {
-            console.error('Could not parse JSON');
-        }
-
-        if (responseObject) {
-            window.location = "/elioa20/mvc/public/home/index";
-        }
-    };
-
-    //todo
-    request.open("post", "/elioa20/mvc/public/home/logout", true);
-    request.send();
-
-});
+$("#logout").click(function () {
+    var requestLogOut = $.ajax({
+        type: "POST",
+        url: "/elioa20/mvc/public/home/logout",
+    });
+    requestLogOut.done(function () {
+        document.location = "/elioa20/mvc/public/home/index";
+    });
+    requestLogOut.fail(function (jqXHR, textStatus) {
+        alert("Request failed: " + textStatus);
+    });
+})
 
 //Used DOM Event Delegation because the button is dynamically created
-//todo
-document.addEventListener('click',function(e){
-    if(e.target && e.target.id === 'upload_image'){
-        var request = new XMLHttpRequest();
-
-        var form = document.getElementById('upload-form');
-        var formData = new FormData(form);
-
-        var inputFile = document.getElementById('file');
-        formData.append('file',inputFile.files[0]);
-
-
-        request.onload = () => {
-            let responseObject = null;
-
-            try{
-                responseObject = JSON.parse(request.responseText);
-            }
-            catch (e) {
-                console.error('Could not parse JSON');
-            }
-
-            if(responseObject){
-                handleUploadImageResponse(responseObject);
-            }
-        };
-
-        request.open("post", "/elioa20/mvc/public/home/uploadImage", true);
-        request.send(formData);
-
+document.addEventListener('click', function (e) {
+    if (e.target && e.target.id === 'upload_image') {
+        ajaxCallUploadImage();
     }
 });
 
@@ -230,7 +89,6 @@ function handleGetUsersResponse(responseObject) {
     if (responseObject.ok) {
         var mainContent = document.getElementsByClassName('main_content')[0];
         var userTable = document.createElement("TABLE");
-
 
         //Create header
         let thead = userTable.createTHead();
@@ -246,7 +104,7 @@ function handleGetUsersResponse(responseObject) {
                 let cellUsername = row.insertCell();
                 let userID = document.createTextNode(message.user_id);
                 cellUserID.appendChild(userID);
-                    let username = document.createTextNode(message.username);
+                let username = document.createTextNode(message.username);
                 cellUsername.appendChild(username);
             }
         );
@@ -255,16 +113,24 @@ function handleGetUsersResponse(responseObject) {
     }
 }
 
-
 function handleUploadImageResponse(responseObject) {
-    //todo check
     let messagesList = document.getElementById('messages');
     //In case they were errors before. Need to clear the list.
-    while(messagesList.firstChild){
+    while (messagesList.firstChild) {
         messagesList.removeChild(messagesList.firstChild);
     }
 
-    if(!responseObject.ok) {
+    if (responseObject.ok) {
+        responseObject.messages.forEach((message) => {
+            var li = document.createElement('li');
+            li.textContent = message;
+            messagesList.appendChild(li);
+        });
+
+        messagesList.display = 'block';
+    }
+
+    if (!responseObject.ok) {
         responseObject.messages.forEach((message) => {
             var li = document.createElement('li');
             li.textContent = message;
@@ -275,10 +141,9 @@ function handleUploadImageResponse(responseObject) {
     }
 }
 
+function handleGetImagesResponse(responseObject, mainContent, divContainer) {
 
-function handleGetImagesResponse(responseObject,mainContent,divContainer){
-
-    if(responseObject.messages !== null) {
+    if (responseObject.messages !== null) {
         responseObject.messages.forEach((image) => {
 
             let divPic = document.createElement('div');
@@ -306,6 +171,105 @@ function handleGetImagesResponse(responseObject,mainContent,divContainer){
     }
 }
 
+function ajaxCallGetImages(mainContent, divContainer) {
+    //JQuery AJAX call to get images
+    var requestImages = $.ajax({
+        type: "GET",
+        url: "/elioa20/mvc/public/home/feed",
+        dataType: "json"
+    });
+    requestImages.done(function (response) {
+        handleGetImagesResponse(response, mainContent, divContainer);
+    });
+    requestImages.fail(function (jqXHR, textStatus) {
+        alert("Request failed: " + textStatus);
+    });
+}
+
+function createImageUploadForm() {
+    var form = document.createElement("form");
+
+    form.setAttribute('id', 'upload-form');
+    form.setAttribute('method', "post");
+    form.setAttribute('enctype', "multipart/form-data");
+
+    var labelHeader = document.createElement('label');
+    labelHeader.setAttribute("for", 'header');
+    labelHeader.innerHTML = "Image Header";
+
+    var header = document.createElement("input"); //input element, text
+    header.setAttribute('type', "text");
+    header.setAttribute('name', "header");
+    header.setAttribute('id', "header");
+
+    var labelDescription = document.createElement('label');
+    labelDescription.setAttribute("for", 'description');
+    labelDescription.innerHTML = "Image Description";
+
+
+    var description = document.createElement("input"); //input element, text
+    description.setAttribute('type', "text");
+    description.setAttribute('name', "description");
+    description.setAttribute('id', "description");
+
+    var file = document.createElement("input");
+    file.setAttribute('type', 'file');
+    file.setAttribute('id', 'file');
+
+    var uploadButton = document.createElement("input");
+    uploadButton.setAttribute('type', "button");
+    uploadButton.setAttribute('id', "upload_image");
+    uploadButton.setAttribute('id', "upload_image");
+    uploadButton.setAttribute('value', "Upload Image");
+
+
+    form.appendChild(labelHeader);
+    form.appendChild(header);
+    form.appendChild(labelDescription);
+    form.appendChild(description);
+    form.appendChild(file);
+    form.appendChild(uploadButton);
+
+    return form;
+}
+
+function ajaxCallGetUsers(){
+    //JQuery AJAX call to get users
+    var requestUsers = $.ajax({
+        type: "GET",
+        url: "/elioa20/mvc/public/home/users",
+        dataType: "json"
+    });
+    requestUsers.done(function (response) {
+        handleGetUsersResponse(response);
+    });
+    requestUsers.fail(function (jqXHR, textStatus) {
+        alert("Request failed: " + textStatus);
+    });
+}
+
+function ajaxCallUploadImage(){
+    var form = document.getElementById('upload-form');
+    var formData = new FormData(form);
+
+    var inputFile = document.getElementById('file');
+    formData.append('file', inputFile.files[0]);
+
+    var requestUploadImage = $.ajax({
+        type: "POST",
+        data: formData,
+        processData: false,
+        contentType: false,
+        url: "/elioa20/mvc/public/api/uploadImage",
+        dataType: "json",
+    });
+    requestUploadImage.done(function (response) {
+        handleUploadImageResponse(response);
+    });
+    requestUploadImage.fail(function (jqXHR, textStatus) {
+        alert("Request failed: " + textStatus);
+    });
+}
 
 document.getElementById("link_feed").onclick = function () {
     return false;

@@ -8,6 +8,7 @@ if(!isset($_SESSION['logged_in']) && !$_SESSION['logged_in'])
     <meta charset="UTF-8">
     <title>Odin's Blog</title>
     <link rel="stylesheet" type="text/css" href="/elioa20/mvc/public/css/dashboard.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
 

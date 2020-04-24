@@ -5,35 +5,25 @@ const registerForm = {
     messages: document.getElementById('register-messages'),
     register: document.getElementById('register')
 };
-
-
-registerForm.register.addEventListener('click', () => {
-    var request = new XMLHttpRequest();
-
-    var requestData = `username=${registerForm.username.value}&password=${registerForm.password.value}&password2=${registerForm.password2.value}`;
-
-    request.onload = () => {
-        let responseObject = null;
-
-        try{
-            responseObject = JSON.parse(request.responseText);
-        }
-        catch (e) {
-            console.error('Could not parse JSON');
-        }
-
-        if(responseObject){
-            handleRegisterResponse(responseObject);
-        }
-    };
-
-    request.open("post", "/elioa20/mvc/public/home/register", true);
-    request.setRequestHeader('Content-type','application/x-www-form-urlencoded');
-    request.send(requestData);
-
-
+//JQuery AJAX call to register
+$("#register").click(function () {
+    var request = $.ajax({
+        type: "POST",
+        url: "/elioa20/mvc/public/api/register",
+        data: {
+            username:$("#username").val(),
+            password: $("#password").val(),
+            password2: $("#password2").val()
+        },
+        dataType: "json"
+    });
+    request.done(function( response ) {
+        handleRegisterResponse(response);
+    });
+    request.fail(function( jqXHR, textStatus ) {
+        alert( "Request failed: " + textStatus );
+    });
 });
-
 
 function handleRegisterResponse(responseObject){
     if(responseObject.ok) {
@@ -52,5 +42,4 @@ function handleRegisterResponse(responseObject){
 
         registerForm.messages.style.display = 'block';
     }
-
 }

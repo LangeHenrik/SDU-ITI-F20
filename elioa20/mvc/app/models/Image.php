@@ -15,7 +15,7 @@ class Image extends Database
         $imageDescription = htmlspecialchars($imageDescription);
 
         // pass value to the command
-        $stmt->bindParam(':image_blob', $imageBlob, PDO::PARAM_STR, 200);
+        $stmt->bindParam(':image_blob', $imageBlob, PDO::PARAM_STR, PHP_INT_MAX);
         $stmt->bindParam(':header', $imageHeader, PDO::PARAM_STR, 200);
         $stmt->bindParam(':description', $imageDescription, PDO::PARAM_STR, 200);
         $stmt->bindParam(':uploadtime', $datetime, PDO::PARAM_STR);

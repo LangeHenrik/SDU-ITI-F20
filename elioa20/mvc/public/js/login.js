@@ -6,36 +6,28 @@ const loginForm = {
     register: document.getElementById('register')
 };
 
-loginForm.login.addEventListener('click', () => {
-    var request = new XMLHttpRequest();
-
-    var requestData = `username=${loginForm.username.value}&password=${loginForm.password.value}`;
-
-
-    request.onload = () => {
-        let responseObject = null;
-
-        try{
-            responseObject = JSON.parse(request.responseText);
-        }
-        catch (e) {
-            console.error('Could not parse JSON');
-        }
-
-        if(responseObject){
-            handleLoginResponse(responseObject);
-        }
-    };
-
-    request.open("post", "/elioa20/mvc/public/home/login", true);
-    request.setRequestHeader('Content-type','application/x-www-form-urlencoded');
-    request.send(requestData);
+//JQuery AJAX call to login
+$("#login").click(function () {
+    var request = $.ajax({
+        type: "POST",
+        url: "/elioa20/mvc/public/home/login",
+        data: {
+            username:$("#username").val(),
+            password: $("#password").val(),
+        },
+        dataType: "json"
+    });
+    request.done(function( response ) {
+        handleLoginResponse(response);
+    });
+    request.fail(function( jqXHR, textStatus ) {
+        alert( "Request failed: " + textStatus );
+    });
 });
-
 
 function handleLoginResponse(responseObject){
     if(responseObject.ok) {
-      location.href = '/elioa20/mvc/public/home/dashboard';
+      location.href = '/elioa20/mvc/public/home/odinsblog';
     }else{
         //In case they were errors before. Need to clear the list.
         while(loginForm.messages.firstChild){
@@ -50,5 +42,4 @@ function handleLoginResponse(responseObject){
 
         loginForm.messages.style.display = 'block';
     }
-
 }
