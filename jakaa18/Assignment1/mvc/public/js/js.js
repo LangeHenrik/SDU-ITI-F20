@@ -1,1 +1,3 @@
-console.log("My Script");
+function test (){
+    console.log("My Script");
+}

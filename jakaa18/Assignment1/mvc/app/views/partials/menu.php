@@ -1,8 +1,10 @@
 <html>
-    <head>
-    <script src="/mvc/public/js/js.js"></script>
-    </head>
-    <body>
+<head>
+    <script src="/js/js.js"></script>
+
+</head>
+<body>
+
 
 <div style="background-color: lightblue;">Menu partial view</div>
 
