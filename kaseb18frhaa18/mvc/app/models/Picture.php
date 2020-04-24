@@ -47,15 +47,12 @@ class Picture extends Database
         // $extensions_arr = array("jpg", "jpeg", "png", "gif"); på imagefiletype
 
         if ($username === $result['username'] && password_verify($password, $result['password'])) {
-            $title = $jsonBody->title;
-            $description = $jsonBody->description;
-            $image = $jsonBody->image;
+            $title = filter_var(trim($jsonBody->title), FILTER_SANITIZE_STRING);
+            $description = filter_var(trim($jsonBody->description), FILTER_SANITIZE_STRING);
+            $image = filter_var(trim($jsonBody->image), FILTER_SANITIZE_STRING);
             if (empty($title) || empty($description) || empty($image)) {
             } elseif ((strlen($title) > 25) or (strlen($description) > 250)) {
             } else {
-                $title = filter_var($title, FILTER_SANITIZE_STRING);
-                $description = filter_var($description, FILTER_SANITIZE_STRING);
-                $image = filter_var($image, FILTER_SANITIZE_STRING);
                 $sql = 'insert into picture (title, description, image, user_id) values(:title, :description, :image, :user_id)';
                 $stmt = $this->conn->prepare($sql);
                 $stmt->bindParam(':title', $title);
