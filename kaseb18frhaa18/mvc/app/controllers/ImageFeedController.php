@@ -6,6 +6,6 @@ class ImageFeedController extends Controller
 	{
 		$viewbag = $this->model('Picture')->loadImageFeed();
 		$this->view('home/imageFeed', $viewbag);
-		$this->nameOfUser();
+		//$this->nameOfUser();
 	}
 }

@@ -11,7 +11,7 @@ class HomeController extends Controller
 		} else {
 			$this->view('home/index');
 		}
-		$this->nameOfUser();
+		//$this->nameOfUser();
 	}
 
 	public function login()

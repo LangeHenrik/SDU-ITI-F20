@@ -6,7 +6,7 @@ class UploadController extends Controller
 	public function index()
 	{
 		$this->view('home/uploadPage');
-		$this->nameOfUser();
+		//$this->nameOfUser();
 	}
 
 	public function uploadPicture()

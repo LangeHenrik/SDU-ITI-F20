@@ -5,7 +5,7 @@ class RegisterController extends Controller
 	public function index()
 	{
 		$this->view('home/registration');
-		$this->nameOfUser();
+		//$this->nameOfUser();
 	}
 
 	public function registration()
@@ -13,7 +13,7 @@ class RegisterController extends Controller
 		if ($this->post()) {
 			$response = $this->model('user')->register();
 			$this->view('home/registration', $response);
-			$this->nameOfUser();
+			//$this->nameOfUser();
 		}
 	}
 }
