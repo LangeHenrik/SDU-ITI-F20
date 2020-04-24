@@ -15,14 +15,14 @@ class ApiController extends Controller {
 	
 	public function users () {
 		$users = $this->model('User')->list_users();
-		echo json_encode($users, JSON_PRETTY_PRINT);
+		echo json_encode($users);
 	}
 
 	public function pictures($pewPEWpew,$user_id){
 		$imageModel = $this->model('Image');
 		if ($this->post() &&  isset($_POST['json'])) {
 			$userModel = $this->model('User');
-			$data = json_decode($_POST['json'],true)[0];
+			$data = json_decode($_POST['json'],true);
 //			echo json_encode($data);
 //			echo json_encode(array(
 //			 	'image'=>isset($data['image']),
@@ -41,8 +41,6 @@ class ApiController extends Controller {
 			$_POST['username'] = $data['username'];
 			$_POST['password'] = $data['password'];
 
-			error_log(">> username = " . $_POST['username']);
-			error_log(">> password = " . $_POST['password']);
 
 			if ($userModel->login() && ($userModel->getInfo()['user_id'] == $user_id) ) {
 				error_log("[] calling uploadBlob");
