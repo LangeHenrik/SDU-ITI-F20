@@ -1,8 +1,10 @@
 <?php
 class User extends Database
 {
-	public function login($username, $password)
+	public function login()
 	{
+		$username = filter_var(trim($_POST["username"]), FILTER_SANITIZE_STRING);
+		$password = filter_var(trim($_POST["password"]), FILTER_SANITIZE_STRING);
 		try {
 			$sql = 'SELECT user_id, name, username, password FROM user WHERE username = :username';
 			$stmt = $this->conn->prepare($sql);
@@ -29,8 +31,11 @@ class User extends Database
 		}
 	}
 
-	public function register($name, $username, $password)
+	public function register()
 	{
+		$name = filter_var(trim($_POST["name"]), FILTER_SANITIZE_STRING);
+		$username = filter_var(trim($_POST["username"]), FILTER_SANITIZE_STRING);
+		$password = filter_var(trim($_POST["password"]), FILTER_SANITIZE_STRING);
 		try {
 			//hashed password
 			$password_hashed = password_hash($password, PASSWORD_DEFAULT);

@@ -120,6 +120,7 @@ body {
         width: 0;
         height: 0;
         overflow: hidden;
+        background-color: lightgray;
     }
 }
 
@@ -128,6 +129,7 @@ body {
         width: 0;
         height: 0;
         visibility: hidden;
+        background-color: lightgray;
     }
 }
 

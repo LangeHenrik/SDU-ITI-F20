@@ -26,10 +26,7 @@ class HomeController extends Controller
 	public function login()
 	{
 		if ($this->post()) {
-			$username = filter_var(trim($_POST["username"]), FILTER_SANITIZE_STRING);
-			$password = filter_var(trim($_POST["password"]), FILTER_SANITIZE_STRING);
-
-			if ($this->model('user')->login($username, $password)) {
+			if ($this->model('user')->login()) {
 				$_SESSION['logged_in'] = true;
 				echo '<div><h3 id="popUp">Login Successful</h3></div>';
 				$this->view('home/uploadPage');
