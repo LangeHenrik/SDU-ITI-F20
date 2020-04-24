@@ -20,9 +20,9 @@
                 </br>
                 <input type="submit" value="Login">
             </form>
-            <?php if (isset($login_message)) {?>
-                <p class="error_message"><?php echo $login_message;?></p>
-            <?php } ?>
+            <?php if (isset($_SESSION['status_message']) && $_SESSION['status_message'] != '') {?>
+                <p class="error_message"><?php echo $_SESSION['status_message'];?></p>
+            <?php } $_SESSION['status_message'] = '';?>
             </br>
             <a href="registration.php"><button>Register</button></a>
         </div>

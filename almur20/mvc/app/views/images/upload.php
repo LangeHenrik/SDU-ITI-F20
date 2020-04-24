@@ -17,7 +17,7 @@
             
             <input type="submit" value="Upload" id="input" name="input"></input>
         </form>
-        <?php if (isset($status_message) && $status_message != '') echo $status_message;?>
+        <?php if (isset($_SESSION['status_message']) && $_SESSION['status_message'] != '') echo $_SESSION['status_message']; $_SESSION['status_message'] = '';?>
     </div>
 
 <?php include '../app/views/partials/foot.php'; ?>

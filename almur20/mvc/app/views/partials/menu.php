@@ -1,7 +1,29 @@
 <!DOCTYPE html>
 <html>
 	<head>
-        <title>Frontpage</title>
+        <title>
+        <?php 
+            switch($_SESSION['actual_page']) {
+                case 'frontpage':
+                    echo 'Frontpage';
+                break;
+                case 'registration':
+                    echo 'Registration';
+                break;
+                case 'upload':
+                    echo 'Upload';
+                break;
+                case 'imagefeed':
+                    echo 'Image Feed';
+                break;
+                case 'userlist':
+                    echo 'User List';
+                break;
+                default:
+                    echo 'Assignment 2';
+            }
+        ?>
+        </title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <base href="http://localhost:8080/almur20/mvc/public/">
 

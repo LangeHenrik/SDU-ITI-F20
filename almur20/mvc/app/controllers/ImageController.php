@@ -21,7 +21,7 @@ class ImageController extends Controller {
         if ($this->post()) {
             $this->model('Image')->uploadImage();
             $_SESSION['actual_page'] = 'upload';
-            header('Location:../upload');
+            header('Location:../image/upload');
         }
     }
 }

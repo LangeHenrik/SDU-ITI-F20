@@ -50,21 +50,25 @@ class Image extends Database {
                     //echo $new_image;
     
                     $stmt->execute();
+                    $image_id = $this->conn->lastInsertId();
     
                     $relation_query = 'INSERT INTO user_image (user_id, image_id)
                                         VALUES (
-                                            (SELECT user_id FROM user WHERE username="'.$_SESSION['username'].'"),
-                                            (SELECT image_id FROM image WHERE image="'.$new_image.'")
+                                            :user_id,
+                                            :image_id
                                         )';
     
                     $stmt = $this->conn->prepare($relation_query);
+                    $stmt->bindParam(':image_id', $image_id, PDO::PARAM_STR);
+                    $stmt->bindParam(':user_id', $_SESSION['user_id'], PDO::PARAM_STR);
                     $stmt->execute();
+
+                    return true;
                 }
                 catch(PDOException $e) {
                     $e->getMessage();
                 }
-                
-                $conn = null;
+                return false;
             }
         }
     }
@@ -118,14 +122,17 @@ class Image extends Database {
                         $stmt->bindParam(':description', $description, PDO::PARAM_STR);
         
                         $stmt->execute();
+                        $image_id = $this->conn->lastInsertId();
         
                         $relation_query = 'INSERT INTO user_image (user_id, image_id)
                                             VALUES (
-                                                '.$user_id.',
-                                                (SELECT image_id FROM image WHERE image="'.$image_name.'")
+                                                :user_id,
+                                                :image_id
                                             )';
         
                         $stmt = $this->conn->prepare($relation_query);
+                        $stmt->bindParam(':user_id', $user_id, PDO::PARAM_STR);
+                        $stmt->bindParam(':image_id', $image_id, PDO::PARAM_STR);
                         $stmt->execute();
                     } 
             }       

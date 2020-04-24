@@ -33,15 +33,18 @@
 
     // Check if $uploadOk is set to 0 by an error
     if ($uploadOk == 0) {
-        $status_message = 'Error uploading the file.';
+        $status_message = 'Error uploading the file. ' . $status_message;
     // if everything is ok, try to upload file
     } else {
         //echo $_FILES["input_img"]["tmp_name"];
         if (move_uploaded_file($_FILES["input_img"]["tmp_name"], $target_file)) {
             $image_uploaded = true;
             //echo "The file ". basename( $_FILES["input_img"]["name"]). " has been uploaded.";
+            $status_message = '';
         } else {
             $status_message = 'Error uploading the file.';
         }
     }
+
+    $_SESSION['status_message'] = $status_message;
 ?>
