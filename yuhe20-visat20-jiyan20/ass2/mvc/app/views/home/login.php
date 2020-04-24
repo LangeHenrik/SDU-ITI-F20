@@ -3,7 +3,7 @@
 
 <div class="login-info">
     <div class="text">
-        <form name="login" method="POST" action="/yuhe20-visat20-jiyan20/mvc/app/views/home/login">
+        <form name="login" method="POST" action="/yuhe20-visat20-jiyan20/ass2/mvc/public/User/login">
             <div class="log-in-form">
                 <fieldset>
                     <legend>log-in Info</legend>
@@ -15,7 +15,7 @@
                 </fieldset>
             </div>
             <hr>
-            <p >New here? <a href="/yuhe20-visat20-jiyan20/mvc/app/views/home/register">Register</a>!</p>
+            <p >New here? <a href="/yuhe20-visat20-jiyan20/mvc/public/User/register">Register</a>!</p>
             
         </form>
     </div>
