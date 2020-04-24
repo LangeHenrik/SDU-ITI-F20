@@ -5,7 +5,7 @@ class Picture extends Database
     function getPictures($id)
     {
 
-        $sql = 'SELECT * FROM images Where id=:id';
+        $sql = 'SELECT * FROM images Where user_id=:id';
         $images = array();
         $data = $this->conn->prepare($sql);
 
