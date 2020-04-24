@@ -11,8 +11,9 @@ class RegisterController extends Controller
 	public function registration()
 	{
 		if ($this->post()) {
-			$respone = $this->model('user')->register();
-			$this->view('home/registration', $respone);
+			$response = $this->model('user')->register();
+			$this->view('home/registration', $response);
+			$this->nameOfUser();
 		}
 	}
 }
