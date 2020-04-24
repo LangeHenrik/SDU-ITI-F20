@@ -9,7 +9,7 @@
 
 <div class="wrapper">
     <div class="content">
-        <form method="post" action="upload/uploadpicture" enctype='multipart/form-data'>
+        <form method="post" action="/kaseb18frhaa18/mvc/public/Upload/uploadpicture" enctype='multipart/form-data'>
             <input type="text" name="head" id="head" placeholder="Enter a header for your upload!" required
                 onkeyup="return checkHead()">
             <span id="head_err"></span>

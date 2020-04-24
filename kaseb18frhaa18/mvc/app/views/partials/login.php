@@ -1,6 +1,6 @@
 <div class="wrapper">
     <div class="content">
-        <form action="home/login" method="POST">
+        <form action="/kaseb18frhaa18/mvc/public/home/login" method="POST">
             <h1>Login</h1>
             <div class="form-group">
                 <input type="text" name="username" placeholder="Username" class="form-control" required>
