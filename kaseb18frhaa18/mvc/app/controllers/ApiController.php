@@ -17,8 +17,10 @@ class ApiController extends Controller
 
 	public function users()
 	{
-		$users = $this->model('User')->getAll();
-		echo json_encode($users, JSON_PRETTY_PRINT);
+		if ($this->get()) {
+			$users = $this->model('User')->getAll();
+			echo json_encode($users, JSON_PRETTY_PRINT);
+		}
 	}
 
 	public function pictures($user, $user_id)

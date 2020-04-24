@@ -12,8 +12,9 @@ class UploadController extends Controller
 	public function uploadPicture()
 	{
 		if ($this->post()) {
-			$success = $this->model('Picture')->uploadPicture();
-			$this->view('home/uploadPage');
+			$response_message = $this->model('Picture')->uploadPicture();
+			$response = array('Response' => $response_message);
+			$this->view('home/uploadPage', $response);
 		}
 	}
 }
