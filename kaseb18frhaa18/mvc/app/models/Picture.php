@@ -90,20 +90,15 @@ class Picture extends Database
     {
         //måske lav et array med en plads til hver if-statement så man kan checke hvad der går galt
         //ELLER! bare return en string der bestemmer hvad der gik galt
-        $head = trim($_POST["head"]);
-        $description = trim($_POST["description"]);
-
-
+        $head = filter_var(trim($_POST["head"]), FILTER_SANITIZE_STRING);
+        $description = filter_var(trim($_POST["description"]), FILTER_SANITIZE_STRING);
         if ((strlen($head) > 25) or (strlen($description) > 250) or ((filesize($_FILES["file"]["tmp_name"]) * 1.35) > 4294967295)) {
             return "Max titlelength: 25 characters.\nMax description lenght: 250 characters.\nImage file might be too large.";
         } else {
-            $name = $_FILES['file']['name'];
+            //$name = $_FILES['file']['name'];
             $target_dir = "upload/";
             $target_file = $target_dir . basename($_FILES["file"]["name"]);
             //husk at indsætte head og description også
-            $head = filter_var($_POST['head'], FILTER_SANITIZE_STRING);
-            $description = filter_var($_POST['description'], FILTER_SANITIZE_STRING);
-
             // Select file type
             $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
