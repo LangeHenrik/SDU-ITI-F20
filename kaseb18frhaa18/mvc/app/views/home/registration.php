@@ -1,4 +1,5 @@
 <?php include '../app/views/partials/header.php'; ?>
+<div><h3 id="popUp"><?php if(isset($viewbag["response"])){echo $viewbag["response"];} ?></h3></div>
 <div class="wrapper">
   <div class="content">
     <form action="Register/registration" method="post">

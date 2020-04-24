@@ -36,20 +36,35 @@ class User extends Database
 		$name = filter_var(trim($_POST["name"]), FILTER_SANITIZE_STRING);
 		$username = filter_var(trim($_POST["username"]), FILTER_SANITIZE_STRING);
 		$password = filter_var(trim($_POST["password"]), FILTER_SANITIZE_STRING);
-		try {
-			//hashed password
-			$password_hashed = password_hash($password, PASSWORD_DEFAULT);
-			//rdy sql
-			$sql = 'INSERT INTO user (name, username, password) VALUES (:name, :username, :password)';
-			$stmt = $this->conn->prepare($sql);
-			$stmt->bindParam('name', $name, PDO::PARAM_STR);
-			$stmt->bindParam('username', $username, PDO::PARAM_STR);
-			$stmt->bindParam('password', $password_hashed, PDO::PARAM_STR);
-			$stmt->execute();
-			return true;
-		} catch (Exception $e) {
-			echo 'Caught exception: ', $e->getMessage(), "\n";
-			return false;
+
+		if (!preg_match('/(\w.+\s).+/i', $name)) {
+			return array("response" => "Name must contain Firstname and Lastname");
+		} else if (!preg_match('/^[A-Za-z0-9]+(?:[ _-][A-Za-z0-9]+)*$/i', $username)) {
+			return array("response" => "Usernames can consist of lowercase and capitals" .
+				" Usernames can consist of alphanumeric characters" .
+				" Usernames can consist of underscore and hyphens and spaces" .
+				" Cannot be two underscores, two hypens or two spaces in a row" .
+				" Cannot have a underscore, hypen or space at the start or end");
+		} else if (!preg_match('/^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})/i', $password)) {
+			return array("response" => "Password must contain at least 8 Characters" .
+            " 1 numeric character" . " 1 lowercase letter" .
+            " 1 uppercase letter" . " 1 special character");
+		} else {
+			try {
+				//hashed password
+				$password_hashed = password_hash($password, PASSWORD_DEFAULT);
+				//rdy sql
+				$sql = 'INSERT INTO user (name, username, password) VALUES (:name, :username, :password)';
+				$stmt = $this->conn->prepare($sql);
+				$stmt->bindParam('name', $name, PDO::PARAM_STR);
+				$stmt->bindParam('username', $username, PDO::PARAM_STR);
+				$stmt->bindParam('password', $password_hashed, PDO::PARAM_STR);
+				$stmt->execute();
+				return array("response" => "Registration is successful.");
+			} catch (Exception $e) {
+				echo 'Caught exception: ', $e->getMessage(), "\n";
+				return false;
+			}
 		}
 	}
 
