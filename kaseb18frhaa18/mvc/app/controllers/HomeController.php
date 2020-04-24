@@ -14,15 +14,6 @@ class HomeController extends Controller
 		$this->nameOfUser();
 	}
 
-	public function other($param1 = 'first parameter', $param2 = 'second parameter')
-	{
-		$user = $this->model('User');
-		$user->name = $param1;
-		$viewbag['username'] = $user->name;
-		//$viewbag['pictures'] = $this->model('pictures')->getUserPictures($user);
-		$this->view('home/index', $viewbag);
-	}
-
 	public function login()
 	{
 		if ($this->post()) {

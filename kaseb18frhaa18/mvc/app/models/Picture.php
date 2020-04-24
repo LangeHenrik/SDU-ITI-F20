@@ -81,7 +81,7 @@ class Picture extends Database
             $parameters = $stmt->fetchAll();
             $imageFeed = "";
             foreach ($parameters as $value) {
-                $imageFeed  .= 
+                $imageFeed  .=
                     "<div class='description'>
                     <img src=$value[image] alt=virk />
                     <br/>
@@ -95,7 +95,6 @@ class Picture extends Database
             <div class='imagefeed'>
             <h1>Image Feed</h1>" . $imageFeed . "</div>
             </div>";
-            
         } catch (Exception $e) {
             echo 'Caught exception: ', $e->getMessage(), "\n";
             return false;
@@ -110,10 +109,8 @@ class Picture extends Database
         $description = trim($_POST["description"]);
 
 
-        if (empty($head) || empty($description) || empty($_FILES["file"]["tmp_name"])) {
-            //echo '<script>alert("Upload Failed. Header or Description is empty or no file was selected!")</script>';
-        } elseif ((strlen($head) > 25) or (strlen($description) > 250) or ((filesize($_FILES["file"]["tmp_name"]) * 1.35) > 4294967295)) {
-            //echo '<script>alert("Max titlelength: 25 characters.\nMax description lenght: 250 characters.\nImage file might be too large.")</script>';
+        if ((strlen($head) > 25) or (strlen($description) > 250) or ((filesize($_FILES["file"]["tmp_name"]) * 1.35) > 4294967295)) {
+            return "Max titlelength: 25 characters.\nMax description lenght: 250 characters.\nImage file might be too large.";
         } else {
             $name = $_FILES['file']['name'];
             $target_dir = "upload/";
@@ -153,8 +150,9 @@ class Picture extends Database
 
                 // Upload file
                 //move_uploaded_file($_FILES['file']['tmp_name'], $target_dir . $name);
-                echo '<script>alert("Upload Success")</script>';
+                return "Upload Success";
             } else {
+                return "only filtypes allowed are .jpg, .jpeg, .png and .gif";
             }
         }
     }
