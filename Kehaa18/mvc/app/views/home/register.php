@@ -2,14 +2,14 @@
 
 <div class="main" align="center">
         <div class="wrapper" id="loginform" >
-            <h2> Login form</h2>
+            <h2> Register form</h2>
                 <!-- Register form that calls the document itself (register.php) and sends the information via POST. --->
-                <form action="/nipat10/mvc/public/user/login" method="post">
+                <form action="/nipat10/mvc/public/user/register" method="post" onsubmit="validate(this)">
                     <label for="username">Username</label>
                     <input type="text" id="username" name="username" autocomplete="off" required placeholder="username"><br>
                     <label for="password">Password</label>
                     <input type="password" id="password" name="password" autocomplete="off" required placeholder="Password"><br>
-                    <input type="submit" name="login" value="Login"></button>
+                    <input type="submit" name="register" value="Register"></button>
                 </form>
     
             </div>

@@ -1,14 +1,47 @@
+<!DOCTYPE html>
 <html>
-    <head>
-    <script src="../js/js.js"></script>
-    </head>
-    <body>
+<head>
+<title>ITI - Mandatory Assignment - Kenneth Haahr</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="/nipat10/mvc/public/css/style.css">
+</head>
+<body>
 
-<div style="background-color: lightblue;">Menu partial view</div>
+<header>
 
-<?php if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']) : ?>
+<nav class="menu">
+<ul>
+<li><a href="/nipat10/mvc/public/home">Frontpage</A></li>
+<li><a href="/nipat10/mvc/public/home/register">Registration</A></li>
+<li><a href="/nipat10/mvc/public/home/upload">Upload-images</A></li>
+<li><a href="/nipat10/mvc/public/image/images">Image-Feed</A></li>
+<li><a href="/nipat10/mvc/public/user/users">User list</A></li>
+</ul>
 
-<a href="/Henrik/mvc/public/user/logout">log out</a>
 
-<?php endif; ?>
+<?php
+        //Check whether user is logged in and modifies the navigation bar accordingly.
+        //If user is logged in.
+        if(isset($_SESSION['username'])) {
+            $username = $_SESSION['username'];
+            echo '<div class="header-logout-main">
+            <ul><li><p>Welcome '."$username".'! </p></li>
+            <li><form action="/nipat10/mvc/public/home/logout" method="post">
+            <button type="submit" name="logout">Logout</button>
+            </form></li></ul>';
 
+        }
+        else {
+            //If user is not logged in.
+            echo '<div class="header-logout-main">
+            <li><a href="/nipat10/mvc/public/home/register">Register</a></li>'
+            ;
+        }
+
+?>
+
+
+
+
+</nav>
+</header>
