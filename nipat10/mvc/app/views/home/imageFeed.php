@@ -14,13 +14,12 @@
                     ?> <div class="image">
 
                             <h2><?php echo $viewbag[$key]["header"] ?></h2><br>
-
-                            <?php echo '<img src="data:image/jpeg;base64,'.base64_encode($key["image"]). '"/><br>'; ?>
+                            <img src="<?=$viewbag[$key]['image']?>">
                             <hr>
                             <h2>Image Description: </h2>
                             <p><?php echo $viewbag[$key]["description"] ?></p><br>
                             <hr>
-                            <p>User: <?php echo $viewbag[$key]["username"] ?></p><br>
+                            <p>User: <?php echo $viewbag[$key]["user_id"] ?></p><br>
                         </div>
                 </div>
         <?php

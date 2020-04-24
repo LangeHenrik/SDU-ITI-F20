@@ -1,8 +1,7 @@
 <?php
 
-class ImageController extends Controller {
-
-
+class ImageController extends Controller
+{
     public function index()
     {
         if (!isset($_SESSION['user_id']) || !isset($_SESSION['logged_in'])) {
@@ -12,19 +11,17 @@ class ImageController extends Controller {
         $this->view('home/upload');
     }
 
-    public function upload(){
+    public function upload()
+    {
         if ($this->post()) {
             $this->model('Image')->upload();
-            header('Location: /nipat10/mvc/public/home');
+            $this->view('home/upload');
         }
-        header('Location: /nipat10/mvc/public/home/upload');
-               
     }
 
-    public function images(){
+    public function images()
+    {
         $images = $this->model('Image')->getAll();
         $this->view('home/imageFeed', $images);
-	
     }
-
 }

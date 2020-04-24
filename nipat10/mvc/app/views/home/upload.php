@@ -1,6 +1,7 @@
 <?php include '../app/views/partials/menu.php'; ?>
 
-<!--Form for uploading images via POST-->
+
+         <!--Form for uploading images via POST-->
 <div class="main" align="center">
     <div class="wrapper" id="loginform">
         <h2>Upload Image Form</h2>
@@ -20,5 +21,6 @@
     </form>
 </div>
 </div>
+   
 
-<?php include '../app/views/partials/foot.php'; ?>
+<?php include_once '../app/views/partials/foot.php';
