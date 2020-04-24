@@ -9,10 +9,7 @@ class UserController extends Controller
     
     public function register()
     {
-        if (!isset($_SESSION['user_id']) || !isset($_SESSION['logged_in'])) {
-            //User not logged in. Redirect them back to the login page.
-            $this->view('home/index');
-        } else {
+   
             if ($this->post()) {
                 $register_attempt = $this->model('User')->register();
                 if ($register_attempt) {
@@ -25,7 +22,7 @@ class UserController extends Controller
             } else {
                 $this->view('home/register');
             }
-        }
+        
     }
 
     public function users()

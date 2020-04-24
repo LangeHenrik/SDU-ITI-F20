@@ -14,45 +14,36 @@ class ApiController extends Controller {
 	}
 	
 	public function users () {
-		$users = $this->model('User')->getAll();
-		echo json_encode($users, JSON_PRETTY_PRINT);
-	}
-
-	public function secret ($n, $apikey) {
-
-		//basic auth will reveal the secret
-		$username = "myusername";
-		$password = "mypassword";
-		$_apikey = "myapikey";
-
-		//print_r(apache_request_headers());
-		//print_r($_SERVER);
-
-		if( $_SERVER['PHP_AUTH_USER'] == $username
-			&& $_SERVER['PHP_AUTH_PW'] == $password
-			&& $apikey == $_apikey
-		) {
-			echo 'Authorized!';
+		if ($this->get()) {
+			$users = $this->model('User')->getAllUsers();
 		} else {
-			echo 'Not so much!';
-		}
-
-	}
-
-	public function base64 () {
-		echo base64_encode($_SERVER['PHP_AUTH_USER'] . ':' . $_SERVER['PHP_AUTH_PW']);
-	}
-
-	public function insession () {
-		if(isset($_SESSION['insession'])) {
-			echo 'true';
-		} else {
-			echo 'false';
+			echo '403 Forbidden request!';
 		}
 	}
+	
+	
 
-	public function setsession () {
-		$_SESSION['insession'] = true;
+
+	public function pictures($user, $user_id)
+	{
+		if (is_numeric($user_id) && $user_id >= 0)
+			if ($this->post()) {
+				$this->postPicture($user_id);
+			} elseif ($this->get()) {
+				$this->getPictures($user_id);
+			}
+	}
+
+	private function postPicture($user_id)
+	{
+		$image_id = $this->model('Picture')->postPictures($user_id);
+	//	echo json_encode($image_id, JSON_PRETTY_PRINT);
+	}
+
+	private function getPictures($user_id)
+	{
+		$user_pictures = $this->model('Picture')->getAllUserPictures($user_id);
+		echo json_encode($user_pictures, JSON_PRETTY_PRINT);
 	}
 
 

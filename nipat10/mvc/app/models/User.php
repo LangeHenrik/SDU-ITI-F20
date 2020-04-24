@@ -80,7 +80,20 @@ class User extends Database
 		return $message;
     }
 
-    public function getAll()
+    public function getAllUsers()
+    {
+        $users = array();
+        $data = $this->conn->prepare('SELECT * FROM users ');
+        $data->execute();
+        While($OutputData = $data->fetch(PDO::FETCH_ASSOC)){
+            $users[]= array(
+                'user_id'=>$OutputData['id'],
+                'username' => $OutputData['username']
+            );
+        }
+		echo json_encode($users, JSON_PRETTY_PRINT);
+	}
+	public function getAll()
     {
         $sql = "SELECT id,username FROM users ORDER BY id ASC";
 
