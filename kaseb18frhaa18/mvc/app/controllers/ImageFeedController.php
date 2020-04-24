@@ -4,8 +4,8 @@ class ImageFeedController extends Controller
 {
 	public function index()
 	{
-		$this->view('home/imageFeed');
-		$this->model('Picture')->loadImageFeed();
+		$viewbag = $this->model('Picture')->loadImageFeed();
+		$this->view('home/imageFeed', $viewbag);
 		$this->nameOfUser();
 	}
 }

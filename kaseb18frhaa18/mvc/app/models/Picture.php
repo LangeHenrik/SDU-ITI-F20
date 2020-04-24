@@ -79,22 +79,7 @@ class Picture extends Database
 
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             $parameters = $stmt->fetchAll();
-            $imageFeed = "";
-            foreach ($parameters as $value) {
-                $imageFeed  .=
-                    "<div class='description'>
-                    <img src=$value[image] alt=virk />
-                    <br/>
-                    <p>$value[title]</p>
-                    <h3>$value[description]</h3>
-                    <br/>
-                    <h4>$value[username]</h4>
-                    </div>";
-            }
-            echo "<div class='wrapper'>
-            <div class='imagefeed'>
-            <h1>Image Feed</h1>" . $imageFeed . "</div>
-            </div>";
+            return $parameters;
         } catch (Exception $e) {
             echo 'Caught exception: ', $e->getMessage(), "\n";
             return false;
