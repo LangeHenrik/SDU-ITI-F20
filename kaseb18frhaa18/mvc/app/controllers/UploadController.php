@@ -3,9 +3,10 @@
 class UploadController extends Controller
 {
 
-	public function index($param)
+	public function index()
 	{
 		$this->view('home/uploadPage');
+		$this->nameOfUser();
 	}
 
 	public function uploadPicture()

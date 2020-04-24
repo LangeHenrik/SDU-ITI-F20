@@ -8,6 +8,7 @@ class UserListController extends Controller
 			$viewbag = $this->model('User')->getUsers($user);
 			$this->view('home/userList', $viewbag);
 		}
+		$this->nameOfUser();
 	}
 
 	public function getSpecificUsers($user = "")

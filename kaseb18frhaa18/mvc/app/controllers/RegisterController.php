@@ -2,9 +2,10 @@
 
 class RegisterController extends Controller
 {
-	public function index($param)
+	public function index()
 	{
 		$this->view('home/registration');
+		$this->nameOfUser();
 	}
 
 	public function registration()
@@ -17,14 +18,14 @@ class RegisterController extends Controller
 
 			if ($this->model('user')->register($name, $username, $password)) {
 				if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
-					echo '<script>alert("Registration Succesful. You will be redirected to Upload.")</script>';
-					$this->view('home/UploadPage');
+					echo '<div><h3 id="popUp">Registration is successful.</h3></div>';
+					$this->view('home/imageFeed');
 				} else {
-					echo '<script>alert("Registration Succesful. You will be redirected to login.")</script>';
+					echo '<div><h3 id="popUp">Registration is successful.</h3></div>';
 					$this->view('home/index');
 				}
 			} else {
-				echo '<script>alert("Registration not succesful.")</script>';
+				echo '<div><h3 id="popUp">Registration is not successful. Please try again.</h3></div>';
 				$this->view('home/registration');
 			}
 		}

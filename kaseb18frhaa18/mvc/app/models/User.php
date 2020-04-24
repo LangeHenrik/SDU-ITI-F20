@@ -12,7 +12,15 @@ class User extends Database
 
 			foreach ($parameters as $value) {
 				if ($value['username'] == $username && password_verify($password, $value['password'])) {
+					$id = $value['user_id'];
+					$name = $value['name'];
+					$_SESSION["logged_in"] = true;
+					$_SESSION["username"] = $username;
+					$_SESSION['id'] = $id;
+					$_SESSION['name'] = $name;
 					return true;
+				} else {
+					return false;
 				}
 			}
 		} catch (Exception $e) {

@@ -115,6 +115,22 @@ body {
     }
 }
 
+@keyframes animatepopIN {
+    to {
+        width: 0;
+        height: 0;
+        overflow: hidden;
+    }
+}
+
+@-webkit-keyframes animatepopIN {
+    to {
+        width: 0;
+        height: 0;
+        visibility: hidden;
+    }
+}
+
 .wrapper .content {
     width: 400px;
     padding: 40px;
@@ -336,4 +352,23 @@ div.description h4 {
     margin-right: 40px;
     font-size: 1.5em;
     padding: 10px;
+}
+
+#popUp {
+    -webkit-animation: cssAnimation 0s ease-in 5s forwards;
+    animation: cssAnimation 0s ease-in 5s forwards;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    text-align: center;
+    background-color: #3399FF;
+    color: white;
+    width: auto;
+    height: auto;
+    position: absolute;
+    left: 39%;
+    margin-right: 40px;
+    font-size: 1em;
+    padding: 5px;
+    animation-name: animatepopIN;
+    animation-duration: 1s;
 }

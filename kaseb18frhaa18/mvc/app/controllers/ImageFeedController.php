@@ -6,5 +6,6 @@ class ImageFeedController extends Controller
 	{
 		$this->view('home/imageFeed');
 		$this->model('Picture')->loadImageFeed();
+		$this->nameOfUser();
 	}
 }

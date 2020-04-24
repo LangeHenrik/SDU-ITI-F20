@@ -92,7 +92,7 @@ if (isset($_POST['upload'])) {
       $image_base64 = base64_encode(file_get_contents($_FILES['file']['tmp_name']));
       $photo = 'data:image/' . $imageFileType . ';base64,' . $image_base64;
       // Insert record
-      $statement = 'insert into feed (head, description, photo, person_id) values(:head, :description, :photo, :person_id)';
+      $statement = 'insert into picture (title, description, image, user_id) values(:head, :description, :photo, :person_id)';
       $parameters = array(
         array(":head", $head), array(":description", $description),
         array(":photo", $photo), array(":person_id", $_SESSION['id'])

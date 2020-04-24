@@ -6,11 +6,12 @@ class HomeController extends Controller
 	public function index()
 	{
 		if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
-			echo '<script>alert("You have already logged in. Wish to create an account?")</script>';
+			echo '<div><h3 id="popUp">You are already logged in, and cannot access the login page.</h3></div>';
 			$this->view('home/registration');
 		} else {
 			$this->view('home/index');
 		}
+		$this->nameOfUser();
 	}
 
 	public function other($param1 = 'first parameter', $param2 = 'second parameter')
@@ -30,10 +31,10 @@ class HomeController extends Controller
 
 			if ($this->model('user')->login($username, $password)) {
 				$_SESSION['logged_in'] = true;
-				echo '<script>alert("Log in Success")</script>';
-				$this->view('home/UploadPage');
+				echo '<div><h3 id="popUp">Login Successful</h3></div>';
+				$this->view('home/uploadPage');
 			} else {
-				echo '<script>alert("Log in Not Success. Try Again")</script>';
+				echo '<div><h3 id="popUp">Login failed. Username or Password is incorrect.</h3></div>';
 				$this->view('home/index');
 			}
 		}
@@ -44,12 +45,8 @@ class HomeController extends Controller
 		if ($this->post()) {
 			session_unset();
 			session_destroy();
-			echo '<script>alert("You have been logged out. Redirecting to registration. ")</script>';
+			echo '<div><h3 id="popUp">You have been logged out successfully</h3></div>';
 			$this->view("home/registration");
 		}
-	}
-
-	public function showUser(){
-		printf($_SESSION["name"]);
 	}
 }

@@ -76,11 +76,13 @@ class Picture extends Database
             $sql = 'SELECT a.image, a.title, a.description, b.username FROM picture a INNER JOIN user b ON a.user_id=b.user_id;';
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
-            $parameters = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            $imageFeed = "";
 
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            $parameters = $stmt->fetchAll();
+            $imageFeed = "";
             foreach ($parameters as $value) {
-                $imageFeed .= "<div class='description'>
+                $imageFeed  .= 
+                    "<div class='description'>
                     <img src=$value[image] alt=virk />
                     <br/>
                     <p>$value[title]</p>
@@ -89,14 +91,17 @@ class Picture extends Database
                     <h4>$value[username]</h4>
                     </div>";
             }
-            return $imageFeed;
+            echo "<div class='wrapper'>
+            <div class='imagefeed'>
+            <h1>Image Feed</h1>" . $imageFeed . "</div>
+            </div>";
             
         } catch (Exception $e) {
             echo 'Caught exception: ', $e->getMessage(), "\n";
             return false;
         }
     }
-    
+
     public function uploadPicture()
     {
         //måske lav et array med en plads til hver if-statement så man kan checke hvad der går galt
