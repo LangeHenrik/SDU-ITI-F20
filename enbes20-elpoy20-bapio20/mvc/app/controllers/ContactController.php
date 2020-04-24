@@ -26,6 +26,8 @@ class ContactController extends Controller {
 	    $res = $this->model('User')->getAll($q);
 			$row = $res->fetchAll();
 			$viewbag['output_userlist'] =  $row;
+			//var_dump($viewbag['output_userlist']);
+
 
 	  }
 	  $res->closeCursor(); // End the request
