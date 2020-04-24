@@ -80,6 +80,7 @@ class User extends Database
 
 	public function getUsers($user)
 	{
+		$user = filter_var($user, FILTER_SANITIZE_STRING);
 		$statement = "SELECT name, username FROM user";
 		//$users = talkToDB($statement, null);
 		$stmt = $this->conn->prepare($statement);
@@ -90,12 +91,11 @@ class User extends Database
 		if ($user == "") {
 			return $users;
 		} else {
-			$q = filter_var($user, FILTER_SANITIZE_STRING);
-			$q = strtolower($q);
-			$len = strlen($q);
+			$user = strtolower($user);
+			$len = strlen($user);
 			$specificUsers = array();
 			foreach ($users as $name) {
-				if (stristr($q, substr($name['name'], 0, $len)) || stristr($q, substr($name['username'], 0, $len))) {
+				if (stristr($user, substr($name['name'], 0, $len)) || stristr($user, substr($name['username'], 0, $len))) {
 					array_push($specificUsers, $name);
 				}
 			}
