@@ -26,7 +26,7 @@
                 </div>
                 <div class="form-group">
                     <label for="fullname" id="fullname-label">Forname and lastname: </label>
-                    <input type="text" class="form-control" name="fullname" id="fullname" title="Please enter your first and lastname" pattern="^(\w+\s+\D).+$" placeholder="Type forname and lastname" required>
+                    <input type="text" class="form-control" name="fullname" id="fullname" placeholder="Type forname and lastname" required>
                 </div>
                 <div class="form-group">
                     <label for="email" id="email-label">Email: </label>

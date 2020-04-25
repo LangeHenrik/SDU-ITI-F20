@@ -1,0 +1,15 @@
+<script> alert('You have been hacked') </script>
+
+' OR 1 + 1 = 2 ';
+<h1>something</h1>
+password.setAttribute('pattern', "(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])\S{8,}")
+
+Postman
+{
+        "image": "data:image/jpg;base64,",
+        "title": "testen",
+        "description": "tesen",
+        "username": "willien",
+        "password": "test"
+    
+}

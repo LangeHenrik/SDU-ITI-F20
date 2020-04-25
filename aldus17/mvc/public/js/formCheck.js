@@ -38,6 +38,9 @@ $(window).load(function() {
 
 }); */
 
+document.addEventListener('DOMContentLoaded', function() {
+    checkForm()
+});
 
 function checkForm() {
     checkFullname();
@@ -49,6 +52,7 @@ function checkForm() {
 function checkFullname() {
     var fullname = document.getElementById("fullname");
     var regEx = new RegExp(/(^(\w+\s+\D).+$)/g);
+    fullname.setAttribute('title', 'Please enter your first and lastname');
 
     if (regEx.test(fullname.value)) {
         changeLabelColor("fullname-label", "LawnGreen");
@@ -60,6 +64,7 @@ function checkFullname() {
 function checkPassword() {
     var password = document.getElementById("password");
     var regEx = new RegExp(/(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])\S{8,}/gm);
+    //password.setAttribute('pattern', "(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])\S{8,}");
     password.setAttribute('title', 'Password should be at least one capital letter, one small letter, one number and 8 character length');
 
     if (regEx.test(password.value)) {
@@ -98,15 +103,21 @@ function checkUsername() {
 }
 
 function validatePassword() {
+
     if (document.getElementById('password').value == document.getElementById('password_confirm').value) {
-        document.getElementById('message').style.color = 'LawnGreen';
-        document.getElementById('password_confirm-label').style.color = 'LawnGreen';
-        document.getElementById('message').innerHTML = 'password matching';
-        return true;
+        if (document.getElementById('password').value != '') {
+            document.getElementById('message').style.color = 'LawnGreen';
+            document.getElementById('password_confirm-label').style.color = 'LawnGreen';
+            document.getElementById('message').innerHTML = 'password matching';
+            return true;
+        }
+
     } else {
-        document.getElementById('message').style.color = 'Maroon';
-        document.getElementById('password_confirm-label').style.color = 'Maroon';
-        document.getElementById('message').innerHTML = 'password not matching';
+        if (document.getElementById('password').value != '') {
+            document.getElementById('message').style.color = 'Maroon';
+            document.getElementById('password_confirm-label').style.color = 'Maroon';
+            document.getElementById('message').innerHTML = 'password not matching';
+        }
 
         return false;
     }
