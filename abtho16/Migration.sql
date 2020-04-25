@@ -1,5 +1,5 @@
 /*!I didn't make the insert sentence due to my local database was not working with my site */;
-
+/*  */
 DROP DATABASE IF EXISTS `abtho16`;
 CREATE DATABASE IF NOT EXISTS `abtho16` 
 USE `abtho16`;
