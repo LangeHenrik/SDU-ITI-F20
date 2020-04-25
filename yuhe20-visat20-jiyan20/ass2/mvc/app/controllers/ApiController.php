@@ -27,11 +27,11 @@ class ApiController extends Controller {
 			$UP_info = json_decode($_POST['json'], true);
 			print_r($UP_info);
 			$UP_info['username'] = $username;
-			if($this->model('user')->verifyUser($UP_info)) {
+			if($this->model('User')->verifyUser($UP_info)) {
 				$user_image = $this->model('Image')->ApiImage($UP_info);
 			} elseif ($this->getAll()) {
 				 $result = $this->model('Image')->getUserImages($user_id);
-				 echo json_encode($result,JSON_PRETTY_PRINT);
+				 echo json_encode($result, JSON_PRETTY_PRINT);
 			}
 
 		}
