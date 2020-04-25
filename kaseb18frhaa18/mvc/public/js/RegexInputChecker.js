@@ -3,7 +3,7 @@ var ok = "Accepted"
 var bad = "Not good enough"
 
 function checkName() {
-    var name = document.getElementById("name").value;
+    var name = document.getElementById("somename").value;
     var regex = /(\w.+\s).+/i;
     var nameLabel = document.getElementById("name_err")
     if (regex.test(name)) {

@@ -8,7 +8,7 @@
     <div class="content">
         <form action="/kaseb18frhaa18/mvc/public/Register/registration" method="post">
             <h1>Registration</h1>
-            <input placeholder="Name" type="text" name="name" id="name" required onkeyup="return checkName()" />
+            <input placeholder="Name" type="text" name="name" id="somename" required onkeyup="return checkName()" />
             <span id="name_err"></span>
             <input placeholder="Username" type="text" name="username" id="username" required
                 onkeyup="return checkUserName()" />
