@@ -4,6 +4,10 @@ include '../app/views/partials/menu.php';
 
 
 ?>
+    <style>
+        <?php include '../../css/style.css'; ?>
+    </style>
+
 
     <div class="grid-container">
         <div class="login1">

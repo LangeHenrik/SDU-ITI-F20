@@ -23,13 +23,11 @@ class HomeController extends Controller {
         //TODO Create Login view and Feed view
         if ($this->logged_in) {
             $this->viewbag['posts'] = $this->model('Post')->getPictures();
-            $this->view('home/Feed', $this->viewbag);
+            $this->view('home/index', $this->viewbag);
         } else {
-            $this->view('home/Login', $this->viewbag);
+            $this->view('home/login', $this->viewbag);
         }
 
-        $path = "../app/views/home/index.php";
-        include $path;
 	}
 	
 	public function other ($param1 = 'first parameter', $param2 = 'second parameter') {
