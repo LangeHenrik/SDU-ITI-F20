@@ -1,4 +1,4 @@
-<?php include '../partials/menu.php'; ?>
+<?php include '../partials/header.php'; ?>
 
 
 <div class="login-info">

@@ -1,4 +1,4 @@
-<?php include '../partials/menu.php'; ?>
+<?php include '../partials/header.php'; ?>
 
 <div class="content" id="registration">
     <div>
@@ -7,7 +7,7 @@
           <div class="wrapper-main">
             <div id="formContent">
               <h1>Sign-up</h1>
-              <form onKeyUp="return validateFields()" class="form-signup" method="post">
+              <form onKeyUp="return validateFields()" class="form-signup" method="post" action='register'>
                 <input type="text" name="username" id="username" placeholder="Username" autofocus require>
                 <input type="text" name="email-register" id="email-register" placeholder="E-mail" require>
                 <input type="password" name="pwd-register" id="pwd-register"  onKeyUp="checkPasswordStrength();" placeholder="Password" require>

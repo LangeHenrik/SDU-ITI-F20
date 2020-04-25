@@ -1,6 +1,6 @@
 <?php
-    #session_start();
-    #require (__DIR__.'/../../core/db_config.php');
+    //session_start();
+    //require (__DIR__.'/../../core/db_config.php');
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +22,7 @@
                     echo "<a href='logout.php'><input type=button value=Logout name=logout></a>";
                 } else { ?>
                     <div class="login-container">    
-                        <form name="login" action="feed.php" method="POST">
+                        <form name="login" action="/mvc/public/User/login" method="POST">
                             <input type="text" name="username-login" id="username-login" placeholder="Username">
                             <input type="password" name="pwd-login" id="pwd-login" placeholder="Password">
                             <button type="submit" name="login-submit">Log-in</button>
