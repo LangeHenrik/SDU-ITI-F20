@@ -28,11 +28,8 @@ class HomeController extends Controller {
             $this->view('home/Login', $this->viewbag);
         }
 
-        //This is a proof of concept - we do NOT want HTML in the controllers!
         $path = "../app/views/home/index.php";
         include $path;
-        echo '<br><br>Home Controller Index Method<br>';
-		echo 'Param: ' . $param . '<br><br>';
 	}
 	
 	public function other ($param1 = 'first parameter', $param2 = 'second parameter') {

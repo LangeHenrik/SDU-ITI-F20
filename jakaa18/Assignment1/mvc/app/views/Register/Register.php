@@ -5,6 +5,7 @@ include '../app/views/partials/menu.php';
 <div class="register1" id="registerView">
     <text id="usernameAvailable" name="usernameAvailable"></text><br>
     <form onsubmit="return CheckForm()" method="post">
+        <?php console.log("TINGTING is working");?>
         <p> Username: (Max 100 chars)<input type="text" placeholder="Enter Username" name="regUsernameId" id="regUsernameId"
                                             required onkeyup="checkUsername(this.value)" onkeydown="checkRegister()"></p><br>
         <p class="info-elements" id="username-availability"></p>

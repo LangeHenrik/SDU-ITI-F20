@@ -14,17 +14,14 @@ include '../app/views/partials/menu.php';
             <form method="post">
                 <p> Username: <input type="text" name="username" id="usernameId" placeholder="Username"></p><br>
                 <p> Password: <input type="password" name="password" id="passwordId" placeholder="Password"></p><br>
-
         </div>
         <div class="login3">
             <input type="submit" class="button" name="send" value="Login" id="loginBtn">
         </div>
         </form>
-
         <div class="login4">
-            <button onclick="window.location.href = '/jakaa18/Assignment1/mvc/public/home//Register';">Register here</button>
+            <button class="button" onclick="window.location.href = '/Assignment1/mvc/public/register';">Register here</button>
         </div>
-
     </div>
 
 <br/>
