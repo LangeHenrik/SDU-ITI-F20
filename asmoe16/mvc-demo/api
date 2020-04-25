@@ -1,0 +1,19 @@
+#!/usr/bin/zsh
+# Post image right user
+curl --data-urlencode json@image.json http://localhost:8080/asmoe16/mvc/public/api/pictures/user/1
+# Post image wrong user
+curl --data-urlencode json@image.json http://localhost:8080/asmoe16/mvc/public/api/pictures/user/2
+# Post not an image
+curl --data-urlencode json='{
+"username" : "user1",
+"password" : "User1User1",
+"title" : "Not an image",
+"description" : "This is not an image",
+"image" : "'"$(cat ../mvc/app/controllers/ApiController.php | base64)"'"
+}' http://localhost:8080/asmoe16/mvc/public/api/pictures/user/1
+#Get users
+curl -G http://localhost:8080/asmoe16/mvc/public/api/users | jq
+#Get image
+curl -G http://localhost:8080/asmoe16/mvc/public/api/pictures/user/2 | jq
+#Proof image works
+curl -G http://localhost:8080/asmoe16/mvc/public/api/pictures/user/2 | jq -r '.[1].image' | base64 -d >> New.jpg
