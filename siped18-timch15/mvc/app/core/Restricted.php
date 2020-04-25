@@ -3,11 +3,13 @@
 function restricted($controller, $method)
 {
 
-	$restricted_urls = array(
+	$restricted_urls = array(	//TODO verify all methods
 		'HomeController' => array('logout'),
 		'ApiController' => array(),
 		'RegistrationController' => array(),
-		'ImagefeedController' => array('index')
+		'ImagefeedController' => array('index'),
+		'UploadController' => array('index'),
+		'UserlistController' => array('index')
 	);
 
 	if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {

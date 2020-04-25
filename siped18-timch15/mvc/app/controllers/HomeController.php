@@ -33,4 +33,8 @@ class HomeController extends Controller
 			echo 'You can only log out with a post method';
 		}
 	}
+
+	public function accessDenied(){
+		$this->view('home/accessDenied');
+	}
 }

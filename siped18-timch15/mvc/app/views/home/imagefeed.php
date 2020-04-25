@@ -1,19 +1,19 @@
 <?php include '../app/views/partials/menu.php'; ?>
 
-<div class="wrapper">
-    <div class="content">
 
-        <div class="post">
-            <p class="username"><em><?= $viewbag['currentUser'] ?></em> posted:</p>
-            <div class="post-content">
-                <img src="<?= $viewbag['image'] ?>" alt="<?= $viewbag['currentUser'] ?>.png">
-                <p class="post-title"><?= $viewbag['userPostHeader'] ?></p>
-                <p class="post-description"><?= $viewbag['userPostDescription'] ?></p>
-            </div>
+<?php for ($i = 0; $i < sizeof($viewbag) - 1; $i++) { ?>
+
+    <div class="post">
+        <p class="username"><em><?= $viewbag['currentUser'] ?></em> posted:</p>
+        <div class="post-content">
+            <img src="<?= $viewbag[$i]['image'] ?>" alt="<?= $viewbag['currentUser'] ?>.png">
+            <p class="post-title"><?= $viewbag[$i]['title'] ?></p>
+            <p class="post-description"><?= $viewbag[$i]['description'] ?></p>
         </div>
-        <hr>
-
     </div>
-</div>
+    <hr>
+
+<?php } ?>
+
 
 <?php include '../app/views/partials/foot.php'; ?>

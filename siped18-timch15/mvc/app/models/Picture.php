@@ -2,6 +2,17 @@
 class Picture extends Database
 {
 
+    function getImagePosts()
+    {
+        $stmt = $this->conn->prepare("SELECT * FROM picture");
+
+        $stmt->execute();
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $result = $stmt->fetchAll();
+
+        return $result;
+    }
+    
     public function getPicture($user_id)
     {
         $stmt = $this->conn->prepare("SELECT a.image_id, a.title, a.description, a.image FROM 
@@ -10,17 +21,16 @@ class Picture extends Database
         $stmt->execute();
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
         $result = $stmt->fetchAll();
-    
+
         return $result;
-        
     }
 
-    public function postPictures($image, $title, $description, $uploader) 
+    public function postPictures($image, $title, $description, $uploader)
     {
         $stmt = $this->conn->prepare("INSERT INTO picture (image, title, description, uploader) 
         VALUES (:picture, :header, :description, :uploader)");
         $stmt->bindParam(':image', $image);
-        $stmt->bindParam(':titl', $title);
+        $stmt->bindParam(':title', $title);
         $stmt->bindParam(':description', $description);
         $stmt->bindParam(':uploader', $uploader);
         $stmt->execute();
@@ -28,13 +38,5 @@ class Picture extends Database
         $last_id = $this->conn->lastInsertId();
 
         return $last_id;
-
-
-
     }
-
-
-
-
-
 }
