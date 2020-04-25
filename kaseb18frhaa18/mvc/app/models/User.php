@@ -48,9 +48,7 @@ class User extends Database
 				" Cannot have a underscore, hypen or space at the start or end");
 		}
 		if (!preg_match('/^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})/i', $password)) {
-			return array('response' => "Password must contain at least 8 Characters" .
-				" 1 numeric character" . " 1 lowercase letter" .
-				" 1 uppercase letter" . " 1 special character");
+			return array('response' => "Password must contain at least 6 Characters");
 		}
 		try {
 			//hashed password

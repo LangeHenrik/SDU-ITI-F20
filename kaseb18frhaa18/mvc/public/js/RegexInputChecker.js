@@ -23,9 +23,7 @@ function checkPassword() {
         return nameLabel.textContent = "";
 
     } else {
-        return nameLabel.textContent = "Password must contain at least 8 Characters" +
-            " 1 numeric character" + " 1 lowercase letter" +
-            " 1 uppercase letter" + " 1 special character";
+        return nameLabel.textContent = "Password must contain at least 6 Characters";
     }
 }
 
