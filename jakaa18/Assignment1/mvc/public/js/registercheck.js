@@ -4,15 +4,31 @@ let UsernameInput = document.getElementById("regUsernameId");
 //TODO create info element to inform user of unavailable name
 let UsernameInfo = document.getElementById("username-info");
 let UsernameAvailability = document.getElementById("username-availability");
-UsernameInput.addEventListener("keyup",CheckUsername);
+if (UsernameInput){UsernameInput.addEventListener("keyup", CheckUsername);}
 
 let PasswordInput = document.getElementById("regPassId");
 //TODO create info element to inform user of unusable password
 let PasswordInfo = document.getElementById("password-info");
-PasswordInput.addEventListener("keyup",CheckPass);
-
+if (PasswordInput) {PasswordInput.addEventListener("keyup", CheckPass);}
 let usernameRegex =/^[A-Za-zÆØÅæøå _\-\d]{3,}$/;
 let passRegex = /^(?=.*[a-zæøå])(?=.*[A-ZÆØÅ])(?=.*\d)(?=.*[@$!%*?&])[A-Za-zÆØÅæøå\d]{8,}$/;
+
+
+function checkRegEx(nameTest, regExp) {
+    if (RegExp(regExp).test(nameTest.value)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function CheckRegister() {
+    let usernameValue = document.getElementById("regUsernameId");
+    let usernameRegex =/^[A-Za-zÆØÅæøå _\-\d]{3,}$/;
+    let available = CheckUsername(usernameValue.value);
+    let valid = checkRegEx(usernameValue, usernameRegex);
+    return available && valid;
+}
 
 function CheckElement(testElement, regexp, infoElement, errorText) {
     if (RegExp(regexp).test(testElement.value)){
@@ -28,13 +44,19 @@ function CheckElement(testElement, regexp, infoElement, errorText) {
 }
 
 function CheckForm() {
-    return CheckUsername() && CheckPass(); //Needs to return 3 trues
+    if (CheckUsername() == true && true && CheckPass() == true){
+        return true;
+    }
 }
 
 function CheckUsername() {
-    UsernameAvailability.style.color = "white";
-    let available = UsernameAvailable(UsernameInput.value);
-    let valid = CheckElement(UsernameInput, usernameRegex, UsernameInfo, "Please enter a valid Username");
+    let valid;
+    let available;
+    if(UsernameAvailability){UsernameAvailability.style.color = "white";}
+    if(UsernameInput) {
+        let available = UsernameAvailable(UsernameInput.value);
+        let valid = CheckElement(UsernameInput, usernameRegex, UsernameInfo, "Please enter a valid Username");
+    }
     return valid && available;
 }
 

@@ -2,7 +2,6 @@
 $title = "Login page";
 include '../app/views/partials/menu.php';
 
-
 ?>
     <style>
         <?php include '../../css/style.css'; ?>
@@ -15,7 +14,7 @@ include '../app/views/partials/menu.php';
         </div>
         <div class="login2" id="loginView">
             <!-- Login -->
-            <form method="post">
+            <form onsubmit="return" method="post">
                 <p> Username: <input type="text" name="username" id="usernameId" placeholder="Username"></p><br>
                 <p> Password: <input type="password" name="password" id="passwordId" placeholder="Password"></p><br>
         </div>

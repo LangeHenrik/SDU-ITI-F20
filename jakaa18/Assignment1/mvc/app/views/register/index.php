@@ -14,9 +14,9 @@ include '../app/views/partials/menu.php';
     </div>
     <div class="register1" id="registerView">
         <text id="usernameAvailable" name="usernameAvailable"></text><br>
-        <form onsubmit="return CheckForm()" action="../app/views/home" method="post">
+        <form onsubmit="return CheckForm()" action="../app/views/home" method>
             <p> Username: (Max 100 chars)<input type="text" placeholder="Enter Username" name="regUsernameId" id="regUsernameId"
-                                                required onkeyup="checkUsername(this.value)" onkeydown="checkRegister()"></p><br>
+                                                required onkeyup="CheckUsername(this.value)" onkeydown="CheckRegister()"></p><br>
             <p class="info-elements" id="username-availability"></p>
             <p class="info-elements" id="username-info"></p> <br>
             <p> Password: (Max 100 chars) <input type="password" placeholder="Enter Password" name="regPassId" id="regPassId"
@@ -26,6 +26,7 @@ include '../app/views/partials/menu.php';
         </form>
     </div>
 </div>
+
 
 
 <?php include '../app/views/partials/foot.php'; ?>
