@@ -27,7 +27,7 @@ class UserController extends Controller {
 		if ( ! empty( $_POST ) ) {
 			if ( isset( $_POST['username'] ) && isset( $_POST['password'] ) && isset( $_POST['firstname'] ) && isset( $_POST['lastname'] )
 				&& isset( $_POST['zip'] ) && isset( $_POST['city'] ) && isset( $_POST['email'] ) && isset( $_POST['number'] ) ) {
-
+			echo 'test';
 				if($this->validate()) {
 					require_once('../app/core/Database.php');
 					$conn = (new Database)->conn;

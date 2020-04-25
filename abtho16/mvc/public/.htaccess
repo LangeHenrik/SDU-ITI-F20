@@ -2,7 +2,7 @@ Options -MultiViews
 RewriteEngine On
 Options -Indexes
 
-RewriteBase /abtho16/mvc/public
+RewriteBase /mvc/public
 
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f

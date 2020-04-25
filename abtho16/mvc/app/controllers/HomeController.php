@@ -9,6 +9,7 @@ class HomeController extends Controller {
 	}*/
 
 	public function index(){
+		echo 'test';
 		$this->view('home/index');
 	}
 
@@ -21,12 +22,14 @@ class HomeController extends Controller {
 	}
 
 	public function login() {
+		echo 'test';
 		$this->view('home/login');
 	}
+	/*
 	public function other ($param1 = 'first parameter', $param2 = 'second parameter') {
 		$this->view('home/index');
 	}
-	
+	*/
 	public function restricted () {
 		echo 'Welcome - you must be logged in';
 	}
