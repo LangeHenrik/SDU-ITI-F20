@@ -12,7 +12,7 @@
             <a class="nav-link" href="/njens16/mvc/public/home/frontpage">Home</a>
             </li>
             <li class="nav-item  <?php if($viewbag["page"] == "images"): ?>active<?php endif; ?>">
-                <a class="nav-link" href="/njens16/mvc/public/home/images">Images</a>
+                <a class="nav-link" href="/njens16/mvc/public/image/images">Images</a>
             </li>
             <li class="nav-item <?php if($viewbag["page"] == "users"): ?>active<?php endif; ?>">
                 <a class="nav-link" href="/njens16/mvc/public/user/users">Users</a>
