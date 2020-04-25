@@ -121,8 +121,10 @@ if( isset($_SESSION['logged_in']) && ($_SESSION['logged_in']) ) {
       <h2 class="center">Get started today <a href="<?=BASE_URL?>user/signup">sign up <i class="fas fa-user-plus fa-s"></i></a></h2>
       <br>
       <div class="container">
-        <h2 class="center">Already a member? </h2>
-        <br>
+        <div class="custom-nav-collapse-show">
+          <h2 class="center">Already a member? </h2>
+          <br>
+        </div>
         <?php
         include('../app/views/partials/logInForm.php');
         ?>
