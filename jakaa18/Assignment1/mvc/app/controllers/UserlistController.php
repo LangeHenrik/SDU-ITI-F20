@@ -10,7 +10,7 @@ class UserlistController extends Controller {
 	}
 
 	public function index ($param) {
-        $path = "../app/views/home/upload.php";
+        $path = "../app/views/home/index.php";
         include $path;
 	}
 	/*

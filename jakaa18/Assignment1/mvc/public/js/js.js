@@ -1,3 +1,1 @@
-function test (){
-    console.log("My Script");
-}
+console.log("JS is working");
