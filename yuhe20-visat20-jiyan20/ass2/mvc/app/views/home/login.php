@@ -15,7 +15,7 @@
                 </fieldset>
             </div>
             <hr>
-            <p >New here? <a href="/mvs/public/home/register.php">Register</a>!</p>
+            <p >New here? <a href="/mvc/public/home/register.php">Register</a>!</p>
             
         </form>
     </div>

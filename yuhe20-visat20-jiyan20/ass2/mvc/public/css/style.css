@@ -79,6 +79,7 @@ button[type=submit]{
     border: none;
     color: #0d0d0d;
     padding: 15px 32px;
+    max-width: 300px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
