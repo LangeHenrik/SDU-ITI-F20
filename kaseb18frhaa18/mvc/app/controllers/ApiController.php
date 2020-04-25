@@ -25,12 +25,15 @@ class ApiController extends Controller
 
 	public function pictures($user, $user_id)
 	{
-		if (is_numeric($user_id) && $user_id >= 0)
-			if ($this->post()) {
-				$this->postPicture($user_id);
-			} elseif ($this->get()) {
-				$this->getPictures($user_id);
-			}
+		$user = filter_var(trim($user), FILTER_SANITIZE_STRING);
+		if ($user == 'user') {
+			if (is_numeric($user_id) && $user_id >= 0)
+				if ($this->post()) {
+					$this->postPicture($user_id);
+				} elseif ($this->get()) {
+					$this->getPictures($user_id);
+				}
+		}
 	}
 
 	private function postPicture($user_id)
