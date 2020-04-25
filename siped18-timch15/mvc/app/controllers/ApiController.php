@@ -29,6 +29,7 @@ class ApiController extends Controller
 		{
 			$picture = $this->model('Picture')->getPicture($user_id);
 			echo json_encode($picture, JSON_PRETTY_PRINT);
+
 		} elseif ($this->post()) 
 		{
 			$image = filter_var($_POST["image"], FILTER_SANITIZE_STRING);

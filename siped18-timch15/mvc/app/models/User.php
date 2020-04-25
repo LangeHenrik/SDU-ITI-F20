@@ -18,7 +18,7 @@ class User extends Database
 	}
 
 	public function getAllUsers(){
-		$stmt = $this->conn->prepare("SELECT username FROM user");
+		$stmt = $this->conn->prepare("SELECT user_id, username FROM user");
 		$stmt->execute();
 		$stmt->setFetchMode(PDO::FETCH_ASSOC);
 		$result = $stmt->fetchAll();
