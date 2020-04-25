@@ -18,7 +18,7 @@ class Picture extends Database {
 		for($i = 0; $i < count($pictures); $i++) {
 			if ($pictures[$i][3]) {
 				$lastChar = substr($pictures[$i][3], -1);
-				$pictures[$i][3] .= ($lastChar === '.' || $lastChar === '?' || $lastChar === '!') ? '' : '.';
+				$pictures[$i][3] .= in_array($lastChar, array('.', '!', '?')) ? '' : '.';
 			}
 		}
 		return $pictures;
