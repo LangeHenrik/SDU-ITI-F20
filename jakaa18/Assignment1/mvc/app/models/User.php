@@ -1,9 +1,15 @@
 <?php
 class User extends Database {
 	
-	public function login($username){
-		$sql = "SELECT username, password FROM users WHERE username = :username";
-		
+	public function login($username, $password){
+		$sql = $this->query("SELECT username, password FROM users WHERE username = :username");
+
+		if (password_verify($password, $sql[0]['password'])) {
+		    return true;
+        }
+		return false;
+
+		/*
 		$stmt = $this->conn->prepare($sql);
 		$stmt->bindParam(':username', $username);
 		$stmt->execute();
@@ -14,8 +20,18 @@ class User extends Database {
 
 
 		//todo: make an actual login function!!
-		return true;
+		return true;*/
 	}
+
+	public function newUser($username, $password) {
+	    if ($username != null && $password != null) {
+	        $this->query('INSERT INTO users (username, password) VALUES (?, ?);', [$username, $password]);
+        }
+    }
+
+    public function userAvailable($username) {
+	    return $this->query("SELECT COUNT(*) FROM users WHERE username = :username")[0]['COUNT(*)'] == 0;
+    }
 
 	public function getAll () {
 
