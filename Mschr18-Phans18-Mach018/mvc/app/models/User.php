@@ -35,6 +35,7 @@ class User extends Database {
 		$searchValue = isset($_GET["searchValue"]) 	? User::filter("searchValue")
 													: NULL;
 		$orderBy = isset($_GET["orderBy"]) ? User::filter("orderBy") : "Username";
+		$descCheck = isset($_GET["descCheck"]) ? User::filter("descCheck") : "";
 		try
 		{
 			$stmtString = "SELECT username, fullname, signup_date FROM user";
@@ -43,13 +44,15 @@ class User extends Database {
 								OR fullname LIKE CONCAT('%', :fullname, '%')
 								OR signup_date LIKE CONCAT('%', :signup_date, '%'))";
 			}
-			$stmtString .= " ORDER BY $orderBy " . (isset($_GET["descCheck"]) ? User::filter("descCheck") : "") . ";";
+			$stmtString .= " ORDER BY :orderBy :descCheck;";
 			$stmt = $this->conn->prepare($stmtString);
 			if ($searchValue != NULL) {
 				$stmt->bindParam(':username', $searchValue);
 				$stmt->bindParam(':fullname', $searchValue);
 				$stmt->bindParam(':signup_date', $searchValue);
 			}
+			$stmt->bindParam(':orderBy', $orderBy);
+			$stmt->bindParam(':descCheck', $descCheck);
 			$stmt->execute();
 			$stmt->setFetchMode(PDO::FETCH_NUM);
 			$users = $stmt->fetchAll();
