@@ -24,7 +24,6 @@ function logout(page) {
 function logoutRedirectLoad(oEvt) {
   console.log(oEvt.target.responseText);
   const jsonObj = JSON.parse(oEvt.target.responseText);
-  loggedIn = false;
   if(jsonObj.loggedOut) {
     window.location.href = "home";
   }
@@ -33,7 +32,6 @@ function logoutRedirectLoad(oEvt) {
 function logoutLoad(oEvt) {
   console.log(oEvt.target.responseText);
   const jsonObj = JSON.parse(oEvt.target.responseText);
-  loggedIn = false;
   if(jsonObj.loggedOut) {
     const menu = document.querySelectorAll('.menu'); // Array
 console.log(menu);
@@ -56,18 +54,16 @@ console.log(oEvt);
   const jsonObj = JSON.parse(oEvt.target.responseText);
 
   const response = document.querySelector('#login_response');
-  if('error' in jsonObj) {
-    removeChildren(response);
-    response.appendChild(document.createTextNode('Login failed. ' + jsonObj.error));
-    response.style.backgroundColor = "#F00";
-  } else {
+  if(jsonObj.Success) {
 console.log('logged in');
     changeMenu();
     removeChildren(response);
     response.appendChild(document.createTextNode('Login successfull'));
     response.style.backgroundColor = "#0F0";
-    loggedIn = true;
-console.log(loggedIn);
+  } else {
+    removeChildren(response);
+    response.appendChild(document.createTextNode('Login failed. ' + jsonObj.error));
+    response.style.backgroundColor = "#F00";
   }
   response.classList.remove('hidden');
   response.classList.add('shown');
@@ -83,7 +79,5 @@ function changeMenu() {
     menu.forEach(changeHidden);
     document.querySelector('#loginFormDiv').classList.add('hidden');
     document.querySelector('#loginFormDiv').classList.remove('shown');
-    document.querySelector('#logoutDiv').classList.remove('hidden');
-    document.querySelector('#logoutDiv').classList.add('shown');
     document.querySelector('.nav').classList.remove('hidden');
 }

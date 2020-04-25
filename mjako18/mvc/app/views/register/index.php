@@ -13,7 +13,7 @@
             </div>
             <div>
               <label for="pass">Password:</label>
-              <input type="password" name="pass" id="pass" class="" placeholder="password">
+              <input type="password" name="password" id="password" class="" placeholder="password">
             </div>
             <div>
               <button name="register" id="register" class="button button-register" form="registerform" onclick="return postRegister(this.form);">Register</button>
