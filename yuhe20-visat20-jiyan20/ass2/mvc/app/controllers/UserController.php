@@ -14,7 +14,7 @@ class UserController extends Controller {
                 $_SESSION['logged_in'] = true;
                 header('');//the address of the image index
             } else {
-                $viewbag['danger'] = "User and password incorrect";
+                $viewbag['danger'] = "Username and password incorrect";
                 $this->view('home/login', $viewbag);
             }
         } else {
