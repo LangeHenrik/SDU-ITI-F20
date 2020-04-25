@@ -1,13 +1,18 @@
 <?php
 
-class HomeController extends Controller {
-	
-	public function index () {
+class Home extends Controller {
+
+    public function __construct()
+    {
+        //echo 'Page loaded';
+    }
+
+    public function index() {
 		$this->view('home/index', $viewbag);
 	}
 
 	// Users view
-	public function users () {
+	public function users() {
 		$this->view('home/php/users', $viewbag);
 	}
 	
@@ -20,10 +25,21 @@ class HomeController extends Controller {
 	// }
 
 
-	
+    // Imagepage view
+    public function imagepage(){
+	    $this->view('home/php/imagepage', $viewbag);
+    }
+
+    // Upload view
+    public function upload(){
+	    $this->view('home/php/upload', $viewbag);
+    }
+    
+
 	public function restricted () {
 		echo 'Welcome - you must be logged in';
 	}
+
 	
 	public function login($username) {
 		if($this->model('User')->login($username)) {

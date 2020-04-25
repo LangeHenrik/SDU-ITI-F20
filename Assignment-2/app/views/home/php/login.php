@@ -59,7 +59,7 @@ if (isset($_POST['login'])) {
       ?>
     </div>
     <div class="form-container sign-in-container">
-      <form method="POST" action="../../../../../../index.php">
+      <form method="POST" action="../index.php">
         <h1>Sign in</h1>
         <input type="email" placeholder="Email" name="Email" />
         <input type="Password" placeholder="Password" name="Password" />

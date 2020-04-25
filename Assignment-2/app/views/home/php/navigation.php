@@ -20,13 +20,13 @@ include 'config.php';
       <a href="../index.php"><i class="fas fa-home"></i> <span class="link-text">Frontpage</span> </a>
     </li>
     <li>
-      <a href="../php/imagepage.php"> <i class="fas fa-images"> </i> <span class="link-text"> Image feed </span></a>
+      <a href="../home/imagepage"> <i class="fas fa-images"> </i> <span class="link-text"> Image feed </span></a>
     </li>
     <li>
-      <a href="../php/upload.php"><i class="fas fa-upload"></i> <span class="link-text">Upload page</span></a>
+      <a href="../home/upload"><i class="fas fa-upload"></i> <span class="link-text">Upload page</span></a>
     </li>
     <li>
-      <a href="../php/users.php"><i class="fas fa-users"></i> <span class="link-text">Users</span></a>
+      <a href="../home/users"><i class="fas fa-users"></i> <span class="link-text">Users</span></a>
     </li>
     <li>
       <a href="#" onclick="openModal()"

@@ -2,7 +2,7 @@
 
 class Router {
 	
-	protected $controller = 'HomeController';
+	protected $controller = 'Home';
 	protected $method = 'index';
 	protected $params = [];
 	
@@ -13,23 +13,25 @@ class Router {
 			$url[0] = ucfirst($url[0]);
 		}
 
-		if(file_exists('../app/controllers/' . $url[0] . 'Controller.php')) {
-			$this->controller = $url[0] . 'Controller';
-			unset($url[0]);
+		if(file_exists('../app/controllers/' . ucwords($url[1]).'.php')) {
+			$this->controller = ucwords($url[1]);
+			unset($url[1]);
 		}
 		
 		require_once '../app/controllers/' . $this->controller . '.php';
 		$this->controller = new $this->controller;
-		
-		if(isset($url[1])) {
-			if(method_exists($this->controller, $url[1])) {
-				$this->method = $url[1];
-				unset($url[1]);
+
+		if(isset($url[2])) {
+			if(method_exists($this->controller, $url[2])) {
+				$this->method = $url[2];
+
+				unset($url[2]);
 			}
 		}
-		
+
 		$this->params = $url ? array_values($url) : [];
-		
+
+
 		require_once 'Restricted.php';
 		if(restricted(get_class($this->controller), $this->method)) {
 			echo 'Access Denied';
@@ -38,6 +40,17 @@ class Router {
 		}
 		
 	}
+
+	public function getUrl(){
+	    if (isset($_SERVER['REQUEST_URI'])){
+	        $url = rtrim($_GET['url'],'/');
+            echo $url;
+	        $url = filter_var($url, FILTER_SANITIZE_URL);
+
+	        $url = explode('/',$url);
+            return $url;
+        }
+    }
 	
 	public function parseUrl () {
 		
@@ -46,7 +59,7 @@ class Router {
 			$url = $url . "/";
 		}
 		$url = explode('/', $url);
-		return array_slice($url, 4);
+		return $url;
 	}
 	
 }
