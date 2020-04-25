@@ -85,7 +85,7 @@ class HomeController extends Controller {
 		}
 	}
 	public function validate($u, $p) {
-		require_once('/mvc/public/content/regex.php');
+		require_once('../app/services/regex.php');
 		if(!filter_var($u, FILTER_VALIDATE_REGEXP,array( // validate username
         "options" => array("regexp"=>$unR)))) {
 			session_unset();
@@ -105,9 +105,9 @@ class HomeController extends Controller {
 		
 		if($this->post()) {
 			session_unset();
-			header('Location: /mvc/public/home/');
+			header('Location: abtho16/mvc/public/home/');
 		} else {
-			echo 'You can only log out with a post method';
+			echo 'try agian ';
 		}
 	}
 	

@@ -1,5 +1,6 @@
 <?php
 
+
 require_once 'db_config.php';
 	
 class Database extends DB_Config {
@@ -13,14 +14,15 @@ class Database extends DB_Config {
 			$this->username,
 			$this->password,
 			array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-			
+			//echo 'hello';
 		} catch (PDOException $e) {
-			echo "Error: " . $e->getMessage();
+			echo "Error:" . $e->getMessage();
 		}
 	}
+
 	
 	public function __destruct() {
 		$this->conn = null;
 	}
-	
+
 }
