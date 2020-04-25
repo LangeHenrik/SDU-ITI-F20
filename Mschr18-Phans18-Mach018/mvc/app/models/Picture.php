@@ -175,7 +175,7 @@ class Picture extends Database {
 
 		try
 		{
-			$stmtString = "SELECT imagebase64 AS 'image', titel, userid AS 'user_id', description FROM picture, user WHERE user.username = picture.username AND user.userid = :userid";
+			$stmtString = "SELECT imagebase64 AS 'image', titel AS 'title', userid AS 'user_id', description FROM picture, user WHERE user.username = picture.username AND user.userid = :userid";
 			$stmt = $this->conn->prepare($stmtString);
 			$stmt->bindParam(':userid', $userid);
 			$stmt->execute();
