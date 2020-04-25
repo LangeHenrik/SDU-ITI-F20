@@ -23,13 +23,17 @@ class Picture extends Database
 
     function postPictures($id)
     {
+
         session_unset();
-        $jsonBody = json_decode($_POST['json']);
-        $username = filter_var(trim($jsonBody->username), FILTER_SANITIZE_STRING);
-        $password = filter_var(trim($jsonBody->password), FILTER_SANITIZE_STRING);
-        $header = filter_var(trim($jsonBody->title), FILTER_SANITIZE_STRING);
-        $description = filter_var(trim($jsonBody->description), FILTER_SANITIZE_STRING);
-        $base64 = filter_var(trim($jsonBody->image), FILTER_SANITIZE_STRING);
+
+        
+
+        $jsonBody = json_decode(file_get_contents('php://input'), true);
+        $username = filter_var(trim($jsonBody["username"]), FILTER_SANITIZE_STRING);
+        $password = filter_var(trim($jsonBody["password"]), FILTER_SANITIZE_STRING);
+        $header = filter_var(trim($jsonBody["title"]), FILTER_SANITIZE_STRING);
+        $description = filter_var(trim($jsonBody["description"]), FILTER_SANITIZE_STRING);
+        $base64 = $jsonBody["image"];
 
         $sql = "SELECT * FROM users WHERE username = :username";
 
@@ -41,7 +45,7 @@ class Picture extends Database
 
 
         //Check if password is correct by unhashing and verifying it.
-        if (password_verify($password, $row['password'])) {
+        if (password_verify($password, $row['password'])&& $id == $row['id']) {
 
 
             //Successfully log user in and provide information to session.
@@ -50,17 +54,20 @@ class Picture extends Database
             $_SESSION['username'] = $username;
 
 
-
+            $pictureName = 'APIPicture';
 
             $stmt = $this->conn->prepare("INSERT INTO images (header, 
                                                 description, image, user_id, name)
                                                 VALUES(:header, :description, :image, :user_id, :name)");
             $stmt->bindParam(':user_id', $_SESSION["user_id"]);
             $stmt->bindParam(':header', $header);
-      //      $stmt->bindParam(':name', 'APIPicture');
+            $stmt->bindParam(':name', $pictureName);
             $stmt->bindParam(':description', $description);
             $stmt->bindParam(':image', $base64);
             $stmt->execute();
+            
+            $last_id = $this->conn->lastInsertId("id");
+                return array("image_id" => $last_id);
         }
     }
 }
