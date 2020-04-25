@@ -24,11 +24,12 @@ class User extends Database {
         return false;
 	}
 
-	public function getAll () {
+	public function getList () {
 
 		$sql = "SELECT username, userid FROM users";
 
 		$stmt = $this->conn->prepare($sql);
+		$stmt->setFetchMode(PDO::FETCH_ASSOC);
 		$stmt->execute();
 
 		$result = $stmt->fetchAll();

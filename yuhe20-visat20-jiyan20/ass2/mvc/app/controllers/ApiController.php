@@ -8,13 +8,13 @@ class ApiController extends Controller {
 		//check username and password?
 		//or die();
 	}
-
+/*
 	public function index ($param) {
 		
 	}
-	
-	public function users () {
-		$users = $this->model('User')->getAll();
+*/	
+	public function users() {
+		$users = $this->model('User')->getList();
 		echo json_encode($users, JSON_PRETTY_PRINT);
 	}
 

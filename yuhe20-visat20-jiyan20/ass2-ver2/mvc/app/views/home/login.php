@@ -3,7 +3,7 @@
 
 <div class="login-info">
     <div class="text">
-        <form name="login" method="POST" action="/mvc/public/User/login">
+        <form name="login" method="POST" action="UserController.php">
             <div class="log-in-form">
                 <fieldset>
                     <legend>log-in Info</legend>
