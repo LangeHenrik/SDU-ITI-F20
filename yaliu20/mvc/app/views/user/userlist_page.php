@@ -15,7 +15,7 @@
 
         <div class="userlist_wrapper">
             <div class="userlist_content">
-                <h1>User list</h1>
+                <h1>Userlist</h1>
 
                 <table class="userlist_table">
                     <thead>
@@ -36,20 +36,7 @@
                     <!-- <button type="button" id="getUserlistbtn" class="btn btn-primary btn-block normal"><i class="fa fa-repeat"></i>
                         Load/refresh</button> -->
                     <!-- <img src="../images/ajax-loader.gif" id="loading-indicator" style="display:none" /> -->
-                    <button type="button" id="getUserlistbtn" class="btn btn-primary">
-                        <div class="bs-example">
-                            <div class="spinner-border">
-                                <span class="sr-only">Loading...</span>
-                            </div>
-                            <!-- <div class="lds-ring">
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                        </div> -->
-                        </div>Load/refresh
-                    </button>
-
+                   
                     <?php //Data from the Ajax will be put into tbody 
                     ?>
                     <tbody id="userlistdata" class="userlistdata"></tbody>

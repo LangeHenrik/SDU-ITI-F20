@@ -17,11 +17,11 @@
 
         <div class="imagefeed_wrapper">
             <div class="imagefeed_content">
-                <h1>All posted images</h1>
 
-                <h4> Search for username:
-                    <input type="text" class="search" name="search" id="search" placeholder="search for username" onload="getUserImages(this.value);" onkeyup="getUserImages(this.value);" />
-                </h4>
+
+                <p> Search for username:
+                    <input type="text" class="search" name="search" id="search"  onload="getUserImages(this.value);" onkeyup="getUserImages(this.value);" />
+                </p>
 
                 <?php // Data from the Ajax call will be put into the div imagefeed 
                 ?>

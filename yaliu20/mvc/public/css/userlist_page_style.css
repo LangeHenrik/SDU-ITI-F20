@@ -11,6 +11,9 @@
     text-align: center;
     align-items: center;
 }
+.userlist_content h1{
+    color: #ffffff;
+}
 
 .userlist_table {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
@@ -20,30 +23,24 @@
 
 .userlist_table td,
 th {
-    border: 1px solid #dddddd;
+    border: 1px solid #ffffff;
     text-align: left;
     padding: 8px;
-    background: rgb(129, 166, 214);
 }
 
-.userlist_table tr:nth-child(even) {
-    background: #f2f2f2;
+.userlist_table tr{
+    color: #ffffff;
 }
 
-.userlist_table tr:hover {
-    background: #ddd;
-}
 
 .userlist_table th {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background: rgba(86, 88, 233, 0.8);
     color: white;
 }
 
 
-/* can use https://loading.io/css/ if interested in pure loading icons*/
 
 .bs-example {
     display: inline-block;
