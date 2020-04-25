@@ -21,7 +21,7 @@ if( isset($_SESSION['logged_in']) && ($_SESSION['logged_in']) ) {
       My Toolbox.
       <hr>
 
-      
+
       <a class="weatherwidget-io" href="https://forecast7.com/en/40d71n74d01/new-york/" data-label_1="ODENSE" data-label_2="WEATHER" data-theme="original" >NEW YORK WEATHER</a>
       <script>
       !function(d,s,id){
@@ -120,9 +120,11 @@ if( isset($_SESSION['logged_in']) && ($_SESSION['logged_in']) ) {
       <hr>
       <h2 class="center">Get started today <a href="<?=BASE_URL?>user/signup">sign up <i class="fas fa-user-plus fa-s"></i></a></h2>
       <br>
-      <h2 class="center">Already a member. </h2>
-      <br>
       <div class="container">
+        <div class="custom-nav-collapse-show">
+          <h2 class="center">Already a member? </h2>
+          <br>
+        </div>
         <?php
         include('../app/views/partials/logInForm.php');
         ?>
