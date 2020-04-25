@@ -7,7 +7,6 @@
     }
 
 
-   /*  $q = strval($_GET['q']); */
     $q = filter_input(INPUT_GET, 'q',FILTER_SANITIZE_STRING);
 
     $model = new Post();
@@ -37,7 +36,7 @@
         echo "<h3>" . "Posted by: " . $post['username'] . "</h3>";
         echo "<p>" . $post['timestamp'] . "</p>";
         echo '<img src="' . $post['image']. '"' . 'alt="alt_image.png"' . '"/>';
-        echo "<p>" . $post['COMMENT'] . "</p>";
+        echo "<p>" . $post['description'] . "</p>";
         echo "<br/>";
         echo "</div>";
     };

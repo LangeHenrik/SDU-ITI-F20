@@ -16,21 +16,8 @@ class HomeController extends Controller
 
 	public function index($param)
 	{
-		/* 		//This is a proof of concept - we do NOT want HTML in the controllers!
- 		if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
-			// redirect to front page
-		} else { */
 		header('Location: /jacso18/mvc/public/home/login');
-		/* } */
-	}
 
-	public function other($param1 = 'first parameter', $param2 = 'second parameter')
-	{
-		$user = $this->model('User');
-		$user->name = $param1;
-		$viewbag['username'] = $user->name;
-		//$viewbag['pictures'] = $this->model('pictures')->getUserPictures($user);
-		$this->view('home/index', $viewbag);
 	}
 
 	public function restricted()
@@ -41,16 +28,20 @@ class HomeController extends Controller
 	public function login()
 	{
 		$this->view('home/login');
-
+		if (isset($_SESSION['message'])){
+			echo $_SESSION['message'];
+		} 
 		if (isset($_POST['username']) && isset($_POST['password'])) {
 			$username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
 			$password = filter_var($_POST['password'], FILTER_SANITIZE_STRING);
 			if ($this->model('user')->isUser($username, $password)) {
 				$_SESSION['logged_in'] = true;
 				$_SESSION['username'] = $username;
-				header('Location: /jacso18/mvc/public/home/image_feed');
+				$_SESSION['message'] = '';
+				header('Location: /jacso18/mvc/public/post/image_feed');
 			} else {
-				header('Location: /jacso18/mvc/public/home/login');
+				$_SESSION['message'] = 'Wrong username or password';
+				header('Location: /jacso18/mvc/public/home/index');
 			}
 		}
 	}
@@ -59,7 +50,7 @@ class HomeController extends Controller
 	public function logout()
 	{
 		session_unset();
-		header('Location: /jacso18/mvc/public/home/login');
+		header('Location: /jacso18/mvc/public/home/index');
 	}
 
 	public function create_account()
@@ -86,48 +77,10 @@ class HomeController extends Controller
 		}
 	}
 
-	public function image_feed()
-	{
-		$this->view('home/image_feed');
-		$this->model('Post')->getAllPosts();
-	}
 
-	public function upload()
-	{
-		$this->view('home/upload');
 
-		if (isset($_POST['upload'])) {
-			/* $usercontroller = new UserController(); */
-			$title = filter_input(INPUT_POST, "title", FILTER_SANITIZE_STRING);
-			$comment = filter_input(INPUT_POST, "comment", FILTER_SANITIZE_STRING);
 
-			$name = $_FILES['filetoupload']['name'];
-			$target_file = basename($_FILES["filetoupload"]["name"]);
-			// Select file type
-			$imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-			// Valid file extensions
-			$extensions_arr = array("jpg", "jpeg", "png", "gif");
 
-			// Check extension
-			if (in_array($imageFileType, $extensions_arr)) {
-
-				// Convert to base64 
-				$image_base64 = base64_encode(file_get_contents($_FILES['filetoupload']['tmp_name']));
-				$image = 'data:image/' . $imageFileType . ';base64,' . $image_base64;
-				// Insert record
-				$this->model('Post')->createPost($_SESSION['username'], $title, $image, $comment);
-			} else {
-				echo 'The file has to be either jpg, jpeg, png or gif';
-			}
-		}
-	}
-
-	public function users()
-	{
-		$users = $this->model('User')->getAll();
-		$viewbag['users'] = $users;
-		$this->view('home/users', $viewbag);
-	}
 
 
 

@@ -13,15 +13,18 @@
     <nav>
         <div class="center">
             <ul class="menu" method="POST">
-                <li><a href="/jacso18/mvc/public/home/image_feed">Image feed</a></li>
-                <li><a href="/jacso18/mvc/public/home/upload">Upload picture</a></li>
-                <li><a href="/jacso18/mvc/public/home/users">Users</a></li>
+                <li><a href="/jacso18/mvc/public/post/image_feed">Image feed</a></li>
+                <li><a href="/jacso18/mvc/public/post/upload">Upload picture</a></li>
+                <li><a href="/jacso18/mvc/public/user/users">Users</a></li>
                 <li>
                     <form class="logout" method="POST" action="/jacso18/mvc/public/home/logout">
                         <input type="submit" name="logout" id="logout" value="Logout" />
                     </form>
                 </li>
 
+
             </ul>
+
         </div>
+
     </nav>

@@ -13,21 +13,22 @@
 <body>
     <div class="div-form">
         <form class="form" onblur="" onsubmit="return checkform();" method="POST" action="/jacso18/mvc/public/home/create_account">
-            <div class="field-name">
+            <div class="inputWithIcon">
                 <i class="fas fa-user"></i>
-                <input type="text" name="username" id="username" placeholder="Username" title="Must not contain special characters" onkeyup="checkname()" onchange="checkname()" onblur="checkname()" />
+                <input type="text" name="username" id="username" placeholder="Username"  onkeyup="checkname()" onchange="checkname()" onblur="checkname()" />
+                <i class="fas fa-question-circle" title="Must not contain special characters"></i>    
             </div>
-            <div class="field-password">
+            <div class="inputWithIcon">
                 <i class="fas fa-key"></i>
-                <input type="password" name="password" id="password" placeholder="Password" title="minimum 8 characters" onkeyup="checkpassword()" onchange="checkpassword()" onblur="checkpassword()" />
+                <input type="password" name="password" id="password" placeholder="Password"  onkeyup="checkpassword()" onchange="checkpassword()" onblur="checkpassword()" />
+                <i class="fas fa-question-circle" title="minimum 8 characters"></i>
             </div>
-            <div class="field-email">
+            <div class="inputWithIcon">
                 <i class="fas fa-envelope"></i>
                 <input type="text" name="email" id="email" placeholder="Email" onkeyup="checkMail()" onchange="checkMail()" onblur="checkMail()" />
+
             </div>
-            <div class="button-submit">
-                <input type="submit" name="submit" id="submit" value="Create" />
-            </div>
+            <div class="button"><input type="submit" name="submit" id="submit" value="submit" /></div>
             <div class="link-index">
                 <a href="/jacso18/mvc/public/home/login">back</a>
             </div>

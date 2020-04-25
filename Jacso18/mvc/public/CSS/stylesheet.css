@@ -13,6 +13,8 @@ nav {
     width: 100%;
     background-color: lightgrey;
     margin-bottom: 0px;
+    border-bottom: 0.5px solid grey
+
 }
 
 ul.menu {
@@ -85,6 +87,8 @@ form.logout:hover input {
 /* Forms */
 
 div.div-form {
+    display: flex;
+    flex-direction: row;
     max-width: 400px;
     min-width: 280px;
     height: auto;
@@ -102,6 +106,7 @@ div.div-form {
 
 div.div-form input {
     width: 100%;
+    margin-top: 5px;
     margin-bottom: 20px;
     margin-left: auto;
     margin-right: auto;
@@ -121,7 +126,7 @@ div.div-form input[type="text"], input[type="password"] {
 div.div-form textarea {
     resize: none;
     width: 100%;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
     margin-left: auto;
     margin-right: auto;
     text-align: left;
@@ -133,17 +138,42 @@ div.div-form textarea {
     color: black;
     font-size: 16px;
 }
-
-div.div-form input[type="submit"] {
+div.question{
+    display: flex; 
+    flex-direction: row;
+}
+.button input[type="submit"] {
     border: none;
     outline: none;
     height: 40px;
+    margin-bottom: 0px;
     background: red;
     color: #fff;
     font-size: 18px;
     border-radius: 20px;
     text-align: center;
 }
+.button:hover input[type="submit"] {
+    background: rgb(155, 18, 18)
+}
+
+.inputWithIcon input[type=text]{
+    padding-left:40px;
+}
+.inputWithIcon input[type=password]{
+    padding-left:40px;
+}
+.inputWithIcon{
+    position: relative;
+}
+.inputWithIcon i{
+    position: absolute;
+
+    top:8px;
+    padding:9px 8px;
+}
+
+
 
 /* User form end */
 
