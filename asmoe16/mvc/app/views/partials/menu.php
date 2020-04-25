@@ -6,7 +6,6 @@
 		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
 		crossorigin="anonymous">
 
-  <script src="../js/js.js"></script>
   </head>
   <body>
 

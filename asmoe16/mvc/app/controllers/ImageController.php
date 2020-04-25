@@ -6,8 +6,8 @@ class ImageController extends Controller {
 		$imageModel = $this->model('Image');
 		$images = array();
 		$userModel = $this->model('User');
-		if ( isset( $_GET['user'] ) && ($_GET['user'] !== 'All') ) {
-			$username = $_GET['user'];
+		if ( isset( $_GET['user-selector'] ) && ($_GET['user-selector'] !== 'All') ) {
+			$username = $_GET['user-selector'];
 		} 
 		if ( $username !== "" ) {
 			$images = $imageModel->list_images( $userModel->getId($username) );
