@@ -1,8 +1,23 @@
 <?php
 
 class HomeController extends Controller {
-	
-	public function index ($param) {
+
+    public $logged_in = false;
+    public $viewbag;
+
+    public function __construct()
+    {
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+        if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']){
+            $this->logged_in=true;
+            $this->viewbag['username']=$_SESSION['username'];
+        }
+        $this->viewbag['logged_in'] = $this->logged_in;
+    }
+
+    public function index ($param) {
 		//This is a proof of concept - we do NOT want HTML in the controllers!
         $path = "../app/views/home/index.php";
         include $path;
