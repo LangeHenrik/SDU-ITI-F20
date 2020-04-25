@@ -2,7 +2,6 @@
 
 class User extends Database {
 
-	public $user_id ,$username,$first_name,$last_name,$zip,$city,$email,$phonenumber;
 
 	public function getUsers() {
 		$users = array();
@@ -27,7 +26,7 @@ class User extends Database {
        }
 	   return $users;
 	}
-	
+
 	public function apiGetUsers() {
 		$st = $this->conn->prepare("SELECT userid AS user_id, username FROM user;");
 		$st->execute();
@@ -35,7 +34,7 @@ class User extends Database {
 		$result = $st->fetchAll();
 		return $result;
 	}
-	
+
 	public function apiValidateUsers($username, $password) {
 		$st = $this->conn->prepare("SELECT userid, password_hash FROM user WHERE username = :username;");
 		$st->bindparam(':username', $username);
@@ -48,4 +47,36 @@ class User extends Database {
 			return 'Error';
 		}
 	}
+
+    public function saveuser() {
+            if ( isset( $_POST['username'] ) && isset( $_POST['password'] ) && isset( $_POST['firstname'] ) && isset( $_POST['lastname'] )
+                && isset( $_POST['zip'] ) && isset( $_POST['city'] ) && isset( $_POST['email'] ) && isset( $_POST['phonenumber'] ) ) {
+
+                    $stmt = $this->conn->prepare("SELECT userid FROM user WHERE username =:username");
+                    $stmt->bindParam(':username',$_POST['username']);
+                    $stmt->execute();
+                    if(!$stmt->rowcount() < 1) {
+                        $_SESSION['error'] = "Username already exists";
+                        header("Location: register");
+                    }
+
+                    $st = $this->conn->prepare("INSERT INTO user(username, password_hash, firstname, lastname, zip, city, email, phonenumber)
+						VALUES(:username, :password, :firstname, :lastname, :zip, :city, :email, :phonenumber)");
+                    $st->bindParam(':username', $_POST['username']);
+                    $hashedPw = password_hash($_POST['password'],PASSWORD_DEFAULT);
+                    $st->bindParam(':password', $hashedPw);
+                    $st->bindParam(':firstname', $_POST['firstname']);
+                    $st->bindParam(':lastname', $_POST['lastname']);
+                    $st->bindParam(':zip', $_POST['zip']);
+                    $st->bindParam(':city', $_POST['city']);
+                    $st->bindParam(':email', $_POST['email']);
+                    $st->bindParam(':phonenumber', $_POST['phonenumber']);
+                    $st->execute();
+                    $_SESSION['error'] = "Registration successful";
+                    header("Location: ../home");
+                } else {
+                    header("Location: register");
+                }
+            }
+
 }

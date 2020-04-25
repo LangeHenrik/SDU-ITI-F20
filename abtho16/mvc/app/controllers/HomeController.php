@@ -9,7 +9,7 @@ class HomeController extends Controller {
 	}*/
 
 	public function index(){
-		echo 'test';
+
 		$this->view('home/index');
 	}
 
@@ -22,7 +22,6 @@ class HomeController extends Controller {
 	}
 
 	public function login() {
-		echo 'test';
 		$this->view('home/login');
 	}
 	/*

@@ -24,10 +24,10 @@ class UserController extends Controller {
 	}
 
 	public function save() {
-		if ( ! empty( $_POST ) ) {
+        echo 'test';
 			if ( isset( $_POST['username'] ) && isset( $_POST['password'] ) && isset( $_POST['firstname'] ) && isset( $_POST['lastname'] )
-				&& isset( $_POST['zip'] ) && isset( $_POST['city'] ) && isset( $_POST['email'] ) && isset( $_POST['number'] ) ) {
-			echo 'test';
+				&& isset( $_POST['zip'] ) && isset( $_POST['city'] ) && isset( $_POST['email'] ) && isset( $_POST['phonenumber'] ) ) {
+			    echo "POSTISST";
 				if($this->validate()) {
 					require_once('../app/core/Database.php');
 					$conn = (new Database)->conn;
@@ -59,7 +59,7 @@ class UserController extends Controller {
 					header("Location: register");
 				}
 			}
-		}
+
 	}
 
 	public function validate() {
@@ -114,5 +114,16 @@ class UserController extends Controller {
 			return false;
 		}
 	}
+	public function registeruser() {
+	    $this->model('User')->saveuser();
+    }
+
+    public function getusers() {
+        $r = $this->model('User')->apiGetUsers();
+        foreach ($r as $item) {
+            echo implode($item);
+        }
+    }
+
 
 }

@@ -15,8 +15,8 @@ include '../app/views/partials/newUserNav.php';
 <body>
 <div class="registerForm">
 <p class="label"> Please register here! </p>
-<form action="/abtho16/mvc/public/user/save" class="register" onsubmit="return validateUser(username.value, password.value, repeatPassword.value,
-	firstname.value, lastname.value, zip.value, city.value, email.value, number.value);" method="post">
+<form action="/abtho16/mvc/public/user/registeruser" class="register" onsubmit="return validateUser(username.value, password.value, repeatPassword.value,
+	firstname.value, lastname.value, zip.value, city.value, email.value, phonenumber.value);" method="post">
 	<input type="text" class="registerField" name="username" title="Between 5 and 16 characters, no special characters." border="10px" placeholder="username" required>
 	<br>
     <input type="password" class="registerField" name='password' title="Between 8 and 20 characters, must contain one uppercase & lowercase letter and one number. No special characters." placeholder="password" required>
