@@ -13,7 +13,12 @@
                 </form>
     
             </div>
-    
+            <div id="ajax">
+        <p> click here to see developers</p>
+    </div>
+    <button id="btn">
+        click here
+    </button>
 </div>
 
 <?php include '../app/views/partials/foot.php'; ?>
