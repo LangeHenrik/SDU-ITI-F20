@@ -1,15 +1,15 @@
 <html>
     <head>
-    <script src="../js/js.js"></script>
+        <link rel="stylesheet" href="/mvc/public/css/style.css">
     </head>
     <body>
         <div class="topnav">
-            <a href="/yuhe20-visat20-jiyan20/ass2/mvc/public/User/login">Home</a>
-            <a href="/yuhe20-visat20-jiyan20/ass2/mvc/public/User/register">Sign Up</a>
-            <?php elseif(isset($_SESSION['logged_in']) && $_SESSION['logged_in']) : ?>
-            <a href="/yuhe20-visat20-jiyan20/ass2/mvc/public/Image/upload">Upload Image</a>
-            <a href="/yuhe20-visat20-jiyan20/ass2/mvc/public/Image/loadImage">Feeds</a>
-            <a href="/yuhe20-visat20-jiyan20/ass2/mvc/public/User/fetchAll">User List</a>
+            <a href="/mvc/public/User/login">Home</a>
+            <a href="/mvc/public/User/register">Sign Up</a>
+            <?php if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']) : ?>
+            <a href="/mvc/public/Image/upload">Upload Image</a>
+            <a href="/mvc/public/Image/loadImage">Feeds</a>
+            <a href="/mvc/public/User/fetchAll">User List</a>
             <?php endif; ?>
             <?php 
                 if(isset($_SESSION['username'])){

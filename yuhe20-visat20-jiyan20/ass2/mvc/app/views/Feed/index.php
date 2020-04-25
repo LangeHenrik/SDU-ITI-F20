@@ -1,4 +1,4 @@
-<?php include '../app/views/partials/menu.php'; ?>
+<?php include '../partials/menu.php'; ?>
 <div class="content" id="content">
     <div>
         <h1>WELCOME TO THE IMAGE FEED PAGE</h1>
@@ -7,3 +7,4 @@
         <hr>
     </div>
 </div>
+<?php include '../partials/foot.php'?>

@@ -1,4 +1,4 @@
-<?php include '../app/views/partials/menu.php'; ?>
+<?php include '../partials/menu.php'; ?>
 
 <div class="content" id="registration">
     <div>
@@ -40,4 +40,4 @@
             }?>
     </div>
 </div>
-<?php include '../app/views/partials/foot.php'; ?>
+<?php include '../partials/foot.php'; ?>

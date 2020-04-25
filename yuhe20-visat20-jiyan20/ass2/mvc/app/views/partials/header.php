@@ -11,10 +11,12 @@
     <body>
         <div class="topnav">
             <a href="/mvc/app/views/home/index.php">Home</a>
-            <a href="signup.php">Sign Up</a>
-            <a href="upload_image.php">Upload Image</a>
-            <a href="feed.php">Feeds</a>
-            <a href="user_list.php">User List</a>
+            <a href="/mvc/app/views/home/register.php">Sign Up</a>
+            <?php if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']) : ?>
+            <a href="/mvc/public/Image/upload">Upload Image</a>
+            <a href="/mvc/public/Image/loadImage">Feeds</a>
+            <a href="/mvc/public/User/fetchAll">User List</a>
+            <?php endif; ?>
             <?php 
                 if(isset($_SESSION['username'])){
                     echo "<a href='logout.php'><input type=button value=Logout name=logout></a>";
