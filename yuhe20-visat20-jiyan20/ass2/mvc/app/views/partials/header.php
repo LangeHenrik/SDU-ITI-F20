@@ -6,11 +6,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-    <link rel="stylesheet" href="/../../../public/css/style.css">
+    <link rel="stylesheet" href="/mvc/public/css/style.css">
     </head>
     <body>
         <div class="topnav">
-            <a href="index.php">Home</a>
+            <a href="/mvc/app/views/home/index.php">Home</a>
             <a href="signup.php">Sign Up</a>
             <a href="upload_image.php">Upload Image</a>
             <a href="feed.php">Feeds</a>
@@ -28,5 +28,3 @@
                     </div>
             <?php } ?>
         </div>
-    </body>
-</html>

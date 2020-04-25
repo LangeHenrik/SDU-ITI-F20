@@ -1,5 +1,5 @@
-<?php include '../app/views/partials/menu.php'; ?>
+<?php include '../partials/header.php'; ?>
 
 Hello there, <?=$viewbag['username']?>
 
-<?php include '../app/views/partials/foot.php'; ?>
+<?php include '../partials/foot.php'; ?>
