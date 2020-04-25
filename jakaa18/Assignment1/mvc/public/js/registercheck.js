@@ -28,7 +28,7 @@ function CheckElement(testElement, regexp, infoElement, errorText) {
 }
 
 function CheckForm() {
-    return CheckUsername() && CheckPass();
+    return CheckUsername() && CheckPass(); //Needs to return 3 trues
 }
 
 function CheckUsername() {

@@ -1,7 +1,6 @@
 <html>
 <head>
     <script src="/js/js.js"></script>
-
 </head>
 <body>
 
