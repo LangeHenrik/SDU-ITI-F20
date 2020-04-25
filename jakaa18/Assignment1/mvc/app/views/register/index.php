@@ -1,17 +1,16 @@
 <?php
-
 include '../app/views/partials/menu.php';
 ?>
 <style>
     <?php include '../../css/style.css'; ?>
 </style>
-<?php
-include '../app/views/partials/pagegrid.php';
-include '../app/views/partials/sidebar.php';
 
-?>
 
-<!--<div class="register1" id="registerView">
+    <div class="grid-container">
+        <div class="login1">
+            <h1><?php echo 'Please enter your wanted Username and Password' ?></h1>
+        </div>
+<div class="register1" id="registerView">
     <text id="usernameAvailable" name="usernameAvailable"></text><br>
     <form onsubmit="return CheckForm()" method="post">
         <p> Username: (Max 100 chars)<input type="text" placeholder="Enter Username" name="regUsernameId" id="regUsernameId"
@@ -21,11 +20,12 @@ include '../app/views/partials/sidebar.php';
         <p> Password: (Max 100 chars) <input type="password" placeholder="Enter Password" name="regPassId" id="regPassId"
                                              required></p><br>
         <p class="info-elements" id="password-info"></p>
-        <button type="submit">Register new user</button><br>
+        <button class="button" type="submit"> Register new user</button><br>
     </form>
 </div>
+    </div>
 
 <script src="/mvc/public/js/NameAvailability.js"></script>
-<script src="/mvc/public/js/registercheck.js"></script>-->
+<script src="/mvc/public/js/registercheck.js"></script>
 
 <?php include '../app/views/partials/foot.php'; ?>
