@@ -23,10 +23,10 @@ class HomeController extends Controller {
 		$viewbag['title'] = 'Login';
 		if (isset($_POST['formConnexion'])) {
 		    //clean input  & XSS
-		    $usernameCon = filter_var($_POST['usernameCon'], FILTER_SANITIZE_STRING);
-		    $username    = htmlspecialchars($usernameCon);
-		    $passwordCon = filter_var($_POST['passwordCon'], FILTER_SANITIZE_STRING);
-		    $password    = htmlspecialchars($passwordCon);
+		    $username = filter_var($_POST['usernameCon'], FILTER_SANITIZE_STRING);
+		    //$username    = htmlspecialchars($usernameCon);
+		    $password = filter_var($_POST['passwordCon'], FILTER_SANITIZE_STRING);
+		    //$password    = htmlspecialchars($passwordCon);
 		    if (!empty($username) AND !empty($password)) {
 		 		$res = $this->model('User')->login($username);
 		        $isPasswordCorrect = password_verify($password, $res['password']);
@@ -56,14 +56,14 @@ class HomeController extends Controller {
 	public function register(){
 		$viewbag['title'] = 'Login';
 		if (isset($_POST['formRegistration'])) {
-			$usernameReg = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
-			$username = htmlspecialchars($usernameReg);
-			$emailReg = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
-			$email = htmlspecialchars($emailReg);
-			$passwordReg = filter_var($_POST['password'], FILTER_SANITIZE_STRING);
-			$password = htmlspecialchars($passwordReg);
-			$password2Reg = filter_var($_POST['password2'], FILTER_SANITIZE_STRING);
-			$password2 = htmlspecialchars($password2Reg);
+			$username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
+			//$username = htmlspecialchars($usernameReg);
+			$email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+			//$email = htmlspecialchars($emailReg);
+			$password = filter_var($_POST['password'], FILTER_SANITIZE_STRING);
+			//$password = htmlspecialchars($passwordReg);
+			$password2 = filter_var($_POST['password2'], FILTER_SANITIZE_STRING);
+			//$password2 = htmlspecialchars($password2Reg);
 			if(!empty($username) AND !empty($email) AND !empty($password)) {
 				$passwordCheck = preg_match('/^(?=.*?[A-Z])(?=(.*[a-z]){1,})(?=(.*[\d]){1,})(?=(.*[\W]){1,})(?!.*\s).{8,}$/', $password);
 				$mailCheck=preg_match('/^\S+@\S+\.[a-z|A-Z]{2,10}$/', $email);

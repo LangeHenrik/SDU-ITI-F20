@@ -8,8 +8,8 @@ class ContactController extends Controller {
 	  $viewbag['title'] = 'CONTACTS LIST';
 	  // get the q parameter from URL
 	  if(isset($_GET['q'])) {
-	    $q_check = filter_var($_GET['q'], FILTER_SANITIZE_STRING);
-	    $q = htmlspecialchars($q_check);
+	    $q = filter_var($_GET['q'], FILTER_SANITIZE_STRING);
+	    //$q = htmlspecialchars($q_check);
 	  	$q = $_GET['q'];
 
 	  }else {

@@ -22,14 +22,14 @@ class FeedController extends Controller{
 		$viewbag['title'] = 'UPLOAD PAGE';
 		if (isset($_POST['formUpload'])) {
 		  //We can also use $_SESSION['id'] if we don't use the URL ?id=
-		  $user_idUp = filter_var($_SESSION['id'], FILTER_SANITIZE_NUMBER_INT);
-		  $user_id = htmlspecialchars($user_idUp);
+		  $user_id = filter_var($_SESSION['id'], FILTER_SANITIZE_NUMBER_INT);
+		  //$user_id = htmlspecialchars($user_idUp);
 
-		  $headerUp = filter_var($_POST['header'], FILTER_SANITIZE_STRING);
-		  $header = htmlspecialchars($headerUp);
+		  $header = filter_var($_POST['header'], FILTER_SANITIZE_STRING);
+		  //$header = htmlspecialchars($headerUp);
 
-		  $descriptionUp = filter_var($_POST['description'], FILTER_SANITIZE_STRING);
-		  $description = htmlspecialchars($descriptionUp);
+		  $description = filter_var($_POST['description'], FILTER_SANITIZE_STRING);
+		  //$description = htmlspecialchars($descriptionUp);
 
 		  $date=date("Y-m-d H:i:s");
 		  //$user_id =$_GET['id'];
