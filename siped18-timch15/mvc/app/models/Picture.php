@@ -12,7 +12,7 @@ class Picture extends Database
 
         return $result;
     }
-    
+
     public function getPicture($user_id)
     {
         $stmt = $this->conn->prepare("SELECT a.image_id, a.title, a.description, a.image FROM 
@@ -25,10 +25,10 @@ class Picture extends Database
         return $result;
     }
 
-    public function postPictures($image, $title, $description, $uploader)
+    public function postPicture($image, $title, $description, $uploader)
     {
         $stmt = $this->conn->prepare("INSERT INTO picture (image, title, description, uploader) 
-        VALUES (:picture, :header, :description, :uploader)");
+        VALUES (:image, :title, :description, :uploader)");
         $stmt->bindParam(':image', $image);
         $stmt->bindParam(':title', $title);
         $stmt->bindParam(':description', $description);

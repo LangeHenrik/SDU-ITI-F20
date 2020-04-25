@@ -25,25 +25,19 @@ class ApiController extends Controller
 
 	public function pictures($user, $user_id)
 	{
-		if ($this->get()) 
-		{
+		if ($this->get()) {
 			$picture = $this->model('Picture')->getPicture($user_id);
 			echo json_encode($picture, JSON_PRETTY_PRINT);
-
-		} elseif ($this->post()) 
-		{
+		} elseif ($this->post()) {
 			$image = filter_var($_POST["image"], FILTER_SANITIZE_STRING);
 			$title = filter_var($_POST["title"], FILTER_SANITIZE_STRING);
 			$description = filter_var($_POST["description"], FILTER_SANITIZE_STRING);
 			$username = filter_var($_POST["username"], FILTER_SANITIZE_STRING);
 			$password = filter_var($_POST["password"], FILTER_SANITIZE_STRING);
 
-			if ($this->model('User')->login($username, $password))
-			{
+			if ($this->model('User')->login($username, $password)) {
 				echo $this->model('Picture')->postPicture($image, $title, $description, $username);
 			}
-
-
 		}
 	}
 }
