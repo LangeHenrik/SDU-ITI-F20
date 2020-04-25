@@ -37,7 +37,7 @@ class ApiController extends Controller {
 		}
 	}
 
-	public function pictures ($userParam, $idParam) {
+	public function pictures ($userParam, $idParam = '') {
 
 		if ( ($userParam=="user") && is_numeric($idParam)) {
 			if ($this->isPost()) {

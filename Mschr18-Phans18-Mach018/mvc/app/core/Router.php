@@ -35,10 +35,12 @@ class Router {
 
 		require_once 'Restricted.php';
 		if(restricted(get_class($this->controller), $this->method)) {
-			$this->method = 'index';
-			if (get_class($this->controller) == 'ApiController') {
-				array_unshift($this->params, '401');
+			if (!in_array(get_class($this->controller), array('ApiController', 'HomeController'))) {
+				require_once '../app/controllers/HomeController.php';
+				$this->controller = new HomeController;
 			}
+			$this->method = 'index';
+			array_unshift($this->params, '401');
 
 			call_user_func_array([$this->controller, $this->method], $this->params);
 		} else {
