@@ -32,6 +32,8 @@ class ApiController extends Controller {
 			} elseif ($this->getAll()) {
 				 $result = $this->model('Image')->getUserImages($user_id);
 				 echo json_encode($result,JSON_PRETTY_PRINT);
+			}
+
 		}
 
 	}

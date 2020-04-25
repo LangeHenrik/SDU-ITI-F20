@@ -2,7 +2,7 @@
 
 require_once 'db_config.php';
 	
-class Database extends DB_Config {
+class Database extends DatabaseConfig {
 
 	public $conn;
 	

@@ -1,5 +1,5 @@
 <?php
-class DB_Config {
+class DatabaseConfig {
 	
 
 	protected $server = "127.0.0.1";
