@@ -240,7 +240,7 @@ td {
 }
 
 .wrapper .contentlist {
-    width: 400px;
+    width: 600px;
     padding: 40px;
     position: absolute;
     top: 50%;
@@ -251,6 +251,8 @@ td {
     animation-name: animatetop;
     animation-duration: 1s;
     display: inline-block;
+    height: 800px;
+    overflow: auto;
 }
 
 .wrapper .content h1 {
