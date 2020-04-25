@@ -1,0 +1,54 @@
+@import 'background.css';
+@import 'nav.css';
+.userlist_wrapper {
+    position: relative;
+    width: 70%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+    padding-top: 100px;
+    text-align: center;
+    align-items: center;
+}
+
+.userlist_table {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.userlist_table td,
+th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    background: rgb(129, 166, 214);
+}
+
+.userlist_table tr:nth-child(even) {
+    background: #f2f2f2;
+}
+
+.userlist_table tr:hover {
+    background: #ddd;
+}
+
+.userlist_table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background: rgba(86, 88, 233, 0.8);
+    color: white;
+}
+
+
+/* can use https://loading.io/css/ if interested in pure loading icons*/
+
+.bs-example {
+    display: inline-block;
+    position: relative;
+    margin: 5px;
+    width: 30px;
+    height: 33px;
+}

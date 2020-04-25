@@ -1,0 +1,150 @@
+@import 'background.css';
+@import 'nav.css';
+
+.upload_picture_container {
+    width: 50%;
+    height: 1000px;
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+    padding-top: 100px;
+}
+
+.upload_picture_container h1{
+    color: #ffffff;
+}
+/* .upload_picture_container {
+    position: absolute;
+    left: 10%;
+    top: 10%;
+    padding: 50px;
+    margin: 0 auto;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+} */
+
+.upload_picture_container label {
+    color: #ffffff;
+}
+
+
+/* input[type=text] {
+    width: 75%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+    font-size: 16px;
+}
+
+input[type=text]:focus {
+    background-color: #ddd;
+    outline: none;
+    font-size: 16px;
+} */
+
+
+/* textarea {
+    width: 75%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background: #f8f8f8;
+    resize: none;
+} */
+
+
+.box {
+    position: relative;
+    /*  background: #ffffff; */
+    width: 100%;
+}
+
+.box-header {
+    color: #ffffff;
+    display: block;
+    padding: 10px;
+    position: relative;
+    border-bottom: 1px solid #ffffff;
+    margin-bottom: 10px;
+}
+
+.box-tools {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+}
+
+.dropzone-wrapper {
+    border: 2px dashed #91b0b3;
+    color: #92b0b3;
+    position: relative;
+    height: 150px;
+}
+
+.dropzone-desc {
+    position: absolute;
+    text-align: center;
+    width: 20%;
+    top: 50px;
+    font-size: 16px;
+}
+
+.dropzone,
+.dropzone:focus {
+    position: relative;
+    width: 50%;
+    height: 50px;
+    cursor: pointer;
+    opacity: 0;
+}
+
+.dropzone-wrapper:hover,
+.dropzone-wrapper.dragover {
+    background: #487eb0;
+}
+
+.preview-zone {
+    text-align: center;
+}
+
+.preview-zone .box {
+    box-shadow: none;
+    border-radius: 0;
+    margin-bottom: 0;
+}
+
+.upload-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.choosefilebtn {
+    border: 2px solid white;
+    color: white;
+    background: rgb(45, 45, 160);
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+
+.upload-btn-wrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}
+
+
+.uploadbtn:hover {
+    opacity: 3;
+    color: green;
+}
