@@ -6,7 +6,7 @@ class DatabaseConfig {
 	protected $database = "ass1";
 	protected $username_database = "root";
 	protected $password_database = "160170";
-	protected $portdb = "3306";
+	protected $portdb = "3307";
 	#$password = "root";
 }
 

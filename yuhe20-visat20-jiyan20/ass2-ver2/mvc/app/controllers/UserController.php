@@ -34,6 +34,7 @@ class UserController extends Controller{
 	}
     
     public function register() {
+        
         if(isset($_POST['signup-submit'])){
             $viewbag = $this->model('User')->register($_POST['username'], $_POST['email-register'], $_POST['pwd-register'], $_POST['pwd-repeat']);
             $this->view('user/register', $viewbag);
