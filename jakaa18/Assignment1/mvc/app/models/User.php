@@ -2,30 +2,33 @@
 class User extends Database {
 	
 	public function login($username, $password){
-		$sql = $this->query("SELECT username, password FROM users WHERE username = :username");
-
-		if (password_verify($password, $sql[0]['password'])) {
-		    return true;
-        }
-		return false;
-
-		/*
-		$stmt = $this->conn->prepare($sql);
-		$stmt->bindParam(':username', $username);
-		$stmt->execute();
-
-		$result = $stmt->fetch(); //fetchAll to get multiple rows
-
-		print_r($result);
-
-
-		//todo: make an actual login function!!
-		return true;*/
+        $sql = "SELECT username, password FROM user WHERE username = :username";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':username', $username);
+        $stmt->execute();
+        $result = $stmt->fetch();
+        return ($username == $result['username'] && password_verify($password, $result['password']));
 	}
 
 	public function newUser($username, $password) {
 	    if ($username != null && $password != null) {
-	        $this->query('INSERT INTO users (username, password) VALUES (?, ?);', [$username, $password]);
+            try {
+                $stmt = $this->conn->prepare('INSERT INTO user (username, password) VALUES (?, ?)');
+                if (preg_match("/^\S\w{5,50}$/", $username) && preg_match("/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/", $password)) {
+                    $hashed_pass = password_hash($password, PASSWORD_DEFAULT);
+                    $stmt->execute([$username, $hashed_pass]);
+                    return true;
+                } else {
+                    return false;
+                }
+            } catch (PDOException $exception) {
+                $duplicate = "Integrity constraint violation: 1062 Duplicate entry";
+                if (strpos($exception->getMessage(), $duplicate) !== FALSE) {
+                    return false;
+                } else {
+                    throw $exception;
+                }
+            }
         }
     }
 
