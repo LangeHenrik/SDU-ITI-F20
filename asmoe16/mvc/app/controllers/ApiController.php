@@ -42,6 +42,7 @@ class ApiController extends Controller {
 	}
 
 	private function getPicture($user_id) {
+		$imageModel = $this->model('Image');
 		$images = $imageModel->list_images($user_id);
 		$result = array();
 		foreach ($images as $image) {

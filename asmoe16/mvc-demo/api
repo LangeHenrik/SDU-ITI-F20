@@ -14,6 +14,6 @@ curl --data-urlencode json='{
 #Get users
 curl -G http://localhost:8080/asmoe16/mvc/public/api/users | jq
 #Get image
-curl -G http://localhost:8080/asmoe16/mvc/public/api/pictures/user/2 | jq
-#Proof image works
+curl -G http://localhost:8080/asmoe16/mvc/public/api/pictures/user/1 | jq
+#Proof get image works
 curl -G http://localhost:8080/asmoe16/mvc/public/api/pictures/user/2 | jq -r '.[1].image' | base64 -d >> New.jpg

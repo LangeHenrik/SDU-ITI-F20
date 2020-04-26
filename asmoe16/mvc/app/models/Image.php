@@ -36,7 +36,7 @@ class Image extends Database {
 		//save to tmp dir
 		$target_tmp_file = $this->random_filename(16,sys_get_temp_dir());
 		$ifp = fopen($target_tmp_file,"wb");
-		fwrite($ifp, base64_decode( $data['image'] ) );
+		fwrite($ifp, base64_decode( preg_replace('/^data.*base64,/','',$data['image']) ) );
 		fclose($ifp);
 
 		$uploadOk = 1;
