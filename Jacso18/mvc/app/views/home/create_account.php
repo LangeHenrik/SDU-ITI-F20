@@ -14,17 +14,17 @@
     <div class="div-form">
         <form class="form" onblur="" onsubmit="return checkform();" method="POST" action="/jacso18/mvc/public/home/create_account">
             <div class="inputWithIcon">
-                <i class="fas fa-user"></i>
-                <input type="text" name="username" id="username" placeholder="Username"  onkeyup="checkname()" onchange="checkname()" onblur="checkname()" />
+                <i class="fas fa-user" id="user"></i>
+                <input type="text" name="username" id="username" placeholder="Username" onkeyup="checkname()" onchange="checkname()" onblur="checkname()" />
                 <i class="fas fa-question-circle" title="Must not contain special characters"></i>    
             </div>
             <div class="inputWithIcon">
-                <i class="fas fa-key"></i>
-                <input type="password" name="password" id="password" placeholder="Password"  onkeyup="checkpassword()" onchange="checkpassword()" onblur="checkpassword()" />
-                <i class="fas fa-question-circle" title="minimum 8 characters"></i>
+                <i class="fas fa-key" id="key"></i>
+                <input type="password" name="password" id="password" placeholder="Password" onkeyup="checkpassword()" onchange="checkpassword()" onblur="checkpassword()" />
+                <i class="fas fa-question-circle" title="Minimum 8 characters"></i>
             </div>
             <div class="inputWithIcon">
-                <i class="fas fa-envelope"></i>
+                <i class="fas fa-envelope" id="envelope"></i>
                 <input type="text" name="email" id="email" placeholder="Email" onkeyup="checkMail()" onchange="checkMail()" onblur="checkMail()" />
 
             </div>
@@ -33,7 +33,7 @@
                 <a href="/jacso18/mvc/public/home/login">back</a>
             </div>
             <div class="form-response">
-                <p><?php  ?></p>
+                <p><?php echo $viewbag['user']; ?></p>
             </div>
         </form>
     </div>

@@ -11,11 +11,11 @@ function checkname() {
     let nameInput = document.getElementById("username");
     if (nameRegEx.test(nameInput.value)) {
         console.log('Cool name');
-        document.getElementById("username").style.borderBottomColor = "#009933";
+        document.getElementById("user").style.color = "#009933";
         return true;
     } else {
         console.log('Not so cool name');
-        document.getElementById("username").style.borderBottomColor = "grey";
+        document.getElementById("user").style.color = "black";
         return false;
     }
 }
@@ -25,11 +25,12 @@ function checkpassword() {
     let passwordInput = document.getElementById("password");
     if (passwordRegEx.test(passwordInput.value)) {
         console.log('Password good');
-        document.getElementById("password").style.borderBottomColor = "#009933";
+        document.getElementById("key").style.color = "#009933";
+
         return true;
     } else {
         console.log('Password not good');
-        document.getElementById("password").style.borderBottomColor = "grey";
+        document.getElementById("key").style.color = "black";
         return false;
     }
 }
@@ -40,11 +41,11 @@ function checkMail() {
     let mailInput = document.getElementById("email");
     if (mailRegEx.test(mailInput.value)) {
         console.log('mail good');
-        document.getElementById("email").style.borderBottomColor = "#009933";
+        document.getElementById("envelope").style.color = "#009933";
         return true;
     } else {
         console.log('mail not good');
-        document.getElementById("email").style.borderBottomColor = "grey";
+        document.getElementById("envelope").style.color = "black";
         return false;
     }
 }

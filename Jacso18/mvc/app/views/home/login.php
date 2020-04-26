@@ -22,9 +22,9 @@
                 <input type="password" name="password" placeholder="Password" />
 
             </div>
-            <div class="button"><input type="submit" name="login" id="login" value="login" />
-                <a href="/jacso18/mvc/public/home/create_account">create account</a>
-            </div>
+            <div class="button"><input type="submit" name="login" id="login" value="login" /></div>
+            <a href="/jacso18/mvc/public/home/create_account">create account</a>
+            <p> <?php echo $viewbag['error']; ?> </p>
     </div>
 
     </form>

@@ -27,21 +27,24 @@ class HomeController extends Controller
 
 	public function login()
 	{
-		$this->view('home/login');
-		if (isset($_SESSION['message'])){
-			echo $_SESSION['message'];
+		$viewbag['error'] = "";
+		if (isset($_SESSION['error'])){
+			$viewbag['error'] = $_SESSION['error'];
+			 
 		} 
+		$this->view('home/login',$viewbag);
+
 		if (isset($_POST['username']) && isset($_POST['password'])) {
 			$username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
 			$password = filter_var($_POST['password'], FILTER_SANITIZE_STRING);
 			if ($this->model('user')->isUser($username, $password)) {
 				$_SESSION['logged_in'] = true;
 				$_SESSION['username'] = $username;
-				$_SESSION['message'] = '';
+				$_SESSION['error'] = '';
 				header('Location: /jacso18/mvc/public/post/image_feed');
 			} else {
-				$_SESSION['message'] = 'Wrong username or password';
-				header('Location: /jacso18/mvc/public/home/index');
+				$_SESSION['error'] = 'Wrong username or password';
+				header('Location: /jacso18/mvc/public/home/login');
 			}
 		}
 	}
@@ -55,7 +58,12 @@ class HomeController extends Controller
 
 	public function create_account()
 	{
-		$this->view('home/create_account');
+		$viewbag['user'] = "";
+		if (isset($_SESSION['user'])){
+			$viewbag['user'] = $_SESSION['user'];
+			 
+		} 
+		$this->view('home/create_account',$viewbag);
 
 		if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['email'])) {
 			$username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
@@ -66,9 +74,11 @@ class HomeController extends Controller
 				if (sizeof($this->model('User')->getUserFromUsername($username)) <= 0) {
 					$this->model('User')->createUser($username, $email, password_hash($password, PASSWORD_DEFAULT));
 					echo 'user created';
+					$_SESSION['user'] = "User created";
 					header('Location: /jacso18/mvc/public/home/create_account');
 				} else {
-					echo 'User already exists';
+					$_SESSION['user'] = "Could not create user";
+					header('Location: /jacso18/mvc/public/home/create_account');
 					return false;
 				}
 			} else {
