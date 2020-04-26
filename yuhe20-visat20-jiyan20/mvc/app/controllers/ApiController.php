@@ -23,15 +23,15 @@ class ApiController extends Controller
 		}
 	}
 
-	public function pictures($user, $user_id)
+	public function pictures($user, $userid)
 	{
 		$user = filter_var(trim($user), FILTER_SANITIZE_STRING);
 		if ($user == 'user') {
-			if (is_numeric($user_id) && $user_id >= 0)
+			if (is_numeric($user_id) && $userid >= 0)
 				if ($this->post()) {
-					$this->postPicture($user_id);
+					$this->postPicture($userid);
 				} elseif ($this->get()) {
-					$this->getPictures($user_id);
+					$this->getPictures($userid);
 				}
 		}
 	}
@@ -44,7 +44,7 @@ class ApiController extends Controller
 
 	private function getPictures($user_id)
 	{
-		$user_pictures = $this->model('Image')->getAllUserPictures($user_id);
+		$user_pictures = $this->model('Image')->getAllImage($user_id);
 		echo json_encode($user_pictures, JSON_PRETTY_PRINT);
 	}
 }

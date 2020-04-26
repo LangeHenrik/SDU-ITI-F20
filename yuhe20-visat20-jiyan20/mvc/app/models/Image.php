@@ -6,12 +6,12 @@ class Image extends Database
     {
         $header = filter_var(trim($_POST["image-header"]), FILTER_SANITIZE_STRING);
         $description = filter_var(trim($_POST["image-description"]), FILTER_SANITIZE_STRING);
-        if ((strlen($header) > 25) or (strlen($description) > 250) or ((filesize($_FILES["file"]["tmp_name"]) * 1.35) > 4294967295)) {
-            return "Max titlelength: 25 characters.\nMax description lenght: 250 characters.\nImage file might be too large.";
+        if ((strlen($header) > 10) or (strlen($description) > 100)) {
+            return "Please be more concise!";
         } else {
 
             $target_dir = "upload/";
-            $target_file = $target_dir . basename($_FILES["file"]["name"]);
+            $target_file = $target_dir . basename($_FILES["image-upload"]["name"]);
 
             $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
@@ -22,7 +22,7 @@ class Image extends Database
             if (in_array($imageFileType, $extensions_arr)) {
 
 
-                $image_base64 = base64_encode(file_get_contents($_FILES['file']['tmp_name']));
+                $image_base64 = base64_encode(file_get_contents($_FILES['image-upload']['tmp_name']));
                 $img = 'data:image/' . $imageFileType . ';base64,' . $image_base64;
 
                 $statement = 'INSERT INTO images (header, description, image, userid) values(:header, :description, :image, :userid)';
@@ -41,7 +41,7 @@ class Image extends Database
         }
     }
 
-    public function getAllUserPictures($userid)
+    public function getAllImage($userid)
     {
         $userid = filter_var($userid, FILTER_SANITIZE_STRING);
 
