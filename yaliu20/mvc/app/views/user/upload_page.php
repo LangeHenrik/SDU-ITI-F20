@@ -27,7 +27,6 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label class="control-label">Upload File</label>
-
                                 <div class="dropzone-wrapper">
                                     <div class="dropzone-desc">
                                         <i class="glyphicon glyphicon-download-alt"></i>

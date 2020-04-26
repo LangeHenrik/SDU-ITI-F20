@@ -22,32 +22,32 @@
 
                 <div class="form-group">
                     <label for="username" id="username-label">Username: </label>
-                    <input type="text" class="form-control" name="username" id="username" placeholder="type a username" required>
+                    <input type="text" class="form-control" name="username" id="username" required>
                 </div>
                 <div class="form-group">
                     <label for="fullname" id="fullname-label">Forname and lastname: </label>
-                    <input type="text" class="form-control" name="fullname" id="fullname" title="Please enter your first and lastname" pattern="^(\w+\s+\D).+$" placeholder="Type forname and lastname" required>
+                    <input type="text" class="form-control" name="fullname" id="fullname" title="Please enter your first and lastname" pattern="^(\w+\s+\D).+$"  required>
                 </div>
                 <div class="form-group">
                     <label for="email" id="email-label">Email: </label>
-                    <input type="email" class="form-control" name="email" id="email" placeholder="type email" required>
+                    <input type="email" class="form-control" name="email" id="email" required>
                 </div>
                 <div class="form-group">
                     <label for="password" id="password-label">Password: </label>
-                    <input type="password" class="form-control" name="password" id="password" placeholder="Type password" pattern="(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])\S{8,}" required>
+                    <input type="password" class="form-control" name="password" id="password" pattern="(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])\S{8,}" required>
                 </div>
                 <!--<span>Confirm password: </span> <span id="message"><i>Type to see if it matches</i></span>
 -->
                 <div class="form-group">
                     <label for="password_confirm" id="password_confirm-label">Confirm password</label>
-                    <input type="password" class="form-control" name="password_confirm" id="password_confirm" placeholder="Repeat password" oninput="return validatePassword();" onchange="return validatePassword();" required>
+                    <input type="password" class="form-control" name="password_confirm" id="password_confirm" oninput="return validatePassword();" onchange="return validatePassword();" required>
                     <br>
                 </div>
                 <button type="submit" name="registerbtn" id="registerbtn" class="btn btn-primary btn-lg">Create Account</button>
                 <!-- <input type="submit" class="registerbtn" name="registerbtn" value="Create Account"></input> -->
 
                 <p>
-                    Already registered? <a href="/yaliu20/mvc/public/home/">Go to signin page</a>
+                    Already registered? <a href="/yaliu20/mvc/public/home/">sign in page</a>
                 </p>
             </div>
         </form>

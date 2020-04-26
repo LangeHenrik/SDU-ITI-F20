@@ -17,8 +17,8 @@
         <?php include_once '../app/views/partials/menu.php'; ?>
 
         <div id="main-wrapper" class="main_wrapper">
-            <h3 class="front_page-subheader">Hi, <b><?= $viewbag['fullname'] . ' ' ?></b></br>
-
+         
+            <h1>Welcome to Pics</h1>
         </div>
         <!-- http://ip-api.com/json/24.48.0.1?fields=status,message,country,countryCode,region,regionName,city,zip,lat,lon,timezone,query -->
         <!--   <div id="list-example" class="list-group">
