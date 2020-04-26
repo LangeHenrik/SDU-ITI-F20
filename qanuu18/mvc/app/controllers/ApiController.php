@@ -17,6 +17,9 @@ class ApiController extends Controller {
 		$users = $this->model('User')->getAll();
 		echo json_encode($users, JSON_PRETTY_PRINT);
 	}
+
+
+
 /*
 	public function secret ($n, $apikey) {
 

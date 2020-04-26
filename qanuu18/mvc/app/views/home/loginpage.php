@@ -1,4 +1,4 @@
-<?php include '../app/views/partials/menu.php'; ?>
+
 
 <head>
     <link rel="stylesheet" href="extfiles/styling.css">
@@ -7,7 +7,7 @@
 <body>
     <h1>Sign In or Sign Up</h2>
     <div id="frm">
-        <form class="login" name="frontpage" method="POST" action="/qanuu18/mvc/public/home/index.php">
+        <form class="login" name="frontpage" method="POST" action="/qanuu18/mvc/public/home/login">
             <p>
                 <label>Username:</label>
                 <input type="text" id="user" name="username">
@@ -29,7 +29,4 @@
 
 </body>
 
-
-
-<?php include '../app/views/partials/foot.php'; ?>
 </html>

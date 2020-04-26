@@ -7,7 +7,7 @@ class HomeController extends Controller {
 		//echo '<br><br>Home Controller Index Method<br>';
 		//echo 'Param: ' . $param . '<br><br>';
 
-		$this->view('home/index');
+		$this->view('home/loginpage');
 	}
 	
 	public function other ($param1 = 'first parameter', $param2 = 'second parameter') {
@@ -22,8 +22,8 @@ class HomeController extends Controller {
 		echo 'Welcome - you must be logged in';
 	}
 	
-	public function login($username) {
-		if($this->model('User')->login($username)) {
+	public function login($usernameinput) {
+		if($this->model('User')->login($usernameinput)) {
 			$_SESSION['logged_in'] = true;
 			$this->view('home/login');
 		}
@@ -72,10 +72,12 @@ class HomeController extends Controller {
 
         if($this->post()){
 
-            $this->model('User')->register();
-            $this->view('qannu18/mvc7public/home/registration');
+			$this->model('User')->registeruser();
+			
+
+            $this->view('qannu18/mvc/public/home/loginpage');
             
-            echo $username . ' username is now registered.';
+            echo ' username is now registered.';
             //echo json_encode($users, JSON_PRETTY_PRINT);
 
 

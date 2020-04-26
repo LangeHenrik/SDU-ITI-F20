@@ -5,7 +5,7 @@ class Image extends Database {
 
    
     public function postImages() {
-        if(isset($_POST['upload'])) {
+      ///  if(isset($_POST['upload'])) {
    
         $path = "images/".basename($_FILES['profileimage']['name']);
         $image = $_FILES['profileimage']['tmp_name'];
@@ -36,7 +36,7 @@ class Image extends Database {
             }
         }
 
-    }
+    
  
     public function apipostimages(){
 
@@ -48,8 +48,7 @@ class Image extends Database {
     public function getImages(){
 
         $sql = "SELECT * FROM images";
- 
-        $stmt = $conn->prepare($sql);
+        $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         while($result =  $stmt->fetch(PDO::FETCH_ASSOC)){
     
@@ -64,6 +63,28 @@ class Image extends Database {
        return $image;
 
     }
+
+
+    public function getImagefromuser($username){
+
+        $sql = "SELECT * FROM images WHERE username = :username";
+       
+
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':username', $username);
+        $stmt->execute();
+
+        $result = $stmt->fetch(); //fetchAll to get multiple rows
+
+        print_r($result);    
+
+
+
+
+    }
+
+
+
 
 
     
