@@ -1,8 +1,8 @@
 function showUser(str) {
-  if (str=="") {
-    document.getElementById("txtHint").innerHTML="";
-    return;
-  }
+  //if (str=="") {
+    //document.getElementById("txtHint").innerHTML="";
+    //return;
+  //}
   if (window.XMLHttpRequest) {
     // code for IE7+, Firefox, Chrome, Opera, Safari
     xmlhttp=new XMLHttpRequest();
@@ -14,6 +14,7 @@ function showUser(str) {
         document.getElementById("txtHint").innerHTML=this.responseText;
     }
   }
-  xmlhttp.open("GET","contact?q="+str,true);
-  xmlhttp.send();
+  xmlhttp.open("POST", "contact/search", true);
+  xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xmlhttp.send("q="+str);
 }

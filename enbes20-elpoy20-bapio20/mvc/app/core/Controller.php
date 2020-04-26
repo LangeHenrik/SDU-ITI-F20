@@ -11,7 +11,9 @@ class Controller {
 		require_once '../app/views/' . $view . '.php';
 		include '../app/views/partials/footer.php';
 	}
-
+	public function blank_view($view, $viewbag = []) {
+		require_once '../app/views/' . $view . '.php';
+	}
 	public function post() {
 		return $_SERVER['REQUEST_METHOD'] === 'POST';
 	}
