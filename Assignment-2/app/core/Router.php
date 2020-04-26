@@ -8,13 +8,14 @@ class Router {
 	
 	function __construct () {
 		$url = $this->parseUrl();
+
 		
 		if(isset($url[0])) {
 			$url[0] = ucfirst($url[0]);
 		}
 
 		if(file_exists('../app/controllers/' . ucwords($url[4]).'.php')) {
-			$this->controller = ucwords($url[4]);
+			$this->controller = ucfirst($url[4]);
 			unset($url[4]);
 		}
 		
@@ -29,8 +30,6 @@ class Router {
 			}
 		}
 
-		echo $url[5];
-		echo $this->method;
 
 		$this->params = $url ? array_values($url) : [];
 
@@ -56,13 +55,19 @@ class Router {
     }
 	
 	public function parseUrl () {
-		
-		$url = filter_var($_SERVER['REQUEST_URI'], FILTER_SANITIZE_URL);
+
+	    if (isset($_SERVER['REQUEST_URI'])){
+	        $url = rtrim($_SERVER['REQUEST_URI'],'/');
+	        $url = filter_var($url, FILTER_SANITIZE_URL);
+	        $url = explode('/', $url);
+	        return $url;
+        }
+		/*$url = filter_var($_SERVER['REQUEST_URI'], FILTER_SANITIZE_URL);
 		if(substr($url, -1) !== "/") {
 			$url = $url . "/";
 		}
 		$url = explode('/', $url);
-		return $url;
+		return $url;*/
 	}
 	
 }

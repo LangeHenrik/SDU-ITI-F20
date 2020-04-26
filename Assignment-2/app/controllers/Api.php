@@ -1,6 +1,6 @@
 <?php
 
-class ApiController extends Controller {
+class Api extends Controller {
 	
 	public function __construct () {
 		header('Content-Type: application/json');
@@ -10,13 +10,18 @@ class ApiController extends Controller {
 	}
 
 	public function index ($param) {
-		
+		echo 'this ran';
 	}
 	
 	public function users () {
 		$users = $this->model('User')->getAll();
 		echo json_encode($users, JSON_PRETTY_PRINT);
 	}
+
+    public function userid ($id) {
+        $users = $this->model('User')->getId($id);
+        echo json_encode($users, JSON_PRETTY_PRINT);
+    }
 
 	public function userImages ($id) {
 		$users = $this->model('User')->getAllImages($id);

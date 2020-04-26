@@ -9,7 +9,7 @@ include 'config.php';
 <?php if(!isset($_SESSION["loggedin"]) && $_SESSION["loggedin"]  != true): ?>
 <div id="menu" class="nav">
   <ul>
-    <li><a href="../index.php">Frontpage</a></li>
+    <li><a href="../../../../index.php">Frontpage</a></li>
     <li><a href="#" onclick="openModal()">Login</a></li>
   </ul>
 </div>
@@ -20,7 +20,7 @@ include 'config.php';
       <a href="../../../../index.php"><i class="fas fa-home"></i> <span class="link-text">Frontpage</span> </a>
     </li>
     <li>
-      <a href="../../../../xx/mvc/public/imagepage"> <i class="fas fa-images"> </i> <span class="link-text"> Image feed </span></a>
+      <a href="../../../../xx/mvc/public/home/imagepage"> <i class="fas fa-images"> </i> <span class="link-text"> Image feed </span></a>
     </li>
     <li>
       <a href="../../../../xx/mvc/public/home/upload"><i class="fas fa-upload"></i> <span class="link-text">Upload page</span></a>

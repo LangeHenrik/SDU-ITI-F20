@@ -29,6 +29,20 @@ class User extends Database {
 		return $result;
 	}
 
+    public function getId ($id) {
+
+        $sql = "SELECT ID FROM user WHERE id = 2";
+
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+
+        $result = $stmt->fetchAll();
+
+        return $result;
+    }
+
+
+
 	public function getAllImages ($id) {
 		$sql = "SELECT * FROM picture WHERE id = " . $id . "";
 
