@@ -24,6 +24,11 @@ include '../app/views/partials/menu.php';
             <p class="info-elements" id="password-info"></p>
             <button class="button" type="submit"> Register new user</button><br>
         </form>
+        <?php
+        if (isset($viewbag['user_info'])){
+            echo $viewbag['user_info'];
+        }
+        ?>
     </div>
 </div>
 
