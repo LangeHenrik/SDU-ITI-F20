@@ -1,7 +1,6 @@
 <?php
 class User extends Database
 {
-
 	public function login($username, $password)
 	{
 		$stmt = $this->conn->prepare("SELECT password FROM user WHERE username = :username");
@@ -58,20 +57,31 @@ class User extends Database
 		}
 	}
 
-	public function getUser($username = "")
+	public function getUserlist($username)
 	{
 		if ($username === "") {
-            $stmt = $this->conn->prepare("SELECT * FROM user");
+            $stmt = $this->conn->prepare("SELECT username FROM user");
         } else {
             $stmt = $this->conn->prepare("SELECT username FROM user WHERE username = :username");
             $stmt->bindParam(':username', $username);
         }
         $stmt->execute();
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
-		$result = $stmt->fetchAll();
+		$result = $stmt->fetchAll(); 
 		
 		return $result;
-
 	}
 
+	public function getSearchUser(){
+		$searchValue = isset($_GET["searchValue"]);
+
+		$stmt = $this->conn->prepare("SELECT username FROM user WHERE username LIKE CONCAT('%', :username, '%')");
+		$stmt->bindParam(':username', $searchValue);
+		$stmt->execute();
+		$stmt->setFetchMode(PDO::FETCH_NUM);
+		$users = $stmt->fetchAll();
+
+		return $users;
+	
+	}
 }

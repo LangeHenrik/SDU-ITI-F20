@@ -3,25 +3,34 @@
 <h2>Users</h2>
 
 <form>
-    Search for user: <input type="text" onkeyup="findUsers(this.value)">
+    <input type="text" id="searchValue" name="searchValue" value="<?=$_GET["searchValue"] ?? ""?>"
+    autofocus placeholder="Enter search here. . .">
+    <input type="submit" id="submit" value="Search">
 </form>
 
 <table class="user-table" id="user-table">
-    <?php $result_table = "<tr><th>Username</th></tr>";
-
-    if (isset($viewbag)) {
-        if (count($viewbag) == 0) {
-            $result_table .= "<tr><td> No Results! </td></tr>";
-        } else {
-            $usercount = sizeof($viewbag);
-
-            for ($i = 0; $i < $usercount; $i++) {
-                $result_table .= "<tr><td>" . $viewbag[$i]['username'] . "</td></tr>";
-            }
-        }
-    }
-    echo $result_table; ?>
-</table>
+        <thead>
+          <tr>
+            <th>Username</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php
+            if (!empty($viewbag)) {
+              $rows = count($viewbag);
+              $cols = count($viewbag[0]);
+              for ($i=0; $i < $rows; $i++) {
+          ?>
+            <tr>
+              <?php for ($j=0; $j < $cols; $j++) { ?>
+                <td>
+                  <?=$viewbag[$i][$j]?>
+                </td>
+              <?php } ?>
+            </tr>
+          <?php } } ?>
+        </tbody>
+      </table>
 
 
 
