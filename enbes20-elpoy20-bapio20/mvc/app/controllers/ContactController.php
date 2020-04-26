@@ -7,22 +7,22 @@ class ContactController extends Controller {
 	public function index($param = null) {
 	  $viewbag['title'] = 'CONTACTS LIST';
 	  // get the q parameter from URL
-	  if(isset($_REQUEST['q'])) {
-	    $q_check = filter_var($_REQUEST['q'], FILTER_SANITIZE_STRING);
-	    $q = htmlspecialchars($q_check);
-	  	$q = $_REQUEST['q'];
+	  if(isset($_REQUEST['search'])) {
+	    $search_check = filter_var($_REQUEST['search'], FILTER_SANITIZE_STRING);
+	    $search = htmlspecialchars($search_check);
+	  	$search = $_REQUEST['search'];
 	  }else {
-		$q = "";
+		$search = "";
 	  }
 	  $viewbag['output_userlist']="";
-	  if ($q === "") {
+	  if ($search === "") {
 	    $res = $this->model('User')->getAll();
 
 			$row = $res->fetchAll();
 		  $viewbag['output_userlist'] =  $row;
 
 	  } else {
-	    $res = $this->model('User')->getAll($q);
+	    $res = $this->model('User')->getAll($search);
 			$row = $res->fetchAll();
 			$viewbag['output_userlist'] =  $row;
 			//var_dump($viewbag['output_userlist']);
@@ -35,23 +35,23 @@ class ContactController extends Controller {
 
 	public function search($param = null) {
 
-	  // get the q parameter from URL
-	  if(isset($_REQUEST['q'])) {
-	    $q = filter_var($_REQUEST['q'], FILTER_SANITIZE_STRING);
-	    //$q = htmlspecialchars($q_check);
-	  	$q = $_REQUEST['q'];
+	  // get the search parameter from URL
+	  if(isset($_REQUEST['search'])) {
+	    $search = filter_var($_REQUEST['search'], FILTER_SANITIZE_STRING);
+	    //$search = htmlspecialchars($search_check);
+	  	$search = $_REQUEST['search'];
 	  }else {
-		$q = "";
+		$search = "";
 	  }
 	  $viewbag['output_userlist']="";
-	  if ($q === "") {
+	  if ($search === "") {
 	    $res = $this->model('User')->getAll();
 
 			$row = $res->fetchAll();
 		  $viewbag['output_userlist'] =  $row;
 
 	  } else {
-	    $res = $this->model('User')->getAll($q);
+	    $res = $this->model('User')->getAll($search);
 			$row = $res->fetchAll();
 			$viewbag['output_userlist'] =  $row;
 			//var_dump($viewbag['output_userlist']);

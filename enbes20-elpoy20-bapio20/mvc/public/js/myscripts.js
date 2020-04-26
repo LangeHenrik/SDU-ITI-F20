@@ -16,5 +16,5 @@ function showUser(str) {
   }
   xmlhttp.open("POST", "contact/search", true);
   xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xmlhttp.send("q="+str);
+  xmlhttp.send("search="+str);
 }
