@@ -74,11 +74,21 @@ class Image extends Database {
         $stmt->bindParam(':username', $username);
         $stmt->execute();
 
-        $result = $stmt->fetch(); //fetchAll to get multiple rows
+       // $result = $stmt->fetchAll(); //fetchAll to get multiple rows
 
-        print_r($result);    
+        //print_r($result);    
 
-
+  while($result =  $stmt->fetch(PDO::FETCH_ASSOC)){
+    
+        echo "<img src='data:$result[Filetype];base64,$result[img]' alt='$result[Header]'>";
+         echo "<h3>".$result["Header"]."</h3>";
+         echo "<p>".$result["description"]."</p>";
+         echo "<p>".$result["username"]."</p>";
+    
+    
+        }
+       $image = $stmt->fetchAll();
+       return $image;
 
 
     }
