@@ -113,12 +113,12 @@ class HomeController extends Controller {
 
 	public function logout() {
 		
-		if($this->post()) {
+	
 			session_unset();
 			header('Location: abtho16/mvc/public/home/');
-		} else {
-			echo 'try agian ';
-		}
+		
+			
+		
 	}
 	
 	public function loggedout() {

@@ -1,6 +1,6 @@
 <?php
 
-include '../app/views/partials/userNav.php';
+include '../app/views/partials/newUserNav.php';
 
 require_once '../app/models/Picture.php';
 
