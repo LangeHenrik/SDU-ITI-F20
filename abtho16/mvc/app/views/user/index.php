@@ -2,13 +2,14 @@
 
 include '../app/views/partials/newUserNav.php';
 
-require_once '../app/models/User.php';
+
 
 
 ?>
 
 <!DOCTYPE html>
 <link rel="stylesheet" href="/abtho16/mvc/public/content/css/user.css">
+<link rel="stylesheet" href="/abtho16/mvc/public/content/css/login_Reg.css">
 
 <table>
 <tr>
@@ -34,22 +35,22 @@ require_once '../app/models/User.php';
 <span>Email<span>
 </th>
 <th>
-<span>Number<span>
+<span>Phone Number<span>
 </th>
 </tr>
-
 <?php
 
 foreach($viewbag['users'] as &$value) {
     echo '<tr>';
-    echo '<td>'.$value->user_id.'</td>';
-    echo '<td>'.$value->username.'</td>';
-    echo '<td>'.$value->first_name.'</td>';
-    echo '<td>'.$value->last_name.'</td>';
-    echo '<td>'.$value->zip.'</td>';
-    echo '<td>'.$value->city.'</td>';
-    echo '<td>'.$value->email.'</td>';
-    echo '<td>'.$value->number.'</td>';
+    echo '<td>'.$value['userid'].'</td>';
+    echo '<td>'.$value['username'].'</td>';
+    echo '<td>'.$value['firstname'].'</td>';
+    echo '<td>'.$value['lastname'].'</td>';
+    echo '<td>'.$value['zipcode'].'</td>';
+    echo '<td>'.$value['city'].'</td>';
+    echo '<td>'.$value['email'].'</td>';
+    echo '<td>'.$value['phonenumber'].'</td>';
+
     echo '</tr>';
 }
 

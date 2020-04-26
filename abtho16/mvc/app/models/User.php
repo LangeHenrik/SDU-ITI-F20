@@ -3,7 +3,24 @@
 class User extends Database {
 
 
-	public function getUsers() {
+    public function getUsers() {
+        $users = array();
+        $st = $this->conn->prepare("SELECT userid,username,firstname,lastname,zipcode,city,email,phonenumber FROM user;");
+        $results = array();
+        if ($st->execute()) {
+            while ($row = $st->fetch(PDO::FETCH_ASSOC)) {
+                $results[] = $row;
+            }
+        }
+        $users = [];
+        foreach($results as $result) {
+            array_push($users, $result);
+       }
+       return $users;
+    }
+    
+  /*  
+    public function getUsers() {
 		$users = array();
 		$st = $this->conn->prepare("SELECT userid,username,firstname,lastname,zipcode,city,email,phonenumber FROM user;");
 		$results = array();
@@ -26,7 +43,7 @@ class User extends Database {
        }
 	   return $users;
 	}
-
+*/
 	public function apiGetUsers() {
 		$st = $this->conn->prepare("SELECT userid AS user_id, username FROM user;");
 		$st->execute();

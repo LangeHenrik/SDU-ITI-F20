@@ -9,6 +9,7 @@ require_once '../app/models/Picture.php';
 <!DOCTYPE html>
 <head>
 <link rel="stylesheet" href="/abtho16/mvc/public/content/css/index.css">
+<link rel="stylesheet" href="/abtho16/mvc/public/content/css/login_Reg.css">
 </head>
 <table>
 <tr>

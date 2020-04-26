@@ -18,7 +18,7 @@
 
 <?php if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']) : ?>
     <ul>
-        <li><a class="active" href="/mvc/public/home/index">Home</a></li>
+        <li><a class="active" href="/abtho16/mvc/public/home/index">Home</a></li>
         <li><a href="/abtho16/mvc/public/user/index">Users</a></li>
         <li><a href="/abtho16/mvc/public/picture/upload">Upload</a></li>
         <li><a href="/abtho16/mvc/public/home/logout">Logout</a></li>

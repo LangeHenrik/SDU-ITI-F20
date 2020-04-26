@@ -8,12 +8,12 @@ class Database extends DB_Config {
 
     public function __construct() {
         try {
-
+            echo 'no connection';
             $this->conn = new PDO("mysql:host=$this->servername;dbname=$this->dbname",
                 $this->username,
                 $this->password,
                 array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-                echo 'Good there is connection';
+                echo 'connection';
 
         } catch (PDOException $e) {
             echo "Error: " . $e->getMessage();
