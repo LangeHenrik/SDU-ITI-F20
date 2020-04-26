@@ -13,8 +13,8 @@ class User extends Database {
 	public function newUser($username, $password) {
 	    if ($username != null && $password != null) {
             try {
-                $stmt = $this->conn->prepare('INSERT INTO user (username, password) VALUES (?, ?)');
-                if (preg_match("/^\S\w{5,50}$/", $username) && preg_match("/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/", $password)) {
+                $stmt = $this->conn->prepare('INSERT INTO users (username, password) VALUES (?, ?)');
+                if (preg_match("/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/", $password)) {
                     $hashed_pass = password_hash($password, PASSWORD_DEFAULT);
                     $stmt->execute([$username, $hashed_pass]);
                     return true;
