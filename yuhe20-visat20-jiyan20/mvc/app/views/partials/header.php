@@ -1,32 +1,17 @@
-<?php
-    //session_start();
-    //require (__DIR__.'/../../core/db_config.php');
-?>
-
 <!DOCTYPE html>
-<html>
-    <head>
-    <link rel="stylesheet" href="/yuhe20-visat20-jiyan20/mvc/public/css/style.css">
-    </head>
-    <body>
-        <div class="topnav">
-            <a href="/yuhe20-visat20-jiyan20/mvc/public/User/login">Home</a>
-            <a href="/yuhe20-visat20-jiyan20/mvc/app/views/home/register.php">Sign Up</a>
-            <?php if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']) : ?>
-            <a href="/yuhe20-visat20-jiyan20/mvc/public/Image/upload">Upload Image</a>
-            <a href="/yuhe20-visat20-jiyan20/mvc/public/Image/loadImage">Feeds</a>
-            <a href="/yuhe20-visat20-jiyan20/mvc/public/User/">User List</a>
-            <?php endif; ?>
-            <?php 
-                if(isset($_SESSION['username'])){
-                    echo "<a href='logout.php'><input type=button value=Logout name=logout></a>";
-                } else { ?>
-                    <div class="login-container">    
-                        <form name="login" action="/yuhe20-visat20-jiyan20/mvc/public/User/login" method="POST">
-                            <input type="text" name="username-login" id="username-login" placeholder="Username">
-                            <input type="password" name="pwd-login" id="pwd-login" placeholder="Password">
-                            <button type="submit" name="login-submit">Log-in</button>
-                        </form>
-                    </div>
-            <?php } ?>
-        </div>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8" />
+    <script src="/yuhe20-visat20-jiyan20/mvc/public/js/regex.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="./js/passwd_str.js"></script>
+    <link rel="stylesheet" type="text/css" href="/yuhe20-visat20-jiyan20/mvc/public/css/style.css">
+</head>
+<?php include('menu.php'); ?>
+<?php if (isset($_SESSION['logged_in'])) {
+    echo '<h3>Hello there, ' . $_SESSION["username"] . '</h3>';
+} ?>
+
+</html>

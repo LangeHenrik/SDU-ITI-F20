@@ -1,23 +1,24 @@
+
 DROP DATABASE IF EXISTS ass2;
-CREATE DATABASE ass2;
+Create DATABASE ass2;
 USE ass2;
 
-CREATE TABLE users
-(
- userid INT auto_increment primary key,
- username varchar(50) not null,
- email varchar(100) not null,
- pwd varchar(100) not null
+CREATE TABLE users (
+    userid INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    email VARCHAR(50) NOT NULL, 
+    username VARCHAR(20) NOT NULL UNIQUE,
+    pwd VARCHAR(1000) NOT NULL
 );
 
-CREATE TABLE images
-(
-imageid INT auto_increment primary key,
-header varchar(100) not null,
-description varchar(450) not null,
-username varchar(50) not null,
-image longblob not null
+CREATE TABLE images (
+   imageid INT UNSIGNED AUTO_INCREMENT,
+	image LONGBLOB NOT NULL,
+	header VARCHAR(25) NOT NULL, 
+	description VARCHAR(250) NOT NULL,
+	userid int UNSIGNED,
+	PRIMARY KEY (imageid),
+   FOREIGN KEY (userid) REFERENCES users(userid)
 );
 
 INSERT INTO users (username, email, pwd)
-VALUES ('username', 'email@mail.com', 'password');
+VALUES ('username', 'yuhe20@student.sdu.dk', 'password');

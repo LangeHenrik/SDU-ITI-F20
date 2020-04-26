@@ -1,15 +1,12 @@
 <?php
-class DatabaseConfig {
-	
-
-	protected $server = "127.0.0.1";
-	protected $database = "ass2";
-	protected $username_database = "root";
-	protected $password_database = "160170";
+class db_config {
+	protected $servername = '127.0.0.1';
+	protected $username = 'root';
+	protected $password = '160170';
+	protected $dbname = 'ass2';
 	protected $portdb = "3306";
-	#$password = "root";
-}
 
-?>
+}
+	
 	
 	

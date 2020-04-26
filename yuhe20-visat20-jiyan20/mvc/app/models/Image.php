@@ -1,110 +1,118 @@
 <?php
-class Image extends Database {
-    public function upload ($header, $description, $user) {
-        $allowedTypes = array(IMAGETYPE_PNG, IMAGETYPE_JPEG, IMAGETYPE_JPG);
-        $detectedType = exif_imagetype($_FILES['image']['tmp_name']);
-        $error = !in_array($detectedType, $allowedTypes);
-        
-        if($error == true) {
-            return array('danger' => "Wrong file type!");
-        }
-        $convertedImg = "data:".$_FILES['image']['type'].";base64,".base64_encode(file_get_contents($_FILES['image']['tmp_name']));
+class Picture extends Database
+{
 
-        try{
-            $stmt = $this->conn->prepare("INSERT INTO image (header, description, username, image) VALUES(:header, :description, :username, :image)");
+    public function getAllUserPictures($userid)
+    {
+        $userid = filter_var($userid, FILTER_SANITIZE_STRING);
 
-            $header = filter_var(htmlentities ($header), FILTER_SANITIZE_STRING);
-            $stmt->bindParam(':header', $header, PDO::PARAM_STR);
+        $sql = "SELECT imageid, header, description, image FROM images WHERE userid = :userid";
 
-            $description  = filter_var(htmlentities ($description), FILTER_SANITIZE_STRING);
-            $stmt->bindParam(':description', $description, PDO::PARAM_STR);
-
-            $username = $_SESSION['username'];
-            $stmt->bindParam(':username', $username, PDO::PARAM_STR);
-
-            $stmt->bindParam(':image', $convertedImg, PDO::PARAM_STR);
-
-            if ($stmt->execute()) {
-                return array ('success'=>"Successfully uploaded!");
-            }
-        } catch (PDOException $e) {
-            return array('danger' => 'Error!');
-        }
-    }
-
-    public function loadImages () {
-        $stmt = $this->conn->prepare ('SELECT images.header, images.description, images.username, images.image FROM images LEFT JOIN user ON (images.username = users.username)");');
-        $stmt->execute();
-        $result = $stmt->fetchAll();
-
-        ?>
-
-        <div class='image'>
-        
-        <?php 
-            foreach ($result as $row) {
-                $header = $row['header'];
-                $description = $row['description'];
-                $username = $row['username'];
-                $img = $row['image'];
-        ?>
-            <div class='picture'>
-                <h3 class="imagetext">Header:</h3>
-                <p><?=$header?></p>
-                
-                <h4 class="imagetext">Image:</h4>
-                <img class="img-fluid rounded" src='<?=$img?>' alt='loaded picture'></img>
-                <h4 class="imagetext"><?=$username?></h4>
-                <h4>: <h4>
-                <h4 class="imagetext"><?=$description?></h4>
-                <hr>
-            </div>
-        <?php
-            }
-        ?>
-        </div>
-        <?php
-    }
-
-    public function ApiImage($UP_info) {
-
-        $username = filter_var(htmlentities($UP_info['username']), FILTER_SANITIZE_NUMBER_INT);
-        $header = filter_var(htmlentities($UP_info['header']), FILTER_SANITIZE_STRING);
-        $description = filter_var(htmlentities($UP_info['description']), FILTER_SANITIZE_STRING);
-        $image = $UP_info['image'];
-        try {
-            $stmt = $this->conn->prepare("INSERT INTO images (header, description, username, image) VALUES(:header, :description, :username, :image)");
-
-            $stmt->bindParam(':username', $userid, PDO::PARAM_STR);
-            $stmt->bindParam(':header', $header, PDO::PARAM_STR);
-            $stmt->bindParam(':description', $description, PDO::PARAM_STR);
-            $stmt->bindParam(':image', $image, PDO::PARAM_STR);
-            $stmt->execute();
-
-            $stmt = $this->conn->prepare("SELECT imageid FROM images ORDER BY imageid DESC LIMIT 1");
-            $stmt->setFetchMode(PDO::FETCH_ASSOC);
-            $stmt->execute();
-            $result = $stmt->fetch();
-
-            return $result;
-        } catch (PDOException $e) {
-            return "Error: " . $e->getMessage();
-        }
-
-
-    }
-
-    public function getUserImages($username) {
-
-        $sql = "SELECT image, header, description FROM images WHERE image.username = :username";
         $stmt = $this->conn->prepare($sql);
-        $stmt->setFetchMode(PDO::FETCH_ASSOC);
-        $stmt->bindParam(':user_id', $user_id);
+        $stmt->bindParam(':userid', $userid);
         $stmt->execute();
+
         $result = $stmt->fetchAll();
+
+        for ($i = 0; $i < count($result); $i++) {
+            $result[$i]['imageid'] = (int) $result[$i]['imageid'];
+            unset($result[$i][0]);
+            unset($result[$i][1]);
+            unset($result[$i][2]);
+            unset($result[$i][3]);
+        }
 
         return $result;
     }
 
+    public function addPicture($userid)
+    {
+        $userid = filter_var($userid, FILTER_SANITIZE_STRING);
+        $jsonBody = json_decode($_POST['json']);
+        $username = filter_var(trim($jsonBody->username), FILTER_SANITIZE_STRING);
+        $password = filter_var(trim($jsonBody->password), FILTER_SANITIZE_STRING);
+
+        $sql = "SELECT userid, username, pwd FROM users WHERE userid = :userid";
+
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':userid', $userid);
+        $stmt->execute();
+
+        $result = $stmt->fetch();
+
+        if ($username === $result['username'] && password_verify($password, $result['pwd'])) {
+            $header = filter_var(trim($jsonBody->header), FILTER_SANITIZE_STRING);
+            $description = filter_var(trim($jsonBody->description), FILTER_SANITIZE_STRING);
+            $image = filter_var(trim($jsonBody->image), FILTER_SANITIZE_STRING);
+            if (empty($title) || empty($description) || empty($image)) {
+            } elseif ((strlen($title) > 25) or (strlen($description) > 250)) {
+            } else {
+                $sql = 'INSERT INTO images (header, description, image, userid) values(:header, :description, :image, :userid)';
+                $stmt = $this->conn->prepare($sql);
+                $stmt->bindParam(':header', $header);
+                $stmt->bindParam(':description', $description);
+                $stmt->bindParam(':image', $image);
+                $stmt->bindParam(':userid', $userid);
+                $stmt->execute();
+
+                $lastid = $this->conn->lastInsertId("imageid");
+                return array("imageid" => $lastid);
+            }
+        }
+    }
+
+    public function loadImageFeed()
+    {
+        try {
+            $sql = 'SELECT a.image, a.header, a.description, b.username FROM images a INNER JOIN user b ON a.userid=b.userid;';
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            $parameters = $stmt->fetchAll();
+            return $parameters;
+        } catch (Exception $e) {
+            echo 'Caught exception: ', $e->getMessage(), "\n";
+            return false;
+        }
+    }
+
+    public function uploadPicture()
+    {
+        $header = filter_var(trim($_POST["image-header"]), FILTER_SANITIZE_STRING);
+        $description = filter_var(trim($_POST["image-description"]), FILTER_SANITIZE_STRING);
+        if ((strlen($header) > 25) or (strlen($description) > 250) or ((filesize($_FILES["file"]["tmp_name"]) * 1.35) > 4294967295)) {
+            return "Max titlelength: 25 characters.\nMax description lenght: 250 characters.\nImage file might be too large.";
+        } else {
+
+            $target_dir = "upload/";
+            $target_file = $target_dir . basename($_FILES["file"]["name"]);
+
+            $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+
+
+            $extensions_arr = array("jpg", "jpeg", "png", "gif");
+
+
+            if (in_array($imageFileType, $extensions_arr)) {
+
+
+                $image_base64 = base64_encode(file_get_contents($_FILES['file']['tmp_name']));
+                $img = 'data:image/' . $imageFileType . ';base64,' . $image_base64;
+
+                $statement = 'INSERT INTO images (header, description, image, userid) values(:header, :description, :image, :userid)';
+
+                $stmt = $this->conn->prepare($statement);
+                $stmt->bindParam(':header', $header);
+                $stmt->bindParam(':description', $description);
+                $stmt->bindParam(':image', $img);
+                $stmt->bindParam(':userid', $_SESSION['id']);
+                $stmt->execute();
+
+                return "Uploaded Successfully!";
+            } else {
+                return "Erroneous File type!";
+            }
+        }
+    }
 }
-?>
