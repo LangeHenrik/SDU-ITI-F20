@@ -60,7 +60,7 @@ class User extends Database {
 			if ($e->errorInfo[1] == 1062) {
 				return array('danger' => "Username already exists");
 			} else {
-				return array('danger' => "Error occured please check all credentials have been filled out correctly");
+				return array('danger' => "Error");
 			}
 		}
 	
@@ -84,7 +84,7 @@ class User extends Database {
 
         $result = $stmt->fetch();
 
-        if(password_verify($pwd, $result['pwd'])) {
+        if(password_verify($password, $result['pwd'])) {
             return true;
         } else {
 			return false;
