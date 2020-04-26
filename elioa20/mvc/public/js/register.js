@@ -7,6 +7,7 @@ const registerForm = {
 };
 //JQuery AJAX call to register
 $("#register").click(function () {
+
     var request = $.ajax({
         type: "POST",
         url: "/elioa20/mvc/public/api/register",

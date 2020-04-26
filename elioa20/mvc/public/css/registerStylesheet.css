@@ -1,19 +1,15 @@
+@import "https://use.fontawesome.com/releases/v5.5.0/css/all.css";
+
+:root{
+    --c :  rgb(120,0,255);
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
-}
-
-.register-form {
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-}
-
-.register-form-container{
-    background-color: lightgray;
-    padding: 20px;
-    border-radius: 20px;
+    background: url(bg1.jpg) no-repeat;
+    background-size: cover;
+    height:98%;
+    background-color: black;
 }
 
 #register-messages{
@@ -26,25 +22,104 @@ body {
     background-color: rgb(235,232,232);
 }
 
-input[type=text], input[type=password], #country {
-    width: 100%;
-    padding: 15px;
-    margin: 5px 0 22px 0;
-    display: inline-block;
-    border: none;
-    background: #f1f1f1;
-    box-sizing: border-box;
-    border-radius: 10px;
-    outline: none;
+.register-form {
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    color:white;
+    min-width: 400px;
 }
 
-input[type=button] {
-    width: 200px;
-    height: 30px;
+.register-form-container{
+    background-color: rgba(69, 69, 69, 0.89);
+    padding: 20px;
+    border-radius: 23px;
+    border-right: 3px solid var(--c);
+}
+
+.register-form-container h1{
+    -webkit-text-stroke-width: 0.05px;
+    -webkit-text-stroke-color: white;
+    color: var(--c);
+}
+
+.register-form-container p{
+    padding-bottom: 15px;    
+}
+
+.register-form-container label{
+    padding: 10px;
+    color: lightgray;
+    text-overflow: ellipsis;
+    font-size: 15px;
+}
+
+.textbox:hover{
+    color: lightgrey;
+}
+
+.textbox{
+    width: 100%;
+    overflow: hidden;
+    font-size: 20px;
+    padding: 8px 0;
+    margin: 8px 0;
+    background: transparent;
+    border:none;
+    border-bottom:2px solid var(--c);
+  }
+
+  .textbox i{
+    width: 17px;
+    float: left;
+    text-align: center;
+}
+  
+  .textbox input{
+    border: none;
+    outline: none;
+    background: none;
+    color: white;
+    font-size: 17px;
+    width: 80%;
+    float: left;
+    margin: 0 10px;
+    padding: 2px;
 }
 
 .register-button-container {
     text-align: center;
 }
 
+.btn{
+    width: 100%;
+    background: rgb(69, 69, 69);
+    border: 1.5px solid var(--c);
+    color: white;
+    padding: 8px;
+    font-size: 17px;
+    cursor: pointer;
+    margin: 12px 0;
+}
 
+.btn:hover{
+    background: rgb(79, 79, 79);
+}
+
+.btn1{
+    width: 100%;
+    background: var(--c);
+    border: 1.5px solid black;
+    color: white;
+    font-weight: bold;
+    padding: 8px;
+    font-size: 17px;
+    margin: 12px 0;
+    cursor: pointer;
+}
+
+.btn1:hover{
+    background: rgb(130,0,255);
+}
