@@ -11,7 +11,7 @@ class Database extends db_config
 		try {
 
 			$this->conn = new PDO(
-				"mysql:host=$this->servername;dbname=$this->dbname",
+				"mysql:host=$this->servername;port=$portdb;dbname=$this->dbname",
 				$this->username,
 				$this->password,
 				array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)

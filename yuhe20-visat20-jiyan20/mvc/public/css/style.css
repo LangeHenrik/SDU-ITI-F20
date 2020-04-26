@@ -22,7 +22,6 @@ body {
     margin: 40px 8px 10px 8px; 
     color: #353232;
   }
-
   .wrapper {
     display: static;
     align-items: center;
@@ -103,6 +102,8 @@ button[type=submit], button[type=logout]{
     -webkit-border-radius: 5px 5px 5px 5px;
     border-radius: 5px 5px 5px 5px;
   }
+
+
   textarea{
     background-color: #f6f6f6;
     border: none;
