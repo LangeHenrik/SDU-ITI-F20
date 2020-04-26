@@ -51,25 +51,25 @@ class RegisterController extends Controller {
 		echo 'Welcome - you must be logged in';
 	}
 	
-	public function login() {
-        if ($this->post()) {
-            if (isset($_POST["username"]) && isset($_POST["password"])) {
-                $username = htmlentities($_POST["username"]);
-                $password = htmlentities($_POST["password"]);
+	public function register() {
+        try {
+            if (isset($_POST["regUsernameId"]) && isset($_POST["regPassId"])) {
 
-                if ($this->model('User')->login($username, $password)) {
-                    print 'Logged in!';
-                    $_SESSION['logged_in'] = true;
-                    $_SESSION['username'] = $username;
-                    //Redirect to Feed view
-                    header('Location: /jakaa18/Assignment1/mvc/public/home/Feed');
+                $new_user = htmlentities($_POST["regUsernameId"]);
+                $new_pass = htmlentities($_POST["regPassId"]);
+                $hashed_pass = password_hash($new_pass, PASSWORD_DEFAULT);
+                if($this->model('User')->newUser($new_user, $new_pass)){
+                    $viewbag['user_info'] = 'User successfully created';
+                    $this->view('home/index', $viewbag);
+                    return;
                 }
+                $viewbag['user_info'] = 'User not created';
+                $this->view('home/register/Register', $viewbag);
             }
-        } elseif ($this->get()){
-            $this->viewbag['logged_in'] = false;
-            $this->view('home/login', $this->viewbag);
+        } catch
+        (PDOException $e) {
+            echo "ERROR" . $e->getMessage();
         }
-
 	}
 	
 	public function logout() {
