@@ -95,7 +95,7 @@ body {
     padding:0 10px; 
 }
 
-.btn{ /* register */
+.btn{
     width: 100%;
     background: rgb(69, 69, 69);
     border: 1.5px solid var(--c);

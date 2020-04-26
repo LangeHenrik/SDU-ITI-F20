@@ -40,7 +40,7 @@ body {
 }
 
 .register-form-container h1{
-    -webkit-text-stroke-width: 0.1px;
+    -webkit-text-stroke-width: 0.05px;
     -webkit-text-stroke-color: white;
     color: var(--c);
 }
