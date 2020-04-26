@@ -2,40 +2,34 @@
 
 class HomeController extends Controller
 {
+    //Sets view accordingly based whether user is logged in or not
     public function index()
     {
-        $this->view('home/index');
+        if (!isset($_SESSION['user_id']) || !isset($_SESSION['logged_in'])) {
+            //User not logged in. Redirect them back to the login page.
+            $this->view('home/index');
+        } else {
+               $this->view('home/welcome');
+            }
     }
 
+    //Sets view accordingly based whether user is logged in or not
     public function register()
     {
-        //Check whether user is logged in or not.
-        //If user is logged in, show message.
-        //If user is not logged in, show the register form
-        //if (isset($_SESSION['username'])) {
-        //  $this->view('home/index');
-        //} else {
-        $this->view('home/register');
-        //}
+        if (!isset($_SESSION['user_id']) || !isset($_SESSION['logged_in'])) {
+            //User not logged in. Redirect them back to the login page.
+            $this->view('home/register');
+        } else {
+               $this->view('home/index');
+            }
     }
 
+    //Sets view to upload
     public function upload(){
         $this->view('home/upload');
     }
 
-    public function restricted()
-    {
-        echo 'Welcome - you must be logged in';
-    }
-
-    public function login($username)
-    {
-        if ($this->model('User')->login($username)) {
-            $_SESSION['logged_in'] = true;
-            $this->view('home/login');
-        }
-    }
-
+    //Logs user out, but only via POST request
     public function logout()
     {
         if ($this->post()) {
@@ -44,10 +38,5 @@ class HomeController extends Controller
         } else {
             echo 'You can only log out with a post method';
         }
-    }
-
-    public function loggedout()
-    {
-        echo 'You are now logged out';
     }
 }

@@ -1,6 +1,7 @@
 <?php
 class User extends Database
 {
+
     public function register()
     {
 		$register_attempt = false;
@@ -21,6 +22,7 @@ class User extends Database
 	
 		//Now, we check if the supplied username already exists.
         if ($row["username"] === $username) {
+            //Returns false register attempt
 			return $register_attempt;
         }
 
@@ -46,6 +48,7 @@ class User extends Database
 
     public function login()
     {
+        //Filters/Sanitizes the parameters of the request to prevent attacks to the system.
 		$username = strip_tags($_REQUEST['username']);
 		$password = strip_tags($_REQUEST['password']);
 		
@@ -55,7 +58,7 @@ class User extends Database
         $stmt->bindParam(':username', $username);
         $stmt->execute();
 	
-		$row = $stmt->fetch(PDO::FETCH_ASSOC); //fetchAll to get multiple rows
+		$row = $stmt->fetch(PDO::FETCH_ASSOC);
 
 		//Check if row count is above 0, by doing so, we know whether a user with that username exists.
 		if ($stmt->rowCount() > 0) {
@@ -80,7 +83,8 @@ class User extends Database
 		return $message;
     }
 
-    public function getAll()
+    //Returns a list with all users in the systems db, (for use with an API request)
+    public function getAllUsers()
     {
         $users = array();
         $data = $this->conn->prepare('SELECT * FROM users ');
@@ -91,6 +95,19 @@ class User extends Database
                 'username' => $OutputData['username']
             );
         }
-		echo json_encode($users, JSON_PRETTY_PRINT);
+        
+		return $users;
+    }
+    
+    //Returns a pdo statement with all users in the systems db, (for use within the system)
+	public function getAll()
+    {
+        $sql = "SELECT id,username FROM users ORDER BY id ASC";
+
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
     }
 }

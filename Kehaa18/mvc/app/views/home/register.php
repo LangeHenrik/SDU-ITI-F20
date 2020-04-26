@@ -3,7 +3,8 @@
 <div class="main" align="center">
         <div class="wrapper" id="loginform" >
             <h2> Register form</h2>
-                <!-- Register form that calls the document itself (register.php) and sends the information via POST. --->
+                <!-- Register form that passes register request via POST. --->
+                <!-- OnSubmit will call a javascript to perform a Regex check -->
                 <form action="/nipat10/mvc/public/user/register" method="post" onsubmit="validate(this)">
                     <label for="username">Username</label>
                     <input type="text" id="username" name="username" autocomplete="off" required placeholder="username"><br>

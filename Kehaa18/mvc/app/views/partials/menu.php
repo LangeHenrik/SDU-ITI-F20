@@ -2,8 +2,22 @@
 <html>
 <head>
 <title>ITI - Mandatory Assignment - Kenneth Haahr</title>
+
+<script
+  src="https://code.jquery.com/jquery-3.5.0.min.js"
+  integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="
+  crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+            $("#btn").click(function() {
+                $("#ajax").load("/nipat10/mvc/public/js/data.txt");
+            });
+        });
+    </script>
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" type="text/css" href="/nipat10/mvc/public/css/style.css">
+<script src="/nipat10/mvc/public/js/jsFile.js"></script>
 </head>
 <body>
 
@@ -13,10 +27,13 @@
 <ul>
 <li><a href="/nipat10/mvc/public/home">Frontpage</A></li>
 <li><a href="/nipat10/mvc/public/home/register">Registration</A></li>
-<li><a href="/nipat10/mvc/public/home/upload">Upload-images</A></li>
+<li><a href="/nipat10/mvc/public/image/upload">Upload-images</A></li>
 <li><a href="/nipat10/mvc/public/image/images">Image-Feed</A></li>
 <li><a href="/nipat10/mvc/public/user/users">User list</A></li>
 </ul>
+
+
+
 
 
 <?php
