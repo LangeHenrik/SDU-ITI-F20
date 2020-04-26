@@ -1,10 +1,8 @@
 <?php
 class Picture extends Database
 {
-
-    function getPictures($id)
+    public function getPictures($id)
     {
-
         $sql = 'SELECT * FROM images Where user_id=:id';
         $images = array();
         $data = $this->conn->prepare($sql);
@@ -13,22 +11,20 @@ class Picture extends Database
         $data->execute();
         while ($OutputData = $data->fetch(PDO::FETCH_ASSOC)) {
             $images[] = array(
-                'image' => $OutputData['image'],
+                'image_id' => $OutputData['id'],
                 'title' => $OutputData['header'],
-                'description' => $OutputData['description']
+                'description' => $OutputData['description'],
+                'image' => $OutputData['image']
             );
         }
-        echo json_encode($images, JSON_PRETTY_PRINT);
+        return $images;
     }
 
-    function postPictures($id)
+
+    public function postPictures($user_id)
     {
-
-        session_unset();
-
-        
-
-        $jsonBody = json_decode(file_get_contents('php://input'), true);
+        //Decodes json message from API request and filters/sanitizes its parameters to prevent attacks to the system.
+        $jsonBody = json_decode($_POST['json'], true);
         $username = filter_var(trim($jsonBody["username"]), FILTER_SANITIZE_STRING);
         $password = filter_var(trim($jsonBody["password"]), FILTER_SANITIZE_STRING);
         $header = filter_var(trim($jsonBody["title"]), FILTER_SANITIZE_STRING);
@@ -41,13 +37,16 @@ class Picture extends Database
         $stmt->bindParam(':username', $username);
         $stmt->execute();
 
-        $row = $stmt->fetch(PDO::FETCH_ASSOC); //fetchAll to get multiple rows
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
+        $result =false;
 
         //Check if password is correct by unhashing and verifying it.
-        if (password_verify($password, $row['password'])&& $id == $row['id']) {
+        //Also checks whether the passed user_id parameter is the same as the one of the user.
+        if (password_verify($password, $row['password'])&& $user_id == $row['id']) {
 
-
+            //Unset current session.
+            session_unset();
             //Successfully log user in and provide information to session.
             $_SESSION["logged_in"] = true;
             $_SESSION['user_id'] = $row['id'];
@@ -56,6 +55,7 @@ class Picture extends Database
 
             $pictureName = 'APIPicture';
 
+            //Inserts image to the db.
             $stmt = $this->conn->prepare("INSERT INTO images (header, 
                                                 description, image, user_id, name)
                                                 VALUES(:header, :description, :image, :user_id, :name)");
@@ -64,10 +64,14 @@ class Picture extends Database
             $stmt->bindParam(':name', $pictureName);
             $stmt->bindParam(':description', $description);
             $stmt->bindParam(':image', $base64);
-            $stmt->execute();
-            
+            $result = $stmt->execute();
+        }
+        //If the image was succesfully inserted return the last id, otherwise return an error.
+        if ($result) {
             $last_id = $this->conn->lastInsertId("id");
-                return array("image_id" => $last_id);
+            return array("image_id" => $last_id);
+        } else {
+            return array("image_id" => '!!!Could not upload this image!!!');
         }
     }
 }

@@ -10,13 +10,14 @@
     <script>
         $(document).ready(function() {
             $("#btn").click(function() {
-                $("#ajax").load("data.txt");
+                $("#ajax").load("/nipat10/mvc/public/js/data.txt");
             });
         });
     </script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" type="text/css" href="/nipat10/mvc/public/css/style.css">
+<script src="/nipat10/mvc/public/js/jsFile.js"></script>
 </head>
 <body>
 

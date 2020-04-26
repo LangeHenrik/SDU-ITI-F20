@@ -1,7 +1,14 @@
 <?php include '../app/views/partials/menu.php'; ?>
 
-
-         <!--Form for uploading images via POST-->
+<?php
+        if (!empty($viewbag)) {
+            ?>   <script>
+                alert($viewbag['Message'][0]);
+            </script>
+        <?php
+        }
+?>
+<!-- Register form that passes upload image request via POST. --->
 <div class="main" align="center">
     <div class="wrapper" id="loginform">
         <h2>Upload Image Form</h2>

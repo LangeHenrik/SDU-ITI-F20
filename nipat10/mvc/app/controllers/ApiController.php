@@ -1,50 +1,59 @@
 <?php
 
-class ApiController extends Controller {
-	
-	public function __construct () {
-		header('Content-Type: application/json');
-		//check api-key?
-		//check username and password?
-		//or die();
-	}
+class ApiController extends Controller
+{
+    
 
-	public function index ($param) {
-		
-	}
-	
-	public function users () {
-		if ($this->get()) {
+
+    //API call to get a json with all users, endpoint: http://localhost:8080/nipat10/mvc/public/api/users
+    public function users()
+    {
+        if ($this->get()) {
 			$users = $this->model('User')->getAllUsers();
-		} else {
+			echo json_encode($users, JSON_PRETTY_PRINT);
+        } else {
+            //If the API request is anything other than GET, it will get an error
+            echo '403 Forbidden request!';
+        }
+    }
+    
+    
+
+    //Here API call of same endpoint will be checked to do the following:
+    //-To see whether it is of correct endpoint
+    //-Sent to the appropriate method based on POST/GET method
+    public function pictures($user, $user_id)
+    {
+        if ($user == 'user' && is_numeric($user_id) && $user_id >= 0) {
+            if ($this->post()) {
+                $this->picturesPOST($user_id);
+            } elseif ($this->get()) {
+                $this->picturesGET($user_id);
+            } else {
+                //If the API request is anything other than GET, it will get an error
+                echo '403 Forbidden request!';
+            }
+        }else {
+			//If the API request is of wrong endpoint, it will get an error
 			echo '403 Forbidden request!';
 		}
-	}
-	
-	
+    }
 
-
-	public function pictures($user, $user_id)
-	{
-		if (is_numeric($user_id) && $user_id >= 0)
-			if ($this->post()) {
-				$this->postPicture($user_id);
-			} elseif ($this->get()) {
-				$this->getPictures($user_id);
-			}
-	}
-
-	private function postPicture($user_id)
-	{
+	//Calls model to post a picture
+	//Returns json with image_id
+    private function picturesPOST($user_id)
+    {
 		$image_id = $this->model('Picture')->postPictures($user_id);
-		echo json_encode($image_id, JSON_PRETTY_PRINT);
-	}
+		header('Content-Type: application/json');
+        echo json_encode($image_id, JSON_PRETTY_PRINT);
+    }
 
-	private function getPictures($user_id)
-	{
+	//Calls model to get all pictures of specific user
+	//Returns json with all images
+    private function picturesGET($user_id)
+    {
 		$user_pictures = $this->model('Picture')->getPictures($user_id);
-		echo json_encode($user_pictures, JSON_PRETTY_PRINT);
-	}
-
-
+		header('Content-Type: application/json');
+        echo json_encode($user_pictures, JSON_PRETTY_PRINT);
+    }
 }
