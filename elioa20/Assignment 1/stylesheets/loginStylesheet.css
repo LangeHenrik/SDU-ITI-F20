@@ -1,5 +1,15 @@
+@import "https://use.fontawesome.com/releases/v5.5.0/css/all.css";
+
+:root{
+    --c :  rgb(120,0,255);
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
+    background: url(bg1.jpg) no-repeat;
+    background-size: cover;
+    height:98%;
+    background-color: black;
 }
 
 #login-messages{
@@ -11,39 +21,107 @@ body {
     padding: 10px 25px;
     background-color: rgb(235,232,232);
 }
+
 .login-form {
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
+    color: white; 
+    min-width: 400px;
 }
 
 .login-form-container{
-    background-color: lightgray;
+    background-color: rgba(69, 69, 69, 0.89);
     padding: 20px;
-    border-radius: 20px;
+    border-radius: 23px;
+    border-right: 3px solid var(--c);
 }
 
-input[type=text], input[type=password] {
+.login-form-container h1{
+    -webkit-text-stroke-width: 0.1px;
+    -webkit-text-stroke-color: white;
+    color: var(--c);
+    text-align: center; 
+}
+
+.textbox{
     width: 100%;
-    padding: 15px;
-    margin: 5px 0 22px 0;
-    display: inline-block;
+    overflow: hidden;
+    font-size: 20px;
+    padding: 8px 0;
+    margin: 8px 0;
+    border-bottom:2px solid var(--c);
+}
+
+.textbox:hover{
+    color: lightgrey;
+}
+
+.textbox i{
+    width: 20px;
+    float: left;
+    text-align: center;
+}
+  
+.textbox input{
     border: none;
-    background: #f1f1f1;
-    box-sizing: border-box;
-    border-radius: 10px;
     outline: none;
+    background: none;
+    color: white;
+    font-size: 17px;
+    width: 80%;
+    float: left;
+    margin: 0 10px;
+    padding: 2px;
 }
-
-
-input[type=button]{
-    width: 200px;
-    height: 30px;
-}
-
 
 .buttons-container {
     text-align: center;
+}
+
+.buttons-container h2{
+    width: 100%; 
+    text-align: center; 
+    border-bottom: 1px solid #000; 
+    line-height: 0.1em;
+    margin: 10px 0 20px; 
+    font-size: 12px;
+}
+
+.buttons-container h2 span { 
+    color: lightgray;
+    padding:0 10px; 
+}
+
+.btn{ /* register */
+    width: 100%;
+    background: rgb(69, 69, 69);
+    border: 1.5px solid var(--c);
+    color: white;
+    padding: 7px;
+    font-size: 17px;
+    cursor: pointer;
+    margin: 12px 0;
+}
+
+.btn:hover{
+    background: rgb(79, 79, 79);
+}
+
+.btn1{
+    width: 100%;
+    background: var(--c);
+    border: 1.5px solid black;
+    color: white;
+    font-weight: bold;
+    padding: 8px;
+    font-size: 17px;
+    cursor: pointer;
+    margin: 12px 0;
+}
+
+.btn1:hover{
+    background: rgb(130,0,255);
 }

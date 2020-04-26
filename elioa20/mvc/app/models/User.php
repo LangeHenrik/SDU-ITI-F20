@@ -1,6 +1,6 @@
 <?php
 class User extends Database {
-	
+
 	public function login($username,$password){
 
         $username = htmlspecialchars($username);
