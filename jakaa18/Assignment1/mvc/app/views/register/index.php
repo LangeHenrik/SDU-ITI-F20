@@ -14,13 +14,13 @@ include '../app/views/partials/menu.php';
     </div>
     <div class="register1" id="registerView">
         <text id="usernameAvailable" name="usernameAvailable"></text><br>
-        <form onsubmit="return CheckForm()" action="../app/views/home" method>
-            <p> Username: (Max 100 chars)<input type="text" placeholder="Enter Username" name="regUsernameId" id="regUsernameId"
-                                                required onkeyup="CheckUsername(this.value)" onkeydown="CheckRegister()"></p><br>
+        <form onsubmit="return CompleteRegistration(regUsernameId.valueOf(), regPassId.valueOf())" action="/Assignment1/mvc/public/register/createUser" method="post">
+            <p> Username: (Max 100 chars)<input type="text" placeholder="Enter Username" name="regUsernameId" id="regUsernameId"></p><br>
+            <?//required onkeyup="CheckUsername(this.value)" onkeydown="CheckRegister()"?>
             <p class="info-elements" id="username-availability"></p>
             <p class="info-elements" id="username-info"></p> <br>
             <p> Password: (Max 100 chars) <input type="password" placeholder="Enter Password" name="regPassId" id="regPassId"
-                                                 required></p><br>
+                                                 required onkeyup="CheckPass(this.value)"></p><br>
             <p class="info-elements" id="password-info"></p>
             <button class="button" type="submit"> Register new user</button><br>
         </form>

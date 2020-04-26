@@ -1,5 +1,6 @@
 <?php
 
+include_once ("../app/models/User.php");
 class RegisterController extends Controller {
 
     public $logged_in = false;
@@ -15,6 +16,8 @@ class RegisterController extends Controller {
             $this->viewbag['username']=$_SESSION['username'];
         }
         $this->viewbag['logged_in'] = $this->logged_in;
+
+        require_once '../app/core/Database.php';
     }
 
     public function index ($param) {
@@ -28,7 +31,7 @@ class RegisterController extends Controller {
             $this->view('register/index', $this->viewbag);
         }
 	}
-	
+
 	public function other ($param1 = 'first parameter', $param2 = 'second parameter') {
 		$user = $this->model('User');
 		$user->name = $param1;
@@ -36,7 +39,14 @@ class RegisterController extends Controller {
 		//$viewbag['pictures'] = $this->model('pictures')->getUserPictures($user);
 		$this->view('home/index', $viewbag);
 	}
-	
+
+	public function createUser () {
+        $username = $_POST['regUsernameId'];
+        $password = $_POST['regPassId'];
+        $User = new User();
+        $User->newUser($username, $password);
+    }
+
 	public function restricted () {
 		echo 'Welcome - you must be logged in';
 	}

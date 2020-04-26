@@ -50,7 +50,9 @@ class ApiController extends Controller {
     }
 
     public function availability($check, $input){
-	    $this->model('User');
+	    if(!$this->model('User')){
+            $this->model('User');
+        }
 	    if (strtolower($check) == 'username'){
 	        if($this->model('User')->userAvailable($input, '')){
 	            print $input . ' is available';

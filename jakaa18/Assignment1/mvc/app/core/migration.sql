@@ -11,6 +11,8 @@ CREATE TABLE users
 
 );
 
+CREATE INDEX idx_users ON users (username);
+
 CREATE TABLE pictures
 (
     pic_id int AUTO_INCREMENT primary key,

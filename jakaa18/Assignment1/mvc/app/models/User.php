@@ -30,7 +30,7 @@ class User extends Database {
     }
 
     public function userAvailable($username) {
-	    return $this->query("SELECT COUNT(*) FROM users WHERE username = :username")[0]['COUNT(*)'] == 0;
+	    return $this->query("SELECT COUNT(*) FROM users WHERE username = '$username'")[0]['COUNT(*)'] == 0;
     }
 
     public function getUserId($username){
