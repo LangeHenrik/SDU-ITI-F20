@@ -26,7 +26,7 @@ class User extends Database
 				}
 			}
 		} catch (Exception $e) {
-			echo 'Caught exception: ', $e->getMessage();
+			echo $e->getMessage();
 			return false;
 		}
 	}
@@ -47,7 +47,7 @@ class User extends Database
 			$stmt->execute();
 			return array("response" => "Registered successfully!");
 		} catch (Exception $e) {
-			echo 'Caught exception: ', $e->getMessage();
+			echo $e->getMessage();
 			return false;
 		}
 	}

@@ -10,7 +10,7 @@
     <div class="formContent" id="formContent">
         <b><h1>Upload Image</h1></b>
         <i><h2>Choose your pictures and upload here!</h2></i>
-        <form method="post" action="/yuhe20-visat20-jiyan20/mvc/public/Upload/uploadpicture" enctype='multipart/form-data'>
+        <form method="post" action="/yuhe20-visat20-jiyan20/mvc/public/Upload/UploadImage" enctype='multipart/form-data'>
             
             <input type="text" name="image-header" id="image-header" required placeholder="Name Your Image">
             

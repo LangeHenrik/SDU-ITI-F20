@@ -17,10 +17,10 @@ class HomeController extends Controller
 		if ($this->post()) {
 			if ($this->model('user')->login()) {
 				$_SESSION['logged_in'] = true;
-				echo '<div><h3 id="popUp">Logged in Successfully</h3></div>';
+				echo "<script> alert('Logged in!') </script>";
 				$this->view('home/Upload');
 			} else {
-				echo '<div><h3 id="popUp">Login failed. Incorrect username or Password.</h3></div>';
+				echo "<script> alert('Log-in failed! Please check your username and password!') </script>";
 				$this->view('home/index');
 			}
 		}
@@ -31,8 +31,8 @@ class HomeController extends Controller
 		if ($this->post()) {
 			session_unset();
 			session_destroy();
-			echo '<div><h3 id="popUp">Logged out successfully</h3></div>';
-			$this->view("home/SignUp");
+			echo "<script> alert('Logged out!') </script>";
+			$this->view("home/index");
 		}
 	}
 }

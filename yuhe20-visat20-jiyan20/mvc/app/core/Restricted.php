@@ -8,7 +8,7 @@ function restricted($controller, $method)
 		'ApiController' => array(),
 		'RegisterController' => array(),
 		'ImageFeedController' => array('index'),
-		'UploadController' => array('index', 'uploadPicture'),
+		'UploadController' => array('index', 'UploadImage'),
 		'UserListController' => array('index', 'getSpecificUsers')
 	);
 

@@ -2,6 +2,45 @@
 class Image extends Database
 {
 
+    public function UploadImage()
+    {
+        $header = filter_var(trim($_POST["image-header"]), FILTER_SANITIZE_STRING);
+        $description = filter_var(trim($_POST["image-description"]), FILTER_SANITIZE_STRING);
+        if ((strlen($header) > 25) or (strlen($description) > 250) or ((filesize($_FILES["file"]["tmp_name"]) * 1.35) > 4294967295)) {
+            return "Max titlelength: 25 characters.\nMax description lenght: 250 characters.\nImage file might be too large.";
+        } else {
+
+            $target_dir = "upload/";
+            $target_file = $target_dir . basename($_FILES["file"]["name"]);
+
+            $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+
+
+            $extensions_arr = array("jpg", "jpeg", "png", "gif");
+
+
+            if (in_array($imageFileType, $extensions_arr)) {
+
+
+                $image_base64 = base64_encode(file_get_contents($_FILES['file']['tmp_name']));
+                $img = 'data:image/' . $imageFileType . ';base64,' . $image_base64;
+
+                $statement = 'INSERT INTO images (header, description, image, userid) values(:header, :description, :image, :userid)';
+
+                $stmt = $this->conn->prepare($statement);
+                $stmt->bindParam(':header', $header);
+                $stmt->bindParam(':description', $description);
+                $stmt->bindParam(':image', $img);
+                $stmt->bindParam(':userid', $_SESSION['id']);
+                $stmt->execute();
+
+                return "Uploaded Successfully!";
+            } else {
+                return "Erroneous File type!";
+            }
+        }
+    }
+
     public function getAllUserPictures($userid)
     {
         $userid = filter_var($userid, FILTER_SANITIZE_STRING);
@@ -61,7 +100,7 @@ class Image extends Database
         }
     }
 
-    public function loadImageFeed()
+    public function FeedLoad()
     {
         try {
             $sql = 'SELECT a.image, a.header, a.description, b.username FROM images a INNER JOIN users b ON a.userid=b.userid;';
@@ -72,47 +111,10 @@ class Image extends Database
             $parameters = $stmt->fetchAll();
             return $parameters;
         } catch (Exception $e) {
-            echo 'Caught exception: ', $e->getMessage(), "\n";
+            echo $e->getMessage();
             return false;
         }
     }
 
-    public function uploadPicture()
-    {
-        $header = filter_var(trim($_POST["image-header"]), FILTER_SANITIZE_STRING);
-        $description = filter_var(trim($_POST["image-description"]), FILTER_SANITIZE_STRING);
-        if ((strlen($header) > 25) or (strlen($description) > 250) or ((filesize($_FILES["file"]["tmp_name"]) * 1.35) > 4294967295)) {
-            return "Max titlelength: 25 characters.\nMax description lenght: 250 characters.\nImage file might be too large.";
-        } else {
 
-            $target_dir = "upload/";
-            $target_file = $target_dir . basename($_FILES["file"]["name"]);
-
-            $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-
-
-            $extensions_arr = array("jpg", "jpeg", "png", "gif");
-
-
-            if (in_array($imageFileType, $extensions_arr)) {
-
-
-                $image_base64 = base64_encode(file_get_contents($_FILES['file']['tmp_name']));
-                $img = 'data:image/' . $imageFileType . ';base64,' . $image_base64;
-
-                $statement = 'INSERT INTO images (header, description, image, userid) values(:header, :description, :image, :userid)';
-
-                $stmt = $this->conn->prepare($statement);
-                $stmt->bindParam(':header', $header);
-                $stmt->bindParam(':description', $description);
-                $stmt->bindParam(':image', $img);
-                $stmt->bindParam(':userid', $_SESSION['id']);
-                $stmt->execute();
-
-                return "Uploaded Successfully!";
-            } else {
-                return "Erroneous File type!";
-            }
-        }
-    }
 }

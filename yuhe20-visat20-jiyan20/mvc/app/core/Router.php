@@ -32,7 +32,8 @@ class Router {
 		
 		require_once 'Restricted.php';
 		if(restricted(get_class($this->controller), $this->method)) {
-			echo 'You Should Log in First to Use This Feature';
+			echo "<script> alert('You must login to use this function!') </script>";
+			echo "<script> location.href = '/yuhe20-visat20-jiyan20/mvc/public/Home' </script>";
 		} else {
 			call_user_func_array([$this->controller, $this->method], $this->params);
 		}
