@@ -13,21 +13,24 @@ class Router {
 			$url[0] = ucfirst($url[0]);
 		}
 
-		if(file_exists('../app/controllers/' . ucwords($url[1]).'.php')) {
-			$this->controller = ucwords($url[1]);
-			unset($url[1]);
+		if(file_exists('../app/controllers/' . ucwords($url[4]).'.php')) {
+			$this->controller = ucwords($url[4]);
+			unset($url[4]);
 		}
 		
 		require_once '../app/controllers/' . $this->controller . '.php';
 		$this->controller = new $this->controller;
 
-		if(isset($url[2])) {
-			if(method_exists($this->controller, $url[2])) {
-				$this->method = $url[2];
+		if(isset($url[5])) {
+			if(method_exists($this->controller, $url[5])) {
+				$this->method = $url[5];
 
-				unset($url[2]);
+				unset($url[5]);
 			}
 		}
+
+		echo $url[5];
+		echo $this->method;
 
 		$this->params = $url ? array_values($url) : [];
 

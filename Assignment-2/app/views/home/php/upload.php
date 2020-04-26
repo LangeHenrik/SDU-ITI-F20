@@ -51,8 +51,8 @@ if (isset($_POST['upload'])) {
         Assignment 1
     </title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous" />
-    <link rel="stylesheet" type="text/css" href="../css/Stylesheet.css" />
-    <link rel="stylesheet" type="text/css" media="(max-width: 1000px)" href="../css/mobile-view.css"/>
+    <link rel="stylesheet" type="text/css" href="../../../../css/Stylesheet.css" />
+    <link rel="stylesheet" type="text/css" media="(max-width: 1000px)" href="../../../../css/mobile-view.css"/>
 
     <link rel="icon" href="../img/icon.png" type="png" />
 </head>
@@ -89,6 +89,6 @@ if (isset($_POST['upload'])) {
         require 'login.php';
         ?>
 </body>
-<script src="../js/Default.js"></script>
+<script src="../../../../js/Default.js"></script>
 
 </html>

@@ -17,16 +17,16 @@ include 'config.php';
 <div id="menu" class="nav">
   <ul>
     <li>
-      <a href="../index.php"><i class="fas fa-home"></i> <span class="link-text">Frontpage</span> </a>
+      <a href="../../../../index.php"><i class="fas fa-home"></i> <span class="link-text">Frontpage</span> </a>
     </li>
     <li>
-      <a href="../home/imagepage"> <i class="fas fa-images"> </i> <span class="link-text"> Image feed </span></a>
+      <a href="../../../../xx/mvc/public/imagepage"> <i class="fas fa-images"> </i> <span class="link-text"> Image feed </span></a>
     </li>
     <li>
-      <a href="../home/upload"><i class="fas fa-upload"></i> <span class="link-text">Upload page</span></a>
+      <a href="../../../../xx/mvc/public/home/upload"><i class="fas fa-upload"></i> <span class="link-text">Upload page</span></a>
     </li>
     <li>
-      <a href="../home/users"><i class="fas fa-users"></i> <span class="link-text">Users</span></a>
+      <a href="../../../../xx/mvc/public/home/users"><i class="fas fa-users"></i> <span class="link-text">Users</span></a>
     </li>
     <li>
       <a href="#" onclick="openModal()"
