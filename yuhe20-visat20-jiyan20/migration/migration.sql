@@ -19,3 +19,6 @@ CREATE TABLE images (
 	PRIMARY KEY (imageid),
    FOREIGN KEY (userid) REFERENCES users(userid)
 );
+
+INSERT INTO users (username, email, pwd)
+VALUES ('username', 'yuhe20@student.sdu.dk', 'password');
