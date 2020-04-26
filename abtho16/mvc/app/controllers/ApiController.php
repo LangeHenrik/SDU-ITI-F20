@@ -1,6 +1,6 @@
 <?php
 
-class APIController extends Controller {
+class ApiController extends Controller {
 
 	public function index () {
 	}
@@ -24,7 +24,7 @@ class APIController extends Controller {
 			$password = $input['password'];
 			$returnedUserId = $this->model('User')->apiValidateUsers($username, $password);
 
-			if ($returnedUserId == $userID) {
+			if ($returnedUserId === $userID) {
 				$image_id = $this->model('Picture')->apiUpload($imageBlob, $userID, $title, $description);
 
 				$image_id = array('image_id' => $image_id);
@@ -45,3 +45,5 @@ class APIController extends Controller {
         }
 	}
 }
+
+

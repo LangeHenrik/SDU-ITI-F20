@@ -36,4 +36,5 @@ if(isset($_SESSION["error"])) {
 
 <?php
 unset($_SESSION["error"]);
+<?php include '../app/views/partials/foot.php'; ?>
 ?>

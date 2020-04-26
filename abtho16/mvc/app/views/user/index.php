@@ -57,4 +57,7 @@ foreach($viewbag['users'] as &$value) {
 ?>
 
 </table>
+
+<?php include '../app/views/partials/foot.php'; ?>
 </html>
+
