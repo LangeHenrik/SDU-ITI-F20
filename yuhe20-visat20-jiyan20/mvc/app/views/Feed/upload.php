@@ -1,10 +1,10 @@
-<?php include '../partials/header.php'; ?>
+<?php include '../app/views/partials/menu.php'; ?>
 <div class="content" id="upload">
 
         <div class="formContent" id="formContent">
             <b><h1>Upload Image</h1></b>
             <i><h2>Choose your pictures and upload them here!</h2></i>
-            <form action="/mvc/public/Image/upload" method="post" enctype="multipart/form-data">
+            <form action="/yuhe20-visat20-jiyan20/mvc/public/Image/upload" method="post" enctype="multipart/form-data">
                 <label for="image">Choose Your Image</label>
                 <br><input type="file" name="image-upload" id="image-upload"/><br>
                 <label for="image-header">Image Header</label>
@@ -36,4 +36,4 @@
             }?>
     </div>
 </div>
-<?php include '../partials/foot.php'; ?>
+<?php include '../app/views/partials/foot.php'; ?>

@@ -1,9 +1,9 @@
-<?php include '../partials/header.php'; ?>
+<?php include '../app/views/partials/header.php'; ?>
 
 
 <div class="login-info">
     <div class="text">
-        <form name="login" method="POST" action="UserController.php">
+        <form name="login" method="POST" action="/yuhe20-visat20-jiyan20/ass2/mvc/public/User/login">
             <div class="log-in-form">
                 <fieldset>
                     <legend>log-in Info</legend>
@@ -15,10 +15,10 @@
                 </fieldset>
             </div>
             <hr>
-            <p >New here? <a href="/mvc/public/home/register.php">Register</a>!</p>
+            <p >New here? <a href="/yuhe20-visat20-jiyan20/mvc/public/User/register">Register</a>!</p>
             
         </form>
     </div>
 </div>
 
-<?php include '../partials/foot.php'; ?>
+<?php include '../app/views/partials/foot.php'; ?>

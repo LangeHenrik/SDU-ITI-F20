@@ -1,4 +1,4 @@
-<?php include '../partials/header.php'; ?>
+<?php include '../app/views/partials/header.php'; ?>
 <div class="content" id="content">
     <div>
         <h1>WELCOME TO THE IMAGE FEED PAGE</h1>
@@ -7,4 +7,4 @@
         <hr>
     </div>
 </div>
-<?php include '../partials/foot.php'?>
+<?php include '../app/views/partials/foot.php'?>

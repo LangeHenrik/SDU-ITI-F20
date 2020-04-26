@@ -12,7 +12,7 @@ class UserController extends Controller {
             $password = $_POST['password'];
             if ($this->model('User')->login($username, $password)) {
                 $_SESSION['logged_in'] = true;
-                header('');//the address of the image index
+                header('Location: /yuhe20-visat20-jiyan20/mvc/public/Image/index');//the address of the image index
             } else {
                 $viewbag['danger'] = "Username and password incorrect";
                 $this->view('home/login', $viewbag);
@@ -27,7 +27,7 @@ class UserController extends Controller {
 		
 		//if($this->post()) {
 			session_unset();
-			header('');
+			header('Location: /yuhe20-visat20-jiyan20/mvc/public/Home');
 		//} else {
 		//	echo 'You can only log out with a post method';
 		//}
