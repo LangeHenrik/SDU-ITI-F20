@@ -6,15 +6,15 @@
 <body>
 
 <ul>
-<li><a class="active" href="/mvc/public/home/index">Home</a></li>
-  <li><a href="/abtho16/mvc/public/user/index">Users</a></li>
-  <li><a href="/abtho16/mvc/public/picture/upload">Upload</a></li>
-  <li><a href="/abtho16/mvc/public/home/login">Logout</a></li>
+<li><a class="active" href="/mvc/public/home/index"></a></li>
+  <li><a href="/abtho16/mvc/public/user/index"></a></li>
+  <li><a href="/abtho16/mvc/public/picture/upload"></a></li>
+  <li><a href="/abtho16/mvc/public/home/login"></a></li>
 </ul>
 
 <?php if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']) : ?>
 
-<a href="/abtho16/mvc/public/user/logout">log out</a>
+
 
 <?php endif; ?>
 

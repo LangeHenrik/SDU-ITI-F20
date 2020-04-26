@@ -3,17 +3,12 @@
 
 
 <div>
-    <h2>
-        Welome to my site <h2>
-        <hr/>
-       
-       <p> Problems...<br/>
-        Mysite couldn't access my local DB last week and this week
-        it might be diffcult to Register and save data.
-        but i am working on it. 
-        
-        </p>
-    </h2>
+    
+    <h1>Welcome Page</h1>
+
+
+     <hr>  
+    
 </div>
 
 

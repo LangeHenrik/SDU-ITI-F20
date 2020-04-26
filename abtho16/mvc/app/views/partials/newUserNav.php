@@ -21,6 +21,7 @@
         <li><a class="active" href="/abtho16/mvc/public/home/index">Home</a></li>
         <li><a href="/abtho16/mvc/public/user/index">Users</a></li>
         <li><a href="/abtho16/mvc/public/picture/upload">Upload</a></li>
+        <li><a href="/abtho16/mvc/public/picture/index">Display picture</a></li>
         <li><a href="/abtho16/mvc/public/home/logout">Logout</a></li>
     </ul>
 <?php endif; ?>

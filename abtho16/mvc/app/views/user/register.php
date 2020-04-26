@@ -37,6 +37,8 @@ include '../app/views/partials/newUserNav.php';
 	<br>
     <input type="submit" value="Submit" class="submit">
 </form>
-	
+
 </body>
+
+
 </html>

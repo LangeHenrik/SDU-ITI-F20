@@ -27,21 +27,24 @@ require_once '../app/models/Picture.php';
 </th>
 </tr>
 
+
+
 <?php
 
 foreach($viewbag['pics'] as &$value) {
     echo '<tr>';
-    echo '<td>'.$value->picture_id.'</td>';
-    echo '<td>'.$value->user.'</td>';
-    echo '<td>'.$value->header.'</td>';
-    echo '<td>'.$value->description.'</td>';
+    echo '<td>'.$value['id'].'</td>';
+    echo '<td>'.$value['user'].'</td>';
+    echo '<td>'.$value['header'].'</td>';
+    echo '<td>'.$value['description'].'</td>';
     echo '</tr>';
     echo '<tr>';
-	echo "<td>".'<img src="data:image/jpeg;base64,'.base64_encode( $value->picture ).'"/>'."</td>";
+	echo "<td>".'<img src="data:image/jpeg;base64,'.base64_encode($value['picture']).'"/>'."</td>";
     echo '</tr>';
 }
 
 ?>
 
 </table>
+<?php include '../app/views/partials/foot.php'; ?>
 </html>

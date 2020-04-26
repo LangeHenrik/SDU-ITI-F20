@@ -15,7 +15,7 @@ include '../app/views/partials/newUserNav.php';
 <div class="uploadForm">
 <div class="c">Upload</div>
 <br><br>
-<form method="post" action="save">
+<form method="post" enctype="multipart/form-data" action="/abtho16/mvc/public/picture/save">
 	<input type="file" name="image" accept="image/gif, image/jpeg, image/png" name="image" placeholder="Choose an image" required>
 	<br><br>
 	<input type="text" name="header" class='field' placeholder="Enter your header" required>
@@ -25,4 +25,5 @@ include '../app/views/partials/newUserNav.php';
 	<input type="submit" name="submit_image" class='submit'>
 </form>
 </body>
+<?php include '../app/views/partials/foot.php'; ?>
 </html>

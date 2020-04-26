@@ -4,6 +4,28 @@ class Picture extends Database {
 
 	public $picture_id,$picture,$user,$header,$description;
 
+
+	public function getPictures() {
+        $pics = array();
+        $st = $this->conn->prepare("SELECT id, picture, user, header, description FROM picture LIMIT 20;");
+        $results = array();
+        if ($st->execute()) {
+            while ($row = $st->fetch(PDO::FETCH_ASSOC)) {
+                $results[] = $row;
+            }
+        }
+        $users = [];
+        foreach($results as $result) {
+            array_push($pics, $result);
+       }
+       return $pics;
+    }
+
+
+
+
+/*
+
 	public function getPictures() {
 		$pics = array();
 		$st = $this->conn->prepare("SELECT id, picture, user, header, description FROM picture LIMIT 20;");
@@ -24,7 +46,7 @@ class Picture extends Database {
        }
 	   return $pics;
 	}
-
+*/
 	public function apiUpload($picture, $user_id, $header, $desc) {
 		$username = $this->apiGetUsername($user_id);
 

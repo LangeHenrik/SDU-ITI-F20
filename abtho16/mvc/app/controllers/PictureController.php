@@ -29,27 +29,21 @@ class PictureController extends Controller {
 	}
 	
 	public function save() {
-		if ( ! empty( $_POST ) ) {
-			if ( isset( $_POST['image'] ) && isset( $_POST['header'] ) ) {
-				$tmpname = $_POST['image'];
-				$fp = fopen($_POST['image'], 'rb');
-				try {
-					require_once('../app/core/Database.php');
-					$conn = (new Database)->conn;
-					$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-					$st = $conn->prepare("INSERT INTO picture(picture, user, header, description) VALUES(:picture, :user, :header, :description)");
-					$st->bindParam(':picture', $fp, PDO::PARAM_LOB);
-					$st->bindParam(':user', $_SESSION['username']);
-					$st->bindParam(':header', $_POST['header']);
-					$st->bindParam(':description', $_POST['description']);
-					$st->execute();
-					header("Location: upload");
-				}catch(PDOException $e) {
-					'Error : ' .$e->getMessage();
-				}
-			} else {
-			}
-		} else {
-		}
-	}
+        try {
+            require_once('../app/core/Database.php');
+            $conn = (new Database)->conn;
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $st = $conn->prepare("INSERT INTO picture(picture, user, header, description) VALUES(:picture, :user, :header, :description)");
+            $picture = file_get_contents($_FILES["image"]["tmp_name"]);
+     
+            $st->bindParam(':picture', $picture);
+            $st->bindParam(':user', htmlentities($_SESSION['username']));
+            $st->bindParam(':header', htmlentities($_POST['header']));
+            $st->bindParam(':description', htmlentities($_POST['description']));
+            $st->execute();
+            header("Location: index");
+        } catch (PDOException $e) {
+            'Error : ' . $e->getMessage();
+        }
+    }
 }
