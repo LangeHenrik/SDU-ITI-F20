@@ -17,6 +17,11 @@ class ImageController extends Controller {
     }
 
     public function loadImages() {
-        $this->model('Image')->loadImagesFromModel();
+        if(isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
+            $this->model('Image')->loadImagesFromModel();
+        } else{
+            echo "You are not logged in so you can not load images. \nPlease log in";
+        }
+        
     }
 }
