@@ -55,7 +55,7 @@ class User extends Database
 
 	public function getAll()
 	{
-		$sql = "SELECT username, userid FROM users";
+		$sql = "SELECT userid, username, email FROM users";
 		$stmt = $this->conn->prepare($sql);
 		$stmt->execute();
 		$result = $stmt->fetchAll();
@@ -77,13 +77,13 @@ class User extends Database
 		} else {
 			$user = strtolower($user);
 			$len = strlen($user);
-			$specificUsers = array();
+			$someone = array();
 			foreach ($users as $name) {
 				if (stristr($user, substr($name['email'], 0, $len)) || stristr($user, substr($name['username'], 0, $len))) {
 					array_push($specificUsers, $name);
 				}
 			}
-			return $specificUsers;
+			return $someones;
 		}
 
 		// 

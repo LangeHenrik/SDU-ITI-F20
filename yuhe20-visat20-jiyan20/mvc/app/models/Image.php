@@ -64,7 +64,7 @@ class Image extends Database
         return $result;
     }
 
-    public function addPicture($userid)
+    public function addImage($userid)
     {
         $userid = filter_var($userid, FILTER_SANITIZE_STRING);
         $jsonBody = json_decode($_POST['json']);
@@ -84,7 +84,7 @@ class Image extends Database
             $description = filter_var(trim($jsonBody->description), FILTER_SANITIZE_STRING);
             $image = filter_var(trim($jsonBody->image), FILTER_SANITIZE_STRING);
             if (empty($title) || empty($description) || empty($image)) {
-            } elseif ((strlen($title) > 25) or (strlen($description) > 250)) {
+            } elseif ((strlen($title) > 10) or (strlen($description) > 100)) {
             } else {
                 $sql = 'INSERT INTO images (header, description, image, userid) values(:header, :description, :image, :userid)';
                 $stmt = $this->conn->prepare($sql);
