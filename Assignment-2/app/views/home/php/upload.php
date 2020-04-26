@@ -11,12 +11,10 @@ if (isset($_POST['upload'])) {
     $Description = htmlentities($_POST['Description']);
     // Get User
     $UserID = $_SESSION["id"];
-    // image file directory
-    // Get encoded image name
-    $Image = $_FILES['Image']['name'];
-    // base64_encode(
-    // image file directory
-    $target = "../img/gallery/" . basename($Image);
+    // Get image, data and mine
+    $Image = $_FILES['MyFile']['name'];
+    $Mime = $_FILES['MyFile']['type'];
+    $Data = file_get_contents($_FILES['MyFile']['tmp_name']);
 
     try {
         $db = new PDO($PDO_CONFIG, $DB_USERNAME, $DB_PASSWORD);
@@ -24,20 +22,21 @@ if (isset($_POST['upload'])) {
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         // insert data picture
-        $sql = ("INSERT INTO picture (Image, Header, Description, UserID) 
-        VALUES ('$Image', '$Header', '$Description', '$UserID')");
+        $sql = ("INSERT INTO picture (Mime, Image, Data, Header, Description, UserID) 
+        VALUES (:Mime, :Image, :Data, '$Header', '$Description', '$UserID')");
+
+        $stmt = $db->prepare($sql);
+
+        $stmt->bindParam(':Mime', $Mime, PDO::PARAM_STR, 50);
+        $stmt->bindParam(':Image', $Image, PDO::PARAM_STR, 256);
+        $stmt->bindParam(':Data', $Data);
 
         // executes the statment
-        $db->prepare($sql)->execute();
+        $stmt->execute();
 
         // shows if the connection fails
         echo "Connected successfully";
 
-        if (move_uploaded_file($_FILES['Image']['tmp_name'], $target)) {
-            echo "Image uploaded successfully";
-        } else {
-            echo "Failed to upload image";
-        }
     } catch (PDOException $e) {
         echo "Connection failed: " . $e->getMessage();
     }
@@ -75,8 +74,8 @@ if (isset($_POST['upload'])) {
             <div class="inner-wrapper">
                 <div class="nested" id="upload-nested">
                     <div class="uploadForm">
-                        <form method="POST" action="upload.php" enctype="multipart/form-data">
-                            <input class="input" type="file" name="Image" accept="image/*" required>
+                        <form method="POST" action="upload" enctype="multipart/form-data">
+                            <input class="input" type="file" name="MyFile" accept="image/*" required>
                             <input id="inputHeader" type="text" placeholder="Write a header" name="Header" required />
                             <textarea id="text" cols="40" rows="4" name="Description" placeholder="Say something..." required></textarea>
                             <button id="post" type="submit" name="upload">POST</button>
