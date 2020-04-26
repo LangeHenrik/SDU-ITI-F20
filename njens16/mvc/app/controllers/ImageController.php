@@ -4,20 +4,26 @@ class ImageController extends Controller {
 	
     public function index () 
     {
-        header('Location: /njens16/mvc/public/home/frontpage');
-	}
-
-    public function images()
-    {
-        $viewbag['page'] = "images";
+        $viewbag["page"] = "images";
         
-		//$viewbag['pictures'] = $this->model('pictures')->getUserPictures($user);
+		$viewbag["images"] = $this->model("Image")->getAllImages();
         $this->view("image/images", $viewbag);
     }
 
     public function upload()
     {
-
+        if($this->post())
+        {
+             $viewbag["page"] = "images";
+             $viewbag["imageUploadMSG"] = $this->model("Image")->upload();
+		     $viewbag["images"] = $this->model("Image")->getAllImages();
+             $this->view("image/images", $viewbag);
+        }
+        else
+        {
+		    header("Location: /njens16/mvc/public/image/index");
+        }
+        
     }
 
 

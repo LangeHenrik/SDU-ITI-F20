@@ -1,4 +1,3 @@
-
 DROP DATABASE IF EXISTS njens16;
 CREATE DATABASE njens16;
 USE njens16;
@@ -10,9 +9,9 @@ CREATE TABLE user(
 );
 CREATE TABLE image(
     image_id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-    image_header varchar(100) NOT NULL,
-    image_description varchar(512),
-    image_data longblob NOT NULL,
+    title varchar(100) NOT NULL,
+    description varchar(512),
+    image LongBlob NOT NULL,
     upload_user_id INT UNSIGNED NOT NULL,
     upload_time DATETIME DEFAULT CURRENT_TIMESTAMP 
 );

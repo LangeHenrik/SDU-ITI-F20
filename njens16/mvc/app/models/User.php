@@ -5,7 +5,7 @@ class User extends Database {
     {
         $username = filter_var($_POST["username"], FILTER_SANITIZE_SPECIAL_CHARS);
         $password = $_POST["password"];
-		$sql = "SELECT username, password FROM user WHERE username = :username";
+		$sql = "SELECT user_id, username, password FROM user WHERE username = :username";
 		
 		$stmt = $this->conn->prepare($sql);
 		$stmt->bindParam(':username', $username);
@@ -19,6 +19,8 @@ class User extends Database {
         } 
         if (password_verify($password, $result["password"]))
         {
+			$_SESSION["logged_in"] = true;
+            $_SESSION["user_id"] = $result["user_id"];
             return true;
         }
 
@@ -27,7 +29,7 @@ class User extends Database {
 
 	public function getAll () {
 
-		$sql = "SELECT username FROM user";
+		$sql = "SELECT user_id, username FROM user";
 
 		$stmt = $this->conn->prepare($sql);
 		$stmt->execute();
@@ -60,5 +62,36 @@ class User extends Database {
             }
         return false;
     }
+    public function APIverifyUser($userID)
+    {
+        $jsonVar = json_decode($_POST["json"], true);
+        if (!(isset($jsonVar["username"]) && isset($jsonVar["password"])))
+        {
+            echo "error in login";
+            die();
+        }
+        $username = filter_var($jsonVar["username"], FILTER_SANITIZE_SPECIAL_CHARS);
+        $password = $jsonVar["password"];
+        $sql = "SELECT user_id, username, password FROM user WHERE username = :username";
+        $stmt = $this->conn->prepare($sql);
+		$stmt->bindParam(':username', $username);
+		$stmt->execute();
 
+		$result = $stmt->fetch(); 
+
+        if ($result === false)
+        {
+            return false;
+        } 
+        if ($userID != $result["user_id"])
+        {
+            return false;
+        }
+        if (password_verify($password, $result["password"]))
+        {
+            return true;
+        }
+        return false;
+ 
+    }
 }

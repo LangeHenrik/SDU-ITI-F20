@@ -4,8 +4,10 @@ class UserController extends Controller {
 	
     public function index () 
     {
-        header('Location: /njens16/mvc/public/home/frontpage');
-	}
+	    $viewbag["page"] = "users";
+        $viewbag["users"] = $this->model("User")->getAll();
+        $this->view("user/userPage", $viewbag);
+    }
 	
     public function login() 
     {
@@ -18,7 +20,6 @@ class UserController extends Controller {
         {
             if($this->model("User")->login()) 
             {
-			    $_SESSION["logged_in"] = true;
 		        $viewbag["page"] = "home";
                 $this->view("home/index", $viewbag);
             }

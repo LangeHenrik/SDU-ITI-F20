@@ -18,7 +18,7 @@ include "../app/views/partials/menu.php";
         <?php
         for ($i = 0; $i < sizeof($viewbag["users"]); $i++)
         {   
-            echo "<tr><th scope='row'>". ($i+1). "</th> <td>". $viewbag["users"][$i][0]. "</td></tr>";
+            echo "<tr><th scope='row'>". ($i+1). "</th> <td>". $viewbag["users"][$i][1]. "</td></tr>";
         } 
 ?>
         </tbody>

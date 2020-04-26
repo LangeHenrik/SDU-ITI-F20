@@ -4,14 +4,15 @@ include '../app/views/partials/menu.php';
 ?>
 <div class="container">
     <div class ="row">
-        <div class ="col-4">
-        <br/>
-        <br><br>
+        <div class ="col-12">
 <?php if(isset($_SESSION["logged_in"]) && $_SESSION["logged_in"]) : ?>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Welcome</h1>
+    <p class="lead">This is my (Nicholai Bjerke Jensen) answer to Assignemt 2 in Internet Technology F2020.</p>
+  </div>
+</div>
 
-<?php for ($i = 0; $i < 200; $i++) {
-        echo "<br>test<br>";
-} ?>
 <?php else: ?>
     <?php header("Location: /njens16/mvc/public/user/login");?>
 <?php endif; ?>
