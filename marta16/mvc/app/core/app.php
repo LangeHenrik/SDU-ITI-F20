@@ -2,9 +2,6 @@
 
 class App
 {
-	// constants
-	// const BASE_URL        = "/marta16/mvc";
-	
 	// default controller, method and parameters
 	protected $controller = "home";
 	protected $method     = "index";

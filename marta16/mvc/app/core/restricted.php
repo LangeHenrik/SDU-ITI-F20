@@ -6,7 +6,7 @@ function is_restricted($controller, $method)
 
 	$restricted_methods = array(
 		// "SomeController" => array("method1", "method2", "...)
-		"HomeController" => array("restricted", "logout"),
+		"HomeController" => array(""),
 		"UsersController" => array("list", "logout"),
 		"FeedController" => array("list", "upload"),
 		"ApiController" => array()
