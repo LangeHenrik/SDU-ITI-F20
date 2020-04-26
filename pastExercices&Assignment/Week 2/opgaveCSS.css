@@ -1,0 +1,55 @@
+body {
+    margin: 0;
+    padding: 0;
+  }
+ 
+  #navigation-container {
+    width: 100%;
+    margin: 0 auto;
+    height: 35px;
+
+  }
+  
+  .navigation-bar {
+    background-color: gray;
+    height: 35px;
+    width: 100%;
+    text-align:center;
+  }
+  .navigation-bar img{
+  float: right;
+  width: auto; 
+  height: 100%; 
+  object-fit: scale-down; 
+  }
+
+  .navigation-bar ul {
+    height: fit-content;
+    text-align: center;
+    display:inline-block;
+    vertical-align:top;
+    width: 100%-35px;
+    margin: auto;
+  }
+  
+  .navigation-bar li {
+    list-style-type: none;
+    height: 35px;
+    display: inline-block;
+  }
+  
+  .navigation-bar li a {
+    color: white;
+    font-size: 16px;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    line-height: 35px;
+    padding: 8.5px 0px;
+  }
+
+  .navigation-bar li a:hover {
+     background-color: lightseagreen;
+     color: white;
+     border: 1px solid darkslategray;
+     padding: 7.5px 0px;
+  }
