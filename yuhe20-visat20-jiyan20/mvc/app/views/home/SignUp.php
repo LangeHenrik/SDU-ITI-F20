@@ -14,6 +14,7 @@
                 <div id="password-strength-status"></div>
                 <input type="password" name="pwd-repeat" id="pwd-repeat" placeholder="Repeat Password" require>
                 <button type="submit" name="register"value="Register">Sign-up</button>
+                <br>
              </form>
             </div>
           </div>
