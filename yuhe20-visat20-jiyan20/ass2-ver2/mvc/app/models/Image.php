@@ -91,7 +91,7 @@ class Image extends Database {
         $sql = "SELECT image, header, description FROM images WHERE image.username = :username";
         $stmt = $this->conn->prepare($sql);
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
-        $stmt->bindParam(':user_id', $user_id);
+        $stmt->bindParam(':username', $username);
         $stmt->execute();
         $result = $stmt->fetchAll();
 

@@ -57,6 +57,7 @@ class User extends Database {
 	}
 
 	public function register ($username, $email, $pass, $pwd_repeat) {
+
 		if ($pass != $pwd_repeat) {
 			return false;
 		}
@@ -90,6 +91,7 @@ class User extends Database {
 			}
 			$connection = null;
 		}
+	}
 
 	public function verifyUser($UP_info) {
         $username = filter_var($UP_info['username'], FILTER_SANITIZE_STRING);

@@ -1,17 +1,17 @@
 <?php include '../partials/header.php'; ?>
 
-  <script src="./js/regex.js"></script>
+  <script src="/mvc/public/js/regex.js"></script>
   <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-  <script src="./js/passwd_str.js"></script>
+  <script src="/mvc/public/js/passwd_str.js"></script>
 
   <div class="content" id="registration">
       <div>
-          <h1>Sign Up</h1>
+        <br></br>
           <main>
             <div class="wrapper-main">
               <div id="formContent">
                 <h1>Sign-up</h1>
-                <form onKeyUp="return validateFields()" class="form-signup" method="post" action='register'>
+                <form onKeyUp="return validateFields()" class="form-signup" method="post" action="">
                   <input type="text" name="username" id="username" placeholder="Username" autofocus require>
                   <input type="text" name="email-register" id="email-register" placeholder="E-mail" require>
                   <input type="password" name="pwd-register" id="pwd-register"  onKeyUp="checkPasswordStrength();" placeholder="Password" require>
@@ -44,4 +44,5 @@
               }?>
       </div>
   </div>
+  </br>
 <?php include '../partials/foot.php'; ?>
