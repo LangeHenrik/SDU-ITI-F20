@@ -57,4 +57,21 @@ class User extends Database
 			return true;
 		}
 	}
+
+	public function getUser($username = "")
+	{
+		if ($username === "") {
+            $stmt = $this->conn->prepare("SELECT * FROM user");
+        } else {
+            $stmt = $this->conn->prepare("SELECT username FROM user WHERE username = :username");
+            $stmt->bindParam(':username', $username);
+        }
+        $stmt->execute();
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+		$result = $stmt->fetchAll();
+		
+		return $result;
+
+	}
+
 }

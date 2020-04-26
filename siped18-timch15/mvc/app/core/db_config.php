@@ -6,9 +6,9 @@ class DB_Config
 	protected $servername = 'localhost:3306';
 
 
-	protected $username = 'root';
-	protected $password = 'root';
+	//protected $username = 'root';
+	//protected $password = 'root';
 
-	// protected $username = "YOUR_SYSTEM_USER";
-	// protected $password = "siped18";
+	protected $username = "YOUR_SYSTEM_USER";
+	protected $password = "siped18";
 }
