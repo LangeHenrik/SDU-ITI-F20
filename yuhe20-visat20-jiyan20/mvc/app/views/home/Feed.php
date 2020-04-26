@@ -1,8 +1,8 @@
 <?php include '../app/views/partials/header.php'; ?>
 
 <div class='wrapper'>
+    <h1>Feeds</h1>
     <div class='feedContent'>
-        <h1>Feeds</h1>
         <?php
         $imageFeed = "";
         foreach ($viewbag as $value) {

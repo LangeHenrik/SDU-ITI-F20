@@ -5,7 +5,7 @@ class UploadController extends Controller
 
 	public function index()
 	{
-		$this->view('home/upload');
+		$this->view('home/Upload');
 	}
 
 	public function uploadPicture()
@@ -13,7 +13,7 @@ class UploadController extends Controller
 		if ($this->post()) {
 			$response_message = $this->model('Image')->uploadPicture();
 			$response = array('Response' => $response_message);
-			$this->view('home/upload', $response);
+			$this->view('home/Upload', $response);
 		}
 	}
 }

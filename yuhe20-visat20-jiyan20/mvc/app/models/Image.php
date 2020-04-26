@@ -1,5 +1,5 @@
 <?php
-class Picture extends Database
+class Image extends Database
 {
 
     public function getAllUserPictures($userid)
@@ -64,7 +64,7 @@ class Picture extends Database
     public function loadImageFeed()
     {
         try {
-            $sql = 'SELECT a.image, a.header, a.description, b.username FROM images a INNER JOIN user b ON a.userid=b.userid;';
+            $sql = 'SELECT a.image, a.header, a.description, b.username FROM images a INNER JOIN users b ON a.userid=b.userid;';
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
 

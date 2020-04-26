@@ -32,7 +32,7 @@ class Router {
 		
 		require_once 'Restricted.php';
 		if(restricted(get_class($this->controller), $this->method)) {
-			echo 'Access Denied';
+			echo 'You Should Log in First to Use This Feature';
 		} else {
 			call_user_func_array([$this->controller, $this->method], $this->params);
 		}
