@@ -4,7 +4,7 @@ class Picture extends Database
 
     function getImagePosts()
     {
-        $stmt = $this->conn->prepare("SELECT * FROM picture");
+        $stmt = $this->conn->prepare("SELECT * FROM picture ORDER BY image_id desc");
 
         $stmt->execute();
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
@@ -35,8 +35,8 @@ class Picture extends Database
         $stmt->bindParam(':uploader', $uploader);
         $stmt->execute();
 
-        $last_id = $this->conn->lastInsertId();
+        $last_id['image_id'] = $this->conn->lastInsertId();
 
-        return $last_id;
+        return json_encode($last_id);
     }
 }
