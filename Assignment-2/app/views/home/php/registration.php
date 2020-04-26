@@ -5,7 +5,7 @@ require 'config.php';
 // If upload button is clicked ...
 if (isset($_POST['upload'])) {
   echo '<script>console.log("Button click"); </script>';
-  
+
   // Get email
   $Email = htmlentities($_POST['Email']);
   // Get username
@@ -13,6 +13,7 @@ if (isset($_POST['upload'])) {
   // Get password
   $Password = password_hash(htmlentities($_POST['Password']), PASSWORD_DEFAULT);
 
+  echo '<script>console.log("Button2 click"); </script>';
 
   // Get name
   $Name = filter_var($_POST['Name'], FILTER_SANITIZE_STRING);
@@ -24,16 +25,22 @@ if (isset($_POST['upload'])) {
   // image file directory
   $target = "img/pictures/" . basename($Image);
 
+  echo '<script>console.log("Button3 click"); </script>';
+
   try {
     $db = new PDO($PDO_CONFIG, $DB_USERNAME, $DB_PASSWORD);
     // set the PDO error mode to exception
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    echo '<script>console.log("Button4 click"); </script>';
 
     // insert email, username, password and auto id
     $db->prepare("INSERT INTO user (Email, Username, Password)
     VALUES('$Email', '$Username', '$Password')")->execute();
     // Get last inserted id 
     $userID = $db->lastInsertId();
+
+    echo '<script>console.log("Button5 click"); </script>';
 
     // insert name, birthday, profileimage and id from tabel user
     $sql = "INSERT INTO userinfo (Name, BDate, Image, LoginID) 
@@ -63,7 +70,7 @@ if (isset($_POST['upload'])) {
   <!-- allowed characters a-z, A-Z, 0-9, . and _ (4 characters to 20) -->
   <input type="text" placeholder="Username" name="Username" title="Allowed username characters is a-z, A-Z, 0-9, .(dot) and _(underline) (minimum 4 characters, maximum 20)" pattern="^(?=.{4,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$" required />
   <!-- minimum 5 characters max 20, at least one uppercase letter, one lowercase letter and one number -->
-  <input type="text" placeholder="Password" name="Password" title="Minimum 5 characters maximum 20, at least one uppercase letter, one lowercase letter and one number" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{5,20}$" required />
+  <input type="password" placeholder="Password" name="Password" title="Minimum 5 characters maximum 20, at least one uppercase letter, one lowercase letter and one number" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{5,20}$" required />
   <!-- only alphanumeric and spaces -->
   <input type="text" placeholder="Name" name="Name" title="Only alphanumeric and spaces" pattern="^[a-zA-Z ]*$" required />
   <input type="date" value="2000-01-01" name="BDate" required />
