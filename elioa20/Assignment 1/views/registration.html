@@ -1,11 +1,13 @@
-<!DOCTYPE html>
+<!DOCT••••••YPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
     <title>Welcome to Odin's Blog | Register</title>
     <link rel="stylesheet" type="text/css" href="../stylesheets/registerStylesheet.css">
 </head>
 <body>
+
 <form class="register-form" method="post">
     <div class="register-form-container">
 
@@ -14,24 +16,26 @@
 
         <ul id="register-messages">
 
-        </ul>
+        </ul>   
 
-        <label for="username"><b>Username</b>
-            <input type="text" id="username" name="username" placeholder="Username...">
-        </label>
+        <div class="textbox">
+            <i class="fas fa-user"></i>
+            <input type="text" id="username" name="username" placeholder="Username">
+        </div>
 
-        <label for="password"><b>Password</b>
-            <input type="password" id="password" name="password1" placeholder="Password...">
-        </label>
+        <div class="textbox">
+            <i class="fas fa-lock"></i>
+            <input type="password" id="password" name="password1" placeholder="Password">
+        </div>
 
-
-        <label for="password2"><b>Repeat Password</b>
-            <input type="password" id="password2" name="password2" placeholder="Repeat password...">
-        </label>
-
+        <div class="textbox">
+            <i class="fas fa-lock"></i>
+            <input type="password" id="password2" name="password2" placeholder="Repeat Password">
+        </div>
+           
         <div class="register-button-container">
-            <a href="login.html"><input type="button" id="login" name="login" value="Log In"></a>
-            <input type="button" id="register" name="register" value="Register">
+            <input type="button" class="btn1" id="register" name="register" value="Register">
+            <a href="login.html"><input type="button" class="btn" id="login" name="login" value="Back"></a>
         </div>
     </div>
 </form>
