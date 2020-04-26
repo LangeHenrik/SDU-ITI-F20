@@ -116,8 +116,8 @@ body {
     font-weight: bold;
     padding: 8px;
     font-size: 17px;
-    cursor: pointer;
     margin: 12px 0;
+    cursor: pointer;
 }
 
 .btn1:hover{

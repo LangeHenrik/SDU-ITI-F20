@@ -17,8 +17,8 @@ body {
     font-weight: bold;
     display: none;
     list-style: none;
-    border: 1px solid red;
     padding: 10px 25px;
+    border: 1px solid red;
     background-color: rgb(235,232,232);
 }
 
