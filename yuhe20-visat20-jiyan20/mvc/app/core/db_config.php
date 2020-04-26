@@ -4,7 +4,7 @@ class db_config {
 	protected $username = 'root';
 	protected $password = '160170';
 	protected $dbname = 'ass2';
-	protected $portdb = "3306";
+	protected $portdb = "3307";
 
 }
 	
