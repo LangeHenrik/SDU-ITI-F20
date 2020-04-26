@@ -1,6 +1,6 @@
 <?php include '../app/views/partials/menu.php'; ?>
 <div class="container">
-    <div class="label">Blobs</div>
+    <div class="label">Image Feed</div>
 
     <?php
     foreach ($viewbag as $value) {
@@ -26,7 +26,6 @@
             $image =$value['image'];
             echo "<img src='$image'>";
 //            echo "<img src='$image' width=\"250\" height=\"250\">";
-//    echo '<img class="main-image" src="data:image/jpeg;base64,' . base64_encode($value['image']) . '"  "/>';
             echo "</div>";
             echo "</div>";
             echo "</div>";
@@ -38,7 +37,6 @@
         echo "</label> ";
         echo "</div>";
     }
-
 
     include '../app/views/partials/foot.php';
     ?>

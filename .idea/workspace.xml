@@ -3,29 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="84d9c24b-e92f-4db2-b3df-fae53592c18d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Week1HtmlExercise.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Week2CSS.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Week2CSSExercise.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Week2CSSExercise.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Week2JS.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Week2JS.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Week2JSCatMouse.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exercises/Week2JSCatMouse.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frtol07/mvc/app/controllers/ApiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/frtol07/mvc/app/controllers/ApiController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frtol07/mvc/app/migration.sql" beforeDir="false" afterPath="$PROJECT_DIR$/frtol07/mvc/app/migration.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frtol07/mvc/app/models/ImageFeedblobs.php" beforeDir="false" afterPath="$PROJECT_DIR$/frtol07/mvc/app/models/ImageFeedblobs.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frtol07/mvc/app/models/Pictures.php" beforeDir="false" afterPath="$PROJECT_DIR$/frtol07/mvc/app/models/Pictures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frtol07/mvc/app/controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/frtol07/mvc/app/controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frtol07/mvc/app/controllers/PicturesController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frtol07/mvc/app/core/Router.php" beforeDir="false" afterPath="$PROJECT_DIR$/frtol07/mvc/app/core/Router.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frtol07/mvc/app/models/Register.php" beforeDir="false" afterPath="$PROJECT_DIR$/frtol07/mvc/app/models/Register.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frtol07/mvc/app/models/UploadImage.php" beforeDir="false" afterPath="$PROJECT_DIR$/frtol07/mvc/app/models/UploadImage.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frtol07/mvc/app/models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/frtol07/mvc/app/models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frtol07/mvc/app/views/images/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/frtol07/mvc/app/views/images/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frtol07/mvc/app/views/images/indexblobs.php" beforeDir="false" afterPath="$PROJECT_DIR$/frtol07/mvc/app/views/images/indexblobs.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frtol07/mvc/app/views/partials/menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/frtol07/mvc/app/views/partials/menu.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frtol07/mvc/app/views/upload/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/frtol07/mvc/app/views/upload/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frtol07/mvc/public/images/cplusplus.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frtol07/mvc/app/views/register/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/frtol07/mvc/app/views/register/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frtol07/mvc/public/js/js.js" beforeDir="false" afterPath="$PROJECT_DIR$/frtol07/mvc/public/js/js.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yaliu20/execise2 firsttry.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/yaliu20/exercise1.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/yaliu20/hello.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,14 +48,40 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1587302236088</updated>
-      <workItem from="1587302237456" duration="13424000" />
+      <workItem from="1587302237456" duration="18472000" />
+      <workItem from="1587718255178" duration="10667000" />
     </task>
+    <task id="LOCAL-00001" summary="Commit :)">
+      <created>1587326072401</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1587326072401</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Commit :)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commit :)" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="-1305" y="134" key="CommitChangelistDialog2" timestamp="1587924124369">
+      <screen x="-1858" y="0" width="1858" height="1080" />
+    </state>
+    <state x="-1305" y="134" key="CommitChangelistDialog2/69.0.1851.1080/-1858.0.1858.1080@-1858.0.1858.1080" timestamp="1587924124369" />
+    <state x="620" y="134" key="CommitChangelistDialog2/69.0.1851.1080/-1858.0.1858.1080@69.0.1851.1080" timestamp="1587326071603" />
+    <state x="586" y="272" key="Vcs.Push.Dialog.v2" timestamp="1587326083146">
+      <screen x="69" y="0" width="1851" height="1080" />
+    </state>
+    <state x="586" y="272" key="Vcs.Push.Dialog.v2/69.0.1851.1080/-1858.0.1858.1080@69.0.1851.1080" timestamp="1587326083146" />
+    <state x="691" y="363" key="com.intellij.ide.util.TipDialog" timestamp="1587731839669">
+      <screen x="69" y="0" width="1851" height="1080" />
+    </state>
+    <state x="691" y="363" key="com.intellij.ide.util.TipDialog/69.0.1851.1080/-1858.0.1858.1080@69.0.1851.1080" timestamp="1587731839669" />
     <state x="-882" y="0" width="898" height="1068" key="dock-window-1" timestamp="1587317521906">
       <screen x="-1858" y="0" width="1858" height="1080" />
     </state>

@@ -41,12 +41,9 @@ username=? ");
     //For web page
     public function getAllUsers()
     {
-
         $sql = "SELECT username,email FROM users";
-
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
-
         $result = $stmt->fetchAll();
 
         return $result;
@@ -55,12 +52,10 @@ username=? ");
     //For API
     public function getUserNamesAndIDs()
     {
-
         $sql = "SELECT user_id,username FROM users";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         $result = $stmt->fetchAll();
-
         return $result;
     }
     public function validateUsers($username, $password) {

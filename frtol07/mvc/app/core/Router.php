@@ -6,6 +6,7 @@ class Router
 
     protected $controller = 'HomeController';
     protected $method = 'index';
+//    protected $method = 'blobs';
     protected $params = [];
 
     function __construct()

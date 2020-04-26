@@ -5,21 +5,6 @@ class HomeController extends Controller
 
     public function index()
     {
-
-        $this->model('User')->userLogin();
-
-        if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) {
-            $viewbag = ($this->model('ImageFeed')->showImages());
-            $this->view('images/index', $viewbag);
-
-        } else {
-            $this->view('home/index');
-        }
-    }
-
-
-    public function blobs()
-    {
         $this->model('User')->userLogin();
 
         if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) {
@@ -30,27 +15,22 @@ class HomeController extends Controller
         }
     }
 
-
     public function registerUserModel()
     {
-
         if ($this->model('Register')->registerUser()) {
             $this->view('home/index');
-
+        }else{
+            $this->view('register/index');
         }
-
     }
 
     public function registerUserView()
     {
-            $this->view('register/index');
-
+        $this->view('register/index');
     }
-
 
     public function userMenuView()
     {
-
         if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) {
             $this->view('user/index');
         } else {
@@ -68,7 +48,6 @@ class HomeController extends Controller
         }
     }
 
-
     public function searchForUser()
     {
         $viewbag = $this->model('Search')->searchForUser();
@@ -77,7 +56,6 @@ class HomeController extends Controller
 
     public function upLoadView()
     {
-
         if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) {
             $this->view('upload/index');
         } else {
@@ -87,7 +65,6 @@ class HomeController extends Controller
 
     public function uploadImage()
     {
-
         if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) {
             if ($this->model('UploadImage')->upload()) {
                 $this->view('upload/index');
@@ -95,16 +72,10 @@ class HomeController extends Controller
             } else {
                 $this->view('upload/index');
             }
-
         } else {
             $this->view('home/index');
         }
-
     }
-
-
-
-
 
     public function logout()
     {
@@ -118,7 +89,6 @@ class HomeController extends Controller
         echo 'You are now logged out';
     }
 
-
     public function restricted()
     {
         echo 'Welcome - you must be logged in';
@@ -129,6 +99,4 @@ class HomeController extends Controller
         $viewbag = $this->model('Search')->searchForUser();
         $this->view('user/userSearch', $viewbag);
     }
-
-
 }

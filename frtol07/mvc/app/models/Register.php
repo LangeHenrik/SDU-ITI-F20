@@ -7,10 +7,13 @@ class Register extends Database
     {
         //GetUsers registration
         if (isset($_POST['submitUser'])) {
-            $registrationUsername = $_POST['registrationUsername'];
-            $registrationPassword = $_POST['registrationPassword'];
+//            $registrationUsername = $_POST['registrationUsername'];
+            $registrationUsername = htmlspecialchars($_POST['registrationUsername']);
+//            $registrationPassword = $_POST['registrationPassword'];
+            $registrationPassword = htmlspecialchars($_POST['registrationPassword']);
             $registrationPasswordHash = password_hash($registrationPassword, PASSWORD_DEFAULT);
-            $registrationEmail = $_POST['registrationEmail'];
+//            $registrationEmail = $_POST['registrationEmail'];
+            $registrationEmail = htmlspecialchars($_POST['registrationEmail']);
 
             if (Register::check_registrationUsername($registrationUsername) &&
                 Register::check_registrationPassword($registrationPassword) &&
@@ -24,8 +27,10 @@ VALUES(:username,:password,:email)";
                     $query->bindParam(':username', $registrationUsername, PDO::PARAM_STR);
                     $query->bindParam(':password', $registrationPasswordHash, PDO::PARAM_STR);
                     $query->bindParam(':email', $registrationEmail, PDO::PARAM_STR);
-
                     $query->execute();
+
+                    echo "You are registered";
+                    return true;
 
                 } catch (PDOException $e) {
                     $existingkey = "Integrity constraint violation: 1062 Duplicate entry";
@@ -38,8 +43,8 @@ VALUES(:username,:password,:email)";
                         throw $e;
                     }
                 }
-                echo "You are registered";
-                return true;
+//                echo "You are registered";
+//                return true;
             }else{
                 echo "Error in typed data";
                 return false;
@@ -58,10 +63,7 @@ VALUES(:username,:password,:email)";
 //Check if registration username is good to go
     function check_registrationUsername($registrationUsername)
     {
-//    if (!preg_match("/^[^-\s]{1,100}$/", $registrationUsername)) {
         if (!preg_match("/[a-z|A-Z|æøå|ÆØÅ]{1,20}$/", $registrationUsername)) {
-//            echo '<script type="text/javascript">openRegistrationUsernameModal(); </script>';
-
             Register::console_log("(PHP) Wrong username typed");
             return false;
         }
@@ -73,9 +75,7 @@ VALUES(:username,:password,:email)";
 //Check if registration password is good to go
     function check_registrationPassword($registrationPassword)
     {
-//    if (!preg_match("/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/", $registrationPassword)) {
-        if (!preg_match("/[^-\s]{2,20}$$/", $registrationPassword)) {
-//            echo '<script type="text/javascript">openRegistrationPasswordModal(); </script>';
+        if (!preg_match("/[^-\s]{2,20}$/", $registrationPassword)) {
             Register::console_log("(PHP) Wrong password typed");
             return false;
         }
@@ -88,14 +88,12 @@ VALUES(:username,:password,:email)";
     function check_registrationEmail($registrationEmail)
     {
         if (!preg_match("/^\S+@\S+\.[a-z|A-Z]{2,10}$/", $registrationEmail)) {
-//            echo '<script type="text/javascript">openRegistrationEmailModal(); </script>';
             Register::console_log("(PHP) Wrong email typed");
             return false;
         }
         Register::console_log("(PHP)  Email ok");
         return true;
     }
-
 
 ////Write to console.log
     function console_log($output, $with_script_tags = true)
@@ -107,5 +105,7 @@ VALUES(:username,:password,:email)";
         }
         echo $js_code;
     }
-
 }
+
+?>
+

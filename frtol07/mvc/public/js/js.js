@@ -5,18 +5,17 @@ console.log("JS is working just fine :)");
 // let modalEmail;
 // let modalClose;
 
+let name;
+let password;
+let phone;
+let email;
+let zip;
 var modalName;
 var modalPW;
 var modalEmail;
 var modalClose;
 
 function checkFields() {
-
-    // checkUserName();
-    // checkPassword();
-    // checkEmail();
-    //
-
     if (checkUserName() &&
         checkPassword()
         &&
@@ -28,107 +27,6 @@ function checkFields() {
         console.log("returning false from checkfields");
         return false;
     }
-}
-
-function checkUserName() {
-
-    // Check name
-    let regExName = /[a-z|A-Z|æøå|ÆØÅ]{1,20}$/;
-    let name = document.getElementById("name").value;
-    if (name.search(regExName)) {
-        openRegistrationUsernameModal();
-
-        console.log("(JS) Wrong username typed");
-        // console.log("(JS) Username ok");
-        return false;
-        // return true;
-    } else {
-        console.log("(JS) Username ok");
-        // console.log("(JS) Wrong username typed");
-        return true;
-        // return false;
-    }
-}
-
-
-function checkPassword() {
-    // Check password
-    let regExPassword = /[^-\s]{2,20}$$/;
-    let password = document.getElementById("password").value;
-    if (password.search(regExPassword)) {
-        openRegistrationPasswordModal();
-
-        // console.log("(JS) Password ok");
-        console.log("(JS) Wrong password typed");
-        return false;
-        // return true;
-    } else {
-        console.log("(JS) Password ok");
-        // console.log("(JS) Wrong password typed");
-        return true;
-        // return false;
-    }
-}
-
-function checkEmail() {
-    // Check email
-    let regExEmail = /^\S+@\S+\.[a-z|A-Z]{2,10}$/;
-    let email = document.getElementById("email").value;
-    if (email.search(regExEmail)) {
-        openRegistrationEmailModal();
-
-        // console.log("(JS) Email ok");
-        console.log("(JS) Wrong email typed");
-        return false;
-        // return true;
-    } else {
-        // console.log("(JS) Wrong email typed");
-        console.log("(JS) Email ok");
-        return true;
-        // return false;
-    }
-}
-
-
-// When the user clicks on the button, open the modal
-function openRegistrationUsernameModal() {
-
-    modalClose = document.getElementById("closeModal");
-    modalClose.style.display = "block";
-
-    modalName = document.getElementById("openRegistrationUsernameModal");
-    modalName.style.display = "block";
-}
-
-function openRegistrationPasswordModal() {
-    modalClose = document.getElementById("closeModal");
-    modalClose.style.display = "block";
-
-    modalPW = document.getElementById("openRegistrationPasswordModal");
-    modalPW.style.display = "block";
-}
-
-
-function openRegistrationEmailModal() {
-    modalClose = document.getElementById("closeModal");
-    modalClose.style.display = "block";
-
-    modalEmail = document.getElementById("openRegistrationEmailModal");
-    modalEmail.style.display = "block";
-}
-
-// // When the user clicks on <span> (x), close the modal
-function closeOnX() {
-
-
-    modalName = document.getElementById("openRegistrationUsernameModal");
-    modalName.style.display = "none";
-    modalPW = document.getElementById("openRegistrationPasswordModal");
-    modalPW.style.display = "none";
-    modalEmail = document.getElementById("openRegistrationEmailModal");
-    modalEmail.style.display = "none";
-    modalClose = document.getElementById("closeModal")
-    modalClose.style.display = "none"
 }
 
 
@@ -144,14 +42,12 @@ function showHint(str) {
             }
         };
 
-        // xmlhttp.open("GET", "search.php?search=" + str, true);
-        // xmlhttp.open("GET", "home/upLoadView" + str, true);
-        // xmlhttp.open("GET", "ajax/ajax" + str, true);
         xmlhttp.open("GET", "ajax/?search=" + str, true);
         xmlhttp.send();
     }
-
  }
+
+ //Shows the file we want to upload
 function updateList() {
     var input = document.getElementById('fileToUpload');
     var output = document.getElementById('fileList');
@@ -161,4 +57,85 @@ function updateList() {
     }
     output.innerHTML = '<ul>'+children+'</ul>';
     console.log(children+" **")
+}
+
+function checkUserName() {
+
+    // Check name
+    let regExName = /[a-z|A-Z|æøå|ÆØÅ]{1,20}$/g;
+    name = document.getElementById("registrationUsername").value;
+    if (name.search(regExName)) {
+        console.log("Fail in typed name");
+        openNameModal();
+        return false;
+    } else {
+        console.log("Name ok");
+        return true;
+    }
+}
+
+function checkPassword() {
+    // Check password
+    let regExPassword = /[^-\s]{2,20}$/g;
+    password = document.getElementById("registrationPassword").value;
+    if (password.search(regExPassword)) {
+        console.log("Fail in typed password");
+        openPasswordModal();
+        return false;
+    } else {
+        console.log("Password ok");
+        return true;
+    }
+}
+
+function checkEmail() {
+    // Check email
+    let regExEmail = /^\S+@\S+\.[a-z|A-Z]{2,10}$/g;
+    email = document.getElementById("registrationEmail").value;
+    if (email.search(regExEmail)) {
+        console.log("Fail in typed email");
+        openEmailModal();
+        return false;
+    } else {
+        console.log("Email ok");
+        return true;
+    }
+}
+
+function openNameModal() {
+    modalClose = document.getElementById("closeModal");
+    modalClose.style.display = "block";
+
+    modalName = document.getElementById("openRegistrationUsernameModal");
+    modalName.style.display = "block";
+}
+
+function openPasswordModal() {
+    modalClose = document.getElementById("closeModal");
+    modalClose.style.display = "block";
+
+    modalPW = document.getElementById("openRegistrationPasswordModal");
+    modalPW.style.display = "block";
+}
+
+function openEmailModal() {
+    modalClose = document.getElementById("closeModal");
+    modalClose.style.display = "block";
+
+    modalEmail = document.getElementById("openRegistrationEmailModal");
+    modalEmail.style.display = "block";
+}
+
+
+
+// // When the user clicks on <span> (x), close the modal
+function closeOnX() {
+    modalName = document.getElementById("openRegistrationUsernameModal");
+    modalName.style.display = "none";
+    modalPW = document.getElementById("openRegistrationPasswordModal");
+    modalPW.style.display = "none";
+    modalEmail = document.getElementById("openRegistrationEmailModal");
+    modalEmail.style.display = "none";
+    modalClose = document.getElementById("closeModal")
+    modalClose.style.display = "none"
 }

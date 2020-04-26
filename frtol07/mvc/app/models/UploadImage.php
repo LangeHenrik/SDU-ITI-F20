@@ -56,8 +56,10 @@ class UploadImage extends Database
 
                 $name = $target_file;
                 $user = $_SESSION['username'];
-                $header = $_POST['header'];
-                $description = $_POST['description'];
+//                $header = $_POST['header'];
+                $header = htmlspecialchars($_POST['header']);
+//                $description = $_POST['description'];
+                $description = htmlspecialchars($_POST['description']);
 
                 $file = file_get_contents($target_file);
                 $base64 ="data:image;base64," . base64_encode($file);

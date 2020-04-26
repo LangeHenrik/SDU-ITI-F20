@@ -1,4 +1,4 @@
-<?php include '../app/views/partials/menu.php';?>
+<?php include '../app/views/partials/menu.php'; ?>
 <br>
 <br>
 <div class="container">
@@ -19,70 +19,59 @@
 
 
 <div class="container">
-    <form  name="formRegistration"   action="/frtol07/mvc/public/home/registerUserModel" method="post">
+    <form name="formRegistration" onsubmit="return checkFields()" action="/frtol07/mvc/public/home/registerUserModel"
+          method="post">
         <label for="name" class="label">Username:</label>
         <br><br>
-        <input type="text" name="registrationUsername" required autofocus id="name" class="inputbox"/>
+        <input type="text" name="registrationUsername" required autofocus id="registrationUsername" class="inputbox"/>
         <br><br>
         <label for="password" class="label">Password</label>
         <br><br>
-        <input type="password" name="registrationPassword" required autofocus id="password"  class="inputbox"/>
+        <input type="password" name="registrationPassword" required autofocus id="registrationPassword"
+               class="inputbox"/>
         <br><br>
 
         <label for="email" class="label">Email address</label>
         <br><br>
-        <input type="text" name="registrationEmail" required autofocus id="email"  class="inputbox"/>
+        <input type="text" name="registrationEmail" required autofocus id="registrationEmail" class="inputbox"/>
         <br><br>
 
-        <input type="submit" name="submitUser" id="submitUser"  value="Ok"  class="bigBtn"  />
+        <input type="submit" name="submitUser" id="submitUser" value="Ok" class="bigBtn"/>
     </form>
 </div>
 
 
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<!-- Trigger/Open The Modal -->
-
 <!--Modal for closing all-->
+<div class="container">
 
-<div id="closeModal" onclick="closeOnX()" class="modal" >
-    <span class="close">&times;</span>
-</div>
+    <div id="closeModal" onclick="closeOnX()" class="modal">
+        <span class="close">&times;</span>
+    </div>
 
+    <!-- incorrect name modal -->
+    <div id="openRegistrationUsernameModal" onclick="closeOnX()" class="modal" role="dialog">
+        <!-- Modal Enter correct name -->
+        <div class="modal-content">
+            <p> Please enter a valid username</p>
+        </div>
+    </div>
 
-<!-- incorrect name modal -->
-<div id="openRegistrationUsernameModal" onclick="closeOnX()" class="modal">
+    <!-- incorrect PW modal -->
+    <div id="openRegistrationPasswordModal" onclick="closeOnX()" class="modal" role="dialog">
+        <!-- Modal Enter correct name -->
+        <div class="modal-content">
+            <p> Please enter a valid password</p>
+        </div>
+    </div>
 
-    <!-- Modal Enter correct name -->
-    <div class="modal-content">
-        <p> Please enter correct name</p>
+    <!-- incorrect email modal -->
+    <div id="openRegistrationEmailModal" onclick="closeOnX()" class="modal" role="dialog">
+        <!-- Modal Enter correct email -->
+        <div class="modal-content">
+            <p> Please enter a valid email</p>
+        </div>
     </div>
 
 </div>
-
-<!-- incorrect PW modal -->
-<div id="openRegistrationPasswordModal" onclick="closeOnX()" class="modal">
-
-    <!-- Modal Enter correct name -->
-    <div class="modal-content">
-        <p> Please enter correct password</p>
-    </div>
-
-</div>
-
-<!-- incorrect email modal -->
-<div id="openRegistrationEmailModal" onclick="closeOnX()" class="modal">
-
-    <!-- Modal Enter correct email -->
-    <div class="modal-content">
-        <p> Please enter correct email</p>
-    </div>
-
-</div>
-
 
 <?php include '../app/views/partials/foot.php'; ?>
