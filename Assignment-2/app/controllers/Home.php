@@ -16,6 +16,7 @@ class Home extends Controller {
 		$this->view('home/php/users', $viewbag);
 	}
 	
+	
 	// public function other ($param1 = 'first parameter', $param2 = 'second parameter') {
 	// 	$user = $this->model('User');
 	// 	$user->name = $param1;

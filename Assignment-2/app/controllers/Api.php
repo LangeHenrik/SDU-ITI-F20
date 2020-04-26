@@ -18,9 +18,9 @@ class Api extends Controller {
 		echo json_encode($users, JSON_PRETTY_PRINT);
 	}
 
-    public function userid ($id) {
-        $users = $this->model('User')->getId($id);
-        echo json_encode($users, JSON_PRETTY_PRINT);
+    public function user () {
+        $users = $this->model('User')->getImagesById();
+		echo json_encode($users, JSON_PRETTY_PRINT);
     }
 
 	public function userImages ($id) {

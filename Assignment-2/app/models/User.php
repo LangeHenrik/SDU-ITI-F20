@@ -19,7 +19,7 @@ class User extends Database {
 
 	public function getAll () {
 
-		$sql = "SELECT username FROM user";
+		$sql = "SELECT ID, username FROM user ORDER BY ID;";
 
 		$stmt = $this->conn->prepare($sql);
 		$stmt->execute();
@@ -29,9 +29,9 @@ class User extends Database {
 		return $result;
 	}
 
-    public function getId ($id) {
+    public function getImagesById () {
 
-        $sql = "SELECT ID FROM user WHERE id = " . $id . "";
+        $sql = "SELECT ID, Image, Header, Description FROM picture WHERE UserID = " . $_GET['id'] . "";
 
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
