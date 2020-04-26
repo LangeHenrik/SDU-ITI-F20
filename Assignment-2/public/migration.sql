@@ -26,7 +26,8 @@ CREATE TABLE userinfo (
   ID int NOT NULL AUTO_INCREMENT,
   Name varchar(225) NOT NULL,
   BDate timestamp DEFAULT current_timestamp(),
-  Image varchar(255) NOT NULL,
+  Mime varchar(255) NOT NULL,
+  Image longblob NOT NULL,
   LoginID int NOT NULL,
   PRIMARY KEY (ID),
   FOREIGN KEY (LoginID) REFERENCES user(ID)
@@ -38,8 +39,8 @@ INSERT INTO user (ID, Username, Email, Password) VALUES
 (3, 'Teses', 'Tester@test.dk', '$2y$10$OppKmLp7W.LkufCNsZEKbecBQNB931KgkKhXqrlTr6tD8/TXdpIbu'),
 (4, 'admin', 'admin@admin.com', '$2y$10$EwRHNFBVGmKzIXagmqzwpuUIYNnBf14G5O3jLcJ17A3tF74RrvyYu');
 
-INSERT INTO userinfo (ID, Name, BDate, Image, LoginID) VALUES
-(1, 'McNugget', '1999-06-04 00:00:00', 'batman.png', '1'),
-(2, 'JulieM', '1997-01-01 00:00:00', 'batmans.png', '2'),
-(3, 'Tester Test', '1997-06-22 00:00:00', 'wall.jpg', '3'),
-(4, 'Admin', '2020-04-26 00:00:00', 'wall.jpg', '4');
+INSERT INTO userinfo (ID, Name, BDate, Mime, Image, LoginID) VALUES
+(1, 'McNugget', '1999-06-04 00:00:00', 'image/png', 'batman.png', '1'),
+(2, 'JulieM', '1997-01-01 00:00:00', 'image/png', 'batmans.png', '2'),
+(3, 'Tester Test', '1997-06-22 00:00:00', 'image/jpeg', 'wall.jpg', '3'),
+(4, 'Admin', '2020-04-26 00:00:00', 'image/jpeg', 'wall.jpg', '4');

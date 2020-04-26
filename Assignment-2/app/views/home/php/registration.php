@@ -4,7 +4,6 @@ require 'config.php';
 
 // If upload button is clicked ...
 if (isset($_POST['upload'])) {
-  echo '<script>console.log("Button click"); </script>';
 
   // Get email
   $Email = htmlentities($_POST['Email']);
@@ -13,26 +12,18 @@ if (isset($_POST['upload'])) {
   // Get password
   $Password = password_hash(htmlentities($_POST['Password']), PASSWORD_DEFAULT);
 
-  echo '<script>console.log("Button2 click"); </script>';
-
   // Get name
   $Name = filter_var($_POST['Name'], FILTER_SANITIZE_STRING);
   // Get birthday
   $BDate = filter_var($_POST['BDate'], FILTER_SANITIZE_STRING);
-  // Get encoded image name
-  $Image = $_FILES['Image']['name'];
-  // base64_encode(
-  // image file directory
-  $target = "img/pictures/" . basename($Image);
-
-  echo '<script>console.log("Button3 click"); </script>';
+  // Get image 
+  $Image = file_get_contents($_FILES['MyFile']['tmp_name']);
+  $Mime = $_FILES['MyFile']['type'];
 
   try {
     $db = new PDO($PDO_CONFIG, $DB_USERNAME, $DB_PASSWORD);
     // set the PDO error mode to exception
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    echo '<script>console.log("Button4 click"); </script>';
 
     // insert email, username, password and auto id
     $db->prepare("INSERT INTO user (Email, Username, Password)
@@ -40,18 +31,23 @@ if (isset($_POST['upload'])) {
     // Get last inserted id 
     $userID = $db->lastInsertId();
 
-    echo '<script>console.log("Button5 click"); </script>';
-
     // insert name, birthday, profileimage and id from tabel user
-    $sql = "INSERT INTO userinfo (Name, BDate, Image, LoginID) 
-    VALUES('$Name', '$BDate', '$Image', '$userID')";
-    // executes the statment
-    $db->prepare($sql)->execute();
+    $sql = "INSERT INTO userinfo (Name, BDate, Mime, Image, LoginID) 
+    VALUES('$Name', '$BDate', :Mime, :Image, '$userID')";
 
+    $stmt = $db->prepare($sql);
+
+    $stmt->bindParam(':Mime', $Mime, PDO::PARAM_STR, 50);
+    $stmt->bindParam(':Image', $Image);
+
+    // executes the statment
+    $stmt->execute();
+
+    echo "yay";
     // shows if the connection fails
     echo '<script>console.log("Error connecting before exception"); </script>';
 
-    if (move_uploaded_file($_FILES['Image']['tmp_name'], $target)) {
+    if (move_uploaded_file($_FILES['MyFile']['tmp_name'], $target)) {
       echo '<script>console.log("Image uploaded"); </script>';
     } else {
       echo '<script>console.log("Error uploading"); </script>';
@@ -74,6 +70,6 @@ if (isset($_POST['upload'])) {
   <!-- only alphanumeric and spaces -->
   <input type="text" placeholder="Name" name="Name" title="Only alphanumeric and spaces" pattern="^[a-zA-Z ]*$" required />
   <input type="date" value="2000-01-01" name="BDate" required />
-  <input type="file" name="Image" accept="image/*" required>
+  <input class="input" type="file" name="MyFile" accept="image/*" required>
   <button type="submit" name="upload">Sign up</button>
 </form>

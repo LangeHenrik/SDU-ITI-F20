@@ -31,7 +31,7 @@ class User extends Database {
 
     public function getId ($id) {
 
-        $sql = "SELECT ID FROM user WHERE id = 2";
+        $sql = "SELECT ID FROM user WHERE id = " . $id . "";
 
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();

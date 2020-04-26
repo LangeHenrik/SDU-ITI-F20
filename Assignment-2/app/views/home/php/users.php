@@ -41,7 +41,7 @@ include 'config.php';
           // set the PDO error mode to exception
           $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
           // selects the data
-          $query = "SELECT userinfo.Image, userinfo.Name, userinfo.BDate, user.Username
+          $query = "SELECT userinfo.Image, userinfo.Mime, userinfo.Name, userinfo.BDate, user.Username
           FROM userinfo INNER JOIN user ON userinfo.LoginID = user.ID";
 
           $user = $db->prepare($query);
@@ -58,7 +58,7 @@ include 'config.php';
           echo "<div class='imagefeed'>";
           echo "<h3>" . $row['Name'] . "</h3>"; 
           echo "<div class='image'>";
-          echo "<img src=../img/pictures/" . $row['Image'] . " class='avatar' />";
+          echo '<img src="data:' .$row["Mime"]. ';base64,' .base64_encode($row["Image"]). '" class="avatar" />';
           echo "</div>";
           echo "<div class='uname'><b><i>~ " . $row['Username'] . " ~</i></b></div>";
           echo "<p id='userdate'>" . $row['BDate'] . "</p>";

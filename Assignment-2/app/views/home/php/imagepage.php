@@ -58,7 +58,6 @@ include 'config.php';
                     echo "<div class='imagefeed'>";
                     echo "<h3>" . $row['Header'] . "</h3><div class='uname'><b><i>~ " . $row['Username'] . " ~</i></b></div>";
                     echo "<div class='image'>";
-                    //header('Content-Type:' .$row["Mime"]);
                     echo '<img src="data:' .$row["Mime"]. ';base64,' .base64_encode($row["Data"]). '" class="avatar" />';
                     echo "</div>";
                     echo "<div class='credit'>";
