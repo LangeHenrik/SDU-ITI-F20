@@ -100,7 +100,7 @@ class HomeController extends Controller
 
     public function restricted()
     {
-        echo 'Welcome - you must be logged in';
+        echo 'You must be logged in';
     }
 
 
