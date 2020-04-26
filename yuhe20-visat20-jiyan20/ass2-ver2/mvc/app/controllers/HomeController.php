@@ -68,4 +68,3 @@ class HomeController extends Controller {
 		echo 'You are now logged out';
 	}
 */	
-}

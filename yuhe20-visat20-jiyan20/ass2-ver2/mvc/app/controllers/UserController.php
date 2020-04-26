@@ -34,13 +34,37 @@ class UserController extends Controller{
 	}
     
     public function register() {
-        
+        $viewbag['title'] = 'Register';
+
         if(isset($_POST['signup-submit'])){
-            $viewbag = $this->model('User')->register($_POST['username'], $_POST['email-register'], $_POST['pwd-register'], $_POST['pwd-repeat']);
-            $this->view('user/register', $viewbag);
-        } else {
-            $this->view('user/register');
+        
+            $user = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
+            #$user = "user";
+            $userXSS = htmlspecialchars($user, ENT_QUOTES | ENT_SUBSTITUTE, 'utf-8');
+
+            $email = filter_var($_POST['email-register'], FILTER_SANITIZE_STRING);
+            #$email = "asds@asds.com";
+            $emailXSS = htmlspecialchars($email, ENT_QUOTES | ENT_SUBSTITUTE, 'utf-8');
+
+            $pass = filter_var(password_hash($_POST['pwd-register'], PASSWORD_DEFAULT), FILTER_SANITIZE_STRING);
+            #$pass = "senha123";
+            $passXSS = htmlspecialchars($pass, ENT_QUOTES | ENT_SUBSTITUTE, 'utf-8');
+
+            $pass2 = filter_var(password_hash($_POST['pwd-repeat'], PASSWORD_DEFAULT), FILTER_SANITIZE_STRING);
+            #$pass = "senha123";
+            $passXSS2 = htmlspecialchars($pass, ENT_QUOTES | ENT_SUBSTITUTE, 'utf-8');
+            
+            if (!empty($user) and !empty($email) and !empty($pass) and !empty($pass2)){
+                if ($_POST['pwd-register'] == $_POST['pwd-repeat']){
+                    if ($this->model('User')->register(array($userXSS, $emailXSS,  $passXSS))){
+                        $viewbag['sucess'] = "Account created ! <a href='".URL."home/login'>Log In</a>";
+                    }
+                }else{
+                    $viewbag['error'] = "Password does not match";
+                }
+            }
         }
+        $this->view('home/register', $viewbag);
     }
 
 	public function loggedout() {
