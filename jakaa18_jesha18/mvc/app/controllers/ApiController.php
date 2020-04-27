@@ -22,13 +22,35 @@ class ApiController extends Controller {
 		echo json_encode($users, JSON_PRETTY_PRINT);
 	}
 
+    public function actualpictures ($action, $user) {
+        $action = htmlentities($action);
+        if ($action === 'user'){
+            if ($this->get()){
+                $posts = $this->model('Post')->getPictures();
+                echo json_encode($posts, JSON_PRETTY_PRINT);
+            } elseif ($this->post()){
+                $json = json_decode($user, true);
+                $username = htmlentities($json['juser']);
+                $title = htmlentities($json['jheader']);
+                $description = htmlentities($json['jdescription']);
+                $picture = $json['jimage'];
+
+                $userModel = $this->model('User');
+                if ($_SESSION['logged_in']){
+                    $postid = $this->model('Post')->newPicPost($title, $description, $username, $picture);
+                    echo '{"image_id": "'. $postid .'"}';
+                }
+            } else {
+                echo "Neither a post or a get method was called. Something went wrong.";
+            }
+        }
+    }
 
     public function pictures ($action, $user) {
         $action = htmlentities($action);
         if ($action === 'user'){
             if ($this->get()){
                 $posts = $this->model('Post')->getPictures();
-
                 echo json_encode($posts, JSON_PRETTY_PRINT);
             } elseif ($this->post()){
                 $json = json_decode($user, true);
