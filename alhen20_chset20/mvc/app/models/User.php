@@ -37,6 +37,21 @@ class User extends Database
 		$result = $stmt->fetchAll();
 		return $result;
 	}
+	public function getAll()
+	{
+		$stmt = $this->conn->prepare("SELECT user_id, username FROM site_user");
+		$stmt->execute();
+		$result = $stmt->fetchAll();
+		return $result;
+	}
+	public function getAll2($id)
+	{
+		$stmt = $this->conn->prepare("SELECT user_id, username FROM site_user WHERE user_id = :id");
+		$stmt->bindParam(':id',$id);
+		$stmt->execute();
+		$result = $stmt->fetchAll();
+		return $result;
+	}
 
 	public function createUser($username, $email, $pass)
 	{

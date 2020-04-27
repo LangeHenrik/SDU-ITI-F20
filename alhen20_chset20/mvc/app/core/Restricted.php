@@ -5,7 +5,8 @@ function restricted ($controller, $method) {
 
 	$restricted_urls = array(	'HomeController' => array('logout', 'image_feed', 'upload', 'users'),
 								'UserController'=> array('users'),
-								'PictureController'=> array('image_feed', 'upload')
+								'PictureController'=> array('image_feed', 'upload'),
+								'APIController' => array()
 
 							);
 
