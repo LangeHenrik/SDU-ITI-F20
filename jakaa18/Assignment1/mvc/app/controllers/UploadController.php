@@ -30,7 +30,8 @@ class UploadController extends Controller
                 $description = $_POST["imgDescription"];
                 $jarr = array('jheader' => $header, 'juser' => $user, 'jdescription' => $description, 'jimage' => $imgContent);
                 $json = json_encode($jarr);
-                $ApiController = new ApiController();
+                //$ApiController = \ApiController::class;
+                $ApiController = __NAMESPACE__ . '\\' . ApiController::class;
                 $ApiController->pictures('user', $json);
             }
         }
