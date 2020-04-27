@@ -45,6 +45,7 @@ class Picture extends Database
 		$stmt->bindParam(":userid", $user_id);
 		$stmt->bindParam(":pictureid", $res["picture_id"]);
 		$stmt->execute();
+		return  $res["picture_id"];
 	}
 
 	public function getPictureByQuery($q){

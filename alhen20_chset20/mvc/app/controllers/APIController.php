@@ -20,8 +20,27 @@ Returns a list of pictures for a specific user";
 	}
 	public function pictures($userss,$id){
 		if ($userss == "user"){
-			$users = $this->model('Picture')->getPictureByUserId($id);
-			echo json_encode($users, JSON_PRETTY_PRINT);
+			if($this->get()){
+				$users = $this->model('Picture')->getPictureByUserId($id);
+				echo json_encode($users, JSON_PRETTY_PRINT);
+			}
+			elseif ($this->post()) {
+				try{
+					$json = json_decode($_POST['json']);
+					$image = $json->image;
+					$title = filter_var($json->title, FILTER_SANITIZE_STRING);
+					$description =filter_var($json->description, FILTER_SANITIZE_STRING);
+					$username = filter_var($json->username, FILTER_SANITIZE_STRING);
+					$password =filter_var($json->password, FILTER_SANITIZE_STRING);
+				} catch (Exception $e){
+					die("Error");
+				}
+				$testuser = $this-> model('User');
+				if ($testuser->checkUser($username,$password) && $testuser->getUserID($username) == $id){
+					$imageid = $this->model('Picture')->createPicture($username, $title, $image, $description);
+					echo '{"image_id": "'. $imageid .'"}';
+				}
+			}
 		}
 	}
 }
