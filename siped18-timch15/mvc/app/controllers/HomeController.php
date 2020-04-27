@@ -19,9 +19,14 @@ class HomeController extends Controller
 
 				header("Location: /siped18-timch15/mvc/public/imagefeed");
 				return;
+			} else{
+				$viewbag['username'] = $username;
+				$viewbag['loginError'] = "Incorrect login info!";
+				$this->view('home/index', $viewbag);
 			}
 		}
-		header("Location: /siped18-timch15/mvc/public");	//login failed, form action redirect quick fix
+
+		// header("Location: /siped18-timch15/mvc/public");
 	}
 
 	public function logout()
@@ -34,7 +39,8 @@ class HomeController extends Controller
 		}
 	}
 
-	public function accessDenied(){
+	public function accessDenied()
+	{
 		$this->view('home/accessDenied');
 	}
 }

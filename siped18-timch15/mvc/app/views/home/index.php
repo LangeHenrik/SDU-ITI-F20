@@ -14,7 +14,7 @@
         <br />
         <br />
         <input type="submit" name="submit" id="submit" />
-        <p class="text-danger" id="login-error"><?= $login_error ?? '' ?></p>
+        <p class="text-danger" id="login-error"><?= $viewbag['loginError'] ?? '' ?></p>
 
     </form>
 </div>
