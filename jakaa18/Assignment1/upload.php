@@ -3,7 +3,7 @@ if(isset($_POST["imgSubmit"])){
     $check = getimagesize($_FILES["image"]["tmp_name"]);
     if($check !== false){
         $image = $_FILES['image']['tmp_name'];
-        $type = pathinfo($path, PATHINFO_EXTENSION);
+        $type = pathinfo($image, PATHINFO_EXTENSION);
         $imgContent = 'data:image/' . $type . ';base64' . base64_encode(file_get_contents($image));
 
         /*
