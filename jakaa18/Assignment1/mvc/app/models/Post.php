@@ -11,7 +11,7 @@ class Post extends Database
     }
 
     public function getPictures() {
-        $posts = $this->query('SELECT user, picture FROM pictures ORDER BY pictures.created_on DESC;');
+        $posts = $this->query('SELECT user, picture FROM pictures;');
         foreach ($posts as $post){
             $post['picture'] = base64_decode($post['picture']);
         }
