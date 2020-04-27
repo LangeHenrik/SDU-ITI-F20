@@ -56,16 +56,10 @@ class ApiController extends Controller {
                 $json = json_decode($_POST['json']);
                 $username = htmlentities($json->username);
                 $password = htmlentities($json->password);
+                $picture = $json->image;
+                $title = htmlentities($json->title);
+                $description = htmlentities($json->description);
                 if ($this->model('User')->getUserId($username, $password) == $user) {
-                    $json = json_decode($user, true);
-                    //$username = htmlentities($json['juser']);
-                    $picture = $json->image;
-                    $title = htmlentities($json->title);
-                    $description = htmlentities($json->description);
-
-
-                    $userModel = $this->model('User');
-
                     $this->model('Post')->newPicPost($title, $description, $username, $picture);
                 }
             }
