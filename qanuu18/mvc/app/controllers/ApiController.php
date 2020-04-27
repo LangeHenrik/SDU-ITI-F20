@@ -20,7 +20,7 @@ class ApiController extends Controller {
 
 
 
-/*
+
 	public function secret ($n, $apikey) {
 
 		//basic auth will reveal the secret
@@ -57,6 +57,52 @@ class ApiController extends Controller {
 	public function setsession () {
 		$_SESSION['insession'] = true;
 	}
-*/
 
-}
+
+	public function pictures($user,$int){
+	  
+
+
+		$user = filter_var($user, FILTER_SANITIZE_STRING);
+		
+		if ($user == 'user'){
+
+			if(is_numeric($user_id) && $user_id >=0 ){
+				if($this->post()){
+			}
+
+
+
+
+		} else if ($this->get()) {
+			
+
+
+
+
+			$this->model('Image')->picturess($user_id);
+			
+		}
+
+		}
+
+	}
+
+
+	public function uploadimages(){
+
+
+
+	}
+		
+	
+	public function getallimages(){
+  
+       
+
+	}
+
+	}
+	
+
+

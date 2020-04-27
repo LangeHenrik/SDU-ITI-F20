@@ -31,7 +31,7 @@ else{
             <form action="qanuu18/mvc/public/home/menu">
                 <input type="submit" value="Go to main menu" />
                 </form>
-                <form action="UploadImage.php" method="POST" enctype="multipart/form-data">
+                <form action="/qanuu18/mvc/public/image/postImages" method="POST" enctype="multipart/form-data">
             
                     <h3 class="text-center">Upload image</h3>
 

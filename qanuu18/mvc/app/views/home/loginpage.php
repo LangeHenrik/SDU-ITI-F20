@@ -1,7 +1,7 @@
 
 
 <head>
-    <link rel="stylesheet" href="extfiles/styling.css">
+    <link rel="stylesheet" href="<?php echo DOC_ROOT; ?>/css/styling.css">
 </head>
 
 <body>
@@ -10,11 +10,11 @@
         <form class="login" name="frontpage" method="POST" action="/qanuu18/mvc/public/home/login">
             <p>
                 <label>Username:</label>
-                <input type="text" id="user" name="username">
+                <input type="text" id="username" name="username">
             </p>
             <p>
                 <label>Password:</label>
-                <input type="password" id="pass" name="password">
+                <input type="password" id="password" name="password">
             </p>
             <p>
                 <input type="submit" name="login" id="btn" value="Login">

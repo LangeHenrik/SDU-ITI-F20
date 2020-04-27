@@ -1,37 +1,38 @@
 <?php
 class User extends Database {
 	
-	public function login($usernameinput){
+	public function login($username){
         $sql = "SELECT username, password FROM userinfo WHERE username = :username";
-        if (empty($_POST["username"]|| empty($_POST["password"])))
+        if (empty($_POST["username"] )|| empty($_POST["password"]))
         {
             echo "Please fill all fields";	
 		} else{  
 
-
-			echo "user logged ind";
-		}
+             
 		
-
+		
+		
+        $username = filter_var($_POST["username"], FILTER_SANITIZE_STRING);
 
         $stmt = $this->conn->prepare($sql);
-        $stmt->bindParam(':username', $usernameinput);
+        $stmt->bindParam(':username', $username);
         $stmt->execute();
 
         $result = $stmt->fetch(); //fetchAll to get multiple rows
 
         print_r($result);
 
-        if(password_verify ($passwordinput ,$result["password"])){
+        if(password_verify ($_POST["password"], $result["password"])){
 
-            $_SESSION["username"] = $usernameinput;
+            $_SESSION["username"] = $username;
 
+            $_SESSION['logged_in'] = true;
               return true;
          }
-
+        }
 
         //todo: make an actual login function!!
-        return true;
+        return false;
     }
 
 
@@ -40,23 +41,22 @@ class User extends Database {
 	//	if(isset($_POST['submitbtn'])){
 
 
-        print_r($_POST);
-
-		$username = $_POST['username'];
-
-		$password = $_POST['password'];
-
 
         $username = filter_var($_POST["username"], FILTER_SANITIZE_STRING);
         $password = filter_var($_POST["password"],FILTER_SANITIZE_STRING);
         $hashedpassword = password_hash($password,PASSWORD_DEFAULT);
+
              $sql = "INSERT INTO userinfo(username, password) VALUES (:username, :password)";
 			$stmt = $this->conn->prepare($sql);
 			$stmt->bindParam(':username', $username);
 			$stmt->bindParam(':password', $hashedpassword);
             $stmt->execute();
-				
-				
+       // $sql2 = "INSERT INTO images (user_id) VALUES (SELECT user_id FROM userinfo)";
+       // $sql2 = "INSERT INTO images (user_id);
+      //  SELECT user_id FROM userinfo";
+        $sql2 = "INSERT INTO images (user_id) SELECT user_id FROM userinfo";
+                $stmt2 = $this->conn->prepare($sql2);
+                $stmt2->execute();
 				/*array(
                 "user" => $usernameinput, 
                 "password" => $hashedpassword
@@ -77,10 +77,13 @@ class User extends Database {
 		$stmt = $this->conn->prepare($sql);
 		$stmt->execute();
 
-		$result = $stmt->fetchAll();
+		$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 		return $result;
-	}
+    }
+       
+   
+
 
 
 	public function logout(){

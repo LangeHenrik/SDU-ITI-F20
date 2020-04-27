@@ -17,7 +17,7 @@ function checkallforms() {
 
 //Username
 let usernameRegEx = new RegExp(/^[a-z|A-Z|0-9]{4,13}$/);
-let usernameInput = document.getElementById("usernameInput");
+let usernameInput = document.getElementById("username");
 let usernameInfo = document.getElementById("usernameInfo");
 
 
@@ -38,7 +38,7 @@ function checkusername() {
 //Password
 
 let passwordRegEx = new RegExp(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,100}$/);
-let passwordInput = document.getElementById("passwordInput");
+let passwordInput = document.getElementById("password");
 let passwordInfo = document.getElementById("passwordInfo");
 
 

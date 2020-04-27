@@ -24,7 +24,7 @@ class HomeController extends Controller {
 	
 	public function login($usernameinput) {
 		if($this->model('User')->login($usernameinput)) {
-			$_SESSION['logged_in'] = true;
+		
 			$this->view('home/login');
 		}
 	}
@@ -74,10 +74,10 @@ class HomeController extends Controller {
 
 			$this->model('User')->registeruser();
 			
-
-            $this->view('qannu18/mvc/public/home/loginpage');
+            header('location: /qanuu18/mvc/public/home/loginpage');
+           
             
-            echo ' username is now registered.';
+        
             //echo json_encode($users, JSON_PRETTY_PRINT);
 
 
