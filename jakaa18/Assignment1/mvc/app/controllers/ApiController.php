@@ -45,6 +45,8 @@ class ApiController extends Controller {
                     $postid = $this->model('Post')->newPicPost($title, $description, $username, $picture, true);
                     echo '{"image_id": "'. $postid .'"}';
                 }
+            } else {
+                echo "Neither a post or a get method was called. Something went wrong.";
             }
         }
     }
