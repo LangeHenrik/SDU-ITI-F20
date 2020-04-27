@@ -12,7 +12,14 @@ require_once '../app/views/partials/Navbar.php';
             <p class="info" id="username-info"></p>
 
             <label for="avatar">Upload profile picture</label> <br/>
-            <input name="avatar" id="avatar" type="file" /><br/>
+            <input name="avatar" id="avatar" type="file" accept="image/*" onchange="loadFile(event)"><br/>
+            <img id="preview"/>
+            <script>
+                let loadFile = function(event) {
+                    let output = document.getElementById('preview');
+                    output.src = URL.createObjectURL(event.target.files[0]);
+                };
+            </script><br/>
 
             <label for="email">Email</label> <br/>
             <input type="email" name="email" id="email" required/> <br/>
@@ -29,11 +36,12 @@ require_once '../app/views/partials/Navbar.php';
             <input type="checkbox" onclick="ShowPass()">Show Passwords<br/>
 
             <button type="submit" name="submit" id="submit">Create new user</button> <hr/>
-            <a href="/Login.php">Already have a user?</a>
+            <a href="/akvis18/mvc/public/home/Login">Already have a user?</a>
         </fieldset>
     </form>
     <?php
     if (isset($viewbag['errors'])){
+        print '<br/>';
         foreach ($viewbag['errors'] as $error){
             print $error . '<br/>';
         }

@@ -28,10 +28,10 @@ include_once '../app/views/partials/Navbar.php';
         </fieldset>
     </form>
     <?php
-    global $errors;
-    if (isset($errors)){
-        if (!empty($errors)){
-            foreach ($errors as $error){
+    if (isset($viewbag['errors'])){
+        if (!empty($viewbag['errors'])){
+            print '<br/>';
+            foreach ($viewbag['errors'] as $error){
                 print $error . '<br//>';
             }
         } else {

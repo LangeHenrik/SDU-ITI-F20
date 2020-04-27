@@ -4,7 +4,7 @@ class User extends Database {
 	public function login($username, $pass){
         $result = $this->query("SELECT user_id, username, password FROM user WHERE username = ?", [$username]);
 
-        if (password_verify($pass, $result[0]['password'])) {
+        if (isset($result[0]['password']) && password_verify($pass, $result[0]['password'])) {
             return true;
         }
         return false;

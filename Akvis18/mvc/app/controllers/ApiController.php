@@ -31,16 +31,23 @@ class ApiController extends Controller {
                 //var_dump($posts);
                 echo json_encode($posts, JSON_PRETTY_PRINT);
             } elseif ($this->post()){
-                $json = json_decode($_POST['json']);
-                $username = $json->username;
-                $password = $json->password;
-                $title = htmlentities($json->title);
-                $description = htmlentities($json->description);
-                $image = $json->image;
+                try {
+                    $json = json_decode($_POST['json']);
+                    $username = htmlentities($json->username);
+                    $password = htmlentities($json->password);
+                    $title = htmlentities($json->title);
+                    $description = htmlentities($json->description);
+                    $image = $json->image;
+                    $image_valid = imagecreatefromstring($image);
+                } catch (Exception $e) {
+                    print $e->getMessage();
+                    die();
+                }
 
                 $userModel = $this->model('user');
                 if ($userModel->login($username, $password)
-                && $userModel->getUserID($username) == $user){
+                && $userModel->getUserID($username) == $user
+                && $title && $description && $image && $image_valid){
                     $postid = $this->model('Post')->newPost($user, $title, $description, $image, false);
                     echo '{"image_id": "'. $postid .'"}';
                 }

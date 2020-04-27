@@ -20,32 +20,28 @@ class HomeController extends Controller {
 
     public function index () {
 		if ($this->logged_in){
-            $this->viewbag['posts'] = $this->model('Post')->allPosts();
-		    $this->view('home/Feed', $this->viewbag);
+            header('location: /akvis18/mvc/public/home/Feed');
         } else {
-		    $this->view('home/Login', $this->viewbag);
+            header('location: /akvis18/mvc/public/home/Login');
         }
 	}
-	
-	public function restricted () {
-		echo 'Welcome - you must be logged in';
-	}
+
 	
 	public function login() {
 	    if ($this->post()){
 	        if (isset($_POST["username"]) && isset($_POST["password"])){
                 $user = htmlentities($_POST["username"]);
                 $pass = htmlentities($_POST["password"]);
-                print ($this->model('User')->login($user, $pass));
                 if ($this->model('User')->login($user, $pass)){
-                    print 'loggedin';
                     $_SESSION['LoggedIn'] = true;
                     $_SESSION['username'] = $user;
                     header('Location: /akvis18/mvc/public/home/Feed');
+                } else {
+                    $this->viewbag['error'] = 'There is no user with the supplied username/password';
+                    $this->view('home/login', $this->viewbag);
                 }
             }
         } elseif ($this->get()){
-	        $this->viewbag['cancer'] = true;
 			$this->view('home/login', $this->viewbag);
         }
 	}
@@ -67,33 +63,32 @@ class HomeController extends Controller {
             $this->view('home/Register', $this->viewbag);
         }
         if ($this->post()) {
-            include_once '../app/services/GetFormData.php';
             $username_regex = '/^[A-Za-zÆØÅæøå _\-\d]{3,}$/';
             $email_regex = '/^\S+@\S+\.[a-z|A-Z]{2,10}$/';
             $pass_regex = '/^(?=.*[a-zæøå])(?=.*[A-ZÆØÅ])(?=.*\d)(?=.*[@$!%*?&])[A-Za-zÆØÅæøå\d@$!%*?&]{8,}$/';
-            $errors = array();
+            $this->viewbag['errors'] = array();
             $username = $avatar = $email = $password = "";
 
-            $username = getAndMatchPost('username', $username_regex);
-            $email = getAndMatchPost('email', $email_regex);
-            $password = getAndMatchPost('password', $pass_regex);
-            $sec_password = getAndMatchPost('second-password', $pass_regex);
-            $avatar = getImage('avatar');
+            $username = $this->getAndMatchPost('username', $username_regex);
+            $email = $this->getAndMatchPost('email', $email_regex);
+            $password = $this->getAndMatchPost('password', $pass_regex);
+            $sec_password = $this->getAndMatchPost('second-password', $pass_regex);
+            $avatar = $this->getImage('avatar');
 
             if (!$password === $sec_password) {
-                $errors[] = 'Passwords don\'t match';
+                $this->viewbag['errors'][] = 'Passwords don\'t match';
             }
 
-            if (empty($errors) && $this->model('User')->userAvailable($username, $email)) {
+            if (empty($this->viewbag['errors']) && $this->model('User')->userAvailable($username, $email)
+                && $username && $email && $password && $sec_password ) {
                 $password = password_hash($password, PASSWORD_DEFAULT);
                 $this->model('User')->newUser($username, $email, $password, $avatar);
                 $_SESSION['LoggedIn'] = true;
                 $_SESSION['username'] = $username;
                 header('Location: /akvis18/mvc/public/home/feed');
             } else {
-                $this->viewbag['errors'] = $errors;
-                var_dump($this->viewbag['errors']);
-                $this->view('home/Register');
+                $this->viewbag['errors'][] = 'A user exist with the username and/or email';
+                $this->view('home/Register', $this->viewbag);
             }
         }
     }
@@ -102,19 +97,17 @@ class HomeController extends Controller {
         if ($this->get()){
             $this->view('home/Upload', $this->viewbag);
         } elseif ($this->post()){
-            include_once '../app/services/GetFormData.php';
-            $errors = array();
-            $title = getAndMatchPost('title','/^.{1,50}$/');
-            $description = getAndMatchPost('description', '/^.{1,255}$/');
-            $image = getImage('image');
+            $this->viewbag['errors'] = array();
+            $title = $this->getAndMatchPost('title','/^.{1,50}$/');
+            $description = $this->getAndMatchPost('description', '/^.{1,255}$/');
+            $image = $this->getImage('image');
 
-            if (empty($errors)){
+            if (empty($this->viewbag['errors']) && $title && $description && $image){
                 $id = $this->model('User')->getUserID($_SESSION['username']);
                 $this->model('Post')->newPost($id, $title, $description, $image);
                 header('Location: /akvis18/mvc/public/home/feed');
             } else {
-                print_r($errors);
-                $this->viewbag['errors'] = $errors;
+                $this->view('home/Upload', $this->viewbag);
             }
 
         }
@@ -127,5 +120,41 @@ class HomeController extends Controller {
     public function feed(){
         $this->viewbag['posts'] = $this->model('Post')->allPosts();
         $this->view('home/Feed', $this->viewbag);
+    }
+
+    private function getImage($name){
+        if(isset($_FILES[$name]) && $_FILES[$name]['size'] > 0){
+            $ext = array('jpg','jpeg','png','gif');
+            $file_name = $_FILES[$name]['name'];
+            $file_ext = pathinfo($file_name)['extension'];
+            $file_size = $_FILES[$name]['size'];
+            $file_tmp = $_FILES[$name]['tmp_name'];
+
+            if (!in_array($file_ext,$ext)){
+                $this->viewbag['errors'][] ='File must be jpg, jpeg, png or gif';
+                return false;
+            }
+
+            if ($file_size > 2097152){
+                $this->viewbag['errors'][] = 'Max file size is 2mb';
+                return false;
+            }
+
+            return file_get_contents($file_tmp);
+        }
+        return false;
+    }
+    function getAndMatchPost($name, $regex){
+        if (isset($_POST[$name])){
+            $value = htmlentities($_POST[$name]);
+            if (preg_match($regex, $value)){
+                return $value;
+            } else {
+                $this->viewbag['errors'][] = 'Please enter a valid ' . $name;
+                return false;
+            }
+        }
+        $this->viewbag['errors'][] = 'Please enter a ' . $name;
+        return false;
     }
 }
