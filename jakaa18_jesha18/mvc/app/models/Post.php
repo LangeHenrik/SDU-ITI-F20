@@ -19,7 +19,6 @@ class Post extends Database
         if ($insert->execute()) {
             echo "File uploaded successfully.";
             header("Location: ../home");
-            exit;
         } else {
             echo "File upload failed, please try again.";
         }
