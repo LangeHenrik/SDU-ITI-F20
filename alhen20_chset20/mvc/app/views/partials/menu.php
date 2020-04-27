@@ -11,7 +11,7 @@
 <body>
     <div class="navbar">
         <nav class="navbar">
-            <a href="/alhen20_chset20/mvc/public/picture/image_feed" class="active">Image Feed</a>
+            <a href="/alhen20_chset20/mvc/public/picture/image_feed">Image Feed</a>
             <a href="/alhen20_chset20/mvc/public/user/user_list">User List</a>
             <a href="/alhen20_chset20/mvc/public/picture/upload">Upload</a>
             <a href="/alhen20_chset20/mvc/public/home/logout">Logout</a>

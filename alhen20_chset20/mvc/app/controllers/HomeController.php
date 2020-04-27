@@ -12,7 +12,6 @@ class HomeController extends Controller
 	public function index($param)
 	{
 		header('Location: /alhen20_chset20/mvc/public/home/login');
-
 	}
 
 	public function restricted()
