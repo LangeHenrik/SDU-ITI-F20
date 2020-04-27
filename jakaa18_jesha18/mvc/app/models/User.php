@@ -42,7 +42,7 @@ class User extends Database {
 
 	public function getAll () {
 
-		$sql = "SELECT username FROM users";
+		$sql = "SELECT user_id, username FROM users";
 
 		$stmt = $this->conn->prepare($sql);
 		$stmt->execute();
