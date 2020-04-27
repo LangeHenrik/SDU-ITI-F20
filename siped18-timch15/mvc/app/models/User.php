@@ -67,7 +67,6 @@ class User extends Database
 
 		if ($username == "") {
 			return $users;
-
 		} else {
 			$user = strtolower($username);
 			$len = strlen($user);
@@ -82,4 +81,3 @@ class User extends Database
 		}
 	}
 }
-

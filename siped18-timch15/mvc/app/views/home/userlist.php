@@ -1,6 +1,6 @@
 <?php include '../app/views/partials/menu.php'; ?>
 
-<div class="container center_div">
+<div class="container">
     <h2>List of users</h2>
 
     <form>
