@@ -15,7 +15,7 @@ class Post extends Database
         $insert->bindParam(1, $header);
         $insert->bindParam(2, $description);
         $insert->bindParam(3, $username);
-        $insert->bindParam(4, $image, PDO::PARAM_LOB);
+        $insert->bindValue(4, $image);
         if ($insert->execute()) {
             echo "File uploaded successfully.";
             header("Location: ../home");
