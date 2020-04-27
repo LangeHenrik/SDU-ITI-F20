@@ -7,13 +7,16 @@ include '../app/views/partials/menu.php';
 <?php
 include '../app/views/partials/pagegrid.php';
 include '../app/views/partials/sidebar.php';
-
+?>
+    <div class="header">
+        <h1><?php echo 'Please select a file to upload' ?></h1>
+    </div>
+<?php
 include '../app/views/partials/upload.php';
 
 ?>
 
 
 
-    Hello there, <?=$viewbag['username']?>
 
 <?php include '../app/views/partials/foot.php'; ?>

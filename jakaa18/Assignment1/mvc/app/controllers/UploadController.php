@@ -1,11 +1,19 @@
 <?php
-
 class UploadController extends Controller
 {
+    public $logged_in;
+    public $viewbag;
 
     public function __construct()
     {
-        header('Content-Type: application/json');
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+        if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']){
+            $this->logged_in=true;
+            $this->viewbag['username']=$_SESSION['username'];
+        }
+        $this->viewbag['logged_in'] = $this->logged_in;
         //check api-key?
         //check username and password?
         //or die();
@@ -13,8 +21,11 @@ class UploadController extends Controller
 
     public function index($param)
     {
-        $path = "../app/views/upload/index.php";
-        include $path;
+        if ($this->logged_in) {
+            $this->view('upload/index', $this->viewbag);
+        } else {
+            $this->view('home/login', $this->viewbag);
+        }
     }
 
     public function upload()
