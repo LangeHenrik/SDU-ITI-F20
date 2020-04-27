@@ -1,4 +1,6 @@
 <?php
+
+include_once ("../app/Controllers/ApiController.php");
 class UploadController extends Controller
 {
     public $logged_in;
@@ -42,7 +44,8 @@ class UploadController extends Controller
                 $jarr = array('jheader' => $header, 'juser' => $user, 'jdescription' => $description, 'jimage' => $imgContent);
                 $json = json_encode($jarr);
                 //$ApiController = \ApiController::class;
-                $ApiController = __NAMESPACE__ . '\\' . ApiController::class;
+                //$ApiController = __NAMESPACE__ . '\\' . ApiController::class;
+                $ApiController = new ApiController();
                 $ApiController->pictures('user', $json);
             }
         }
