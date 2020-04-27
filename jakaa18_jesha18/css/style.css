@@ -186,3 +186,21 @@ li a:hover {
 	text-align: left;
 }
 
+.postcontainer{
+	border-spacing: 5px;
+	border-width: thick;
+	border-radius: 20px;
+	border-color: black;
+	border-style: double;
+}
+
+.main-image{
+	grid-column: auto !important;
+	grid-column: 1;
+	grid-row: auto;
+	max-width: 256px;
+	min-width: 16px;
+	max-height: 256px;
+	min-height: 16px;
+	width: 100%;
+}
