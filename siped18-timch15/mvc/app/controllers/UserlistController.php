@@ -10,8 +10,7 @@ class UserlistController extends Controller
 
     public function getSpecificUsers($user = "")
     {
-            $users = $this->model('User')->getUsers(urldecode($user));
-            echo json_encode($users, JSON_PRETTY_PRINT);
-        
+        $users = $this->model('User')->getUsers(urldecode($user));
+        echo json_encode($users, JSON_PRETTY_PRINT);
     }
 }

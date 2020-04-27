@@ -31,6 +31,4 @@
         <?php } ?>
     </nav>
 
-    <!-- <div class="wrapper"> -->
-    <!-- <div class="content"> -->
     <div class="container">

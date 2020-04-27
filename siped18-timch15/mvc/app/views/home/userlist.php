@@ -2,7 +2,7 @@
 
 <div class="container center_div">
     <h2>List of users</h2>
-    
+
     <form>
         Find user: <input type="text" onkeyup="findUsers(this.value)">
     </form>

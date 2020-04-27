@@ -1,7 +1,7 @@
 <?php include '../app/views/partials/menu.php'; ?>
 
 
-<div class="login-wrapper">
+<div class="container">
     <h1>Login</h1>
 
     <form method="POST" action="/siped18-timch15/mvc/public/home/login">
@@ -14,7 +14,7 @@
         <br />
         <br />
         <input type="submit" name="submit" id="submit" />
-        <p class="login-error" id="login-error"><?= $login_error ?? '' ?></p>
+        <p class="text-danger" id="login-error"><?= $login_error ?? '' ?></p>
 
     </form>
 </div>
