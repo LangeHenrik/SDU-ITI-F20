@@ -14,7 +14,6 @@ include '../app/views/partials/menu.php';
 </div>
 
     <?php include '../app/views/partials/sidebar.php'?>
-    <?php include '../app/views/partials/upload.php'?>
 
 <div class="homepage2" name="Image_page" id="imagePage">
     <div class="image-container">
