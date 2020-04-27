@@ -21,11 +21,11 @@ class ApiController extends Controller
             return;
         }
 
-        if($this->post()) {
+        if ($this->post()) {
             $postParam = json_decode($_POST['json'], true);
 
             $ok = $this->model('User')->validateUser($postParam['username'], $postParam['password']);
-            if (!$ok) {
+            if ($ok !== true) {
                 echo json_encode(["error" => "Invalid Credentials"], JSON_PRETTY_PRINT);
                 return;
             }
@@ -36,13 +36,10 @@ class ApiController extends Controller
                 echo json_encode(["error" => "User ID does not match with User Credentials"], JSON_PRETTY_PRINT);
                 return;
             }
-
-
             $uploadedImage = $this->model('Image')->upload($postParam['image'], $postParam['title'], $postParam['description'], $postParam['username']);
             echo json_encode($uploadedImage, JSON_PRETTY_PRINT);
-        }
-        elseif ($this->get()){
-            self::getPictures($param1,$param2);
+        } elseif ($this->get()) {
+            self::getPictures($param1, $param2);
         }
     }
 
@@ -55,18 +52,23 @@ class ApiController extends Controller
 
         $username = $this->model('User')->username($param2);
 
-        if(is_null($username)){
-            echo json_encode(["error"=>"Invalid User ID"],JSON_PRETTY_PRINT);
+        if (is_null($username)) {
+            echo json_encode(["error" => "Invalid User ID"], JSON_PRETTY_PRINT);
             return;
         }
 
-        echo json_encode($this->model('Image')->getUserImages($username),JSON_PRETTY_PRINT);
+        echo json_encode($this->model('Image')->getUserImages($username), JSON_PRETTY_PRINT);
     }
-
-
 
     public function uploadImage()
     {
+        $postParam = json_decode($_POST['json'], true);
+        $ok = $this->model('User')->validateUser($postParam['username'], $postParam['password']);
+        if (!$ok) {
+            echo json_encode(["error" => "Invalid Credentials"], JSON_PRETTY_PRINT);
+            return;
+        }
+
         $ok = true;
 
         $imageFileType = strtolower(pathinfo($_FILES['file']["name"], PATHINFO_EXTENSION));
@@ -85,7 +87,7 @@ class ApiController extends Controller
             $messages[] = "You must provide a header for the picture";
         }
 
-        if (empty($description)){
+        if (empty($description)) {
             $ok = false;
             $messages[] = "You must provide a description for the picture";
         }
@@ -116,22 +118,22 @@ class ApiController extends Controller
         if ($ok) {
             $base64 = base64_encode(file_get_contents($_FILES['file']["tmp_name"]));
 
-            if($imageFileType=="jpg")
+            if ($imageFileType == "jpg")
                 $imageFileType = "jpeg";
 
             $blob = "data:image/" . $imageFileType . ";base64," . $base64;
 
 
-            $return = $this->model('Image')->upload($blob,$header,$description,$_SESSION['logged_in']);
-            if(!empty($return)){
+            $return = $this->model('Image')->upload($blob, $header, $description, $_SESSION['logged_in']);
+            if (!empty($return)) {
                 $ok = true;
                 $messages[] = "Successfully uploaded";
             }
         }
 
         echo json_encode(array(
-                "ok"=>$ok,
-                "messages"=>$messages
+                "ok" => $ok,
+                "messages" => $messages
             )
         );
     }

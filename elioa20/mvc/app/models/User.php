@@ -33,10 +33,6 @@ class User extends Database {
         }
 	}
 
-	public function logout(){
-	    //todo
-    }
-
     public function register($username,$password){
 
 	    $username = htmlspecialchars($username);
