@@ -1,5 +1,5 @@
 <div class="homepage2" id="uploadForm">
-    <form action="../upload/upload" method="post" enctype="multipart/form-data">
+    <form action="upload/upload" method="post" enctype="multipart/form-data">
         Select image to upload
         <input type="file" name="image" id="fileId">
         <input type="submit" name="imgSubmit" value="Upload" id="imgSubmit">
