@@ -62,7 +62,11 @@ class HomeController extends Controller {
                     $_SESSION['username'] = $username;
                     //Redirect to Feed view
                     header('Location: /Assignment1/mvc/public/home/Feed');
+                } else {
+                    print 'Something went wrong in the login method';
                 }
+            } else {
+                print 'Something went wrong in the post Login method';
             }
         } elseif ($this->get()){
             $this->viewbag['logged_in'] = false;
