@@ -31,8 +31,7 @@ if(isset($_POST['btnLogin'])){
                 $_SESSION['logged_in']=false;
                 header("Location: ../index.php");
             }
-
         }
-        
+
     } 
 }

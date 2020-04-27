@@ -1,21 +1,5 @@
 <?php
-session_start(); 
 if($_SESSION['logged_in']) : ?>
-
-<?php
-
-require_once 'db_config.php';
-
-$results;
-$conn = new PDO("mysql:host=$servername;dbname=$dbname",$dbusername,$dbpassword,array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-    $stmt = $conn->prepare('SELECT userid,
-    username,
-    email
-FROM users;');
-    $stmt->execute();
-    $stmt->setFetchMode(PDO::FETCH_ASSOC);
-    $results = $stmt->fetchAll();
-?>
 
 <!DOCTYPE html>
 <html>
