@@ -36,7 +36,7 @@ class Post extends Database
         return $content;
     }
     public function getPictures() {
-        $posts = $this->conn->prepare('SELECT header, description, user, picture FROM pictures;');
+        $posts = $this->conn->prepare('SELECT pic_id as image_id, header as title, description, user, picture as image FROM pictures;');
         $posts->execute();
         $content = [];
         while ($row = $posts->fetch()) {
