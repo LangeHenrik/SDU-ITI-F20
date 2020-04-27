@@ -14,7 +14,7 @@ class ApiController extends Controller {
 		{get} /users for a list of all users. 
 		{get} /pictures/user/[user_id] for all of a users posts. 
 		{post} /pictures/user/[user_id] to creat a post for the user. Takes "json" {"image": "blob","title": "some title", "description":"my description","username":"username","password":"actual password"}
-		{get} /available/username/[username] check if username is taken.';
+		{get} /availability/username/[username] check if username is taken.';
 	}
 	
 	public function users () {

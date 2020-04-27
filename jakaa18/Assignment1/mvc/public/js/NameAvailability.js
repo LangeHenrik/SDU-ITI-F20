@@ -7,6 +7,8 @@ function UsernameAvailable($username) {
         xmlhttp.send();
     }
     xmlhttp.onreadystatechange = function() {
+        console.log("HECK");
+        console.log(this.readyState);
         if (this.readyState === 4 && this.status === 200) {
             info.innerHTML = this.responseText;
             if (this.responseText.includes('available')){
@@ -23,5 +25,5 @@ function UsernameAvailable($username) {
             return false;
         }
     }
-    return true;
+    return false;
 }

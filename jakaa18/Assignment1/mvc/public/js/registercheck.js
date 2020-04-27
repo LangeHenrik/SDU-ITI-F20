@@ -97,5 +97,5 @@ function CheckPass() {
     let PasswordInfo = document.getElementById("password-info");
     //if (PasswordInput) {PasswordInput.addEventListener("keyup", CheckPass);}
     let passRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
-    return CheckElement(PasswordInput, passRegex, PasswordInfo, "Password Must be 8 characters long and contain at least 1 lowercase, 1 Uppercase, and 1 number");
+    return CheckElement(PasswordInput, passRegex, PasswordInfo, "Password Must be 8 characters long and contain at least 1 lowercase, 1 Uppercase, and 1 number and no special characters");
 }
