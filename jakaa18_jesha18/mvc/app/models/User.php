@@ -38,9 +38,9 @@ class User extends Database {
 
     public function getUserId($username, $password){
 	    $stmt = $this->query('SELECT user_id FROM users WHERE username = ?', [$username])[0]['user_id'];
-	    $user_id = $stmt['user_id'];
+	    //$user_id = $stmt['user_id'];
 	    if ($this->login($username, $password) == true) {
-	        return $user_id;
+	        return $stmt;
         }
     }
 
