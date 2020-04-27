@@ -1,21 +1,28 @@
 <?php include '../app/views/partials/menu.php'; ?>
 
-<h2>Users</h2>
+<div class="container center_div">
+    <h2>List of users</h2>
+    
+    <form>
+        Find user: <input type="text" onkeyup="findUsers(this.value)">
+    </form>
+    <div class="col-sm-4">
+        <table class="table table-striped" id="users">
+            <?php
+            $table = "<thead class='thead-dark'>
+                <tr>
+                    <th scope='col'>Username</th>
+                </tr>
+            </thead>";
 
-<form>
-    Find user: <input type="text" onkeyup="findUsers(this.value)">
-</form>
-
-<table class="user-table" id="users">
-    <?php
-    $table = "<tr><th>Username</th></tr>";
-
-    foreach ($viewbag as $username) {
-        $table .= "<tr> <td> $username[username] </td> <tr>";
-    }
-    echo $table;
-    ?>
-</table>
+            foreach ($viewbag as $username) {
+                $table .= "<tr> <td> $username[username] </td> <tr>";
+            }
+            echo $table;
+            ?>
+        </table>
+    </div>
+</div>
 <script src="/siped18-timch15/mvc/public/js/searchResults.js"></script>
 
 <?php include '../app/views/partials/foot.php'; ?>
