@@ -62,17 +62,6 @@ class Picture extends Database
 	}
 
 	public function getPictureByUserId($id){
-		$query = '%'.$q.'%';
-		$stmt = $this->conn->prepare("SELECT picture.img as image, picture.header as title, picture.description as description
-			FROM user_picture
-			INNER JOIN picture using (picture_id)
-			WHERE user_id=:id");
-		$stmt->bindParam(":id", $id);
-		$stmt->execute();
-		$res = $stmt->fetchAll();
-		return $res;
-	}
-	public function getAllPictureByUserId($id){
 		$query = '%'.$id.'%';
 		$stmt = $this->conn->prepare("SELECT picture.img as image, picture.header as title, picture.description as description
 			FROM user_picture
