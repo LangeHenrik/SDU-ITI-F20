@@ -30,7 +30,7 @@ class UserlistController extends Controller {
 	}
 
     public function users(){
-        $steve = $this->viewbag['users'] = $this->model('User')->getAll();
+        $this->viewbag['users'] = $this->model('User')->getAll();
         $this->view('userlist/index', $this->viewbag);
     }
 
