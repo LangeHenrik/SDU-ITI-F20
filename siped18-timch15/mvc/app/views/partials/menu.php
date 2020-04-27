@@ -12,26 +12,25 @@
 
 <body>
 
+    <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">Assignment 2</a>
+        <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) { ?>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active"><a class="nav-link" href="/siped18-timch15/mvc/public/upload">Upload page</a></li>
+                <li class="nav-item active"><a class="nav-link" href="/siped18-timch15/mvc/public/imagefeed">Image feed</a></li>
+                <li class="nav-item active"><a class="nav-link" href="/siped18-timch15/mvc/public/userlist">User list</a></li>
+                <form class="form-inline my-2 my-lg-0 float-right" method="POST" action="/siped18-timch15/mvc/public/home/logout">
+                    <input class="btn btn-secondary" type="submit" name="logout" value="Logout">
+                </form>
+            </ul>
+        <?php } else { ?>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active"><a class="nav-link" href="/siped18-timch15/mvc/public/">Frontpage</a></li>
+                <li class="nav-item active"><a class="nav-link" href="/siped18-timch15/mvc/public/registration">Registration page</a></li>
+            </ul>
+        <?php } ?>
+    </nav>
 
-    <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) { ?>
-
-        <ul class="navbar navbar-expand-lg navbar-light bg-light">
-            <li class="nav-item"><a href="/siped18-timch15/mvc/public/upload">Upload page</a></li>
-            <li><a href="/siped18-timch15/mvc/public/imagefeed">Image feed</a></li>
-            <li><a href="/siped18-timch15/mvc/public/userlist">User list</a></li>
-            <form method="POST" action="/siped18-timch15/mvc/public/home/logout">
-                <input type="submit" name="logout" class="logout" value="Logout">
-            </form>
-        </ul>
-
-    <?php } else { ?>
-
-        <ul class="menu">
-            <li><a href="/siped18-timch15/mvc/public/">Frontpage</a></li>
-            <li><a href="/siped18-timch15/mvc/public/registration">Registration page</a></li>
-        </ul>
-
-    <?php } ?>
-
-    <div class="wrapper">
-        <div class="content">
+    <!-- <div class="wrapper"> -->
+    <!-- <div class="content"> -->
+    <div class="container">
