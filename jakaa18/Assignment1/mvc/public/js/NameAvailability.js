@@ -25,5 +25,6 @@ function UsernameAvailable($username) {
             return false;
         }
     }
+    console.log("State change function wasn't called");
     return false;
 }
