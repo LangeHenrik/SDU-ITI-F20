@@ -33,14 +33,13 @@ class ApiController extends Controller {
                 echo json_encode($posts, JSON_PRETTY_PRINT);
             } elseif ($this->post()){
                 $json = json_decode($_POST['json']);
-                $username = $json->username;
-                $password = $json->password;
-                $title = htmlentities($json->title);
-                $description = htmlentities($json->description);
-                $picture = $json->picture;
+                $username = $json->jarr['juser'];
+                $title = htmlentities($json->jarr['jheader']);
+                $description = htmlentities($json->jarr['jdescription']);
+                $picture = $json->jarr['jimage'];
 
                 $userModel = $this->model('User');
-                if ($userModel->login($username, $password)
+                if ($userModel->login($username)
                     && $userModel->getUserId($username) == $user){
                     $postid = $this->model('Post')->newPicPost($title, $description, $username, $picture, true);
                     echo '{"image_id": "'. $postid .'"}';
