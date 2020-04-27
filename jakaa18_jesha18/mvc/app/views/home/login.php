@@ -23,7 +23,7 @@ include '../app/views/partials/menu.php';
         </div>
         </form>
         <div class="login4">
-            <button class="button" onclick="window.location.href = '/Assignment1/mvc/public/register';">Register here</button>
+            <button class="button" onclick="window.location.href = '/jakaa18_jesha18/mvc/public/register';">Register here</button>
         </div>
     </div>
 

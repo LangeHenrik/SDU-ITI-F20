@@ -3,7 +3,7 @@ function UsernameAvailable($username) {
     let info = document.getElementById("username-availability");
     let input = document.getElementById("username");
     if ($username.length > 2){
-        xmlhttp.open("GET", "/Assignment1/mvc/public/api/availability/username/" + $username, false);
+        xmlhttp.open("GET", "/jakaa18_jesha18/mvc/public/api/availability/username/" + $username, false);
         xmlhttp.send();
     }
     xmlhttp.onreadystatechange = function() {

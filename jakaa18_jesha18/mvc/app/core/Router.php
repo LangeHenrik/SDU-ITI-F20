@@ -46,7 +46,7 @@ class Router {
 			$url = $url . "/"; //If the url doesn't end with a /, add a / to the end
 		}
 		$url = explode('/', $url); //turn url into an array, delimited by /
-		return array_slice($url, 4); // Offset of 4 required with a http://localhost:8080/Assignment1/mvc/public/{url} format
+		return array_slice($url, 4); // Offset of 4 required with a http://localhost:8080/jakaa18_jesha18/mvc/public/{url} format
 	}
 	
 }

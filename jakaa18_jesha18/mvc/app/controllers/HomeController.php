@@ -69,7 +69,7 @@ class HomeController extends Controller {
                     $_SESSION['logged_in'] = true;
                     $_SESSION['username'] = $username;
                     //Redirect to Feed view
-                    header('Location: /Assignment1/mvc/public/home/Feed');
+                    header('Location: /jakaa18_jesha18/mvc/public/home/Feed');
                 } else {
                     print 'Something went wrong in the login method';
                 }

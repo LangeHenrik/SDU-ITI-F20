@@ -57,7 +57,7 @@ function CompleteRegistration($username, $password){
     console.log(temp);
     if (temp == true){
         let xmlhttp = new XMLHttpRequest();
-            xmlhttp.open("POST", "/Assignment1/mvc/public/register/createUser/" + $username + "/" + $password, false);
+            xmlhttp.open("POST", "/jakaa18_jesha18/mvc/public/register/createUser/" + $username + "/" + $password, false);
             xmlhttp.send();
 
         return true;

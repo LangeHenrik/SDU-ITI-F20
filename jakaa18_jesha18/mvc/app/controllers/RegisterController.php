@@ -45,7 +45,7 @@ class RegisterController extends Controller {
         $password = $_POST['regPassId'];
         $User = new User();
         $User->newUser($username, $password);
-        header("Location:/Assignment1/mvc/public/");
+        header("Location:/jakaa18_jesha18/mvc/public/");
     }
 
 	public function restricted () {
