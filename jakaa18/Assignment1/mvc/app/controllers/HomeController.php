@@ -23,7 +23,7 @@ class HomeController extends Controller {
         //TODO Create Login view and Feed view
         if ($this->logged_in) {
             $this->viewbag['posts'] = $this->model('Post')->getPictures();
-            $this->view('home/feed', $this->viewbag);
+            $this->view('home/Feed', $this->viewbag);
         } else {
             $this->view('home/login', $this->viewbag);
         }
