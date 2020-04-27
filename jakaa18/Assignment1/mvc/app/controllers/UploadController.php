@@ -37,7 +37,7 @@ class UploadController extends Controller
             if ($check !== null) {
                 $image = $_FILES['image']['tmp_name'];
                 $type = pathinfo($image, PATHINFO_EXTENSION);
-                $imgContent = 'data:image/' . $type . ';base64' . base64_encode(file_get_contents($image));
+                $imgContent = base64_encode(file_get_contents($image));
                 $user = $_SESSION["username"];
                 $header = $_POST["header"];
                 $description = $_POST["imgDescription"];
