@@ -9,6 +9,9 @@ include '../app/views/partials/menu.php';
     include '../app/views/partials/sidebar.php';
 
 ?>
+<?php
+    include '../app/views/partials/userfeed.php';
+?>
 
 <div class="header">
     <h1><?php echo "Here's a list of all the users on here" ?></h1>
