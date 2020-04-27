@@ -59,7 +59,7 @@ class ApiController extends Controller {
 	}
 
 
-	public function pictures($user,$int){
+	public function pictures($user,$user_id){
 	  
 
 
@@ -69,18 +69,20 @@ class ApiController extends Controller {
 
 			if(is_numeric($user_id) && $user_id >=0 ){
 				if($this->post()){
+
+             $this->uploadimages($user_id);
+
 			}
 
 
 
 
-		} else if ($this->get()) {
+	 else if ($this->get()) {
 			
 
 
 
-
-			$this->model('Image')->picturess($user_id);
+             $this->getallimages($user_id);
 			
 		}
 
@@ -88,16 +90,20 @@ class ApiController extends Controller {
 
 	}
 
+	}
 
-	public function uploadimages(){
 
+	public function uploadimages($user_id){
+		$apiimages = $this->model('Image')->apipostimages($user_id);
+		echo json_encode($apiimages, JSON_PRETTY_PRINT);
 
 
 	}
 		
 	
-	public function getallimages(){
-  
+	public function getallimages($user_id){
+	$images = $this->model('Image')->picturess($user_id);
+	echo json_encode($images, JSON_PRETTY_PRINT);
        
 
 	}

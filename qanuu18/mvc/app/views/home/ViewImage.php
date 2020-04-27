@@ -17,8 +17,14 @@
 
 <?php
 if(isset($_SESSION['username'])){
-    echo "<br><a href='logout.php'><input type=button value=Logout name=logout></a>";
+    echo "<br><a href='http://localhost:8080/qanuu18/mvc/public/home/login'><input type=button value='Go back to Main Menu' name=Menu></a>";
+
+
+
 }
+
+
+
 
 
   

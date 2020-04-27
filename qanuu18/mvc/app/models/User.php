@@ -2,7 +2,7 @@
 class User extends Database {
 	
 	public function login($username){
-        $sql = "SELECT username, password FROM userinfo WHERE username = :username";
+        $sql = "SELECT * FROM userinfo WHERE username = :username";
         if (empty($_POST["username"] )|| empty($_POST["password"]))
         {
             echo "Please fill all fields";	
@@ -20,53 +20,52 @@ class User extends Database {
 
         $result = $stmt->fetch(); //fetchAll to get multiple rows
 
-        print_r($result);
+       // print_r($result);
 
         if(password_verify ($_POST["password"], $result["password"])){
 
             $_SESSION["username"] = $username;
 
+            $_SESSION["user_id"] = $result['user_id'];
             $_SESSION['logged_in'] = true;
               return true;
-         }
-        }
+         }  else{
 
-        //todo: make an actual login function!!
-        return false;
+            echo "Username or Password is invalid";
+            return false;
+         }
+    
+
+        }
+       
     }
 
 
     public function registeruser(){
 
-	//	if(isset($_POST['submitbtn'])){
 
 
 
-        $username = filter_var($_POST["username"], FILTER_SANITIZE_STRING);
-        $password = filter_var($_POST["password"],FILTER_SANITIZE_STRING);
+        $username = filter_input(INPUT_POST,"username", FILTER_VALIDATE_REGEXP,array('options' => array('regexp' => "/^[a-z|A-Z|0-9]{4,13}$/")));
+        $password = filter_input(INPUT_POST,"password", FILTER_VALIDATE_REGEXP,array('options' => array('regexp' => "/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).{6,100}$/")));
+        if(!$username || !$password ){
+
+
+            return "Username  or Password is invalid";
+        } else { 
+
         $hashedpassword = password_hash($password,PASSWORD_DEFAULT);
+
+
 
              $sql = "INSERT INTO userinfo(username, password) VALUES (:username, :password)";
 			$stmt = $this->conn->prepare($sql);
 			$stmt->bindParam(':username', $username);
 			$stmt->bindParam(':password', $hashedpassword);
             $stmt->execute();
-       // $sql2 = "INSERT INTO images (user_id) VALUES (SELECT user_id FROM userinfo)";
-       // $sql2 = "INSERT INTO images (user_id);
-      //  SELECT user_id FROM userinfo";
-        $sql2 = "INSERT INTO images (user_id) SELECT user_id FROM userinfo";
-                $stmt2 = $this->conn->prepare($sql2);
-                $stmt2->execute();
-				/*array(
-                "user" => $usernameinput, 
-                "password" => $hashedpassword
-            )); 
-            $stmt->setFetchMode(PDO::FETCH_ASSOC);
-            echo "<div class='form'>
-            <h3>You are registered successfully.</h3>
-			<br/>Click here to <a href='index.php'>Login</a></div>";*/
-		//}
-        } 
+          return true;
+        }
+      } 
    
 
 

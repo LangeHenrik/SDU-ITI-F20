@@ -10,8 +10,12 @@
 <div style="background-color: lightblue;">Menu partial view</div>
 
 <?php if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']) : ?>
+    <form class="logout" name="logout" method="POST" action="/qanuu18/mvc/public/user/logout">
+        <p>
+        <input type="submit" name="logout" id="logout" value="Log out">
+        </p>
+    </form>
 
-<a href="/qanuu18/mvc/public/user/logout">log out</a>
 
 
 <?php endif; ?>
@@ -41,7 +45,7 @@
 
     <form class="uploadImage" name="uploadImage" method="GET" action="/qanuu18/mvc/public/image/postImages">
         <p>
-        <input type="submit" name="uploadImage" id="uloadbtn" value="Upload Picture">
+        <input type="button" onclick="location.replace('/qanuu18/mvc/public/image/postImages')" name="uploadImage" id="uloadbtn" value="Upload Picture">
         </p>
     </form>
 

@@ -24,13 +24,16 @@ class HomeController extends Controller {
 	
 	public function login($usernameinput) {
 		if($this->model('User')->login($usernameinput)) {
-		
-			$this->view('home/login');
+             $status =  $_SESSION['logged_in'] = true;		 
+  			$this->view('home/login', $status);
+		} else {
+
+			$this->view('home/loginpage');
 		}
 	}
 
 
-	public function homepage(){
+	public function homepage($usernameinput){
 
 		$this->view('home/index');
 
@@ -72,18 +75,23 @@ class HomeController extends Controller {
 
         if($this->post()){
 
-			$this->model('User')->registeruser();
-			
-            header('location: /qanuu18/mvc/public/home/loginpage');
+		 $register = $this->model('User')->registeruser();
+
+		 if( $register){
+			header('location: /qanuu18/mvc/public/home/loginpage');
+
+
+		 } else {
+                     $this->view('home/registration', $register);
+
+
+		 }
            
             
         
             //echo json_encode($users, JSON_PRETTY_PRINT);
-
-
-        }
         
-    else { 
+		 } else  { 
 
 
         header('Status: 403 Nou No Not Have Access To This Page');

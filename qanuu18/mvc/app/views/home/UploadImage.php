@@ -49,7 +49,7 @@ else{
                     <textarea name="description" id="description" class="form-control" 
                     placeholder="Describe your image..."></textarea>
                     
-                    <button type="submit" name="upload" class="btnupload btnupload-primary btnupload-block">Upload Image</button>
+                    <button type="submit" id="upload" name="upload" class="btnupload btnupload-primary btnupload-block">Upload Image</button>
 
                 </form>
 
