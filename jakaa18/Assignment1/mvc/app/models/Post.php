@@ -27,9 +27,12 @@ class Post extends Database
     }
 
     public function getPictures() {
-        $posts = $this->query('SELECT user, picture FROM pictures;');
+        $posts = $this->conn->prepare('SELECT header, description, user, picture FROM pictures;');
+        $posts->execute();
         foreach ($posts as $post){
             $post['picture'] = base64_decode($post['picture']);
+
         }
+        return $posts;
     }
 }
