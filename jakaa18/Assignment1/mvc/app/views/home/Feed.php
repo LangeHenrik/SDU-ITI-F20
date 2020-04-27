@@ -20,7 +20,7 @@ include '../app/views/partials/menu.php';
         <?php
         foreach ($viewbag['posts'] as $post){
             print '<div class="post container">';
-            print $post['user'].'</br><h2>'. $post['header'] .'</h2></br>';
+            print "Uploaded by: " . $post['user'].'</br><h2>'. $post['header'] .'</h2></br>';
             print '<img class="main-image" src="data:image/jpeg;base64,' .  $post['picture'] . '" />';
             print '</br>'.$post['description'].'</br>';
 
