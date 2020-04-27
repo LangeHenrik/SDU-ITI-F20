@@ -3,7 +3,7 @@ function findUsers(userName) {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("users").innerHTML = '<tr><th>Username</th></tr>'
+            document.getElementById("users").innerHTML = '<thead class="thead-dark"><tr><th scope="col">Username</th></tr></thead>';
             var json = JSON.parse(this.response);
             json.forEach(showUsernames);
 
