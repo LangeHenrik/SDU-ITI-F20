@@ -53,7 +53,7 @@ class HomeController extends Controller {
                     $_SESSION['logged_in'] = true;
                     $_SESSION['username'] = $username;
                     //Redirect to Feed view
-                    header('Location: /jakaa18/Assignment1/mvc/public/home/Feed');
+                    header('Location: /Assignment1/mvc/public/home/Feed');
                 }
             }
         } elseif ($this->get()){

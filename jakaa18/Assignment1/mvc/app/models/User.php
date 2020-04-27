@@ -2,7 +2,7 @@
 class User extends Database {
 	
 	public function login($username, $password){
-        $sql = "SELECT username, password FROM user WHERE username = :username";
+        $sql = "SELECT username, password FROM users WHERE username = :username";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(':username', $username);
         $stmt->execute();
