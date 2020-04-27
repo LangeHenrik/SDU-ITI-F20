@@ -3,7 +3,7 @@
 <?php
 foreach ($viewbag['users'] as $user){
     print_r($user['username']);
-    ?></br><?php
+    ?><br><?php
 }
 ?>
     </div>
