@@ -31,7 +31,6 @@ class HomeController extends Controller {
 	}
 
 	public function feed (){
-        $this->view('home/Feed', $this->viewbag);
         if ($this->logged_in) {
             $this->viewbag['posts'] = $this->model('Post')->getPictures();
             $this->view('home/Feed', $this->viewbag);
