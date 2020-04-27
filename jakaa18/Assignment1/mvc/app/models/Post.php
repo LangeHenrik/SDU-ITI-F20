@@ -2,11 +2,19 @@
 class Post extends Database
 {
     public function newPicPost($header, $description, $username, $picture){
+        if($header === ''){
+            echo $header;
+            echo $description;
+            echo $username;
+            echo $picture;
+            echo "This is an error catching thing";
+            return false;
+        }
         $image = base64_encode($picture);
         $insert = $this->conn->prepare("INSERT into pictures (header, description, user, picture) VALUES (?, ?, ?, ?)");
-        $insert->bindParam(1, htmlspecialchars($header));
-        $insert->bindParam(2, htmlspecialchars($description));
-        $insert->bindParam(3, htmlspecialchars($username));
+        $insert->bindParam(1, $header);
+        $insert->bindParam(2, $description);
+        $insert->bindParam(3, $username);
         $insert->bindParam(4, $image, PDO::PARAM_LOB);
         if ($insert->execute()) {
             echo "File uploaded successfully.";

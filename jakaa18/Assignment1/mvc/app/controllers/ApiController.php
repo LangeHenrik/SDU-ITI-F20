@@ -25,15 +25,14 @@ class ApiController extends Controller {
 
     public function pictures ($action, $user) {
         $action = htmlentities($action);
-        $user = htmlentities($user);
         if ($action === 'user'){
             if ($this->get()){
                 $posts = $this->model('Post')->getPictures();
 
                 echo json_encode($posts, JSON_PRETTY_PRINT);
             } elseif ($this->post()){
-                $json = json_decode($_POST['imgSubmit']);
-                $username = $json['juser'];
+                $json = json_decode($user, true);
+                $username = htmlentities($json['juser']);
                 $title = htmlentities($json['jheader']);
                 $description = htmlentities($json['jdescription']);
                 $picture = $json['jimage'];
