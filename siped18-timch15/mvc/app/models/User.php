@@ -61,23 +61,16 @@ class User extends Database
 	{
 		$username = filter_var($username, FILTER_SANITIZE_STRING);
 
-		$stmt = $this->conn->prepare("SELECT username FROM user");
-		$stmt->execute();
-		$users = $stmt->fetchAll();
-
-		if ($username == "") {
-			return $users;
+		if ($username === "") {
+			$stmt = $this->conn->prepare("SELECT * FROM user");
 		} else {
-			$user = strtolower($username);
-			$len = strlen($user);
-			$specificUsers = array();
-
-			foreach ($users as $username) {
-				if (stristr($user, substr($username['username'], 0, $len))) {
-					array_push($specificUsers, $username);
-				}
-			}
-			return $specificUsers;
+			$stmt = $this->conn->prepare("SELECT username FROM user WHERE username LIKE CONCAT('%', :username, '%')");
+			$stmt->bindParam(':username', $username);
 		}
+		$stmt->execute();
+		$stmt->setFetchMode(PDO::FETCH_ASSOC);
+		$result = $stmt->fetchAll();
+
+		return $result;
 	}
 }
