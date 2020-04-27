@@ -57,31 +57,29 @@ class User extends Database
 		}
 	}
 
-	public function getUserlist($username)
+	public function getUsers($username)
 	{
-		if ($username === "") {
-            $stmt = $this->conn->prepare("SELECT username FROM user");
-        } else {
-            $stmt = $this->conn->prepare("SELECT username FROM user WHERE username = :username");
-            $stmt->bindParam(':username', $username);
-        }
-        $stmt->execute();
-        $stmt->setFetchMode(PDO::FETCH_ASSOC);
-		$result = $stmt->fetchAll(); 
-		
-		return $result;
-	}
+		$username = filter_var($username, FILTER_SANITIZE_STRING);
 
-	public function getSearchUser(){
-		$searchValue = isset($_GET["searchValue"]);
-
-		$stmt = $this->conn->prepare("SELECT username FROM user WHERE username LIKE CONCAT('%', :username, '%')");
-		$stmt->bindParam(':username', $searchValue);
+		$stmt = $this->conn->prepare("SELECT username FROM user");
 		$stmt->execute();
-		$stmt->setFetchMode(PDO::FETCH_NUM);
 		$users = $stmt->fetchAll();
 
-		return $users;
-	
+		if ($username == "") {
+			return $users;
+
+		} else {
+			$user = strtolower($username);
+			$len = strlen($user);
+			$specificUsers = array();
+
+			foreach ($users as $username) {
+				if (stristr($user, substr($username['username'], 0, $len))) {
+					array_push($specificUsers, $username);
+				}
+			}
+			return $specificUsers;
+		}
 	}
 }
+
