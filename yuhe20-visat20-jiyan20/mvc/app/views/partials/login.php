@@ -10,7 +10,7 @@
                     <input type="password" name="password" placeholder="Password" required>
                     <button type="submit" name="submit" id= "submit" value="Login">Log in</button>
                     <hr>
-                    <p >New here? <a href="register" style="color:blue;">Register</a>!</p>
+                    <p >New here? <a href="/yuhe20-visat20-jiyan20/mvc/public/register" style="color:blue;">Register now</a>!</p>
                     <br>
              </form>
             </div>
