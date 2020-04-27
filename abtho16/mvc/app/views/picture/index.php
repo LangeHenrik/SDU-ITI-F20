@@ -14,7 +14,7 @@ require_once '../app/models/Picture.php';
 <table>
 <tr>
 <th>
-<span>Picture Id<span>
+<span>Picture<span>
 </th>
 <th>
 <span>User</span>
@@ -26,7 +26,6 @@ require_once '../app/models/Picture.php';
 <span>Description<span>
 </th>
 </tr>
-
 
 
 <?php
@@ -44,7 +43,6 @@ foreach($viewbag['pics'] as &$value) {
 }
 
 ?>
-
 </table>
 <?php include '../app/views/partials/foot.php'; ?>
 </html>

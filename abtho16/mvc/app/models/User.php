@@ -19,32 +19,7 @@ class User extends Database {
        return $users;
     }
     
-  /*  
-    public function getUsers() {
-		$users = array();
-		$st = $this->conn->prepare("SELECT userid,username,firstname,lastname,zipcode,city,email,phonenumber FROM user;");
-		$results = array();
-		if ($st->execute()) {
-			while ($row = $st->fetch(PDO::FETCH_ASSOC)) {
-				$results[] = $row;
-			}
-		}
-		foreach($results as $result) {
-			$user = new User();
-			$user->user_id = $result['userid'];
-			$user->username = $result['username'];
-            $user->first_name = $result['firstname'];
-            $user->last_name = $result['lastname'];
-            $user->zip = $result['zipcode'];
-            $user->city = $result['city'];
-            $user->email = $result['email'];
-            $user->phonenumber = $result['phonenumber'];
-            array_push($users, $user);
-       }
-	   return $users;
-	}
-*/
-	public function apiGetUsers() {
+  	public function apiGetUsers() {
 		$st = $this->conn->prepare("SELECT userid AS user_id, username FROM user;");
 		$st->execute();
 		$st->setFetchMode(PDO::FETCH_ASSOC);

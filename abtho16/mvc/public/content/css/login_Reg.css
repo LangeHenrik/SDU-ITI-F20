@@ -1,6 +1,13 @@
 body {font-family: Arial, Helvetica, sans-serif;}
-form {border: 3px solid #f1f1f1;}
+form {border: 0px solid #f1f1f1;}
 
+html { 
+  background: url('http://localhost:8080/abtho16/mvc/public/content/image/backk.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 input[type=text], input[type=password] {
   width: 50%;
   padding: 12px 20px;
@@ -10,6 +17,22 @@ input[type=text], input[type=password] {
   box-sizing: border-box;
 }
 
+.duck {
+
+align-items: center;
+
+}
+.content {
+  max-width: 80%;
+  margin: auto;
+
+  padding: 10px;
+
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+  background-size: 100% 100%;
+
+}
 button {
   background-color: #4CAF50;
   color: white;
@@ -57,7 +80,6 @@ span.psw {
   padding-top: 16px;
 }
 
-/* Change styles for span and cancel button on extra small screens */
 @media screen and (max-width: 300px) {
   span.psw {
      display: block;

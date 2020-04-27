@@ -23,45 +23,6 @@ class UserController extends Controller {
 		$this->view('user/test');
 	}
 
-	public function save() {
-        echo 'test';
-			if ( isset( $_POST['username'] ) && isset( $_POST['password'] ) && isset( $_POST['firstname'] ) && isset( $_POST['lastname'] )
-				&& isset( $_POST['zip'] ) && isset( $_POST['city'] ) && isset( $_POST['email'] ) && isset( $_POST['phonenumber'] ) ) {
-			    echo "POSTISST";
-				if($this->validate()) {
-					require_once('../app/core/Database.php');
-					$conn = (new Database)->conn;
-						$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-						$stmt = $conn->prepare("SELECT userid FROM user WHERE username =:username");
-					$stmt->bindParam(':username',$_POST['username']);
-					$stmt->execute();
-					if(!$stmt->rowcount() < 1) {
-						$_SESSION['error'] = "Username already exists";
-						header("Location: register");
-					}
-
-					$st = $conn->prepare("INSERT INTO user(username, password_hash, firstname, lastname, zip, city, email, number)
-						VALUES(:username, :password, :firstname, :lastname, :zip, :city, :email, :number)");
-					$st->bindParam(':username', $_POST['username']);
-					$hashedPw = password_hash($_POST['password'],PASSWORD_DEFAULT);
-					$st->bindParam(':password', $hashedPw);
-					$st->bindParam(':firstname', $_POST['firstname']);
-					$st->bindParam(':lastname', $_POST['lastname']);
-					$st->bindParam(':zip', $_POST['zip']);
-					$st->bindParam(':city', $_POST['city']);
-					$st->bindParam(':email', $_POST['email']);
-					$st->bindParam(':number', $_POST['number']);
-					$st->execute();
-					$_SESSION['error'] = "Registration successful";
-					header("Location: ../home");
-				} else {
-					header("Location: register");
-				}
-			}
-
-	}
-
 	public function validate() {
 		require_once('../public/content/regex.php');
 		$_POST['email'] = filter_var($_POST['email'],FILTER_SANITIZE_EMAIL);

@@ -2,15 +2,12 @@
 
 include '../app/views/partials/newUserNav.php';
 
-
-
-
 ?>
 
 <!DOCTYPE html>
 <link rel="stylesheet" href="/abtho16/mvc/public/content/css/user.css">
 <link rel="stylesheet" href="/abtho16/mvc/public/content/css/login_Reg.css">
-
+<body class="content">
 <table>
 <tr>
 <th>
@@ -29,10 +26,10 @@ include '../app/views/partials/newUserNav.php';
 <span>Zip Code<span>
 </th>
 <th>
-<span>City<span>
+<span>Your City<span>
 </th>
 <th>
-<span>Email<span>
+<span>Your email<span>
 </th>
 <th>
 <span>Phone Number<span>
@@ -59,5 +56,6 @@ foreach($viewbag['users'] as &$value) {
 </table>
 
 <?php include '../app/views/partials/foot.php'; ?>
+</body>
 </html>
 

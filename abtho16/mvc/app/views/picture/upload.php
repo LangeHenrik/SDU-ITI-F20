@@ -2,15 +2,14 @@
 
 include '../app/views/partials/newUserNav.php';
 
-
 ?>
 
 <!DOCTYPE html>
 <head>
-<link rel="stylesheet" href="/abtho16/mvc/public/content/css/upload.css">
+<link rel="stylesheet" href="/abtho16/mvc/public/content/css/login_Reg.css">
 </head>
 
-<body>
+<body class="content">
 <br>
 <div class="uploadForm">
 <div class="c">Upload</div>

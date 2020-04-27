@@ -11,7 +11,7 @@ class PictureController extends Controller {
         } else {
             header('Location: home');
         }
-        
+       
 	}
 	
 

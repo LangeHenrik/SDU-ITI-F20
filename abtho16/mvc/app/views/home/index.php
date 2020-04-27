@@ -4,14 +4,16 @@
 
 <div>
     
-    <h1>Welcome Page</h1>
-
-
-     <hr>  
-    
+ <div class ="bg">
+<br>
+<hr><hr><hr><hr><hr><hr><hr><hr>
+<br>
+    <h1>Hello! welcome to my site </h1>
+    <div>
+    <br><br>
+<hr><hr><hr><hr><hr><hr><hr><hr>
+ 
 </div>
-
-
 <?php include '../app/views/partials/foot.php'; ?>
 
 <?php

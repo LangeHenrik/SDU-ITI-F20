@@ -28,3 +28,6 @@ CREATE TABLE IF NOT EXISTS `picture` (
   KEY `FK_pic_user` (`user`),
   CONSTRAINT `FK_pic_user` FOREIGN KEY (`user`) REFERENCES `user` (`username`)
 ) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
+
+
+
