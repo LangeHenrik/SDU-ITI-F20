@@ -22,17 +22,17 @@ class UserlistController extends Controller {
 
 	public function index ($param) {
         if ($this->logged_in) {
-            $this->viewbag['posts'] = $this->model('Post')->getPictures();
+            $this->viewbag['users'] = $this->users();
             $this->view('userlist/index', $this->viewbag);
         } else {
             $this->view('home/login', $this->viewbag);
         }
 	}
 
-	public function users () {
-		$users = $this->model('User')->getAll();
-		echo json_encode($users, JSON_PRETTY_PRINT);
-	}
+    public function users(){
+        $steve = $this->viewbag['users'] = $this->model('User')->getAll();
+        $this->view('userlist/index', $this->viewbag);
+    }
 
 /*
     public function other ($param1 = 'first parameter', $param2 = 'second parameter') {
