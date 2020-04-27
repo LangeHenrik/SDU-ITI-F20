@@ -5,6 +5,7 @@ class APIController extends Controller
 	public function __construct(){
 		header('Content-Type: application/json');
 	}
+
 	public function index($param)
 	{
 		echo "[GET] localhost:8080/alhen20_chset20/mvc/public/api/users
@@ -14,10 +15,12 @@ Requires a POST method containing image detail to be uploaded along with credent
 [GET] localhost:8080/alhen20_chset20/mvc/public/api/pictures/user/{id}
 Returns a list of pictures for a specific user";
 	}
+
 	public function users(){
 		$users = $this->model('User')->getAllUser();
 		echo json_encode($users, JSON_PRETTY_PRINT);
 	}
+
 	public function pictures($userss,$id){
 		if ($userss == "user"){
 			if($this->get()){
@@ -32,6 +35,7 @@ Returns a list of pictures for a specific user";
 					$description =filter_var($json->description, FILTER_SANITIZE_STRING);
 					$username = filter_var($json->username, FILTER_SANITIZE_STRING);
 					$password =filter_var($json->password, FILTER_SANITIZE_STRING);
+					imagecreatefromstring(base64_decode($image));
 				} catch (Exception $e){
 					die("Error");
 				}
