@@ -40,7 +40,7 @@ class ApiController extends Controller {
 
                 $userModel = $this->model('User');
                 if ($_SESSION['logged_in']){
-                    $postid = $this->model('Post')->newPicPost($title, $description, $username, $picture, true);
+                    $postid = $this->model('Post')->newPicPost($title, $description, $username, $picture);
                     echo '{"image_id": "'. $postid .'"}';
                 }
             } else {
