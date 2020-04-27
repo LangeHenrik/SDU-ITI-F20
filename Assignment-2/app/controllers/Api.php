@@ -10,7 +10,6 @@ class Api extends Controller {
 	}
 
 	public function index ($param) {
-		echo 'this ran';
 	}
 	
 	public function users () {

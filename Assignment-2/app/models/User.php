@@ -31,7 +31,7 @@ class User extends Database {
 
     public function getImagesById () {
 
-        $sql = "SELECT ID, Image, Header, Description FROM picture WHERE UserID = " . $_GET['id'] . "";
+        $sql = "SELECT ID, Image, Header, Description FROM picture WHERE ID=2";
 
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
