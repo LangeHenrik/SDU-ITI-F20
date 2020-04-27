@@ -32,8 +32,7 @@ class User extends Database
 
 	public function getAllUser()
 	{
-		$sql = "SELECT user_id, email, username FROM site_user";
-		$stmt = $this->conn->prepare($sql);
+		$stmt = $this->conn->prepare("SELECT user_id, email, username FROM site_user");
 		$stmt->execute();
 		$result = $stmt->fetchAll();
 		return $result;
@@ -41,8 +40,7 @@ class User extends Database
 
 	public function createUser($username, $email, $pass)
 	{
-		$sql = "INSERT INTO site_user (username, email, pass) VALUES (:username,:email,:pass);";
-		$stmt = $this->conn->prepare($sql);
+		$stmt = $this->conn->prepare("INSERT INTO site_user (username, email, pass) VALUES (:username,:email,:pass);");
 		$stmt->bindParam(':username', $username);
 		$stmt->bindParam(':email', $email);
 		$stmt->bindParam(':pass', $pass);
