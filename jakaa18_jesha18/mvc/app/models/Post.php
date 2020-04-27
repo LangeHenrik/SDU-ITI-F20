@@ -26,6 +26,15 @@ class Post extends Database
         return $this->conn->lastInsertId();
     }
 
+    public function getActualPictures() {
+        $posts = $this->conn->prepare('SELECT header, description, user, picture FROM pictures;');
+        $posts->execute();
+        $content = [];
+        while ($row = $posts->fetch()) {
+            array_push($content, $row);
+        }
+        return $content;
+    }
     public function getPictures() {
         $posts = $this->conn->prepare('SELECT header, description, user, picture FROM pictures;');
         $posts->execute();

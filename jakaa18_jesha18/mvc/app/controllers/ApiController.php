@@ -26,7 +26,7 @@ class ApiController extends Controller {
         $action = htmlentities($action);
         if ($action === 'user'){
             if ($this->get()){
-                $posts = $this->model('Post')->getPictures();
+                $posts = $this->model('Post')->getActualPictures();
                 echo json_encode($posts, JSON_PRETTY_PRINT);
             } elseif ($this->post()){
                 $json = json_decode($user, true);
