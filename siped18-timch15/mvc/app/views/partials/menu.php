@@ -10,7 +10,7 @@
 
 </head>
 
-<body>
+<body onKeyPress="return keyPressed(event)">
 
     <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
         <a class="navbar-brand" href="#">Assignment 2</a>
@@ -30,5 +30,6 @@
             </ul>
         <?php } ?>
     </nav>
+    <script src="/siped18-timch15/mvc/public/js/searchResults.js"></script>
 
     <div class="container">
