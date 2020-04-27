@@ -32,6 +32,12 @@ class HomeController extends Controller {
 
 	public function feed (){
         $this->view('home/Feed', $this->viewbag);
+        if ($this->logged_in) {
+            $this->viewbag['posts'] = $this->model('Post')->getPictures();
+            $this->view('home/Feed', $this->viewbag);
+        } else {
+            $this->view('home/login', $this->viewbag);
+        }
     }
 
 	public function other ($param1 = 'first parameter', $param2 = 'second parameter') {
