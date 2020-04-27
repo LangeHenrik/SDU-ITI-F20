@@ -53,6 +53,55 @@ $("#upload").click(function () {
     mainContent.appendChild(form);
 });
 
+function handleGetImagesResponse(responseObject, mainContent, divContainer) {
+
+    if (responseObject.messages !== null) {
+        responseObject.messages.forEach((image) => {
+
+            let divPic = document.createElement('div');
+            divPic.setAttribute('class', 'card');
+            divPic.setAttribute('style','width: 18rem;');
+
+            let cardBody = document.createElement('div');
+            cardBody.setAttribute('class','cared-body');
+
+
+            let cardName = document.createElement('h3');
+            cardName.innerText=image.header;
+
+            let cardBodyUsername = document.createElement('p');
+            cardBodyUsername.innerText="Username: " + image.username + " Uploaded Time: " + image.uploadTime;
+
+            cardBody.appendChild(cardName);
+            cardBody.appendChild(cardBodyUsername);
+
+
+
+            // let divTitle = document.createElement('div');
+            // divTitle.setAttribute('class', 'title');
+            // divTitle.innerText = image.header + " Username: " + image.username + " Uploaded Time: " + image.uploadTime;
+
+            let img = document.createElement('img');
+            img.setAttribute('src', image.image_blob);
+            img.setAttribute('class','card-img-top');
+
+
+            let divDescription = document.createElement('div');
+            divDescription.setAttribute('class', 'desc');
+            divDescription.innerText = image.description;
+
+            // divPic.appendChild(divTitle);
+            divPic.appendChild(img);
+            divPic.appendChild(cardBody);
+            divPic.appendChild(divDescription);
+
+            divContainer.appendChild(divPic);
+        });
+
+        mainContent.appendChild(divContainer);
+    }
+}
+
 $("#users").click(function () {
     //Clear contents from main content div
     document.getElementsByClassName('main_content')[0].innerHTML = "";
@@ -141,35 +190,7 @@ function handleUploadImageResponse(responseObject) {
     }
 }
 
-function handleGetImagesResponse(responseObject, mainContent, divContainer) {
 
-    if (responseObject.messages !== null) {
-        responseObject.messages.forEach((image) => {
-
-            let divPic = document.createElement('div');
-            divPic.setAttribute('class', 'picture');
-
-            let divTitle = document.createElement('div');
-            divTitle.setAttribute('class', 'title');
-            divTitle.innerText = image.header + " Username: " + image.username + " Uploaded Time: " + image.uploadTime;
-
-            let img = document.createElement('img');
-            img.setAttribute('src', image.image_blob);
-
-            let divDescription = document.createElement('div');
-            divDescription.setAttribute('class', 'desc');
-            divDescription.innerText = image.description;
-
-            divPic.appendChild(divTitle);
-            divPic.appendChild(img);
-            divPic.appendChild(divDescription);
-
-            divContainer.appendChild(divPic);
-        });
-
-        mainContent.appendChild(divContainer);
-    }
-}
 
 function ajaxCallGetImages(mainContent, divContainer) {
     //JQuery AJAX call to get images

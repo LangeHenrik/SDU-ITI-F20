@@ -10,6 +10,7 @@ body {
 }
 
 .topnav{
+    z-index: 1;
     background-color: grey;
     overflow: hidden;
     position: fixed;
@@ -161,4 +162,12 @@ li{
 .title {
     padding: 15px;
     text-align: center;
+}
+
+.card {
+    margin: 10px;
+}
+
+.card-columns {
+    margin-top: 50px;
 }
