@@ -50,17 +50,22 @@ class ApiController extends Controller {
         $action = htmlentities($action);
         if ($action === 'user'){
             if ($this->get()){
-                $posts = $this->model('Post')->getPictures();
+                $posts = $this->model('Post')->getPictures($user);
                 echo json_encode($posts, JSON_PRETTY_PRINT);
             } elseif ($this->post()){
                 $json = json_decode($_POST['json']);
                 $username = htmlentities($json->username);
                 $password = htmlentities($json->password);
-                $picture = $json->image;
-                $title = htmlentities($json->title);
-                $description = htmlentities($json->description);
                 if ($this->model('User')->getUserId($username, $password) == $user) {
-                    $this->model('Post')->newPicPost($title, $description, $username, $picture);
+                    //$json = json_decode($_POST['json']);
+                    //$username = htmlentities($json['juser']);
+                    $picture = $json->image;
+                    $title = htmlentities($json->title);
+                    $description = htmlentities($json->description);
+                    $id = $this->model('Post')->newPicPost($title, $description, $username, $picture);
+                    $array = array('image_id' => $id);
+                    $json = json_encode($array, JSON_PRETTY_PRINT);
+                    echo $json;
                 }
             }
         }

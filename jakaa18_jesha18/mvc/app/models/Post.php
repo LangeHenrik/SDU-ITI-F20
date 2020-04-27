@@ -34,13 +34,14 @@ class Post extends Database
         }
         return $content;
     }
-    public function getPictures() {
-        $posts = $this->conn->prepare('SELECT picture as image, header as title, description FROM pictures;');
+    public function getPictures($id) {
+        $posts = $this->conn->prepare('SELECT picture AS image, header as title, description FROM pictures INNER JOIN users ON pictures.user = users.username WHERE users.user_id = ? ORDER BY pic_id DESC');
+        $posts->bindParam(1, $id);
         $posts->execute();
         $content = [];
         while ($row = $posts->fetch()) {
             $temp = $row['image'];
-            $row['image'] = "data:image/jpeg;base64," . $temp;
+            $row['image'] = $temp;
             array_push($content, $row);
         }
         return $content;
