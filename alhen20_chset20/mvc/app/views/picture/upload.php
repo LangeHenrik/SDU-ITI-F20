@@ -4,6 +4,7 @@ include '../app/views/partials/menu.php'; ?>
 <div class="container">
     <div class="content">
         <div class="mainform">
+            <p> <?php echo $viewbag['error']; ?> </p>
             <form enctype="multipart/form-data" method="POST" onsubmit="return validateUp()" action="/alhen20_chset20/mvc/public/picture/upload">
                 <label for="header" >Header</label>
                 <br>
