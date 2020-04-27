@@ -37,6 +37,9 @@ class HomeController extends Controller {
         } else {
             $this->view('home/login', $this->viewbag);
         }
+
+
+
     }
 
 	public function other ($param1 = 'first parameter', $param2 = 'second parameter') {
