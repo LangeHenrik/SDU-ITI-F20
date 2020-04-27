@@ -1,3 +1,7 @@
+<?php
+include '../app/views/partials/menu.php';
+
+?>
 <div class="grid-container2">
     <body onload="showHomeLink()">
     <div class="header">
@@ -26,3 +30,6 @@
 
         </div>
     </div>
+
+
+<?php include '../app/views/partials/foot.php'; ?>
