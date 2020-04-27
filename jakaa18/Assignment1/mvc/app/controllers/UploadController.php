@@ -1,58 +1,37 @@
 <?php
 
-class UploadController extends Controller {
-	
-	public function __construct () {
-		header('Content-Type: application/json');
-		//check api-key?
-		//check username and password?
-		//or die();
-	}
+class UploadController extends Controller
+{
 
-	public function index ($param) {
+    public function __construct()
+    {
+        header('Content-Type: application/json');
+        //check api-key?
+        //check username and password?
+        //or die();
+    }
+
+    public function index($param)
+    {
         $path = "../app/views/home/index.php";
         include $path;
-	}
-	/*
-	public function users () {
-		$users = $this->model('User')->getAll();
-		echo json_encode($users, JSON_PRETTY_PRINT);
-	}
-
-
-    public function other ($param1 = 'first parameter', $param2 = 'second parameter') {
-        $user = $this->model('User');
-        $user->name = $param1;
-        $viewbag['username'] = $user->name;
-        //$viewbag['pictures'] = $this->model('pictures')->getUserPictures($user);
-        $this->view('home/index', $viewbag);
     }
 
-    public function restricted () {
-        echo 'Welcome - you must be logged in';
-    }
+    public function upload()
+    {
+        if (isset($_POST["imgSubmit"])) {
+            $check = getimagesize($_FILES["image"]["tmp_name"]);
+            if ($check !== false) {
+                $image = $_FILES['image']['tmp_name'];
+                $type = pathinfo($path, PATHINFO_EXTENSION);
+                $imgContent = 'data:image/' . $type . ';base64' . base64_encode(file_get_contents($image));
+                $user = $_SESSION["sessionUser"];
+                $header = $_POST["header"];
+                $description = $_POST["imgDescription"];
 
-    public function login($username) {
-        if($this->model('User')->login($username)) {
-            $_SESSION['logged_in'] = true;
-            $this->view('home/login');
+                $json = json_encode($header, $imgContent, $user, $description);
+                $ApiController = new ApiController();
+                $ApiController->pictures('user', $json);
         }
     }
-
-    public function logout() {
-
-
-        //if($this->post()) {
-        session_unset();
-        header('Location: /Exercises/mvc/public/home/loggedout');
-        //} else {
-        //	echo 'You can only log out with a post method';
-        //}
-    }
-
-    public function loggedout() {
-        echo 'You are now logged out';
-    }
-
-*/
 }

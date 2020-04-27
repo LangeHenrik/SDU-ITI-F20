@@ -5,8 +5,18 @@ class Post extends Database
         if ($encode_image) {
             $picture = base64_encode($picture);
         }
-        $this->query('INSERT INTO pictures (header, description, user, picture) VALUES (?, ?, ?, ?, ?);', [$header, $description, $username, $picture]);
-
+        $insert = $this->conn->prepare("INSERT into pictures (header, description, user, picture) VALUES (?, ?, ?, ?)");
+        $insert->bindParam(1, htmlspecialchars($header));
+        $insert->bindParam(2, htmlspecialchars($description));
+        $insert->bindParam(3, htmlspecialchars($username));
+        $insert->bindParam(4, $imgContent, PDO::PARAM_LOB);
+        if ($insert->execute()) {
+            echo "File uploaded successfully.";
+            header("Location: index.php");
+            exit;
+        } else {
+            echo "File upload failed, please try again.";
+        }
         return $this->conn->lastInsertId();
     }
 

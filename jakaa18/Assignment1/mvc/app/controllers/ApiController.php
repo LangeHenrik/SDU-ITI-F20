@@ -39,10 +39,10 @@ class ApiController extends Controller {
                 $description = htmlentities($json->description);
                 $picture = $json->picture;
 
-                $userModel = $this->model('user');
+                $userModel = $this->model('User');
                 if ($userModel->login($username, $password)
                     && $userModel->getUserId($username) == $user){
-                    $postid = $this->model('Post')->newPicPost($title, $description, $username, $picture, false);
+                    $postid = $this->model('Post')->newPicPost($title, $description, $username, $picture, true);
                     echo '{"image_id": "'. $postid .'"}';
                 }
             }
