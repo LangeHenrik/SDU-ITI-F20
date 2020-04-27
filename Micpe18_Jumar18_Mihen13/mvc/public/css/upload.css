@@ -1,0 +1,83 @@
+.uploadForm {
+  display: grid !important;
+  grid-template-columns: 10% 80% 10% !important;
+  grid-auto-rows: minmax(100px, auto);
+  grid-auto-flow: auto;
+}
+
+.uploadForm > form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: grid;
+  grid-template-areas:
+    ". header header"
+    ". text text"
+    ". user user"
+    ". input post";
+  grid-gap: 0.7vw;
+  grid-column: 2;
+}
+
+#inputHeader {
+  font-size: large;
+  grid-area: header;
+  display: block;
+}
+
+#text {
+  font-size: large;
+  grid-area: text;
+  display: block;
+}
+
+#post {
+  font-size: large;
+  grid-area: post;
+  display: block;
+}
+.input {
+  grid-area: input;
+  display: block;
+  text-decoration: none;
+}
+
+.chooseUser {
+  font-size: large;
+  grid-area: user;
+  display: block;
+}
+
+.uploadForm > form input,
+.uploadForm > form textarea,
+.uploadForm > form button {
+  background-color: #eee;
+  border: none;
+  padding: 0.5vw 0;
+  margin: 8px 0;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.uploadForm > form input:invalid:focus,
+textarea:invalid:focus,
+button:invalid:focus {
+  box-shadow: 0 0 0 2px #ff605c;
+}
+
+.uploadForm > form input:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px lightblue;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    padding-left: 10px;
+  }
+
+#upload-nested{
+  width: 50%;
+  justify-self: center;
+  border-radius: 10px;
+}

@@ -1,0 +1,99 @@
+@import "login.css";
+@import "nav.css";
+@import "users.css";
+@import "upload.css";
+
+
+:root{
+  --bg-primary: #111111;
+  --prim-textSize: 1vw;
+  --prim-mobile--textSize: 0.9em;
+}
+
+body {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  background-color: #393f4d;
+}
+
+.slide a {
+  color:whitesmoke;
+  font-size: 36px;
+}
+#content {
+  padding: 20px;
+  transition: margin-left 0.7s;
+  overflow: hidden;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(900px, 1fr));
+  grid-gap: 1em;
+  grid-auto-rows: minmax(100px, auto);
+  grid-auto-flow: auto;
+  grid-template-areas:
+    "title"
+    "text";
+}
+.inner-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
+  grid-gap: 1em;
+  grid-area: text;
+}
+
+.nested{
+  border-radius: 4%;
+  -webkit-box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16), 0px 3px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16), 0px 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.wrapper > div {
+  padding: 1em;
+}
+.inner-wrapper > div {
+  background-color: whitesmoke;
+  padding: 1em;
+}
+.nested > div {
+  display: flex;
+  justify-content: center;
+  font-size: 1.2vw;
+}
+.nested > p {
+  font-size: var(--prim-textSize);
+  text-align: justify;
+}
+#title {
+  color: whitesmoke;
+  grid-area: title;
+  font-size: 1.5vw;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+#title span{
+  justify-content: center;
+}
+
+#title1{
+  text-decoration: underline;
+}
+
+
+#changeButton{
+  border-radius: 10vw;
+  border: 1px solid var(--bg-primary);
+  background-color: var(--bg-primary);
+  color: #ffffff;
+  font-size: var(--prim-textSize);
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  width: 15rem;
+  height: 5rem;
+  transform: scale(.7);
+  text-decoration: none;
+}
