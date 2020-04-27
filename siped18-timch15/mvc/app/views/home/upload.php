@@ -13,7 +13,7 @@
         <label for="image-description">Image description: </label>
         <input type="text" name="image-description" id="image-description">
     </div>
-    
+
     <input type="submit" class="btn btn-primary" value="Upload Image" name="submit">
     <p class="text-danger" role="alert" id="upload-error"><?= $viewbag['errorMessage'] ?? '' ?></p>
     <p class="text-success" role="alert" id="upload-success"><?= $viewbag['successMessage'] ?? '' ?></p>
