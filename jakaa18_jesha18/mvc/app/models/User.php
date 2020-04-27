@@ -36,8 +36,12 @@ class User extends Database {
 	    return $this->query("SELECT COUNT(*) FROM users WHERE username = '$username'")[0]['COUNT(*)'] == 0;
     }
 
-    public function getUserId($username){
-	    return $this->query('SELECT user_id FROM users WHERE username = ?', [$username])[0]['user_id'];
+    public function getUserId($username, $password){
+	    $stmt = $this->query('SELECT user_id FROM users WHERE username = ?', [$username])[0]['user_id'];
+	    $user_id = $stmt['user_id'];
+	    if ($this->login($username, $password) == true) {
+	        return $user_id;
+        }
     }
 
 	public function getAll () {
