@@ -20,22 +20,25 @@ username=? ");
                 $query->execute(array($user));
                 $row = $query->fetch(PDO::FETCH_BOTH);
 
-                $userFromDb = filter_var($row['username'], FILTER_SANITIZE_STRING);
-                $pwFromDb = filter_var($row['password'], FILTER_SANITIZE_STRING);
+                if(isset($row['username'])) {
+                    $userFromDb = filter_var($row['username'], FILTER_SANITIZE_STRING);
+                    $pwFromDb = filter_var($row['password'], FILTER_SANITIZE_STRING);
 
-                if ($user === $userFromDb && password_verify($pass, $pwFromDb) && $query->rowCount() > 0) {
-                    $_SESSION['username'] = $user;
-                    $_SESSION['logged_in'] = true;
+                    if ($user === $userFromDb && password_verify($pass, $pwFromDb) && $query->rowCount() > 0) {
+                        $_SESSION['username'] = $user;
+                        $_SESSION['logged_in'] = true;
 
-                    return true;
-
-                } else {
+                        return true;
+                    } else {
+                        echo "Wrong username or password";
+                        return false;
+                    }
+                }else{
                     echo "Wrong username or password";
                     return false;
                 }
             }
         }
-
     }
 
     //For web page

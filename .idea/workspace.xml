@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="84d9c24b-e92f-4db2-b3df-fae53592c18d" name="Default Changelist" comment="">
+    <list default="true" id="84d9c24b-e92f-4db2-b3df-fae53592c18d" name="Default Changelist" comment="Polish :)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frtol07/mvc/app/controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/frtol07/mvc/app/controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frtol07/mvc/app/controllers/PicturesController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frtol07/mvc/app/core/Router.php" beforeDir="false" afterPath="$PROJECT_DIR$/frtol07/mvc/app/core/Router.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frtol07/mvc/app/models/Register.php" beforeDir="false" afterPath="$PROJECT_DIR$/frtol07/mvc/app/models/Register.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frtol07/mvc/app/models/UploadImage.php" beforeDir="false" afterPath="$PROJECT_DIR$/frtol07/mvc/app/models/UploadImage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frtol07/mvc/app/models/Search.php" beforeDir="false" afterPath="$PROJECT_DIR$/frtol07/mvc/app/models/Search.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frtol07/mvc/app/models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/frtol07/mvc/app/models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frtol07/mvc/app/views/images/indexblobs.php" beforeDir="false" afterPath="$PROJECT_DIR$/frtol07/mvc/app/views/images/indexblobs.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frtol07/mvc/app/views/partials/menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/frtol07/mvc/app/views/partials/menu.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frtol07/mvc/app/views/register/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/frtol07/mvc/app/views/register/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frtol07/mvc/app/views/user/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/frtol07/mvc/app/views/user/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frtol07/mvc/public/js/js.js" beforeDir="false" afterPath="$PROJECT_DIR$/frtol07/mvc/public/js/js.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -49,7 +44,7 @@
       <option name="presentableId" value="Default" />
       <updated>1587302236088</updated>
       <workItem from="1587302237456" duration="18472000" />
-      <workItem from="1587718255178" duration="10667000" />
+      <workItem from="1587718255178" duration="21111000" />
     </task>
     <task id="LOCAL-00001" summary="Commit :)">
       <created>1587326072401</created>
@@ -58,7 +53,21 @@
       <option name="project" value="LOCAL" />
       <updated>1587326072401</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Polish :)">
+      <created>1587924140360</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1587924140360</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Polish :)">
+      <created>1587924288104</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1587924288104</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -66,13 +75,14 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Commit :)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commit :)" />
+    <MESSAGE value="Polish :)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Polish :)" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="-1305" y="134" key="CommitChangelistDialog2" timestamp="1587924139548">
+    <state x="-1305" y="134" key="CommitChangelistDialog2" timestamp="1588000706953">
       <screen x="-1858" y="0" width="1858" height="1080" />
     </state>
-    <state x="-1305" y="134" key="CommitChangelistDialog2/69.0.1851.1080/-1858.0.1858.1080@-1858.0.1858.1080" timestamp="1587924139548" />
+    <state x="-1305" y="134" key="CommitChangelistDialog2/69.0.1851.1080/-1858.0.1858.1080@-1858.0.1858.1080" timestamp="1588000706953" />
     <state x="620" y="134" key="CommitChangelistDialog2/69.0.1851.1080/-1858.0.1858.1080@69.0.1851.1080" timestamp="1587326071603" />
     <state x="586" y="272" key="Vcs.Push.Dialog.v2" timestamp="1587326083146">
       <screen x="69" y="0" width="1851" height="1080" />

@@ -31,7 +31,6 @@ class Search extends Database
                 $searchResult = "Match not found";
             }
         }
-
         return $searchResult;
 
     }

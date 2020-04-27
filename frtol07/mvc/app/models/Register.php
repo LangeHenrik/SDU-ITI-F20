@@ -7,12 +7,9 @@ class Register extends Database
     {
         //GetUsers registration
         if (isset($_POST['submitUser'])) {
-//            $registrationUsername = $_POST['registrationUsername'];
             $registrationUsername = htmlspecialchars($_POST['registrationUsername']);
-//            $registrationPassword = $_POST['registrationPassword'];
             $registrationPassword = htmlspecialchars($_POST['registrationPassword']);
             $registrationPasswordHash = password_hash($registrationPassword, PASSWORD_DEFAULT);
-//            $registrationEmail = $_POST['registrationEmail'];
             $registrationEmail = htmlspecialchars($_POST['registrationEmail']);
 
             if (Register::check_registrationUsername($registrationUsername) &&

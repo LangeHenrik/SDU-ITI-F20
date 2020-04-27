@@ -23,7 +23,7 @@
 
 <div class="container">
     <form>
-        <input class="inputbox" type="text" onkeyup="showHint(this.value)">
+            <input class="inputbox" type="text" onkeyup="showHint(this.value)" >
     </form>
 
 </div>
