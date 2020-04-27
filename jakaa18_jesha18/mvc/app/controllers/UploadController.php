@@ -46,7 +46,7 @@ class UploadController extends Controller
                 //$ApiController = \ApiController::class;
                 //$ApiController = __NAMESPACE__ . '\\' . ApiController::class;
                 $ApiController = new ApiController();
-                $ApiController->pictures('user', $json);
+                $ApiController->actualpictures('user', $json);
             }
         }
     }
