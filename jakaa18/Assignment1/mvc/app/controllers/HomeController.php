@@ -29,7 +29,11 @@ class HomeController extends Controller {
         }
 
 	}
-	
+
+	public function feed (){
+        $this->view('home/feed', $this->viewbag);
+    }
+
 	public function other ($param1 = 'first parameter', $param2 = 'second parameter') {
 		$user = $this->model('User');
 		$user->name = $param1;
