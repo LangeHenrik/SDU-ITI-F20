@@ -25,5 +25,5 @@ function UsernameAvailable($username) {
             return false;
         }
     }
-    return false;
+    return true;
 }

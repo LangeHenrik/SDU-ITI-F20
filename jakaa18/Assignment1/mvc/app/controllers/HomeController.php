@@ -45,7 +45,11 @@ class HomeController extends Controller {
 	public function restricted () {
 		echo 'Welcome - you must be logged in';
 	}
-	
+
+	public function upload () {
+
+    }
+
 	public function login() {
         if ($this->post()) {
             if (isset($_POST["username"]) && isset($_POST["password"])) {
