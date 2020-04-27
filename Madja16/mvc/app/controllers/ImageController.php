@@ -4,8 +4,9 @@ class ImageController extends Controller {
 	
 	public function index ($param) {
 		//This is a proof of concept - we do NOT want HTML in the controllers!
-		echo '<br><br>Image Controller Index Method<br>';
-		echo 'Param: ' . $param . '<br><br>';
+		// echo '<br><br>Image Controller Index Method<br>';
+		// echo 'Param: ' . $param . '<br><br>';
+		$this->view('image/index');
 	}
 	
 	
@@ -17,10 +18,12 @@ class ImageController extends Controller {
 	public function upload() {
 		if ($this->post()) {
 			if ($this->model('Image')->uploadImage()) {
-				$this->view('image/imagefeed');
+				$viewbag = $this->model('Image')->getImageFeed();
+				header('Location: imagefeed');
+				$this->view('image/imagefeed', $viewbag);
 			}
 			else {
-				$this->view('home/index');
+				$this->view('home/frontpage');
 			}
 		}
 		else { // non POST request

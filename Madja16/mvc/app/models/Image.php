@@ -3,7 +3,7 @@ class Image extends Database {
 
 	public function getAllImagesFromUser($image_owner) {
 
-		$sql = "SELECT image_id, image_description, image_header, image_blob FROM user_images WHERE image_owner = :image_owner";
+		$sql = "SELECT image_id, description, title, image FROM user_images WHERE image_owner = :image_owner";
 
 		$stmt = $this->conn->prepare($sql);
 		$stmt->bindParam(':image_owner', $image_owner);
@@ -52,39 +52,16 @@ class Image extends Database {
 	}
 
 	public function api_uploadImage($user_id) {
-		
-		// $jsonAlt = file_get_contents('php://input');
 
 		$json = $_POST['json'];
 
 		$obj = json_decode($json);
 
-		// foreach($obj as $key => $value) 
-		// {
-		// 	echo 'Your key is: '.$key.' and the value of the key is:'.$value;
-		// }
-
-		// echo $json;
-
-		// $obj = json_decode($json);
-
-		// echo $obj->title;
-
 		if ($this->isUsernameAndPasswordCorrect($obj->username, $obj->password)) {
-
-			// find user_id from username
-
-			// $sql = "SELECT user_id FROM users WHERE username = :username";
-			
-			// $stmt = $this->conn->prepare($sql);
-			// $stmt->bindParam(':username', $obj->username);
-			// $stmt->execute();
-
-			// $result = $stmt->fetch();
 
 			// insert into database
 
-			$uploader = $user_id;		// $result['user_id'];
+			$uploader = $user_id;
 
 			$header = $obj->title;
 			$description = $obj->description;
@@ -92,20 +69,20 @@ class Image extends Database {
 
 			$sql = "INSERT INTO user_images(
 								image_id, 
-								image_description, 
-								image_header, 
-								image_blob, 
+								description, 
+								title, 
+								image, 
 								image_owner) VALUES (
 									NULL, 
-									:image_description,
-									:image_header,
-									:image_blob,
+									:description,
+									:title,
+									:image,
 									:image_owner)";
 
 			$stmt = $this->conn->prepare($sql);
-			$stmt->bindParam(':image_description', $description);
-			$stmt->bindParam(':image_header', $header);
-			$stmt->bindParam(':image_blob', $image_base64);
+			$stmt->bindParam(':description', $description);
+			$stmt->bindParam(':title', $header);
+			$stmt->bindParam(':image', $image_base64);
 			$stmt->bindParam(':image_owner', $uploader);
 
 			$stmt->execute();
@@ -140,10 +117,8 @@ class Image extends Database {
 		return $result;
 	}
 
+	// Upload through form
 	public function uploadImage() {
-		
-		$header = filter_var($_REQUEST['header'], FILTER_SANITIZE_STRING);
-		$description = filter_var($_REQUEST['description'], FILTER_SANITIZE_STRING);
 		
 		$image_file = $_FILES['imageUpload'];
 
@@ -160,16 +135,16 @@ class Image extends Database {
 
 		$imageFileType = strtolower(pathinfo(basename($fileName),PATHINFO_EXTENSION));
 
-		print_r($_FILES);
-		print_r($fileExt);
-		print_r($fileActualExt);
+		// print_r($_FILES);
+		// print_r($fileExt);
+		// print_r($fileActualExt);
 
 		if (in_array($fileActualExt, $allowed)) {
 			if ($fileError === 0) {
 				if ($fileSize < 10000000) {
+
 					$image_base64 = base64_encode(file_get_contents($_FILES['imageUpload']['tmp_name']));
 					$image_base64 = 'data:image/' . $imageFileType . ';base64,' . $image_base64;
-
 
 					$description = filter_var($_POST["description"], FILTER_SANITIZE_STRING);
 					$header = filter_var($_POST["header"], FILTER_SANITIZE_STRING);
@@ -177,20 +152,20 @@ class Image extends Database {
 
 					$sql = "INSERT INTO user_images(
 										image_id, 
-										image_description, 
-										image_header, 
-										image_blob, 
+										description, 
+										title, 
+										image, 
 										image_owner) VALUES (
 											NULL, 
-											:image_description,
-											:image_header,
-											:image_blob,
+											:description,
+											:title,
+											:image,
 											:image_owner)";
 
 					$stmt = $this->conn->prepare($sql);
-					$stmt->bindParam(':image_description', $description);
-					$stmt->bindParam(':image_header', $header);
-					$stmt->bindParam(':image_blob', $image_base64);
+					$stmt->bindParam(':description', $description);
+					$stmt->bindParam(':title', $header);
+					$stmt->bindParam(':image', $image_base64);
 					$stmt->bindParam(':image_owner', $uploader);
 
 					$stmt->execute();
@@ -208,40 +183,5 @@ class Image extends Database {
 		else {
 			return false;
 		}
-
-		// if (getimagesize($_FILES['imageUpload']['tmp_name'] !== false)) {
-		// 	$image_base64 = base64_encode(file_get_contents($_FILES['imageUpload']['tmp_name']));
-		// 	$image_base64 = 'data:image/' . $imageFileType . ';base64,' . $image_base64;
-
-		// 	$test_description = "test description";
-		// 	$test_header = "test header";
-		// 	$uploader = $_SESSION['session_username'];
-
-		// 	$sql = "INSERT INTO user_images(
-		// 						image_id, 
-		// 						image_description, 
-		// 						image_header, 
-		// 						image_blob, 
-		// 						image_owner) VALUES (
-		// 							NULL, 
-		// 							:image_description,
-		// 							:image_header,
-		// 							:image_blob,
-		// 							:image_owner)";
-
-		// 	$stmt = $this->conn->prepare($sql);
-		// 	$stmt->bindParam(':image_description', $test_description);
-		// 	$stmt->bindParam(':image_header', $test_header);
-		// 	$stmt->bindParam(':image_blob', $image_base64);
-		// 	$stmt->bindParam(':image_owner', $uploader);
-
-		// 	$stmt->execute();
-
-		// 	return true;
-		// }
-		// else {
-		// 	// failed image upload
-		// 	return false;
-		// }
 	}
 }

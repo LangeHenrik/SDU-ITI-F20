@@ -10,9 +10,9 @@ user_password VARCHAR(255) NOT NULL
 
 CREATE TABLE user_images (
 image_id int (11) AUTO_INCREMENT PRIMARY KEY NOT NULL,
-image_description VARCHAR(255) NOT NULL,
-image_header VARCHAR(255) NOT NULL,
-image_blob BLOB NOT NULL,
+description VARCHAR(255) NOT NULL,
+title VARCHAR(255) NOT NULL,
+image MEDIUMBLOB NOT NULL,
 image_owner VARCHAR(255) NOT NULL,
 
 -- For testing purposes don't use foreign key when testing direct insertion

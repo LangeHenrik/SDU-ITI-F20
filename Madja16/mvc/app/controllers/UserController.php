@@ -4,8 +4,8 @@ class UserController extends Controller {
 	
 	public function index ($param) {
 		//This is a proof of concept - we do NOT want HTML in the controllers!
-		echo '<br><br>User Controller Index Method<br>';
-		echo 'Param: ' . $param . '<br><br>';
+		// echo '<br><br>User Controller Index Method<br>';
+		// echo 'Param: ' . $param . '<br><br>';
 	}
 	
 	public function restricted () {
@@ -15,10 +15,12 @@ class UserController extends Controller {
 	public function register() {
 		if ($this->post()) {
 			if ($this->model('User')->registerUser()) {
-				$this->view('home/index');
+				header('Location: ../home/');
+				$this->view('home/frontpage');
 			}
-			else { // TODO error handle failed registerUser() in User model
-				$this->view('home/index');
+			else {
+				header('Location: register');
+				$this->view('user/register');
 			}
 		}
 		else { // non POST request
@@ -31,15 +33,15 @@ class UserController extends Controller {
 		$this->view('user/users', $viewbag);
 	}
 
-	// Call login on user model and give user a new view based on success or failure
 	public function login() {
 		if ($this->post()) {
 			if($this->model('User')->login()) {
+				header('Location: ../home/');
 				$this->view('home/frontpage');
 			}
 			else {
 				// fail login
-                header('Location: fail');
+                $this->view('user/login');
 			}
 		}
 		else {
@@ -48,16 +50,8 @@ class UserController extends Controller {
 	}
 	
 	public function logout() {
-		//if($this->post()) {
-			session_unset();
-			header('Location: /madja16/mvc/public/user/loggedout');
-		//} else {
-		//	echo 'You can only log out with a post method';
-		//}
-	}
-	
-	public function loggedout() {
-		echo 'You are now logged out';
+		session_unset();
+		header('Location: /madja16/mvc/public/home/');
 	}
 	
 }

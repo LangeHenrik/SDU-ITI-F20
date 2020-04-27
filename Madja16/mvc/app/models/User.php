@@ -138,7 +138,7 @@ class User extends Database {
 
 	public function getAll () {
 
-		$sql = "SELECT username, user_id FROM users";
+		$sql = "SELECT user_id, username FROM users ORDER BY user_id";
 
 		$stmt = $this->conn->prepare($sql);
 		$stmt->execute();
@@ -150,12 +150,8 @@ class User extends Database {
 
 	public function getAllImages($userid) {
 
+		$sql = "SELECT image FROM user_images WHERE image_owner = :imageOwner";
 		
-
-		$sql = "SELECT image_blob FROM user_images WHERE image_owner = :imageOwner";
-		
-		$username = "";
-
 		$stmt = $this->conn->prepare($sql);
 		$stmt->bindParam(':imageOwner', $username);
 		$stmt->execute();
@@ -163,12 +159,6 @@ class User extends Database {
 		$result = $stmt->fetchAll();
 
 		return $result;
-	}
-
-	public function checkValidUsername() {
-
-		
-
 	}
 
 }

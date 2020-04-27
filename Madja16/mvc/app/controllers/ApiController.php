@@ -31,7 +31,7 @@ class ApiController extends Controller {
 				echo "upload failed";
 			}
 			else {
-				echo "upload success";
+				// echo "upload success";
 				echo json_encode($image_id, JSON_PRETTY_PRINT);
 			}
 		}
@@ -48,50 +48,18 @@ class ApiController extends Controller {
 		if (strtolower($directive) === "user") {
 			if ($this->post()) {
 				$image_id = $this->model('Image')->api_uploadImage($user_id);
-				if ($image_id === 0) {
+				if ($image_id == 0) {
 					echo "upload failed";
 				}
 				else {
-					// echo "upload success";
 					echo '{"image_id": "' . $image_id . '"}';
 				}
-				// echo "post pictures " . $user_id;
 			}
 			elseif ($this->get()) {
 				$images = $this->model('Image')->getAllImagesFromUser($user_id);
-
-				// $json = '{ "pictures": [ ';
-
-				// for ($i=0; $i < count($images); $i++) { 
-					
-				// 	// made JSON by hand to comply with the required JSON format
-				// 	$json .= ' "' . $images[$i]['image_id'] . '": [{"image": "' . $images[$i]['image_blob']. '"
-				// 			, "title": "' . $images[$i]['image_header']. '"
-				// 			, "description": "' . $images[$i]['image_description']. '"
-				// 			, "image_id": "' . $images[$i]['image_id'] . '"}]';
-					
-				// 	if ($i < count($images) - 1) {
-				// 		$json .= ',';
-				// 	}
-
-				// 	// echo '{"image": "' . $images[$i]['image_blob'] 
-				// 	// 	. '", "title": "' . $images[$i]['image_header'] 
-				// 	// 	. '", "description": "' . $images[$i]['image_description'] 
-				// 	// 	. '", "image_id": "' . $images[$i]['image_id'] . '"}';
-
-				// }
-
-				// $json = $json . '] }';
 				
-				$json = "";
-
-				print_r($images);
-
+				$json = json_encode($images, JSON_PRETTY_PRINT);
 				echo $json;
-
-				// made JSON by hand to comply with the required JSON format
-				// echo '{"image": "' . $images[0]['image_blob'] . '" ,"title": "' . $images[0]['image_header'] . '" ,"description": ' . $images[0]['image_description'] .'}';
-
 			}
 			else {
 				echo "not a post or get request";

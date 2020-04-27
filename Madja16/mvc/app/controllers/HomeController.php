@@ -7,14 +7,16 @@ class HomeController extends Controller {
 		// echo '<br><br>Home Controller Index Method<br>';
 		// echo 'Param: ' . $param . '<br><br>';
 
-		if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) {
-			$viewbag['username'] = "placeholder";
-			$this->view('home/index', $viewbag);
-		}
-		else {
-			$viewbag['username'] = $param;
-			$this->view('home/index', $viewbag);
-		}
+		// if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']) {
+		// 	$viewbag['username'] = "placeholder";
+		// 	$this->view('home/index', $viewbag);
+		// }
+		// else {
+		// 	$viewbag['username'] = $param;
+		// 	$this->view('home/index', $viewbag);
+		// }
+
+		$this->view('home/frontpage');
 	}
 	
 	public function other ($param1 = 'first parameter', $param2 = 'second parameter') {
@@ -27,18 +29,6 @@ class HomeController extends Controller {
 	
 	public function restricted () {
 		echo 'Welcome - you must be logged in';
-	}
-
-	public function upload() {
-		$this->view('home/upload');
-	}
-
-	public function imagefeed() {
-		$this->view('home/imagefeed');
-	}
-
-	public function frontpage() {
-		$this->view('home/frontpage');
 	}
 
 }
