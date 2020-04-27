@@ -10,21 +10,21 @@ class Router
     function __construct()
     {
         $url = $this->parseUrl();
-        print_r($url);
-        echo '</br>';
-        print_r(ucfirst($url[5]));
+        $this->parseParams($url);
+
+
+        //print_r($this->params);
 
         if (isset($url[0])) {
             $url[0] = ucfirst($url[0]);
         }
+
 
         if (file_exists('../app/controllers/' . ucwords($url[4]) . '.php')) {
             $this->controller = ucfirst($url[4]);
             unset($url[4]);
         }
 
-        echo '</br> somesome </br>';
-        print_r($this->controller);
 
         require_once '../app/controllers/' . $this->controller . '.php';
         $this->controller = new $this->controller;
@@ -36,15 +36,8 @@ class Router
                 unset($url[5]);
             }
         }
-        echo '</br>';
-        print_r($this->method);
 
-        for ($i=0;$i<count($url);$i++){
-            echo $i;
-        }
-        $this->params = $url ? array_values($url) : [];
-
-        print_r($this->params);
+        //$this->params = $url ? array_values($url) : [];
 
 
         require_once 'Restricted.php';
@@ -56,17 +49,6 @@ class Router
 
     }
 
-    public function getUrl()
-    {
-        if (isset($_SERVER['REQUEST_URI'])) {
-            $url = rtrim($_GET['url'], '/');
-            echo $url;
-            $url = filter_var($url, FILTER_SANITIZE_URL);
-
-            $url = explode('/', $url);
-            return $url;
-        }
-    }
 
     public function parseUrl()
     {
@@ -85,6 +67,17 @@ class Router
         }
         $url = explode('/', $url);
         return $url;*/
+    }
+
+    public function parseParams($url){
+        $arrayLength = count($url)-1;
+        for ($i=0;$i<$arrayLength;$i++){
+            if(($i>5) && isset($url[$i])){
+                array_push($this->params, $url[$i]);
+                unset($url[$i]);
+            }
+        }
+
     }
 
 }

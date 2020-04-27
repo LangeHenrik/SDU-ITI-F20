@@ -16,7 +16,8 @@ if (isset($_POST['upload'])) {
     $Mime = $_FILES['MyFile']['type'];
     $Data = file_get_contents($_FILES['MyFile']['tmp_name']);
 
-    try {
+
+    /*try {
         $db = new PDO($PDO_CONFIG, $DB_USERNAME, $DB_PASSWORD);
         // set the PDO error mode to exception
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -39,8 +40,10 @@ if (isset($_POST['upload'])) {
 
     } catch (PDOException $e) {
         echo "Connection failed: " . $e->getMessage();
-    }
+    }*/
 }
+
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -74,7 +77,7 @@ if (isset($_POST['upload'])) {
             <div class="inner-wrapper">
                 <div class="nested" id="upload-nested">
                     <div class="uploadForm">
-                        <form method="POST" action="upload" enctype="multipart/form-data">
+                        <form method="POST" action="../api/pictures/user/<?php echo $_SESSION["id"];?>" enctype="multipart/form-data">
                             <input class="input" type="file" name="MyFile" accept="image/*" required>
                             <input id="inputHeader" type="text" placeholder="Write a header" name="Header" required />
                             <textarea id="text" cols="40" rows="4" name="Description" placeholder="Say something..." required></textarea>
