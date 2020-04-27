@@ -85,7 +85,7 @@ class HomeController extends Controller {
 	
 	public function logout() {
 			session_unset();
-			header('Location: /Assignment1/mvc/public/home/index');
+			header('Location: /jakaa18_jesha18/mvc/public/home/index');
 		//} else {
 		//	echo 'You can only log out with a post method';
 

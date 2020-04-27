@@ -14,7 +14,7 @@ include '../app/views/partials/menu.php';
         </div>
         <div class="login2" id="loginView">
             <!-- Login -->
-            <form onsubmit="return" method="post" action="/Assignment1/mvc/public/home/login">
+            <form onsubmit="return" method="post" action="/jakaa18_jesha18/mvc/public/home/login">
                 <p> Username: <input type="text" name="username" id="usernameId" placeholder="Username"></p><br>
                 <p> Password: <input type="password" name="password" id="passwordId" placeholder="Password"></p><br>
         </div>
