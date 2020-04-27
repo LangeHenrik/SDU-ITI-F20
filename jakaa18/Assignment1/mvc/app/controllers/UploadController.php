@@ -32,7 +32,7 @@ class UploadController extends Controller
     {
         if (isset($_POST["imgSubmit"])) {
             $check = getimagesize($_FILES["image"]["tmp_name"]);
-            if ($check !== false) {
+            if ($check !== null) {
                 $image = $_FILES['image']['tmp_name'];
                 $type = pathinfo($image, PATHINFO_EXTENSION);
                 $imgContent = 'data:image/' . $type . ';base64' . base64_encode(file_get_contents($image));
