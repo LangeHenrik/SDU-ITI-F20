@@ -1,6 +1,5 @@
 <?php
 
-//TODO Remove functionalities that do not return a view and call API instead
 class HomeController extends Controller
 {
 
@@ -85,6 +84,68 @@ class HomeController extends Controller
     {
         if ($this->post()) {
             session_unset();
+        }
+    }
+
+    public function register()
+    {
+        if($this->post()) {
+            $ok = true;
+            $messages = [];
+
+            if (empty($_POST['username']) || empty($_POST['password']) || empty($_POST['password2'])) {
+                $ok = false;
+                $messages[] = "You must fill in all the fields";
+            }
+
+            if ($_POST['password'] !== $_POST['password2'] && $ok) {
+                $ok = false;
+                $messages[] = "Passwords don't match";
+            }
+
+            if (preg_match('/^(?=.{1,45}$)(?=.*?[a-z])(?=.*?[0-9]).*$/', $_POST['username']) === 0 && $ok) {
+                $ok = false;
+                $messages[] = 'Invalid username. Username must be between 1-45 characters, only lower-case characters and must contain at least 1 digit';
+            }
+
+            if (preg_match('/^(?=.{8,45}$)(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[0-9]).*$/', $_POST['password']) === 0 && $ok) {
+                $ok = false;
+                $messages[] = 'Invalid password. Password must be between 8-45 characters, have at least 1 lower-case character, have at least 1 upper-case character and have at least 1 digit';
+            }
+
+            if ($ok) {
+                $return = $this->model('User')->register($_POST['username'], $_POST['password']);
+                if ($return === true) {
+                    $ok = true;
+                    $messages[] = "Registered";
+                    echo json_encode(
+                        array(
+                            'ok' => $ok,
+                            'messages' => $messages
+                        ));
+                } else {
+                    $ok = false;
+                    $messages[] = $return;
+                    echo json_encode(
+                        array(
+                            'ok' => $ok,
+                            'messages' => $messages
+                        ));
+                }
+            } else {
+                echo json_encode(
+                    array(
+                        'ok' => $ok,
+                        'messages' => $messages
+                    ));
+            }
+        }
+        else{
+            echo json_encode(
+                array(
+                    'ok' => false,
+                    'messages' => ["You must use a POST request to register"]
+                ));
         }
     }
 

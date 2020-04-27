@@ -10,7 +10,7 @@ $("#register").click(function () {
 
     var request = $.ajax({
         type: "POST",
-        url: "/elioa20/mvc/public/api/register",
+        url: "/elioa20/mvc/public/home/register",
         data: {
             username:$("#username").val(),
             password: $("#password").val(),
@@ -28,7 +28,7 @@ $("#register").click(function () {
 
 function handleRegisterResponse(responseObject){
     if(responseObject.ok) {
-        location.href = '/elioa20/mvc/public/index';
+        location.href = '/elioa20/mvc/public/home/index';
     }else{
         //In case they were errors before. Need to clear the list
         while(registerForm.messages.firstChild){
