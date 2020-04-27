@@ -22,7 +22,7 @@ class HomeController extends Controller {
         //If the session is logged in, return Feed viewbag with pictures. If not, then return Login viewbag.
         //TODO Create Login view and Feed view
         if ($this->logged_in) {
-            $this->viewbag['posts'] = $this->model('Post')->getPictures();
+            $this->viewbag['posts'] = $this->model('Post')->getActualPictures();
             $this->view('home/Feed', $this->viewbag);
         } else {
             $this->view('home/login', $this->viewbag);
