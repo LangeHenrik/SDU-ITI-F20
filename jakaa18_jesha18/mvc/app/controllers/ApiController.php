@@ -38,12 +38,8 @@ class ApiController extends Controller {
                 $picture = $json['jimage'];
 
                 $userModel = $this->model('User');
-                if ($_SESSION['logged_in']){
-                    $postid = $this->model('Post')->newPicPost($title, $description, $username, $picture);
-                    echo '{"image_id": "'. $postid .'"}';
-                }
-            } else {
-                echo "Neither a post or a get method was called. Something went wrong.";
+
+                $this->model('Post')->newPicPost($title, $description, $username, $picture);
             }
         }
     }
