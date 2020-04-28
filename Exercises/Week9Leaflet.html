@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin=""/>
+    </head>
+    <body>
+
+        <style>
+            #mapid {
+                height: 600px;
+                width: 1200px;
+                max-width: 100%;
+                margin: 0 auto;
+            }
+        </style>
+
+
+        <div class="wrapper">
+            <div id="mapid"></div>
+        </div>
+
+
+
+        <!-- Make sure you put this AFTER Leaflet's CSS -->
+        <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+        integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+        crossorigin=""></script>
+
+        <script>
+
+            var longitude = 55.3683474;
+            var latitude = 10.4240029;
+            var zoom = 15;
+
+            var mymap = L.map('mapid').setView([longitude, latitude], zoom);
+
+            L.marker([longitude, latitude])
+                .addTo(mymap)
+                .bindPopup('Popups support <span style="color: #00f;">HTML MARKUP!</span>')
+                .openPopup();
+
+
+            L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(mymap);
+
+
+        </script>
+
+    </body>
+</html>

@@ -2,8 +2,13 @@
 
 function restricted ($controller, $method) {
 
+<<<<<<< Updated upstream
 	$restricted_urls = array(	'HomeController' => array('restricted', 'logout')
 							
+=======
+	$restricted_urls = array(	'HomeController' => array('restricted', 'logout'),
+								'ApiController' => array()
+>>>>>>> Stashed changes
 							);
 
 	if(isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {

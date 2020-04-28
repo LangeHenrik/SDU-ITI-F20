@@ -2,13 +2,24 @@
 
 class Router {
 	
+<<<<<<< Updated upstream
 	protected $controller = 'homeController';
+=======
+	protected $controller = 'HomeController';
+>>>>>>> Stashed changes
 	protected $method = 'index';
 	protected $params = [];
 	
 	function __construct () {
 		$url = $this->parseUrl();
 		
+<<<<<<< Updated upstream
+=======
+		if(isset($url[0])) {
+			$url[0] = ucfirst($url[0]);
+		}
+
+>>>>>>> Stashed changes
 		if(file_exists('../app/controllers/' . $url[0] . 'Controller.php')) {
 			$this->controller = $url[0] . 'Controller';
 			unset($url[0]);
@@ -26,7 +37,11 @@ class Router {
 		
 		$this->params = $url ? array_values($url) : [];
 		
+<<<<<<< Updated upstream
 		require_once 'restricted.php';
+=======
+		require_once 'Restricted.php';
+>>>>>>> Stashed changes
 		if(restricted(get_class($this->controller), $this->method)) {
 			echo 'Access Denied';
 		} else {
@@ -36,7 +51,15 @@ class Router {
 	}
 	
 	public function parseUrl () {
+<<<<<<< Updated upstream
 		$url = filter_var($_SERVER['REQUEST_URI'], FILTER_SANITIZE_URL);
+=======
+		
+		$url = filter_var($_SERVER['REQUEST_URI'], FILTER_SANITIZE_URL);
+		if(substr($url, -1) !== "/") {
+			$url = $url . "/";
+		}
+>>>>>>> Stashed changes
 		$url = explode('/', $url);
 		return array_slice($url, 4);
 	}
