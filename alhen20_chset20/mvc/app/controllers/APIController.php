@@ -31,18 +31,22 @@ Returns a list of pictures for a specific user";
 				try{
 					$json = json_decode($_POST['json']);
 					$image = $json->image;
-					$title = filter_var($json->title, FILTER_SANITIZE_STRING);
-					$description =filter_var($json->description, FILTER_SANITIZE_STRING);
-					$username = filter_var($json->username, FILTER_SANITIZE_STRING);
-					$password =filter_var($json->password, FILTER_SANITIZE_STRING);
-					imagecreatefromstring(base64_decode($image));
+					$title = $json->title;
+					$description = $json->description;
+					$username = $json->username;
+					$password = $json->password;
 				} catch (Exception $e){
 					die("Error");
 				}
 				$testuser = $this-> model('User');
-				if ($testuser->checkUser($username,$password) && $testuser->getUserID($username) == $id){
-					$imageid = $this->model('Picture')->createPicture($username, $title, $image, $description);
-					echo '{"image_id": "'. $imageid .'"}';
+
+				if ($testuser->checkUser($username,$password)){
+					$res = $testuser->getUserId($username);
+					$user_id = $res['user_id'];
+					if($user_id == $id){
+						$image_id = $this->model('Picture')->createPicture($username, $title, $image, $description);
+						echo json_encode($image_id, JSON_PRETTY_PRINT);
+					}
 				}
 			}
 		}
