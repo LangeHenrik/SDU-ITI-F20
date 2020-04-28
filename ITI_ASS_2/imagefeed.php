@@ -10,10 +10,10 @@ foreach($viewImage->results() as $viewImage) {
             <link rel="stylesheet" href="style.css">
         </head>';
     echo "<form><table><div id='img_div'>";
-        echo "<td><p>".$viewImage->title."</p>";
-        echo "<img src='images/".$viewImage->image."' >";
-        echo "<p>".$viewImage->description."</p>";
-        echo "<p>Uploaded by: ".$viewImage->uploadby."</p></td>";
+        echo "<td><p>".htmlspecialchars($viewImage->title)."</p>";
+        echo "<img src='images/".htmlspecialchars($viewImage->image)."' >";
+        echo "<p>".htmlspecialchars($viewImage->description)."</p>";
+        echo "<p>Uploaded by: ".htmlspecialchars($viewImage->uploadby)."</p></td>";
     echo "</div></table></form>";
 }
 } else {

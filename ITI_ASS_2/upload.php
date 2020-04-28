@@ -3,10 +3,12 @@ require_once 'core/init.php';
 
 $msg = "";
 $user = new User();
+$uploadOk = 1;
 //if upload button is pressed
 if (isset($_POST['upload'])) {
     //the path to store the uploaded image
     $target = "images/".basename($_FILES['image']['name']);
+    $imageFileType = strtolower(pathinfo($target,PATHINFO_EXTENSION));
 
     $image = $_FILES['image']['name'];
     $title = $_POST['title'];
@@ -19,11 +21,18 @@ if (isset($_POST['upload'])) {
         'uploadby' => $user->data()->username
     ));
 
-    if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
-        $msg = "Image uploaded successfully!";
-        Redirect::to('imagefeed.php');
-    } else {
-        $msg = "There was a problem uploading the image.";
+    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
+        echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+        $uploadOk = 0;
+    }
+    
+    if ($uploadOk == 1) {
+        if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
+            $msg = "Image uploaded successfully!";
+            Redirect::to('imagefeed.php');
+        } else {
+            $msg = "There was a problem uploading the image.";
+        }
     }
 }
 
