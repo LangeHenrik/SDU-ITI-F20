@@ -39,9 +39,13 @@ Returns a list of pictures for a specific user";
 					die("Error");
 				}
 				$testuser = $this-> model('User');
-				if ($testuser->checkUser($username,$password) && $testuser->getUserID($username) == $id){
-					$imageid = $this->model('Picture')->createPicture($username, $title, $image, $description);
-					echo '{"image_id": "'. $imageid .'"}';
+				if ($testuser->checkUser($username,$password)){
+					$res = $testuser->getUserId($username);
+					$user_id = $res['user_id'];
+					if($user_id == $id){
+						$image_id = $this->model('Picture')->createPicture($username, $title, $image, $description);
+						echo json_encode($image_id, JSON_PRETTY_PRINT);
+					}
 				}
 			}
 		}
