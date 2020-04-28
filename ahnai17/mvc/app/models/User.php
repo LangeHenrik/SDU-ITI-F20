@@ -43,8 +43,10 @@ class User extends Database {
             }
         }
 	public function getAll () {
-		$sql = "SELECT id, username FROM users";
+                $search_username = filter_input(INPUT_GET, intval(['search_userid']));
+		$sql = "SELECT ALL id, username FROM users WHERE id = :id";
 		$stmt = $this->conn->prepare($sql);
+                $stmt->bindParam(':id',$search_username);
 		$stmt->execute();
 		$result = $stmt->fetchAll();
 		return $result;

@@ -6,7 +6,6 @@ class HomeController extends Controller {
 		//This is a proof of concept - we do NOT want HTML in the controllers!
 		/*echo '<br><br>Home Controller Index Method<br>';
 		echo 'Param: ' . $param . '<br><br>';*/
-           
 	}
 	
 	public function other ($param1 = 'first parameter', $param2 = 'second parameter') {
@@ -41,8 +40,17 @@ class HomeController extends Controller {
         }
         public function Home_page(){
             $this->view('home/index');
+            if ($_SESSION['logged_in']==true){
+                $viewbag=$this->model('User')->getAll();
+                $this->view('home/index',$viewbag);    
+                echo $viewbag[1][1];
+            }
         }
-         public function upload_page(){
+        public function showUsers() {
+            
+            
+        }
+        public function upload_page(){
         $this->view('home/upload');
         }
 	public function logout() {
