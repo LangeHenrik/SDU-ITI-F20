@@ -1,0 +1,148 @@
+div.navbar {
+	position: fixed;
+	background-color: lightblue;
+	margin: 0 0;
+	border: none;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 6%;
+	z-index: 2;
+}
+div.navbar nav{
+	float: none;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+div.navbar nav a.active{
+	background-color: #DB8027
+}
+div.navbar nav a{
+	text-decoration: none;
+	color:#08389A;
+	padding: 10px;
+}
+div.navbar nav a:hover{
+	background-color:#48FF00;
+}
+div.LoginForm{
+	float: none;
+	position: absolute;
+	top: 30%;
+	right: 2%;
+}
+
+body{
+	background-color: lightgrey;
+}
+
+@media screen and (max-width: 1000px) {
+  body {
+    background-color: #FA9999;
+  }
+}
+
+div.content {
+	background-color: white;
+	width: 800px;
+	max-width: 100%;
+	min-height: 500px;
+	margin: 0 auto;
+	padding: 3%;
+}
+div.mainform {
+	padding: 5%;
+	margin: auto;
+	max-width: 25%;
+	height: 50%;
+}
+
+div.user {
+	width: 200px;
+	height: 50px;
+	margin: 10px;
+	background-color: lightblue;
+	border: 5px solid darkblue;
+	border-radius: 50px;
+	display: inline-block;
+	padding: 10px;
+}
+
+div.user img{
+	width: 100px;
+	border: 5px solid white;
+	border-radius: 100%;
+	margin: 20px auto;
+	display: block;
+}
+
+div.name {
+	margin: 5px auto;
+	width: 100px;
+	display: block;
+	text-align: center;
+	font-family: sans-serif;
+	color: white;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+div.mail {
+	margin: 5px auto;
+	width: 100px;
+	display: block;
+	text-align: center;
+	font-family: sans-serif;
+	color: blue;
+	font-weight: bold;
+	font-size: 10px;
+}
+
+div.picture {
+	width: 93%;
+	height: 400px;
+	margin: 10px;
+	background-color: lightblue;
+	border: 5px solid darkblue;
+	border-radius: 50px;
+	display: inline-block;
+	padding: 10px;
+}
+
+div.picture img{
+	width: 60%;
+	height: 50%;
+	border: 5px solid white;
+	margin: 20px auto;
+	display: block;
+}
+
+div.header {
+	margin:10px auto;
+	width: 100px;
+	display: block;
+	text-align: center;
+	font-family: sans-serif;
+	color: white;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+div.description{
+	margin:10px auto;
+	width: 95%;
+	display: block;
+	text-align: center;
+	font-family: sans-serif;
+	color: white;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+div.homepic img{
+	width: 100%;
+
+}
