@@ -1,0 +1,150 @@
+<!DOCTYPE
+<html>
+    <head>
+        <title>Title of the document</title>
+        <meta name="viewport" content="width=device width, initial scale=1.0">
+    <!-- 
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="myscripts.js"></script>
+    -->
+
+        <!--font awesome-->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+        <!-- BOOTSTRAP Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        
+    </head>
+    <body>
+
+        <ul class="nav justify-content-end">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Active</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#">Disabled</a>
+            </li>
+          </ul>
+
+        <!--Comment-->
+        <div class="jumbotron">
+            <h1 class="display-4">Header</h1>
+            <hr>
+            <p class="lead"><u><i><b>Italic, bold, underlined subheader</b></i></u></p>
+        </div>
+
+        <div class="alert alert-danger" role="alert">
+            <i class="fas fa-ban"></i> This is a danger alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+        </div>
+
+        <!--MODAL-->
+
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            Launch demo modal
+        </button>
+        
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                    Body text
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!--MODAL END-->
+
+        <p>Paragraph with some HTML entities: " &lt; &amp; &gt; "</p>
+        <h2>sub header</h2>
+        
+        <a class="btn btn-primary" href="url">A link</a>
+        
+
+        <button class="btn btn-secondary">A button</button>
+        
+        <p>horisontal line:</p>
+        <hr/>
+        <p>a table:</p>
+
+        <table class="table table-striped">
+            <tr>
+                <th>Name</th><th>City</th>
+            </tr>
+            <tr>
+                <td>Jack</td><td>Toronto</td>
+            </tr>
+            <tr>
+                <td>Jill</td><td>Copenhagen</td>
+            </tr>
+            <tr>
+                <td>John</td><td>Berlin</td>
+            </tr>
+            <tr>
+                <td>Joe</td><td>Paris</td>
+            </tr>
+        </table>
+
+        <hr/>
+
+        <form>
+            <fieldset>
+                <legend>Fieldsdt legen:</legend>
+                
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name"  class="form-control"/>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email"  class="form-control"/>
+                </div>
+
+                <div class="form-group">
+                    <label for="date">date:</label>
+                    <input type="date" class="form-control"/>
+                </div>
+                
+                <input type="submit" value="submit button" class="btn btn-primary"/>
+
+                <button  class="btn btn-primary"><i class="fas fa-arrow-down"></i> Arrow down!!</button>
+
+            </fieldset>
+
+        </form>
+
+        <style>
+
+            .btn {
+                background-color: pink !important;
+            }
+
+        </style>
+
+        <!--JQuery-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        
+        <!-- BOOTSTRAP Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        
+    </body>
+</html>
