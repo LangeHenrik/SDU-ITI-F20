@@ -43,7 +43,6 @@ class HomeController extends Controller {
             if ($_SESSION['logged_in']==true){
                 $viewbag=$this->model('User')->getAll();
                 $this->view('home/index',$viewbag);    
-                echo $viewbag[1][1];
             }
         }
         public function showUsers() {
