@@ -1,0 +1,40 @@
+body {
+    background-color: aquamarine;    
+}
+
+h1 {
+    font-size: 38px;
+    font-weight: bold;
+    color: blue;
+}
+
+button {
+    color: black;
+    background-color: lightpink;
+    padding: 15 px;
+    border-radius: 25px;
+    border: 3px lime;
+}
+
+.blue {
+    color: blue;
+    margin: 50px;
+}
+
+#special {
+    color: red;
+}
+
+p, h1 {text-align: center;}
+
+#special p{font-weight: bold;}
+
+/* unvisited link */
+a:link {
+    color: red;
+  }
+  
+  /* visited link */
+  a:visited {
+    color: green;
+  }
