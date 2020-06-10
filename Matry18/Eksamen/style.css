@@ -38,3 +38,9 @@ a:link {
   a:visited {
     color: green;
   }
+
+  @media only screen and (max-width: 800px) {
+      body {
+          background-color: blueviolet;
+      }
+  }
