@@ -31,4 +31,9 @@ $conn = null;
 
   $stmt->execute();
 
+
+$header = htmlentities(filter_var($_POST['header'], FILTER_SANITIZE_STRING));
+
+
+
   ?>
