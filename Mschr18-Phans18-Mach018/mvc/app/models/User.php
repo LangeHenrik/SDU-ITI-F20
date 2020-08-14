@@ -75,8 +75,7 @@ class User extends Database {
 			$email = User::filter("email", FILTER_SANITIZE_EMAIL);        // Remove all characters except letters, digits and !#$%&'*+-=?^_`{|}~@.[].
 
 			// Indset ny bruger.
-			$stmt = $this->conn->prepare("INSERT INTO user (username, password, fullname, phone, email, signup_date)
-									VALUES (:username, :password, :fullname, :phone, :email, now());");
+			$stmt = $this->conn->prepare("INSERT INTO user VALUES (NULL :username, :password, :fullname, :phone, :email, now());");
 			$stmt->bindParam(':username', $username);
 			$stmt->bindParam(':password', $password);
 			$stmt->bindParam(':fullname', $fullname);
